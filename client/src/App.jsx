@@ -7,16 +7,56 @@ function SessionPlayer({ session, onBack, onFinish }) {
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedTokenIndexes, setSelectedTokenIndexes] = useState([]);
   const [feedback, setFeedback] = useState(null);
+  const [speechError, setSpeechError] = useState("");
   const [questionMistakes, setQuestionMistakes] = useState(0);
   const [totalMistakes, setTotalMistakes] = useState(0);
   const [hintsUsed, setHintsUsed] = useState(0);
   const [revealedAnswers, setRevealedAnswers] = useState(0);
+  const supportsSpeech = typeof window !== "undefined" &&
+    "speechSynthesis" in window &&
+    "SpeechSynthesisUtterance" in window;
 
   const question = session.questions[index];
   const progress = Math.round(((index + 1) / session.questions.length) * 100);
   const builtWords = question.type === "build_sentence"
     ? selectedTokenIndexes.map((idx) => question.tokens[idx])
     : [];
+
+  useEffect(() => {
+    return () => {
+      if (supportsSpeech) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, [supportsSpeech]);
+
+  function getSpeechLanguage() {
+    switch (session.language) {
+      case "spanish":
+        return "es-ES";
+      case "russian":
+        return "ru-RU";
+      case "english":
+        return "en-US";
+      default:
+        return "en-US";
+    }
+  }
+
+  function speakAlternative(text) {
+    if (!supportsSpeech) {
+      setSpeechError("Speech is not supported in this browser.");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = getSpeechLanguage();
+    utterance.rate = 0.95;
+    utterance.onstart = () => setSpeechError("");
+    utterance.onerror = () => setSpeechError("Could not play this alternative.");
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }
 
   function toggleToken(tokenIndex) {
     setSelectedTokenIndexes((prev) => {
@@ -138,20 +178,30 @@ function SessionPlayer({ session, onBack, onFinish }) {
       </div>
 
       <h2>{question.prompt}</h2>
+      {speechError ? <p className="speech-error">{speechError}</p> : null}
 
       {question.type === "mc_sentence" ? (
         <div className="options">
           {question.options.map((option) => (
-            <button
-              key={option}
-              className={`option ${selectedOption === option ? "selected" : ""}`}
-              onClick={() => {
-                setSelectedOption(option);
-                setFeedback(null);
-              }}
-            >
-              {option}
-            </button>
+            <div key={option} className="option-row">
+              <button
+                className={`option ${selectedOption === option ? "selected" : ""}`}
+                onClick={() => {
+                  setSelectedOption(option);
+                  setFeedback(null);
+                }}
+              >
+                {option}
+              </button>
+              <button
+                type="button"
+                className="speak-button"
+                onClick={() => speakAlternative(option)}
+                aria-label={`Speak alternative: ${option}`}
+              >
+                Speak
+              </button>
+            </div>
           ))}
         </div>
       ) : (

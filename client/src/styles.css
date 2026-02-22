@@ -196,6 +196,13 @@ input {
   margin: 12px 0;
 }
 
+.option-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: stretch;
+}
+
 .option {
   border: 1px solid #cfd6e4;
   background: #fff;
@@ -208,6 +215,26 @@ input {
 .option.selected {
   border-color: #5aa800;
   background: #f2f9e8;
+}
+
+.speak-button {
+  border: 1px solid #c4cddd;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0 12px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #2a3a52;
+}
+
+.speak-button:hover {
+  background: #f4f8ff;
+}
+
+.speech-error {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: #9a2f2f;
 }
 
 .build-target {
