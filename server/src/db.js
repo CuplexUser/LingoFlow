@@ -20,6 +20,9 @@ db.exec(`
     native_language TEXT NOT NULL DEFAULT 'english',
     target_language TEXT NOT NULL DEFAULT 'spanish',
     daily_goal INTEGER NOT NULL DEFAULT 30,
+    daily_minutes INTEGER NOT NULL DEFAULT 20,
+    weekly_goal_sessions INTEGER NOT NULL DEFAULT 5,
+    self_rated_level TEXT NOT NULL DEFAULT 'a1',
     learner_name TEXT NOT NULL DEFAULT 'Learner',
     learner_bio TEXT NOT NULL DEFAULT '',
     focus_area TEXT NOT NULL DEFAULT '',
@@ -77,15 +80,28 @@ function ensureSettingsColumns() {
   if (!names.has("focus_area")) {
     db.exec("ALTER TABLE settings ADD COLUMN focus_area TEXT NOT NULL DEFAULT ''");
   }
+
+  if (!names.has("daily_minutes")) {
+    db.exec("ALTER TABLE settings ADD COLUMN daily_minutes INTEGER NOT NULL DEFAULT 20");
+  }
+
+  if (!names.has("weekly_goal_sessions")) {
+    db.exec("ALTER TABLE settings ADD COLUMN weekly_goal_sessions INTEGER NOT NULL DEFAULT 5");
+  }
+
+  if (!names.has("self_rated_level")) {
+    db.exec("ALTER TABLE settings ADD COLUMN self_rated_level TEXT NOT NULL DEFAULT 'a1'");
+  }
 }
 
 ensureSettingsColumns();
 
 db.prepare(`
   INSERT OR IGNORE INTO settings (
-    id, native_language, target_language, daily_goal, learner_name, learner_bio, focus_area
+    id, native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
+    self_rated_level, learner_name, learner_bio, focus_area
   )
-  VALUES (1, 'english', 'spanish', 30, 'Learner', '', '')
+  VALUES (1, 'english', 'spanish', 30, 20, 5, 'a1', 'Learner', '', '')
 `).run();
 
 db.prepare(`
@@ -122,7 +138,13 @@ function maybeMigrateLegacyJson() {
 
     db.prepare(`
       UPDATE settings
-      SET native_language = ?, target_language = ?, daily_goal = ?, updated_at = CURRENT_TIMESTAMP
+      SET native_language = ?,
+          target_language = ?,
+          daily_goal = ?,
+          daily_minutes = 20,
+          weekly_goal_sessions = 5,
+          self_rated_level = 'a1',
+          updated_at = CURRENT_TIMESTAMP
       WHERE id = 1
     `).run(
       settings.nativeLanguage || "english",
@@ -151,7 +173,8 @@ maybeMigrateLegacyJson();
 
 function getSettings() {
   const row = db.prepare(`
-    SELECT native_language, target_language, daily_goal, learner_name, learner_bio, focus_area
+    SELECT native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
+           self_rated_level, learner_name, learner_bio, focus_area
     FROM settings
     WHERE id = 1
   `).get();
@@ -159,6 +182,9 @@ function getSettings() {
     nativeLanguage: row.native_language,
     targetLanguage: row.target_language,
     dailyGoal: row.daily_goal,
+    dailyMinutes: row.daily_minutes,
+    weeklyGoalSessions: row.weekly_goal_sessions,
+    selfRatedLevel: row.self_rated_level,
     learnerName: row.learner_name,
     learnerBio: row.learner_bio,
     focusArea: row.focus_area
@@ -171,6 +197,9 @@ function saveSettings(nextSettings) {
     SET native_language = ?,
         target_language = ?,
         daily_goal = ?,
+        daily_minutes = ?,
+        weekly_goal_sessions = ?,
+        self_rated_level = ?,
         learner_name = ?,
         learner_bio = ?,
         focus_area = ?,
@@ -180,6 +209,11 @@ function saveSettings(nextSettings) {
     nextSettings.nativeLanguage || "english",
     nextSettings.targetLanguage || "spanish",
     Number.isInteger(nextSettings.dailyGoal) ? nextSettings.dailyGoal : 30,
+    Number.isInteger(nextSettings.dailyMinutes) ? nextSettings.dailyMinutes : 20,
+    Number.isInteger(nextSettings.weeklyGoalSessions) ? nextSettings.weeklyGoalSessions : 5,
+    ["a1", "a2", "b1", "b2"].includes(nextSettings.selfRatedLevel)
+      ? nextSettings.selfRatedLevel
+      : "a1",
     String(nextSettings.learnerName || "Learner").trim() || "Learner",
     String(nextSettings.learnerBio || "").trim(),
     String(nextSettings.focusArea || "").trim()
@@ -229,6 +263,102 @@ function getProgress(language) {
     learnerLevel: row.learner_level,
     lastCompletedDate: row.last_completed_date,
     categories
+  };
+}
+
+function getRecentCategoryAccuracy(language, category, limit = 5) {
+  const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(limit, 15)) : 5;
+  const rows = db
+    .prepare(`
+      SELECT accuracy
+      FROM session_history
+      WHERE language = ? AND category = ?
+      ORDER BY completed_at DESC
+      LIMIT ?
+    `)
+    .all(language, category, safeLimit);
+
+  if (!rows.length) return null;
+  const avg = rows.reduce((sum, row) => sum + row.accuracy, 0) / rows.length;
+  return Number(avg.toFixed(4));
+}
+
+function getStats(language) {
+  const settings = getSettings();
+  const progress = getProgress(language);
+  const categoryProgress = getCategoryProgress(language);
+
+  const totals = db
+    .prepare(`
+      SELECT
+        COUNT(1) AS sessions_completed,
+        COALESCE(AVG(accuracy), 0) AS avg_accuracy,
+        COALESCE(SUM(xp_gained), 0) AS total_xp_from_sessions
+      FROM session_history
+      WHERE language = ?
+    `)
+    .get(language);
+
+  const recentSessions = db
+    .prepare(`
+      SELECT COUNT(1) AS sessions_last_7_days
+      FROM session_history
+      WHERE language = ? AND DATE(completed_at) >= DATE('now', '-6 days')
+    `)
+    .get(language);
+
+  const categoryStats = db
+    .prepare(`
+      SELECT
+        category,
+        COUNT(1) AS sessions,
+        COALESCE(AVG(accuracy), 0) AS accuracy,
+        MAX(completed_at) AS last_completed_at
+      FROM session_history
+      WHERE language = ?
+      GROUP BY category
+      ORDER BY sessions DESC, accuracy DESC
+    `)
+    .all(language)
+    .map((row) => ({
+      category: row.category,
+      sessions: row.sessions,
+      accuracy: Number((row.accuracy * 100).toFixed(1)),
+      lastCompletedAt: row.last_completed_at
+    }));
+
+  const masteredCount = categoryProgress.filter((item) => item.mastery >= 75).length;
+  const completionPercent = categoryProgress.length
+    ? Math.round(categoryProgress.reduce((sum, item) => sum + item.mastery, 0) / categoryProgress.length)
+    : 0;
+  const accuracyPercent = categoryProgress.length
+    ? Math.round(categoryProgress.reduce((sum, item) => sum + item.accuracy, 0) / categoryProgress.length)
+    : 0;
+
+  const weakestCategories = [...categoryProgress]
+    .filter((item) => item.attempts > 0)
+    .sort((a, b) => a.accuracy - b.accuracy || a.mastery - b.mastery)
+    .slice(0, 2)
+    .map((item) => item.category);
+
+  const weeklyGoalProgress = settings.weeklyGoalSessions > 0
+    ? Math.min(100, Math.round((recentSessions.sessions_last_7_days / settings.weeklyGoalSessions) * 100))
+    : 0;
+
+  return {
+    sessionsCompleted: totals.sessions_completed,
+    sessionsLast7Days: recentSessions.sessions_last_7_days,
+    avgSessionAccuracy: Number((totals.avg_accuracy * 100).toFixed(1)),
+    totalXpFromSessions: totals.total_xp_from_sessions,
+    completionPercent,
+    accuracyPercent,
+    masteredCount,
+    categoryCount: categoryProgress.length,
+    streak: progress.streak,
+    weeklyGoalProgress,
+    weeklyGoalSessions: settings.weeklyGoalSessions,
+    weakestCategories,
+    categoryStats
   };
 }
 
@@ -331,7 +461,9 @@ module.exports = {
   saveSettings,
   getCategoryMastery,
   getCategoryProgress,
+  getRecentCategoryAccuracy,
   getProgress,
+  getStats,
   recordSession,
   toIsoDate
 };

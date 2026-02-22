@@ -229,6 +229,10 @@ function recommendedLevelFromMastery(mastery) {
   return "b2";
 }
 
+function clampLevelRank(rank) {
+  return Math.max(0, Math.min(rank, LEVEL_ORDER.length - 1));
+}
+
 function getCategoryItems(language, category) {
   return COURSE[language]?.[category] || [];
 }
@@ -283,7 +287,14 @@ function createQuestion(item, pool, idx) {
   };
 }
 
-function generateSession({ language, category, mastery = 0, count = 10 }) {
+function generateSession({
+  language,
+  category,
+  mastery = 0,
+  count = 10,
+  recentAccuracy = null,
+  selfRatedLevel = "a1"
+}) {
   const all = getCategoryItems(language, category);
   if (!all.length) {
     return {
@@ -292,8 +303,21 @@ function generateSession({ language, category, mastery = 0, count = 10 }) {
     };
   }
 
-  const recommendedLevel = recommendedLevelFromMastery(mastery);
-  const maxRank = Math.min(levelRank(recommendedLevel) + 1, LEVEL_ORDER.length - 1);
+  const baselineLevel = recommendedLevelFromMastery(mastery);
+  let adaptiveRank = levelRank(baselineLevel);
+
+  if (Number.isFinite(recentAccuracy)) {
+    if (recentAccuracy >= 0.88) adaptiveRank += 1;
+    if (recentAccuracy <= 0.55) adaptiveRank -= 1;
+  }
+
+  const selfRatedRank = levelRank(selfRatedLevel);
+  if (selfRatedRank >= 0) {
+    adaptiveRank = Math.max(adaptiveRank, selfRatedRank - 1);
+  }
+
+  const recommendedLevel = LEVEL_ORDER[clampLevelRank(adaptiveRank)];
+  const maxRank = Math.min(clampLevelRank(adaptiveRank) + 1, LEVEL_ORDER.length - 1);
   const candidatePool = all.filter((item) => levelRank(item.level) <= maxRank);
   const sourcePool = candidatePool.length >= count ? candidatePool : all;
   const selected = shuffle(sourcePool).slice(0, Math.min(count, sourcePool.length));

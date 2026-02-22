@@ -32,14 +32,24 @@ app.get("/api/course", (req, res) => {
   const categoryProgress = database.getCategoryProgress(language);
   const progressMap = new Map(categoryProgress.map((item) => [item.category, item]));
 
-  const enriched = categories.map((category) => {
+  const enriched = categories.map((category, index) => {
     const progress = progressMap.get(category.id);
+    const previousCategory = index > 0 ? categories[index - 1] : null;
+    const previousProgress = previousCategory ? progressMap.get(previousCategory.id) : null;
+    const unlocked = index === 0
+      ? true
+      : Boolean(previousProgress && (previousProgress.mastery >= 35 || previousProgress.attempts >= 2));
+
     return {
       ...category,
       mastery: progress?.mastery ?? 0,
       attempts: progress?.attempts ?? 0,
       accuracy: progress?.accuracy ?? 0,
-      levelUnlocked: progress?.levelUnlocked ?? "a1"
+      levelUnlocked: progress?.levelUnlocked ?? "a1",
+      unlocked,
+      lockReason: unlocked
+        ? ""
+        : `Practice ${previousCategory.label} a bit more to unlock this step.`
     };
   });
 
@@ -53,10 +63,14 @@ app.post("/api/session/start", (req, res) => {
   }
 
   const mastery = database.getCategoryMastery(language, category);
+  const settings = database.getSettings();
+  const recentAccuracy = database.getRecentCategoryAccuracy(language, category, 5);
   const session = generateSession({
     language,
     category,
     mastery,
+    recentAccuracy,
+    selfRatedLevel: settings.selfRatedLevel,
     count: Number.isInteger(count) ? Math.max(6, Math.min(15, count)) : 10
   });
 
@@ -78,12 +92,27 @@ app.get("/api/settings", (_req, res) => {
 });
 
 app.put("/api/settings", (req, res) => {
-  const { nativeLanguage, targetLanguage, dailyGoal, learnerName, learnerBio, focusArea } = req.body || {};
+  const {
+    nativeLanguage,
+    targetLanguage,
+    dailyGoal,
+    dailyMinutes,
+    weeklyGoalSessions,
+    selfRatedLevel,
+    learnerName,
+    learnerBio,
+    focusArea
+  } = req.body || {};
 
   const row = database.saveSettings({
     nativeLanguage: nativeLanguage || "english",
     targetLanguage: targetLanguage || "spanish",
     dailyGoal: Number.isInteger(dailyGoal) ? dailyGoal : 30,
+    dailyMinutes: Number.isInteger(dailyMinutes) ? Math.max(5, Math.min(240, dailyMinutes)) : 20,
+    weeklyGoalSessions: Number.isInteger(weeklyGoalSessions)
+      ? Math.max(1, Math.min(21, weeklyGoalSessions))
+      : 5,
+    selfRatedLevel: ["a1", "a2", "b1", "b2"].includes(selfRatedLevel) ? selfRatedLevel : "a1",
     learnerName: String(learnerName || "Learner").trim() || "Learner",
     learnerBio: String(learnerBio || "").trim(),
     focusArea: String(focusArea || "").trim()
@@ -104,6 +133,12 @@ app.get("/api/progress", (req, res) => {
     lastCompletedDate: progress.lastCompletedDate,
     categories: progress.categories
   });
+});
+
+app.get("/api/stats", (req, res) => {
+  const language = String(req.query.language || "spanish").toLowerCase();
+  const stats = database.getStats(language);
+  res.json(stats);
 });
 
 app.post("/api/session/complete", (req, res) => {

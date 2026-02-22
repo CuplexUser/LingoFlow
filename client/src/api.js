@@ -21,6 +21,8 @@ export const api = {
   saveSettings: (payload) => request("/settings", { method: "PUT", body: JSON.stringify(payload) }),
   getProgress: (language) =>
     request(`/progress${language ? `?language=${encodeURIComponent(language)}` : ""}`),
+  getStats: (language) =>
+    request(`/stats${language ? `?language=${encodeURIComponent(language)}` : ""}`),
   completeSession: (payload) =>
     request("/session/complete", { method: "POST", body: JSON.stringify(payload) })
 };

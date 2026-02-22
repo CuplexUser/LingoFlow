@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { api } from "./api";
 import mascotHero from "./assets/mascot-hero.png";
 import learnIcon from "./assets/icon-learn.svg";
@@ -17,24 +17,32 @@ function getPageFromPathname(pathname) {
   return "learn";
 }
 
-function SessionPlayer({ session, onBack, onFinish }) {
-  const [index, setIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedTokenIndexes, setSelectedTokenIndexes] = useState([]);
-  const [feedback, setFeedback] = useState(null);
+function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
+  const resumeState = session.resumeState || {};
+  const [questionsQueue, setQuestionsQueue] = useState(() => resumeState.questionsQueue || session.questions);
+  const [reinforcedQuestionIds, setReinforcedQuestionIds] = useState(
+    () => resumeState.reinforcedQuestionIds || []
+  );
+  const [index, setIndex] = useState(() => resumeState.index || 0);
+  const [score, setScore] = useState(() => resumeState.score || 0);
+  const [selectedOption, setSelectedOption] = useState(() => resumeState.selectedOption || "");
+  const [selectedTokenIndexes, setSelectedTokenIndexes] = useState(
+    () => resumeState.selectedTokenIndexes || []
+  );
+  const [feedback, setFeedback] = useState(() => resumeState.feedback || null);
   const [speechError, setSpeechError] = useState("");
-  const [questionMistakes, setQuestionMistakes] = useState(0);
-  const [totalMistakes, setTotalMistakes] = useState(0);
-  const [hintsUsed, setHintsUsed] = useState(0);
-  const [revealedAnswers, setRevealedAnswers] = useState(0);
+  const [questionMistakes, setQuestionMistakes] = useState(() => resumeState.questionMistakes || 0);
+  const [totalMistakes, setTotalMistakes] = useState(() => resumeState.totalMistakes || 0);
+  const [hintsUsed, setHintsUsed] = useState(() => resumeState.hintsUsed || 0);
+  const [revealedAnswers, setRevealedAnswers] = useState(() => resumeState.revealedAnswers || 0);
+  const snapshotRef = useRef("");
 
   const supportsSpeech = typeof window !== "undefined" &&
     "speechSynthesis" in window &&
     "SpeechSynthesisUtterance" in window;
 
-  const question = session.questions[index];
-  const progress = Math.round(((index + 1) / session.questions.length) * 100);
+  const question = questionsQueue[index];
+  const progress = Math.round(((index + 1) / questionsQueue.length) * 100);
   const builtWords = question.type === "build_sentence"
     ? selectedTokenIndexes.map((idx) => question.tokens[idx])
     : [];
@@ -46,6 +54,40 @@ function SessionPlayer({ session, onBack, onFinish }) {
       }
     };
   }, [supportsSpeech]);
+
+  useEffect(() => {
+    const snapshot = {
+      questionsQueue,
+      reinforcedQuestionIds,
+      index,
+      score,
+      selectedOption,
+      selectedTokenIndexes,
+      feedback,
+      questionMistakes,
+      totalMistakes,
+      hintsUsed,
+      revealedAnswers
+    };
+    const serialized = JSON.stringify(snapshot);
+    if (serialized !== snapshotRef.current) {
+      snapshotRef.current = serialized;
+      onSnapshot(snapshot);
+    }
+  }, [
+    questionsQueue,
+    reinforcedQuestionIds,
+    index,
+    score,
+    selectedOption,
+    selectedTokenIndexes,
+    feedback,
+    questionMistakes,
+    totalMistakes,
+    hintsUsed,
+    revealedAnswers,
+    onSnapshot
+  ]);
 
   function getSpeechLanguage() {
     if (session.language === "spanish") return "es-ES";
@@ -127,11 +169,17 @@ function SessionPlayer({ session, onBack, onFinish }) {
       return;
     }
 
+    const shouldReinforce = questionMistakes > 0 && !reinforcedQuestionIds.includes(question.id);
+    if (shouldReinforce) {
+      setQuestionsQueue((prev) => [...prev, question]);
+      setReinforcedQuestionIds((prev) => [...prev, question.id]);
+    }
+
     const nextScore = score + 1;
     setScore(nextScore);
 
-    if (index === session.questions.length - 1) {
-      onFinish(nextScore, session.questions.length, totalMistakes, hintsUsed, revealedAnswers);
+    if (index === questionsQueue.length - 1 && !shouldReinforce) {
+      onFinish(nextScore, questionsQueue.length, totalMistakes, hintsUsed, revealedAnswers);
       return;
     }
 
@@ -184,7 +232,7 @@ function SessionPlayer({ session, onBack, onFinish }) {
       <div className="challenge-badges">
         <span>{session.categoryLabel}</span>
         <span>Level: {session.recommendedLevel.toUpperCase()}</span>
-        <span>{index + 1}/{session.questions.length}</span>
+        <span>{index + 1}/{questionsQueue.length}</span>
       </div>
 
       <h2>{question.prompt}</h2>
@@ -282,15 +330,21 @@ function LearnPage({
   onStartCategory,
   onFinishSession,
   onExitSession,
+  onSessionSnapshot,
   onOpenSetup,
   onOpenStats
 }) {
+  const nextUnlockedCategory = courseCategories.find(
+    (category) => category.unlocked && category.attempts === 0
+  );
+
   if (activeSession) {
     return (
       <SessionPlayer
         session={activeSession}
         onBack={onExitSession}
         onFinish={onFinishSession}
+        onSnapshot={(snapshot) => onSessionSnapshot(snapshot)}
       />
     );
   }
@@ -315,23 +369,34 @@ function LearnPage({
 
       <section className="panel categories">
         <h2>Course Categories</h2>
-        <p className="subtitle">Each session is randomized and adapts to your mastery level.</p>
+        <p className="subtitle">Each session is randomized and adapts to your recent performance.</p>
         <div className="category-grid">
           {courseCategories.map((category) => (
-            <article key={category.id} className="category-card">
+            <article
+              key={category.id}
+              className={`category-card ${category.unlocked ? "" : "locked"}`}
+            >
               <div>
                 <h3>{category.label}</h3>
                 <p>{category.description}</p>
                 <p>Mastery: {category.mastery.toFixed(1)}%</p>
                 <p>Accuracy: {category.accuracy.toFixed(1)}%</p>
                 <p>Unlocked: {category.levelUnlocked.toUpperCase()}</p>
+                {!category.unlocked ? <p className="lock-note">{category.lockReason}</p> : null}
               </div>
-              <button className="primary-button" onClick={() => onStartCategory(category)}>
-                Start Challenge
+              <button
+                className="primary-button"
+                onClick={() => onStartCategory(category)}
+                disabled={!category.unlocked}
+              >
+                {category.unlocked ? "Start Challenge" : "Locked"}
               </button>
             </article>
           ))}
         </div>
+        {nextUnlockedCategory ? (
+          <p className="subtitle">Next recommended: {nextUnlockedCategory.label}</p>
+        ) : null}
       </section>
 
       <section className="panel quick-strip">
@@ -409,6 +474,43 @@ function SetupPage({ languages, settings, draftSettings, onDraftChange, onSave, 
           />
         </label>
 
+        <label>
+          Daily Study Time (minutes)
+          <input
+            type="number"
+            min="5"
+            max="240"
+            value={draftSettings.dailyMinutes}
+            onChange={(event) => onDraftChange({ dailyMinutes: Number(event.target.value) || 20 })}
+          />
+        </label>
+
+        <label>
+          Weekly Session Goal
+          <input
+            type="number"
+            min="1"
+            max="21"
+            value={draftSettings.weeklyGoalSessions}
+            onChange={(event) =>
+              onDraftChange({ weeklyGoalSessions: Number(event.target.value) || 5 })
+            }
+          />
+        </label>
+
+        <label>
+          Self-rated Level
+          <select
+            value={draftSettings.selfRatedLevel}
+            onChange={(event) => onDraftChange({ selfRatedLevel: event.target.value })}
+          >
+            <option value="a1">A1 - Beginner</option>
+            <option value="a2">A2 - Elementary</option>
+            <option value="b1">B1 - Intermediate</option>
+            <option value="b2">B2 - Upper Intermediate</option>
+          </select>
+        </label>
+
         <label className="wide-label">
           About You
           <textarea
@@ -424,6 +526,8 @@ function SetupPage({ languages, settings, draftSettings, onDraftChange, onSave, 
         <h3>Profile Preview</h3>
         <p><strong>{settings?.learnerName || "Learner"}</strong></p>
         <p>{settings?.learnerBio || "No profile details saved yet."}</p>
+        <p>Level: {(settings?.selfRatedLevel || "a1").toUpperCase()}</p>
+        <p>Plan: {settings?.dailyMinutes ?? 20} min/day, {settings?.weeklyGoalSessions ?? 5} sessions/week</p>
       </div>
 
       <div className="hero-actions">
@@ -434,21 +538,8 @@ function SetupPage({ languages, settings, draftSettings, onDraftChange, onSave, 
   );
 }
 
-function StatsPage({ settings, progress, courseCategories }) {
-  const totalCategories = courseCategories.length || 1;
-  const completionPercent = Math.round(
-    courseCategories.reduce((sum, category) => sum + category.mastery, 0) / totalCategories
-  );
-
-  const practicedCategories = courseCategories.filter((category) => category.attempts > 0);
-  const accuracyPercent = practicedCategories.length
-    ? Math.round(
-        practicedCategories.reduce((sum, category) => sum + category.accuracy, 0) /
-          practicedCategories.length
-      )
-    : 0;
-
-  const masteredCount = courseCategories.filter((category) => category.mastery >= 75).length;
+function StatsPage({ settings, progress, courseCategories, statsData }) {
+  const totalCategoryCount = statsData?.categoryCount ?? courseCategories.length ?? 0;
 
   return (
     <section className="panel stats-panel">
@@ -458,28 +549,47 @@ function StatsPage({ settings, progress, courseCategories }) {
       <div className="stats-grid">
         <article className="stat-card">
           <h3>% Completed</h3>
-          <strong>{completionPercent}%</strong>
+          <strong>{statsData?.completionPercent ?? 0}%</strong>
           <p>Based on average mastery across all categories.</p>
         </article>
 
         <article className="stat-card">
           <h3>Accuracy</h3>
-          <strong>{accuracyPercent}%</strong>
+          <strong>{statsData?.accuracyPercent ?? 0}%</strong>
           <p>Average of categories you have practiced.</p>
         </article>
 
         <article className="stat-card">
           <h3>Mastered Categories</h3>
-          <strong>{masteredCount}/{courseCategories.length || 0}</strong>
+          <strong>{statsData?.masteredCount ?? 0}/{totalCategoryCount}</strong>
           <p>Categories with at least 75% mastery.</p>
         </article>
 
         <article className="stat-card">
           <h3>Streak</h3>
-          <strong>{progress?.streak ?? 0} days</strong>
+          <strong>{statsData?.streak ?? progress?.streak ?? 0} days</strong>
           <p>{settings?.learnerName || "Learner"}, keep your rhythm strong.</p>
         </article>
+
+        <article className="stat-card">
+          <h3>Sessions (7 days)</h3>
+          <strong>{statsData?.sessionsLast7Days ?? 0}</strong>
+          <p>Weekly target: {statsData?.weeklyGoalSessions ?? 5}</p>
+        </article>
+
+        <article className="stat-card">
+          <h3>Weekly Goal</h3>
+          <strong>{statsData?.weeklyGoalProgress ?? 0}%</strong>
+          <p>Progress toward your weekly session target.</p>
+        </article>
       </div>
+
+      {statsData?.weakestCategories?.length ? (
+        <div className="setup-preview">
+          <h3>Focus Next</h3>
+          <p>Improve these categories next: {statsData.weakestCategories.join(", ")}.</p>
+        </div>
+      ) : null}
 
       <div className="category-table-wrap">
         <table className="category-table">
@@ -511,6 +621,9 @@ const DEFAULT_DRAFT = {
   nativeLanguage: "english",
   targetLanguage: "spanish",
   dailyGoal: 30,
+  dailyMinutes: 20,
+  weeklyGoalSessions: 5,
+  selfRatedLevel: "a1",
   learnerName: "Learner",
   learnerBio: "",
   focusArea: ""
@@ -521,8 +634,22 @@ export default function App() {
   const [settings, setSettings] = useState(null);
   const [draftSettings, setDraftSettings] = useState(DEFAULT_DRAFT);
   const [progress, setProgress] = useState(null);
+  const [statsData, setStatsData] = useState(null);
   const [courseCategories, setCourseCategories] = useState([]);
-  const [activeSession, setActiveSession] = useState(null);
+  const [activeSession, setActiveSession] = useState(() => {
+    if (typeof window === "undefined") return null;
+    try {
+      const raw = window.localStorage.getItem("lingoflow_active_session");
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || !Array.isArray(parsed.questions) || !parsed.questions.length) {
+        return null;
+      }
+      return parsed;
+    } catch (_error) {
+      return null;
+    }
+  });
   const [activePage, setActivePage] = useState(() => {
     if (typeof window === "undefined") return "learn";
     return getPageFromPathname(window.location.pathname);
@@ -531,12 +658,14 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   async function refreshCourseAndProgress(targetLanguage) {
-    const [course, prog] = await Promise.all([
+    const [course, prog, stats] = await Promise.all([
       api.getCourse(targetLanguage),
-      api.getProgress(targetLanguage)
+      api.getProgress(targetLanguage),
+      api.getStats(targetLanguage)
     ]);
     setCourseCategories(course);
     setProgress(prog);
+    setStatsData(stats);
   }
 
   useEffect(() => {
@@ -576,9 +705,6 @@ export default function App() {
     function onPopState() {
       const nextPage = getPageFromPathname(window.location.pathname);
       setActivePage(nextPage);
-      if (nextPage !== "learn") {
-        setActiveSession(null);
-      }
     }
 
     window.addEventListener("popstate", onPopState);
@@ -599,9 +725,6 @@ export default function App() {
       window.history.pushState({}, "", path);
     }
     setActivePage(nextPage);
-    if (nextPage !== "learn") {
-      setActiveSession(null);
-    }
   }
 
   async function saveSetup() {
@@ -611,10 +734,7 @@ export default function App() {
       const saved = await api.saveSettings({ ...settings, ...draftSettings });
       setSettings(saved);
       setStatusMessage("Setup saved. Your learner profile has been updated.");
-
-      if (saved.targetLanguage !== settings.targetLanguage) {
-        await refreshCourseAndProgress(saved.targetLanguage);
-      }
+      await refreshCourseAndProgress(saved.targetLanguage);
     } catch (_error) {
       setStatusMessage("Could not save setup changes.");
     }
@@ -622,6 +742,10 @@ export default function App() {
 
   async function startCategory(category) {
     if (!settings) return;
+    if (!category.unlocked) {
+      setStatusMessage(category.lockReason || "This category is still locked.");
+      return;
+    }
 
     try {
       const session = await api.startSession({
@@ -662,11 +786,20 @@ export default function App() {
       );
 
       setActiveSession(null);
+      window.localStorage.removeItem("lingoflow_active_session");
       await refreshCourseAndProgress(settings.targetLanguage);
     } catch (_error) {
       setStatusMessage("Could not save session progress.");
     }
   }
+
+  useEffect(() => {
+    if (!activeSession) {
+      window.localStorage.removeItem("lingoflow_active_session");
+      return;
+    }
+    window.localStorage.setItem("lingoflow_active_session", JSON.stringify(activeSession));
+  }, [activeSession]);
 
   const dailyProgressPercent = useMemo(() => {
     if (!settings || !progress) return 0;
@@ -723,6 +856,15 @@ export default function App() {
 
       {statusMessage ? <div className="status">{statusMessage}</div> : null}
 
+      {activeSession && activePage !== "learn" ? (
+        <div className="status">
+          Session paused in <strong>{activeSession.categoryLabel}</strong>.
+          <button className="ghost-button" onClick={() => navigateToPage("learn")}>
+            Resume Session
+          </button>
+        </div>
+      ) : null}
+
       {activePage === "learn" ? (
         <LearnPage
           settings={settings}
@@ -732,6 +874,9 @@ export default function App() {
           onStartCategory={startCategory}
           onFinishSession={finishSession}
           onExitSession={() => setActiveSession(null)}
+          onSessionSnapshot={(snapshot) =>
+            setActiveSession((prev) => (prev ? { ...prev, resumeState: snapshot } : prev))
+          }
           onOpenSetup={() => navigateToPage("setup")}
           onOpenStats={() => navigateToPage("stats")}
         />
@@ -753,6 +898,7 @@ export default function App() {
           settings={settings}
           progress={progress}
           courseCategories={courseCategories}
+          statsData={statsData}
         />
       ) : null}
     </main>

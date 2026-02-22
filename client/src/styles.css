@@ -143,6 +143,11 @@ body {
   border: 2px solid #c1d3ef;
   background: #f1f6ff;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .hero-card {
@@ -214,6 +219,16 @@ body {
 
 .category-card p {
   margin: 3px 0;
+}
+
+.category-card.locked {
+  background: #f6f8fc;
+  border-style: dashed;
+}
+
+.lock-note {
+  color: #4d5f83;
+  font-size: 0.9rem;
 }
 
 .quick-strip {
