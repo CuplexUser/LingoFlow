@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { api } from "./api";
-import mascotHero from "./assets/mascot-hero.svg";
+import mascotHero from "./assets/mascot-hero.png";
 import learnIcon from "./assets/icon-learn.svg";
 import setupIcon from "./assets/icon-setup.svg";
 import statsIcon from "./assets/icon-stats.svg";

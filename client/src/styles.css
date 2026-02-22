@@ -3,8 +3,8 @@
   --sky-300: #a7c8f1;
   --mint-200: #d8efe3;
   --mint-500: #2f7f68;
-  --sun-200: #f6e3b3;
-  --sun-500: #b9833e;
+  --sun-200: #dce8ff;
+  --sun-500: #4b6fb8;
   --berry-500: #5c80cf;
   --ink-900: #1f2a44;
   --card: #ffffff;
@@ -22,9 +22,9 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 12% 10%, #f3ead5 0, #f3ead5 12%, transparent 13%),
-    radial-gradient(circle at 88% 80%, #e4effd 0, #e4effd 12%, transparent 13%),
-    linear-gradient(165deg, #f8fbff 0%, #f0f6ff 52%, #f8fcfa 100%);
+    radial-gradient(circle at 12% 10%, #dde8ff 0, #dde8ff 12%, transparent 13%),
+    radial-gradient(circle at 88% 80%, #d9eef0 0, #d9eef0 12%, transparent 13%),
+    linear-gradient(165deg, #f7fbff 0%, #edf4ff 52%, #f3f9ff 100%);
 }
 
 .app-shell {
@@ -105,12 +105,12 @@ body {
 
 .nav-tile.active {
   background: var(--sun-200);
-  border-color: #c8a467;
+  border-color: #8ba7d6;
   transform: translateY(-2px);
 }
 
 .daily-panel {
-  background: linear-gradient(140deg, #faf7ef 0%, #f1f8f5 100%);
+  background: linear-gradient(140deg, #f3f7ff 0%, #edf7f6 100%);
 }
 
 .daily-headline {
@@ -140,8 +140,8 @@ body {
 .status {
   padding: 12px 14px;
   border-radius: 12px;
-  border: 2px solid #d7c9af;
-  background: #f8f3ea;
+  border: 2px solid #c1d3ef;
+  background: #f1f6ff;
   margin-bottom: 16px;
 }
 
@@ -150,7 +150,7 @@ body {
   grid-template-columns: 1.2fr 1fr;
   gap: 14px;
   align-items: center;
-  background: linear-gradient(145deg, #faf4e8 0%, #f2f8f5 100%);
+  background: linear-gradient(145deg, #f2f7ff 0%, #edf7f6 100%);
 }
 
 .eyebrow {
@@ -172,8 +172,9 @@ body {
 
 .hero-art {
   width: 100%;
-  max-height: 260px;
+  max-height: 280px;
   object-fit: contain;
+  display: block;
 }
 
 .hero-actions {
