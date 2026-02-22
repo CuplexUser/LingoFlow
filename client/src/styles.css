@@ -458,6 +458,13 @@ textarea {
   color: #9a2f2f;
 }
 
+.build-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 6px;
+}
+
 .build-target {
   min-height: 56px;
   border: 2px dashed #b9c8dd;
@@ -466,6 +473,38 @@ textarea {
   margin: 10px 0;
   background: #f8fbff;
   font-weight: 600;
+}
+
+.built-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.built-word-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid #cfd9ef;
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 8px 12px;
+  cursor: grab;
+  user-select: none;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.built-word-chip:hover {
+  border-color: #9bb2de;
+  background: #f6f9ff;
+}
+
+.built-word-chip:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+}
+
+.built-word-chip[draggable="true"] {
+  touch-action: none;
 }
 
 .tokens {

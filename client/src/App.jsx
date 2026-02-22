@@ -36,6 +36,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const [hintsUsed, setHintsUsed] = useState(() => resumeState.hintsUsed || 0);
   const [revealedAnswers, setRevealedAnswers] = useState(() => resumeState.revealedAnswers || 0);
   const snapshotRef = useRef("");
+  const draggedWordIndexRef = useRef(null);
 
   const supportsSpeech = typeof window !== "undefined" &&
     "speechSynthesis" in window &&
@@ -110,6 +111,29 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     window.speechSynthesis.speak(utterance);
   }
 
+  function speakText(text, language = getSpeechLanguage()) {
+    if (!supportsSpeech) {
+      setSpeechError("Speech is not supported in this browser.");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = language;
+    utterance.rate = 0.95;
+    utterance.onstart = () => setSpeechError("");
+    utterance.onerror = () => setSpeechError("Could not play this audio hint.");
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function speakBuildTranslationHint() {
+    if (question.type !== "build_sentence") return;
+    const translatedSentence = String(question.answer || "").trim();
+    if (!translatedSentence) return;
+    setHintsUsed((value) => value + 1);
+    speakText(translatedSentence, getSpeechLanguage());
+  }
+
   function toggleToken(tokenIndex) {
     setSelectedTokenIndexes((prev) => {
       if (prev.includes(tokenIndex)) {
@@ -118,6 +142,31 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       return [...prev, tokenIndex];
     });
     setFeedback(null);
+  }
+
+  function reorderSelectedWords(fromIndex, toIndex) {
+    setSelectedTokenIndexes((prev) => {
+      if (fromIndex < 0 || toIndex < 0 || fromIndex >= prev.length || toIndex >= prev.length) {
+        return prev;
+      }
+      if (fromIndex === toIndex) return prev;
+      const next = [...prev];
+      const [moved] = next.splice(fromIndex, 1);
+      next.splice(toIndex, 0, moved);
+      return next;
+    });
+    setFeedback(null);
+  }
+
+  function handleBuiltWordDragStart(wordIndex) {
+    draggedWordIndexRef.current = wordIndex;
+  }
+
+  function handleBuiltWordDrop(targetIndex) {
+    const fromIndex = draggedWordIndexRef.current;
+    if (!Number.isInteger(fromIndex)) return;
+    reorderSelectedWords(fromIndex, targetIndex);
+    draggedWordIndexRef.current = null;
   }
 
   function resetCurrentSelection() {
@@ -264,7 +313,42 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         </div>
       ) : (
         <>
-          <div className="build-target">{builtSentence || "Tap words to build your sentence"}</div>
+          <div className="build-hints">
+            <button
+              type="button"
+              className="speak-button"
+              onClick={speakBuildTranslationHint}
+              aria-label="Listen to the prompt translation"
+            >
+              Hint: Listen Translation
+            </button>
+          </div>
+
+          <div className="build-target">
+            {builtSentence ? (
+              <div className="built-words">
+                {builtWords.map((word, selectedWordIndex) => (
+                  <span
+                    key={`${word}-${selectedWordIndex}`}
+                    className="built-word-chip"
+                    draggable
+                    onDragStart={() => handleBuiltWordDragStart(selectedWordIndex)}
+                    onDragOver={(event) => event.preventDefault()}
+                    onDrop={() => handleBuiltWordDrop(selectedWordIndex)}
+                    onDragEnd={() => {
+                      draggedWordIndexRef.current = null;
+                    }}
+                    aria-label={`Drag to move ${word}`}
+                    title="Drag and drop to reorder"
+                  >
+                    {word}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              "Tap words to build your sentence"
+            )}
+          </div>
           <div className="tokens">
             {question.tokens.map((token, tokenIndex) => {
               const active = selectedTokenIndexes.includes(tokenIndex);
