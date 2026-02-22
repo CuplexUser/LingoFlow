@@ -20,6 +20,9 @@ db.exec(`
     native_language TEXT NOT NULL DEFAULT 'english',
     target_language TEXT NOT NULL DEFAULT 'spanish',
     daily_goal INTEGER NOT NULL DEFAULT 30,
+    learner_name TEXT NOT NULL DEFAULT 'Learner',
+    learner_bio TEXT NOT NULL DEFAULT '',
+    focus_area TEXT NOT NULL DEFAULT '',
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
 
@@ -59,9 +62,30 @@ db.exec(`
   );
 `);
 
+function ensureSettingsColumns() {
+  const columns = db.prepare("PRAGMA table_info(settings)").all();
+  const names = new Set(columns.map((column) => column.name));
+
+  if (!names.has("learner_name")) {
+    db.exec("ALTER TABLE settings ADD COLUMN learner_name TEXT NOT NULL DEFAULT 'Learner'");
+  }
+
+  if (!names.has("learner_bio")) {
+    db.exec("ALTER TABLE settings ADD COLUMN learner_bio TEXT NOT NULL DEFAULT ''");
+  }
+
+  if (!names.has("focus_area")) {
+    db.exec("ALTER TABLE settings ADD COLUMN focus_area TEXT NOT NULL DEFAULT ''");
+  }
+}
+
+ensureSettingsColumns();
+
 db.prepare(`
-  INSERT OR IGNORE INTO settings (id, native_language, target_language, daily_goal)
-  VALUES (1, 'english', 'spanish', 30)
+  INSERT OR IGNORE INTO settings (
+    id, native_language, target_language, daily_goal, learner_name, learner_bio, focus_area
+  )
+  VALUES (1, 'english', 'spanish', 30, 'Learner', '', '')
 `).run();
 
 db.prepare(`
@@ -126,23 +150,39 @@ function maybeMigrateLegacyJson() {
 maybeMigrateLegacyJson();
 
 function getSettings() {
-  const row = db.prepare("SELECT native_language, target_language, daily_goal FROM settings WHERE id = 1").get();
+  const row = db.prepare(`
+    SELECT native_language, target_language, daily_goal, learner_name, learner_bio, focus_area
+    FROM settings
+    WHERE id = 1
+  `).get();
   return {
     nativeLanguage: row.native_language,
     targetLanguage: row.target_language,
-    dailyGoal: row.daily_goal
+    dailyGoal: row.daily_goal,
+    learnerName: row.learner_name,
+    learnerBio: row.learner_bio,
+    focusArea: row.focus_area
   };
 }
 
 function saveSettings(nextSettings) {
   db.prepare(`
     UPDATE settings
-    SET native_language = ?, target_language = ?, daily_goal = ?, updated_at = CURRENT_TIMESTAMP
+    SET native_language = ?,
+        target_language = ?,
+        daily_goal = ?,
+        learner_name = ?,
+        learner_bio = ?,
+        focus_area = ?,
+        updated_at = CURRENT_TIMESTAMP
     WHERE id = 1
   `).run(
     nextSettings.nativeLanguage || "english",
     nextSettings.targetLanguage || "spanish",
-    Number.isInteger(nextSettings.dailyGoal) ? nextSettings.dailyGoal : 30
+    Number.isInteger(nextSettings.dailyGoal) ? nextSettings.dailyGoal : 30,
+    String(nextSettings.learnerName || "Learner").trim() || "Learner",
+    String(nextSettings.learnerBio || "").trim(),
+    String(nextSettings.focusArea || "").trim()
   );
 
   return getSettings();

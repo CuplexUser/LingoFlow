@@ -78,12 +78,15 @@ app.get("/api/settings", (_req, res) => {
 });
 
 app.put("/api/settings", (req, res) => {
-  const { nativeLanguage, targetLanguage, dailyGoal } = req.body || {};
+  const { nativeLanguage, targetLanguage, dailyGoal, learnerName, learnerBio, focusArea } = req.body || {};
 
   const row = database.saveSettings({
     nativeLanguage: nativeLanguage || "english",
     targetLanguage: targetLanguage || "spanish",
-    dailyGoal: Number.isInteger(dailyGoal) ? dailyGoal : 30
+    dailyGoal: Number.isInteger(dailyGoal) ? dailyGoal : 30,
+    learnerName: String(learnerName || "Learner").trim() || "Learner",
+    learnerBio: String(learnerBio || "").trim(),
+    focusArea: String(focusArea || "").trim()
   });
 
   res.json(row);
