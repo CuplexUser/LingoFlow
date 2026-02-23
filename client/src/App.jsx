@@ -17,6 +17,14 @@ function getPageFromPathname(pathname) {
   return "learn";
 }
 
+function normalizeSentence(text) {
+  return String(text || "")
+    .toLowerCase()
+    .replace(/[.,!?;:¿¡]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const resumeState = session.resumeState || {};
   const [questionsQueue, setQuestionsQueue] = useState(() => resumeState.questionsQueue || session.questions);
@@ -29,6 +37,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const [selectedTokenIndexes, setSelectedTokenIndexes] = useState(
     () => resumeState.selectedTokenIndexes || []
   );
+  const [attemptLog, setAttemptLog] = useState(() => resumeState.attemptLog || []);
   const [feedback, setFeedback] = useState(() => resumeState.feedback || null);
   const [speechError, setSpeechError] = useState("");
   const [questionMistakes, setQuestionMistakes] = useState(() => resumeState.questionMistakes || 0);
@@ -45,7 +54,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
 
   const question = questionsQueue[index];
   const progress = Math.round(((index + 1) / questionsQueue.length) * 100);
-  const builtWords = question.type === "build_sentence"
+  const builtWords = (question.type === "build_sentence" || question.type === "dictation_sentence")
     ? selectedTokenIndexes.map((idx) => question.tokens[idx])
     : [];
 
@@ -65,6 +74,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       score,
       selectedOption,
       selectedTokenIndexes,
+      attemptLog,
       feedback,
       questionMistakes,
       totalMistakes,
@@ -83,6 +93,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     score,
     selectedOption,
     selectedTokenIndexes,
+    attemptLog,
     feedback,
     questionMistakes,
     totalMistakes,
@@ -190,16 +201,17 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   }
 
   function isCurrentAnswerCorrect() {
-    if (question.type === "mc_sentence") {
+    if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
       return selectedOption === question.answer;
     }
-
-    const built = selectedTokenIndexes.map((idx) => question.tokens[idx]).join(" ").trim();
-    return built === question.answer;
+    if (question.type === "cloze_sentence") return selectedOption === question.clozeAnswer;
+    const built = selectedTokenIndexes.map((idx) => question.tokens[idx]).join(" ");
+    const variants = [question.answer, ...(question.acceptedAnswers || [])].map((value) => normalizeSentence(value));
+    return variants.includes(normalizeSentence(built));
   }
 
   function canSubmit() {
-    if (question.type === "mc_sentence") {
+    if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "cloze_sentence") {
       return Boolean(selectedOption);
     }
     return selectedTokenIndexes.length > 0;
@@ -209,6 +221,21 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     if (!canSubmit()) return;
 
     const correct = isCurrentAnswerCorrect();
+    const attemptEntry = {
+      questionId: question.id,
+      type: question.type,
+      selectedOption:
+        question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "cloze_sentence"
+          ? selectedOption
+          : "",
+      builtSentence:
+        question.type === "build_sentence" || question.type === "dictation_sentence"
+          ? builtWords.join(" ")
+          : "",
+      textAnswer: ""
+    };
+    setAttemptLog((prev) => [...prev, attemptEntry]);
+
     if (!correct) {
       const nextMistakes = questionMistakes + 1;
       setQuestionMistakes(nextMistakes);
@@ -225,8 +252,16 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
           ? "Use reveal to inspect the correct sentence and self-correct."
           : "Check sentence structure and try again.",
         showReveal,
-        answerWords: question.type === "build_sentence" ? answerWords : null,
-        correctOption: question.type === "mc_sentence" ? question.answer : null
+        answerWords:
+          question.type === "build_sentence" || question.type === "dictation_sentence"
+            ? answerWords
+            : null,
+        correctOption:
+          question.type === "mc_sentence" ||
+          question.type === "dialogue_turn" ||
+          question.type === "cloze_sentence"
+            ? (question.type === "cloze_sentence" ? question.clozeAnswer : question.answer)
+            : null
       });
       return;
     }
@@ -241,7 +276,14 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     setScore(nextScore);
 
     if (index === questionsQueue.length - 1 && !shouldReinforce) {
-      onFinish(nextScore, questionsQueue.length, totalMistakes, hintsUsed, revealedAnswers);
+      onFinish({
+        attempts: [...attemptLog, attemptEntry],
+        score: nextScore,
+        maxScore: questionsQueue.length,
+        mistakes: totalMistakes,
+        hintsUsed,
+        revealedAnswers
+      });
       return;
     }
 
@@ -251,8 +293,10 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
 
   function revealAnswer() {
     const answerWords = question.answer.split(" ").filter(Boolean);
-    if (question.type === "mc_sentence") {
+    if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
       setSelectedOption(question.answer);
+    } else if (question.type === "cloze_sentence") {
+      setSelectedOption(question.clozeAnswer);
     } else {
       const usedIndexes = new Set();
       const orderedIndexes = answerWords
@@ -280,7 +324,9 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     );
   }
 
-  const builtSentence = question.type === "build_sentence" ? builtWords.join(" ") : "";
+  const builtSentence = (
+    question.type === "build_sentence" || question.type === "dictation_sentence"
+  ) ? builtWords.join(" ") : "";
 
   return (
     <section className="panel lesson-player">
@@ -324,6 +370,107 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
             </div>
           ))}
         </div>
+      ) : question.type === "dialogue_turn" ? (
+        <div className="options">
+          {question.options.map((option) => (
+            <div key={option} className="option-row">
+              <button
+                className={`option ${selectedOption === option ? "selected" : ""}`}
+                onClick={() => {
+                  setSelectedOption(option);
+                  setFeedback(null);
+                }}
+              >
+                {option}
+              </button>
+              <button
+                type="button"
+                className="speak-button"
+                onClick={() => speakAlternative(option)}
+                aria-label={`Speak alternative: ${option}`}
+              >
+                Speak
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : question.type === "cloze_sentence" ? (
+        <>
+          <div className="build-target">{question.clozeText}</div>
+          <div className="tokens">
+            {question.clozeOptions.map((token) => (
+              <button
+                key={token}
+                className={`token ${selectedOption === token ? "selected" : ""}`}
+                onClick={() => {
+                  setSelectedOption(token);
+                  setFeedback(null);
+                }}
+              >
+                {token}
+              </button>
+            ))}
+          </div>
+        </>
+      ) : question.type === "dictation_sentence" ? (
+        <>
+          <div className="build-hints">
+            <button
+              type="button"
+              className="speak-button"
+              onClick={() => speakText(question.audioText || question.answer, getSpeechLanguage())}
+              aria-label="Listen to sentence audio"
+            >
+              Play Audio
+            </button>
+          </div>
+          <div className="build-target">
+            {builtSentence ? (
+              <div className="built-words">
+                {builtWords.map((word, selectedWordIndex) => (
+                  <span
+                    key={`${word}-${selectedWordIndex}`}
+                    className="built-word-chip"
+                    draggable
+                    onDragStart={() => handleBuiltWordDragStart(selectedWordIndex)}
+                    onDragOver={(event) => event.preventDefault()}
+                    onDrop={() => handleBuiltWordDrop(selectedWordIndex)}
+                    onDragEnd={() => {
+                      if (
+                        Number.isInteger(draggedWordIndexRef.current) &&
+                        !builtWordDropHandledRef.current
+                      ) {
+                        removeSelectedWordAt(draggedWordIndexRef.current);
+                      }
+                      draggedWordIndexRef.current = null;
+                      builtWordDropHandledRef.current = false;
+                    }}
+                    aria-label={`Drag to move ${word}`}
+                    title="Drag to reorder, or drag outside the box to remove"
+                  >
+                    {word}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              "Listen and build sentence"
+            )}
+          </div>
+          <div className="tokens">
+            {question.tokens.map((token, tokenIndex) => {
+              const active = selectedTokenIndexes.includes(tokenIndex);
+              return (
+                <button
+                  key={`${token}-${tokenIndex}`}
+                  className={`token ${active ? "selected" : ""}`}
+                  onClick={() => toggleToken(tokenIndex)}
+                >
+                  {token}
+                </button>
+              );
+            })}
+          </div>
+        </>
       ) : (
         <>
           <div className="build-hints">
@@ -392,7 +539,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
           <span>{feedback.hint}</span>
           {feedback.correctOption ? (
             <div className="expected-option">
-              Correct sentence:
+              Correct answer:
               <div className="option correct-answer">{feedback.correctOption}</div>
             </div>
           ) : null}
@@ -510,7 +657,7 @@ function LearnPage({
         </div>
         <div>
           <strong>{progress?.streak ?? 0} day streak</strong>
-          <span>{progress?.hearts ?? 5} hearts left</span>
+          <span>Keep your practice rhythm going</span>
         </div>
       </section>
     </>
@@ -694,6 +841,27 @@ function StatsPage({ settings, progress, courseCategories, statsData }) {
           <p>Improve these categories next: {statsData.weakestCategories.join(", ")}.</p>
         </div>
       ) : null}
+      {statsData?.objectiveStats?.length ? (
+        <div className="setup-preview">
+          <h3>Weak Objectives</h3>
+          <p>
+            {statsData.objectiveStats
+              .slice(0, 3)
+              .map((entry) => `${entry.objective} (${entry.accuracy}%)`)
+              .join(", ")}
+          </p>
+        </div>
+      ) : null}
+      {statsData?.errorTypeTrend?.length ? (
+        <div className="setup-preview">
+          <h3>Recent Error Types</h3>
+          <p>
+            {statsData.errorTypeTrend
+              .map((entry) => `${entry.errorType}: ${entry.count}`)
+              .join(" | ")}
+          </p>
+        </div>
+      ) : null}
 
       <div className="category-table-wrap">
         <table className="category-table">
@@ -869,23 +1037,22 @@ export default function App() {
     }
   }
 
-  async function finishSession(score, maxScore, mistakes, usedHints, usedReveals) {
+  async function finishSession(sessionReport) {
     if (!activeSession || !settings) return;
 
     try {
       const result = await api.completeSession({
+        sessionId: activeSession.sessionId,
         language: settings.targetLanguage,
         category: activeSession.category,
-        score,
-        maxScore,
-        mistakes,
-        hintsUsed: usedHints,
-        revealedAnswers: usedReveals,
-        difficultyLevel: activeSession.recommendedLevel
+        attempts: sessionReport.attempts,
+        hintsUsed: sessionReport.hintsUsed,
+        revealedAnswers: sessionReport.revealedAnswers
       });
 
       setStatusMessage(
-        `Session complete: ${score}/${maxScore} (mistakes: ${mistakes}). +${result.xpGained} XP. ` +
+        `Session complete: ${result.evaluated.score}/${result.evaluated.maxScore} ` +
+        `(mistakes: ${result.evaluated.mistakes}). +${result.xpGained} XP. ` +
         `Mastery ${result.mastery.toFixed(1)}% (${result.levelUnlocked.toUpperCase()})`
       );
 
@@ -907,7 +1074,7 @@ export default function App() {
 
   const dailyProgressPercent = useMemo(() => {
     if (!settings || !progress) return 0;
-    return Math.min(100, Math.round((progress.totalXp / settings.dailyGoal) * 100));
+    return Math.min(100, Math.round(((progress.todayXp || 0) / settings.dailyGoal) * 100));
   }, [settings, progress]);
 
   if (loading) {
@@ -931,7 +1098,6 @@ export default function App() {
           <span>Level: {progress?.learnerLevel ?? 1}</span>
           <span>XP: {progress?.totalXp ?? 0}</span>
           <span>Streak: {progress?.streak ?? 0}</span>
-          <span>Hearts: {progress?.hearts ?? 5}</span>
         </div>
       </header>
 
