@@ -453,7 +453,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
                 ))}
               </div>
             ) : (
-              "Listen and build sentence"
+              "Listen and build the sentence"
             )}
           </div>
           <div className="tokens">

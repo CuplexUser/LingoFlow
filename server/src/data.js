@@ -345,7 +345,7 @@ function createQuestion(item, pool, idx, category) {
     const noise = shuffle(tokenPool).slice(0, 2);
     return {
       ...base,
-      prompt: `Listen and build sentence. ${item.prompt}`,
+      prompt: `Listen and build the sentence. ${item.prompt}`,
       audioText: item.target,
       tokens: shuffle([...answerTokens, ...noise])
     };
