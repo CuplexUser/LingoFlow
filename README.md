@@ -8,8 +8,9 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Randomized challenge sessions per category
 - Full-sentence practice (not only one-word answers)
 - Sentence-builder exercises with correction feedback and reveal flow
+- Expanded exercise types: cloze deletion, listen-and-build sentence, guided dialogue completion
 - Adaptive CEFR-style progression (`A1` → `B2`) based on mastery
-- Persistent progress (XP, streak, hearts, category mastery) via `better-sqlite3`
+- Persistent progress (XP, streak, category mastery, daily XP, per-item progress) via `better-sqlite3`
 - Language options: `Spanish`, `Russian`, `English`
 
 ## Tech Stack
@@ -60,6 +61,27 @@ server/
 - `npm run dev`: run backend + frontend concurrently
 - `npm run build`: build frontend bundle
 - `npm run start`: serve backend and built frontend
+- `npm run test:server`: run backend unit + integration tests
+
+## Completed Reliability Improvements
+
+- Server-authoritative session completion and scoring (prevents trivial score tampering)
+- Active session validation with expiry/completion checks
+- Validation for unknown question IDs and invalid completion attempts
+- Normalized answer checking and accepted-answer variant support
+- Level-aware distractor selection and spaced-priority item selection
+- Daily XP aggregation (`todayXp`) and per-item retention tracking
+
+## Testing
+
+- Backend test suite location: `server/src/__tests__/`
+- Current coverage focus:
+  - session start/complete happy path
+  - invalid/unknown completion payload rejection
+  - answer normalization and sentence evaluation
+  - XP penalty behavior
+  - session generation exercise coverage
+  - progression persistence updates (including daily XP)
 
 ## API Overview
 
