@@ -10,6 +10,8 @@ const CATEGORIES = [
   { id: "travel", label: "Travel", description: "Transport and directions" },
   { id: "work", label: "Work", description: "Professional communication" },
   { id: "health", label: "Health", description: "Medical and emergency phrases" },
+  { id: "family_friends", label: "Family & Friends", description: "Relationships and social life" },
+  { id: "food_cooking", label: "Food & Cooking", description: "Meals, recipes, and dining" },
   { id: "grammar", label: "Grammar", description: "Sentence structures and tenses" }
 ];
 
@@ -71,6 +73,26 @@ const COURSE = {
       sentence("sp-he-6", "b1", "Say: The pain gets worse when I walk quickly.", "El dolor empeora cuando camino rápido."),
       sentence("sp-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "Necesito un chequeo completo porque estos síntomas persisten."),
       sentence("sp-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "¿Podría explicar en detalle las opciones de tratamiento?")
+    ],
+    family_friends: [
+      sentence("sp-fa-1", "a1", "Say: This is my brother and that is my cousin.", "Este es mi hermano y ese es mi primo."),
+      sentence("sp-fa-2", "a1", "Say: My friends are very kind and funny.", "Mis amigos son muy amables y divertidos."),
+      sentence("sp-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "¿Vas a visitar a tu familia este fin de semana?"),
+      sentence("sp-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "Normalmente cenamos juntos los domingos."),
+      sentence("sp-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "Crecí con mis abuelos en un pueblo pequeño."),
+      sentence("sp-fa-6", "b1", "Say: My best friend always gives me honest advice.", "Mi mejor amigo siempre me da consejos sinceros."),
+      sentence("sp-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Incluso cuando no estamos de acuerdo, intentamos escuchar con respeto."),
+      sentence("sp-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Las tradiciones familiares nos ayudan a mantenernos unidos entre generaciones.")
+    ],
+    food_cooking: [
+      sentence("sp-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "Me gustaría un café y un sándwich."),
+      sentence("sp-fo-2", "a1", "Ask: Do you have vegetarian options?", "¿Tienen opciones vegetarianas?"),
+      sentence("sp-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "Esta noche estoy cocinando arroz con verduras."),
+      sentence("sp-fo-4", "a2", "Ask: Can you add less salt, please?", "¿Puede poner menos sal, por favor?"),
+      sentence("sp-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "La sopa sabe mejor después de hervir a fuego lento durante una hora."),
+      sentence("sp-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "Olvidé un ingrediente, así que cambié la receta."),
+      sentence("sp-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "Este plato combina sabores dulces, picantes y ahumados."),
+      sentence("sp-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "¿Qué técnica le da a la salsa una textura más suave?")
     ],
     grammar: [
       sentence("sp-gr-1", "a1", "Say: I am reading a short story now.", "Estoy leyendo un cuento corto ahora."),
@@ -134,6 +156,26 @@ const COURSE = {
       sentence("ru-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "Мне нужно полное обследование, потому что эти симптомы не проходят."),
       sentence("ru-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "Можете подробно объяснить варианты лечения?")
     ],
+    family_friends: [
+      sentence("ru-fa-1", "a1", "Say: This is my brother and that is my cousin.", "Это мой брат, а это мой двоюродный брат."),
+      sentence("ru-fa-2", "a1", "Say: My friends are very kind and funny.", "Мои друзья очень добрые и весёлые."),
+      sentence("ru-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "Ты навещаешь семью в эти выходные?"),
+      sentence("ru-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "Обычно мы ужинаем вместе по воскресеньям."),
+      sentence("ru-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "Я вырос с бабушкой и дедушкой в маленьком городе."),
+      sentence("ru-fa-6", "b1", "Say: My best friend always gives me honest advice.", "Мой лучший друг всегда даёт мне честные советы."),
+      sentence("ru-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Даже когда мы не согласны, мы стараемся уважительно слушать друг друга."),
+      sentence("ru-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Семейные традиции помогают нам сохранять связь между поколениями.")
+    ],
+    food_cooking: [
+      sentence("ru-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "Я бы хотел кофе и сэндвич."),
+      sentence("ru-fo-2", "a1", "Ask: Do you have vegetarian options?", "У вас есть вегетарианские блюда?"),
+      sentence("ru-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "Сегодня вечером я готовлю рис с овощами."),
+      sentence("ru-fo-4", "a2", "Ask: Can you add less salt, please?", "Можно добавить меньше соли, пожалуйста?"),
+      sentence("ru-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "Суп вкуснее, если он томится около часа."),
+      sentence("ru-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "Я забыл один ингредиент, поэтому изменил рецепт."),
+      sentence("ru-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "Это блюдо сочетает сладкие, острые и копчёные вкусы."),
+      sentence("ru-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "Какая техника делает соус более однородным?")
+    ],
     grammar: [
       sentence("ru-gr-1", "a1", "Say: I am reading a short story now.", "Сейчас я читаю короткий рассказ."),
       sentence("ru-gr-2", "a1", "Say: Yesterday I studied for two hours.", "Вчера я занимался два часа."),
@@ -195,6 +237,26 @@ const COURSE = {
       sentence("en-he-6", "b1", "Say: The pain gets worse when I walk quickly.", "The pain gets worse when I walk quickly."),
       sentence("en-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "I need a full checkup because these symptoms persist."),
       sentence("en-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "Could you explain the treatment options in detail?")
+    ],
+    family_friends: [
+      sentence("en-fa-1", "a1", "Say: This is my brother and that is my cousin.", "This is my brother and that is my cousin."),
+      sentence("en-fa-2", "a1", "Say: My friends are very kind and funny.", "My friends are very kind and funny."),
+      sentence("en-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "Are you visiting your family this weekend?"),
+      sentence("en-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "We usually have dinner together on Sundays."),
+      sentence("en-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "I grew up with my grandparents in a small town."),
+      sentence("en-fa-6", "b1", "Say: My best friend always gives me honest advice.", "My best friend always gives me honest advice."),
+      sentence("en-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Even when we disagree, we try to listen respectfully."),
+      sentence("en-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Family traditions help us stay connected across generations.")
+    ],
+    food_cooking: [
+      sentence("en-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "I would like a coffee and a sandwich."),
+      sentence("en-fo-2", "a1", "Ask: Do you have vegetarian options?", "Do you have vegetarian options?"),
+      sentence("en-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "I am cooking rice with vegetables tonight."),
+      sentence("en-fo-4", "a2", "Ask: Can you add less salt, please?", "Can you add less salt, please?"),
+      sentence("en-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "The soup tastes better after it simmers for an hour."),
+      sentence("en-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "I forgot one ingredient, so I changed the recipe."),
+      sentence("en-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "This dish combines sweet, spicy, and smoky flavors."),
+      sentence("en-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "Which technique gives the sauce a smoother texture?")
     ],
     grammar: [
       sentence("en-gr-1", "a1", "Say: I am reading a short story now.", "I am reading a short story now."),

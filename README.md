@@ -4,7 +4,7 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 
 ## Features
 
-- Category-based learning path (`Essentials`, `Conversation`, `Travel`, `Work`, `Health`, `Grammar`)
+- Category-based learning path (`Essentials`, `Conversation`, `Travel`, `Work`, `Health`, `Family & Friends`, `Food & Cooking`, `Grammar`)
 - Randomized challenge sessions per category
 - Full-sentence practice (not only one-word answers)
 - Sentence-builder exercises with correction feedback and reveal flow
