@@ -37,6 +37,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const [revealedAnswers, setRevealedAnswers] = useState(() => resumeState.revealedAnswers || 0);
   const snapshotRef = useRef("");
   const draggedWordIndexRef = useRef(null);
+  const builtWordDropHandledRef = useRef(false);
 
   const supportsSpeech = typeof window !== "undefined" &&
     "speechSynthesis" in window &&
@@ -158,13 +159,25 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     setFeedback(null);
   }
 
+  function removeSelectedWordAt(wordIndex) {
+    setSelectedTokenIndexes((prev) => {
+      if (wordIndex < 0 || wordIndex >= prev.length) return prev;
+      const next = [...prev];
+      next.splice(wordIndex, 1);
+      return next;
+    });
+    setFeedback(null);
+  }
+
   function handleBuiltWordDragStart(wordIndex) {
     draggedWordIndexRef.current = wordIndex;
+    builtWordDropHandledRef.current = false;
   }
 
   function handleBuiltWordDrop(targetIndex) {
     const fromIndex = draggedWordIndexRef.current;
     if (!Number.isInteger(fromIndex)) return;
+    builtWordDropHandledRef.current = true;
     reorderSelectedWords(fromIndex, targetIndex);
     draggedWordIndexRef.current = null;
   }
@@ -212,7 +225,7 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
           ? "Use reveal to inspect the correct sentence and self-correct."
           : "Check sentence structure and try again.",
         showReveal,
-        answerWords,
+        answerWords: question.type === "build_sentence" ? answerWords : null,
         correctOption: question.type === "mc_sentence" ? question.answer : null
       });
       return;
@@ -336,10 +349,17 @@ function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
                     onDragOver={(event) => event.preventDefault()}
                     onDrop={() => handleBuiltWordDrop(selectedWordIndex)}
                     onDragEnd={() => {
+                      if (
+                        Number.isInteger(draggedWordIndexRef.current) &&
+                        !builtWordDropHandledRef.current
+                      ) {
+                        removeSelectedWordAt(draggedWordIndexRef.current);
+                      }
                       draggedWordIndexRef.current = null;
+                      builtWordDropHandledRef.current = false;
                     }}
                     aria-label={`Drag to move ${word}`}
-                    title="Drag and drop to reorder"
+                    title="Drag to reorder, or drag outside the box to remove"
                   >
                     {word}
                   </span>
