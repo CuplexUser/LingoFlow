@@ -10,6 +10,7 @@ const PAGE_PATHS = {
   setup: "/setup",
   stats: "/stats"
 };
+const THEME_STORAGE_KEY = "lingoflow_theme_mode";
 
 function getPageFromPathname(pathname) {
   if (pathname === PAGE_PATHS.setup) return "setup";
@@ -23,6 +24,16 @@ function normalizeSentence(text) {
     .replace(/[.,!?;:¿¡]/g, "")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function getSystemTheme() {
+  if (typeof window === "undefined" || !window.matchMedia) return "light";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function resolveTheme(themeMode) {
+  if (themeMode === "light" || themeMode === "dark") return themeMode;
+  return getSystemTheme();
 }
 
 function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
@@ -928,6 +939,13 @@ export default function App() {
   });
   const [statusMessage, setStatusMessage] = useState("");
   const [loading, setLoading] = useState(true);
+  const [themeMode, setThemeMode] = useState(() => {
+    if (typeof window === "undefined") return "auto";
+    const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return stored === "light" || stored === "dark" || stored === "auto" ? stored : "auto";
+  });
+
+  const activeTheme = useMemo(() => resolveTheme(themeMode), [themeMode]);
 
   async function refreshCourseAndProgress(targetLanguage) {
     const [course, prog, stats] = await Promise.all([
@@ -967,6 +985,26 @@ export default function App() {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(THEME_STORAGE_KEY, themeMode);
+  }, [themeMode]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.setAttribute("data-theme", activeTheme);
+  }, [activeTheme]);
+
+  useEffect(() => {
+    if (themeMode !== "auto" || typeof window === "undefined" || !window.matchMedia) return;
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = () => {
+      document.documentElement.setAttribute("data-theme", getSystemTheme());
+    };
+    mediaQuery.addEventListener("change", onChange);
+    return () => mediaQuery.removeEventListener("change", onChange);
+  }, [themeMode]);
 
   useEffect(() => {
     if (!settings) return;
@@ -1094,10 +1132,24 @@ export default function App() {
           <h1>LingoFlow</h1>
           <p className="topbar-subtitle">Focused daily language practice with adaptive challenges.</p>
         </div>
-        <div className="stats">
-          <span>Level: {progress?.learnerLevel ?? 1}</span>
-          <span>XP: {progress?.totalXp ?? 0}</span>
-          <span>Streak: {progress?.streak ?? 0}</span>
+        <div className="topbar-meta">
+          <div className="stats">
+            <span>Level: {progress?.learnerLevel ?? 1}</span>
+            <span>XP: {progress?.totalXp ?? 0}</span>
+            <span>Streak: {progress?.streak ?? 0}</span>
+          </div>
+          <label className="theme-switcher">
+            Theme
+            <select
+              value={themeMode}
+              onChange={(event) => setThemeMode(event.target.value)}
+              aria-label="Theme mode"
+            >
+              <option value="auto">Auto</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </label>
         </div>
       </header>
 
