@@ -3,13 +3,29 @@ import { api } from "./api";
 import learnIcon from "./assets/icon-learn.svg";
 import setupIcon from "./assets/icon-setup.svg";
 import statsIcon from "./assets/icon-stats.svg";
+import { AuthPage } from "./components/AuthPage";
 import { LearnPage } from "./components/LearnPage";
 import { SetupPage } from "./components/SetupPage";
 import { StatsPage } from "./components/StatsPage";
-import { DEFAULT_DRAFT, PAGE_PATHS, THEME_STORAGE_KEY } from "./constants";
+import {
+  AUTH_PATHS,
+  AUTH_TOKEN_STORAGE_KEY,
+  DEFAULT_DRAFT,
+  PAGE_PATHS,
+  THEME_STORAGE_KEY
+} from "./constants";
 import { getPageFromPathname, getSystemTheme, resolveTheme } from "./utils/theme";
 
 export default function App() {
+  const [authMode, setAuthMode] = useState(() => {
+    if (typeof window === "undefined") return "login";
+    if (window.location.pathname === AUTH_PATHS.register) return "register";
+    return "login";
+  });
+  const [authUser, setAuthUser] = useState(null);
+  const [authBusy, setAuthBusy] = useState(false);
+  const [authError, setAuthError] = useState("");
+  const [authNotice, setAuthNotice] = useState("");
   const [languages, setLanguages] = useState([]);
   const [settings, setSettings] = useState(null);
   const [draftSettings, setDraftSettings] = useState(DEFAULT_DRAFT);
@@ -44,6 +60,14 @@ export default function App() {
 
   const activeTheme = useMemo(() => resolveTheme(themeMode), [themeMode]);
 
+  async function hydrateAuthenticatedApp() {
+    const [langs, conf] = await Promise.all([api.getLanguages(), api.getSettings()]);
+    setLanguages(langs);
+    setSettings(conf);
+    setDraftSettings({ ...DEFAULT_DRAFT, ...conf });
+    await refreshCourseAndProgress(conf.targetLanguage);
+  }
+
   async function refreshCourseAndProgress(targetLanguage) {
     const [course, prog, stats] = await Promise.all([
       api.getCourse(targetLanguage),
@@ -59,16 +83,27 @@ export default function App() {
     let cancelled = false;
 
     async function load() {
-      try {
-        const [langs, conf] = await Promise.all([api.getLanguages(), api.getSettings()]);
-        if (cancelled) return;
+      const token = api.getAuthToken();
+      if (!token) {
+        if (!cancelled) {
+          setAuthUser(null);
+          setLoading(false);
+        }
+        return;
+      }
 
-        setLanguages(langs);
-        setSettings(conf);
-        setDraftSettings({ ...DEFAULT_DRAFT, ...conf });
-        await refreshCourseAndProgress(conf.targetLanguage);
+      try {
+        const me = await api.getMe();
+        if (cancelled) return;
+        setAuthUser(me.user);
+        await hydrateAuthenticatedApp();
       } catch (_error) {
-        setStatusMessage("Could not load app data. Check backend status.");
+        api.clearAuthToken();
+        if (typeof window !== "undefined") {
+          window.localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);
+        }
+        setAuthUser(null);
+        setAuthError("Your session expired. Please sign in again.");
       } finally {
         if (!cancelled) {
           setLoading(false);
@@ -81,6 +116,38 @@ export default function App() {
     return () => {
       cancelled = true;
     };
+  }, []);
+
+  useEffect(() => {
+    async function verifyEmailFromUrl() {
+      if (typeof window === "undefined") return;
+      const url = new URL(window.location.href);
+      if (url.pathname !== "/verify-email") return;
+
+      const token = url.searchParams.get("token");
+      if (!token) {
+        setAuthError("Missing verification token.");
+        window.history.replaceState({}, "", "/");
+        return;
+      }
+
+      setLoading(false);
+      setAuthBusy(true);
+      setAuthError("");
+      setAuthNotice("");
+      try {
+        const result = await api.verifyEmail({ token });
+        setAuthMode("login");
+        setAuthNotice(result?.message || "Email verified. You can sign in now.");
+      } catch (error) {
+        setAuthError(error.message || "Email verification failed.");
+      } finally {
+        setAuthBusy(false);
+        window.history.replaceState({}, "", "/");
+      }
+    }
+
+    verifyEmailFromUrl();
   }, []);
 
   useEffect(() => {
@@ -110,21 +177,31 @@ export default function App() {
 
   useEffect(() => {
     function onPopState() {
+      if (!authUser) {
+        setAuthMode(window.location.pathname === AUTH_PATHS.register ? "register" : "login");
+        return;
+      }
       const nextPage = getPageFromPathname(window.location.pathname);
       setActivePage(nextPage);
     }
 
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
-  }, []);
+  }, [authUser]);
 
   useEffect(() => {
-    const knownPaths = Object.values(PAGE_PATHS);
+    const knownPaths = authUser
+      ? Object.values(PAGE_PATHS)
+      : Object.values(AUTH_PATHS);
     if (!knownPaths.includes(window.location.pathname)) {
-      window.history.replaceState({}, "", PAGE_PATHS.learn);
-      setActivePage("learn");
+      window.history.replaceState({}, "", authUser ? PAGE_PATHS.learn : AUTH_PATHS.login);
+      if (authUser) {
+        setActivePage("learn");
+      } else {
+        setAuthMode("login");
+      }
     }
-  }, []);
+  }, [authUser]);
 
   function navigateToPage(nextPage) {
     const path = PAGE_PATHS[nextPage] || PAGE_PATHS.learn;
@@ -132,6 +209,85 @@ export default function App() {
       window.history.pushState({}, "", path);
     }
     setActivePage(nextPage);
+  }
+
+  function navigateAuthMode(nextMode) {
+    const safeMode = nextMode === "register" ? "register" : "login";
+    const path = AUTH_PATHS[safeMode];
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, "", path);
+    }
+    setAuthMode(safeMode);
+  }
+
+  async function onAuthSuccess(payload) {
+    if (!payload?.token || !payload?.user) {
+      throw new Error("Authentication response is invalid");
+    }
+    api.setAuthToken(payload.token);
+    setAuthUser(payload.user);
+    setAuthError("");
+    setAuthNotice("");
+    setStatusMessage(`Welcome back, ${payload.user.displayName || "Learner"}!`);
+    await hydrateAuthenticatedApp();
+    navigateToPage("learn");
+  }
+
+  async function register(form) {
+    setAuthBusy(true);
+    setAuthError("");
+    setAuthNotice("");
+    try {
+      const payload = await api.register(form);
+      setAuthMode("login");
+      setAuthNotice(
+        payload?.message || "Account created. Check your email for a verification link before sign in."
+      );
+    } catch (error) {
+      setAuthError(error.message || "Could not register.");
+    } finally {
+      setAuthBusy(false);
+    }
+  }
+
+  async function login(form) {
+    setAuthBusy(true);
+    setAuthError("");
+    setAuthNotice("");
+    try {
+      const payload = await api.login(form);
+      await onAuthSuccess(payload);
+    } catch (error) {
+      setAuthError(error.message || "Could not sign in.");
+    } finally {
+      setAuthBusy(false);
+    }
+  }
+
+  async function loginWithGoogle(idToken) {
+    setAuthBusy(true);
+    setAuthError("");
+    setAuthNotice("");
+    try {
+      const payload = await api.loginWithGoogle({ idToken });
+      await onAuthSuccess(payload);
+    } catch (error) {
+      setAuthError(error.message || "Google sign in failed.");
+    } finally {
+      setAuthBusy(false);
+    }
+  }
+
+  function signOut() {
+    api.clearAuthToken();
+    setAuthUser(null);
+    setSettings(null);
+    setProgress(null);
+    setStatsData(null);
+    setCourseCategories([]);
+    setActiveSession(null);
+    setStatusMessage("You have signed out.");
+    setAuthNotice("");
   }
 
   async function saveSetup() {
@@ -216,6 +372,21 @@ export default function App() {
     return <main className="app-shell">Loading LingoFlow...</main>;
   }
 
+  if (!authUser) {
+    return (
+      <AuthPage
+        mode={authMode}
+        busy={authBusy}
+        errorMessage={authError}
+        noticeMessage={authNotice}
+        onModeChange={navigateAuthMode}
+        onRegister={register}
+        onLogin={login}
+        onGoogleLogin={loginWithGoogle}
+      />
+    );
+  }
+
   const tabs = [
     { id: "learn", label: "Learn", icon: learnIcon },
     { id: "setup", label: "Setup", icon: setupIcon },
@@ -231,22 +402,28 @@ export default function App() {
         </div>
         <div className="topbar-meta">
           <div className="stats">
+            <span>{authUser.displayName || "Learner"}</span>
             <span>Level: {progress?.learnerLevel ?? 1}</span>
             <span>XP: {progress?.totalXp ?? 0}</span>
             <span>Streak: {progress?.streak ?? 0}</span>
           </div>
-          <label className="theme-switcher">
-            Theme
-            <select
-              value={themeMode}
-              onChange={(event) => setThemeMode(event.target.value)}
-              aria-label="Theme mode"
-            >
-              <option value="auto">Auto</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-            </select>
-          </label>
+          <div className="topbar-actions">
+            <label className="theme-switcher">
+              Theme
+              <select
+                value={themeMode}
+                onChange={(event) => setThemeMode(event.target.value)}
+                aria-label="Theme mode"
+              >
+                <option value="auto">Auto</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </label>
+            <button className="ghost-button" type="button" onClick={signOut}>
+              Sign out
+            </button>
+          </div>
         </div>
       </header>
 

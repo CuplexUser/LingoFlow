@@ -4,6 +4,14 @@ import { vi } from "vitest";
 import App from "../App";
 
 const apiMock = vi.hoisted(() => ({
+  getAuthToken: vi.fn(),
+  setAuthToken: vi.fn(),
+  clearAuthToken: vi.fn(),
+  register: vi.fn(),
+  login: vi.fn(),
+  verifyEmail: vi.fn(),
+  loginWithGoogle: vi.fn(),
+  getMe: vi.fn(),
   getLanguages: vi.fn(),
   getSettings: vi.fn(),
   getCourse: vi.fn(),
@@ -19,6 +27,15 @@ vi.mock("../api", () => ({
 }));
 
 function setupApiFixtures() {
+  window.localStorage.setItem("lingoflow_auth_token", "test-token");
+  apiMock.getAuthToken.mockReturnValue("test-token");
+  apiMock.getMe.mockResolvedValue({
+    user: {
+      id: 2,
+      email: "test@example.com",
+      displayName: "Tester"
+    }
+  });
   const settings = {
     nativeLanguage: "english",
     targetLanguage: "spanish",

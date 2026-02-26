@@ -14,10 +14,10 @@ This file captures current product and technical priorities for future assignmen
 
 - [ ] Prevent score inflation via duplicate `questionId` submissions.
 - [ ] Wrap session completion writes in a DB transaction (atomic completion).
-- [ ] Replace hardcoded frontend API base URL with environment configuration.
+- [x] Replace hardcoded frontend API base URL with environment configuration.
 - [ ] Add rate limiting for auth and session endpoints.
 - [ ] Add SQLite indexes for stats/history query paths.
-- [ ] Add structured request/error logging and basic health diagnostics.
+- [x] Add structured request/error logging and basic health diagnostics.
 
 ## Completed archive
 
@@ -93,4 +93,12 @@ These items are intentionally left open for the next development cycle.
   - session flow (submit/retry/reveal/resume)
   - setup save/reset behavior
   - stats rendering with API fixtures
+
+## Phase 6 follow-up: Deployable auth UX
+
+- [x] Add dedicated frontend login and registration pages.
+- [x] Add token persistence and authenticated API calls in client.
+- [x] Add optional Google sign-in path (`/api/auth/google` + Google Identity button).
+- [x] Add sign-out flow and auth-gated app bootstrap.
+- [x] Require email verification for email/password registration before login.
 

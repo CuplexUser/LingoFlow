@@ -4,7 +4,13 @@ export const PAGE_PATHS = {
   stats: "/stats"
 };
 
+export const AUTH_PATHS = {
+  login: "/login",
+  register: "/register"
+};
+
 export const THEME_STORAGE_KEY = "lingoflow_theme_mode";
+export const AUTH_TOKEN_STORAGE_KEY = "lingoflow_auth_token";
 
 export const DEFAULT_DRAFT = {
   nativeLanguage: "english",

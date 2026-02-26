@@ -11,7 +11,8 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Expanded exercise types: cloze deletion, listen-and-build sentence, guided dialogue completion
 - Adaptive CEFR-style progression (`A1` → `B2`) based on mastery
 - Persistent progress (XP, streak, category mastery, daily XP, per-item progress) via `better-sqlite3`
-- Multi-user account support with auth (`register`, `login`, `me`) and user-scoped persistence
+- Multi-user account support with auth (`register`, `verify-email`, `login`, `google`, `me`) and user-scoped persistence
+- Dedicated login/register UI with token-based session persistence and sign-out
 - Language options: `Spanish`, `Russian`, `English`
 
 ## Tech Stack
@@ -33,6 +34,16 @@ npm run dev
 - Frontend dev URL: `http://localhost:5173`
 - Backend API URL: `http://localhost:4000/api`
 
+Optional environment variables:
+
+- `VITE_API_BASE` (client): API base path/URL (default: `/api`).
+- `VITE_GOOGLE_CLIENT_ID` (client): enables Google sign-in button on auth page.
+- `GOOGLE_CLIENT_ID` or `GOOGLE_CLIENT_IDS` (server): allowed Google OAuth audience(s).
+- `LINGOFLOW_AUTH_SECRET` (server): auth token signing secret for production.
+- `PUBLIC_APP_URL` (server): base URL used inside verification emails (e.g. `https://app.example.com`).
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE`, `EMAIL_FROM` (server): SMTP delivery for confirmation emails.
+- `LOG_LEVEL` (server): `debug` | `info` | `warn` | `error` (default: `info`).
+
 ## Production Build
 
 ```bash
@@ -48,6 +59,7 @@ Open `http://localhost:4000`.
 client/
   src/App.jsx        # App shell + orchestration
   src/components/    # Learn/Setup/Stats/SessionPlayer components
+                  # + AuthPage (login/register/google sign-in)
   src/__tests__/     # Frontend tests (Vitest + Testing Library)
   src/test/          # Test setup
   src/api.js         # API client
@@ -99,7 +111,9 @@ server/
 
 - `POST /api/auth/register`
 - `POST /api/auth/login`
+- `POST /api/auth/verify-email`
 - `GET /api/auth/me`
+- `POST /api/auth/google`
 - `GET /api/languages`
 - `GET /api/course?language=<id>`
 - `POST /api/session/start`
@@ -107,6 +121,11 @@ server/
 - `GET /api/settings`
 - `PUT /api/settings`
 - `GET /api/progress?language=<id>`
+
+Notes:
+- Protected learner endpoints (`/api/course`, `/api/session/*`, `/api/settings`, `/api/progress`, `/api/stats`) require a bearer token.
+- Email/password users must verify email before login is allowed.
+- Auth and request flow logs are emitted as JSON with `requestId` for correlation.
 
 ## Troubleshooting
 

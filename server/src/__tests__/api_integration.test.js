@@ -5,6 +5,7 @@ const fs = require("fs");
 
 const testDbPath = path.join(__dirname, "..", "..", "data", "lingoflow.test.db");
 process.env.LINGOFLOW_DB_PATH = testDbPath;
+process.env.NODE_ENV = "test";
 if (fs.existsSync(testDbPath)) {
   fs.unlinkSync(testDbPath);
 }
@@ -24,16 +25,52 @@ function makeAttempt(question) {
   return { questionId: question.id, builtSentence: question.answer };
 }
 
+async function createAuthHeaders(base, label) {
+  const email = `${label}-${Date.now()}@example.com`;
+  const registerRes = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!",
+      displayName: label
+    })
+  });
+  assert.equal(registerRes.status, 201);
+  const registered = await registerRes.json();
+  assert.ok(registered.verificationToken);
+
+  const verifyRes = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: registered.verificationToken })
+  });
+  assert.equal(verifyRes.status, 200);
+
+  const loginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password: "Password123!" })
+  });
+  assert.equal(loginRes.status, 200);
+  const logged = await loginRes.json();
+  return {
+    Authorization: `Bearer ${logged.token}`,
+    "Content-Type": "application/json"
+  };
+}
+
 test("session start and complete happy path", async (t) => {
   const app = createApp();
   const server = app.listen(0);
   t.after(() => server.close());
   const { port } = server.address();
   const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "happy-path");
 
   const startRes = await fetch(`${base}/api/session/start`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: authHeaders,
     body: JSON.stringify({
       language: "spanish",
       category: "essentials",
@@ -49,7 +86,7 @@ test("session start and complete happy path", async (t) => {
   const attempts = session.questions.map((question) => makeAttempt(question));
   const completeRes = await fetch(`${base}/api/session/complete`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: authHeaders,
     body: JSON.stringify({
       sessionId: session.sessionId,
       language: "spanish",
@@ -66,7 +103,7 @@ test("session start and complete happy path", async (t) => {
 
   const replayRes = await fetch(`${base}/api/session/complete`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: authHeaders,
     body: JSON.stringify({
       sessionId: session.sessionId,
       language: "spanish",
@@ -83,10 +120,11 @@ test("session complete rejects unknown question ids", async (t) => {
   t.after(() => server.close());
   const { port } = server.address();
   const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "unknown-id");
 
   const startRes = await fetch(`${base}/api/session/start`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: authHeaders,
     body: JSON.stringify({
       language: "spanish",
       category: "travel",
@@ -97,7 +135,7 @@ test("session complete rejects unknown question ids", async (t) => {
 
   const invalid = await fetch(`${base}/api/session/complete`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: authHeaders,
     body: JSON.stringify({
       sessionId: session.sessionId,
       language: "spanish",
@@ -127,7 +165,26 @@ test("auth users get isolated progress state", async (t) => {
   });
   assert.equal(registerA.status, 201);
   const accountA = await registerA.json();
-  const authA = { Authorization: `Bearer ${accountA.token}`, "Content-Type": "application/json" };
+  assert.ok(accountA.verificationToken);
+
+  const verifyA = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: accountA.verificationToken })
+  });
+  assert.equal(verifyA.status, 200);
+
+  const loginA = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: `a-${emailSuffix}@example.com`,
+      password: "Password123!"
+    })
+  });
+  assert.equal(loginA.status, 200);
+  const loggedA = await loginA.json();
+  const authA = { Authorization: `Bearer ${loggedA.token}`, "Content-Type": "application/json" };
 
   const registerB = await fetch(`${base}/api/auth/register`, {
     method: "POST",
@@ -140,7 +197,26 @@ test("auth users get isolated progress state", async (t) => {
   });
   assert.equal(registerB.status, 201);
   const accountB = await registerB.json();
-  const authB = { Authorization: `Bearer ${accountB.token}`, "Content-Type": "application/json" };
+  assert.ok(accountB.verificationToken);
+
+  const verifyB = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: accountB.verificationToken })
+  });
+  assert.equal(verifyB.status, 200);
+
+  const loginB = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: `b-${emailSuffix}@example.com`,
+      password: "Password123!"
+    })
+  });
+  assert.equal(loginB.status, 200);
+  const loggedB = await loginB.json();
+  const authB = { Authorization: `Bearer ${loggedB.token}`, "Content-Type": "application/json" };
 
   const startRes = await fetch(`${base}/api/session/start`, {
     method: "POST",
@@ -174,4 +250,34 @@ test("auth users get isolated progress state", async (t) => {
   const progressBRes = await fetch(`${base}/api/progress?language=spanish`, { headers: authB });
   const progressB = await progressBRes.json();
   assert.equal(progressB.totalXp, 0);
+});
+
+test("email login is blocked until verification", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const email = `pending-${Date.now()}@example.com`;
+  const registerRes = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!",
+      displayName: "Pending User"
+    })
+  });
+  assert.equal(registerRes.status, 201);
+
+  const loginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!"
+    })
+  });
+  assert.equal(loginRes.status, 403);
 });

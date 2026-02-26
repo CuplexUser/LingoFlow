@@ -3,7 +3,11 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const nodemailer = require("nodemailer");
+const { OAuth2Client } = require("google-auth-library");
+require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 const database = require("./db");
+const logger = require("./logger");
 const {
   LANGUAGES,
   getCourseOverview,
@@ -14,6 +18,22 @@ const {
 const port = 4000;
 const AUTH_SECRET = process.env.LINGOFLOW_AUTH_SECRET || "lingoflow-dev-secret-change-me";
 const TOKEN_TTL_SECONDS = 60 * 60 * 24 * 30;
+const GOOGLE_CLIENT_IDS = String(process.env.GOOGLE_CLIENT_IDS || process.env.GOOGLE_CLIENT_ID || "")
+  .split(",")
+  .map((value) => value.trim())
+  .filter(Boolean);
+const PUBLIC_APP_URL = process.env.PUBLIC_APP_URL || "http://localhost:5173";
+const EMAIL_FROM = process.env.EMAIL_FROM || "LingoFlow <no-reply@lingoflow.local>";
+const EMAIL_VERIFICATION_TTL_HOURS = 24;
+const googleAuthClient = GOOGLE_CLIENT_IDS.length > 0
+  ? new OAuth2Client(GOOGLE_CLIENT_IDS[0])
+  : new OAuth2Client();
+
+function emailFingerprint(email) {
+  const normalized = String(email || "").trim().toLowerCase();
+  if (!normalized) return "none";
+  return crypto.createHash("sha256").update(normalized).digest("hex").slice(0, 12);
+}
 
 function normalizeSentence(text) {
   return String(text || "")
@@ -173,21 +193,110 @@ function verifyPassword(password, storedHash) {
   return crypto.timingSafeEqual(actual, expected);
 }
 
+async function verifyGoogleIdToken(idToken) {
+  if (!idToken) {
+    throw new Error("Invalid Google token");
+  }
+  if (!GOOGLE_CLIENT_IDS.length) {
+    throw new Error("Google sign in is not configured");
+  }
+
+  const ticket = await googleAuthClient.verifyIdToken({
+    idToken,
+    audience: GOOGLE_CLIENT_IDS
+  });
+  const payload = ticket.getPayload();
+  if (!payload || !payload.email || !payload.email_verified) {
+    throw new Error("Google account email is not verified");
+  }
+
+  return {
+    email: String(payload.email).toLowerCase(),
+    displayName: String(payload.name || payload.given_name || "Learner")
+  };
+}
+
+function buildEmailVerificationLink(token) {
+  const baseUrl = String(PUBLIC_APP_URL || "").replace(/\/$/, "");
+  return `${baseUrl}/verify-email?token=${encodeURIComponent(token)}`;
+}
+
+function getEmailTransporter() {
+  const host = String(process.env.SMTP_HOST || "").trim();
+  const user = String(process.env.SMTP_USER || "").trim();
+  const pass = String(process.env.SMTP_PASS || "").trim();
+  const portRaw = Number(process.env.SMTP_PORT || 587);
+
+  if (!host || !user || !pass || !Number.isFinite(portRaw)) {
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    host,
+    port: portRaw,
+    secure: Boolean(process.env.SMTP_SECURE === "true"),
+    auth: {
+      user,
+      pass
+    }
+  });
+}
+
+async function sendVerificationEmail({ toEmail, displayName, token }) {
+  const link = buildEmailVerificationLink(token);
+  const transporter = getEmailTransporter();
+  const subject = "Verify your LingoFlow account";
+  const safeName = String(displayName || "Learner");
+  const text = [
+    `Hi ${safeName},`,
+    "",
+    "Welcome to LingoFlow! Please verify your email by opening this link:",
+    link,
+    "",
+    "This link expires in 24 hours."
+  ].join("\n");
+
+  if (!transporter) {
+    console.log(`[EMAIL_DEV] Verify ${toEmail}: ${link}`);
+    return { delivered: false, link };
+  }
+
+  await transporter.sendMail({
+    from: EMAIL_FROM,
+    to: toEmail,
+    subject,
+    text,
+    html: `
+      <p>Hi ${safeName},</p>
+      <p>Welcome to LingoFlow. Confirm your email using the button below:</p>
+      <p><a href="${link}" style="padding:10px 14px;border-radius:8px;background:#292524;color:#fff;text-decoration:none;">Verify Email</a></p>
+      <p>This link expires in 24 hours.</p>
+    `
+  });
+  return { delivered: true, link };
+}
+
 function createApp() {
   const app = express();
   app.use(cors());
   app.use(express.json());
+  app.use((req, res, next) => {
+    const headerRequestId = String(req.headers["x-request-id"] || "").trim();
+    req.requestId = headerRequestId || crypto.randomUUID();
+    res.setHeader("x-request-id", req.requestId);
+    next();
+  });
   app.use((req, _res, next) => {
     const header = String(req.headers.authorization || "");
     if (!header.startsWith("Bearer ")) {
-      req.authUserId = 1;
+      req.authUserId = null;
       req.authFromToken = false;
       return next();
     }
     const token = header.slice(7).trim();
     const payload = parseAuthToken(token);
     if (!payload) {
-      req.authUserId = 1;
+      req.authUserId = null;
       req.authFromToken = false;
       return next();
     }
@@ -195,6 +304,18 @@ function createApp() {
     req.authFromToken = true;
     return next();
   });
+  app.use(logger.requestLogger);
+
+  function requireAuth(req, res, next) {
+    if (!req.authFromToken || !req.authUserId) {
+      logger.logAuthEvent("auth_required_rejected", {
+        requestId: req.requestId,
+        path: req.path
+      });
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    return next();
+  }
 
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
@@ -202,36 +323,82 @@ function createApp() {
     res.json({ ok: true });
   });
 
-  app.post("/api/auth/register", (req, res) => {
+  app.post("/api/auth/register", async (req, res) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     const password = String(req.body?.password || "");
     const displayName = String(req.body?.displayName || "Learner").trim() || "Learner";
 
     if (!email || !email.includes("@")) {
+      logger.logAuthEvent("register_rejected", {
+        requestId: req.requestId,
+        reason: "invalid_email",
+        emailFingerprint: emailFingerprint(email)
+      });
       return res.status(400).json({ error: "Valid email is required" });
     }
     if (password.length < 8) {
+      logger.logAuthEvent("register_rejected", {
+        requestId: req.requestId,
+        reason: "password_too_short",
+        emailFingerprint: emailFingerprint(email)
+      });
       return res.status(400).json({ error: "Password must be at least 8 characters" });
     }
 
     if (database.getUserByEmail(email)) {
+      logger.logAuthEvent("register_rejected", {
+        requestId: req.requestId,
+        reason: "email_exists",
+        emailFingerprint: emailFingerprint(email)
+      });
       return res.status(409).json({ error: "Email already registered" });
     }
 
-    const created = database.createUser({
-      email,
-      passwordHash: hashPassword(password),
-      displayName
-    });
-    if (!created) {
-      return res.status(500).json({ error: "Could not create user" });
-    }
+    try {
+      const created = database.createUser({
+        email,
+        passwordHash: hashPassword(password),
+        displayName,
+        emailVerified: false,
+        authProvider: "local"
+      });
+      if (!created) {
+        return res.status(500).json({ error: "Could not create user" });
+      }
 
-    const token = createAuthToken(created.id);
-    return res.status(201).json({
-      token,
-      user: created
-    });
+      const verifyToken = crypto.randomBytes(32).toString("hex");
+      const expiresAt = new Date(Date.now() + EMAIL_VERIFICATION_TTL_HOURS * 60 * 60 * 1000).toISOString();
+      database.createEmailVerification({
+        userId: created.id,
+        token: verifyToken,
+        expiresAt
+      });
+
+      await sendVerificationEmail({
+        toEmail: created.email,
+        displayName: created.displayName,
+        token: verifyToken
+      });
+      logger.logAuthEvent("register_success", {
+        requestId: req.requestId,
+        userId: created.id,
+        emailFingerprint: emailFingerprint(created.email)
+      });
+
+      return res.status(201).json({
+        ok: true,
+        requiresEmailVerification: true,
+        message: "Registration successful. Please verify your email before signing in.",
+        ...(process.env.NODE_ENV === "test" ? { verificationToken: verifyToken } : {})
+      });
+    } catch (error) {
+      logger.error("register_failed", {
+        requestId: req.requestId,
+        reason: error.message || "unknown",
+        emailFingerprint: emailFingerprint(email)
+      });
+      return res.status(500).json({ error: "Could not register account right now." });
+    }
   });
 
   app.post("/api/auth/login", (req, res) => {
@@ -239,38 +406,147 @@ function createApp() {
     const password = String(req.body?.password || "");
 
     if (!email || !password) {
+      logger.logAuthEvent("login_rejected", {
+        requestId: req.requestId,
+        reason: "missing_credentials",
+        emailFingerprint: emailFingerprint(email)
+      });
       return res.status(400).json({ error: "email and password are required" });
     }
 
     const user = database.getUserByEmail(email);
     if (!user || !verifyPassword(password, user.passwordHash)) {
+      logger.logAuthEvent("login_rejected", {
+        requestId: req.requestId,
+        reason: "invalid_credentials",
+        emailFingerprint: emailFingerprint(email)
+      });
       return res.status(401).json({ error: "Invalid credentials" });
+    }
+    if (!user.emailVerified) {
+      logger.logAuthEvent("login_rejected", {
+        requestId: req.requestId,
+        reason: "email_not_verified",
+        userId: user.id,
+        emailFingerprint: emailFingerprint(email)
+      });
+      return res.status(403).json({ error: "Please verify your email before signing in." });
     }
 
     const token = createAuthToken(user.id);
+    logger.logAuthEvent("login_success", {
+      requestId: req.requestId,
+      userId: user.id,
+      emailFingerprint: emailFingerprint(email)
+    });
     return res.json({
       token,
       user: database.getUserById(user.id)
     });
   });
 
+  app.post("/api/auth/google", async (req, res) => {
+    const idToken = String(req.body?.idToken || "").trim();
+    if (!idToken) {
+      logger.logAuthEvent("google_login_rejected", {
+        requestId: req.requestId,
+        reason: "missing_id_token"
+      });
+      return res.status(400).json({ error: "idToken is required" });
+    }
+
+    try {
+      const profile = await verifyGoogleIdToken(idToken);
+      let user = database.getUserByEmail(profile.email);
+      if (!user) {
+        user = database.createUser({
+          email: profile.email,
+          passwordHash: `oauth-google:${crypto.randomUUID()}`,
+          displayName: profile.displayName,
+          emailVerified: true,
+          authProvider: "google"
+        });
+      } else if (!user.emailVerified) {
+        database.markUserEmailVerified(user.id);
+      }
+      if (!user) {
+        return res.status(500).json({ error: "Could not create user" });
+      }
+
+      const token = createAuthToken(user.id);
+      logger.logAuthEvent("google_login_success", {
+        requestId: req.requestId,
+        userId: user.id,
+        emailFingerprint: emailFingerprint(profile.email)
+      });
+      return res.json({
+        token,
+        user: database.getUserById(user.id)
+      });
+    } catch (error) {
+      logger.logAuthEvent("google_login_rejected", {
+        requestId: req.requestId,
+        reason: error.message || "google_auth_failed"
+      });
+      return res.status(401).json({ error: error.message || "Google authentication failed" });
+    }
+  });
+
   app.get("/api/auth/me", (req, res) => {
     if (!req.authFromToken) {
+      logger.logAuthEvent("me_rejected", {
+        requestId: req.requestId,
+        reason: "missing_token"
+      });
       return res.status(401).json({ error: "Authentication required" });
     }
     const user = database.getUserById(req.authUserId);
     if (!user) {
+      logger.logAuthEvent("me_rejected", {
+        requestId: req.requestId,
+        reason: "user_not_found",
+        userId: req.authUserId
+      });
       return res.status(404).json({ error: "User not found" });
     }
     return res.json({ user });
+  });
+
+  app.post("/api/auth/verify-email", (req, res) => {
+    const token = String(req.body?.token || "").trim();
+    if (!token) {
+      logger.logAuthEvent("verify_email_rejected", {
+        requestId: req.requestId,
+        reason: "missing_token"
+      });
+      return res.status(400).json({ error: "Verification token is required" });
+    }
+
+    const user = database.consumeEmailVerificationToken(token);
+    if (!user) {
+      logger.logAuthEvent("verify_email_rejected", {
+        requestId: req.requestId,
+        reason: "invalid_or_expired_token"
+      });
+      return res.status(400).json({ error: "Invalid or expired verification token" });
+    }
+    logger.logAuthEvent("verify_email_success", {
+      requestId: req.requestId,
+      userId: user.id
+    });
+
+    return res.json({
+      ok: true,
+      message: "Email verified successfully. You can now sign in."
+    });
   });
 
   app.get("/api/languages", (_req, res) => {
     res.json(LANGUAGES);
   });
 
-  app.get("/api/course", (req, res) => {
-    const userId = req.authUserId || 1;
+  app.get("/api/course", requireAuth, (req, res) => {
+    const userId = req.authUserId;
     const language = String(req.query.language || "spanish").toLowerCase();
     const categories = getCourseOverview(language);
     const categoryProgress = database.getCategoryProgress(userId, language);
@@ -300,8 +576,8 @@ function createApp() {
     res.json(enriched);
   });
 
-  app.post("/api/session/start", (req, res) => {
-    const userId = req.authUserId || 1;
+  app.post("/api/session/start", requireAuth, (req, res) => {
+    const userId = req.authUserId;
     const { language, category, count } = req.body || {};
     if (!language || !category) {
       return res.status(400).json({ error: "language and category are required" });
@@ -349,13 +625,13 @@ function createApp() {
     });
   });
 
-  app.get("/api/settings", (req, res) => {
-    const userId = req.authUserId || 1;
+  app.get("/api/settings", requireAuth, (req, res) => {
+    const userId = req.authUserId;
     res.json(database.getSettings(userId));
   });
 
-  app.put("/api/settings", (req, res) => {
-    const userId = req.authUserId || 1;
+  app.put("/api/settings", requireAuth, (req, res) => {
+    const userId = req.authUserId;
     const {
       nativeLanguage,
       targetLanguage,
@@ -385,8 +661,8 @@ function createApp() {
     res.json(row);
   });
 
-  app.get("/api/progress", (req, res) => {
-    const userId = req.authUserId || 1;
+  app.get("/api/progress", requireAuth, (req, res) => {
+    const userId = req.authUserId;
     const language = String(req.query.language || "").toLowerCase();
     const progress = database.getProgress(userId, language || undefined);
 
@@ -401,15 +677,15 @@ function createApp() {
     });
   });
 
-  app.get("/api/stats", (req, res) => {
-    const userId = req.authUserId || 1;
+  app.get("/api/stats", requireAuth, (req, res) => {
+    const userId = req.authUserId;
     const language = String(req.query.language || "spanish").toLowerCase();
     const stats = database.getStats(userId, language);
     res.json(stats);
   });
 
-  app.post("/api/session/complete", (req, res) => {
-    const userId = req.authUserId || 1;
+  app.post("/api/session/complete", requireAuth, (req, res) => {
+    const userId = req.authUserId;
     const {
       sessionId,
       language,

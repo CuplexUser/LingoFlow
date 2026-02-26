@@ -80,6 +80,12 @@ body {
   justify-items: end;
 }
 
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 .stats {
   display: flex;
   flex-wrap: wrap;
@@ -93,6 +99,78 @@ body {
   padding: 7px 12px;
   border: 1px solid var(--line);
   background: var(--surface);
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px 12px;
+}
+
+.auth-card {
+  width: min(460px, 100%);
+}
+
+.auth-card h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+}
+
+.auth-card h2 {
+  margin: 14px 0 10px;
+  font-size: 1.2rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 10px;
+}
+
+.google-auth {
+  margin-top: 14px;
+}
+
+.google-placeholder {
+  width: min(320px, 100%);
+}
+
+.auth-divider {
+  position: relative;
+  margin: 12px 0;
+  text-align: center;
+}
+
+.auth-divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px solid var(--line);
+}
+
+.auth-divider span {
+  position: relative;
+  background: var(--surface);
+  padding: 0 10px;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.auth-mode-text {
+  margin: 14px 0 0;
+  color: var(--text-muted);
+}
+
+.mode-link {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
 }
 
 .theme-switcher {

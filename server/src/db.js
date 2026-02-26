@@ -40,10 +40,25 @@ function createUsersTable() {
       email TEXT NOT NULL UNIQUE,
       password_hash TEXT NOT NULL,
       display_name TEXT NOT NULL DEFAULT 'Learner',
+      email_verified INTEGER NOT NULL DEFAULT 0,
+      auth_provider TEXT NOT NULL DEFAULT 'local',
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
     )
   `);
+}
+
+function ensureUsersColumns() {
+  const columns = db.prepare("PRAGMA table_info(users)").all();
+  const names = new Set(columns.map((column) => column.name));
+
+  if (!names.has("email_verified")) {
+    db.exec("ALTER TABLE users ADD COLUMN email_verified INTEGER NOT NULL DEFAULT 0");
+  }
+
+  if (!names.has("auth_provider")) {
+    db.exec("ALTER TABLE users ADD COLUMN auth_provider TEXT NOT NULL DEFAULT 'local'");
+  }
 }
 
 function migrateLegacySingleUserSchema() {
@@ -275,6 +290,7 @@ function migrateLegacySingleUserSchema() {
 migrateLegacySingleUserSchema();
 
 createUsersTable();
+ensureUsersColumns();
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS settings (
@@ -380,6 +396,15 @@ db.exec(`
     error_type TEXT NOT NULL DEFAULT 'none',
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+
+  CREATE TABLE IF NOT EXISTS email_verifications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token TEXT NOT NULL UNIQUE,
+    expires_at TEXT NOT NULL,
+    consumed_at TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 db.exec(`
@@ -393,6 +418,8 @@ db.exec(`
   ON item_progress(user_id, language, category);
   CREATE INDEX IF NOT EXISTS idx_active_sessions_user
   ON active_sessions(user_id, created_at DESC);
+  CREATE INDEX IF NOT EXISTS idx_email_verifications_token
+  ON email_verifications(token);
 `);
 
 function ensureSettingsColumns() {
@@ -427,8 +454,8 @@ function ensureSettingsColumns() {
 ensureSettingsColumns();
 
 db.prepare(`
-  INSERT OR IGNORE INTO users (id, email, password_hash, display_name)
-  VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner')
+  INSERT OR IGNORE INTO users (id, email, password_hash, display_name, email_verified, auth_provider)
+  VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner', 1, 'local')
 `).run();
 
 function ensureUserState(userId = 1) {
@@ -447,9 +474,14 @@ function ensureUserState(userId = 1) {
 }
 
 ensureUserState(1);
+db.prepare("UPDATE users SET email_verified = 1, auth_provider = 'local' WHERE id = 1").run();
 
 function toIsoDate(date = new Date()) {
   return date.toISOString().slice(0, 10);
+}
+
+function toIsoDateTime(date = new Date()) {
+  return date.toISOString();
 }
 
 function addDaysIso(isoDate, days) {
@@ -530,7 +562,7 @@ function getUserByEmail(email) {
   const normalized = normalizeEmail(email);
   if (!normalized) return null;
   const row = db.prepare(`
-    SELECT id, email, password_hash, display_name
+    SELECT id, email, password_hash, display_name, email_verified, auth_provider
     FROM users
     WHERE email = ?
   `).get(normalized);
@@ -539,13 +571,15 @@ function getUserByEmail(email) {
     id: row.id,
     email: row.email,
     passwordHash: row.password_hash,
-    displayName: row.display_name
+    displayName: row.display_name,
+    emailVerified: Boolean(row.email_verified),
+    authProvider: row.auth_provider
   };
 }
 
 function getUserById(userId) {
   const row = db.prepare(`
-    SELECT id, email, display_name
+    SELECT id, email, display_name, email_verified, auth_provider
     FROM users
     WHERE id = ?
   `).get(userId);
@@ -553,21 +587,68 @@ function getUserById(userId) {
   return {
     id: row.id,
     email: row.email,
-    displayName: row.display_name
+    displayName: row.display_name,
+    emailVerified: Boolean(row.email_verified),
+    authProvider: row.auth_provider
   };
 }
 
-function createUser({ email, passwordHash, displayName }) {
+function createUser({ email, passwordHash, displayName, emailVerified = false, authProvider = "local" }) {
   const normalizedEmail = normalizeEmail(email);
   if (!normalizedEmail || !passwordHash) return null;
   const safeName = String(displayName || "Learner").trim() || "Learner";
   const insert = db.prepare(`
-    INSERT INTO users (email, password_hash, display_name)
-    VALUES (?, ?, ?)
-  `).run(normalizedEmail, passwordHash, safeName);
+    INSERT INTO users (email, password_hash, display_name, email_verified, auth_provider)
+    VALUES (?, ?, ?, ?, ?)
+  `).run(normalizedEmail, passwordHash, safeName, emailVerified ? 1 : 0, authProvider);
   const userId = Number(insert.lastInsertRowid);
   ensureUserState(userId);
   return getUserById(userId);
+}
+
+function createEmailVerification({ userId, token, expiresAt }) {
+  db.prepare(`
+    INSERT INTO email_verifications (user_id, token, expires_at)
+    VALUES (?, ?, ?)
+  `).run(userId, token, expiresAt);
+}
+
+function consumeEmailVerificationToken(token, nowIso = toIsoDateTime()) {
+  const row = db.prepare(`
+    SELECT id, user_id, expires_at, consumed_at
+    FROM email_verifications
+    WHERE token = ?
+  `).get(String(token || ""));
+  if (!row) return null;
+  if (row.consumed_at) return null;
+  if (row.expires_at < nowIso) return null;
+
+  const tx = db.transaction(() => {
+    db.prepare(`
+      UPDATE email_verifications
+      SET consumed_at = ?
+      WHERE id = ?
+    `).run(nowIso, row.id);
+
+    db.prepare(`
+      UPDATE users
+      SET email_verified = 1,
+          updated_at = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `).run(row.user_id);
+  });
+
+  tx();
+  return getUserById(row.user_id);
+}
+
+function markUserEmailVerified(userId) {
+  db.prepare(`
+    UPDATE users
+    SET email_verified = 1,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE id = ?
+  `).run(userId);
 }
 
 function getSettings(userId = 1) {
@@ -1128,6 +1209,9 @@ module.exports = {
   getUserByEmail,
   getUserById,
   createUser,
+  createEmailVerification,
+  consumeEmailVerificationToken,
+  markUserEmailVerified,
   getSettings,
   saveSettings,
   getCategoryMastery,
@@ -1145,5 +1229,6 @@ module.exports = {
   getStats,
   recordSession,
   addDailyXp,
-  toIsoDate
+  toIsoDate,
+  toIsoDateTime
 };
