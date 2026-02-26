@@ -71,7 +71,7 @@ test("generateSession includes expanded exercise types", () => {
 
 test("recordSession updates mastery and daily xp", () => {
   const today = database.toIsoDate();
-  const before = database.getProgress("spanish");
+  const before = database.getProgress(1, "spanish");
   const saved = database.recordSession({
     language: "spanish",
     category: "essentials",
@@ -82,7 +82,7 @@ test("recordSession updates mastery and daily xp", () => {
     difficultyLevel: "a2",
     today
   });
-  const after = database.getProgress("spanish");
+  const after = database.getProgress(1, "spanish");
   assert.ok(saved.mastery >= 0);
   assert.ok(after.totalXp >= before.totalXp);
   assert.ok(after.todayXp >= 24);

@@ -8,12 +8,18 @@ This file captures current product and technical priorities for future assignmen
 - We **do** want to prevent trivial cheating and easy score inflation.
 - Hearts are currently de-prioritized in the product experience.
 
-## Priority order
+## Current focus
 
-1. Tests for core logic and regression safety.
-2. Basic server-side validation and anti-trivial-cheat protections.
-3. Better learning depth (retention, diagnosis, exercise quality).
-4. Content scaling and analytics improvements.
+## Phase 7: Integrity, operations, and scale
+
+- [ ] Prevent score inflation via duplicate `questionId` submissions.
+- [ ] Wrap session completion writes in a DB transaction (atomic completion).
+- [ ] Replace hardcoded frontend API base URL with environment configuration.
+- [ ] Add rate limiting for auth and session endpoints.
+- [ ] Add SQLite indexes for stats/history query paths.
+- [ ] Add structured request/error logging and basic health diagnostics.
+
+## Completed archive
 
 ## Phase 1: Reliability and anti-trivial-cheat
 
@@ -68,4 +74,23 @@ This file captures current product and technical priorities for future assignmen
 
 - [x] Replace daily progress from lifetime XP with true "XP earned today".
 - [x] Add per-day XP table and daily aggregation API.
+
+## Next roadmap (post-completion backlog)
+
+These items are intentionally left open for the next development cycle.
+
+## Phase 5: Multi-user foundation
+
+- [x] Add `users` table and authentication endpoints (register/login/me).
+- [x] Add `user_id` ownership to learner data tables and queries.
+- [x] Derive user identity server-side from auth token/session (never trust client-sent user id).
+- [x] Migrate existing single-user data into a default user safely.
+
+## Phase 6: Frontend architecture and test coverage
+
+- [x] Refactor `client/src/App.jsx` into smaller components/hooks.
+- [x] Add frontend tests under `client/src/__tests__/`:
+  - session flow (submit/retry/reveal/resume)
+  - setup save/reset behavior
+  - stats rendering with API fixtures
 

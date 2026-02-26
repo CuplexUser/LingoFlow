@@ -107,3 +107,71 @@ test("session complete rejects unknown question ids", async (t) => {
   });
   assert.equal(invalid.status, 400);
 });
+
+test("auth users get isolated progress state", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const emailSuffix = Date.now();
+  const registerA = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: `a-${emailSuffix}@example.com`,
+      password: "Password123!",
+      displayName: "Learner A"
+    })
+  });
+  assert.equal(registerA.status, 201);
+  const accountA = await registerA.json();
+  const authA = { Authorization: `Bearer ${accountA.token}`, "Content-Type": "application/json" };
+
+  const registerB = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: `b-${emailSuffix}@example.com`,
+      password: "Password123!",
+      displayName: "Learner B"
+    })
+  });
+  assert.equal(registerB.status, 201);
+  const accountB = await registerB.json();
+  const authB = { Authorization: `Bearer ${accountB.token}`, "Content-Type": "application/json" };
+
+  const startRes = await fetch(`${base}/api/session/start`, {
+    method: "POST",
+    headers: authA,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "essentials",
+      count: 6
+    })
+  });
+  assert.equal(startRes.status, 200);
+  const session = await startRes.json();
+  const attempts = session.questions.map((question) => makeAttempt(question));
+
+  const completeRes = await fetch(`${base}/api/session/complete`, {
+    method: "POST",
+    headers: authA,
+    body: JSON.stringify({
+      sessionId: session.sessionId,
+      language: "spanish",
+      category: "essentials",
+      attempts
+    })
+  });
+  assert.equal(completeRes.status, 200);
+
+  const progressARes = await fetch(`${base}/api/progress?language=spanish`, { headers: authA });
+  const progressA = await progressARes.json();
+  assert.ok(progressA.totalXp > 0);
+
+  const progressBRes = await fetch(`${base}/api/progress?language=spanish`, { headers: authB });
+  const progressB = await progressBRes.json();
+  assert.equal(progressB.totalXp, 0);
+});

@@ -12,6 +12,8 @@ const {
 } = require("./data");
 
 const port = 4000;
+const AUTH_SECRET = process.env.LINGOFLOW_AUTH_SECRET || "lingoflow-dev-secret-change-me";
+const TOKEN_TTL_SECONDS = 60 * 60 * 24 * 30;
 
 function normalizeSentence(text) {
   return String(text || "")
@@ -91,10 +93,108 @@ function calculateXp({
   return { accuracy, xpGained };
 }
 
+function base64UrlEncode(value) {
+  return Buffer.from(value, "utf8").toString("base64url");
+}
+
+function base64UrlDecode(value) {
+  return Buffer.from(value, "base64url").toString("utf8");
+}
+
+function signTokenPayload(payloadJson) {
+  return crypto
+    .createHmac("sha256", AUTH_SECRET)
+    .update(payloadJson)
+    .digest("base64url");
+}
+
+function createAuthToken(userId) {
+  const now = Math.floor(Date.now() / 1000);
+  const payloadJson = JSON.stringify({
+    sub: Number(userId),
+    iat: now,
+    exp: now + TOKEN_TTL_SECONDS
+  });
+  const payloadPart = base64UrlEncode(payloadJson);
+  const signature = signTokenPayload(payloadJson);
+  return `v1.${payloadPart}.${signature}`;
+}
+
+function parseAuthToken(token) {
+  if (!token || typeof token !== "string") return null;
+  const parts = token.split(".");
+  if (parts.length !== 3 || parts[0] !== "v1") return null;
+  const payloadPart = parts[1];
+  const signature = parts[2];
+
+  let payloadJson = "";
+  try {
+    payloadJson = base64UrlDecode(payloadPart);
+  } catch (_error) {
+    return null;
+  }
+
+  const expectedSignature = signTokenPayload(payloadJson);
+  const actualBuffer = Buffer.from(signature, "utf8");
+  const expectedBuffer = Buffer.from(expectedSignature, "utf8");
+  if (
+    actualBuffer.length !== expectedBuffer.length ||
+    !crypto.timingSafeEqual(actualBuffer, expectedBuffer)
+  ) {
+    return null;
+  }
+
+  let payload = null;
+  try {
+    payload = JSON.parse(payloadJson);
+  } catch (_error) {
+    return null;
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  if (!payload || !Number.isInteger(payload.sub) || !Number.isInteger(payload.exp)) return null;
+  if (payload.exp <= now) return null;
+  return payload;
+}
+
+function hashPassword(password) {
+  const salt = crypto.randomBytes(16).toString("hex");
+  const hash = crypto.scryptSync(password, salt, 64).toString("hex");
+  return `${salt}:${hash}`;
+}
+
+function verifyPassword(password, storedHash) {
+  if (!storedHash || !storedHash.includes(":")) return false;
+  const [salt, hashHex] = storedHash.split(":");
+  if (!salt || !hashHex) return false;
+  const actual = crypto.scryptSync(password, salt, 64);
+  const expected = Buffer.from(hashHex, "hex");
+  if (actual.length !== expected.length) return false;
+  return crypto.timingSafeEqual(actual, expected);
+}
+
 function createApp() {
   const app = express();
   app.use(cors());
   app.use(express.json());
+  app.use((req, _res, next) => {
+    const header = String(req.headers.authorization || "");
+    if (!header.startsWith("Bearer ")) {
+      req.authUserId = 1;
+      req.authFromToken = false;
+      return next();
+    }
+    const token = header.slice(7).trim();
+    const payload = parseAuthToken(token);
+    if (!payload) {
+      req.authUserId = 1;
+      req.authFromToken = false;
+      return next();
+    }
+    req.authUserId = payload.sub;
+    req.authFromToken = true;
+    return next();
+  });
 
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
@@ -102,14 +202,78 @@ function createApp() {
     res.json({ ok: true });
   });
 
+  app.post("/api/auth/register", (req, res) => {
+    const email = String(req.body?.email || "").trim().toLowerCase();
+    const password = String(req.body?.password || "");
+    const displayName = String(req.body?.displayName || "Learner").trim() || "Learner";
+
+    if (!email || !email.includes("@")) {
+      return res.status(400).json({ error: "Valid email is required" });
+    }
+    if (password.length < 8) {
+      return res.status(400).json({ error: "Password must be at least 8 characters" });
+    }
+
+    if (database.getUserByEmail(email)) {
+      return res.status(409).json({ error: "Email already registered" });
+    }
+
+    const created = database.createUser({
+      email,
+      passwordHash: hashPassword(password),
+      displayName
+    });
+    if (!created) {
+      return res.status(500).json({ error: "Could not create user" });
+    }
+
+    const token = createAuthToken(created.id);
+    return res.status(201).json({
+      token,
+      user: created
+    });
+  });
+
+  app.post("/api/auth/login", (req, res) => {
+    const email = String(req.body?.email || "").trim().toLowerCase();
+    const password = String(req.body?.password || "");
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "email and password are required" });
+    }
+
+    const user = database.getUserByEmail(email);
+    if (!user || !verifyPassword(password, user.passwordHash)) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    const token = createAuthToken(user.id);
+    return res.json({
+      token,
+      user: database.getUserById(user.id)
+    });
+  });
+
+  app.get("/api/auth/me", (req, res) => {
+    if (!req.authFromToken) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    const user = database.getUserById(req.authUserId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    return res.json({ user });
+  });
+
   app.get("/api/languages", (_req, res) => {
     res.json(LANGUAGES);
   });
 
   app.get("/api/course", (req, res) => {
+    const userId = req.authUserId || 1;
     const language = String(req.query.language || "spanish").toLowerCase();
     const categories = getCourseOverview(language);
-    const categoryProgress = database.getCategoryProgress(language);
+    const categoryProgress = database.getCategoryProgress(userId, language);
     const progressMap = new Map(categoryProgress.map((item) => [item.category, item]));
 
     const enriched = categories.map((category, index) => {
@@ -137,16 +301,17 @@ function createApp() {
   });
 
   app.post("/api/session/start", (req, res) => {
+    const userId = req.authUserId || 1;
     const { language, category, count } = req.body || {};
     if (!language || !category) {
       return res.status(400).json({ error: "language and category are required" });
     }
 
-    database.pruneExpiredActiveSessions(database.toIsoDate());
-    const mastery = database.getCategoryMastery(language, category);
-    const settings = database.getSettings();
-    const recentAccuracy = database.getRecentCategoryAccuracy(language, category, 5);
-    const hints = database.getItemSelectionHints(language, category, database.toIsoDate());
+    database.pruneExpiredActiveSessions(userId, database.toIsoDate());
+    const mastery = database.getCategoryMastery(userId, language, category);
+    const settings = database.getSettings(userId);
+    const recentAccuracy = database.getRecentCategoryAccuracy(userId, language, category, 5);
+    const hints = database.getItemSelectionHints(userId, language, category, database.toIsoDate());
     const session = generateSession({
       language,
       category,
@@ -165,6 +330,7 @@ function createApp() {
     const sessionId = crypto.randomUUID();
     const expiresAt = database.toIsoDate(new Date(Date.now() + (1000 * 60 * 60 * 24 * 2)));
     database.createActiveSession({
+      userId,
       sessionId,
       language,
       category,
@@ -183,11 +349,13 @@ function createApp() {
     });
   });
 
-  app.get("/api/settings", (_req, res) => {
-    res.json(database.getSettings());
+  app.get("/api/settings", (req, res) => {
+    const userId = req.authUserId || 1;
+    res.json(database.getSettings(userId));
   });
 
   app.put("/api/settings", (req, res) => {
+    const userId = req.authUserId || 1;
     const {
       nativeLanguage,
       targetLanguage,
@@ -200,7 +368,7 @@ function createApp() {
       focusArea
     } = req.body || {};
 
-    const row = database.saveSettings({
+    const row = database.saveSettings(userId, {
       nativeLanguage: nativeLanguage || "english",
       targetLanguage: targetLanguage || "spanish",
       dailyGoal: Number.isInteger(dailyGoal) ? dailyGoal : 30,
@@ -218,8 +386,9 @@ function createApp() {
   });
 
   app.get("/api/progress", (req, res) => {
+    const userId = req.authUserId || 1;
     const language = String(req.query.language || "").toLowerCase();
-    const progress = database.getProgress(language || undefined);
+    const progress = database.getProgress(userId, language || undefined);
 
     res.json({
       totalXp: progress.totalXp,
@@ -233,12 +402,14 @@ function createApp() {
   });
 
   app.get("/api/stats", (req, res) => {
+    const userId = req.authUserId || 1;
     const language = String(req.query.language || "spanish").toLowerCase();
-    const stats = database.getStats(language);
+    const stats = database.getStats(userId, language);
     res.json(stats);
   });
 
   app.post("/api/session/complete", (req, res) => {
+    const userId = req.authUserId || 1;
     const {
       sessionId,
       language,
@@ -255,7 +426,7 @@ function createApp() {
       return res.status(400).json({ error: "Too many attempts in payload" });
     }
 
-    const session = database.getActiveSession(String(sessionId));
+    const session = database.getActiveSession(String(sessionId), userId);
     if (!session) return res.status(404).json({ error: "Session not found" });
     if (session.completed) return res.status(409).json({ error: "Session already completed" });
     if (session.language !== language || session.category !== category) {
@@ -304,6 +475,7 @@ function createApp() {
 
     const today = database.toIsoDate();
     const saved = database.recordSession({
+      userId,
       language,
       category,
       score,
@@ -316,6 +488,7 @@ function createApp() {
 
     evaluatedAttempts.forEach((entry) => {
       database.upsertItemProgressAttempt({
+        userId,
         language,
         category,
         itemId: entry.question.id,
@@ -325,6 +498,7 @@ function createApp() {
         today
       });
       database.recordAttemptHistory({
+        userId,
         sessionId,
         language,
         category,
@@ -336,7 +510,7 @@ function createApp() {
       });
     });
 
-    database.markActiveSessionCompleted(sessionId);
+    database.markActiveSessionCompleted(sessionId, userId);
     return res.json({
       ok: true,
       evaluated: {

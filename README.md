@@ -11,6 +11,7 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Expanded exercise types: cloze deletion, listen-and-build sentence, guided dialogue completion
 - Adaptive CEFR-style progression (`A1` → `B2`) based on mastery
 - Persistent progress (XP, streak, category mastery, daily XP, per-item progress) via `better-sqlite3`
+- Multi-user account support with auth (`register`, `login`, `me`) and user-scoped persistence
 - Language options: `Spanish`, `Russian`, `English`
 
 ## Tech Stack
@@ -45,13 +46,19 @@ Open `http://localhost:4000`.
 
 ```text
 client/
-  src/App.jsx        # UI flow: landing, session player, feedback
+  src/App.jsx        # App shell + orchestration
+  src/components/    # Learn/Setup/Stats/SessionPlayer components
+  src/__tests__/     # Frontend tests (Vitest + Testing Library)
+  src/test/          # Test setup
   src/api.js         # API client
+  src/constants.js   # Shared UI constants
+  src/utils/         # Utilities (theme/path helpers)
   src/styles.css     # App styles
 server/
   src/index.js       # API routes
   src/data.js        # Course content + session generation
-  src/db.js          # SQLite schema + progression persistence
+  src/db.js          # SQLite schema, auth users, user-scoped persistence
+  src/__tests__/     # Backend tests
   data/              # Runtime DB files
 ```
 
@@ -62,6 +69,7 @@ server/
 - `npm run build`: build frontend bundle
 - `npm run start`: serve backend and built frontend
 - `npm run test:server`: run backend unit + integration tests
+- `npm run test --prefix client`: run frontend tests
 
 ## Completed Reliability Improvements
 
@@ -75,7 +83,11 @@ server/
 ## Testing
 
 - Backend test suite location: `server/src/__tests__/`
+- Frontend test suite location: `client/src/__tests__/`
 - Current coverage focus:
+  - frontend session retry/reveal/resume behavior
+  - frontend setup save/reset behavior
+  - frontend stats rendering from API fixtures
   - session start/complete happy path
   - invalid/unknown completion payload rejection
   - answer normalization and sentence evaluation
@@ -85,6 +97,9 @@ server/
 
 ## API Overview
 
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/auth/me`
 - `GET /api/languages`
 - `GET /api/course?language=<id>`
 - `POST /api/session/start`
