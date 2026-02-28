@@ -1,19 +1,106 @@
-const express = require("express");
-const cors = require("cors");
-const fs = require("fs");
-const path = require("path");
-const crypto = require("crypto");
-const nodemailer = require("nodemailer");
-const { OAuth2Client } = require("google-auth-library");
+const express: typeof import("express") = require("express");
+const cors: typeof import("cors") = require("cors");
+const fs: typeof import("fs") = require("fs");
+const path: typeof import("path") = require("path");
+const crypto: typeof import("crypto") = require("crypto");
+const nodemailer: typeof import("nodemailer") = require("nodemailer");
+const { OAuth2Client }: { OAuth2Client: typeof import("google-auth-library").OAuth2Client } = require("google-auth-library");
 require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
-const database = require("./db");
-const logger = require("./logger");
+type Request = import("express").Request;
+type Response = import("express").Response;
+type NextFunction = import("express").NextFunction;
+type ExpressApp = import("express").Express;
+type Transporter = import("nodemailer").Transporter;
+
+type ErrorType =
+  | "none"
+  | "missing_answer"
+  | "word_order"
+  | "missing_word"
+  | "grammar_or_vocab"
+  | "dictation_mismatch"
+  | "cloze_choice"
+  | "wrong_option";
+
+type QuestionType =
+  | "mc_sentence"
+  | "build_sentence"
+  | "cloze_sentence"
+  | "dictation_sentence"
+  | "dialogue_turn";
+
+interface SessionQuestion {
+  id: string;
+  type: QuestionType;
+  answer: string;
+  acceptedAnswers?: string[];
+  clozeAnswer?: string;
+  objective?: string;
+}
+
+interface SessionAttempt {
+  questionId?: string;
+  builtSentence?: string;
+  textAnswer?: string;
+  selectedOption?: string;
+}
+
+interface AttemptEvaluation {
+  correct: boolean;
+  errorType: ErrorType;
+  submitted: string;
+}
+
+interface CalculateXpInput {
+  score: number;
+  maxScore: number;
+  mistakes: number;
+  hintsUsed: number;
+  revealedAnswers: number;
+  difficultyLevel: string;
+}
+
+interface AuthTokenPayload {
+  sub: number;
+  iat: number;
+  exp: number;
+}
+
+interface GoogleStatePayload {
+  nonce: string;
+  iat: number;
+  exp: number;
+}
+
+interface GoogleProfile {
+  email: string;
+  displayName: string;
+}
+
+type AuthReturnParams = Record<string, string | number | boolean | null | undefined>;
+
+function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : "unknown";
+}
+
+interface AuthenticatedRequest extends Request {
+  requestId: string;
+  authUserId: number | null;
+  authFromToken: boolean;
+}
+
+type DatabaseModule = typeof import("./db");
+type LoggerModule = typeof import("./logger");
+type DataModule = typeof import("./data");
+
+const database: DatabaseModule = require("./db.ts");
+const logger: LoggerModule = require("./logger.ts");
 const {
   LANGUAGES,
   getCourseOverview,
   generateSession,
   LEVEL_XP_MULTIPLIER
-} = require("./data");
+}: DataModule = require("./data.ts");
 
 const port = 4000;
 const AUTH_SECRET = process.env.LINGOFLOW_AUTH_SECRET || "lingoflow-dev-secret-change-me";
@@ -39,13 +126,13 @@ const googleOauthClient = (GOOGLE_OAUTH_CLIENT_ID && GOOGLE_OAUTH_CLIENT_SECRET)
   )
   : null;
 
-function emailFingerprint(email) {
+function emailFingerprint(email: string): string {
   const normalized = String(email || "").trim().toLowerCase();
   if (!normalized) return "none";
   return crypto.createHash("sha256").update(normalized).digest("hex").slice(0, 12);
 }
 
-function normalizeSentence(text) {
+function normalizeSentence(text: string): string {
   return String(text || "")
     .toLowerCase()
     .replace(/[.,!?;:¿¡]/g, "")
@@ -53,7 +140,7 @@ function normalizeSentence(text) {
     .trim();
 }
 
-function isAnswerMatch(question, submitted) {
+function isAnswerMatch(question: SessionQuestion, submitted: string): boolean {
   const expectedVariants = [question.answer, ...(question.acceptedAnswers || [])]
     .map((value) => normalizeSentence(value))
     .filter(Boolean);
@@ -61,7 +148,7 @@ function isAnswerMatch(question, submitted) {
   return expectedVariants.includes(normalizedSubmitted);
 }
 
-function classifyError(question, submitted) {
+function classifyError(question: SessionQuestion, submitted: string): ErrorType {
   if (question.type === "build_sentence") {
     const expectedTokens = normalizeSentence(question.answer).split(" ").filter(Boolean);
     const actualTokens = normalizeSentence(submitted).split(" ").filter(Boolean);
@@ -79,7 +166,7 @@ function classifyError(question, submitted) {
   return "wrong_option";
 }
 
-function evaluateAttempt(question, attempt) {
+function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): AttemptEvaluation {
   let submitted = "";
   if (question.type === "build_sentence") submitted = attempt?.builtSentence || "";
   if (question.type === "dictation_sentence") {
@@ -113,7 +200,7 @@ function calculateXp({
   hintsUsed,
   revealedAnswers,
   difficultyLevel
-}) {
+}: CalculateXpInput): { accuracy: number; xpGained: number } {
   const accuracy = maxScore > 0 ? score / maxScore : 0;
   const baseXp = 16 + maxScore * 2;
   const levelMultiplier = LEVEL_XP_MULTIPLIER[difficultyLevel] || 1;
@@ -123,22 +210,22 @@ function calculateXp({
   return { accuracy, xpGained };
 }
 
-function base64UrlEncode(value) {
+function base64UrlEncode(value: string): string {
   return Buffer.from(value, "utf8").toString("base64url");
 }
 
-function base64UrlDecode(value) {
+function base64UrlDecode(value: string): string {
   return Buffer.from(value, "base64url").toString("utf8");
 }
 
-function signTokenPayload(payloadJson) {
+function signTokenPayload(payloadJson: string): string {
   return crypto
     .createHmac("sha256", AUTH_SECRET)
     .update(payloadJson)
     .digest("base64url");
 }
 
-function createAuthToken(userId) {
+function createAuthToken(userId: number): string {
   const now = Math.floor(Date.now() / 1000);
   const payloadJson = JSON.stringify({
     sub: Number(userId),
@@ -150,7 +237,7 @@ function createAuthToken(userId) {
   return `v1.${payloadPart}.${signature}`;
 }
 
-function parseAuthToken(token) {
+function parseAuthToken(token: string | null | undefined): AuthTokenPayload | null {
   if (!token || typeof token !== "string") return null;
   const parts = token.split(".");
   if (parts.length !== 3 || parts[0] !== "v1") return null;
@@ -174,9 +261,9 @@ function parseAuthToken(token) {
     return null;
   }
 
-  let payload = null;
+  let payload: AuthTokenPayload | null = null;
   try {
-    payload = JSON.parse(payloadJson);
+    payload = JSON.parse(payloadJson) as AuthTokenPayload;
   } catch (_error) {
     return null;
   }
@@ -187,13 +274,13 @@ function parseAuthToken(token) {
   return payload;
 }
 
-function hashPassword(password) {
+function hashPassword(password: string): string {
   const salt = crypto.randomBytes(16).toString("hex");
   const hash = crypto.scryptSync(password, salt, 64).toString("hex");
   return `${salt}:${hash}`;
 }
 
-function verifyPassword(password, storedHash) {
+function verifyPassword(password: string, storedHash: string): boolean {
   if (!storedHash || !storedHash.includes(":")) return false;
   const [salt, hashHex] = storedHash.split(":");
   if (!salt || !hashHex) return false;
@@ -203,7 +290,7 @@ function verifyPassword(password, storedHash) {
   return crypto.timingSafeEqual(actual, expected);
 }
 
-function createGoogleOauthState() {
+function createGoogleOauthState(): string {
   const now = Math.floor(Date.now() / 1000);
   const payloadJson = JSON.stringify({
     nonce: crypto.randomUUID(),
@@ -215,7 +302,7 @@ function createGoogleOauthState() {
   return `v1.${payloadPart}.${signature}`;
 }
 
-function parseGoogleOauthState(state) {
+function parseGoogleOauthState(state: string | null | undefined): GoogleStatePayload | null {
   if (!state || typeof state !== "string") return null;
   const parts = state.split(".");
   if (parts.length !== 3 || parts[0] !== "v1") return null;
@@ -239,9 +326,9 @@ function parseGoogleOauthState(state) {
     return null;
   }
 
-  let payload = null;
+  let payload: GoogleStatePayload | null = null;
   try {
-    payload = JSON.parse(payloadJson);
+    payload = JSON.parse(payloadJson) as GoogleStatePayload;
   } catch (_error) {
     return null;
   }
@@ -252,7 +339,7 @@ function parseGoogleOauthState(state) {
   return payload;
 }
 
-function buildAuthReturnUrl(params = {}) {
+function buildAuthReturnUrl(params: AuthReturnParams = {}): string {
   const baseUrl = String(PUBLIC_APP_URL || "").replace(/\/$/, "");
   const target = new URL(`${baseUrl}/login`);
   Object.entries(params).forEach(([key, value]) => {
@@ -263,11 +350,11 @@ function buildAuthReturnUrl(params = {}) {
   return target.toString();
 }
 
-function isGoogleOauthConfigured() {
+function isGoogleOauthConfigured(): boolean {
   return Boolean(googleOauthClient && GOOGLE_OAUTH_CLIENT_ID && GOOGLE_OAUTH_CLIENT_SECRET);
 }
 
-async function getGoogleProfileFromAuthorizationCode(code) {
+async function getGoogleProfileFromAuthorizationCode(code: string): Promise<GoogleProfile> {
   if (!isGoogleOauthConfigured()) {
     throw new Error("Google OAuth is not configured");
   }
@@ -296,12 +383,12 @@ async function getGoogleProfileFromAuthorizationCode(code) {
   };
 }
 
-function buildEmailVerificationLink(token) {
+function buildEmailVerificationLink(token: string): string {
   const baseUrl = String(PUBLIC_APP_URL || "").replace(/\/$/, "");
   return `${baseUrl}/verify-email?token=${encodeURIComponent(token)}`;
 }
 
-function getEmailTransporter() {
+function getEmailTransporter(): Transporter | null {
   const host = String(process.env.SMTP_HOST || "").trim();
   const user = String(process.env.SMTP_USER || "").trim();
   const pass = String(process.env.SMTP_PASS || "").trim();
@@ -322,7 +409,15 @@ function getEmailTransporter() {
   });
 }
 
-async function sendVerificationEmail({ toEmail, displayName, token }) {
+async function sendVerificationEmail({
+  toEmail,
+  displayName,
+  token
+}: {
+  toEmail: string;
+  displayName: string;
+  token: string;
+}): Promise<{ delivered: boolean; link: string }> {
   const link = buildEmailVerificationLink(token);
   const transporter = getEmailTransporter();
   const subject = "Verify your LingoFlow account";
@@ -356,17 +451,17 @@ async function sendVerificationEmail({ toEmail, displayName, token }) {
   return { delivered: true, link };
 }
 
-function createApp() {
+function createApp(): ExpressApp {
   const app = express();
   app.use(cors());
   app.use(express.json());
-  app.use((req, res, next) => {
+  app.use((req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     const headerRequestId = String(req.headers["x-request-id"] || "").trim();
     req.requestId = headerRequestId || crypto.randomUUID();
     res.setHeader("x-request-id", req.requestId);
     next();
   });
-  app.use((req, _res, next) => {
+  app.use((req: AuthenticatedRequest, _res: Response, next: NextFunction) => {
     const header = String(req.headers.authorization || "");
     if (!header.startsWith("Bearer ")) {
       req.authUserId = null;
@@ -386,7 +481,7 @@ function createApp() {
   });
   app.use(logger.requestLogger);
 
-  function requireAuth(req, res, next) {
+  function requireAuth(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     if (!req.authFromToken || !req.authUserId) {
       logger.logAuthEvent("auth_required_rejected", {
         requestId: req.requestId,
@@ -399,11 +494,11 @@ function createApp() {
 
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
-  app.get("/api/health", (_req, res) => {
+  app.get("/api/health", (_req: Request, res: Response) => {
     res.json({ ok: true });
   });
 
-  app.post("/api/auth/register", async (req, res) => {
+  app.post("/api/auth/register", async (req: AuthenticatedRequest, res: Response) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     const password = String(req.body?.password || "");
     const displayName = String(req.body?.displayName || "Learner").trim() || "Learner";
@@ -471,17 +566,17 @@ function createApp() {
         message: "Registration successful. Please verify your email before signing in.",
         ...(process.env.NODE_ENV === "test" ? { verificationToken: verifyToken } : {})
       });
-    } catch (error) {
+    } catch (error: unknown) {
       logger.error("register_failed", {
         requestId: req.requestId,
-        reason: error.message || "unknown",
+        reason: errorMessage(error),
         emailFingerprint: emailFingerprint(email)
       });
       return res.status(500).json({ error: "Could not register account right now." });
     }
   });
 
-  app.post("/api/auth/login", (req, res) => {
+  app.post("/api/auth/login", (req: AuthenticatedRequest, res: Response) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     const password = String(req.body?.password || "");
 
@@ -525,7 +620,7 @@ function createApp() {
     });
   });
 
-  app.post("/api/auth/resend-verification", async (req, res) => {
+  app.post("/api/auth/resend-verification", async (req: AuthenticatedRequest, res: Response) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     if (!email || !email.includes("@")) {
       logger.logAuthEvent("resend_verification_rejected", {
@@ -588,10 +683,10 @@ function createApp() {
         message: "If an unverified account exists for this email, a new verification link has been sent.",
         ...(process.env.NODE_ENV === "test" ? { verificationToken: verifyToken } : {})
       });
-    } catch (error) {
+    } catch (error: unknown) {
       logger.error("resend_verification_failed", {
         requestId: req.requestId,
-        reason: error.message || "unknown",
+        reason: errorMessage(error),
         userId: user.id,
         emailFingerprint: emailFingerprint(email)
       });
@@ -599,7 +694,7 @@ function createApp() {
     }
   });
 
-  app.get("/api/auth/google/start", (req, res) => {
+  app.get("/api/auth/google/start", (req: AuthenticatedRequest, res: Response) => {
     if (!isGoogleOauthConfigured()) {
       logger.logAuthEvent("google_oauth_start_rejected", {
         requestId: req.requestId,
@@ -620,16 +715,16 @@ function createApp() {
         requestId: req.requestId
       });
       return res.redirect(redirectTo);
-    } catch (error) {
+    } catch (error: unknown) {
       logger.error("google_oauth_start_failed", {
         requestId: req.requestId,
-        reason: error.message || "unknown"
+        reason: errorMessage(error)
       });
       return res.redirect(buildAuthReturnUrl({ authError: "Could not start Google sign in." }));
     }
   });
 
-  app.get("/api/auth/google/callback", async (req, res) => {
+  app.get("/api/auth/google/callback", async (req: AuthenticatedRequest, res: Response) => {
     const state = String(req.query.state || "").trim();
     const code = String(req.query.code || "").trim();
     const oauthError = String(req.query.error || "").trim();
@@ -675,16 +770,16 @@ function createApp() {
         emailFingerprint: emailFingerprint(profile.email)
       });
       return res.redirect(buildAuthReturnUrl({ authToken: token }));
-    } catch (error) {
+    } catch (error: unknown) {
       logger.logAuthEvent("google_oauth_callback_rejected", {
         requestId: req.requestId,
-        reason: error.message || "google_oauth_failed"
+        reason: errorMessage(error) || "google_oauth_failed"
       });
       return res.redirect(buildAuthReturnUrl({ authError: "Google authentication failed." }));
     }
   });
 
-  app.get("/api/auth/me", (req, res) => {
+  app.get("/api/auth/me", (req: AuthenticatedRequest, res: Response) => {
     if (!req.authFromToken) {
       logger.logAuthEvent("me_rejected", {
         requestId: req.requestId,
@@ -704,7 +799,7 @@ function createApp() {
     return res.json({ user });
   });
 
-  app.post("/api/auth/verify-email", (req, res) => {
+  app.post("/api/auth/verify-email", (req: AuthenticatedRequest, res: Response) => {
     const token = String(req.body?.token || "").trim();
     if (!token) {
       logger.logAuthEvent("verify_email_rejected", {
@@ -733,11 +828,11 @@ function createApp() {
     });
   });
 
-  app.get("/api/languages", (_req, res) => {
+  app.get("/api/languages", (_req: Request, res: Response) => {
     res.json(LANGUAGES);
   });
 
-  app.get("/api/course", requireAuth, (req, res) => {
+  app.get("/api/course", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "spanish").toLowerCase();
     const categories = getCourseOverview(language);
@@ -768,7 +863,7 @@ function createApp() {
     res.json(enriched);
   });
 
-  app.post("/api/session/start", requireAuth, (req, res) => {
+  app.post("/api/session/start", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     const { language, category, count } = req.body || {};
     if (!language || !category) {
@@ -817,12 +912,12 @@ function createApp() {
     });
   });
 
-  app.get("/api/settings", requireAuth, (req, res) => {
+  app.get("/api/settings", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     res.json(database.getSettings(userId));
   });
 
-  app.put("/api/settings", requireAuth, (req, res) => {
+  app.put("/api/settings", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     const {
       nativeLanguage,
@@ -853,7 +948,7 @@ function createApp() {
     res.json(row);
   });
 
-  app.get("/api/progress", requireAuth, (req, res) => {
+  app.get("/api/progress", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "").toLowerCase();
     const progress = database.getProgress(userId, language || undefined);
@@ -869,14 +964,14 @@ function createApp() {
     });
   });
 
-  app.get("/api/stats", requireAuth, (req, res) => {
+  app.get("/api/stats", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "spanish").toLowerCase();
     const stats = database.getStats(userId, language);
     res.json(stats);
   });
 
-  app.post("/api/session/complete", requireAuth, (req, res) => {
+  app.post("/api/session/complete", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     const {
       sessionId,
@@ -904,12 +999,18 @@ function createApp() {
       return res.status(410).json({ error: "Session expired" });
     }
 
-    const questionMap = new Map(session.questions.map((question) => [question.id, question]));
+    const questionMap = new Map<string, SessionQuestion>(
+      session.questions.map((question: SessionQuestion) => [question.id, question])
+    );
     let score = 0;
     let mistakes = 0;
-    const evaluatedAttempts = [];
+    const evaluatedAttempts: Array<{
+      question: SessionQuestion;
+      correct: boolean;
+      errorType: ErrorType;
+    }> = [];
 
-    for (const attempt of attempts) {
+    for (const attempt of attempts as SessionAttempt[]) {
       const questionId = String(attempt?.questionId || "");
       const question = questionMap.get(questionId);
       if (!question) {
@@ -998,7 +1099,7 @@ function createApp() {
 
   if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
-    app.get("*", (req, res, next) => {
+    app.get("*", (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
       if (req.path.startsWith("/api/")) {
         next();
         return;

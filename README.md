@@ -60,19 +60,19 @@ Open `http://localhost:4000`.
 
 ```text
 client/
-  src/App.jsx        # App shell + orchestration
+  src/App.tsx        # App shell + orchestration
   src/components/    # Learn/Setup/Stats/SessionPlayer components
                   # + AuthPage (login/register/google sign-in)
   src/__tests__/     # Frontend tests (Vitest + Testing Library)
   src/test/          # Test setup
-  src/api.js         # API client
-  src/constants.js   # Shared UI constants
+  src/api.ts         # API client
+  src/constants.ts   # Shared UI constants
   src/utils/         # Utilities (theme/path helpers)
   src/styles.css     # App styles
 server/
-  src/index.js       # API routes
-  src/data.js        # Course content + session generation
-  src/db.js          # SQLite schema, auth users, user-scoped persistence
+  src/index.ts       # API routes
+  src/data.ts        # Course content + session generation
+  src/db.ts          # SQLite schema, auth users, user-scoped persistence
   src/__tests__/     # Backend tests
   data/              # Runtime DB files
 ```
