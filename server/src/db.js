@@ -613,6 +613,23 @@ function createEmailVerification({ userId, token, expiresAt }) {
   `).run(userId, token, expiresAt);
 }
 
+function replaceEmailVerification({ userId, token, expiresAt, nowIso = toIsoDateTime() }) {
+  const tx = db.transaction(() => {
+    db.prepare(`
+      UPDATE email_verifications
+      SET consumed_at = ?
+      WHERE user_id = ? AND consumed_at IS NULL
+    `).run(nowIso, userId);
+
+    db.prepare(`
+      INSERT INTO email_verifications (user_id, token, expires_at)
+      VALUES (?, ?, ?)
+    `).run(userId, token, expiresAt);
+  });
+
+  tx();
+}
+
 function consumeEmailVerificationToken(token, nowIso = toIsoDateTime()) {
   const row = db.prepare(`
     SELECT id, user_id, expires_at, consumed_at
@@ -1210,6 +1227,7 @@ module.exports = {
   getUserById,
   createUser,
   createEmailVerification,
+  replaceEmailVerification,
   consumeEmailVerificationToken,
   markUserEmailVerified,
   getSettings,

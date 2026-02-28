@@ -26,6 +26,10 @@ function clearAuthToken() {
   setAuthToken(null);
 }
 
+function getGoogleOAuthStartUrl() {
+  return `${API_BASE}/auth/google/start`;
+}
+
 async function request(path, options = {}) {
   const headers = {
     "Content-Type": "application/json",
@@ -58,12 +62,13 @@ export const api = {
   getAuthToken,
   setAuthToken,
   clearAuthToken,
+  getGoogleOAuthStartUrl,
   register: (payload) => request("/auth/register", { method: "POST", body: JSON.stringify(payload) }),
   login: (payload) => request("/auth/login", { method: "POST", body: JSON.stringify(payload) }),
+  resendVerification: (payload) =>
+    request("/auth/resend-verification", { method: "POST", body: JSON.stringify(payload) }),
   verifyEmail: (payload) =>
     request("/auth/verify-email", { method: "POST", body: JSON.stringify(payload) }),
-  loginWithGoogle: (payload) =>
-    request("/auth/google", { method: "POST", body: JSON.stringify(payload) }),
   getMe: () => request("/auth/me"),
   getLanguages: () => request("/languages"),
   getCourse: (language) => request(`/course?language=${encodeURIComponent(language)}`),

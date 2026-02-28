@@ -18,16 +18,26 @@ const {
 const port = 4000;
 const AUTH_SECRET = process.env.LINGOFLOW_AUTH_SECRET || "lingoflow-dev-secret-change-me";
 const TOKEN_TTL_SECONDS = 60 * 60 * 24 * 30;
-const GOOGLE_CLIENT_IDS = String(process.env.GOOGLE_CLIENT_IDS || process.env.GOOGLE_CLIENT_ID || "")
-  .split(",")
-  .map((value) => value.trim())
-  .filter(Boolean);
 const PUBLIC_APP_URL = process.env.PUBLIC_APP_URL || "http://localhost:5173";
 const EMAIL_FROM = process.env.EMAIL_FROM || "LingoFlow <no-reply@lingoflow.local>";
 const EMAIL_VERIFICATION_TTL_HOURS = 24;
-const googleAuthClient = GOOGLE_CLIENT_IDS.length > 0
-  ? new OAuth2Client(GOOGLE_CLIENT_IDS[0])
-  : new OAuth2Client();
+const GOOGLE_OAUTH_CLIENT_ID = String(
+  process.env.GOOGLE_OAUTH_CLIENT_ID || process.env.GOOGLE_CLIENT_ID || ""
+).trim();
+const GOOGLE_OAUTH_CLIENT_SECRET = String(
+  process.env.GOOGLE_OAUTH_CLIENT_SECRET || process.env.GOOGLE_CLIENT_SECRET || ""
+).trim();
+const GOOGLE_OAUTH_REDIRECT_URI = String(
+  process.env.GOOGLE_OAUTH_REDIRECT_URI || "http://localhost:4000/api/auth/google/callback"
+).trim();
+const GOOGLE_OAUTH_STATE_TTL_SECONDS = 10 * 60;
+const googleOauthClient = (GOOGLE_OAUTH_CLIENT_ID && GOOGLE_OAUTH_CLIENT_SECRET)
+  ? new OAuth2Client(
+    GOOGLE_OAUTH_CLIENT_ID,
+    GOOGLE_OAUTH_CLIENT_SECRET,
+    GOOGLE_OAUTH_REDIRECT_URI
+  )
+  : null;
 
 function emailFingerprint(email) {
   const normalized = String(email || "").trim().toLowerCase();
@@ -193,17 +203,87 @@ function verifyPassword(password, storedHash) {
   return crypto.timingSafeEqual(actual, expected);
 }
 
-async function verifyGoogleIdToken(idToken) {
-  if (!idToken) {
-    throw new Error("Invalid Google token");
-  }
-  if (!GOOGLE_CLIENT_IDS.length) {
-    throw new Error("Google sign in is not configured");
+function createGoogleOauthState() {
+  const now = Math.floor(Date.now() / 1000);
+  const payloadJson = JSON.stringify({
+    nonce: crypto.randomUUID(),
+    iat: now,
+    exp: now + GOOGLE_OAUTH_STATE_TTL_SECONDS
+  });
+  const payloadPart = base64UrlEncode(payloadJson);
+  const signature = signTokenPayload(payloadJson);
+  return `v1.${payloadPart}.${signature}`;
+}
+
+function parseGoogleOauthState(state) {
+  if (!state || typeof state !== "string") return null;
+  const parts = state.split(".");
+  if (parts.length !== 3 || parts[0] !== "v1") return null;
+  const payloadPart = parts[1];
+  const signature = parts[2];
+
+  let payloadJson = "";
+  try {
+    payloadJson = base64UrlDecode(payloadPart);
+  } catch (_error) {
+    return null;
   }
 
-  const ticket = await googleAuthClient.verifyIdToken({
+  const expectedSignature = signTokenPayload(payloadJson);
+  const actualBuffer = Buffer.from(signature, "utf8");
+  const expectedBuffer = Buffer.from(expectedSignature, "utf8");
+  if (
+    actualBuffer.length !== expectedBuffer.length ||
+    !crypto.timingSafeEqual(actualBuffer, expectedBuffer)
+  ) {
+    return null;
+  }
+
+  let payload = null;
+  try {
+    payload = JSON.parse(payloadJson);
+  } catch (_error) {
+    return null;
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  if (!payload || !payload.nonce || !Number.isInteger(payload.exp)) return null;
+  if (payload.exp <= now) return null;
+  return payload;
+}
+
+function buildAuthReturnUrl(params = {}) {
+  const baseUrl = String(PUBLIC_APP_URL || "").replace(/\/$/, "");
+  const target = new URL(`${baseUrl}/login`);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && String(value).length > 0) {
+      target.searchParams.set(key, String(value));
+    }
+  });
+  return target.toString();
+}
+
+function isGoogleOauthConfigured() {
+  return Boolean(googleOauthClient && GOOGLE_OAUTH_CLIENT_ID && GOOGLE_OAUTH_CLIENT_SECRET);
+}
+
+async function getGoogleProfileFromAuthorizationCode(code) {
+  if (!isGoogleOauthConfigured()) {
+    throw new Error("Google OAuth is not configured");
+  }
+  if (!code) {
+    throw new Error("Missing authorization code");
+  }
+
+  const { tokens } = await googleOauthClient.getToken(code);
+  const idToken = String(tokens?.id_token || "").trim();
+  if (!idToken) {
+    throw new Error("Google did not return an ID token");
+  }
+
+  const ticket = await googleOauthClient.verifyIdToken({
     idToken,
-    audience: GOOGLE_CLIENT_IDS
+    audience: GOOGLE_OAUTH_CLIENT_ID
   });
   const payload = ticket.getPayload();
   if (!payload || !payload.email || !payload.email_verified) {
@@ -368,7 +448,7 @@ function createApp() {
 
       const verifyToken = crypto.randomBytes(32).toString("hex");
       const expiresAt = new Date(Date.now() + EMAIL_VERIFICATION_TTL_HOURS * 60 * 60 * 1000).toISOString();
-      database.createEmailVerification({
+      database.replaceEmailVerification({
         userId: created.id,
         token: verifyToken,
         expiresAt
@@ -445,18 +525,133 @@ function createApp() {
     });
   });
 
-  app.post("/api/auth/google", async (req, res) => {
-    const idToken = String(req.body?.idToken || "").trim();
-    if (!idToken) {
-      logger.logAuthEvent("google_login_rejected", {
+  app.post("/api/auth/resend-verification", async (req, res) => {
+    const email = String(req.body?.email || "").trim().toLowerCase();
+    if (!email || !email.includes("@")) {
+      logger.logAuthEvent("resend_verification_rejected", {
         requestId: req.requestId,
-        reason: "missing_id_token"
+        reason: "invalid_email",
+        emailFingerprint: emailFingerprint(email)
       });
-      return res.status(400).json({ error: "idToken is required" });
+      return res.status(400).json({ error: "Valid email is required" });
+    }
+
+    const user = database.getUserByEmail(email);
+    if (!user) {
+      logger.logAuthEvent("resend_verification_accepted", {
+        requestId: req.requestId,
+        reason: "user_not_found",
+        emailFingerprint: emailFingerprint(email)
+      });
+      return res.json({
+        ok: true,
+        message: "If an unverified account exists for this email, a new verification link has been sent."
+      });
+    }
+
+    if (user.emailVerified || user.authProvider !== "local") {
+      logger.logAuthEvent("resend_verification_accepted", {
+        requestId: req.requestId,
+        userId: user.id,
+        reason: user.emailVerified ? "already_verified" : "non_local_provider",
+        emailFingerprint: emailFingerprint(email)
+      });
+      return res.json({
+        ok: true,
+        message: "If an unverified account exists for this email, a new verification link has been sent."
+      });
     }
 
     try {
-      const profile = await verifyGoogleIdToken(idToken);
+      const verifyToken = crypto.randomBytes(32).toString("hex");
+      const expiresAt = new Date(
+        Date.now() + EMAIL_VERIFICATION_TTL_HOURS * 60 * 60 * 1000
+      ).toISOString();
+      database.replaceEmailVerification({
+        userId: user.id,
+        token: verifyToken,
+        expiresAt
+      });
+      await sendVerificationEmail({
+        toEmail: user.email,
+        displayName: user.displayName,
+        token: verifyToken
+      });
+
+      logger.logAuthEvent("resend_verification_success", {
+        requestId: req.requestId,
+        userId: user.id,
+        emailFingerprint: emailFingerprint(user.email)
+      });
+      return res.json({
+        ok: true,
+        message: "If an unverified account exists for this email, a new verification link has been sent.",
+        ...(process.env.NODE_ENV === "test" ? { verificationToken: verifyToken } : {})
+      });
+    } catch (error) {
+      logger.error("resend_verification_failed", {
+        requestId: req.requestId,
+        reason: error.message || "unknown",
+        userId: user.id,
+        emailFingerprint: emailFingerprint(email)
+      });
+      return res.status(500).json({ error: "Could not resend verification email right now." });
+    }
+  });
+
+  app.get("/api/auth/google/start", (req, res) => {
+    if (!isGoogleOauthConfigured()) {
+      logger.logAuthEvent("google_oauth_start_rejected", {
+        requestId: req.requestId,
+        reason: "not_configured"
+      });
+      return res.redirect(buildAuthReturnUrl({ authError: "Google sign in is not configured." }));
+    }
+
+    try {
+      const state = createGoogleOauthState();
+      const redirectTo = googleOauthClient.generateAuthUrl({
+        access_type: "offline",
+        prompt: "select_account",
+        scope: ["openid", "email", "profile"],
+        state
+      });
+      logger.logAuthEvent("google_oauth_start_success", {
+        requestId: req.requestId
+      });
+      return res.redirect(redirectTo);
+    } catch (error) {
+      logger.error("google_oauth_start_failed", {
+        requestId: req.requestId,
+        reason: error.message || "unknown"
+      });
+      return res.redirect(buildAuthReturnUrl({ authError: "Could not start Google sign in." }));
+    }
+  });
+
+  app.get("/api/auth/google/callback", async (req, res) => {
+    const state = String(req.query.state || "").trim();
+    const code = String(req.query.code || "").trim();
+    const oauthError = String(req.query.error || "").trim();
+
+    if (oauthError) {
+      logger.logAuthEvent("google_oauth_callback_rejected", {
+        requestId: req.requestId,
+        reason: `oauth_error:${oauthError}`
+      });
+      return res.redirect(buildAuthReturnUrl({ authError: "Google sign in was canceled or denied." }));
+    }
+
+    if (!parseGoogleOauthState(state)) {
+      logger.logAuthEvent("google_oauth_callback_rejected", {
+        requestId: req.requestId,
+        reason: "invalid_state"
+      });
+      return res.redirect(buildAuthReturnUrl({ authError: "Invalid Google sign in state." }));
+    }
+
+    try {
+      const profile = await getGoogleProfileFromAuthorizationCode(code);
       let user = database.getUserByEmail(profile.email);
       if (!user) {
         user = database.createUser({
@@ -470,25 +665,22 @@ function createApp() {
         database.markUserEmailVerified(user.id);
       }
       if (!user) {
-        return res.status(500).json({ error: "Could not create user" });
+        throw new Error("Could not create user");
       }
 
       const token = createAuthToken(user.id);
-      logger.logAuthEvent("google_login_success", {
+      logger.logAuthEvent("google_oauth_callback_success", {
         requestId: req.requestId,
         userId: user.id,
         emailFingerprint: emailFingerprint(profile.email)
       });
-      return res.json({
-        token,
-        user: database.getUserById(user.id)
-      });
+      return res.redirect(buildAuthReturnUrl({ authToken: token }));
     } catch (error) {
-      logger.logAuthEvent("google_login_rejected", {
+      logger.logAuthEvent("google_oauth_callback_rejected", {
         requestId: req.requestId,
-        reason: error.message || "google_auth_failed"
+        reason: error.message || "google_oauth_failed"
       });
-      return res.status(401).json({ error: error.message || "Google authentication failed" });
+      return res.redirect(buildAuthReturnUrl({ authError: "Google authentication failed." }));
     }
   });
 

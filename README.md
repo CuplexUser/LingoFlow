@@ -37,12 +37,15 @@ npm run dev
 Optional environment variables:
 
 - `VITE_API_BASE` (client): API base path/URL (default: `/api`).
-- `VITE_GOOGLE_CLIENT_ID` (client): enables Google sign-in button on auth page.
-- `GOOGLE_CLIENT_ID` or `GOOGLE_CLIENT_IDS` (server): allowed Google OAuth audience(s).
+- `GOOGLE_OAUTH_CLIENT_ID` (server): Google OAuth2 web client ID.
+- `GOOGLE_OAUTH_CLIENT_SECRET` (server): Google OAuth2 web client secret.
+- `GOOGLE_OAUTH_REDIRECT_URI` (server): callback URL registered in Google console (default: `http://localhost:4000/api/auth/google/callback`).
 - `LINGOFLOW_AUTH_SECRET` (server): auth token signing secret for production.
 - `PUBLIC_APP_URL` (server): base URL used inside verification emails (e.g. `https://app.example.com`).
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE`, `EMAIL_FROM` (server): SMTP delivery for confirmation emails.
 - `LOG_LEVEL` (server): `debug` | `info` | `warn` | `error` (default: `info`).
+
+Create `server/.env` (copy from `server/.env.example`) to set server-side variables in local development.
 
 ## Production Build
 
@@ -111,9 +114,11 @@ server/
 
 - `POST /api/auth/register`
 - `POST /api/auth/login`
+- `POST /api/auth/resend-verification`
 - `POST /api/auth/verify-email`
 - `GET /api/auth/me`
-- `POST /api/auth/google`
+- `GET /api/auth/google/start`
+- `GET /api/auth/google/callback`
 - `GET /api/languages`
 - `GET /api/course?language=<id>`
 - `POST /api/session/start`

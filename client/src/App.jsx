@@ -83,6 +83,28 @@ export default function App() {
     let cancelled = false;
 
     async function load() {
+      if (typeof window !== "undefined") {
+        const url = new URL(window.location.href);
+        const oauthToken = String(url.searchParams.get("authToken") || "").trim();
+        const oauthError = String(url.searchParams.get("authError") || "").trim();
+        if (oauthToken) {
+          api.setAuthToken(oauthToken);
+        }
+        if (oauthToken || oauthError) {
+          url.searchParams.delete("authToken");
+          url.searchParams.delete("authError");
+          const nextQuery = url.searchParams.toString();
+          window.history.replaceState(
+            {},
+            "",
+            `${url.pathname}${nextQuery ? `?${nextQuery}` : ""}${url.hash}`
+          );
+        }
+        if (oauthError && !oauthToken) {
+          setAuthError(oauthError);
+        }
+      }
+
       const token = api.getAuthToken();
       if (!token) {
         if (!cancelled) {
@@ -264,18 +286,34 @@ export default function App() {
     }
   }
 
-  async function loginWithGoogle(idToken) {
+  async function resendVerification(email) {
+    const normalizedEmail = String(email || "").trim().toLowerCase();
+    if (!normalizedEmail) {
+      setAuthError("Enter your email first, then resend verification.");
+      return;
+    }
     setAuthBusy(true);
     setAuthError("");
     setAuthNotice("");
     try {
-      const payload = await api.loginWithGoogle({ idToken });
-      await onAuthSuccess(payload);
+      const payload = await api.resendVerification({ email: normalizedEmail });
+      setAuthNotice(
+        payload?.message ||
+        "If your account is still pending verification, we sent a new email."
+      );
     } catch (error) {
-      setAuthError(error.message || "Google sign in failed.");
+      setAuthError(error.message || "Could not resend verification email.");
     } finally {
       setAuthBusy(false);
     }
+  }
+
+  function startGoogleOAuth() {
+    if (typeof window === "undefined") return;
+    setAuthBusy(true);
+    setAuthError("");
+    setAuthNotice("");
+    window.location.assign(api.getGoogleOAuthStartUrl());
   }
 
   function signOut() {
@@ -382,7 +420,8 @@ export default function App() {
         onModeChange={navigateAuthMode}
         onRegister={register}
         onLogin={login}
-        onGoogleLogin={loginWithGoogle}
+        onResendVerification={resendVerification}
+        onGoogleOAuthStart={startGoogleOAuth}
       />
     );
   }

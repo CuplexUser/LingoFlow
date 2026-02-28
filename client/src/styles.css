@@ -163,6 +163,10 @@ body {
   color: var(--text-muted);
 }
 
+.auth-resend-row {
+  margin-top: 10px;
+}
+
 .mode-link {
   border: 0;
   background: transparent;

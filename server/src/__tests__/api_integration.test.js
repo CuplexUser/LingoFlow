@@ -281,3 +281,59 @@ test("email login is blocked until verification", async (t) => {
   });
   assert.equal(loginRes.status, 403);
 });
+
+test("resend verification issues fresh token and allows verification", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const email = `resend-${Date.now()}@example.com`;
+  const registerRes = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!",
+      displayName: "Resend User"
+    })
+  });
+  assert.equal(registerRes.status, 201);
+  const registered = await registerRes.json();
+  assert.ok(registered.verificationToken);
+
+  const resendRes = await fetch(`${base}/api/auth/resend-verification`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+  assert.equal(resendRes.status, 200);
+  const resent = await resendRes.json();
+  assert.ok(resent.verificationToken);
+  assert.notEqual(resent.verificationToken, registered.verificationToken);
+
+  const verifyOldRes = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: registered.verificationToken })
+  });
+  assert.equal(verifyOldRes.status, 400);
+
+  const verifyNewRes = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: resent.verificationToken })
+  });
+  assert.equal(verifyNewRes.status, 200);
+
+  const loginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!"
+    })
+  });
+  assert.equal(loginRes.status, 200);
+});

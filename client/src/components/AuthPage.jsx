@@ -1,28 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-
-const GOOGLE_SCRIPT_SRC = "https://accounts.google.com/gsi/client";
-
-function loadGoogleScript() {
-  if (typeof window === "undefined") return Promise.resolve(false);
-  if (window.google?.accounts?.id) return Promise.resolve(true);
-
-  return new Promise((resolve) => {
-    const existing = document.querySelector(`script[src="${GOOGLE_SCRIPT_SRC}"]`);
-    if (existing) {
-      existing.addEventListener("load", () => resolve(true), { once: true });
-      existing.addEventListener("error", () => resolve(false), { once: true });
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = GOOGLE_SCRIPT_SRC;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => resolve(true);
-    script.onerror = () => resolve(false);
-    document.head.appendChild(script);
-  });
-}
+import { useEffect, useState } from "react";
 
 export function AuthPage({
   mode,
@@ -32,66 +8,20 @@ export function AuthPage({
   onModeChange,
   onRegister,
   onLogin,
-  onGoogleLogin
+  onResendVerification,
+  onGoogleOAuthStart
 }) {
   const [form, setForm] = useState({
     displayName: "",
     email: "",
     password: ""
   });
-  const [googleReady, setGoogleReady] = useState(false);
-  const googleButtonRef = useRef(null);
-  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || "";
-
   useEffect(() => {
     setForm((prev) => ({
       ...prev,
       password: ""
     }));
   }, [mode]);
-
-  useEffect(() => {
-    let mounted = true;
-    if (!googleClientId) {
-      setGoogleReady(false);
-      return () => {
-        mounted = false;
-      };
-    }
-
-    loadGoogleScript().then((loaded) => {
-      if (!mounted) return;
-      setGoogleReady(Boolean(loaded && window.google?.accounts?.id));
-    });
-
-    return () => {
-      mounted = false;
-    };
-  }, [googleClientId]);
-
-  useEffect(() => {
-    if (!googleReady || !googleButtonRef.current || !googleClientId || !window.google?.accounts?.id) {
-      return;
-    }
-
-    window.google.accounts.id.initialize({
-      client_id: googleClientId,
-      callback: async (response) => {
-        if (response?.credential) {
-          await onGoogleLogin(response.credential);
-        }
-      }
-    });
-
-    googleButtonRef.current.innerHTML = "";
-    window.google.accounts.id.renderButton(googleButtonRef.current, {
-      theme: "outline",
-      size: "large",
-      text: mode === "register" ? "signup_with" : "signin_with",
-      shape: "pill",
-      width: "320"
-    });
-  }, [googleReady, googleClientId, onGoogleLogin, mode]);
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -108,6 +38,9 @@ export function AuthPage({
       password: form.password
     });
   }
+
+  const shouldShowResend = mode === "login" &&
+    String(errorMessage || "").toLowerCase().includes("verify your email");
 
   return (
     <main className="auth-shell">
@@ -171,17 +104,14 @@ export function AuthPage({
 
         <div className="google-auth">
           <div className="auth-divider"><span>or continue with</span></div>
-          {googleClientId && googleReady ? (
-            <div ref={googleButtonRef} />
-          ) : googleClientId ? (
-            <button type="button" className="ghost-button google-placeholder" disabled>
-              Loading Google sign in...
-            </button>
-          ) : (
-            <button type="button" className="ghost-button google-placeholder" disabled>
-              Continue with Google (not configured)
-            </button>
-          )}
+          <button
+            type="button"
+            className="ghost-button google-placeholder"
+            onClick={onGoogleOAuthStart}
+            disabled={busy}
+          >
+            Continue with Google
+          </button>
         </div>
 
         <p className="auth-mode-text">
@@ -198,6 +128,19 @@ export function AuthPage({
         </p>
 
         {noticeMessage ? <div className="status">{noticeMessage}</div> : null}
+
+        {shouldShowResend ? (
+          <div className="auth-resend-row">
+            <button
+              type="button"
+              className="ghost-button"
+              onClick={() => onResendVerification(form.email)}
+              disabled={busy}
+            >
+              Resend verification email
+            </button>
+          </div>
+        ) : null}
 
         {errorMessage ? <div className="feedback">{errorMessage}</div> : null}
       </section>
