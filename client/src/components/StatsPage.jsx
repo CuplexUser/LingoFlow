@@ -1,4 +1,4 @@
-export function StatsPage({ settings, progress, courseCategories, statsData }) {
+export function StatsPage({ settings, progress, courseCategories, statsData, progressOverview, languages }) {
   const totalCategoryCount = statsData?.categoryCount ?? courseCategories.length ?? 0;
 
   return (
@@ -67,6 +67,20 @@ export function StatsPage({ settings, progress, courseCategories, statsData }) {
           <p>
             {statsData.errorTypeTrend
               .map((entry) => `${entry.errorType}: ${entry.count}`)
+              .join(" | ")}
+          </p>
+        </div>
+      ) : null}
+
+      {progressOverview?.languages?.length ? (
+        <div className="setup-preview">
+          <h3>All Course Languages</h3>
+          <p>
+            {progressOverview.languages
+              .map((entry) => {
+                const label = languages?.find((item) => item.id === entry.language)?.label || entry.language;
+                return `${label}: ${entry.totalXp} XP, ${entry.streak} day streak`;
+              })
               .join(" | ")}
           </p>
         </div>

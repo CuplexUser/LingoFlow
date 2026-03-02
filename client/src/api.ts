@@ -148,6 +148,7 @@ export const api = {
     request("/settings", { method: "PUT", body: JSON.stringify(payload) }),
   getProgress: (language?: string) =>
     request(`/progress${language ? `?language=${encodeURIComponent(language)}` : ""}`),
+  getProgressOverview: () => request("/progress-overview"),
   getStats: (language?: string) =>
     request(`/stats${language ? `?language=${encodeURIComponent(language)}` : ""}`),
   completeSession: (payload: Record<string, unknown>) =>

@@ -113,19 +113,17 @@ function migrateLegacySingleUserSchema() {
         user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
         total_xp INTEGER NOT NULL DEFAULT 0,
         streak INTEGER NOT NULL DEFAULT 0,
-        hearts INTEGER NOT NULL DEFAULT 5,
         learner_level INTEGER NOT NULL DEFAULT 1,
         last_completed_date TEXT,
         updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
       INSERT INTO progress (
-        user_id, total_xp, streak, hearts, learner_level, last_completed_date, updated_at
+        user_id, total_xp, streak, learner_level, last_completed_date, updated_at
       )
       SELECT
         1,
         COALESCE(total_xp, 0),
         COALESCE(streak, 0),
-        COALESCE(hearts, 5),
         COALESCE(learner_level, 1),
         last_completed_date,
         COALESCE(updated_at, CURRENT_TIMESTAMP)
@@ -311,10 +309,21 @@ db.exec(`
     user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     total_xp INTEGER NOT NULL DEFAULT 0,
     streak INTEGER NOT NULL DEFAULT 0,
-    hearts INTEGER NOT NULL DEFAULT 5,
     learner_level INTEGER NOT NULL DEFAULT 1,
     last_completed_date TEXT,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS language_progress (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    language TEXT NOT NULL,
+    total_xp INTEGER NOT NULL DEFAULT 0,
+    streak INTEGER NOT NULL DEFAULT 0,
+    learner_level INTEGER NOT NULL DEFAULT 1,
+    last_completed_date TEXT,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(user_id, language)
   );
 
   CREATE TABLE IF NOT EXISTS category_progress (
@@ -423,6 +432,8 @@ db.exec(`
   ON attempt_history(user_id, language, created_at DESC);
   CREATE INDEX IF NOT EXISTS idx_category_progress_user_language
   ON category_progress(user_id, language);
+  CREATE INDEX IF NOT EXISTS idx_language_progress_user_language
+  ON language_progress(user_id, language);
   CREATE INDEX IF NOT EXISTS idx_item_progress_user_language_category
   ON item_progress(user_id, language, category);
   CREATE INDEX IF NOT EXISTS idx_active_sessions_user
@@ -469,6 +480,124 @@ db.prepare(`
   VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner', 1, 'local')
 `).run();
 
+function ensureLanguageProgress(userId = 1, language = "spanish") {
+  const safeLanguage = String(language || "").trim().toLowerCase() || "spanish";
+  db.prepare(`
+    INSERT OR IGNORE INTO language_progress (
+      user_id, language, total_xp, streak, learner_level
+    )
+    VALUES (?, ?, 0, 0, 1)
+  `).run(userId, safeLanguage);
+}
+
+function computeStreakFromDatesDesc(datesDesc) {
+  if (!Array.isArray(datesDesc) || !datesDesc.length) return 0;
+  let streak = 1;
+  let previous = new Date(`${datesDesc[0]}T00:00:00Z`);
+  for (let i = 1; i < datesDesc.length; i += 1) {
+    const current = new Date(`${datesDesc[i]}T00:00:00Z`);
+    const diffDays = Math.floor((previous - current) / (24 * 60 * 60 * 1000));
+    if (diffDays !== 1) break;
+    streak += 1;
+    previous = current;
+  }
+  return streak;
+}
+
+function refreshAggregateProgressFromLanguageProgress(userId = 1) {
+  const rows = db.prepare(`
+    SELECT total_xp, streak, learner_level, last_completed_date
+    FROM language_progress
+    WHERE user_id = ?
+  `).all(userId);
+
+  if (!rows.length) return;
+
+  const totalXp = rows.reduce((sum, row) => sum + row.total_xp, 0);
+  const streak = rows.reduce((max, row) => Math.max(max, row.streak || 0), 0);
+  const lastCompletedDate = rows
+    .map((row) => row.last_completed_date)
+    .filter(Boolean)
+    .sort((a, b) => (a < b ? 1 : -1))[0] || null;
+
+  db.prepare(`
+    UPDATE progress
+    SET total_xp = ?,
+        streak = ?,
+        learner_level = ?,
+        last_completed_date = ?,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE user_id = ?
+  `).run(totalXp, streak, levelFromXp(totalXp), lastCompletedDate, userId);
+}
+
+function bootstrapLanguageProgress() {
+  db.prepare(`
+    INSERT OR IGNORE INTO language_progress (
+      user_id, language, total_xp, streak, learner_level, last_completed_date
+    )
+    SELECT
+      sh.user_id,
+      sh.language,
+      COALESCE(SUM(sh.xp_gained), 0),
+      0,
+      1,
+      MAX(DATE(sh.completed_at))
+    FROM session_history sh
+    GROUP BY sh.user_id, sh.language
+  `).run();
+
+  const targetRows = db.prepare(`
+    SELECT user_id, target_language
+    FROM settings
+  `).all();
+  targetRows.forEach((row) => ensureLanguageProgress(row.user_id, row.target_language));
+
+  const languageRows = db.prepare(`
+    SELECT user_id, language
+    FROM language_progress
+  `).all();
+
+  languageRows.forEach((row) => {
+    const totals = db.prepare(`
+      SELECT
+        COALESCE(SUM(xp_gained), 0) AS total_xp,
+        MAX(DATE(completed_at)) AS last_completed_date
+      FROM session_history
+      WHERE user_id = ? AND language = ?
+    `).get(row.user_id, row.language);
+
+    const dates = db.prepare(`
+      SELECT DISTINCT DATE(completed_at) AS completed_day
+      FROM session_history
+      WHERE user_id = ? AND language = ?
+      ORDER BY completed_day DESC
+    `).all(row.user_id, row.language);
+
+    const streak = computeStreakFromDatesDesc(dates.map((entry) => entry.completed_day));
+    const totalXp = Number(totals?.total_xp || 0);
+    db.prepare(`
+      UPDATE language_progress
+      SET total_xp = ?,
+          streak = ?,
+          learner_level = ?,
+          last_completed_date = ?,
+          updated_at = CURRENT_TIMESTAMP
+      WHERE user_id = ? AND language = ?
+    `).run(
+      totalXp,
+      streak,
+      levelFromXp(totalXp),
+      totals?.last_completed_date || null,
+      row.user_id,
+      row.language
+    );
+  });
+
+  const userRows = db.prepare("SELECT id FROM users").all();
+  userRows.forEach((row) => refreshAggregateProgressFromLanguageProgress(row.id));
+}
+
 function ensureUserState(userId = 1, preferredLearnerName = "Learner") {
   const initialLearnerName = normalizeDisplayName(preferredLearnerName);
   db.prepare(`
@@ -480,12 +609,16 @@ function ensureUserState(userId = 1, preferredLearnerName = "Learner") {
   `).run(userId, initialLearnerName);
 
   db.prepare(`
-    INSERT OR IGNORE INTO progress (user_id, total_xp, streak, hearts, learner_level)
-    VALUES (?, 0, 0, 5, 1)
+    INSERT OR IGNORE INTO progress (user_id, total_xp, streak, learner_level)
+    VALUES (?, 0, 0, 1)
   `).run(userId);
+
+  const row = db.prepare("SELECT target_language FROM settings WHERE user_id = ?").get(userId);
+  ensureLanguageProgress(userId, row?.target_language || "spanish");
 }
 
 ensureUserState(1);
+bootstrapLanguageProgress();
 db.prepare("UPDATE users SET email_verified = 1, auth_provider = 'local' WHERE id = 1").run();
 
 function toIsoDate(date = new Date()) {
@@ -554,14 +687,31 @@ function maybeMigrateLegacyJson() {
     const totalXp = Number(prog.totalXp || 0);
     db.prepare(`
       UPDATE progress
-      SET total_xp = ?, streak = ?, hearts = ?, learner_level = ?, last_completed_date = ?, updated_at = CURRENT_TIMESTAMP
+      SET total_xp = ?, streak = ?, learner_level = ?, last_completed_date = ?, updated_at = CURRENT_TIMESTAMP
       WHERE user_id = 1
     `).run(
       totalXp,
       Number(prog.streak || 0),
-      Number.isInteger(prog.hearts) ? prog.hearts : 5,
       levelFromXp(totalXp),
       prog.lastCompletedDate || null
+    );
+
+    const targetLanguage = settings.targetLanguage || "spanish";
+    ensureLanguageProgress(1, targetLanguage);
+    db.prepare(`
+      UPDATE language_progress
+      SET total_xp = ?,
+          streak = ?,
+          learner_level = ?,
+          last_completed_date = ?,
+          updated_at = CURRENT_TIMESTAMP
+      WHERE user_id = 1 AND language = ?
+    `).run(
+      totalXp,
+      Number(prog.streak || 0),
+      levelFromXp(totalXp),
+      prog.lastCompletedDate || null,
+      targetLanguage
     );
   } catch (_err) {
     // Ignore migration errors and continue with clean sqlite state.
@@ -769,6 +919,7 @@ function getSettings(userId = 1) {
 
 function saveSettings(userId = 1, nextSettings = {}) {
   ensureUserState(userId);
+  const nextTargetLanguage = nextSettings.targetLanguage || "spanish";
   db.prepare(`
     UPDATE settings
     SET native_language = ?,
@@ -784,7 +935,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
     WHERE user_id = ?
   `).run(
     nextSettings.nativeLanguage || "english",
-    nextSettings.targetLanguage || "spanish",
+    nextTargetLanguage,
     Number.isInteger(nextSettings.dailyGoal) ? nextSettings.dailyGoal : 30,
     Number.isInteger(nextSettings.dailyMinutes) ? nextSettings.dailyMinutes : 20,
     Number.isInteger(nextSettings.weeklyGoalSessions) ? nextSettings.weeklyGoalSessions : 5,
@@ -797,6 +948,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
     userId
   );
 
+  ensureLanguageProgress(userId, nextTargetLanguage);
   return getSettings(userId);
 }
 
@@ -827,26 +979,75 @@ function getCategoryProgress(userId = 1, language) {
     }));
 }
 
+function getTotalTodayXpAllLanguages(userId = 1, today = toIsoDate()) {
+  const row = db.prepare(`
+    SELECT COALESCE(SUM(xp), 0) AS total_xp
+    FROM daily_xp
+    WHERE user_id = ? AND date = ?
+  `).get(userId, today);
+  return row ? row.total_xp : 0;
+}
+
 function getProgress(userId = 1, language) {
   ensureUserState(userId);
-  const row = db
-    .prepare(`
-      SELECT total_xp, streak, hearts, learner_level, last_completed_date
-      FROM progress
-      WHERE user_id = ?
-    `)
-    .get(userId);
+  const safeLanguage = language ? String(language).toLowerCase() : "";
+  const categories = safeLanguage ? getCategoryProgress(userId, safeLanguage) : [];
 
-  const categories = language ? getCategoryProgress(userId, language) : [];
+  if (safeLanguage) {
+    ensureLanguageProgress(userId, safeLanguage);
+    const languageRow = db.prepare(`
+      SELECT total_xp, streak, learner_level, last_completed_date
+      FROM language_progress
+      WHERE user_id = ? AND language = ?
+    `).get(userId, safeLanguage);
+
+    return {
+      language: safeLanguage,
+      totalXp: languageRow.total_xp,
+      todayXp: getTodayXp(userId, safeLanguage),
+      streak: languageRow.streak,
+      learnerLevel: languageRow.learner_level,
+      lastCompletedDate: languageRow.last_completed_date,
+      categories
+    };
+  }
+
+  const row = db.prepare(`
+    SELECT total_xp, streak, learner_level, last_completed_date
+    FROM progress
+    WHERE user_id = ?
+  `).get(userId);
 
   return {
+    language: null,
     totalXp: row.total_xp,
-    todayXp: language ? getTodayXp(userId, language) : 0,
+    todayXp: getTotalTodayXpAllLanguages(userId),
     streak: row.streak,
-    hearts: row.hearts,
     learnerLevel: row.learner_level,
     lastCompletedDate: row.last_completed_date,
     categories
+  };
+}
+
+function getProgressOverview(userId = 1) {
+  ensureUserState(userId);
+  const rows = db.prepare(`
+    SELECT language, total_xp, streak, learner_level, last_completed_date
+    FROM language_progress
+    WHERE user_id = ?
+    ORDER BY updated_at DESC, language ASC
+  `).all(userId);
+
+  return {
+    totalXp: rows.reduce((sum, row) => sum + row.total_xp, 0),
+    languages: rows.map((row) => ({
+      language: row.language,
+      totalXp: row.total_xp,
+      todayXp: getTodayXp(userId, row.language),
+      streak: row.streak,
+      learnerLevel: row.learner_level,
+      lastCompletedDate: row.last_completed_date
+    }))
   };
 }
 
@@ -1254,9 +1455,12 @@ function recordSession({
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `).run(userId, language, category, score, maxScore, accuracy, xpGained, difficultyLevel);
 
-  const progress = db
-    .prepare("SELECT total_xp, streak, hearts, last_completed_date FROM progress WHERE user_id = ?")
-    .get(userId);
+  ensureLanguageProgress(userId, language);
+  const progress = db.prepare(`
+    SELECT total_xp, streak, last_completed_date
+    FROM language_progress
+    WHERE user_id = ? AND language = ?
+  `).get(userId, language);
 
   let nextStreak = progress.streak;
   if (!progress.last_completed_date) {
@@ -1272,28 +1476,25 @@ function recordSession({
     }
   }
 
-  const safeMistakes = Number.isFinite(mistakes) ? Math.max(0, Math.floor(mistakes)) : 0;
-  const lostHearts = Math.floor(safeMistakes / 3);
-  const nextHearts = Math.max(0, progress.hearts - lostHearts);
   const totalXp = progress.total_xp + xpGained;
   const learnerLevel = levelFromXp(totalXp);
   addDailyXp(userId, language, today, xpGained);
 
   db.prepare(`
-    UPDATE progress
+    UPDATE language_progress
     SET total_xp = ?,
         streak = ?,
-        hearts = ?,
         learner_level = ?,
         last_completed_date = ?,
         updated_at = CURRENT_TIMESTAMP
-    WHERE user_id = ?
-  `).run(totalXp, nextStreak, nextHearts, learnerLevel, today, userId);
+    WHERE user_id = ? AND language = ?
+  `).run(totalXp, nextStreak, learnerLevel, today, userId, language);
+
+  refreshAggregateProgressFromLanguageProgress(userId);
 
   return {
     xpGained,
     streak: nextStreak,
-    hearts: nextHearts,
     learnerLevel,
     mastery: Number(newMastery.toFixed(1)),
     levelUnlocked
@@ -1325,6 +1526,7 @@ module.exports = {
   getItemSelectionHints,
   getTodayXp,
   getProgress,
+  getProgressOverview,
   getStats,
   recordSession,
   addDailyXp,

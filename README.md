@@ -10,10 +10,11 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Sentence-builder exercises with correction feedback and reveal flow
 - Expanded exercise types: cloze deletion, listen-and-build sentence, guided dialogue completion
 - Adaptive CEFR-style progression (`A1` → `B2`) based on mastery
-- Persistent progress (XP, streak, category mastery, daily XP, per-item progress) via `better-sqlite3`
+- Persistent progress (XP, streak, level, category mastery, daily XP, per-item progress) via `better-sqlite3`
 - Multi-user account support with auth (`register`, `verify-email`, `login`, `google`, `me`) and user-scoped persistence
 - Dedicated login/register UI with token-based session persistence and sign-out
-- Language options: `Spanish`, `Russian`, `English`
+- Multi-language course support per account with smooth in-app course switching
+- Language options: `English`, `Spanish`, `Russian`, `Italian`, `Swedish`
 
 ## Tech Stack
 
@@ -71,8 +72,9 @@ client/
   src/styles.css     # App styles
 server/
   src/index.ts       # API routes
-  src/data.ts        # Course content + session generation
+  src/data.ts        # Course/session logic + language content loading/validation
   src/db.ts          # SQLite schema, auth users, user-scoped persistence
+  content/languages/ # Editable language content JSON files
   src/__tests__/     # Backend tests
   data/              # Runtime DB files
 ```
@@ -126,6 +128,8 @@ server/
 - `GET /api/settings`
 - `PUT /api/settings`
 - `GET /api/progress?language=<id>`
+- `GET /api/progress-overview`
+- `GET /api/stats?language=<id>`
 
 Notes:
 - Protected learner endpoints (`/api/course`, `/api/session/*`, `/api/settings`, `/api/progress`, `/api/stats`) require a bearer token.

@@ -19,6 +19,7 @@ const apiMock = vi.hoisted(() => ({
   getSettings: vi.fn(),
   getCourse: vi.fn(),
   getProgress: vi.fn(),
+  getProgressOverview: vi.fn(),
   getStats: vi.fn(),
   saveSettings: vi.fn(),
   startSession: vi.fn(),
@@ -72,7 +73,6 @@ function setupApiFixtures() {
     totalXp: 20,
     todayXp: 10,
     streak: 2,
-    hearts: 5,
     learnerLevel: 1,
     lastCompletedDate: null,
     categories: []
@@ -89,6 +89,19 @@ function setupApiFixtures() {
     weakestCategories: ["essentials"],
     objectiveStats: [{ objective: "grammar-a1", accuracy: 55 }],
     errorTypeTrend: [{ errorType: "word_order", count: 4 }]
+  });
+  apiMock.getProgressOverview.mockResolvedValue({
+    totalXp: 20,
+    languages: [
+      {
+        language: "spanish",
+        totalXp: 20,
+        todayXp: 10,
+        streak: 2,
+        learnerLevel: 1,
+        lastCompletedDate: null
+      }
+    ]
   });
   apiMock.saveSettings.mockImplementation(async (payload) => payload);
 }

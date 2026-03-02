@@ -19,6 +19,31 @@ import { getPageFromPathname, getSystemTheme, resolveTheme } from "./utils/theme
 
 type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
 type AppPage = "learn" | "setup" | "stats";
+const ACTIVE_COURSE_LANGUAGE_STORAGE_KEY = "lingoflow_active_course_language";
+const ACTIVE_SESSIONS_STORAGE_KEY = "lingoflow_active_sessions";
+
+function loadStoredSessionsByLanguage() {
+  if (typeof window === "undefined") return {};
+  try {
+    const rawMap = window.localStorage.getItem(ACTIVE_SESSIONS_STORAGE_KEY);
+    if (rawMap) {
+      const parsed = JSON.parse(rawMap);
+      if (parsed && typeof parsed === "object") {
+        return parsed as Record<string, any>;
+      }
+    }
+
+    const legacyRaw = window.localStorage.getItem("lingoflow_active_session");
+    if (!legacyRaw) return {};
+    const legacy = JSON.parse(legacyRaw);
+    if (!legacy || !legacy.language || !Array.isArray(legacy.questions) || !legacy.questions.length) {
+      return {};
+    }
+    return { [legacy.language]: legacy };
+  } catch (_error) {
+    return {};
+  }
+}
 
 function getAuthModeFromPathname(pathname: string): AuthMode {
   if (pathname === AUTH_PATHS.register) return "register";
@@ -39,25 +64,19 @@ export default function App() {
   const [authNotice, setAuthNotice] = useState("");
   const [loginFailureCount, setLoginFailureCount] = useState(0);
   const [languages, setLanguages] = useState<any[]>([]);
+  const [activeCourseLanguage, setActiveCourseLanguage] = useState<string>(() => {
+    if (typeof window === "undefined") return "";
+    return String(window.localStorage.getItem(ACTIVE_COURSE_LANGUAGE_STORAGE_KEY) || "").trim().toLowerCase();
+  });
   const [settings, setSettings] = useState<any>(null);
   const [draftSettings, setDraftSettings] = useState<any>(DEFAULT_DRAFT);
   const [progress, setProgress] = useState<any>(null);
+  const [progressOverview, setProgressOverview] = useState<any>(null);
   const [statsData, setStatsData] = useState<any>(null);
   const [courseCategories, setCourseCategories] = useState<any[]>([]);
-  const [activeSession, setActiveSession] = useState<any>(() => {
-    if (typeof window === "undefined") return null;
-    try {
-      const raw = window.localStorage.getItem("lingoflow_active_session");
-      if (!raw) return null;
-      const parsed = JSON.parse(raw);
-      if (!parsed || !Array.isArray(parsed.questions) || !parsed.questions.length) {
-        return null;
-      }
-      return parsed;
-    } catch (_error) {
-      return null;
-    }
-  });
+  const [activeSessionsByLanguage, setActiveSessionsByLanguage] = useState<Record<string, any>>(
+    () => loadStoredSessionsByLanguage()
+  );
   const [activePage, setActivePage] = useState<AppPage>(() => {
     if (typeof window === "undefined") return "learn";
     return getPageFromPathname(window.location.pathname);
@@ -71,24 +90,45 @@ export default function App() {
   });
 
   const activeTheme = useMemo(() => resolveTheme(themeMode), [themeMode]);
+  const activeSession = activeCourseLanguage ? activeSessionsByLanguage[activeCourseLanguage] || null : null;
 
   async function hydrateAuthenticatedApp() {
     const [langs, conf] = await Promise.all([api.getLanguages(), api.getSettings()]);
     setLanguages(langs);
     setSettings(conf);
     setDraftSettings({ ...DEFAULT_DRAFT, ...conf });
-    await refreshCourseAndProgress(conf.targetLanguage);
+    const availableLanguageIds = new Set((langs || []).map((item: any) => item.id));
+    const preferredLanguage = String(activeCourseLanguage || "").toLowerCase();
+    const initialCourseLanguage = availableLanguageIds.has(preferredLanguage)
+      ? preferredLanguage
+      : String(conf.targetLanguage || "spanish").toLowerCase();
+    setActiveCourseLanguage(initialCourseLanguage);
+    await refreshCourseAndProgress(initialCourseLanguage);
   }
 
   async function refreshCourseAndProgress(targetLanguage: string) {
-    const [course, prog, stats] = await Promise.all([
+    const [course, prog, stats, overview] = await Promise.all([
       api.getCourse(targetLanguage),
       api.getProgress(targetLanguage),
-      api.getStats(targetLanguage)
+      api.getStats(targetLanguage),
+      api.getProgressOverview()
     ]);
     setCourseCategories(course as any[]);
     setProgress(prog);
     setStatsData(stats);
+    setProgressOverview(overview);
+  }
+
+  async function switchCourseLanguage(nextLanguage: string) {
+    const safeLanguage = String(nextLanguage || "").trim().toLowerCase();
+    if (!safeLanguage || safeLanguage === activeCourseLanguage) return;
+    try {
+      setActiveCourseLanguage(safeLanguage);
+      await refreshCourseAndProgress(safeLanguage);
+      setStatusMessage("");
+    } catch (_error) {
+      setStatusMessage("Could not switch course language right now.");
+    }
   }
 
   useEffect(() => {
@@ -397,12 +437,19 @@ export default function App() {
 
   function signOut() {
     api.clearAuthToken();
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem(ACTIVE_SESSIONS_STORAGE_KEY);
+      window.localStorage.removeItem(ACTIVE_COURSE_LANGUAGE_STORAGE_KEY);
+      window.localStorage.removeItem("lingoflow_active_session");
+    }
     setAuthUser(null);
     setSettings(null);
     setProgress(null);
+    setProgressOverview(null);
     setStatsData(null);
     setCourseCategories([]);
-    setActiveSession(null);
+    setActiveSessionsByLanguage({});
+    setActiveCourseLanguage("");
     setStatusMessage("You have signed out.");
     setAuthNotice("");
   }
@@ -413,15 +460,20 @@ export default function App() {
     try {
       const saved = await api.saveSettings({ ...settings, ...draftSettings });
       setSettings(saved);
+      const languageIds = new Set((languages || []).map((item: any) => item.id));
+      const resolvedLanguage = languageIds.has(activeCourseLanguage)
+        ? activeCourseLanguage
+        : String(saved.targetLanguage || "spanish").toLowerCase();
+      setActiveCourseLanguage(resolvedLanguage);
       setStatusMessage("Setup saved. Your learner profile has been updated.");
-      await refreshCourseAndProgress(saved.targetLanguage);
+      await refreshCourseAndProgress(resolvedLanguage);
     } catch (_error) {
       setStatusMessage("Could not save setup changes.");
     }
   }
 
   async function startCategory(category: any) {
-    if (!settings) return;
+    if (!settings || !activeCourseLanguage) return;
     if (!category.unlocked) {
       setStatusMessage(category.lockReason || "This category is still locked.");
       return;
@@ -429,15 +481,18 @@ export default function App() {
 
     try {
       const session: any = await api.startSession({
-        language: settings.targetLanguage,
+        language: activeCourseLanguage,
         category: category.id,
         count: 10
       });
 
-      setActiveSession({
-        ...session,
-        categoryLabel: category.label
-      });
+      setActiveSessionsByLanguage((prev) => ({
+        ...prev,
+        [activeCourseLanguage]: {
+          ...session,
+          categoryLabel: category.label
+        }
+      }));
       navigateToPage("learn");
       setStatusMessage("");
     } catch (_error) {
@@ -451,7 +506,7 @@ export default function App() {
     try {
       const result: any = await api.completeSession({
         sessionId: activeSession.sessionId,
-        language: settings.targetLanguage,
+        language: activeSession.language,
         category: activeSession.category,
         attempts: sessionReport.attempts,
         hintsUsed: sessionReport.hintsUsed,
@@ -464,21 +519,28 @@ export default function App() {
         `Mastery ${result.mastery.toFixed(1)}% (${result.levelUnlocked.toUpperCase()})`
       );
 
-      setActiveSession(null);
-      window.localStorage.removeItem("lingoflow_active_session");
-      await refreshCourseAndProgress(settings.targetLanguage);
+      setActiveSessionsByLanguage((prev) => {
+        const next = { ...prev };
+        delete next[activeSession.language];
+        return next;
+      });
+      await refreshCourseAndProgress(activeSession.language);
     } catch (_error) {
       setStatusMessage("Could not save session progress.");
     }
   }
 
   useEffect(() => {
-    if (!activeSession) {
-      window.localStorage.removeItem("lingoflow_active_session");
-      return;
-    }
-    window.localStorage.setItem("lingoflow_active_session", JSON.stringify(activeSession));
-  }, [activeSession]);
+    if (typeof window === "undefined") return;
+    if (!activeCourseLanguage) return;
+    window.localStorage.setItem(ACTIVE_COURSE_LANGUAGE_STORAGE_KEY, activeCourseLanguage);
+  }, [activeCourseLanguage]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(ACTIVE_SESSIONS_STORAGE_KEY, JSON.stringify(activeSessionsByLanguage));
+    window.localStorage.removeItem("lingoflow_active_session");
+  }, [activeSessionsByLanguage]);
 
   const dailyProgressPercent = useMemo(() => {
     if (!settings || !progress) return 0;
@@ -489,6 +551,7 @@ export default function App() {
     authUser?.authProvider === "local"
       ? (authUser?.email || authUser?.displayName || "Learner")
       : (authUser?.displayName || authUser?.email || "Learner");
+  const activeLanguageLabel = languages.find((item) => item.id === activeCourseLanguage)?.label || "Language";
 
   if (loading) {
     return <main className="app-shell">Loading LingoFlow...</main>;
@@ -530,11 +593,24 @@ export default function App() {
         <div className="topbar-meta">
           <div className="stats">
             <span>{topbarIdentity}</span>
+            <span>Course: {activeLanguageLabel}</span>
             <span>Level: {progress?.learnerLevel ?? 1}</span>
             <span>XP: {progress?.totalXp ?? 0}</span>
             <span>Streak: {progress?.streak ?? 0}</span>
           </div>
           <div className="topbar-actions">
+            <label className="theme-switcher">
+              Course
+              <select
+                value={activeCourseLanguage}
+                onChange={(event) => switchCourseLanguage(event.target.value)}
+                aria-label="Active course language"
+              >
+                {languages.map((language) => (
+                  <option key={language.id} value={language.id}>{language.label}</option>
+                ))}
+              </select>
+            </label>
             <label className="theme-switcher">
               Theme
               <select
@@ -596,9 +672,25 @@ export default function App() {
           activeSession={activeSession}
           onStartCategory={startCategory}
           onFinishSession={finishSession}
-          onExitSession={() => setActiveSession(null)}
+          onExitSession={() => {
+            if (!activeCourseLanguage) return;
+            setActiveSessionsByLanguage((prev) => {
+              const next = { ...prev };
+              delete next[activeCourseLanguage];
+              return next;
+            });
+          }}
           onSessionSnapshot={(snapshot: any) =>
-            setActiveSession((prev: any) => (prev ? { ...prev, resumeState: snapshot } : prev))
+            setActiveSessionsByLanguage((prev) => {
+              if (!activeCourseLanguage || !prev[activeCourseLanguage]) return prev;
+              return {
+                ...prev,
+                [activeCourseLanguage]: {
+                  ...prev[activeCourseLanguage],
+                  resumeState: snapshot
+                }
+              };
+            })
           }
           onOpenSetup={() => navigateToPage("setup")}
           onOpenStats={() => navigateToPage("stats")}
@@ -622,6 +714,8 @@ export default function App() {
           progress={progress}
           courseCategories={courseCategories}
           statsData={statsData}
+          progressOverview={progressOverview}
+          languages={languages}
         />
       ) : null}
     </main>

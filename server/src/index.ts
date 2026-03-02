@@ -987,7 +987,8 @@ function createApp(): ExpressApp {
 
   app.get("/api/course", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
-    const language = String(req.query.language || "spanish").toLowerCase();
+    const settings = database.getSettings(userId);
+    const language = String(req.query.language || settings.targetLanguage || "spanish").toLowerCase();
     const categories = getCourseOverview(language);
     const categoryProgress = database.getCategoryProgress(userId, language);
     const progressMap = new Map(categoryProgress.map((item) => [item.category, item]));
@@ -1110,16 +1111,22 @@ function createApp(): ExpressApp {
       totalXp: progress.totalXp,
       todayXp: progress.todayXp,
       streak: progress.streak,
-      hearts: progress.hearts,
       learnerLevel: progress.learnerLevel,
       lastCompletedDate: progress.lastCompletedDate,
       categories: progress.categories
     });
   });
 
+  app.get("/api/progress-overview", requireAuth, (req: AuthenticatedRequest, res: Response) => {
+    const userId = req.authUserId;
+    const overview = database.getProgressOverview(userId);
+    res.json(overview);
+  });
+
   app.get("/api/stats", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
-    const language = String(req.query.language || "spanish").toLowerCase();
+    const settings = database.getSettings(userId);
+    const language = String(req.query.language || settings.targetLanguage || "spanish").toLowerCase();
     const stats = database.getStats(userId, language);
     res.json(stats);
   });
@@ -1243,7 +1250,6 @@ function createApp(): ExpressApp {
       },
       xpGained: saved.xpGained,
       streak: saved.streak,
-      hearts: saved.hearts,
       learnerLevel: saved.learnerLevel,
       mastery: saved.mastery,
       levelUnlocked: saved.levelUnlocked
