@@ -88,6 +88,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   function getSpeechLanguage() {
     if (session.language === "spanish") return "es-ES";
     if (session.language === "russian") return "ru-RU";
+    if (session.language === "italian") return "it-IT";
+    if (session.language === "swedish") return "sv-SE";
     return "en-US";
   }
 

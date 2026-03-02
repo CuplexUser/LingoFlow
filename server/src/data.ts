@@ -1,7 +1,9 @@
 const LANGUAGES = [
   { id: "english", label: "English", flag: "US" },
   { id: "spanish", label: "Spanish", flag: "ES" },
-  { id: "russian", label: "Russian", flag: "RU" }
+  { id: "russian", label: "Russian", flag: "RU" },
+  { id: "italian", label: "Italian", flag: "IT" },
+  { id: "swedish", label: "Swedish", flag: "SE" }
 ];
 
 const CATEGORIES = [
@@ -270,6 +272,46 @@ const COURSE = {
     ]
   }
 };
+
+function cloneCourseFromEnglish(prefix, overrides = {}) {
+  return Object.fromEntries(
+    Object.entries(COURSE.english).map(([category, items]) => [
+      category,
+      items.map((item) => ({
+        ...item,
+        id: item.id.replace(/^en-/, `${prefix}-`),
+        target: Object.prototype.hasOwnProperty.call(overrides, item.id)
+          ? overrides[item.id]
+          : item.target
+      }))
+    ])
+  );
+}
+
+const ITALIAN_OVERRIDES = {
+  "en-es-1": "Ciao, come stai?",
+  "en-es-2": "Grazie mille per il tuo aiuto.",
+  "en-es-3": "Non capisco questa frase.",
+  "en-es-4": "Potresti parlare piu lentamente, per favore?",
+  "en-es-5": "Sto imparando l'italiano ogni giorno.",
+  "en-es-6": "Ho fatto un errore, ma ci riprovero.",
+  "en-es-7": "Vorrei migliorare la mia pronuncia.",
+  "en-es-8": "Posso spiegare la mia opinione con argomenti chiari."
+};
+
+const SWEDISH_OVERRIDES = {
+  "en-es-1": "Hej, hur mår du?",
+  "en-es-2": "Tack så mycket för din hjälp.",
+  "en-es-3": "Jag förstår inte den här meningen.",
+  "en-es-4": "Kan du prata långsammare, tack?",
+  "en-es-5": "Jag lär mig svenska varje dag.",
+  "en-es-6": "Jag gjorde ett misstag, men jag ska försöka igen.",
+  "en-es-7": "Jag skulle vilja förbättra mitt uttal.",
+  "en-es-8": "Jag kan förklara min åsikt med tydliga argument."
+};
+
+COURSE.italian = cloneCourseFromEnglish("it", ITALIAN_OVERRIDES);
+COURSE.swedish = cloneCourseFromEnglish("sv", SWEDISH_OVERRIDES);
 
 function shuffle(items) {
   const cloned = [...items];
