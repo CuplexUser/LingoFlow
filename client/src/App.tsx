@@ -17,19 +17,27 @@ import {
 } from "./constants";
 import { getPageFromPathname, getSystemTheme, resolveTheme } from "./utils/theme";
 
-type AuthMode = "login" | "register";
+type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
 type AppPage = "learn" | "setup" | "stats";
+
+function getAuthModeFromPathname(pathname: string): AuthMode {
+  if (pathname === AUTH_PATHS.register) return "register";
+  if (pathname === AUTH_PATHS.forgotPassword) return "forgotPassword";
+  if (pathname === AUTH_PATHS.resetPassword) return "resetPassword";
+  return "login";
+}
 
 export default function App() {
   const [authMode, setAuthMode] = useState<AuthMode>(() => {
     if (typeof window === "undefined") return "login";
-    if (window.location.pathname === AUTH_PATHS.register) return "register";
-    return "login";
+    return getAuthModeFromPathname(window.location.pathname);
   });
+  const [resetToken, setResetToken] = useState("");
   const [authUser, setAuthUser] = useState<any>(null);
   const [authBusy, setAuthBusy] = useState(false);
   const [authError, setAuthError] = useState("");
   const [authNotice, setAuthNotice] = useState("");
+  const [loginFailureCount, setLoginFailureCount] = useState(0);
   const [languages, setLanguages] = useState<any[]>([]);
   const [settings, setSettings] = useState<any>(null);
   const [draftSettings, setDraftSettings] = useState<any>(DEFAULT_DRAFT);
@@ -153,7 +161,7 @@ export default function App() {
       const token = url.searchParams.get("token");
       if (!token) {
         setAuthError("Missing verification token.");
-        window.history.replaceState({}, "", "/");
+        window.history.replaceState({}, "", AUTH_PATHS.login);
         return;
       }
 
@@ -169,11 +177,23 @@ export default function App() {
         setAuthError(error.message || "Email verification failed.");
       } finally {
         setAuthBusy(false);
-        window.history.replaceState({}, "", "/");
+        window.history.replaceState({}, "", AUTH_PATHS.login);
       }
     }
 
     verifyEmailFromUrl();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    if (url.pathname !== AUTH_PATHS.resetPassword) return;
+    const token = String(url.searchParams.get("token") || "").trim();
+    setResetToken(token);
+    setAuthMode("resetPassword");
+    if (!token) {
+      setAuthError("Missing password reset token.");
+    }
   }, []);
 
   useEffect(() => {
@@ -204,7 +224,7 @@ export default function App() {
   useEffect(() => {
     function onPopState() {
       if (!authUser) {
-        setAuthMode(window.location.pathname === AUTH_PATHS.register ? "register" : "login");
+        setAuthMode(getAuthModeFromPathname(window.location.pathname));
         return;
       }
       const nextPage = getPageFromPathname(window.location.pathname);
@@ -238,12 +258,18 @@ export default function App() {
   }
 
   function navigateAuthMode(nextMode: AuthMode) {
-    const safeMode = nextMode === "register" ? "register" : "login";
+    const safeMode = nextMode;
     const path = AUTH_PATHS[safeMode];
     if (window.location.pathname !== path) {
       window.history.pushState({}, "", path);
     }
     setAuthMode(safeMode);
+    if (safeMode !== "login") {
+      setLoginFailureCount(0);
+    }
+    if (safeMode !== "resetPassword") {
+      setResetToken("");
+    }
   }
 
   async function onAuthSuccess(payload: any) {
@@ -254,6 +280,7 @@ export default function App() {
     setAuthUser(payload.user);
     setAuthError("");
     setAuthNotice("");
+    setLoginFailureCount(0);
     setStatusMessage(`Welcome back, ${payload.user.displayName || "Learner"}!`);
     await hydrateAuthenticatedApp();
     navigateToPage("learn");
@@ -284,6 +311,7 @@ export default function App() {
       const payload = await api.login(form);
       await onAuthSuccess(payload);
     } catch (error: any) {
+      setLoginFailureCount((prev) => prev + 1);
       setAuthError(error.message || "Could not sign in.");
     } finally {
       setAuthBusy(false);
@@ -307,6 +335,53 @@ export default function App() {
       );
     } catch (error: any) {
       setAuthError(error.message || "Could not resend verification email.");
+    } finally {
+      setAuthBusy(false);
+    }
+  }
+
+  async function forgotPassword(email: string) {
+    const normalizedEmail = String(email || "").trim().toLowerCase();
+    if (!normalizedEmail) {
+      setAuthError("Enter your email to reset your password.");
+      return;
+    }
+    setAuthBusy(true);
+    setAuthError("");
+    setAuthNotice("");
+    try {
+      const payload = await api.forgotPassword({ email: normalizedEmail });
+      setAuthNotice(
+        payload?.message ||
+        "If an account exists for this email, a password reset link has been sent."
+      );
+    } catch (error: any) {
+      setAuthError(error.message || "Could not send password reset email.");
+    } finally {
+      setAuthBusy(false);
+    }
+  }
+
+  async function resetPassword(form: { token: string; password: string }) {
+    const token = String(form?.token || "").trim();
+    const password = String(form?.password || "");
+    if (!token) {
+      setAuthError("Missing password reset token.");
+      return;
+    }
+    setAuthBusy(true);
+    setAuthError("");
+    setAuthNotice("");
+    try {
+      const payload = await api.resetPassword({ token, password });
+      setAuthMode("login");
+      setResetToken("");
+      setAuthNotice(payload?.message || "Password reset successful. You can sign in now.");
+      if (window.location.pathname !== AUTH_PATHS.login) {
+        window.history.replaceState({}, "", AUTH_PATHS.login);
+      }
+    } catch (error: any) {
+      setAuthError(error.message || "Could not reset password.");
     } finally {
       setAuthBusy(false);
     }
@@ -421,10 +496,14 @@ export default function App() {
         busy={authBusy}
         errorMessage={authError}
         noticeMessage={authNotice}
+        showForgotPassword={loginFailureCount >= 1}
+        resetToken={resetToken}
         onModeChange={navigateAuthMode}
         onRegister={register}
         onLogin={login}
         onResendVerification={resendVerification}
+        onForgotPassword={forgotPassword}
+        onResetPassword={resetPassword}
         onGoogleOAuthStart={startGoogleOAuth}
       />
     );

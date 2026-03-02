@@ -1,16 +1,20 @@
 import { useEffect, useState, type FormEvent } from "react";
 
-type AuthMode = "login" | "register";
+type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
 
 type AuthPageProps = {
   mode: AuthMode;
   busy: boolean;
   errorMessage: string;
   noticeMessage: string;
+  showForgotPassword: boolean;
+  resetToken?: string;
   onModeChange: (mode: AuthMode) => void;
   onRegister: (form: { displayName: string; email: string; password: string }) => Promise<void>;
   onLogin: (form: { email: string; password: string }) => Promise<void>;
   onResendVerification: (email: string) => Promise<void>;
+  onForgotPassword: (email: string) => Promise<void>;
+  onResetPassword: (payload: { token: string; password: string }) => Promise<void>;
   onGoogleOAuthStart: () => void;
 };
 
@@ -19,10 +23,14 @@ export function AuthPage({
   busy,
   errorMessage,
   noticeMessage,
+  showForgotPassword,
+  resetToken = "",
   onModeChange,
   onRegister,
   onLogin,
   onResendVerification,
+  onForgotPassword,
+  onResetPassword,
   onGoogleOAuthStart
 }: AuthPageProps) {
   const [form, setForm] = useState({
@@ -48,6 +56,17 @@ export function AuthPage({
       });
       return;
     }
+    if (mode === "forgotPassword") {
+      await onForgotPassword(form.email);
+      return;
+    }
+    if (mode === "resetPassword") {
+      await onResetPassword({
+        token: resetToken,
+        password: form.password
+      });
+      return;
+    }
     await onLogin({
       email: form.email,
       password: form.password
@@ -57,13 +76,21 @@ export function AuthPage({
   const shouldShowResend = mode === "login" &&
     String(errorMessage || "").toLowerCase().includes("verify your email");
 
+  const title = mode === "register"
+    ? "Create your account"
+    : mode === "forgotPassword"
+      ? "Reset your password"
+      : mode === "resetPassword"
+        ? "Choose a new password"
+        : "Sign in to your account";
+
   return (
     <main className="auth-shell">
       <section className="auth-card panel">
         <h1>LingoFlow</h1>
         <p className="subtitle">Sign in to sync your learning progress across devices.</p>
 
-        <h2>{mode === "register" ? "Create your account" : "Sign in to your account"}</h2>
+        <h2>{title}</h2>
 
         <form className="auth-form" onSubmit={onSubmit}>
           {mode === "register" ? (
@@ -81,66 +108,108 @@ export function AuthPage({
             </label>
           ) : null}
 
-          <label>
-            Email
-            <input
-              type="email"
-              value={form.email}
-              onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
-              placeholder="you@example.com"
-              autoComplete="email"
-              required
-              disabled={busy}
-            />
-          </label>
+          {mode !== "resetPassword" ? (
+            <label>
+              Email
+              <input
+                type="email"
+                value={form.email}
+                onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
+                placeholder="you@example.com"
+                autoComplete="email"
+                required
+                disabled={busy}
+              />
+            </label>
+          ) : null}
 
-          <label>
-            Password
-            <input
-              type="password"
-              value={form.password}
-              onChange={(event) => setForm((prev) => ({ ...prev, password: event.target.value }))}
-              placeholder="At least 8 characters"
-              autoComplete={mode === "register" ? "new-password" : "current-password"}
-              minLength={8}
-              required
-              disabled={busy}
-            />
-          </label>
+          {mode !== "forgotPassword" ? (
+            <label>
+              Password
+              <input
+                type="password"
+                value={form.password}
+                onChange={(event) => setForm((prev) => ({ ...prev, password: event.target.value }))}
+                placeholder="At least 8 characters"
+                autoComplete={mode === "register" || mode === "resetPassword" ? "new-password" : "current-password"}
+                minLength={8}
+                required
+                disabled={busy}
+              />
+            </label>
+          ) : null}
 
           <button type="submit" className="primary-button" disabled={busy}>
             {busy
               ? "Please wait..."
               : mode === "register"
                 ? "Create account"
+                : mode === "forgotPassword"
+                  ? "Send reset link"
+                  : mode === "resetPassword"
+                    ? "Reset password"
                 : "Sign in"}
           </button>
         </form>
 
-        <div className="google-auth">
-          <div className="auth-divider"><span>or continue with</span></div>
-          <button
-            type="button"
-            className="ghost-button google-placeholder"
-            onClick={onGoogleOAuthStart}
-            disabled={busy}
-          >
-            Continue with Google
-          </button>
-        </div>
+        {mode === "login" || mode === "register" ? (
+          <div className="google-auth">
+            <div className="auth-divider"><span>or continue with</span></div>
+            <button
+              type="button"
+              className="ghost-button google-placeholder"
+              onClick={onGoogleOAuthStart}
+              disabled={busy}
+            >
+              Continue with Google
+            </button>
+          </div>
+        ) : null}
 
-        <p className="auth-mode-text">
-          {mode === "register" ? "Already have an account?" : "New to LingoFlow?"}
-          {" "}
-          <button
-            type="button"
-            className="mode-link"
-            onClick={() => onModeChange(mode === "register" ? "login" : "register")}
-            disabled={busy}
-          >
-            {mode === "register" ? "Sign in" : "Create account"}
-          </button>
-        </p>
+        {mode === "login" || mode === "register" ? (
+          <p className="auth-mode-text">
+            {mode === "register" ? "Already have an account?" : "New to LingoFlow?"}
+            {" "}
+            <button
+              type="button"
+              className="mode-link"
+              onClick={() => onModeChange(mode === "register" ? "login" : "register")}
+              disabled={busy}
+            >
+              {mode === "register" ? "Sign in" : "Create account"}
+            </button>
+          </p>
+        ) : null}
+
+        {mode === "login" && showForgotPassword ? (
+          <p className="auth-mode-text">
+            Forgot your password?
+            {" "}
+            <button
+              type="button"
+              className="mode-link"
+              onClick={() => onModeChange("forgotPassword")}
+              disabled={busy}
+            >
+              Reset it
+            </button>
+          </p>
+        ) : null}
+
+        {mode === "forgotPassword" || mode === "resetPassword" ? (
+          <p className="auth-mode-text">
+            Back to sign in?
+            {" "}
+            <button
+              type="button"
+              className="mode-link"
+              onClick={() => onModeChange("login")}
+              disabled={busy}
+            >
+              Sign in
+            </button>
+          </p>
+        ) : null}
 
         {noticeMessage ? <div className="status">{noticeMessage}</div> : null}
 

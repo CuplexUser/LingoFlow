@@ -38,6 +38,15 @@ export type ResendVerificationPayload = {
   email: string;
 };
 
+export type ForgotPasswordPayload = {
+  email: string;
+};
+
+export type ResetPasswordPayload = {
+  token: string;
+  password: string;
+};
+
 const API_BASE = (import.meta.env.VITE_API_BASE || "/api").replace(/\/$/, "");
 
 let authToken: string | null = null;
@@ -112,6 +121,16 @@ export const api = {
   resendVerification: (payload: ResendVerificationPayload) =>
     request<{ ok: boolean; message?: string }>(
       "/auth/resend-verification",
+      { method: "POST", body: JSON.stringify(payload) }
+    ),
+  forgotPassword: (payload: ForgotPasswordPayload) =>
+    request<{ ok: boolean; message?: string }>(
+      "/auth/forgot-password",
+      { method: "POST", body: JSON.stringify(payload) }
+    ),
+  resetPassword: (payload: ResetPasswordPayload) =>
+    request<{ ok: boolean; message?: string }>(
+      "/auth/reset-password",
       { method: "POST", body: JSON.stringify(payload) }
     ),
   verifyEmail: (payload: VerifyEmailPayload) =>

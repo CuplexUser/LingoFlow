@@ -108,6 +108,7 @@ const TOKEN_TTL_SECONDS = 60 * 60 * 24 * 30;
 const PUBLIC_APP_URL = process.env.PUBLIC_APP_URL || "http://localhost:5173";
 const EMAIL_FROM = process.env.EMAIL_FROM || "LingoFlow <no-reply@lingoflow.local>";
 const EMAIL_VERIFICATION_TTL_HOURS = 24;
+const PASSWORD_RESET_TTL_HOURS = 1;
 const GOOGLE_OAUTH_CLIENT_ID = String(
   process.env.GOOGLE_OAUTH_CLIENT_ID || process.env.GOOGLE_CLIENT_ID || ""
 ).trim();
@@ -388,7 +389,15 @@ function buildEmailVerificationLink(token: string): string {
   return `${baseUrl}/verify-email?token=${encodeURIComponent(token)}`;
 }
 
+function buildPasswordResetLink(token: string): string {
+  const baseUrl = String(PUBLIC_APP_URL || "").replace(/\/$/, "");
+  return `${baseUrl}/reset-password?token=${encodeURIComponent(token)}`;
+}
+
 function getEmailTransporter(): Transporter | null {
+  if (process.env.NODE_ENV === "test") {
+    return null;
+  }
   const host = String(process.env.SMTP_HOST || "").trim();
   const user = String(process.env.SMTP_USER || "").trim();
   const pass = String(process.env.SMTP_PASS || "").trim();
@@ -446,6 +455,50 @@ async function sendVerificationEmail({
       <p>Welcome to LingoFlow. Confirm your email using the button below:</p>
       <p><a href="${link}" style="padding:10px 14px;border-radius:8px;background:#292524;color:#fff;text-decoration:none;">Verify Email</a></p>
       <p>This link expires in 24 hours.</p>
+    `
+  });
+  return { delivered: true, link };
+}
+
+async function sendPasswordResetEmail({
+  toEmail,
+  displayName,
+  token
+}: {
+  toEmail: string;
+  displayName: string;
+  token: string;
+}): Promise<{ delivered: boolean; link: string }> {
+  const link = buildPasswordResetLink(token);
+  const transporter = getEmailTransporter();
+  const subject = "Reset your LingoFlow password";
+  const safeName = String(displayName || "Learner");
+  const text = [
+    `Hi ${safeName},`,
+    "",
+    "A password reset was requested for your LingoFlow account.",
+    "If this was you, open the link below to choose a new password:",
+    link,
+    "",
+    "This link expires in 1 hour."
+  ].join("\n");
+
+  if (!transporter) {
+    console.log(`[EMAIL_DEV] Reset ${toEmail}: ${link}`);
+    return { delivered: false, link };
+  }
+
+  await transporter.sendMail({
+    from: EMAIL_FROM,
+    to: toEmail,
+    subject,
+    text,
+    html: `
+      <p>Hi ${safeName},</p>
+      <p>A password reset was requested for your LingoFlow account.</p>
+      <p><a href="${link}" style="padding:10px 14px;border-radius:8px;background:#292524;color:#fff;text-decoration:none;">Reset Password</a></p>
+      <p>This link expires in 1 hour.</p>
+      <p>If you did not request this, you can ignore this email.</p>
     `
   });
   return { delivered: true, link };
@@ -609,6 +662,7 @@ function createApp(): ExpressApp {
     }
 
     const token = createAuthToken(user.id);
+    database.syncLearnerNameFromProfile(user.id, user.displayName);
     logger.logAuthEvent("login_success", {
       requestId: req.requestId,
       userId: user.id,
@@ -694,6 +748,103 @@ function createApp(): ExpressApp {
     }
   });
 
+  app.post("/api/auth/forgot-password", async (req: AuthenticatedRequest, res: Response) => {
+    const email = String(req.body?.email || "").trim().toLowerCase();
+    if (!email || !email.includes("@")) {
+      logger.logAuthEvent("forgot_password_rejected", {
+        requestId: req.requestId,
+        reason: "invalid_email",
+        emailFingerprint: emailFingerprint(email)
+      });
+      return res.status(400).json({ error: "Valid email is required" });
+    }
+
+    const genericMessage = "If an account exists for this email, a password reset link has been sent.";
+    const user = database.getUserByEmail(email);
+    if (!user || user.authProvider !== "local") {
+      logger.logAuthEvent("forgot_password_accepted", {
+        requestId: req.requestId,
+        reason: !user ? "user_not_found" : "non_local_provider",
+        emailFingerprint: emailFingerprint(email)
+      });
+      return res.json({ ok: true, message: genericMessage });
+    }
+
+    try {
+      const resetToken = crypto.randomBytes(32).toString("hex");
+      const expiresAt = new Date(
+        Date.now() + PASSWORD_RESET_TTL_HOURS * 60 * 60 * 1000
+      ).toISOString();
+      database.replacePasswordResetToken({
+        userId: user.id,
+        token: resetToken,
+        expiresAt
+      });
+      await sendPasswordResetEmail({
+        toEmail: user.email,
+        displayName: user.displayName,
+        token: resetToken
+      });
+      logger.logAuthEvent("forgot_password_success", {
+        requestId: req.requestId,
+        userId: user.id,
+        emailFingerprint: emailFingerprint(user.email)
+      });
+      return res.json({
+        ok: true,
+        message: genericMessage,
+        ...(process.env.NODE_ENV === "test" ? { resetToken } : {})
+      });
+    } catch (error: unknown) {
+      logger.error("forgot_password_failed", {
+        requestId: req.requestId,
+        reason: errorMessage(error),
+        userId: user.id,
+        emailFingerprint: emailFingerprint(user.email)
+      });
+      return res.status(500).json({ error: "Could not send password reset email right now." });
+    }
+  });
+
+  app.post("/api/auth/reset-password", (req: AuthenticatedRequest, res: Response) => {
+    const token = String(req.body?.token || "").trim();
+    const password = String(req.body?.password || "");
+
+    if (!token) {
+      logger.logAuthEvent("reset_password_rejected", {
+        requestId: req.requestId,
+        reason: "missing_token"
+      });
+      return res.status(400).json({ error: "Reset token is required" });
+    }
+    if (password.length < 8) {
+      logger.logAuthEvent("reset_password_rejected", {
+        requestId: req.requestId,
+        reason: "password_too_short"
+      });
+      return res.status(400).json({ error: "Password must be at least 8 characters" });
+    }
+
+    const user = database.consumePasswordResetToken(token, hashPassword(password));
+    if (!user) {
+      logger.logAuthEvent("reset_password_rejected", {
+        requestId: req.requestId,
+        reason: "invalid_or_expired_token"
+      });
+      return res.status(400).json({ error: "Invalid or expired password reset token" });
+    }
+
+    database.syncLearnerNameFromProfile(user.id, user.displayName);
+    logger.logAuthEvent("reset_password_success", {
+      requestId: req.requestId,
+      userId: user.id
+    });
+    return res.json({
+      ok: true,
+      message: "Password reset successful. You can now sign in."
+    });
+  });
+
   app.get("/api/auth/google/start", (req: AuthenticatedRequest, res: Response) => {
     if (!isGoogleOauthConfigured()) {
       logger.logAuthEvent("google_oauth_start_rejected", {
@@ -762,6 +913,8 @@ function createApp(): ExpressApp {
       if (!user) {
         throw new Error("Could not create user");
       }
+
+      database.syncLearnerNameFromProfile(user.id, profile.displayName);
 
       const token = createAuthToken(user.id);
       logger.logAuthEvent("google_oauth_callback_success", {

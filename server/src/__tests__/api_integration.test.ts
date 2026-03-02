@@ -337,3 +337,114 @@ test("resend verification issues fresh token and allows verification", async (t)
   });
   assert.equal(loginRes.status, 200);
 });
+
+test("new account settings learnerName inherits registered display name", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const email = `name-seed-${Date.now()}@example.com`;
+  const displayName = "Casey Rivera";
+  const registerRes = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!",
+      displayName
+    })
+  });
+  assert.equal(registerRes.status, 201);
+  const registered = await registerRes.json();
+  assert.ok(registered.verificationToken);
+
+  const verifyRes = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: registered.verificationToken })
+  });
+  assert.equal(verifyRes.status, 200);
+
+  const loginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password: "Password123!" })
+  });
+  assert.equal(loginRes.status, 200);
+  const logged = await loginRes.json();
+  const authHeaders = {
+    Authorization: `Bearer ${logged.token}`,
+    "Content-Type": "application/json"
+  };
+
+  const settingsRes = await fetch(`${base}/api/settings`, { headers: authHeaders });
+  assert.equal(settingsRes.status, 200);
+  const settings = await settingsRes.json();
+  assert.equal(settings.learnerName, displayName);
+});
+
+test("forgot password issues token and reset updates login credentials", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const email = `forgot-${Date.now()}@example.com`;
+  const oldPassword = "Password123!";
+  const newPassword = "NewPass456!";
+  const registerRes = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: oldPassword,
+      displayName: "Forgot User"
+    })
+  });
+  assert.equal(registerRes.status, 201);
+  const registered = await registerRes.json();
+  assert.ok(registered.verificationToken);
+
+  const verifyRes = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: registered.verificationToken })
+  });
+  assert.equal(verifyRes.status, 200);
+
+  const forgotRes = await fetch(`${base}/api/auth/forgot-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+  assert.equal(forgotRes.status, 200);
+  const forgotPayload = await forgotRes.json();
+  assert.ok(forgotPayload.resetToken);
+
+  const resetRes = await fetch(`${base}/api/auth/reset-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      token: forgotPayload.resetToken,
+      password: newPassword
+    })
+  });
+  assert.equal(resetRes.status, 200);
+
+  const oldLoginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password: oldPassword })
+  });
+  assert.equal(oldLoginRes.status, 401);
+
+  const newLoginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password: newPassword })
+  });
+  assert.equal(newLoginRes.status, 200);
+});

@@ -405,6 +405,15 @@ db.exec(`
     consumed_at TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+
+  CREATE TABLE IF NOT EXISTS password_resets (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token TEXT NOT NULL UNIQUE,
+    expires_at TEXT NOT NULL,
+    consumed_at TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 db.exec(`
@@ -420,6 +429,8 @@ db.exec(`
   ON active_sessions(user_id, created_at DESC);
   CREATE INDEX IF NOT EXISTS idx_email_verifications_token
   ON email_verifications(token);
+  CREATE INDEX IF NOT EXISTS idx_password_resets_token
+  ON password_resets(token);
 `);
 
 function ensureSettingsColumns() {
@@ -458,14 +469,15 @@ db.prepare(`
   VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner', 1, 'local')
 `).run();
 
-function ensureUserState(userId = 1) {
+function ensureUserState(userId = 1, preferredLearnerName = "Learner") {
+  const initialLearnerName = normalizeDisplayName(preferredLearnerName);
   db.prepare(`
     INSERT OR IGNORE INTO settings (
       user_id, native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
       self_rated_level, learner_name, learner_bio, focus_area
     )
-    VALUES (?, 'english', 'spanish', 30, 20, 5, 'a1', 'Learner', '', '')
-  `).run(userId);
+    VALUES (?, 'english', 'spanish', 30, 20, 5, 'a1', ?, '', '')
+  `).run(userId, initialLearnerName);
 
   db.prepare(`
     INSERT OR IGNORE INTO progress (user_id, total_xp, streak, hearts, learner_level)
@@ -482,6 +494,10 @@ function toIsoDate(date = new Date()) {
 
 function toIsoDateTime(date = new Date()) {
   return date.toISOString();
+}
+
+function normalizeDisplayName(displayName) {
+  return String(displayName || "Learner").trim() || "Learner";
 }
 
 function addDaysIso(isoDate, days) {
@@ -596,13 +612,13 @@ function getUserById(userId) {
 function createUser({ email, passwordHash, displayName, emailVerified = false, authProvider = "local" }) {
   const normalizedEmail = normalizeEmail(email);
   if (!normalizedEmail || !passwordHash) return null;
-  const safeName = String(displayName || "Learner").trim() || "Learner";
+  const safeName = normalizeDisplayName(displayName);
   const insert = db.prepare(`
     INSERT INTO users (email, password_hash, display_name, email_verified, auth_provider)
     VALUES (?, ?, ?, ?, ?)
   `).run(normalizedEmail, passwordHash, safeName, emailVerified ? 1 : 0, authProvider);
   const userId = Number(insert.lastInsertRowid);
-  ensureUserState(userId);
+  ensureUserState(userId, safeName);
   return getUserById(userId);
 }
 
@@ -666,6 +682,68 @@ function markUserEmailVerified(userId) {
         updated_at = CURRENT_TIMESTAMP
     WHERE id = ?
   `).run(userId);
+}
+
+function syncLearnerNameFromProfile(userId, displayName) {
+  const safeName = normalizeDisplayName(displayName);
+  const tx = db.transaction(() => {
+    ensureUserState(userId, safeName);
+    db.prepare(`
+      UPDATE settings
+      SET learner_name = ?,
+          updated_at = CURRENT_TIMESTAMP
+      WHERE user_id = ?
+        AND (TRIM(COALESCE(learner_name, '')) = '' OR learner_name = 'Learner')
+    `).run(safeName, userId);
+  });
+  tx();
+  return getSettings(userId);
+}
+
+function replacePasswordResetToken({ userId, token, expiresAt, nowIso = toIsoDateTime() }) {
+  const tx = db.transaction(() => {
+    db.prepare(`
+      UPDATE password_resets
+      SET consumed_at = ?
+      WHERE user_id = ? AND consumed_at IS NULL
+    `).run(nowIso, userId);
+
+    db.prepare(`
+      INSERT INTO password_resets (user_id, token, expires_at)
+      VALUES (?, ?, ?)
+    `).run(userId, token, expiresAt);
+  });
+  tx();
+}
+
+function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDateTime()) {
+  const row = db.prepare(`
+    SELECT id, user_id, expires_at, consumed_at
+    FROM password_resets
+    WHERE token = ?
+  `).get(String(token || ""));
+  if (!row) return null;
+  if (row.consumed_at) return null;
+  if (row.expires_at < nowIso) return null;
+  if (!passwordHash) return null;
+
+  const tx = db.transaction(() => {
+    db.prepare(`
+      UPDATE password_resets
+      SET consumed_at = ?
+      WHERE id = ?
+    `).run(nowIso, row.id);
+
+    db.prepare(`
+      UPDATE users
+      SET password_hash = ?,
+          auth_provider = 'local',
+          updated_at = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `).run(passwordHash, row.user_id);
+  });
+  tx();
+  return getUserById(row.user_id);
 }
 
 function getSettings(userId = 1) {
@@ -1230,6 +1308,9 @@ module.exports = {
   replaceEmailVerification,
   consumeEmailVerificationToken,
   markUserEmailVerified,
+  syncLearnerNameFromProfile,
+  replacePasswordResetToken,
+  consumePasswordResetToken,
   getSettings,
   saveSettings,
   getCategoryMastery,
