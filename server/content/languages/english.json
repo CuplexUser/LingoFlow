@@ -1,0 +1,407 @@
+{
+  "id": "english",
+  "label": "English",
+  "flag": "US",
+  "course": {
+    "essentials": [
+      {
+        "id": "en-es-1",
+        "level": "a1",
+        "prompt": "Say: Hello, how are you?",
+        "target": "Hello, how are you?"
+      },
+      {
+        "id": "en-es-2",
+        "level": "a1",
+        "prompt": "Say: Thank you very much for your help.",
+        "target": "Thank you very much for your help."
+      },
+      {
+        "id": "en-es-3",
+        "level": "a1",
+        "prompt": "Say: I do not understand this sentence.",
+        "target": "I do not understand this sentence."
+      },
+      {
+        "id": "en-es-4",
+        "level": "a2",
+        "prompt": "Say: Could you speak more slowly, please?",
+        "target": "Could you speak more slowly, please?"
+      },
+      {
+        "id": "en-es-5",
+        "level": "a2",
+        "prompt": "Say: I am learning English every day.",
+        "target": "I am learning English every day."
+      },
+      {
+        "id": "en-es-6",
+        "level": "b1",
+        "prompt": "Say: I made a mistake, but I will try again.",
+        "target": "I made a mistake, but I will try again."
+      },
+      {
+        "id": "en-es-7",
+        "level": "b1",
+        "prompt": "Say: I would like to improve my pronunciation.",
+        "target": "I would like to improve my pronunciation."
+      },
+      {
+        "id": "en-es-8",
+        "level": "b2",
+        "prompt": "Say: I can explain my opinion with clear arguments.",
+        "target": "I can explain my opinion with clear arguments."
+      }
+    ],
+    "conversation": [
+      {
+        "id": "en-co-1",
+        "level": "a1",
+        "prompt": "Ask: What is your name?",
+        "target": "What is your name?"
+      },
+      {
+        "id": "en-co-2",
+        "level": "a1",
+        "prompt": "Say: My name is Alex and I am from the United States.",
+        "target": "My name is Alex and I am from the United States."
+      },
+      {
+        "id": "en-co-3",
+        "level": "a2",
+        "prompt": "Say: It is nice to meet you in person.",
+        "target": "It is nice to meet you in person."
+      },
+      {
+        "id": "en-co-4",
+        "level": "a2",
+        "prompt": "Ask: What do you usually do on weekends?",
+        "target": "What do you usually do on weekends?"
+      },
+      {
+        "id": "en-co-5",
+        "level": "b1",
+        "prompt": "Say: I enjoy talking about books and current events.",
+        "target": "I enjoy talking about books and current events."
+      },
+      {
+        "id": "en-co-6",
+        "level": "b1",
+        "prompt": "Say: In my opinion, consistency is more important than intensity.",
+        "target": "In my opinion, consistency is more important than intensity."
+      },
+      {
+        "id": "en-co-7",
+        "level": "b2",
+        "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
+        "target": "I used to be shy, but now I express my ideas confidently."
+      },
+      {
+        "id": "en-co-8",
+        "level": "b2",
+        "prompt": "Say: Although we disagree, I respect your perspective.",
+        "target": "Although we disagree, I respect your perspective."
+      }
+    ],
+    "travel": [
+      {
+        "id": "en-tr-1",
+        "level": "a1",
+        "prompt": "Ask: Where is the train station?",
+        "target": "Where is the train station?"
+      },
+      {
+        "id": "en-tr-2",
+        "level": "a1",
+        "prompt": "Ask: How much does this ticket cost?",
+        "target": "How much does this ticket cost?"
+      },
+      {
+        "id": "en-tr-3",
+        "level": "a2",
+        "prompt": "Say: I need a room for two nights.",
+        "target": "I need a room for two nights."
+      },
+      {
+        "id": "en-tr-4",
+        "level": "a2",
+        "prompt": "Ask: Does this bus go to the city center?",
+        "target": "Does this bus go to the city center?"
+      },
+      {
+        "id": "en-tr-5",
+        "level": "b1",
+        "prompt": "Say: My flight was delayed because of bad weather.",
+        "target": "My flight was delayed because of bad weather."
+      },
+      {
+        "id": "en-tr-6",
+        "level": "b1",
+        "prompt": "Say: I lost my passport and need help immediately.",
+        "target": "I lost my passport and need help immediately."
+      },
+      {
+        "id": "en-tr-7",
+        "level": "b2",
+        "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
+        "target": "Could you recommend a safe neighborhood near downtown?"
+      },
+      {
+        "id": "en-tr-8",
+        "level": "b2",
+        "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
+        "target": "I would prefer a quieter route, even if it takes longer."
+      }
+    ],
+    "work": [
+      {
+        "id": "en-wo-1",
+        "level": "a1",
+        "prompt": "Say: I work in a small software company.",
+        "target": "I work in a small software company."
+      },
+      {
+        "id": "en-wo-2",
+        "level": "a2",
+        "prompt": "Say: We have a meeting at nine in the morning.",
+        "target": "We have a meeting at nine in the morning."
+      },
+      {
+        "id": "en-wo-3",
+        "level": "a2",
+        "prompt": "Ask: Could you send me the updated report?",
+        "target": "Could you send me the updated report?"
+      },
+      {
+        "id": "en-wo-4",
+        "level": "b1",
+        "prompt": "Say: We should prioritize the tasks with the highest impact.",
+        "target": "We should prioritize the tasks with the highest impact."
+      },
+      {
+        "id": "en-wo-5",
+        "level": "b1",
+        "prompt": "Say: I finished the draft, but it still needs revision.",
+        "target": "I finished the draft, but it still needs revision."
+      },
+      {
+        "id": "en-wo-6",
+        "level": "b2",
+        "prompt": "Say: Our proposal focuses on long-term sustainability.",
+        "target": "Our proposal focuses on long-term sustainability."
+      },
+      {
+        "id": "en-wo-7",
+        "level": "b2",
+        "prompt": "Say: If we align our goals, we can deliver faster.",
+        "target": "If we align our goals, we can deliver faster."
+      },
+      {
+        "id": "en-wo-8",
+        "level": "b2",
+        "prompt": "Ask: What metrics will define success for this project?",
+        "target": "What metrics will define success for this project?"
+      }
+    ],
+    "health": [
+      {
+        "id": "en-he-1",
+        "level": "a1",
+        "prompt": "Say: I do not feel well today.",
+        "target": "I do not feel well today."
+      },
+      {
+        "id": "en-he-2",
+        "level": "a1",
+        "prompt": "Ask: Where is the nearest pharmacy?",
+        "target": "Where is the nearest pharmacy?"
+      },
+      {
+        "id": "en-he-3",
+        "level": "a2",
+        "prompt": "Say: I have had a headache since this morning.",
+        "target": "I have had a headache since this morning."
+      },
+      {
+        "id": "en-he-4",
+        "level": "a2",
+        "prompt": "Say: I am allergic to peanuts.",
+        "target": "I am allergic to peanuts."
+      },
+      {
+        "id": "en-he-5",
+        "level": "b1",
+        "prompt": "Ask: Should I take this medicine before or after meals?",
+        "target": "Should I take this medicine before or after meals?"
+      },
+      {
+        "id": "en-he-6",
+        "level": "b1",
+        "prompt": "Say: The pain gets worse when I walk quickly.",
+        "target": "The pain gets worse when I walk quickly."
+      },
+      {
+        "id": "en-he-7",
+        "level": "b2",
+        "prompt": "Say: I need a full checkup because these symptoms persist.",
+        "target": "I need a full checkup because these symptoms persist."
+      },
+      {
+        "id": "en-he-8",
+        "level": "b2",
+        "prompt": "Ask: Could you explain the treatment options in detail?",
+        "target": "Could you explain the treatment options in detail?"
+      }
+    ],
+    "family_friends": [
+      {
+        "id": "en-fa-1",
+        "level": "a1",
+        "prompt": "Say: This is my brother and that is my cousin.",
+        "target": "This is my brother and that is my cousin."
+      },
+      {
+        "id": "en-fa-2",
+        "level": "a1",
+        "prompt": "Say: My friends are very kind and funny.",
+        "target": "My friends are very kind and funny."
+      },
+      {
+        "id": "en-fa-3",
+        "level": "a2",
+        "prompt": "Ask: Are you visiting your family this weekend?",
+        "target": "Are you visiting your family this weekend?"
+      },
+      {
+        "id": "en-fa-4",
+        "level": "a2",
+        "prompt": "Say: We usually have dinner together on Sundays.",
+        "target": "We usually have dinner together on Sundays."
+      },
+      {
+        "id": "en-fa-5",
+        "level": "b1",
+        "prompt": "Say: I grew up with my grandparents in a small town.",
+        "target": "I grew up with my grandparents in a small town."
+      },
+      {
+        "id": "en-fa-6",
+        "level": "b1",
+        "prompt": "Say: My best friend always gives me honest advice.",
+        "target": "My best friend always gives me honest advice."
+      },
+      {
+        "id": "en-fa-7",
+        "level": "b2",
+        "prompt": "Say: Even when we disagree, we try to listen respectfully.",
+        "target": "Even when we disagree, we try to listen respectfully."
+      },
+      {
+        "id": "en-fa-8",
+        "level": "b2",
+        "prompt": "Say: Family traditions help us stay connected across generations.",
+        "target": "Family traditions help us stay connected across generations."
+      }
+    ],
+    "food_cooking": [
+      {
+        "id": "en-fo-1",
+        "level": "a1",
+        "prompt": "Say: I would like a coffee and a sandwich.",
+        "target": "I would like a coffee and a sandwich."
+      },
+      {
+        "id": "en-fo-2",
+        "level": "a1",
+        "prompt": "Ask: Do you have vegetarian options?",
+        "target": "Do you have vegetarian options?"
+      },
+      {
+        "id": "en-fo-3",
+        "level": "a2",
+        "prompt": "Say: I am cooking rice with vegetables tonight.",
+        "target": "I am cooking rice with vegetables tonight."
+      },
+      {
+        "id": "en-fo-4",
+        "level": "a2",
+        "prompt": "Ask: Can you add less salt, please?",
+        "target": "Can you add less salt, please?"
+      },
+      {
+        "id": "en-fo-5",
+        "level": "b1",
+        "prompt": "Say: The soup tastes better after it simmers for an hour.",
+        "target": "The soup tastes better after it simmers for an hour."
+      },
+      {
+        "id": "en-fo-6",
+        "level": "b1",
+        "prompt": "Say: I forgot one ingredient, so I changed the recipe.",
+        "target": "I forgot one ingredient, so I changed the recipe."
+      },
+      {
+        "id": "en-fo-7",
+        "level": "b2",
+        "prompt": "Say: This dish combines sweet, spicy, and smoky flavors.",
+        "target": "This dish combines sweet, spicy, and smoky flavors."
+      },
+      {
+        "id": "en-fo-8",
+        "level": "b2",
+        "prompt": "Ask: Which technique gives the sauce a smoother texture?",
+        "target": "Which technique gives the sauce a smoother texture?"
+      }
+    ],
+    "grammar": [
+      {
+        "id": "en-gr-1",
+        "level": "a1",
+        "prompt": "Say: I am reading a short story now.",
+        "target": "I am reading a short story now."
+      },
+      {
+        "id": "en-gr-2",
+        "level": "a1",
+        "prompt": "Say: Yesterday I studied for two hours.",
+        "target": "Yesterday I studied for two hours."
+      },
+      {
+        "id": "en-gr-3",
+        "level": "a2",
+        "prompt": "Say: Tomorrow I will practice with my friend.",
+        "target": "Tomorrow I will practice with my friend."
+      },
+      {
+        "id": "en-gr-4",
+        "level": "a2",
+        "prompt": "Say: If I have time, I will review the lesson.",
+        "target": "If I have time, I will review the lesson."
+      },
+      {
+        "id": "en-gr-5",
+        "level": "b1",
+        "prompt": "Say: I have been studying English for six months.",
+        "target": "I have been studying English for six months."
+      },
+      {
+        "id": "en-gr-6",
+        "level": "b1",
+        "prompt": "Say: I would travel more if flights were cheaper.",
+        "target": "I would travel more if flights were cheaper."
+      },
+      {
+        "id": "en-gr-7",
+        "level": "b2",
+        "prompt": "Say: By the time we arrive, they will have finished dinner.",
+        "target": "By the time we arrive, they will have finished dinner."
+      },
+      {
+        "id": "en-gr-8",
+        "level": "b2",
+        "prompt": "Say: Had I known earlier, I would have changed the plan.",
+        "target": "Had I known earlier, I would have changed the plan."
+      }
+    ]
+  }
+}

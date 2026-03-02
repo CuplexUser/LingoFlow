@@ -1,0 +1,407 @@
+{
+  "id": "spanish",
+  "label": "Spanish",
+  "flag": "ES",
+  "course": {
+    "essentials": [
+      {
+        "id": "sp-es-1",
+        "level": "a1",
+        "prompt": "Say: Hello, how are you?",
+        "target": "Hola, ¿cómo estás?"
+      },
+      {
+        "id": "sp-es-2",
+        "level": "a1",
+        "prompt": "Say: Thank you very much for your help.",
+        "target": "Muchas gracias por tu ayuda."
+      },
+      {
+        "id": "sp-es-3",
+        "level": "a1",
+        "prompt": "Say: I do not understand this sentence.",
+        "target": "No entiendo esta oración."
+      },
+      {
+        "id": "sp-es-4",
+        "level": "a2",
+        "prompt": "Say: Could you speak more slowly, please?",
+        "target": "¿Podrías hablar más despacio, por favor?"
+      },
+      {
+        "id": "sp-es-5",
+        "level": "a2",
+        "prompt": "Say: I am learning Spanish every day.",
+        "target": "Estoy aprendiendo español todos los días."
+      },
+      {
+        "id": "sp-es-6",
+        "level": "b1",
+        "prompt": "Say: I made a mistake, but I will try again.",
+        "target": "Cometí un error, pero lo intentaré de nuevo."
+      },
+      {
+        "id": "sp-es-7",
+        "level": "b1",
+        "prompt": "Say: I would like to improve my pronunciation.",
+        "target": "Me gustaría mejorar mi pronunciación."
+      },
+      {
+        "id": "sp-es-8",
+        "level": "b2",
+        "prompt": "Say: I can explain my opinion with clear arguments.",
+        "target": "Puedo explicar mi opinión con argumentos claros."
+      }
+    ],
+    "conversation": [
+      {
+        "id": "sp-co-1",
+        "level": "a1",
+        "prompt": "Ask: What is your name?",
+        "target": "¿Cómo te llamas?"
+      },
+      {
+        "id": "sp-co-2",
+        "level": "a1",
+        "prompt": "Say: My name is Alex and I am from the United States.",
+        "target": "Me llamo Alex y soy de Estados Unidos."
+      },
+      {
+        "id": "sp-co-3",
+        "level": "a2",
+        "prompt": "Say: It is nice to meet you in person.",
+        "target": "Es un placer conocerte en persona."
+      },
+      {
+        "id": "sp-co-4",
+        "level": "a2",
+        "prompt": "Ask: What do you usually do on weekends?",
+        "target": "¿Qué sueles hacer los fines de semana?"
+      },
+      {
+        "id": "sp-co-5",
+        "level": "b1",
+        "prompt": "Say: I enjoy talking about books and current events.",
+        "target": "Disfruto hablar sobre libros y temas actuales."
+      },
+      {
+        "id": "sp-co-6",
+        "level": "b1",
+        "prompt": "Say: In my opinion, consistency is more important than intensity.",
+        "target": "En mi opinión, la constancia es más importante que la intensidad."
+      },
+      {
+        "id": "sp-co-7",
+        "level": "b2",
+        "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
+        "target": "Antes era tímido, pero ahora expreso mis ideas con confianza."
+      },
+      {
+        "id": "sp-co-8",
+        "level": "b2",
+        "prompt": "Say: Although we disagree, I respect your perspective.",
+        "target": "Aunque no estamos de acuerdo, respeto tu perspectiva."
+      }
+    ],
+    "travel": [
+      {
+        "id": "sp-tr-1",
+        "level": "a1",
+        "prompt": "Ask: Where is the train station?",
+        "target": "¿Dónde está la estación de tren?"
+      },
+      {
+        "id": "sp-tr-2",
+        "level": "a1",
+        "prompt": "Ask: How much does this ticket cost?",
+        "target": "¿Cuánto cuesta este billete?"
+      },
+      {
+        "id": "sp-tr-3",
+        "level": "a2",
+        "prompt": "Say: I need a room for two nights.",
+        "target": "Necesito una habitación para dos noches."
+      },
+      {
+        "id": "sp-tr-4",
+        "level": "a2",
+        "prompt": "Ask: Does this bus go to the city center?",
+        "target": "¿Este autobús va al centro de la ciudad?"
+      },
+      {
+        "id": "sp-tr-5",
+        "level": "b1",
+        "prompt": "Say: My flight was delayed because of bad weather.",
+        "target": "Mi vuelo se retrasó por el mal tiempo."
+      },
+      {
+        "id": "sp-tr-6",
+        "level": "b1",
+        "prompt": "Say: I lost my passport and need help immediately.",
+        "target": "Perdí mi pasaporte y necesito ayuda inmediatamente."
+      },
+      {
+        "id": "sp-tr-7",
+        "level": "b2",
+        "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
+        "target": "¿Podría recomendarme un barrio seguro cerca del centro?"
+      },
+      {
+        "id": "sp-tr-8",
+        "level": "b2",
+        "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
+        "target": "Prefiero una ruta más tranquila, aunque tarde más."
+      }
+    ],
+    "work": [
+      {
+        "id": "sp-wo-1",
+        "level": "a1",
+        "prompt": "Say: I work in a small software company.",
+        "target": "Trabajo en una pequeña empresa de software."
+      },
+      {
+        "id": "sp-wo-2",
+        "level": "a2",
+        "prompt": "Say: We have a meeting at nine in the morning.",
+        "target": "Tenemos una reunión a las nueve de la mañana."
+      },
+      {
+        "id": "sp-wo-3",
+        "level": "a2",
+        "prompt": "Ask: Could you send me the updated report?",
+        "target": "¿Podrías enviarme el informe actualizado?"
+      },
+      {
+        "id": "sp-wo-4",
+        "level": "b1",
+        "prompt": "Say: We should prioritize the tasks with the highest impact.",
+        "target": "Deberíamos priorizar las tareas con mayor impacto."
+      },
+      {
+        "id": "sp-wo-5",
+        "level": "b1",
+        "prompt": "Say: I finished the draft, but it still needs revision.",
+        "target": "Terminé el borrador, pero aún necesita revisión."
+      },
+      {
+        "id": "sp-wo-6",
+        "level": "b2",
+        "prompt": "Say: Our proposal focuses on long-term sustainability.",
+        "target": "Nuestra propuesta se centra en la sostenibilidad a largo plazo."
+      },
+      {
+        "id": "sp-wo-7",
+        "level": "b2",
+        "prompt": "Say: If we align our goals, we can deliver faster.",
+        "target": "Si alineamos nuestros objetivos, podemos entregar más rápido."
+      },
+      {
+        "id": "sp-wo-8",
+        "level": "b2",
+        "prompt": "Ask: What metrics will define success for this project?",
+        "target": "¿Qué métricas definirán el éxito de este proyecto?"
+      }
+    ],
+    "health": [
+      {
+        "id": "sp-he-1",
+        "level": "a1",
+        "prompt": "Say: I do not feel well today.",
+        "target": "No me siento bien hoy."
+      },
+      {
+        "id": "sp-he-2",
+        "level": "a1",
+        "prompt": "Ask: Where is the nearest pharmacy?",
+        "target": "¿Dónde está la farmacia más cercana?"
+      },
+      {
+        "id": "sp-he-3",
+        "level": "a2",
+        "prompt": "Say: I have had a headache since this morning.",
+        "target": "Tengo dolor de cabeza desde esta mañana."
+      },
+      {
+        "id": "sp-he-4",
+        "level": "a2",
+        "prompt": "Say: I am allergic to peanuts.",
+        "target": "Soy alérgico a los cacahuetes."
+      },
+      {
+        "id": "sp-he-5",
+        "level": "b1",
+        "prompt": "Ask: Should I take this medicine before or after meals?",
+        "target": "¿Debo tomar este medicamento antes o después de comer?"
+      },
+      {
+        "id": "sp-he-6",
+        "level": "b1",
+        "prompt": "Say: The pain gets worse when I walk quickly.",
+        "target": "El dolor empeora cuando camino rápido."
+      },
+      {
+        "id": "sp-he-7",
+        "level": "b2",
+        "prompt": "Say: I need a full checkup because these symptoms persist.",
+        "target": "Necesito un chequeo completo porque estos síntomas persisten."
+      },
+      {
+        "id": "sp-he-8",
+        "level": "b2",
+        "prompt": "Ask: Could you explain the treatment options in detail?",
+        "target": "¿Podría explicar en detalle las opciones de tratamiento?"
+      }
+    ],
+    "family_friends": [
+      {
+        "id": "sp-fa-1",
+        "level": "a1",
+        "prompt": "Say: This is my brother and that is my cousin.",
+        "target": "Este es mi hermano y ese es mi primo."
+      },
+      {
+        "id": "sp-fa-2",
+        "level": "a1",
+        "prompt": "Say: My friends are very kind and funny.",
+        "target": "Mis amigos son muy amables y divertidos."
+      },
+      {
+        "id": "sp-fa-3",
+        "level": "a2",
+        "prompt": "Ask: Are you visiting your family this weekend?",
+        "target": "¿Vas a visitar a tu familia este fin de semana?"
+      },
+      {
+        "id": "sp-fa-4",
+        "level": "a2",
+        "prompt": "Say: We usually have dinner together on Sundays.",
+        "target": "Normalmente cenamos juntos los domingos."
+      },
+      {
+        "id": "sp-fa-5",
+        "level": "b1",
+        "prompt": "Say: I grew up with my grandparents in a small town.",
+        "target": "Crecí con mis abuelos en un pueblo pequeño."
+      },
+      {
+        "id": "sp-fa-6",
+        "level": "b1",
+        "prompt": "Say: My best friend always gives me honest advice.",
+        "target": "Mi mejor amigo siempre me da consejos sinceros."
+      },
+      {
+        "id": "sp-fa-7",
+        "level": "b2",
+        "prompt": "Say: Even when we disagree, we try to listen respectfully.",
+        "target": "Incluso cuando no estamos de acuerdo, intentamos escuchar con respeto."
+      },
+      {
+        "id": "sp-fa-8",
+        "level": "b2",
+        "prompt": "Say: Family traditions help us stay connected across generations.",
+        "target": "Las tradiciones familiares nos ayudan a mantenernos unidos entre generaciones."
+      }
+    ],
+    "food_cooking": [
+      {
+        "id": "sp-fo-1",
+        "level": "a1",
+        "prompt": "Say: I would like a coffee and a sandwich.",
+        "target": "Me gustaría un café y un sándwich."
+      },
+      {
+        "id": "sp-fo-2",
+        "level": "a1",
+        "prompt": "Ask: Do you have vegetarian options?",
+        "target": "¿Tienen opciones vegetarianas?"
+      },
+      {
+        "id": "sp-fo-3",
+        "level": "a2",
+        "prompt": "Say: I am cooking rice with vegetables tonight.",
+        "target": "Esta noche estoy cocinando arroz con verduras."
+      },
+      {
+        "id": "sp-fo-4",
+        "level": "a2",
+        "prompt": "Ask: Can you add less salt, please?",
+        "target": "¿Puede poner menos sal, por favor?"
+      },
+      {
+        "id": "sp-fo-5",
+        "level": "b1",
+        "prompt": "Say: The soup tastes better after it simmers for an hour.",
+        "target": "La sopa sabe mejor después de hervir a fuego lento durante una hora."
+      },
+      {
+        "id": "sp-fo-6",
+        "level": "b1",
+        "prompt": "Say: I forgot one ingredient, so I changed the recipe.",
+        "target": "Olvidé un ingrediente, así que cambié la receta."
+      },
+      {
+        "id": "sp-fo-7",
+        "level": "b2",
+        "prompt": "Say: This dish combines sweet, spicy, and smoky flavors.",
+        "target": "Este plato combina sabores dulces, picantes y ahumados."
+      },
+      {
+        "id": "sp-fo-8",
+        "level": "b2",
+        "prompt": "Ask: Which technique gives the sauce a smoother texture?",
+        "target": "¿Qué técnica le da a la salsa una textura más suave?"
+      }
+    ],
+    "grammar": [
+      {
+        "id": "sp-gr-1",
+        "level": "a1",
+        "prompt": "Say: I am reading a short story now.",
+        "target": "Estoy leyendo un cuento corto ahora."
+      },
+      {
+        "id": "sp-gr-2",
+        "level": "a1",
+        "prompt": "Say: Yesterday I studied for two hours.",
+        "target": "Ayer estudié durante dos horas."
+      },
+      {
+        "id": "sp-gr-3",
+        "level": "a2",
+        "prompt": "Say: Tomorrow I will practice with my friend.",
+        "target": "Mañana practicaré con mi amigo."
+      },
+      {
+        "id": "sp-gr-4",
+        "level": "a2",
+        "prompt": "Say: If I have time, I will review the lesson.",
+        "target": "Si tengo tiempo, repasaré la lección."
+      },
+      {
+        "id": "sp-gr-5",
+        "level": "b1",
+        "prompt": "Say: I have been studying Spanish for six months.",
+        "target": "He estado estudiando español durante seis meses."
+      },
+      {
+        "id": "sp-gr-6",
+        "level": "b1",
+        "prompt": "Say: I would travel more if flights were cheaper.",
+        "target": "Viajaría más si los vuelos fueran más baratos."
+      },
+      {
+        "id": "sp-gr-7",
+        "level": "b2",
+        "prompt": "Say: By the time we arrive, they will have finished dinner.",
+        "target": "Para cuando lleguemos, ellos habrán terminado de cenar."
+      },
+      {
+        "id": "sp-gr-8",
+        "level": "b2",
+        "prompt": "Say: Had I known earlier, I would have changed the plan.",
+        "target": "Si lo hubiera sabido antes, habría cambiado el plan."
+      }
+    ]
+  }
+}

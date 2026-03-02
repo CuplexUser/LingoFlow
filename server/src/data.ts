@@ -1,10 +1,22 @@
-const LANGUAGES = [
-  { id: "english", label: "English", flag: "US" },
-  { id: "spanish", label: "Spanish", flag: "ES" },
-  { id: "russian", label: "Russian", flag: "RU" },
-  { id: "italian", label: "Italian", flag: "IT" },
-  { id: "swedish", label: "Swedish", flag: "SE" }
-];
+const fs: typeof import("fs") = require("fs");
+const path: typeof import("path") = require("path");
+const crypto: typeof import("crypto") = require("crypto");
+
+type CourseItem = {
+  id: string;
+  level: string;
+  prompt: string;
+  target: string;
+};
+
+type CourseCatalog = Record<string, CourseItem[]>;
+
+type LanguagePayload = {
+  id: string;
+  label: string;
+  flag: string;
+  course: CourseCatalog;
+};
 
 const CATEGORIES = [
   { id: "essentials", label: "Essentials", description: "Core survival phrases" },
@@ -19,425 +31,134 @@ const CATEGORIES = [
 
 const LEVEL_ORDER = ["a1", "a2", "b1", "b2"];
 const LEVEL_XP_MULTIPLIER = { a1: 1.0, a2: 1.25, b1: 1.6, b2: 2.0 };
+const CONTENT_DIR = path.join(__dirname, "..", "content", "languages");
 
-function sentence(id, level, prompt, target) {
-  return { id, level, prompt, target };
+function parseJsonFile(filePath: string): unknown {
+  const raw = fs.readFileSync(filePath, "utf8");
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Invalid JSON in ${path.basename(filePath)}: ${error instanceof Error ? error.message : "parse error"}`);
+  }
 }
 
-const COURSE = {
-  spanish: {
-    essentials: [
-      sentence("sp-es-1", "a1", "Say: Hello, how are you?", "Hola, ¿cómo estás?"),
-      sentence("sp-es-2", "a1", "Say: Thank you very much for your help.", "Muchas gracias por tu ayuda."),
-      sentence("sp-es-3", "a1", "Say: I do not understand this sentence.", "No entiendo esta oración."),
-      sentence("sp-es-4", "a2", "Say: Could you speak more slowly, please?", "¿Podrías hablar más despacio, por favor?"),
-      sentence("sp-es-5", "a2", "Say: I am learning Spanish every day.", "Estoy aprendiendo español todos los días."),
-      sentence("sp-es-6", "b1", "Say: I made a mistake, but I will try again.", "Cometí un error, pero lo intentaré de nuevo."),
-      sentence("sp-es-7", "b1", "Say: I would like to improve my pronunciation.", "Me gustaría mejorar mi pronunciación."),
-      sentence("sp-es-8", "b2", "Say: I can explain my opinion with clear arguments.", "Puedo explicar mi opinión con argumentos claros.")
-    ],
-    conversation: [
-      sentence("sp-co-1", "a1", "Ask: What is your name?", "¿Cómo te llamas?"),
-      sentence("sp-co-2", "a1", "Say: My name is Alex and I am from the United States.", "Me llamo Alex y soy de Estados Unidos."),
-      sentence("sp-co-3", "a2", "Say: It is nice to meet you in person.", "Es un placer conocerte en persona."),
-      sentence("sp-co-4", "a2", "Ask: What do you usually do on weekends?", "¿Qué sueles hacer los fines de semana?"),
-      sentence("sp-co-5", "b1", "Say: I enjoy talking about books and current events.", "Disfruto hablar sobre libros y temas actuales."),
-      sentence("sp-co-6", "b1", "Say: In my opinion, consistency is more important than intensity.", "En mi opinión, la constancia es más importante que la intensidad."),
-      sentence("sp-co-7", "b2", "Say: I used to be shy, but now I express my ideas confidently.", "Antes era tímido, pero ahora expreso mis ideas con confianza."),
-      sentence("sp-co-8", "b2", "Say: Although we disagree, I respect your perspective.", "Aunque no estamos de acuerdo, respeto tu perspectiva.")
-    ],
-    travel: [
-      sentence("sp-tr-1", "a1", "Ask: Where is the train station?", "¿Dónde está la estación de tren?"),
-      sentence("sp-tr-2", "a1", "Ask: How much does this ticket cost?", "¿Cuánto cuesta este billete?"),
-      sentence("sp-tr-3", "a2", "Say: I need a room for two nights.", "Necesito una habitación para dos noches."),
-      sentence("sp-tr-4", "a2", "Ask: Does this bus go to the city center?", "¿Este autobús va al centro de la ciudad?"),
-      sentence("sp-tr-5", "b1", "Say: My flight was delayed because of bad weather.", "Mi vuelo se retrasó por el mal tiempo."),
-      sentence("sp-tr-6", "b1", "Say: I lost my passport and need help immediately.", "Perdí mi pasaporte y necesito ayuda inmediatamente."),
-      sentence("sp-tr-7", "b2", "Ask: Could you recommend a safe neighborhood near downtown?", "¿Podría recomendarme un barrio seguro cerca del centro?"),
-      sentence("sp-tr-8", "b2", "Say: I would prefer a quieter route, even if it takes longer.", "Prefiero una ruta más tranquila, aunque tarde más.")
-    ],
-    work: [
-      sentence("sp-wo-1", "a1", "Say: I work in a small software company.", "Trabajo en una pequeña empresa de software."),
-      sentence("sp-wo-2", "a2", "Say: We have a meeting at nine in the morning.", "Tenemos una reunión a las nueve de la mañana."),
-      sentence("sp-wo-3", "a2", "Ask: Could you send me the updated report?", "¿Podrías enviarme el informe actualizado?"),
-      sentence("sp-wo-4", "b1", "Say: We should prioritize the tasks with the highest impact.", "Deberíamos priorizar las tareas con mayor impacto."),
-      sentence("sp-wo-5", "b1", "Say: I finished the draft, but it still needs revision.", "Terminé el borrador, pero aún necesita revisión."),
-      sentence("sp-wo-6", "b2", "Say: Our proposal focuses on long-term sustainability.", "Nuestra propuesta se centra en la sostenibilidad a largo plazo."),
-      sentence("sp-wo-7", "b2", "Say: If we align our goals, we can deliver faster.", "Si alineamos nuestros objetivos, podemos entregar más rápido."),
-      sentence("sp-wo-8", "b2", "Ask: What metrics will define success for this project?", "¿Qué métricas definirán el éxito de este proyecto?")
-    ],
-    health: [
-      sentence("sp-he-1", "a1", "Say: I do not feel well today.", "No me siento bien hoy."),
-      sentence("sp-he-2", "a1", "Ask: Where is the nearest pharmacy?", "¿Dónde está la farmacia más cercana?"),
-      sentence("sp-he-3", "a2", "Say: I have had a headache since this morning.", "Tengo dolor de cabeza desde esta mañana."),
-      sentence("sp-he-4", "a2", "Say: I am allergic to peanuts.", "Soy alérgico a los cacahuetes."),
-      sentence("sp-he-5", "b1", "Ask: Should I take this medicine before or after meals?", "¿Debo tomar este medicamento antes o después de comer?"),
-      sentence("sp-he-6", "b1", "Say: The pain gets worse when I walk quickly.", "El dolor empeora cuando camino rápido."),
-      sentence("sp-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "Necesito un chequeo completo porque estos síntomas persisten."),
-      sentence("sp-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "¿Podría explicar en detalle las opciones de tratamiento?")
-    ],
-    family_friends: [
-      sentence("sp-fa-1", "a1", "Say: This is my brother and that is my cousin.", "Este es mi hermano y ese es mi primo."),
-      sentence("sp-fa-2", "a1", "Say: My friends are very kind and funny.", "Mis amigos son muy amables y divertidos."),
-      sentence("sp-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "¿Vas a visitar a tu familia este fin de semana?"),
-      sentence("sp-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "Normalmente cenamos juntos los domingos."),
-      sentence("sp-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "Crecí con mis abuelos en un pueblo pequeño."),
-      sentence("sp-fa-6", "b1", "Say: My best friend always gives me honest advice.", "Mi mejor amigo siempre me da consejos sinceros."),
-      sentence("sp-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Incluso cuando no estamos de acuerdo, intentamos escuchar con respeto."),
-      sentence("sp-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Las tradiciones familiares nos ayudan a mantenernos unidos entre generaciones.")
-    ],
-    food_cooking: [
-      sentence("sp-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "Me gustaría un café y un sándwich."),
-      sentence("sp-fo-2", "a1", "Ask: Do you have vegetarian options?", "¿Tienen opciones vegetarianas?"),
-      sentence("sp-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "Esta noche estoy cocinando arroz con verduras."),
-      sentence("sp-fo-4", "a2", "Ask: Can you add less salt, please?", "¿Puede poner menos sal, por favor?"),
-      sentence("sp-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "La sopa sabe mejor después de hervir a fuego lento durante una hora."),
-      sentence("sp-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "Olvidé un ingrediente, así que cambié la receta."),
-      sentence("sp-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "Este plato combina sabores dulces, picantes y ahumados."),
-      sentence("sp-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "¿Qué técnica le da a la salsa una textura más suave?")
-    ],
-    grammar: [
-      sentence("sp-gr-1", "a1", "Say: I am reading a short story now.", "Estoy leyendo un cuento corto ahora."),
-      sentence("sp-gr-2", "a1", "Say: Yesterday I studied for two hours.", "Ayer estudié durante dos horas."),
-      sentence("sp-gr-3", "a2", "Say: Tomorrow I will practice with my friend.", "Mañana practicaré con mi amigo."),
-      sentence("sp-gr-4", "a2", "Say: If I have time, I will review the lesson.", "Si tengo tiempo, repasaré la lección."),
-      sentence("sp-gr-5", "b1", "Say: I have been studying Spanish for six months.", "He estado estudiando español durante seis meses."),
-      sentence("sp-gr-6", "b1", "Say: I would travel more if flights were cheaper.", "Viajaría más si los vuelos fueran más baratos."),
-      sentence("sp-gr-7", "b2", "Say: By the time we arrive, they will have finished dinner.", "Para cuando lleguemos, ellos habrán terminado de cenar."),
-      sentence("sp-gr-8", "b2", "Say: Had I known earlier, I would have changed the plan.", "Si lo hubiera sabido antes, habría cambiado el plan.")
-    ]
-  },
-  russian: {
-    essentials: [
-      sentence("ru-es-1", "a1", "Say: Hello, how are you?", "Привет, как дела?"),
-      sentence("ru-es-2", "a1", "Say: Thank you very much for your help.", "Большое спасибо за твою помощь."),
-      sentence("ru-es-3", "a1", "Say: I do not understand this sentence.", "Я не понимаю это предложение."),
-      sentence("ru-es-4", "a2", "Say: Could you speak more slowly, please?", "Можете говорить медленнее, пожалуйста?"),
-      sentence("ru-es-5", "a2", "Say: I am learning Russian every day.", "Я учу русский язык каждый день."),
-      sentence("ru-es-6", "b1", "Say: I made a mistake, but I will try again.", "Я сделал ошибку, но попробую снова."),
-      sentence("ru-es-7", "b1", "Say: I would like to improve my pronunciation.", "Я хотел бы улучшить своё произношение."),
-      sentence("ru-es-8", "b2", "Say: I can explain my opinion with clear arguments.", "Я могу объяснить своё мнение с ясными аргументами.")
-    ],
-    conversation: [
-      sentence("ru-co-1", "a1", "Ask: What is your name?", "Как тебя зовут?"),
-      sentence("ru-co-2", "a1", "Say: My name is Alex and I am from the United States.", "Меня зовут Алекс, и я из США."),
-      sentence("ru-co-3", "a2", "Say: It is nice to meet you in person.", "Приятно познакомиться лично."),
-      sentence("ru-co-4", "a2", "Ask: What do you usually do on weekends?", "Что ты обычно делаешь по выходным?"),
-      sentence("ru-co-5", "b1", "Say: I enjoy talking about books and current events.", "Мне нравится говорить о книгах и текущих событиях."),
-      sentence("ru-co-6", "b1", "Say: In my opinion, consistency is more important than intensity.", "По моему мнению, регулярность важнее интенсивности."),
-      sentence("ru-co-7", "b2", "Say: I used to be shy, but now I express my ideas confidently.", "Раньше я был застенчивым, но теперь уверенно выражаю свои мысли."),
-      sentence("ru-co-8", "b2", "Say: Although we disagree, I respect your perspective.", "Хотя мы не согласны, я уважаю твою точку зрения.")
-    ],
-    travel: [
-      sentence("ru-tr-1", "a1", "Ask: Where is the train station?", "Где находится железнодорожный вокзал?"),
-      sentence("ru-tr-2", "a1", "Ask: How much does this ticket cost?", "Сколько стоит этот билет?"),
-      sentence("ru-tr-3", "a2", "Say: I need a room for two nights.", "Мне нужен номер на две ночи."),
-      sentence("ru-tr-4", "a2", "Ask: Does this bus go to the city center?", "Этот автобус едет в центр города?"),
-      sentence("ru-tr-5", "b1", "Say: My flight was delayed because of bad weather.", "Мой рейс задержали из-за плохой погоды."),
-      sentence("ru-tr-6", "b1", "Say: I lost my passport and need help immediately.", "Я потерял паспорт и мне срочно нужна помощь."),
-      sentence("ru-tr-7", "b2", "Ask: Could you recommend a safe neighborhood near downtown?", "Не могли бы вы порекомендовать безопасный район рядом с центром?"),
-      sentence("ru-tr-8", "b2", "Say: I would prefer a quieter route, even if it takes longer.", "Я предпочёл бы более спокойный маршрут, даже если он займет больше времени.")
-    ],
-    work: [
-      sentence("ru-wo-1", "a1", "Say: I work in a small software company.", "Я работаю в небольшой IT-компании."),
-      sentence("ru-wo-2", "a2", "Say: We have a meeting at nine in the morning.", "У нас встреча в девять утра."),
-      sentence("ru-wo-3", "a2", "Ask: Could you send me the updated report?", "Можете отправить мне обновлённый отчёт?"),
-      sentence("ru-wo-4", "b1", "Say: We should prioritize the tasks with the highest impact.", "Нам нужно приоритизировать задачи с наибольшим эффектом."),
-      sentence("ru-wo-5", "b1", "Say: I finished the draft, but it still needs revision.", "Я закончил черновик, но его ещё нужно доработать."),
-      sentence("ru-wo-6", "b2", "Say: Our proposal focuses on long-term sustainability.", "Наше предложение ориентировано на долгосрочную устойчивость."),
-      sentence("ru-wo-7", "b2", "Say: If we align our goals, we can deliver faster.", "Если мы согласуем цели, мы сможем быстрее выполнить задачу."),
-      sentence("ru-wo-8", "b2", "Ask: What metrics will define success for this project?", "Какие метрики определят успех этого проекта?")
-    ],
-    health: [
-      sentence("ru-he-1", "a1", "Say: I do not feel well today.", "Сегодня я плохо себя чувствую."),
-      sentence("ru-he-2", "a1", "Ask: Where is the nearest pharmacy?", "Где находится ближайшая аптека?"),
-      sentence("ru-he-3", "a2", "Say: I have had a headache since this morning.", "У меня болит голова с самого утра."),
-      sentence("ru-he-4", "a2", "Say: I am allergic to peanuts.", "У меня аллергия на арахис."),
-      sentence("ru-he-5", "b1", "Ask: Should I take this medicine before or after meals?", "Мне принимать это лекарство до или после еды?"),
-      sentence("ru-he-6", "b1", "Say: The pain gets worse when I walk quickly.", "Боль усиливается, когда я быстро хожу."),
-      sentence("ru-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "Мне нужно полное обследование, потому что эти симптомы не проходят."),
-      sentence("ru-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "Можете подробно объяснить варианты лечения?")
-    ],
-    family_friends: [
-      sentence("ru-fa-1", "a1", "Say: This is my brother and that is my cousin.", "Это мой брат, а это мой двоюродный брат."),
-      sentence("ru-fa-2", "a1", "Say: My friends are very kind and funny.", "Мои друзья очень добрые и весёлые."),
-      sentence("ru-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "Ты навещаешь семью в эти выходные?"),
-      sentence("ru-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "Обычно мы ужинаем вместе по воскресеньям."),
-      sentence("ru-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "Я вырос с бабушкой и дедушкой в маленьком городе."),
-      sentence("ru-fa-6", "b1", "Say: My best friend always gives me honest advice.", "Мой лучший друг всегда даёт мне честные советы."),
-      sentence("ru-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Даже когда мы не согласны, мы стараемся уважительно слушать друг друга."),
-      sentence("ru-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Семейные традиции помогают нам сохранять связь между поколениями.")
-    ],
-    food_cooking: [
-      sentence("ru-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "Я бы хотел кофе и сэндвич."),
-      sentence("ru-fo-2", "a1", "Ask: Do you have vegetarian options?", "У вас есть вегетарианские блюда?"),
-      sentence("ru-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "Сегодня вечером я готовлю рис с овощами."),
-      sentence("ru-fo-4", "a2", "Ask: Can you add less salt, please?", "Можно добавить меньше соли, пожалуйста?"),
-      sentence("ru-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "Суп вкуснее, если он томится около часа."),
-      sentence("ru-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "Я забыл один ингредиент, поэтому изменил рецепт."),
-      sentence("ru-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "Это блюдо сочетает сладкие, острые и копчёные вкусы."),
-      sentence("ru-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "Какая техника делает соус более однородным?")
-    ],
-    grammar: [
-      sentence("ru-gr-1", "a1", "Say: I am reading a short story now.", "Сейчас я читаю короткий рассказ."),
-      sentence("ru-gr-2", "a1", "Say: Yesterday I studied for two hours.", "Вчера я занимался два часа."),
-      sentence("ru-gr-3", "a2", "Say: Tomorrow I will practice with my friend.", "Завтра я буду практиковаться с другом."),
-      sentence("ru-gr-4", "a2", "Say: If I have time, I will review the lesson.", "Если у меня будет время, я повторю урок."),
-      sentence("ru-gr-5", "b1", "Say: I have been studying Russian for six months.", "Я изучаю русский язык уже шесть месяцев."),
-      sentence("ru-gr-6", "b1", "Say: I would travel more if flights were cheaper.", "Я бы больше путешествовал, если бы билеты были дешевле."),
-      sentence("ru-gr-7", "b2", "Say: By the time we arrive, they will have finished dinner.", "К тому времени, как мы приедем, они уже закончат ужин."),
-      sentence("ru-gr-8", "b2", "Say: Had I known earlier, I would have changed the plan.", "Если бы я знал раньше, я бы изменил план.")
-    ]
-  },
-  english: {
-    essentials: [
-      sentence("en-es-1", "a1", "Say: Hello, how are you?", "Hello, how are you?"),
-      sentence("en-es-2", "a1", "Say: Thank you very much for your help.", "Thank you very much for your help."),
-      sentence("en-es-3", "a1", "Say: I do not understand this sentence.", "I do not understand this sentence."),
-      sentence("en-es-4", "a2", "Say: Could you speak more slowly, please?", "Could you speak more slowly, please?"),
-      sentence("en-es-5", "a2", "Say: I am learning English every day.", "I am learning English every day."),
-      sentence("en-es-6", "b1", "Say: I made a mistake, but I will try again.", "I made a mistake, but I will try again."),
-      sentence("en-es-7", "b1", "Say: I would like to improve my pronunciation.", "I would like to improve my pronunciation."),
-      sentence("en-es-8", "b2", "Say: I can explain my opinion with clear arguments.", "I can explain my opinion with clear arguments.")
-    ],
-    conversation: [
-      sentence("en-co-1", "a1", "Ask: What is your name?", "What is your name?"),
-      sentence("en-co-2", "a1", "Say: My name is Alex and I am from the United States.", "My name is Alex and I am from the United States."),
-      sentence("en-co-3", "a2", "Say: It is nice to meet you in person.", "It is nice to meet you in person."),
-      sentence("en-co-4", "a2", "Ask: What do you usually do on weekends?", "What do you usually do on weekends?"),
-      sentence("en-co-5", "b1", "Say: I enjoy talking about books and current events.", "I enjoy talking about books and current events."),
-      sentence("en-co-6", "b1", "Say: In my opinion, consistency is more important than intensity.", "In my opinion, consistency is more important than intensity."),
-      sentence("en-co-7", "b2", "Say: I used to be shy, but now I express my ideas confidently.", "I used to be shy, but now I express my ideas confidently."),
-      sentence("en-co-8", "b2", "Say: Although we disagree, I respect your perspective.", "Although we disagree, I respect your perspective.")
-    ],
-    travel: [
-      sentence("en-tr-1", "a1", "Ask: Where is the train station?", "Where is the train station?"),
-      sentence("en-tr-2", "a1", "Ask: How much does this ticket cost?", "How much does this ticket cost?"),
-      sentence("en-tr-3", "a2", "Say: I need a room for two nights.", "I need a room for two nights."),
-      sentence("en-tr-4", "a2", "Ask: Does this bus go to the city center?", "Does this bus go to the city center?"),
-      sentence("en-tr-5", "b1", "Say: My flight was delayed because of bad weather.", "My flight was delayed because of bad weather."),
-      sentence("en-tr-6", "b1", "Say: I lost my passport and need help immediately.", "I lost my passport and need help immediately."),
-      sentence("en-tr-7", "b2", "Ask: Could you recommend a safe neighborhood near downtown?", "Could you recommend a safe neighborhood near downtown?"),
-      sentence("en-tr-8", "b2", "Say: I would prefer a quieter route, even if it takes longer.", "I would prefer a quieter route, even if it takes longer.")
-    ],
-    work: [
-      sentence("en-wo-1", "a1", "Say: I work in a small software company.", "I work in a small software company."),
-      sentence("en-wo-2", "a2", "Say: We have a meeting at nine in the morning.", "We have a meeting at nine in the morning."),
-      sentence("en-wo-3", "a2", "Ask: Could you send me the updated report?", "Could you send me the updated report?"),
-      sentence("en-wo-4", "b1", "Say: We should prioritize the tasks with the highest impact.", "We should prioritize the tasks with the highest impact."),
-      sentence("en-wo-5", "b1", "Say: I finished the draft, but it still needs revision.", "I finished the draft, but it still needs revision."),
-      sentence("en-wo-6", "b2", "Say: Our proposal focuses on long-term sustainability.", "Our proposal focuses on long-term sustainability."),
-      sentence("en-wo-7", "b2", "Say: If we align our goals, we can deliver faster.", "If we align our goals, we can deliver faster."),
-      sentence("en-wo-8", "b2", "Ask: What metrics will define success for this project?", "What metrics will define success for this project?")
-    ],
-    health: [
-      sentence("en-he-1", "a1", "Say: I do not feel well today.", "I do not feel well today."),
-      sentence("en-he-2", "a1", "Ask: Where is the nearest pharmacy?", "Where is the nearest pharmacy?"),
-      sentence("en-he-3", "a2", "Say: I have had a headache since this morning.", "I have had a headache since this morning."),
-      sentence("en-he-4", "a2", "Say: I am allergic to peanuts.", "I am allergic to peanuts."),
-      sentence("en-he-5", "b1", "Ask: Should I take this medicine before or after meals?", "Should I take this medicine before or after meals?"),
-      sentence("en-he-6", "b1", "Say: The pain gets worse when I walk quickly.", "The pain gets worse when I walk quickly."),
-      sentence("en-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "I need a full checkup because these symptoms persist."),
-      sentence("en-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "Could you explain the treatment options in detail?")
-    ],
-    family_friends: [
-      sentence("en-fa-1", "a1", "Say: This is my brother and that is my cousin.", "This is my brother and that is my cousin."),
-      sentence("en-fa-2", "a1", "Say: My friends are very kind and funny.", "My friends are very kind and funny."),
-      sentence("en-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "Are you visiting your family this weekend?"),
-      sentence("en-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "We usually have dinner together on Sundays."),
-      sentence("en-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "I grew up with my grandparents in a small town."),
-      sentence("en-fa-6", "b1", "Say: My best friend always gives me honest advice.", "My best friend always gives me honest advice."),
-      sentence("en-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Even when we disagree, we try to listen respectfully."),
-      sentence("en-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Family traditions help us stay connected across generations.")
-    ],
-    food_cooking: [
-      sentence("en-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "I would like a coffee and a sandwich."),
-      sentence("en-fo-2", "a1", "Ask: Do you have vegetarian options?", "Do you have vegetarian options?"),
-      sentence("en-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "I am cooking rice with vegetables tonight."),
-      sentence("en-fo-4", "a2", "Ask: Can you add less salt, please?", "Can you add less salt, please?"),
-      sentence("en-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "The soup tastes better after it simmers for an hour."),
-      sentence("en-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "I forgot one ingredient, so I changed the recipe."),
-      sentence("en-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "This dish combines sweet, spicy, and smoky flavors."),
-      sentence("en-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "Which technique gives the sauce a smoother texture?")
-    ],
-    grammar: [
-      sentence("en-gr-1", "a1", "Say: I am reading a short story now.", "I am reading a short story now."),
-      sentence("en-gr-2", "a1", "Say: Yesterday I studied for two hours.", "Yesterday I studied for two hours."),
-      sentence("en-gr-3", "a2", "Say: Tomorrow I will practice with my friend.", "Tomorrow I will practice with my friend."),
-      sentence("en-gr-4", "a2", "Say: If I have time, I will review the lesson.", "If I have time, I will review the lesson."),
-      sentence("en-gr-5", "b1", "Say: I have been studying English for six months.", "I have been studying English for six months."),
-      sentence("en-gr-6", "b1", "Say: I would travel more if flights were cheaper.", "I would travel more if flights were cheaper."),
-      sentence("en-gr-7", "b2", "Say: By the time we arrive, they will have finished dinner.", "By the time we arrive, they will have finished dinner."),
-      sentence("en-gr-8", "b2", "Say: Had I known earlier, I would have changed the plan.", "Had I known earlier, I would have changed the plan.")
-    ]
+function ensureObject(value: unknown, errorPrefix: string): asserts value is Record<string, unknown> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error(`${errorPrefix} must be an object`);
   }
-};
+}
 
-COURSE.italian = {
-  essentials: [
-    sentence("it-es-1", "a1", "Say: Hello, how are you?", "Ciao, come stai?"),
-    sentence("it-es-2", "a1", "Say: Thank you very much for your help.", "Grazie mille per il tuo aiuto."),
-    sentence("it-es-3", "a1", "Say: I do not understand this sentence.", "Non capisco questa frase."),
-    sentence("it-es-4", "a2", "Say: Could you speak more slowly, please?", "Potresti parlare più lentamente, per favore?"),
-    sentence("it-es-5", "a2", "Say: I am learning Italian every day.", "Sto imparando l'italiano ogni giorno."),
-    sentence("it-es-6", "b1", "Say: I made a mistake, but I will try again.", "Ho fatto un errore, ma ci riproverò."),
-    sentence("it-es-7", "b1", "Say: I would like to improve my pronunciation.", "Vorrei migliorare la mia pronuncia."),
-    sentence("it-es-8", "b2", "Say: I can explain my opinion with clear arguments.", "Posso spiegare la mia opinione con argomenti chiari.")
-  ],
-  conversation: [
-    sentence("it-co-1", "a1", "Ask: What is your name?", "Come ti chiami?"),
-    sentence("it-co-2", "a1", "Say: My name is Alex and I am from the United States.", "Mi chiamo Alex e vengo dagli Stati Uniti."),
-    sentence("it-co-3", "a2", "Say: It is nice to meet you in person.", "Piacere di conoscerti di persona."),
-    sentence("it-co-4", "a2", "Ask: What do you usually do on weekends?", "Cosa fai di solito nei fine settimana?"),
-    sentence("it-co-5", "b1", "Say: I enjoy talking about books and current events.", "Mi piace parlare di libri e di attualità."),
-    sentence("it-co-6", "b1", "Say: In my opinion, consistency is more important than intensity.", "Secondo me, la costanza è più importante dell'intensità."),
-    sentence("it-co-7", "b2", "Say: I used to be shy, but now I express my ideas confidently.", "Una volta ero timido, ma ora esprimo le mie idee con sicurezza."),
-    sentence("it-co-8", "b2", "Say: Although we disagree, I respect your perspective.", "Anche se non siamo d'accordo, rispetto il tuo punto di vista.")
-  ],
-  travel: [
-    sentence("it-tr-1", "a1", "Ask: Where is the train station?", "Dov'è la stazione ferroviaria?"),
-    sentence("it-tr-2", "a1", "Ask: How much does this ticket cost?", "Quanto costa questo biglietto?"),
-    sentence("it-tr-3", "a2", "Say: I need a room for two nights.", "Ho bisogno di una camera per due notti."),
-    sentence("it-tr-4", "a2", "Ask: Does this bus go to the city center?", "Questo autobus va in centro?"),
-    sentence("it-tr-5", "b1", "Say: My flight was delayed because of bad weather.", "Il mio volo è stato ritardato a causa del maltempo."),
-    sentence("it-tr-6", "b1", "Say: I lost my passport and need help immediately.", "Ho perso il passaporto e ho bisogno di aiuto immediatamente."),
-    sentence("it-tr-7", "b2", "Ask: Could you recommend a safe neighborhood near downtown?", "Potrebbe consigliarmi un quartiere sicuro vicino al centro?"),
-    sentence("it-tr-8", "b2", "Say: I would prefer a quieter route, even if it takes longer.", "Preferirei un percorso più tranquillo, anche se ci vuole più tempo.")
-  ],
-  work: [
-    sentence("it-wo-1", "a1", "Say: I work in a small software company.", "Lavoro in una piccola azienda di software."),
-    sentence("it-wo-2", "a2", "Say: We have a meeting at nine in the morning.", "Abbiamo una riunione alle nove del mattino."),
-    sentence("it-wo-3", "a2", "Ask: Could you send me the updated report?", "Potresti inviarmi il rapporto aggiornato?"),
-    sentence("it-wo-4", "b1", "Say: We should prioritize the tasks with the highest impact.", "Dovremmo dare priorità alle attività con l'impatto più alto."),
-    sentence("it-wo-5", "b1", "Say: I finished the draft, but it still needs revision.", "Ho finito la bozza, ma ha ancora bisogno di revisione."),
-    sentence("it-wo-6", "b2", "Say: Our proposal focuses on long-term sustainability.", "La nostra proposta si concentra sulla sostenibilità a lungo termine."),
-    sentence("it-wo-7", "b2", "Say: If we align our goals, we can deliver faster.", "Se allineiamo i nostri obiettivi, possiamo consegnare più velocemente."),
-    sentence("it-wo-8", "b2", "Ask: What metrics will define success for this project?", "Quali metriche definiranno il successo di questo progetto?")
-  ],
-  health: [
-    sentence("it-he-1", "a1", "Say: I do not feel well today.", "Oggi non mi sento bene."),
-    sentence("it-he-2", "a1", "Ask: Where is the nearest pharmacy?", "Dov'è la farmacia più vicina?"),
-    sentence("it-he-3", "a2", "Say: I have had a headache since this morning.", "Ho mal di testa da questa mattina."),
-    sentence("it-he-4", "a2", "Say: I am allergic to peanuts.", "Sono allergico alle arachidi."),
-    sentence("it-he-5", "b1", "Ask: Should I take this medicine before or after meals?", "Devo prendere questa medicina prima o dopo i pasti?"),
-    sentence("it-he-6", "b1", "Say: The pain gets worse when I walk quickly.", "Il dolore peggiora quando cammino velocemente."),
-    sentence("it-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "Ho bisogno di un controllo completo perché questi sintomi persistono."),
-    sentence("it-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "Potrebbe spiegarmi in dettaglio le opzioni di trattamento?")
-  ],
-  family_friends: [
-    sentence("it-fa-1", "a1", "Say: This is my brother and that is my cousin.", "Questo è mio fratello e quella è mia cugina."),
-    sentence("it-fa-2", "a1", "Say: My friends are very kind and funny.", "I miei amici sono molto gentili e divertenti."),
-    sentence("it-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "Vai a trovare la tua famiglia questo fine settimana?"),
-    sentence("it-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "Di solito ceniamo insieme la domenica."),
-    sentence("it-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "Sono cresciuto con i miei nonni in una piccola città."),
-    sentence("it-fa-6", "b1", "Say: My best friend always gives me honest advice.", "Il mio migliore amico mi dà sempre consigli sinceri."),
-    sentence("it-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Anche quando non siamo d'accordo, cerchiamo di ascoltarci con rispetto."),
-    sentence("it-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Le tradizioni di famiglia ci aiutano a restare uniti tra le generazioni.")
-  ],
-  food_cooking: [
-    sentence("it-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "Vorrei un caffè e un panino."),
-    sentence("it-fo-2", "a1", "Ask: Do you have vegetarian options?", "Avete opzioni vegetariane?"),
-    sentence("it-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "Stasera cucino riso con verdure."),
-    sentence("it-fo-4", "a2", "Ask: Can you add less salt, please?", "Può mettere meno sale, per favore?"),
-    sentence("it-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "La zuppa è più buona dopo aver sobbollito per un'ora."),
-    sentence("it-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "Ho dimenticato un ingrediente, quindi ho cambiato la ricetta."),
-    sentence("it-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "Questo piatto combina sapori dolci, piccanti e affumicati."),
-    sentence("it-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "Quale tecnica rende la salsa più vellutata?")
-  ],
-  grammar: [
-    sentence("it-gr-1", "a1", "Say: I am reading a short story now.", "Sto leggendo un racconto breve adesso."),
-    sentence("it-gr-2", "a1", "Say: Yesterday I studied for two hours.", "Ieri ho studiato per due ore."),
-    sentence("it-gr-3", "a2", "Say: Tomorrow I will practice with my friend.", "Domani mi eserciterò con il mio amico."),
-    sentence("it-gr-4", "a2", "Say: If I have time, I will review the lesson.", "Se ho tempo, ripasserò la lezione."),
-    sentence("it-gr-5", "b1", "Say: I have been studying Italian for six months.", "Studio l'italiano da sei mesi."),
-    sentence("it-gr-6", "b1", "Say: I would travel more if flights were cheaper.", "Viaggerei di più se i voli fossero più economici."),
-    sentence("it-gr-7", "b2", "Say: By the time we arrive, they will have finished dinner.", "Quando arriveremo, avranno già finito di cenare."),
-    sentence("it-gr-8", "b2", "Say: Had I known earlier, I would have changed the plan.", "Se lo avessi saputo prima, avrei cambiato il piano.")
-  ]
-};
+function validateCourseItem(item: unknown, languageId: string, categoryId: string, index: number): asserts item is CourseItem {
+  const prefix = `${languageId}.${categoryId}[${index}]`;
+  ensureObject(item, prefix);
 
-COURSE.swedish = {
-  essentials: [
-    sentence("sv-es-1", "a1", "Say: Hello, how are you?", "Hej, hur mår du?"),
-    sentence("sv-es-2", "a1", "Say: Thank you very much for your help.", "Tack så mycket för din hjälp."),
-    sentence("sv-es-3", "a1", "Say: I do not understand this sentence.", "Jag förstår inte den här meningen."),
-    sentence("sv-es-4", "a2", "Say: Could you speak more slowly, please?", "Kan du prata långsammare, tack?"),
-    sentence("sv-es-5", "a2", "Say: I am learning Swedish every day.", "Jag lär mig svenska varje dag."),
-    sentence("sv-es-6", "b1", "Say: I made a mistake, but I will try again.", "Jag gjorde ett misstag, men jag ska försöka igen."),
-    sentence("sv-es-7", "b1", "Say: I would like to improve my pronunciation.", "Jag skulle vilja förbättra mitt uttal."),
-    sentence("sv-es-8", "b2", "Say: I can explain my opinion with clear arguments.", "Jag kan förklara min åsikt med tydliga argument.")
-  ],
-  conversation: [
-    sentence("sv-co-1", "a1", "Ask: What is your name?", "Vad heter du?"),
-    sentence("sv-co-2", "a1", "Say: My name is Alex and I am from the United States.", "Jag heter Alex och jag kommer från USA."),
-    sentence("sv-co-3", "a2", "Say: It is nice to meet you in person.", "Trevligt att träffas personligen."),
-    sentence("sv-co-4", "a2", "Ask: What do you usually do on weekends?", "Vad brukar du göra på helgerna?"),
-    sentence("sv-co-5", "b1", "Say: I enjoy talking about books and current events.", "Jag tycker om att prata om böcker och aktuella händelser."),
-    sentence("sv-co-6", "b1", "Say: In my opinion, consistency is more important than intensity.", "Enligt min åsikt är konsekvens viktigare än intensitet."),
-    sentence("sv-co-7", "b2", "Say: I used to be shy, but now I express my ideas confidently.", "Jag brukade vara blyg, men nu uttrycker jag mina idéer självsäkert."),
-    sentence("sv-co-8", "b2", "Say: Although we disagree, I respect your perspective.", "Även om vi inte håller med varandra respekterar jag ditt perspektiv.")
-  ],
-  travel: [
-    sentence("sv-tr-1", "a1", "Ask: Where is the train station?", "Var ligger tågstationen?"),
-    sentence("sv-tr-2", "a1", "Ask: How much does this ticket cost?", "Hur mycket kostar den här biljetten?"),
-    sentence("sv-tr-3", "a2", "Say: I need a room for two nights.", "Jag behöver ett rum för två nätter."),
-    sentence("sv-tr-4", "a2", "Ask: Does this bus go to the city center?", "Går den här bussen till centrum?"),
-    sentence("sv-tr-5", "b1", "Say: My flight was delayed because of bad weather.", "Mitt flyg blev försenat på grund av dåligt väder."),
-    sentence("sv-tr-6", "b1", "Say: I lost my passport and need help immediately.", "Jag tappade mitt pass och behöver hjälp omedelbart."),
-    sentence("sv-tr-7", "b2", "Ask: Could you recommend a safe neighborhood near downtown?", "Kan du rekommendera ett säkert område nära centrum?"),
-    sentence("sv-tr-8", "b2", "Say: I would prefer a quieter route, even if it takes longer.", "Jag skulle föredra en lugnare väg, även om den tar längre tid.")
-  ],
-  work: [
-    sentence("sv-wo-1", "a1", "Say: I work in a small software company.", "Jag arbetar på ett litet mjukvaruföretag."),
-    sentence("sv-wo-2", "a2", "Say: We have a meeting at nine in the morning.", "Vi har ett möte klockan nio på morgonen."),
-    sentence("sv-wo-3", "a2", "Ask: Could you send me the updated report?", "Kan du skicka mig den uppdaterade rapporten?"),
-    sentence("sv-wo-4", "b1", "Say: We should prioritize the tasks with the highest impact.", "Vi bör prioritera uppgifterna med störst påverkan."),
-    sentence("sv-wo-5", "b1", "Say: I finished the draft, but it still needs revision.", "Jag blev klar med utkastet, men det behöver fortfarande revideras."),
-    sentence("sv-wo-6", "b2", "Say: Our proposal focuses on long-term sustainability.", "Vårt förslag fokuserar på långsiktig hållbarhet."),
-    sentence("sv-wo-7", "b2", "Say: If we align our goals, we can deliver faster.", "Om vi samordnar våra mål kan vi leverera snabbare."),
-    sentence("sv-wo-8", "b2", "Ask: What metrics will define success for this project?", "Vilka mätvärden kommer att definiera framgång för det här projektet?")
-  ],
-  health: [
-    sentence("sv-he-1", "a1", "Say: I do not feel well today.", "Jag mår inte bra i dag."),
-    sentence("sv-he-2", "a1", "Ask: Where is the nearest pharmacy?", "Var finns närmaste apotek?"),
-    sentence("sv-he-3", "a2", "Say: I have had a headache since this morning.", "Jag har haft huvudvärk sedan i morse."),
-    sentence("sv-he-4", "a2", "Say: I am allergic to peanuts.", "Jag är allergisk mot jordnötter."),
-    sentence("sv-he-5", "b1", "Ask: Should I take this medicine before or after meals?", "Ska jag ta den här medicinen före eller efter måltider?"),
-    sentence("sv-he-6", "b1", "Say: The pain gets worse when I walk quickly.", "Smärtan blir värre när jag går snabbt."),
-    sentence("sv-he-7", "b2", "Say: I need a full checkup because these symptoms persist.", "Jag behöver en fullständig undersökning eftersom de här symtomen kvarstår."),
-    sentence("sv-he-8", "b2", "Ask: Could you explain the treatment options in detail?", "Kan du förklara behandlingsalternativen i detalj?")
-  ],
-  family_friends: [
-    sentence("sv-fa-1", "a1", "Say: This is my brother and that is my cousin.", "Det här är min bror och det där är min kusin."),
-    sentence("sv-fa-2", "a1", "Say: My friends are very kind and funny.", "Mina vänner är väldigt snälla och roliga."),
-    sentence("sv-fa-3", "a2", "Ask: Are you visiting your family this weekend?", "Ska du hälsa på din familj den här helgen?"),
-    sentence("sv-fa-4", "a2", "Say: We usually have dinner together on Sundays.", "Vi brukar äta middag tillsammans på söndagar."),
-    sentence("sv-fa-5", "b1", "Say: I grew up with my grandparents in a small town.", "Jag växte upp med mina morföräldrar i en liten stad."),
-    sentence("sv-fa-6", "b1", "Say: My best friend always gives me honest advice.", "Min bästa vän ger mig alltid ärliga råd."),
-    sentence("sv-fa-7", "b2", "Say: Even when we disagree, we try to listen respectfully.", "Även när vi inte håller med varandra försöker vi lyssna respektfullt."),
-    sentence("sv-fa-8", "b2", "Say: Family traditions help us stay connected across generations.", "Familjetraditioner hjälper oss att hålla kontakten mellan generationer.")
-  ],
-  food_cooking: [
-    sentence("sv-fo-1", "a1", "Say: I would like a coffee and a sandwich.", "Jag skulle vilja ha en kaffe och en smörgås."),
-    sentence("sv-fo-2", "a1", "Ask: Do you have vegetarian options?", "Har ni vegetariska alternativ?"),
-    sentence("sv-fo-3", "a2", "Say: I am cooking rice with vegetables tonight.", "I kväll lagar jag ris med grönsaker."),
-    sentence("sv-fo-4", "a2", "Ask: Can you add less salt, please?", "Kan du lägga i mindre salt, tack?"),
-    sentence("sv-fo-5", "b1", "Say: The soup tastes better after it simmers for an hour.", "Soppan smakar bättre efter att den får sjuda i en timme."),
-    sentence("sv-fo-6", "b1", "Say: I forgot one ingredient, so I changed the recipe.", "Jag glömde en ingrediens, så jag ändrade receptet."),
-    sentence("sv-fo-7", "b2", "Say: This dish combines sweet, spicy, and smoky flavors.", "Den här rätten kombinerar söta, starka och rökiga smaker."),
-    sentence("sv-fo-8", "b2", "Ask: Which technique gives the sauce a smoother texture?", "Vilken teknik ger såsen en jämnare konsistens?")
-  ],
-  grammar: [
-    sentence("sv-gr-1", "a1", "Say: I am reading a short story now.", "Jag läser en kort berättelse nu."),
-    sentence("sv-gr-2", "a1", "Say: Yesterday I studied for two hours.", "I går studerade jag i två timmar."),
-    sentence("sv-gr-3", "a2", "Say: Tomorrow I will practice with my friend.", "I morgon ska jag öva med min vän."),
-    sentence("sv-gr-4", "a2", "Say: If I have time, I will review the lesson.", "Om jag har tid ska jag repetera lektionen."),
-    sentence("sv-gr-5", "b1", "Say: I have been studying Swedish for six months.", "Jag har studerat svenska i sex månader."),
-    sentence("sv-gr-6", "b1", "Say: I would travel more if flights were cheaper.", "Jag skulle resa mer om flygen var billigare."),
-    sentence("sv-gr-7", "b2", "Say: By the time we arrive, they will have finished dinner.", "När vi kommer fram kommer de att ha avslutat middagen."),
-    sentence("sv-gr-8", "b2", "Say: Had I known earlier, I would have changed the plan.", "Hade jag vetat det tidigare skulle jag ha ändrat planen.")
-  ]
-};
+  const id = String(item.id || "").trim();
+  const level = String(item.level || "").trim().toLowerCase();
+  const prompt = String(item.prompt || "").trim();
+  const target = String(item.target || "").trim();
+
+  if (!id) throw new Error(`${prefix}.id is required`);
+  if (!LEVEL_ORDER.includes(level)) throw new Error(`${prefix}.level must be one of ${LEVEL_ORDER.join(", ")}`);
+  if (!prompt) throw new Error(`${prefix}.prompt is required`);
+  if (!target) throw new Error(`${prefix}.target is required`);
+}
+
+function validateLanguagePayload(payload: unknown, fileName: string): asserts payload is LanguagePayload {
+  ensureObject(payload, fileName);
+
+  const id = String(payload.id || "").trim().toLowerCase();
+  const label = String(payload.label || "").trim();
+  const flag = String(payload.flag || "").trim();
+
+  if (!id) throw new Error(`${fileName}: id is required`);
+  if (!label) throw new Error(`${fileName}: label is required`);
+  if (!flag) throw new Error(`${fileName}: flag is required`);
+
+  ensureObject(payload.course, `${fileName}.course`);
+
+  const categoryIds = CATEGORIES.map((category) => category.id);
+  const payloadCategoryIds = Object.keys(payload.course);
+
+  for (const categoryId of categoryIds) {
+    if (!Array.isArray(payload.course[categoryId])) {
+      throw new Error(`${fileName}.course.${categoryId} must be an array`);
+    }
+  }
+
+  const unknownCategories = payloadCategoryIds.filter((categoryId) => !categoryIds.includes(categoryId));
+  if (unknownCategories.length) {
+    throw new Error(`${fileName}.course has unknown categories: ${unknownCategories.join(", ")}`);
+  }
+
+  const seenItemIds = new Set<string>();
+  for (const categoryId of categoryIds) {
+    const items = payload.course[categoryId] as unknown[];
+    items.forEach((item, index) => {
+      validateCourseItem(item, id, categoryId, index);
+      const itemId = String((item as CourseItem).id);
+      if (seenItemIds.has(itemId)) {
+        throw new Error(`${fileName}: duplicate item id ${itemId}`);
+      }
+      seenItemIds.add(itemId);
+    });
+  }
+}
+
+function loadLanguageContent() {
+  const files = fs
+    .readdirSync(CONTENT_DIR)
+    .filter((entry) => entry.toLowerCase().endsWith(".json"))
+    .sort();
+
+  if (!files.length) {
+    throw new Error(`No language content files found in ${CONTENT_DIR}`);
+  }
+
+  const languages: Array<{ id: string; label: string; flag: string; contentSha256: string }> = [];
+  const course: Record<string, CourseCatalog> = {};
+  const contentMeta: Record<string, { sha256: string; itemCount: number; loadedAt: string; fileName: string }> = {};
+  const seenLanguageIds = new Set<string>();
+  const loadedAt = new Date().toISOString();
+
+  for (const fileName of files) {
+    const filePath = path.join(CONTENT_DIR, fileName);
+    const parsed = parseJsonFile(filePath);
+    validateLanguagePayload(parsed, fileName);
+
+    const languageId = parsed.id;
+    if (seenLanguageIds.has(languageId)) {
+      throw new Error(`Duplicate language id across content files: ${languageId}`);
+    }
+    seenLanguageIds.add(languageId);
+
+    const canonical = JSON.stringify(parsed);
+    const sha256 = crypto.createHash("sha256").update(canonical).digest("hex");
+    const itemCount = Object.values(parsed.course).reduce((total, items) => total + items.length, 0);
+
+    languages.push({
+      id: parsed.id,
+      label: parsed.label,
+      flag: parsed.flag,
+      contentSha256: sha256
+    });
+
+    course[parsed.id] = parsed.course;
+    contentMeta[parsed.id] = {
+      sha256,
+      itemCount,
+      loadedAt,
+      fileName
+    };
+  }
+
+  return { languages, course, contentMeta };
+}
+
+const {
+  languages: LANGUAGES,
+  course: COURSE,
+  contentMeta: LANGUAGE_CONTENT_META
+} = loadLanguageContent();
 
 function shuffle(items) {
   const cloned = [...items];
@@ -480,11 +201,6 @@ function getCourseOverview(language) {
       levels
     };
   });
-}
-
-function pickDistractors(pool, answer, count) {
-  const unique = pool.filter((item) => item.target !== answer).map((item) => item.target);
-  return shuffle(unique).slice(0, count);
 }
 
 function buildAcceptedAnswers(target) {
@@ -658,6 +374,7 @@ module.exports = {
   COURSE,
   LEVEL_ORDER,
   LEVEL_XP_MULTIPLIER,
+  LANGUAGE_CONTENT_META,
   getCourseOverview,
   getCategoryItems,
   generateSession,

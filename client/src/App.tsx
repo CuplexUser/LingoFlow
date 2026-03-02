@@ -485,6 +485,11 @@ export default function App() {
     return Math.min(100, Math.round(((progress.todayXp || 0) / settings.dailyGoal) * 100));
   }, [settings, progress]);
 
+  const topbarIdentity =
+    authUser?.authProvider === "local"
+      ? (authUser?.email || authUser?.displayName || "Learner")
+      : (authUser?.displayName || authUser?.email || "Learner");
+
   if (loading) {
     return <main className="app-shell">Loading LingoFlow...</main>;
   }
@@ -524,7 +529,7 @@ export default function App() {
         </div>
         <div className="topbar-meta">
           <div className="stats">
-            <span>{authUser.displayName || "Learner"}</span>
+            <span>{topbarIdentity}</span>
             <span>Level: {progress?.learnerLevel ?? 1}</span>
             <span>XP: {progress?.totalXp ?? 0}</span>
             <span>Streak: {progress?.streak ?? 0}</span>
