@@ -726,7 +726,8 @@ textarea {
 }
 
 .built-word-chip:hover {
-  border-color: #292524;
+  border-color: #5a616b;
+  /* border-color: #59759d; */
   background: var(--surface-muted);
 }
 
