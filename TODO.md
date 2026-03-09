@@ -19,6 +19,13 @@ This file captures current product and technical priorities for future assignmen
 - [ ] Add SQLite indexes for stats/history query paths.
 - [x] Add structured request/error logging and basic health diagnostics.
 
+## Phase 8: Quality tooling and maintainability
+
+- [x] Expand progression test coverage with level-up and unlock-threshold edge cases.
+- [x] Add project-level ESLint and Prettier configuration in `package.json`.
+- [x] Refactor `server/src/data.ts` into smaller focused modules.
+- [x] Set up Husky pre-commit verification hooks.
+
 ## Completed archive
 
 ## Phase 1: Reliability and anti-trivial-cheat

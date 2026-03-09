@@ -245,7 +245,7 @@ function parseAuthToken(token: string | null | undefined): AuthTokenPayload | nu
   const payloadPart = parts[1];
   const signature = parts[2];
 
-  let payloadJson = "";
+  let payloadJson: string;
   try {
     payloadJson = base64UrlDecode(payloadPart);
   } catch (_error) {
@@ -262,7 +262,7 @@ function parseAuthToken(token: string | null | undefined): AuthTokenPayload | nu
     return null;
   }
 
-  let payload: AuthTokenPayload | null = null;
+  let payload: AuthTokenPayload;
   try {
     payload = JSON.parse(payloadJson) as AuthTokenPayload;
   } catch (_error) {
@@ -310,7 +310,7 @@ function parseGoogleOauthState(state: string | null | undefined): GoogleStatePay
   const payloadPart = parts[1];
   const signature = parts[2];
 
-  let payloadJson = "";
+  let payloadJson: string;
   try {
     payloadJson = base64UrlDecode(payloadPart);
   } catch (_error) {
@@ -327,7 +327,7 @@ function parseGoogleOauthState(state: string | null | undefined): GoogleStatePay
     return null;
   }
 
-  let payload: GoogleStatePayload | null = null;
+  let payload: GoogleStatePayload;
   try {
     payload = JSON.parse(payloadJson) as GoogleStatePayload;
   } catch (_error) {

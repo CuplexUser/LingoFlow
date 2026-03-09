@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+npm run lint || exit 1
+npm run test --prefix server || exit 1
+npm run test --prefix client

@@ -1,14 +1,16 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("path");
-const fs = require("fs");
 
-const testDbPath = path.join(__dirname, "..", "..", "data", "lingoflow.test.db");
+const testDbPath = path.join(
+  __dirname,
+  "..",
+  "..",
+  "data",
+  `lingoflow.${path.basename(__filename, path.extname(__filename))}.${process.pid}.${Date.now()}.test.db`
+);
 process.env.LINGOFLOW_DB_PATH = testDbPath;
 process.env.NODE_ENV = "test";
-if (fs.existsSync(testDbPath)) {
-  fs.unlinkSync(testDbPath);
-}
 
 const { createApp } = require("../index.ts");
 

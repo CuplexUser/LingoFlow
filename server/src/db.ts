@@ -1400,7 +1400,7 @@ function recordSession({
   category,
   score,
   maxScore,
-  mistakes,
+  mistakes: _mistakes,
   xpGained,
   difficultyLevel,
   today

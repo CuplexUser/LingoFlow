@@ -72,11 +72,14 @@ client/
   src/styles.css     # App styles
 server/
   src/index.ts       # API routes
-  src/data.ts        # Course/session logic + language content loading/validation
+  src/data.ts        # Data entrypoint that re-exports data helpers
+  src/data/          # Content loading, session generation, constants
   src/db.ts          # SQLite schema, auth users, user-scoped persistence
   content/languages/ # Editable language content JSON files
   src/__tests__/     # Backend tests
   data/              # Runtime DB files
+eslint.config.js     # Flat ESLint config for ESLint 10
+.husky/pre-commit    # Lint + test checks before commit
 ```
 
 ## Available Scripts
@@ -85,8 +88,14 @@ server/
 - `npm run dev`: run backend + frontend concurrently
 - `npm run build`: build frontend bundle
 - `npm run start`: serve backend and built frontend
+- `npm run lint`: run ESLint from the root flat config
+- `npm run lint:fix`: apply autofixable ESLint changes
+- `npm run format`: format the repo with Prettier
+- `npm run format:check`: verify formatting without writing files
 - `npm run test:server`: run backend unit + integration tests
-- `npm run test --prefix client`: run frontend tests
+- `npm run test:client`: run frontend tests
+- `npm run verify`: run the root verification script
+- `npm run prepare`: install Husky hooks
 
 ## Completed Reliability Improvements
 
@@ -101,6 +110,8 @@ server/
 
 - Backend test suite location: `server/src/__tests__/`
 - Frontend test suite location: `client/src/__tests__/`
+- Root lint config: `eslint.config.js`
+- Pre-commit hook: `.husky/pre-commit`
 - Current coverage focus:
   - frontend session retry/reveal/resume behavior
   - frontend setup save/reset behavior
@@ -110,7 +121,16 @@ server/
   - answer normalization and sentence evaluation
   - XP penalty behavior
   - session generation exercise coverage
-  - progression persistence updates (including daily XP)
+  - progression persistence updates (including daily XP and level-ups)
+
+## Linting And Formatting
+
+- The repo uses ESLint 10 with a flat config in `eslint.config.js`.
+- React lint rules currently run through `@eslint/compat` because `eslint-plugin-react` has not fully published native ESLint 10 peer support yet.
+- Use `npm run lint` from the repo root for the project-local toolchain.
+- If you prefer direct invocation, `npx eslint .` uses the local version instead of a global install.
+- Prettier settings live in the root `package.json`.
+- Husky runs lint plus the server and client test suites on pre-commit.
 
 ## API Overview
 
@@ -143,3 +163,4 @@ Notes:
   - update Node/npm
   - delete `node_modules` in root/client/server and reinstall
 - If frontend loads but data is missing, verify backend is running on `:4000`.
+- If `eslint .` behaves differently from `npm run lint`, check whether a global ESLint install is taking precedence and prefer `npx eslint .` or the npm script.

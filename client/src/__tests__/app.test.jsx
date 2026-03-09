@@ -197,3 +197,45 @@ test("learn page keeps the full catalog collapsed by default", async () => {
   expect(screen.getByRole("button", { name: "Hide Catalog" })).toBeInTheDocument();
   expect(screen.getByRole("button", { name: "Start Challenge" })).toBeInTheDocument();
 });
+
+test("shows updated level-up style session status after completion", async () => {
+  setupApiFixtures();
+  apiMock.completeSession.mockResolvedValue({
+    evaluated: {
+      score: 1,
+      maxScore: 1,
+      mistakes: 0
+    },
+    xpGained: 130,
+    mastery: 80,
+    levelUnlocked: "b2",
+    learnerLevel: 2
+  });
+  window.localStorage.setItem("lingoflow_active_session", JSON.stringify({
+    sessionId: "s2",
+    language: "spanish",
+    category: "essentials",
+    categoryLabel: "Essentials",
+    recommendedLevel: "a1",
+    questions: [
+      {
+        id: "q1",
+        type: "mc_sentence",
+        prompt: "Choose thanks",
+        answer: "Gracias",
+        options: ["Gracias", "Hola"]
+      }
+    ]
+  }));
+
+  const user = userEvent.setup();
+  render(<App />);
+
+  await screen.findByText("Choose thanks");
+  await user.click(screen.getByRole("button", { name: "Gracias" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(await screen.findByText(/Session complete: 1\/1/)).toBeInTheDocument();
+  expect(screen.getByText(/\+130 XP/)).toBeInTheDocument();
+  expect(screen.getByText(/Mastery 80.0% \(B2\)/)).toBeInTheDocument();
+});

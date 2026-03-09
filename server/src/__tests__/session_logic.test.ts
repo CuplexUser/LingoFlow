@@ -1,17 +1,31 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("path");
-const fs = require("fs");
 
-const testDbPath = path.join(__dirname, "..", "..", "data", "lingoflow.test.db");
+const testDbPath = path.join(
+  __dirname,
+  "..",
+  "..",
+  "data",
+  `lingoflow.${path.basename(__filename, path.extname(__filename))}.${process.pid}.${Date.now()}.test.db`
+);
 process.env.LINGOFLOW_DB_PATH = testDbPath;
-if (fs.existsSync(testDbPath)) {
-  fs.unlinkSync(testDbPath);
-}
 
 const { calculateXp, evaluateAttempt, normalizeSentence } = require("../index.ts");
 const { generateSession } = require("../data.ts");
 const database = require("../db.ts");
+
+function createTestUser(prefix) {
+  const created = database.createUser({
+    email: `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}@example.com`,
+    passwordHash: "hashed-password",
+    displayName: prefix,
+    emailVerified: true,
+    authProvider: "local"
+  });
+  assert.ok(created);
+  return created.id;
+}
 
 test("normalizeSentence trims punctuation and spaces", () => {
   assert.equal(normalizeSentence("  Hola,   ¿Cómo estás? "), "hola cómo estás");
@@ -86,4 +100,117 @@ test("recordSession updates mastery and daily xp", () => {
   assert.ok(saved.mastery >= 0);
   assert.ok(after.totalXp >= before.totalXp);
   assert.ok(after.todayXp >= 24);
+});
+
+test("recordSession levels up the learner when cumulative XP crosses a threshold", () => {
+  const userId = createTestUser("levelup");
+  const today = database.toIsoDate();
+
+  const first = database.recordSession({
+    userId,
+    language: "english",
+    category: "essentials",
+    score: 8,
+    maxScore: 10,
+    mistakes: 2,
+    xpGained: 149,
+    difficultyLevel: "a2",
+    today
+  });
+  const second = database.recordSession({
+    userId,
+    language: "english",
+    category: "conversation",
+    score: 8,
+    maxScore: 10,
+    mistakes: 2,
+    xpGained: 2,
+    difficultyLevel: "a2",
+    today
+  });
+
+  const progress = database.getProgress(userId, "english");
+  assert.equal(first.learnerLevel, 1);
+  assert.equal(second.learnerLevel, 2);
+  assert.equal(progress.totalXp, 151);
+  assert.equal(progress.learnerLevel, 2);
+});
+
+test("recordSession advances category unlock bands across mastery thresholds", () => {
+  const userId = createTestUser("mastery");
+  const today = database.toIsoDate();
+  const results = [];
+
+  results.push(database.recordSession({
+    userId,
+    language: "italian",
+    category: "grammar",
+    score: 10,
+    maxScore: 10,
+    mistakes: 0,
+    xpGained: 30,
+    difficultyLevel: "a1",
+    today
+  }));
+  results.push(database.recordSession({
+    userId,
+    language: "italian",
+    category: "grammar",
+    score: 10,
+    maxScore: 10,
+    mistakes: 0,
+    xpGained: 30,
+    difficultyLevel: "a1",
+    today
+  }));
+  results.push(database.recordSession({
+    userId,
+    language: "italian",
+    category: "grammar",
+    score: 10,
+    maxScore: 10,
+    mistakes: 0,
+    xpGained: 30,
+    difficultyLevel: "a1",
+    today
+  }));
+  results.push(database.recordSession({
+    userId,
+    language: "italian",
+    category: "grammar",
+    score: 10,
+    maxScore: 10,
+    mistakes: 0,
+    xpGained: 36,
+    difficultyLevel: "b2",
+    today
+  }));
+  results.push(database.recordSession({
+    userId,
+    language: "italian",
+    category: "grammar",
+    score: 10,
+    maxScore: 10,
+    mistakes: 0,
+    xpGained: 36,
+    difficultyLevel: "b2",
+    today
+  }));
+  results.push(database.recordSession({
+    userId,
+    language: "italian",
+    category: "grammar",
+    score: 10,
+    maxScore: 10,
+    mistakes: 0,
+    xpGained: 36,
+    difficultyLevel: "b2",
+    today
+  }));
+
+  assert.equal(results[1].levelUnlocked, "a1");
+  assert.equal(results[2].levelUnlocked, "a2");
+  assert.equal(results[3].levelUnlocked, "a2");
+  assert.equal(results[4].levelUnlocked, "b1");
+  assert.equal(results[5].levelUnlocked, "b2");
 });
