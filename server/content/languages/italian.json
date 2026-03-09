@@ -51,6 +51,30 @@
         "level": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
         "target": "Posso spiegare la mia opinione con argomenti chiari."
+      },
+      {
+        "id": "it-es-9",
+        "level": "a1",
+        "prompt": "Say: Excuse me, where is the bathroom?",
+        "target": "Mi scusi, dov'è il bagno?"
+      },
+      {
+        "id": "it-es-10",
+        "level": "a2",
+        "prompt": "Say: Could you repeat that one more time?",
+        "target": "Potrebbe ripeterlo ancora una volta?"
+      },
+      {
+        "id": "it-es-11",
+        "level": "b1",
+        "prompt": "Say: I understand the idea, but I need more practice.",
+        "target": "Capisco l'idea, ma ho bisogno di più pratica."
+      },
+      {
+        "id": "it-es-12",
+        "level": "b2",
+        "prompt": "Say: I want to speak naturally, not only correctly.",
+        "target": "Voglio parlare in modo naturale, non solo corretto."
       }
     ],
     "conversation": [
@@ -101,6 +125,30 @@
         "level": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
         "target": "Anche se non siamo d'accordo, rispetto il tuo punto di vista."
+      },
+      {
+        "id": "it-co-9",
+        "level": "a1",
+        "prompt": "Ask: Where are you from?",
+        "target": "Di dove sei?"
+      },
+      {
+        "id": "it-co-10",
+        "level": "a2",
+        "prompt": "Say: I usually spend my evenings reading or walking.",
+        "target": "Di solito passo le serate leggendo o camminando."
+      },
+      {
+        "id": "it-co-11",
+        "level": "b1",
+        "prompt": "Ask: What kind of topics do you enjoy discussing?",
+        "target": "Che tipo di argomenti ti piace discutere?"
+      },
+      {
+        "id": "it-co-12",
+        "level": "b2",
+        "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
+        "target": "Apprezzo le conversazioni sincere, anche quando sono difficili."
       }
     ],
     "travel": [
@@ -151,6 +199,30 @@
         "level": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
         "target": "Preferirei un percorso più tranquillo, anche se ci vuole più tempo."
+      },
+      {
+        "id": "it-tr-9",
+        "level": "a1",
+        "prompt": "Ask: Which platform does the train leave from?",
+        "target": "Da quale binario parte il treno?"
+      },
+      {
+        "id": "it-tr-10",
+        "level": "a2",
+        "prompt": "Say: I would like to check in for my reservation.",
+        "target": "Vorrei fare il check-in per la mia prenotazione."
+      },
+      {
+        "id": "it-tr-11",
+        "level": "b1",
+        "prompt": "Say: The museum is within walking distance from the hotel.",
+        "target": "Il museo è raggiungibile a piedi dall'hotel."
+      },
+      {
+        "id": "it-tr-12",
+        "level": "b2",
+        "prompt": "Ask: Is there a faster connection if I change lines once?",
+        "target": "C'è un collegamento più veloce se cambio linea una volta?"
       }
     ],
     "work": [
@@ -201,6 +273,30 @@
         "level": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
         "target": "Quali metriche definiranno il successo di questo progetto?"
+      },
+      {
+        "id": "it-wo-9",
+        "level": "a1",
+        "prompt": "Say: I am still learning the tools for this job.",
+        "target": "Sto ancora imparando gli strumenti per questo lavoro."
+      },
+      {
+        "id": "it-wo-10",
+        "level": "a2",
+        "prompt": "Ask: Can we move the meeting to the afternoon?",
+        "target": "Possiamo spostare la riunione al pomeriggio?"
+      },
+      {
+        "id": "it-wo-11",
+        "level": "b1",
+        "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
+        "target": "Ho bisogno di priorità più chiare prima di poter stimare la tempistica."
+      },
+      {
+        "id": "it-wo-12",
+        "level": "b2",
+        "prompt": "Say: We should document this process so the whole team can reuse it.",
+        "target": "Dovremmo documentare questo processo così tutto il team potrà riutilizzarlo."
       }
     ],
     "health": [
@@ -251,6 +347,30 @@
         "level": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
         "target": "Potrebbe spiegarmi in dettaglio le opzioni di trattamento?"
+      },
+      {
+        "id": "it-he-9",
+        "level": "a1",
+        "prompt": "Say: My throat hurts when I swallow.",
+        "target": "Mi fa male la gola quando deglutisco."
+      },
+      {
+        "id": "it-he-10",
+        "level": "a2",
+        "prompt": "Ask: Do I need an appointment for this checkup?",
+        "target": "Ho bisogno di un appuntamento per questo controllo?"
+      },
+      {
+        "id": "it-he-11",
+        "level": "b1",
+        "prompt": "Say: I have been feeling tired for several days.",
+        "target": "Mi sento stanco da diversi giorni."
+      },
+      {
+        "id": "it-he-12",
+        "level": "b2",
+        "prompt": "Say: I would like a second opinion before starting treatment.",
+        "target": "Vorrei un secondo parere prima di iniziare il trattamento."
       }
     ],
     "family_friends": [
@@ -301,6 +421,30 @@
         "level": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
         "target": "Le tradizioni di famiglia ci aiutano a restare uniti tra le generazioni."
+      },
+      {
+        "id": "it-fa-9",
+        "level": "a1",
+        "prompt": "Say: My sister lives near my parents.",
+        "target": "Mia sorella vive vicino ai miei genitori."
+      },
+      {
+        "id": "it-fa-10",
+        "level": "a2",
+        "prompt": "Ask: Would you like to come over for dinner on Friday?",
+        "target": "Ti andrebbe di venire a cena venerdì?"
+      },
+      {
+        "id": "it-fa-11",
+        "level": "b1",
+        "prompt": "Say: We stay close even though we live in different cities.",
+        "target": "Restiamo uniti anche se viviamo in città diverse."
+      },
+      {
+        "id": "it-fa-12",
+        "level": "b2",
+        "prompt": "Say: Good friendships require time, trust, and patience.",
+        "target": "Le buone amicizie richiedono tempo, fiducia e pazienza."
       }
     ],
     "food_cooking": [
@@ -351,6 +495,30 @@
         "level": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
         "target": "Quale tecnica rende la salsa più vellutata?"
+      },
+      {
+        "id": "it-fo-9",
+        "level": "a1",
+        "prompt": "Ask: Can I have water without ice?",
+        "target": "Posso avere dell'acqua senza ghiaccio?"
+      },
+      {
+        "id": "it-fo-10",
+        "level": "a2",
+        "prompt": "Say: I baked bread at home for the first time.",
+        "target": "Ho fatto il pane in casa per la prima volta."
+      },
+      {
+        "id": "it-fo-11",
+        "level": "b1",
+        "prompt": "Ask: What ingredients make this dish so flavorful?",
+        "target": "Quali ingredienti rendono questo piatto così saporito?"
+      },
+      {
+        "id": "it-fo-12",
+        "level": "b2",
+        "prompt": "Say: I prefer recipes that are simple but still balanced.",
+        "target": "Preferisco ricette semplici ma comunque equilibrate."
       }
     ],
     "grammar": [
@@ -401,6 +569,30 @@
         "level": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
         "target": "Se lo avessi saputo prima, avrei cambiato il piano."
+      },
+      {
+        "id": "it-gr-9",
+        "level": "a1",
+        "prompt": "Say: Every morning I write three new words.",
+        "target": "Ogni mattina scrivo tre parole nuove."
+      },
+      {
+        "id": "it-gr-10",
+        "level": "a2",
+        "prompt": "Say: We were cooking when the guests arrived.",
+        "target": "Stavamo cucinando quando sono arrivati gli ospiti."
+      },
+      {
+        "id": "it-gr-11",
+        "level": "b1",
+        "prompt": "Say: I had already left when the message arrived.",
+        "target": "Me n'ero già andato quando è arrivato il messaggio."
+      },
+      {
+        "id": "it-gr-12",
+        "level": "b2",
+        "prompt": "Say: If I had practiced more, I would be more confident now.",
+        "target": "Se avessi praticato di più, adesso sarei più sicuro."
       }
     ]
   }

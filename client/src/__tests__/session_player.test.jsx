@@ -38,3 +38,50 @@ test("session player supports retry and reveal flow after repeated mistakes", as
   await user.click(screen.getByRole("button", { name: "Reveal Answer" }));
   expect(screen.getByText("Answer revealed. Rebuild it and submit.")).toBeInTheDocument();
 });
+
+test("session progress stays anchored to the original session length", async () => {
+  const user = userEvent.setup();
+  render(
+    <SessionPlayer
+      session={{
+        language: "spanish",
+        categoryLabel: "Essentials",
+        recommendedLevel: "a1",
+        questions: [
+          {
+            id: "q1",
+            type: "build_sentence",
+            prompt: "Build greeting",
+            answer: "Hola amigo",
+            acceptedAnswers: [],
+            tokens: ["Hola", "adios", "amigo"]
+          },
+          {
+            id: "q2",
+            type: "mc_sentence",
+            prompt: "Pick thanks",
+            answer: "Gracias",
+            options: ["Gracias", "Hola"]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={() => {}}
+      onSnapshot={() => {}}
+    />
+  );
+
+  expect(screen.getByText("1/2")).toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "adios" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+  expect(screen.getByText("1/2")).toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "adios" }));
+  await user.click(screen.getByRole("button", { name: "Hola" }));
+  await user.click(screen.getByRole("button", { name: "amigo" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(await screen.findByText("Pick thanks")).toBeInTheDocument();
+  expect(screen.getByText("2/2")).toBeInTheDocument();
+});

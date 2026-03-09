@@ -51,6 +51,30 @@
         "level": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
         "target": "I can explain my opinion with clear arguments."
+      },
+      {
+        "id": "en-es-9",
+        "level": "a1",
+        "prompt": "Say: Excuse me, where is the bathroom?",
+        "target": "Excuse me, where is the bathroom?"
+      },
+      {
+        "id": "en-es-10",
+        "level": "a2",
+        "prompt": "Say: Could you repeat that one more time?",
+        "target": "Could you repeat that one more time?"
+      },
+      {
+        "id": "en-es-11",
+        "level": "b1",
+        "prompt": "Say: I understand the idea, but I need more practice.",
+        "target": "I understand the idea, but I need more practice."
+      },
+      {
+        "id": "en-es-12",
+        "level": "b2",
+        "prompt": "Say: I want to speak naturally, not only correctly.",
+        "target": "I want to speak naturally, not only correctly."
       }
     ],
     "conversation": [
@@ -101,6 +125,30 @@
         "level": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
         "target": "Although we disagree, I respect your perspective."
+      },
+      {
+        "id": "en-co-9",
+        "level": "a1",
+        "prompt": "Ask: Where are you from?",
+        "target": "Where are you from?"
+      },
+      {
+        "id": "en-co-10",
+        "level": "a2",
+        "prompt": "Say: I usually spend my evenings reading or walking.",
+        "target": "I usually spend my evenings reading or walking."
+      },
+      {
+        "id": "en-co-11",
+        "level": "b1",
+        "prompt": "Ask: What kind of topics do you enjoy discussing?",
+        "target": "What kind of topics do you enjoy discussing?"
+      },
+      {
+        "id": "en-co-12",
+        "level": "b2",
+        "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
+        "target": "I appreciate honest conversations, even when they are difficult."
       }
     ],
     "travel": [
@@ -151,6 +199,30 @@
         "level": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
         "target": "I would prefer a quieter route, even if it takes longer."
+      },
+      {
+        "id": "en-tr-9",
+        "level": "a1",
+        "prompt": "Ask: Which platform does the train leave from?",
+        "target": "Which platform does the train leave from?"
+      },
+      {
+        "id": "en-tr-10",
+        "level": "a2",
+        "prompt": "Say: I would like to check in for my reservation.",
+        "target": "I would like to check in for my reservation."
+      },
+      {
+        "id": "en-tr-11",
+        "level": "b1",
+        "prompt": "Say: The museum is within walking distance from the hotel.",
+        "target": "The museum is within walking distance from the hotel."
+      },
+      {
+        "id": "en-tr-12",
+        "level": "b2",
+        "prompt": "Ask: Is there a faster connection if I change lines once?",
+        "target": "Is there a faster connection if I change lines once?"
       }
     ],
     "work": [
@@ -201,6 +273,30 @@
         "level": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
         "target": "What metrics will define success for this project?"
+      },
+      {
+        "id": "en-wo-9",
+        "level": "a1",
+        "prompt": "Say: I am still learning the tools for this job.",
+        "target": "I am still learning the tools for this job."
+      },
+      {
+        "id": "en-wo-10",
+        "level": "a2",
+        "prompt": "Ask: Can we move the meeting to the afternoon?",
+        "target": "Can we move the meeting to the afternoon?"
+      },
+      {
+        "id": "en-wo-11",
+        "level": "b1",
+        "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
+        "target": "I need clearer priorities before I can estimate the timeline."
+      },
+      {
+        "id": "en-wo-12",
+        "level": "b2",
+        "prompt": "Say: We should document this process so the whole team can reuse it.",
+        "target": "We should document this process so the whole team can reuse it."
       }
     ],
     "health": [
@@ -251,6 +347,30 @@
         "level": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
         "target": "Could you explain the treatment options in detail?"
+      },
+      {
+        "id": "en-he-9",
+        "level": "a1",
+        "prompt": "Say: My throat hurts when I swallow.",
+        "target": "My throat hurts when I swallow."
+      },
+      {
+        "id": "en-he-10",
+        "level": "a2",
+        "prompt": "Ask: Do I need an appointment for this checkup?",
+        "target": "Do I need an appointment for this checkup?"
+      },
+      {
+        "id": "en-he-11",
+        "level": "b1",
+        "prompt": "Say: I have been feeling tired for several days.",
+        "target": "I have been feeling tired for several days."
+      },
+      {
+        "id": "en-he-12",
+        "level": "b2",
+        "prompt": "Say: I would like a second opinion before starting treatment.",
+        "target": "I would like a second opinion before starting treatment."
       }
     ],
     "family_friends": [
@@ -301,6 +421,30 @@
         "level": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
         "target": "Family traditions help us stay connected across generations."
+      },
+      {
+        "id": "en-fa-9",
+        "level": "a1",
+        "prompt": "Say: My sister lives near my parents.",
+        "target": "My sister lives near my parents."
+      },
+      {
+        "id": "en-fa-10",
+        "level": "a2",
+        "prompt": "Ask: Would you like to come over for dinner on Friday?",
+        "target": "Would you like to come over for dinner on Friday?"
+      },
+      {
+        "id": "en-fa-11",
+        "level": "b1",
+        "prompt": "Say: We stay close even though we live in different cities.",
+        "target": "We stay close even though we live in different cities."
+      },
+      {
+        "id": "en-fa-12",
+        "level": "b2",
+        "prompt": "Say: Good friendships require time, trust, and patience.",
+        "target": "Good friendships require time, trust, and patience."
       }
     ],
     "food_cooking": [
@@ -351,6 +495,30 @@
         "level": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
         "target": "Which technique gives the sauce a smoother texture?"
+      },
+      {
+        "id": "en-fo-9",
+        "level": "a1",
+        "prompt": "Ask: Can I have water without ice?",
+        "target": "Can I have water without ice?"
+      },
+      {
+        "id": "en-fo-10",
+        "level": "a2",
+        "prompt": "Say: I baked bread at home for the first time.",
+        "target": "I baked bread at home for the first time."
+      },
+      {
+        "id": "en-fo-11",
+        "level": "b1",
+        "prompt": "Ask: What ingredients make this dish so flavorful?",
+        "target": "What ingredients make this dish so flavorful?"
+      },
+      {
+        "id": "en-fo-12",
+        "level": "b2",
+        "prompt": "Say: I prefer recipes that are simple but still balanced.",
+        "target": "I prefer recipes that are simple but still balanced."
       }
     ],
     "grammar": [
@@ -401,6 +569,30 @@
         "level": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
         "target": "Had I known earlier, I would have changed the plan."
+      },
+      {
+        "id": "en-gr-9",
+        "level": "a1",
+        "prompt": "Say: Every morning I write three new words.",
+        "target": "Every morning I write three new words."
+      },
+      {
+        "id": "en-gr-10",
+        "level": "a2",
+        "prompt": "Say: We were cooking when the guests arrived.",
+        "target": "We were cooking when the guests arrived."
+      },
+      {
+        "id": "en-gr-11",
+        "level": "b1",
+        "prompt": "Say: I had already left when the message arrived.",
+        "target": "I had already left when the message arrived."
+      },
+      {
+        "id": "en-gr-12",
+        "level": "b2",
+        "prompt": "Say: If I had practiced more, I would be more confident now.",
+        "target": "If I had practiced more, I would be more confident now."
       }
     ]
   }

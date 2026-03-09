@@ -61,12 +61,27 @@ function setupApiFixtures() {
       id: "essentials",
       label: "Essentials",
       description: "Core",
+      totalPhrases: 12,
+      levels: ["a1", "a2", "b1", "b2"],
       mastery: 10,
       attempts: 0,
       accuracy: 80,
       levelUnlocked: "a1",
       unlocked: true,
       lockReason: ""
+    },
+    {
+      id: "conversation",
+      label: "Conversation",
+      description: "Social",
+      totalPhrases: 12,
+      levels: ["a1", "a2", "b1", "b2"],
+      mastery: 0,
+      attempts: 0,
+      accuracy: 0,
+      levelUnlocked: "a1",
+      unlocked: false,
+      lockReason: "Practice Essentials a bit more to unlock this step."
     }
   ]);
   apiMock.getProgress.mockResolvedValue({
@@ -166,4 +181,19 @@ test("loads and resumes an active session from local storage", async () => {
 
   expect(await screen.findByText("Select greeting")).toBeInTheDocument();
   expect(screen.getByRole("button", { name: "Exit Session" })).toBeInTheDocument();
+});
+
+test("learn page keeps the full catalog collapsed by default", async () => {
+  setupApiFixtures();
+  const user = userEvent.setup();
+  render(<App />);
+
+  await screen.findByText("Recommended Next");
+  expect(screen.getByRole("button", { name: "Start Recommended Session" })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Show Catalog" })).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: "Start Challenge" })).not.toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "Show Catalog" }));
+  expect(screen.getByRole("button", { name: "Hide Catalog" })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Start Challenge" })).toBeInTheDocument();
 });

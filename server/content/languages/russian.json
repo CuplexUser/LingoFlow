@@ -51,6 +51,30 @@
         "level": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
         "target": "Я могу объяснить своё мнение с ясными аргументами."
+      },
+      {
+        "id": "ru-es-9",
+        "level": "a1",
+        "prompt": "Say: Excuse me, where is the bathroom?",
+        "target": "Извините, где находится туалет?"
+      },
+      {
+        "id": "ru-es-10",
+        "level": "a2",
+        "prompt": "Say: Could you repeat that one more time?",
+        "target": "Не могли бы вы повторить это еще раз?"
+      },
+      {
+        "id": "ru-es-11",
+        "level": "b1",
+        "prompt": "Say: I understand the idea, but I need more practice.",
+        "target": "Я понимаю идею, но мне нужно больше практики."
+      },
+      {
+        "id": "ru-es-12",
+        "level": "b2",
+        "prompt": "Say: I want to speak naturally, not only correctly.",
+        "target": "Я хочу говорить естественно, а не только правильно."
       }
     ],
     "conversation": [
@@ -101,6 +125,30 @@
         "level": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
         "target": "Хотя мы не согласны, я уважаю твою точку зрения."
+      },
+      {
+        "id": "ru-co-9",
+        "level": "a1",
+        "prompt": "Ask: Where are you from?",
+        "target": "Откуда вы?"
+      },
+      {
+        "id": "ru-co-10",
+        "level": "a2",
+        "prompt": "Say: I usually spend my evenings reading or walking.",
+        "target": "Обычно я провожу вечера за чтением или прогулкой."
+      },
+      {
+        "id": "ru-co-11",
+        "level": "b1",
+        "prompt": "Ask: What kind of topics do you enjoy discussing?",
+        "target": "Какие темы вы любите обсуждать?"
+      },
+      {
+        "id": "ru-co-12",
+        "level": "b2",
+        "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
+        "target": "Я ценю откровенные разговоры, даже когда они трудные."
       }
     ],
     "travel": [
@@ -151,6 +199,30 @@
         "level": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
         "target": "Я предпочёл бы более спокойный маршрут, даже если он займет больше времени."
+      },
+      {
+        "id": "ru-tr-9",
+        "level": "a1",
+        "prompt": "Ask: Which platform does the train leave from?",
+        "target": "С какой платформы отправляется поезд?"
+      },
+      {
+        "id": "ru-tr-10",
+        "level": "a2",
+        "prompt": "Say: I would like to check in for my reservation.",
+        "target": "Я хочу зарегистрироваться по своему бронированию."
+      },
+      {
+        "id": "ru-tr-11",
+        "level": "b1",
+        "prompt": "Say: The museum is within walking distance from the hotel.",
+        "target": "Музей находится в пешей доступности от отеля."
+      },
+      {
+        "id": "ru-tr-12",
+        "level": "b2",
+        "prompt": "Ask: Is there a faster connection if I change lines once?",
+        "target": "Есть ли более быстрое сообщение, если я один раз пересяду?"
       }
     ],
     "work": [
@@ -201,6 +273,30 @@
         "level": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
         "target": "Какие метрики определят успех этого проекта?"
+      },
+      {
+        "id": "ru-wo-9",
+        "level": "a1",
+        "prompt": "Say: I am still learning the tools for this job.",
+        "target": "Я все еще осваиваю инструменты для этой работы."
+      },
+      {
+        "id": "ru-wo-10",
+        "level": "a2",
+        "prompt": "Ask: Can we move the meeting to the afternoon?",
+        "target": "Можем ли мы перенести встречу на вторую половину дня?"
+      },
+      {
+        "id": "ru-wo-11",
+        "level": "b1",
+        "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
+        "target": "Мне нужны более четкие приоритеты, прежде чем я смогу оценить сроки."
+      },
+      {
+        "id": "ru-wo-12",
+        "level": "b2",
+        "prompt": "Say: We should document this process so the whole team can reuse it.",
+        "target": "Нам стоит задокументировать этот процесс, чтобы вся команда могла использовать его снова."
       }
     ],
     "health": [
@@ -251,6 +347,30 @@
         "level": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
         "target": "Можете подробно объяснить варианты лечения?"
+      },
+      {
+        "id": "ru-he-9",
+        "level": "a1",
+        "prompt": "Say: My throat hurts when I swallow.",
+        "target": "У меня болит горло, когда я глотаю."
+      },
+      {
+        "id": "ru-he-10",
+        "level": "a2",
+        "prompt": "Ask: Do I need an appointment for this checkup?",
+        "target": "Мне нужна запись на этот осмотр?"
+      },
+      {
+        "id": "ru-he-11",
+        "level": "b1",
+        "prompt": "Say: I have been feeling tired for several days.",
+        "target": "Я чувствую усталость уже несколько дней."
+      },
+      {
+        "id": "ru-he-12",
+        "level": "b2",
+        "prompt": "Say: I would like a second opinion before starting treatment.",
+        "target": "Мне бы хотелось получить второе мнение перед началом лечения."
       }
     ],
     "family_friends": [
@@ -301,6 +421,30 @@
         "level": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
         "target": "Семейные традиции помогают нам сохранять связь между поколениями."
+      },
+      {
+        "id": "ru-fa-9",
+        "level": "a1",
+        "prompt": "Say: My sister lives near my parents.",
+        "target": "Моя сестра живет рядом с моими родителями."
+      },
+      {
+        "id": "ru-fa-10",
+        "level": "a2",
+        "prompt": "Ask: Would you like to come over for dinner on Friday?",
+        "target": "Хочешь прийти на ужин в пятницу?"
+      },
+      {
+        "id": "ru-fa-11",
+        "level": "b1",
+        "prompt": "Say: We stay close even though we live in different cities.",
+        "target": "Мы остаемся близки, хотя живем в разных городах."
+      },
+      {
+        "id": "ru-fa-12",
+        "level": "b2",
+        "prompt": "Say: Good friendships require time, trust, and patience.",
+        "target": "Хорошая дружба требует времени, доверия и терпения."
       }
     ],
     "food_cooking": [
@@ -351,6 +495,30 @@
         "level": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
         "target": "Какая техника делает соус более однородным?"
+      },
+      {
+        "id": "ru-fo-9",
+        "level": "a1",
+        "prompt": "Ask: Can I have water without ice?",
+        "target": "Можно мне воду без льда?"
+      },
+      {
+        "id": "ru-fo-10",
+        "level": "a2",
+        "prompt": "Say: I baked bread at home for the first time.",
+        "target": "Я впервые испек хлеб дома."
+      },
+      {
+        "id": "ru-fo-11",
+        "level": "b1",
+        "prompt": "Ask: What ingredients make this dish so flavorful?",
+        "target": "Какие ингредиенты делают это блюдо таким вкусным?"
+      },
+      {
+        "id": "ru-fo-12",
+        "level": "b2",
+        "prompt": "Say: I prefer recipes that are simple but still balanced.",
+        "target": "Я предпочитаю простые, но сбалансированные рецепты."
       }
     ],
     "grammar": [
@@ -401,6 +569,30 @@
         "level": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
         "target": "Если бы я знал раньше, я бы изменил план."
+      },
+      {
+        "id": "ru-gr-9",
+        "level": "a1",
+        "prompt": "Say: Every morning I write three new words.",
+        "target": "Каждое утро я записываю три новых слова."
+      },
+      {
+        "id": "ru-gr-10",
+        "level": "a2",
+        "prompt": "Say: We were cooking when the guests arrived.",
+        "target": "Мы готовили, когда пришли гости."
+      },
+      {
+        "id": "ru-gr-11",
+        "level": "b1",
+        "prompt": "Say: I had already left when the message arrived.",
+        "target": "Я уже ушел, когда пришло сообщение."
+      },
+      {
+        "id": "ru-gr-12",
+        "level": "b2",
+        "prompt": "Say: If I had practiced more, I would be more confident now.",
+        "target": "Если бы я больше практиковался, сейчас я был бы увереннее."
       }
     ]
   }

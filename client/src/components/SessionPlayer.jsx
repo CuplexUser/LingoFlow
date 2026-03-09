@@ -10,10 +10,16 @@ function normalizeSentence(text) {
 
 export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const resumeState = session.resumeState || {};
-  const [questionsQueue, setQuestionsQueue] = useState(() => resumeState.questionsQueue || session.questions);
-  const [reinforcedQuestionIds, setReinforcedQuestionIds] = useState(
-    () => resumeState.reinforcedQuestionIds || []
+  const fixedQuestionCount = Math.max(
+    1,
+    Number(resumeState.fixedQuestionCount) || session.questions.length || 1
   );
+  const [questionsQueue] = useState(() => {
+    const resumedQueue = Array.isArray(resumeState.questionsQueue)
+      ? resumeState.questionsQueue.slice(0, fixedQuestionCount)
+      : [];
+    return resumedQueue.length ? resumedQueue : session.questions.slice(0, fixedQuestionCount);
+  });
   const [index, setIndex] = useState(() => resumeState.index || 0);
   const [score, setScore] = useState(() => resumeState.score || 0);
   const [selectedOption, setSelectedOption] = useState(() => resumeState.selectedOption || "");
@@ -36,7 +42,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     "SpeechSynthesisUtterance" in window;
 
   const question = questionsQueue[index];
-  const progress = Math.round(((index + 1) / questionsQueue.length) * 100);
+  const currentStep = Math.min(index + 1, fixedQuestionCount);
+  const progress = Math.round((currentStep / fixedQuestionCount) * 100);
   const builtWords = (question.type === "build_sentence" || question.type === "dictation_sentence")
     ? selectedTokenIndexes.map((idx) => question.tokens[idx])
     : [];
@@ -52,7 +59,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   useEffect(() => {
     const snapshot = {
       questionsQueue,
-      reinforcedQuestionIds,
+      fixedQuestionCount,
       index,
       score,
       selectedOption,
@@ -71,7 +78,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     }
   }, [
     questionsQueue,
-    reinforcedQuestionIds,
+    fixedQuestionCount,
     index,
     score,
     selectedOption,
@@ -251,20 +258,14 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       return;
     }
 
-    const shouldReinforce = questionMistakes > 0 && !reinforcedQuestionIds.includes(question.id);
-    if (shouldReinforce) {
-      setQuestionsQueue((prev) => [...prev, question]);
-      setReinforcedQuestionIds((prev) => [...prev, question.id]);
-    }
-
     const nextScore = score + 1;
     setScore(nextScore);
 
-    if (index === questionsQueue.length - 1 && !shouldReinforce) {
+    if (index === questionsQueue.length - 1) {
       onFinish({
         attempts: [...attemptLog, attemptEntry],
         score: nextScore,
-        maxScore: questionsQueue.length,
+        maxScore: fixedQuestionCount,
         mistakes: totalMistakes,
         hintsUsed,
         revealedAnswers
@@ -325,7 +326,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       <div className="challenge-badges">
         <span>{session.categoryLabel}</span>
         <span>Level: {session.recommendedLevel.toUpperCase()}</span>
-        <span>{index + 1}/{questionsQueue.length}</span>
+        <span>{currentStep}/{fixedQuestionCount}</span>
       </div>
 
       <h2>{question.prompt}</h2>

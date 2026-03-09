@@ -51,6 +51,30 @@
         "level": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
         "target": "Jag kan förklara min åsikt med tydliga argument."
+      },
+      {
+        "id": "sv-es-9",
+        "level": "a1",
+        "prompt": "Say: Excuse me, where is the bathroom?",
+        "target": "Ursäkta, var är toaletten?"
+      },
+      {
+        "id": "sv-es-10",
+        "level": "a2",
+        "prompt": "Say: Could you repeat that one more time?",
+        "target": "Kan du upprepa det en gång till?"
+      },
+      {
+        "id": "sv-es-11",
+        "level": "b1",
+        "prompt": "Say: I understand the idea, but I need more practice.",
+        "target": "Jag förstår idén, men jag behöver mer övning."
+      },
+      {
+        "id": "sv-es-12",
+        "level": "b2",
+        "prompt": "Say: I want to speak naturally, not only correctly.",
+        "target": "Jag vill tala naturligt, inte bara korrekt."
       }
     ],
     "conversation": [
@@ -101,6 +125,30 @@
         "level": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
         "target": "Även om vi inte håller med varandra respekterar jag ditt perspektiv."
+      },
+      {
+        "id": "sv-co-9",
+        "level": "a1",
+        "prompt": "Ask: Where are you from?",
+        "target": "Var kommer du ifrån?"
+      },
+      {
+        "id": "sv-co-10",
+        "level": "a2",
+        "prompt": "Say: I usually spend my evenings reading or walking.",
+        "target": "Jag brukar tillbringa kvällarna med att läsa eller promenera."
+      },
+      {
+        "id": "sv-co-11",
+        "level": "b1",
+        "prompt": "Ask: What kind of topics do you enjoy discussing?",
+        "target": "Vilken sorts ämnen tycker du om att diskutera?"
+      },
+      {
+        "id": "sv-co-12",
+        "level": "b2",
+        "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
+        "target": "Jag uppskattar ärliga samtal, även när de är svåra."
       }
     ],
     "travel": [
@@ -151,6 +199,30 @@
         "level": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
         "target": "Jag skulle föredra en lugnare väg, även om den tar längre tid."
+      },
+      {
+        "id": "sv-tr-9",
+        "level": "a1",
+        "prompt": "Ask: Which platform does the train leave from?",
+        "target": "Vilken perrong går tåget från?"
+      },
+      {
+        "id": "sv-tr-10",
+        "level": "a2",
+        "prompt": "Say: I would like to check in for my reservation.",
+        "target": "Jag skulle vilja checka in för min bokning."
+      },
+      {
+        "id": "sv-tr-11",
+        "level": "b1",
+        "prompt": "Say: The museum is within walking distance from the hotel.",
+        "target": "Museet ligger på gångavstånd från hotellet."
+      },
+      {
+        "id": "sv-tr-12",
+        "level": "b2",
+        "prompt": "Ask: Is there a faster connection if I change lines once?",
+        "target": "Finns det en snabbare förbindelse om jag byter linje en gång?"
       }
     ],
     "work": [
@@ -201,6 +273,30 @@
         "level": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
         "target": "Vilka mätvärden kommer att definiera framgång för det här projektet?"
+      },
+      {
+        "id": "sv-wo-9",
+        "level": "a1",
+        "prompt": "Say: I am still learning the tools for this job.",
+        "target": "Jag lär mig fortfarande verktygen för det här jobbet."
+      },
+      {
+        "id": "sv-wo-10",
+        "level": "a2",
+        "prompt": "Ask: Can we move the meeting to the afternoon?",
+        "target": "Kan vi flytta mötet till eftermiddagen?"
+      },
+      {
+        "id": "sv-wo-11",
+        "level": "b1",
+        "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
+        "target": "Jag behöver tydligare prioriteringar innan jag kan uppskatta tidsplanen."
+      },
+      {
+        "id": "sv-wo-12",
+        "level": "b2",
+        "prompt": "Say: We should document this process so the whole team can reuse it.",
+        "target": "Vi borde dokumentera den här processen så att hela teamet kan återanvända den."
       }
     ],
     "health": [
@@ -251,6 +347,30 @@
         "level": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
         "target": "Kan du förklara behandlingsalternativen i detalj?"
+      },
+      {
+        "id": "sv-he-9",
+        "level": "a1",
+        "prompt": "Say: My throat hurts when I swallow.",
+        "target": "Det gör ont i halsen när jag sväljer."
+      },
+      {
+        "id": "sv-he-10",
+        "level": "a2",
+        "prompt": "Ask: Do I need an appointment for this checkup?",
+        "target": "Behöver jag en tid för den här undersökningen?"
+      },
+      {
+        "id": "sv-he-11",
+        "level": "b1",
+        "prompt": "Say: I have been feeling tired for several days.",
+        "target": "Jag har känt mig trött i flera dagar."
+      },
+      {
+        "id": "sv-he-12",
+        "level": "b2",
+        "prompt": "Say: I would like a second opinion before starting treatment.",
+        "target": "Jag skulle vilja ha en second opinion innan behandlingen börjar."
       }
     ],
     "family_friends": [
@@ -301,6 +421,30 @@
         "level": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
         "target": "Familjetraditioner hjälper oss att hålla kontakten mellan generationer."
+      },
+      {
+        "id": "sv-fa-9",
+        "level": "a1",
+        "prompt": "Say: My sister lives near my parents.",
+        "target": "Min syster bor nära mina föräldrar."
+      },
+      {
+        "id": "sv-fa-10",
+        "level": "a2",
+        "prompt": "Ask: Would you like to come over for dinner on Friday?",
+        "target": "Vill du komma över på middag på fredag?"
+      },
+      {
+        "id": "sv-fa-11",
+        "level": "b1",
+        "prompt": "Say: We stay close even though we live in different cities.",
+        "target": "Vi håller oss nära varandra trots att vi bor i olika städer."
+      },
+      {
+        "id": "sv-fa-12",
+        "level": "b2",
+        "prompt": "Say: Good friendships require time, trust, and patience.",
+        "target": "Goda vänskaper kräver tid, tillit och tålamod."
       }
     ],
     "food_cooking": [
@@ -351,6 +495,30 @@
         "level": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
         "target": "Vilken teknik ger såsen en jämnare konsistens?"
+      },
+      {
+        "id": "sv-fo-9",
+        "level": "a1",
+        "prompt": "Ask: Can I have water without ice?",
+        "target": "Kan jag få vatten utan is?"
+      },
+      {
+        "id": "sv-fo-10",
+        "level": "a2",
+        "prompt": "Say: I baked bread at home for the first time.",
+        "target": "Jag bakade bröd hemma för första gången."
+      },
+      {
+        "id": "sv-fo-11",
+        "level": "b1",
+        "prompt": "Ask: What ingredients make this dish so flavorful?",
+        "target": "Vilka ingredienser gör den här rätten så smakrik?"
+      },
+      {
+        "id": "sv-fo-12",
+        "level": "b2",
+        "prompt": "Say: I prefer recipes that are simple but still balanced.",
+        "target": "Jag föredrar recept som är enkla men ändå balanserade."
       }
     ],
     "grammar": [
@@ -401,6 +569,30 @@
         "level": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
         "target": "Hade jag vetat det tidigare skulle jag ha ändrat planen."
+      },
+      {
+        "id": "sv-gr-9",
+        "level": "a1",
+        "prompt": "Say: Every morning I write three new words.",
+        "target": "Varje morgon skriver jag tre nya ord."
+      },
+      {
+        "id": "sv-gr-10",
+        "level": "a2",
+        "prompt": "Say: We were cooking when the guests arrived.",
+        "target": "Vi lagade mat när gästerna kom."
+      },
+      {
+        "id": "sv-gr-11",
+        "level": "b1",
+        "prompt": "Say: I had already left when the message arrived.",
+        "target": "Jag hade redan gått när meddelandet kom."
+      },
+      {
+        "id": "sv-gr-12",
+        "level": "b2",
+        "prompt": "Say: If I had practiced more, I would be more confident now.",
+        "target": "Om jag hade övat mer skulle jag vara säkrare nu."
       }
     ]
   }
