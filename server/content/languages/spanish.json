@@ -594,6 +594,186 @@
         "prompt": "Say: If I had practiced more, I would be more confident now.",
         "target": "Si hubiera practicado más, ahora tendría más confianza."
       }
+    ],
+    "hobbies_leisure": [
+      {
+        "id": "es-ho-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Flashcard: leer libros",
+        "correctAnswer": "leer libros",
+        "hints": [
+          "Es un pasatiempo tranquilo."
+        ],
+        "exerciseType": "flashcard",
+        "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "es-ho-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I play tennis on Saturday mornings.",
+        "correctAnswer": "Juego al tenis los sabados por la manana.",
+        "hints": [
+          "Usa el presente."
+        ]
+      },
+      {
+        "id": "es-ho-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you like to do after work?",
+        "correctAnswer": "Normalmente pinto o salgo a correr.",
+        "hints": [
+          "Menciona dos actividades."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "es-ho-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
+        "correctAnswer": "Mis pasatiempos me ayudan a desconectarme del estres y seguir siendo creativo.",
+        "hints": [
+          "Usa un tono reflexivo."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "science_technology": [
+      {
+        "id": "es-st-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My phone battery is almost empty.",
+        "correctAnswer": "La bateria de mi telefono esta casi vacia.",
+        "hints": [
+          "Habla de tu dispositivo."
+        ]
+      },
+      {
+        "id": "es-st-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I need to update the app before the meeting.",
+        "correctAnswer": "Necesito actualizar la aplicacion antes de la reunion.",
+        "hints": [
+          "Piensa en una actualizacion."
+        ]
+      },
+      {
+        "id": "es-st-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
+        "correctAnswer": "Esta herramienta ahorra tiempo porque automatiza tareas repetitivas.",
+        "hints": [
+          "Menciona la automatizacion."
+        ],
+        "exerciseType": "matching"
+      },
+      {
+        "id": "es-st-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: We should discuss the ethical impact of new technology.",
+        "correctAnswer": "Debemos hablar del impacto etico de la nueva tecnologia.",
+        "hints": [
+          "Piensa en las consecuencias."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "culture_history": [
+      {
+        "id": "es-ch-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This museum is very interesting.",
+        "correctAnswer": "Este museo es muy interesante.",
+        "hints": [
+          "Opinion simple."
+        ],
+        "imageUrl": "/images/museum-arch.svg"
+      },
+      {
+        "id": "es-ch-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: In Sweden, fika is a social coffee break.",
+        "correctAnswer": "En Suecia, la fika es una pausa social para tomar cafe.",
+        "hints": [
+          "Nombra la costumbre."
+        ],
+        "culturalNote": "La fika se centra en compartir tiempo y conversacion."
+      },
+      {
+        "id": "es-ch-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Why is this old town important?",
+        "correctAnswer": "Muestra como vivia la gente aqui hace siglos.",
+        "hints": [
+          "Responde como guia."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "es-ch-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
+        "correctAnswer": "Aprender las costumbres locales me ayuda a entender mejor la lengua.",
+        "hints": [
+          "Relaciona cultura y idioma."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "environment_sustainability": [
+      {
+        "id": "es-ev-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I recycle paper and glass at home.",
+        "correctAnswer": "Reciclo papel y vidrio en casa.",
+        "hints": [
+          "Menciona dos materiales."
+        ],
+        "imageUrl": "/images/recycle-loop.svg"
+      },
+      {
+        "id": "es-ev-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We take the bus to reduce traffic and pollution.",
+        "correctAnswer": "Tomamos el autobus para reducir el trafico y la contaminacion.",
+        "hints": [
+          "Piensa en transporte sostenible."
+        ]
+      },
+      {
+        "id": "es-ev-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
+        "correctAnswer": "Los pequenos habitos diarios pueden marcar una diferencia ambiental real.",
+        "hints": [
+          "Habla del impacto diario."
+        ]
+      },
+      {
+        "id": "es-ev-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
+        "correctAnswer": "La politica sostenible debe equilibrar los objetivos climaticos con la justicia social.",
+        "hints": [
+          "Usa una frase analitica."
+        ],
+        "exerciseType": "pronunciation"
+      }
     ]
   }
 }

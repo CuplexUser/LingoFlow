@@ -32,7 +32,10 @@ function validateCourseItem(item: unknown, languageId: string, categoryId: strin
   const id = String(item.id || "").trim();
   const level = String(item.level || "").trim().toLowerCase();
   const prompt = String(item.prompt || "").trim();
-  const target = String(item.target || "").trim();
+  const target = String(item.target || item.correctAnswer || "").trim();
+  const difficulty = String(item.difficulty || level || "").trim().toLowerCase();
+  const hints = Array.isArray(item.hints) ? item.hints : [];
+  const exerciseType = String(item.exerciseType || "").trim().toLowerCase();
 
   if (!id) throw new Error(`${prefix}.id is required`);
   if (!LEVEL_ORDER.includes(level)) {
@@ -40,6 +43,25 @@ function validateCourseItem(item: unknown, languageId: string, categoryId: strin
   }
   if (!prompt) throw new Error(`${prefix}.prompt is required`);
   if (!target) throw new Error(`${prefix}.target is required`);
+  if (difficulty && !LEVEL_ORDER.includes(difficulty)) {
+    throw new Error(`${prefix}.difficulty must be one of ${LEVEL_ORDER.join(", ")}`);
+  }
+  if (!Array.isArray(hints)) {
+    throw new Error(`${prefix}.hints must be an array`);
+  }
+  if (exerciseType && ![
+    "flashcard",
+    "matching",
+    "pronunciation",
+    "roleplay",
+    "mc_sentence",
+    "build_sentence",
+    "cloze_sentence",
+    "dictation_sentence",
+    "dialogue_turn"
+  ].includes(exerciseType)) {
+    throw new Error(`${prefix}.exerciseType is not supported`);
+  }
 }
 
 function validateLanguagePayload(payload: unknown, fileName: string): void {
@@ -105,7 +127,19 @@ function loadLanguageContent() {
       id: string;
       label: string;
       flag: string;
-      course: Record<string, Array<{ id: string; level: string; prompt: string; target: string }>>;
+      course: Record<string, Array<{
+        id: string;
+        level: string;
+        prompt: string;
+        target?: string;
+        correctAnswer?: string;
+        hints?: string[];
+        difficulty?: string;
+        audioUrl?: string;
+        imageUrl?: string;
+        culturalNote?: string;
+        exerciseType?: string;
+      }>>;
     };
     validateLanguagePayload(parsed, fileName);
 

@@ -27,7 +27,10 @@ type QuestionType =
   | "build_sentence"
   | "cloze_sentence"
   | "dictation_sentence"
-  | "dialogue_turn";
+  | "dialogue_turn"
+  | "flashcard"
+  | "matching"
+  | "pronunciation";
 
 interface SessionQuestion {
   id: string;
@@ -43,6 +46,7 @@ interface SessionAttempt {
   builtSentence?: string;
   textAnswer?: string;
   selectedOption?: string;
+  matchingPairs?: Array<{ prompt: string; answer: string }>;
 }
 
 interface AttemptEvaluation {
@@ -150,7 +154,7 @@ function isAnswerMatch(question: SessionQuestion, submitted: string): boolean {
 }
 
 function classifyError(question: SessionQuestion, submitted: string): ErrorType {
-  if (question.type === "build_sentence") {
+  if (question.type === "build_sentence" || question.type === "pronunciation") {
     const expectedTokens = normalizeSentence(question.answer).split(" ").filter(Boolean);
     const actualTokens = normalizeSentence(submitted).split(" ").filter(Boolean);
     if (!actualTokens.length) return "missing_answer";
@@ -173,8 +177,36 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
   if (question.type === "dictation_sentence") {
     submitted = attempt?.builtSentence || attempt?.textAnswer || "";
   }
+  if (question.type === "pronunciation") {
+    submitted = attempt?.textAnswer || attempt?.builtSentence || "";
+  }
   if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
     submitted = attempt?.selectedOption || "";
+  }
+  if (question.type === "flashcard") {
+    submitted = attempt?.selectedOption || "";
+    return {
+      correct: submitted === "known",
+      errorType: submitted === "known" ? "none" : "wrong_option",
+      submitted
+    };
+  }
+  if (question.type === "matching") {
+    const submittedPairs = Array.isArray(attempt?.matchingPairs) ? attempt.matchingPairs : [];
+    const expectedPairs = Array.isArray((question as SessionQuestion & { pairs?: Array<{ prompt: string; answer: string }> }).pairs)
+      ? (question as SessionQuestion & { pairs?: Array<{ prompt: string; answer: string }> }).pairs
+      : [];
+    const correct = expectedPairs.length > 0 &&
+      submittedPairs.length === expectedPairs.length &&
+      submittedPairs.every((pair, index) =>
+        normalizeSentence(pair.prompt) === normalizeSentence(expectedPairs[index].prompt) &&
+        normalizeSentence(pair.answer) === normalizeSentence(expectedPairs[index].answer)
+      );
+    return {
+      correct,
+      errorType: correct ? "none" : "wrong_option",
+      submitted: JSON.stringify(submittedPairs)
+    };
   }
   if (question.type === "cloze_sentence") {
     submitted = attempt?.selectedOption || "";
@@ -992,6 +1024,7 @@ function createApp(): ExpressApp {
     const categories = getCourseOverview(language);
     const categoryProgress = database.getCategoryProgress(userId, language);
     const progressMap = new Map(categoryProgress.map((item) => [item.category, item]));
+    const recommendedCategoryIds = new Set(database.getCategoryRecommendations(userId, language));
 
     const enriched = categories.map((category, index) => {
       const progress = progressMap.get(category.id);
@@ -1007,6 +1040,8 @@ function createApp(): ExpressApp {
         attempts: progress?.attempts ?? 0,
         accuracy: progress?.accuracy ?? 0,
         levelUnlocked: progress?.levelUnlocked ?? "a1",
+        recommended: recommendedCategoryIds.has(category.id),
+        betaVisible: !category.beta || Boolean(settings.betaLessonsEnabled),
         unlocked,
         lockReason: unlocked
           ? ""
@@ -1014,7 +1049,7 @@ function createApp(): ExpressApp {
       };
     });
 
-    res.json(enriched);
+    res.json(enriched.filter((category) => category.betaVisible));
   });
 
   app.post("/api/session/start", requireAuth, (req: AuthenticatedRequest, res: Response) => {
@@ -1082,7 +1117,8 @@ function createApp(): ExpressApp {
       selfRatedLevel,
       learnerName,
       learnerBio,
-      focusArea
+      focusArea,
+      betaLessonsEnabled
     } = req.body || {};
 
     const row = database.saveSettings(userId, {
@@ -1096,7 +1132,8 @@ function createApp(): ExpressApp {
       selfRatedLevel: ["a1", "a2", "b1", "b2"].includes(selfRatedLevel) ? selfRatedLevel : "a1",
       learnerName: String(learnerName || "Learner").trim() || "Learner",
       learnerBio: String(learnerBio || "").trim(),
-      focusArea: String(focusArea || "").trim()
+      focusArea: String(focusArea || "").trim(),
+      betaLessonsEnabled: Boolean(betaLessonsEnabled)
     });
 
     res.json(row);
@@ -1129,6 +1166,56 @@ function createApp(): ExpressApp {
     const language = String(req.query.language || settings.targetLanguage || "spanish").toLowerCase();
     const stats = database.getStats(userId, language);
     res.json(stats);
+  });
+
+  app.post("/api/community/contribute", requireAuth, (req: AuthenticatedRequest, res: Response) => {
+    const userId = req.authUserId;
+    const {
+      language,
+      category,
+      prompt,
+      correctAnswer,
+      hints,
+      difficulty,
+      audioUrl,
+      imageUrl,
+      culturalNote,
+      exerciseType
+    } = req.body || {};
+
+    if (!language || !category || !prompt || !correctAnswer) {
+      return res.status(400).json({ error: "language, category, prompt, and correctAnswer are required" });
+    }
+    if (!["a1", "a2", "b1", "b2"].includes(String(difficulty || "a1").toLowerCase())) {
+      return res.status(400).json({ error: "difficulty must be one of a1, a2, b1, b2" });
+    }
+
+    const saved = database.createCommunityExercise({
+      userId,
+      language,
+      category,
+      prompt,
+      correctAnswer,
+      hints: Array.isArray(hints) ? hints.slice(0, 5).map((item) => String(item || "").trim()).filter(Boolean) : [],
+      difficulty,
+      audioUrl,
+      imageUrl,
+      culturalNote,
+      exerciseType
+    });
+
+    return res.status(201).json({
+      ok: true,
+      message: "Thanks. Your exercise has been submitted for moderation.",
+      submission: {
+        id: saved.id,
+        language: saved.language,
+        category: saved.category,
+        prompt: saved.prompt,
+        difficulty: saved.difficulty,
+        moderationStatus: saved.moderation_status
+      }
+    });
   });
 
   app.post("/api/session/complete", requireAuth, (req: AuthenticatedRequest, res: Response) => {
@@ -1236,6 +1323,13 @@ function createApp(): ExpressApp {
         questionType: entry.question.type || "",
         correct: entry.correct,
         errorType: entry.errorType
+      });
+      database.recordExerciseUsage({
+        userId,
+        language,
+        category,
+        itemId: entry.question.id,
+        correct: entry.correct
       });
     });
 

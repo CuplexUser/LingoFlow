@@ -84,6 +84,7 @@ function migrateLegacySingleUserSchema() {
         learner_name TEXT NOT NULL DEFAULT 'Learner',
         learner_bio TEXT NOT NULL DEFAULT '',
         focus_area TEXT NOT NULL DEFAULT '',
+        beta_lessons_enabled INTEGER NOT NULL DEFAULT 0,
         updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
       INSERT INTO settings (
@@ -101,6 +102,7 @@ function migrateLegacySingleUserSchema() {
         COALESCE(learner_name, 'Learner'),
         COALESCE(learner_bio, ''),
         COALESCE(focus_area, ''),
+        0,
         COALESCE(updated_at, CURRENT_TIMESTAMP)
       FROM settings_legacy
       LIMIT 1;
@@ -302,6 +304,7 @@ db.exec(`
     learner_name TEXT NOT NULL DEFAULT 'Learner',
     learner_bio TEXT NOT NULL DEFAULT '',
     focus_area TEXT NOT NULL DEFAULT '',
+    beta_lessons_enabled INTEGER NOT NULL DEFAULT 0,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
 
@@ -423,6 +426,36 @@ db.exec(`
     consumed_at TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+
+  CREATE TABLE IF NOT EXISTS exercise_usage (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    language TEXT NOT NULL,
+    category TEXT NOT NULL,
+    item_id TEXT NOT NULL,
+    attempts INTEGER NOT NULL DEFAULT 0,
+    correct_attempts INTEGER NOT NULL DEFAULT 0,
+    completion_rate REAL NOT NULL DEFAULT 0,
+    last_used_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(user_id, language, category, item_id)
+  );
+
+  CREATE TABLE IF NOT EXISTS community_exercises (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    language TEXT NOT NULL,
+    category TEXT NOT NULL,
+    prompt TEXT NOT NULL,
+    correct_answer TEXT NOT NULL,
+    hints_json TEXT NOT NULL DEFAULT '[]',
+    difficulty TEXT NOT NULL DEFAULT 'a1',
+    audio_url TEXT NOT NULL DEFAULT '',
+    image_url TEXT NOT NULL DEFAULT '',
+    cultural_note TEXT NOT NULL DEFAULT '',
+    exercise_type TEXT NOT NULL DEFAULT 'build_sentence',
+    moderation_status TEXT NOT NULL DEFAULT 'pending',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 db.exec(`
@@ -442,6 +475,10 @@ db.exec(`
   ON email_verifications(token);
   CREATE INDEX IF NOT EXISTS idx_password_resets_token
   ON password_resets(token);
+  CREATE INDEX IF NOT EXISTS idx_exercise_usage_user_language_category
+  ON exercise_usage(user_id, language, category, last_used_at DESC);
+  CREATE INDEX IF NOT EXISTS idx_community_exercises_user_status
+  ON community_exercises(user_id, moderation_status, created_at DESC);
 `);
 
 function ensureSettingsColumns() {
@@ -470,6 +507,10 @@ function ensureSettingsColumns() {
 
   if (!names.has("self_rated_level")) {
     db.exec("ALTER TABLE settings ADD COLUMN self_rated_level TEXT NOT NULL DEFAULT 'a1'");
+  }
+
+  if (!names.has("beta_lessons_enabled")) {
+    db.exec("ALTER TABLE settings ADD COLUMN beta_lessons_enabled INTEGER NOT NULL DEFAULT 0");
   }
 }
 
@@ -900,7 +941,7 @@ function getSettings(userId = 1) {
   ensureUserState(userId);
   const row = db.prepare(`
     SELECT native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
-           self_rated_level, learner_name, learner_bio, focus_area
+           self_rated_level, learner_name, learner_bio, focus_area, beta_lessons_enabled
     FROM settings
     WHERE user_id = ?
   `).get(userId);
@@ -913,7 +954,8 @@ function getSettings(userId = 1) {
     selfRatedLevel: row.self_rated_level,
     learnerName: row.learner_name,
     learnerBio: row.learner_bio,
-    focusArea: row.focus_area
+    focusArea: row.focus_area,
+    betaLessonsEnabled: Boolean(row.beta_lessons_enabled)
   };
 }
 
@@ -931,6 +973,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
         learner_name = ?,
         learner_bio = ?,
         focus_area = ?,
+        beta_lessons_enabled = ?,
         updated_at = CURRENT_TIMESTAMP
     WHERE user_id = ?
   `).run(
@@ -945,6 +988,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
     String(nextSettings.learnerName || "Learner").trim() || "Learner",
     String(nextSettings.learnerBio || "").trim(),
     String(nextSettings.focusArea || "").trim(),
+    nextSettings.betaLessonsEnabled ? 1 : 0,
     userId
   );
 
@@ -1281,6 +1325,99 @@ function getItemSelectionHints(userId = 1, language, category, today = toIsoDate
   };
 }
 
+function recordExerciseUsage({
+  userId = 1,
+  language,
+  category,
+  itemId,
+  correct
+}) {
+  const existing = db.prepare(`
+    SELECT attempts, correct_attempts
+    FROM exercise_usage
+    WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?
+  `).get(userId, language, category, itemId);
+
+  const attempts = (existing?.attempts || 0) + 1;
+  const correctAttempts = (existing?.correct_attempts || 0) + (correct ? 1 : 0);
+  const completionRate = attempts > 0 ? Number((correctAttempts / attempts).toFixed(4)) : 0;
+
+  db.prepare(`
+    INSERT INTO exercise_usage (
+      user_id, language, category, item_id, attempts, correct_attempts, completion_rate, last_used_at
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT(user_id, language, category, item_id) DO UPDATE SET
+      attempts = excluded.attempts,
+      correct_attempts = excluded.correct_attempts,
+      completion_rate = excluded.completion_rate,
+      last_used_at = CURRENT_TIMESTAMP
+  `).run(userId, language, category, itemId, attempts, correctAttempts, completionRate);
+}
+
+function getCategoryRecommendations(userId = 1, language) {
+  const categoryProgress = getCategoryProgress(userId, language);
+  const sortedWeak = [...categoryProgress]
+    .filter((item) => item.attempts > 0)
+    .sort((a, b) => a.accuracy - b.accuracy || a.mastery - b.mastery);
+
+  const strongest = [...categoryProgress]
+    .filter((item) => item.attempts > 0)
+    .sort((a, b) => b.accuracy - a.accuracy || b.mastery - a.mastery)[0];
+
+  const recommendedIds = [];
+  if (strongest?.category === "grammar") {
+    recommendedIds.push("conversation");
+  }
+  sortedWeak.slice(0, 2).forEach((item) => recommendedIds.push(item.category));
+  if (!recommendedIds.length) {
+    recommendedIds.push("essentials", "conversation");
+  }
+
+  return Array.from(new Set(recommendedIds));
+}
+
+function createCommunityExercise({
+  userId = 1,
+  language,
+  category,
+  prompt,
+  correctAnswer,
+  hints = [],
+  difficulty = "a1",
+  audioUrl = "",
+  imageUrl = "",
+  culturalNote = "",
+  exerciseType = "build_sentence"
+}) {
+  const result = db.prepare(`
+    INSERT INTO community_exercises (
+      user_id, language, category, prompt, correct_answer, hints_json, difficulty,
+      audio_url, image_url, cultural_note, exercise_type, moderation_status
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending')
+  `).run(
+    userId,
+    String(language || "").trim().toLowerCase(),
+    String(category || "").trim(),
+    String(prompt || "").trim(),
+    String(correctAnswer || "").trim(),
+    JSON.stringify(Array.isArray(hints) ? hints : []),
+    String(difficulty || "a1").trim().toLowerCase(),
+    String(audioUrl || "").trim(),
+    String(imageUrl || "").trim(),
+    String(culturalNote || "").trim(),
+    String(exerciseType || "build_sentence").trim().toLowerCase()
+  );
+
+  return db.prepare(`
+    SELECT id, language, category, prompt, correct_answer, hints_json, difficulty,
+           audio_url, image_url, cultural_note, exercise_type, moderation_status, created_at
+    FROM community_exercises
+    WHERE id = ?
+  `).get(result.lastInsertRowid);
+}
+
 function getStats(userId = 1, language) {
   const settings = getSettings(userId);
   const progress = getProgress(userId, language);
@@ -1357,6 +1494,20 @@ function getStats(userId = 1, language) {
       accuracy: Number(((row.correct / row.attempts) * 100).toFixed(1))
     }));
 
+  const usageStats = db.prepare(`
+    SELECT item_id, attempts, correct_attempts, completion_rate, last_used_at
+    FROM exercise_usage
+    WHERE user_id = ? AND language = ?
+    ORDER BY completion_rate ASC, attempts DESC, last_used_at DESC
+    LIMIT 6
+  `).all(userId, language).map((row) => ({
+    itemId: row.item_id,
+    attempts: row.attempts,
+    correctAttempts: row.correct_attempts,
+    completionRate: Number((row.completion_rate * 100).toFixed(1)),
+    lastUsedAt: row.last_used_at
+  }));
+
   const masteredCount = categoryProgress.filter((item) => item.mastery >= 75).length;
   const completionPercent = categoryProgress.length
     ? Math.round(categoryProgress.reduce((sum, item) => sum + item.mastery, 0) / categoryProgress.length)
@@ -1388,9 +1539,12 @@ function getStats(userId = 1, language) {
     weeklyGoalProgress,
     weeklyGoalSessions: settings.weeklyGoalSessions,
     weakestCategories,
+    recommendedCategories: getCategoryRecommendations(userId, language),
     categoryStats,
     errorTypeTrend,
-    objectiveStats
+    objectiveStats,
+    usageStats,
+    betaLessonsEnabled: Boolean(settings.betaLessonsEnabled)
   };
 }
 
@@ -1523,7 +1677,10 @@ module.exports = {
   pruneExpiredActiveSessions,
   upsertItemProgressAttempt,
   recordAttemptHistory,
+  recordExerciseUsage,
   getItemSelectionHints,
+  getCategoryRecommendations,
+  createCommunityExercise,
   getTodayXp,
   getProgress,
   getProgressOverview,

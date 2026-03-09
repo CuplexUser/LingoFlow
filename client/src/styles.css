@@ -205,7 +205,7 @@ body {
 
 .nav-strip {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
   border-color: var(--line-strong);
   background: var(--surface-muted);
@@ -583,6 +583,18 @@ label {
   grid-column: 1 / -1;
 }
 
+.toggle-label {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-label input {
+  width: 18px;
+  height: 18px;
+}
+
 select,
 input,
 textarea,
@@ -832,6 +844,66 @@ textarea {
   font-size: 0.9rem;
 }
 
+.hint-chip,
+.cultural-note {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: var(--surface-muted);
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.exercise-image {
+  width: min(100%, 320px);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-muted);
+  margin: 8px 0 10px;
+}
+
+.flashcard-shell,
+.pronunciation-shell,
+.matching-grid {
+  margin: 12px 0;
+}
+
+.flashcard {
+  width: min(100%, 420px);
+  min-height: 170px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(135deg, rgba(87, 83, 78, 0.08), transparent 50%),
+    var(--surface-muted);
+  display: grid;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.flashcard strong {
+  font-size: 1.4rem;
+}
+
+.flashcard span {
+  color: var(--text-muted);
+}
+
+.matching-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.matching-column {
+  display: grid;
+  gap: 8px;
+}
+
 .build-hints {
   display: flex;
   flex-wrap: wrap;
@@ -1019,6 +1091,10 @@ textarea {
   }
 
   .option-row {
+    grid-template-columns: 1fr;
+  }
+
+  .matching-grid {
     grid-template-columns: 1fr;
   }
 

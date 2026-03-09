@@ -6,7 +6,21 @@ const CATEGORIES = [
   { id: "health", label: "Health", description: "Medical and emergency phrases" },
   { id: "family_friends", label: "Family & Friends", description: "Relationships and social life" },
   { id: "food_cooking", label: "Food & Cooking", description: "Meals, recipes, and dining" },
-  { id: "grammar", label: "Grammar", description: "Sentence structures and tenses" }
+  { id: "grammar", label: "Grammar", description: "Sentence structures and tenses" },
+  { id: "hobbies_leisure", label: "Hobbies & Leisure", description: "Free-time activities and interests" },
+  { id: "science_technology", label: "Science & Technology", description: "Modern tools, ideas, and innovation" },
+  {
+    id: "culture_history",
+    label: "Culture & History",
+    description: "Traditions, museums, customs, and historical context",
+    experimental: true
+  },
+  {
+    id: "environment_sustainability",
+    label: "Environment & Sustainability",
+    description: "Climate, recycling, transport, and community choices",
+    experimental: true
+  }
 ];
 
 const LEVEL_ORDER = ["a1", "a2", "b1", "b2"];

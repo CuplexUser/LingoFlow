@@ -8,6 +8,12 @@ function normalizeSentence(text) {
     .trim();
 }
 
+function joinBuiltWords(question, selectedTokenIndexes) {
+  return question.type === "build_sentence" || question.type === "dictation_sentence"
+    ? selectedTokenIndexes.map((idx) => question.tokens[idx]).join(" ")
+    : "";
+}
+
 export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const resumeState = session.resumeState || {};
   const fixedQuestionCount = Math.max(
@@ -33,25 +39,40 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const [totalMistakes, setTotalMistakes] = useState(() => resumeState.totalMistakes || 0);
   const [hintsUsed, setHintsUsed] = useState(() => resumeState.hintsUsed || 0);
   const [revealedAnswers, setRevealedAnswers] = useState(() => resumeState.revealedAnswers || 0);
+  const [flashcardRevealed, setFlashcardRevealed] = useState(
+    () => resumeState.flashcardRevealed || false
+  );
+  const [pronunciationTranscript, setPronunciationTranscript] = useState(
+    () => resumeState.pronunciationTranscript || ""
+  );
+  const [matchingPairs, setMatchingPairs] = useState(() => resumeState.matchingPairs || []);
+  const [matchingPrompt, setMatchingPrompt] = useState(null);
   const snapshotRef = useRef("");
   const draggedWordIndexRef = useRef(null);
   const builtWordDropHandledRef = useRef(false);
+  const audioContextRef = useRef(null);
 
   const supportsSpeech = typeof window !== "undefined" &&
     "speechSynthesis" in window &&
     "SpeechSynthesisUtterance" in window;
+  const supportsRecognition = typeof window !== "undefined" &&
+    Boolean(window.SpeechRecognition || window.webkitSpeechRecognition);
 
   const question = questionsQueue[index];
   const currentStep = Math.min(index + 1, fixedQuestionCount);
   const progress = Math.round((currentStep / fixedQuestionCount) * 100);
-  const builtWords = (question.type === "build_sentence" || question.type === "dictation_sentence")
+  const builtWords = question.type === "build_sentence" || question.type === "dictation_sentence"
     ? selectedTokenIndexes.map((idx) => question.tokens[idx])
     : [];
+  const builtSentence = joinBuiltWords(question, selectedTokenIndexes);
 
   useEffect(() => {
     return () => {
       if (supportsSpeech) {
         window.speechSynthesis.cancel();
+      }
+      if (audioContextRef.current) {
+        audioContextRef.current.close().catch(() => {});
       }
     };
   }, [supportsSpeech]);
@@ -69,7 +90,10 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       questionMistakes,
       totalMistakes,
       hintsUsed,
-      revealedAnswers
+      revealedAnswers,
+      flashcardRevealed,
+      pronunciationTranscript,
+      matchingPairs
     };
     const serialized = JSON.stringify(snapshot);
     if (serialized !== snapshotRef.current) {
@@ -89,6 +113,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     totalMistakes,
     hintsUsed,
     revealedAnswers,
+    flashcardRevealed,
+    pronunciationTranscript,
+    matchingPairs,
     onSnapshot
   ]);
 
@@ -100,19 +127,26 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     return "en-US";
   }
 
-  function speakAlternative(text) {
-    if (!supportsSpeech) {
-      setSpeechError("Speech is not supported in this browser.");
+  async function playAudioUrl(url) {
+    if (typeof window === "undefined" || !window.AudioContext) {
+      setSpeechError("Web Audio is not supported in this browser.");
       return;
     }
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = getSpeechLanguage();
-    utterance.rate = 0.95;
-    utterance.onstart = () => setSpeechError("");
-    utterance.onerror = () => setSpeechError("Could not play this alternative.");
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
+    try {
+      if (!audioContextRef.current) {
+        audioContextRef.current = new window.AudioContext();
+      }
+      const response = await fetch(url);
+      const arrayBuffer = await response.arrayBuffer();
+      const audioBuffer = await audioContextRef.current.decodeAudioData(arrayBuffer.slice(0));
+      const source = audioContextRef.current.createBufferSource();
+      source.buffer = audioBuffer;
+      source.connect(audioContextRef.current.destination);
+      source.start();
+      setSpeechError("");
+    } catch (_error) {
+      setSpeechError("Could not play this audio clip.");
+    }
   }
 
   function speakText(text, language = getSpeechLanguage()) {
@@ -130,12 +164,44 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     window.speechSynthesis.speak(utterance);
   }
 
+  function speakAlternative(text) {
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl);
+      return;
+    }
+    speakText(text);
+  }
+
   function speakBuildTranslationHint() {
-    if (question.type !== "build_sentence") return;
     const translatedSentence = String(question.answer || "").trim();
     if (!translatedSentence) return;
     setHintsUsed((value) => value + 1);
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl);
+      return;
+    }
     speakText(translatedSentence, getSpeechLanguage());
+  }
+
+  function startPronunciationCheck() {
+    if (!supportsRecognition) {
+      setSpeechError("Speech recognition is not supported in this browser.");
+      return;
+    }
+    const RecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new RecognitionCtor();
+    recognition.lang = getSpeechLanguage();
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.onresult = (event) => {
+      const transcript = String(event.results?.[0]?.[0]?.transcript || "").trim();
+      setPronunciationTranscript(transcript);
+      setSelectedOption(transcript);
+      setFeedback(null);
+      setSpeechError("");
+    };
+    recognition.onerror = () => setSpeechError("Pronunciation capture failed.");
+    recognition.start();
   }
 
   function toggleToken(tokenIndex) {
@@ -185,11 +251,25 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     draggedWordIndexRef.current = null;
   }
 
+  function toggleMatchingPair(prompt, answer) {
+    const existing = matchingPairs.find((pair) => pair.prompt === prompt);
+    const next = existing
+      ? matchingPairs.map((pair) => (pair.prompt === prompt ? { prompt, answer } : pair))
+      : [...matchingPairs, { prompt, answer }];
+    setMatchingPairs(next);
+    setMatchingPrompt(null);
+    setFeedback(null);
+  }
+
   function resetCurrentSelection() {
     setSelectedOption("");
     setSelectedTokenIndexes([]);
     setFeedback(null);
     setQuestionMistakes(0);
+    setFlashcardRevealed(false);
+    setPronunciationTranscript("");
+    setMatchingPairs([]);
+    setMatchingPrompt(null);
   }
 
   function isCurrentAnswerCorrect() {
@@ -197,73 +277,56 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       return selectedOption === question.answer;
     }
     if (question.type === "cloze_sentence") return selectedOption === question.clozeAnswer;
-    const built = selectedTokenIndexes.map((idx) => question.tokens[idx]).join(" ");
+    if (question.type === "flashcard") return selectedOption === "known";
+    if (question.type === "pronunciation") {
+      return normalizeSentence(pronunciationTranscript || selectedOption) === normalizeSentence(question.answer);
+    }
+    if (question.type === "matching") {
+      return matchingPairs.length === (question.pairs?.length || 0) &&
+        question.pairs.every((pair) => matchingPairs.some(
+          (candidate) =>
+            normalizeSentence(candidate.prompt) === normalizeSentence(pair.prompt) &&
+            normalizeSentence(candidate.answer) === normalizeSentence(pair.answer)
+        ));
+    }
     const variants = [question.answer, ...(question.acceptedAnswers || [])].map((value) => normalizeSentence(value));
-    return variants.includes(normalizeSentence(built));
+    return variants.includes(normalizeSentence(builtSentence));
   }
 
   function canSubmit() {
     if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "cloze_sentence") {
       return Boolean(selectedOption);
     }
+    if (question.type === "flashcard") return flashcardRevealed && Boolean(selectedOption);
+    if (question.type === "pronunciation") return Boolean(pronunciationTranscript || selectedOption);
+    if (question.type === "matching") return matchingPairs.length === (question.pairs?.length || 0);
     return selectedTokenIndexes.length > 0;
   }
 
-  function submitAnswer() {
-    if (!canSubmit()) return;
-
-    const correct = isCurrentAnswerCorrect();
-    const attemptEntry = {
+  function buildAttemptEntry() {
+    return {
       questionId: question.id,
       type: question.type,
       selectedOption:
-        question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "cloze_sentence"
+        question.type === "mc_sentence" ||
+        question.type === "dialogue_turn" ||
+        question.type === "cloze_sentence" ||
+        question.type === "flashcard"
           ? selectedOption
           : "",
       builtSentence:
         question.type === "build_sentence" || question.type === "dictation_sentence"
-          ? builtWords.join(" ")
+          ? builtSentence
           : "",
-      textAnswer: ""
+      textAnswer: question.type === "pronunciation" ? (pronunciationTranscript || selectedOption) : "",
+      matchingPairs: question.type === "matching" ? matchingPairs : []
     };
-    setAttemptLog((prev) => [...prev, attemptEntry]);
+  }
 
-    if (!correct) {
-      const nextMistakes = questionMistakes + 1;
-      setQuestionMistakes(nextMistakes);
-      setTotalMistakes((value) => value + 1);
-      setHintsUsed((value) => value + 1);
-
-      const answerWords = question.answer.split(" ").filter(Boolean);
-      const showReveal = nextMistakes >= 2;
-
-      setFeedback({
-        type: "error",
-        message: "Incorrect. Try again before moving on.",
-        hint: showReveal
-          ? "Use reveal to inspect the correct sentence and self-correct."
-          : "Check sentence structure and try again.",
-        showReveal,
-        answerWords:
-          question.type === "build_sentence" || question.type === "dictation_sentence"
-            ? answerWords
-            : null,
-        correctOption:
-          question.type === "mc_sentence" ||
-          question.type === "dialogue_turn" ||
-          question.type === "cloze_sentence"
-            ? (question.type === "cloze_sentence" ? question.clozeAnswer : question.answer)
-            : null
-      });
-      return;
-    }
-
-    const nextScore = score + 1;
-    setScore(nextScore);
-
+  function goNext(nextAttemptLog, nextScore) {
     if (index === questionsQueue.length - 1) {
       onFinish({
-        attempts: [...attemptLog, attemptEntry],
+        attempts: nextAttemptLog,
         score: nextScore,
         maxScore: fixedQuestionCount,
         mistakes: totalMistakes,
@@ -277,12 +340,64 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     setIndex((value) => value + 1);
   }
 
+  function submitAnswer() {
+    if (!canSubmit()) return;
+
+    const correct = isCurrentAnswerCorrect();
+    const attemptEntry = buildAttemptEntry();
+    const nextAttemptLog = [...attemptLog, attemptEntry];
+    setAttemptLog(nextAttemptLog);
+
+    if (!correct) {
+      const nextMistakes = questionMistakes + 1;
+      setQuestionMistakes(nextMistakes);
+      setTotalMistakes((value) => value + 1);
+      setHintsUsed((value) => value + 1);
+
+      const answerWords = String(question.answer || "").split(" ").filter(Boolean);
+      const showReveal = nextMistakes >= 2;
+
+      setFeedback({
+        type: "error",
+        message: "Incorrect. Try again before moving on.",
+        hint: showReveal
+          ? "Use reveal to inspect the correct answer and self-correct."
+          : "Check the meaning and try again.",
+        showReveal,
+        answerWords:
+          question.type === "build_sentence" || question.type === "dictation_sentence"
+            ? answerWords
+            : null,
+        correctOption:
+          question.type === "mc_sentence" ||
+          question.type === "dialogue_turn" ||
+          question.type === "cloze_sentence" ||
+          question.type === "pronunciation" ||
+          question.type === "flashcard"
+            ? (question.type === "cloze_sentence" ? question.clozeAnswer : question.answer)
+            : null
+      });
+      return;
+    }
+
+    const nextScore = score + 1;
+    setScore(nextScore);
+    goNext(nextAttemptLog, nextScore);
+  }
+
   function revealAnswer() {
-    const answerWords = question.answer.split(" ").filter(Boolean);
+    const answerWords = String(question.answer || "").split(" ").filter(Boolean);
     if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
       setSelectedOption(question.answer);
     } else if (question.type === "cloze_sentence") {
       setSelectedOption(question.clozeAnswer);
+    } else if (question.type === "flashcard") {
+      setFlashcardRevealed(true);
+    } else if (question.type === "pronunciation") {
+      setPronunciationTranscript(question.answer);
+      setSelectedOption(question.answer);
+    } else if (question.type === "matching") {
+      setMatchingPairs((question.pairs || []).map((pair) => ({ prompt: pair.prompt, answer: pair.answer })));
     } else {
       const usedIndexes = new Set();
       const orderedIndexes = answerWords
@@ -304,15 +419,74 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         ? {
             ...prev,
             message: "Answer revealed. Rebuild it and submit.",
-            hint: "Use the highlighted order, then press Check."
+            hint: "Use the highlighted answer, then press Check."
           }
         : prev
     );
   }
 
-  const builtSentence = (
-    question.type === "build_sentence" || question.type === "dictation_sentence"
-  ) ? builtWords.join(" ") : "";
+  function renderBuildInterface(dictation = false) {
+    return (
+      <>
+        <div className="build-hints">
+          <button
+            type="button"
+            className="speak-button"
+            onClick={speakBuildTranslationHint}
+            aria-label={dictation ? "Listen to sentence audio" : "Listen to the prompt translation"}
+          >
+            {dictation ? "Play Audio" : "Hint: Listen Translation"}
+          </button>
+          {question.hints?.length ? <span className="hint-chip">{question.hints[0]}</span> : null}
+        </div>
+
+        <div className="build-target">
+          {builtSentence ? (
+            <div className="built-words">
+              {builtWords.map((word, selectedWordIndex) => (
+                <span
+                  key={`${word}-${selectedWordIndex}`}
+                  className="built-word-chip"
+                  draggable
+                  onDragStart={() => handleBuiltWordDragStart(selectedWordIndex)}
+                  onDragOver={(event) => event.preventDefault()}
+                  onDrop={() => handleBuiltWordDrop(selectedWordIndex)}
+                  onDragEnd={() => {
+                    if (
+                      Number.isInteger(draggedWordIndexRef.current) &&
+                      !builtWordDropHandledRef.current
+                    ) {
+                      removeSelectedWordAt(draggedWordIndexRef.current);
+                    }
+                    draggedWordIndexRef.current = null;
+                    builtWordDropHandledRef.current = false;
+                  }}
+                >
+                  {word}
+                </span>
+              ))}
+            </div>
+          ) : (
+            dictation ? "Listen and build the sentence" : "Tap words to build your sentence"
+          )}
+        </div>
+          <div className="tokens">
+            {question.tokens.map((token, tokenIndex) => {
+              const active = selectedTokenIndexes.includes(tokenIndex);
+              return (
+                <button
+                  key={`${token}-${tokenIndex}`}
+                  className={`token ${active ? "selected" : ""}`}
+                  onClick={() => toggleToken(tokenIndex)}
+                >
+                  {token}
+                </button>
+              );
+            })}
+          </div>
+      </>
+    );
+  }
 
   return (
     <section className="panel lesson-player">
@@ -330,9 +504,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       </div>
 
       <h2>{question.prompt}</h2>
+      {question.imageUrl ? <img className="exercise-image" src={question.imageUrl} alt="" /> : null}
+      {question.culturalNote ? <p className="cultural-note">{question.culturalNote}</p> : null}
       {speechError ? <p className="speech-error">{speechError}</p> : null}
 
-      {question.type === "mc_sentence" ? (
+      {question.type === "mc_sentence" || question.type === "dialogue_turn" ? (
         <div className="options">
           {question.options.map((option) => (
             <div key={option} className="option-row">
@@ -345,42 +521,15 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
               >
                 {option}
               </button>
-              <button
-                type="button"
-                className="speak-button"
-                onClick={() => speakAlternative(option)}
-                aria-label={`Speak alternative: ${option}`}
-              >
+              <button type="button" className="speak-button" onClick={() => speakAlternative(option)}>
                 Speak
               </button>
             </div>
           ))}
         </div>
-      ) : question.type === "dialogue_turn" ? (
-        <div className="options">
-          {question.options.map((option) => (
-            <div key={option} className="option-row">
-              <button
-                className={`option ${selectedOption === option ? "selected" : ""}`}
-                onClick={() => {
-                  setSelectedOption(option);
-                  setFeedback(null);
-                }}
-              >
-                {option}
-              </button>
-              <button
-                type="button"
-                className="speak-button"
-                onClick={() => speakAlternative(option)}
-                aria-label={`Speak alternative: ${option}`}
-              >
-                Speak
-              </button>
-            </div>
-          ))}
-        </div>
-      ) : question.type === "cloze_sentence" ? (
+      ) : null}
+
+      {question.type === "cloze_sentence" ? (
         <>
           <div className="build-target">{question.clozeText}</div>
           <div className="tokens">
@@ -398,126 +547,96 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
             ))}
           </div>
         </>
-      ) : question.type === "dictation_sentence" ? (
-        <>
-          <div className="build-hints">
-            <button
-              type="button"
-              className="speak-button"
-              onClick={() => speakText(question.audioText || question.answer, getSpeechLanguage())}
-              aria-label="Listen to sentence audio"
-            >
-              Play Audio
-            </button>
-          </div>
-          <div className="build-target">
-            {builtSentence ? (
-              <div className="built-words">
-                {builtWords.map((word, selectedWordIndex) => (
-                  <span
-                    key={`${word}-${selectedWordIndex}`}
-                    className="built-word-chip"
-                    draggable
-                    onDragStart={() => handleBuiltWordDragStart(selectedWordIndex)}
-                    onDragOver={(event) => event.preventDefault()}
-                    onDrop={() => handleBuiltWordDrop(selectedWordIndex)}
-                    onDragEnd={() => {
-                      if (
-                        Number.isInteger(draggedWordIndexRef.current) &&
-                        !builtWordDropHandledRef.current
-                      ) {
-                        removeSelectedWordAt(draggedWordIndexRef.current);
-                      }
-                      draggedWordIndexRef.current = null;
-                      builtWordDropHandledRef.current = false;
-                    }}
-                    aria-label={`Drag to move ${word}`}
-                    title="Drag to reorder, or drag outside the box to remove"
-                  >
-                    {word}
-                  </span>
-                ))}
-              </div>
-            ) : (
-              "Listen and build the sentence"
-            )}
-          </div>
-          <div className="tokens">
-            {question.tokens.map((token, tokenIndex) => {
-              const active = selectedTokenIndexes.includes(tokenIndex);
-              return (
-                <button
-                  key={`${token}-${tokenIndex}`}
-                  className={`token ${active ? "selected" : ""}`}
-                  onClick={() => toggleToken(tokenIndex)}
-                >
-                  {token}
-                </button>
-              );
-            })}
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="build-hints">
-            <button
-              type="button"
-              className="speak-button"
-              onClick={speakBuildTranslationHint}
-              aria-label="Listen to the prompt translation"
-            >
-              Hint: Listen Translation
-            </button>
-          </div>
+      ) : null}
 
-          <div className="build-target">
-            {builtSentence ? (
-              <div className="built-words">
-                {builtWords.map((word, selectedWordIndex) => (
-                  <span
-                    key={`${word}-${selectedWordIndex}`}
-                    className="built-word-chip"
-                    draggable
-                    onDragStart={() => handleBuiltWordDragStart(selectedWordIndex)}
-                    onDragOver={(event) => event.preventDefault()}
-                    onDrop={() => handleBuiltWordDrop(selectedWordIndex)}
-                    onDragEnd={() => {
-                      if (
-                        Number.isInteger(draggedWordIndexRef.current) &&
-                        !builtWordDropHandledRef.current
-                      ) {
-                        removeSelectedWordAt(draggedWordIndexRef.current);
-                      }
-                      draggedWordIndexRef.current = null;
-                      builtWordDropHandledRef.current = false;
-                    }}
-                    aria-label={`Drag to move ${word}`}
-                    title="Drag to reorder, or drag outside the box to remove"
-                  >
-                    {word}
-                  </span>
-                ))}
-              </div>
-            ) : (
-              "Tap words to build your sentence"
-            )}
+      {question.type === "build_sentence" ? renderBuildInterface(false) : null}
+      {question.type === "dictation_sentence" ? renderBuildInterface(true) : null}
+
+      {question.type === "flashcard" ? (
+        <div className="flashcard-shell">
+          <button className="flashcard" type="button" onClick={() => setFlashcardRevealed((value) => !value)}>
+            <strong>{flashcardRevealed ? question.back || question.answer : question.front || question.prompt}</strong>
+            <span>{flashcardRevealed ? "Back" : "Front"} side</span>
+          </button>
+          <div className="hero-actions">
+            <button
+              className="ghost-button"
+              type="button"
+              onClick={() => {
+                setFlashcardRevealed(true);
+                setSelectedOption("review");
+              }}
+            >
+              Need Review
+            </button>
+            <button
+              className="primary-button"
+              type="button"
+              onClick={() => {
+                setFlashcardRevealed(true);
+                setSelectedOption("known");
+              }}
+            >
+              I Knew This
+            </button>
           </div>
-          <div className="tokens">
-            {question.tokens.map((token, tokenIndex) => {
-              const active = selectedTokenIndexes.includes(tokenIndex);
-              return (
-                <button
-                  key={`${token}-${tokenIndex}`}
-                  className={`token ${active ? "selected" : ""}`}
-                  onClick={() => toggleToken(tokenIndex)}
-                >
-                  {token}
-                </button>
-              );
-            })}
+        </div>
+      ) : null}
+
+      {question.type === "matching" ? (
+        <div className="matching-grid">
+          <div className="matching-column">
+            {question.pairs.map((pair) => (
+              <button
+                key={pair.prompt}
+                className={`option ${matchingPrompt === pair.prompt ? "selected" : ""}`}
+                onClick={() => setMatchingPrompt(pair.prompt)}
+              >
+                {pair.prompt}
+              </button>
+            ))}
           </div>
-        </>
-      )}
+          <div className="matching-column">
+            {question.pairs.map((pair) => (
+              <button
+                key={pair.answer}
+                className="option"
+                onClick={() => {
+                  if (!matchingPrompt) return;
+                  toggleMatchingPair(matchingPrompt, pair.answer);
+                }}
+              >
+                {pair.answer}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {question.type === "pronunciation" ? (
+        <div className="pronunciation-shell">
+          <div className="hero-actions">
+            <button className="speak-button" type="button" onClick={speakBuildTranslationHint}>
+              Play Prompt
+            </button>
+            <button className="ghost-button" type="button" onClick={startPronunciationCheck}>
+              Start Pronunciation Check
+            </button>
+          </div>
+          <label>
+            Transcript
+            <input
+              value={pronunciationTranscript}
+              onChange={(event) => {
+                setPronunciationTranscript(event.target.value);
+                setSelectedOption(event.target.value);
+                setFeedback(null);
+              }}
+              placeholder="Speech transcript or typed fallback"
+            />
+          </label>
+        </div>
+      ) : null}
 
       {feedback ? (
         <div className={`feedback ${feedback.type}`}>

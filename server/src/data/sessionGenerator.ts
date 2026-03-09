@@ -13,6 +13,23 @@ function levelRank(level) {
   return LEVEL_ORDER.indexOf(level);
 }
 
+function resolveAnswer(item) {
+  return String(item?.target || item?.correctAnswer || "").trim();
+}
+
+function resolveDifficulty(item) {
+  return String(item?.difficulty || item?.level || "a1").trim().toLowerCase();
+}
+
+function buildMediaFields(item) {
+  return {
+    hints: Array.isArray(item?.hints) ? item.hints : [],
+    audioUrl: String(item?.audioUrl || ""),
+    imageUrl: String(item?.imageUrl || ""),
+    culturalNote: String(item?.culturalNote || "")
+  };
+}
+
 function recommendedLevelFromMastery(mastery) {
   if (mastery < 20) return "a1";
   if (mastery < 45) return "a2";
@@ -39,7 +56,13 @@ function createCourseSelectors(course) {
       return {
         ...category,
         totalPhrases: items.length,
-        levels
+        levels,
+        beta: Boolean(category.experimental),
+        mediaRichCount: items.filter((item) => item.audioUrl || item.imageUrl).length,
+        sampleCulturalNotes: items
+          .map((item) => String(item.culturalNote || "").trim())
+          .filter(Boolean)
+          .slice(0, 2)
       };
     });
   }
@@ -71,16 +94,16 @@ function deriveObjective(category, level) {
 }
 
 function pickLevelAwareDistractors(pool, item, count) {
-  const ranked = levelRank(item.level);
+  const ranked = levelRank(resolveDifficulty(item));
   const sameBand = pool.filter(
     (candidate) =>
-      candidate.target !== item.target &&
-      Math.abs(levelRank(candidate.level) - ranked) <= 1
+      resolveAnswer(candidate) !== resolveAnswer(item) &&
+      Math.abs(levelRank(resolveDifficulty(candidate)) - ranked) <= 1
   );
   const source = sameBand.length >= count
     ? sameBand
-    : pool.filter((candidate) => candidate.target !== item.target);
-  return shuffle(source.map((candidate) => candidate.target)).slice(0, count);
+    : pool.filter((candidate) => resolveAnswer(candidate) !== resolveAnswer(item));
+  return shuffle(source.map((candidate) => resolveAnswer(candidate))).slice(0, count);
 }
 
 function createQuestion(item, pool, idx, category) {
@@ -91,41 +114,78 @@ function createQuestion(item, pool, idx, category) {
     "dictation_sentence",
     "dialogue_turn"
   ];
-  const questionType = questionTypeCycle[idx % questionTypeCycle.length];
+  const requestedType = String(item.exerciseType || "").trim().toLowerCase();
+  const questionType = requestedType || questionTypeCycle[idx % questionTypeCycle.length];
+  const answer = resolveAnswer(item);
   const base = {
     id: item.id,
     type: questionType,
     level: item.level,
     prompt: item.prompt,
-    answer: item.target,
-    acceptedAnswers: buildAcceptedAnswers(item.target),
-    objective: deriveObjective(category, item.level)
+    answer,
+    correctAnswer: answer,
+    acceptedAnswers: buildAcceptedAnswers(answer),
+    objective: deriveObjective(category, item.level),
+    ...buildMediaFields(item)
   };
+
+  if (questionType === "flashcard") {
+    return {
+      ...base,
+      front: item.prompt,
+      back: answer
+    };
+  }
+
+  if (questionType === "matching") {
+    const distractors = shuffle(
+      pool
+        .filter((candidate) => candidate.id !== item.id)
+        .map((candidate) => ({
+          id: candidate.id,
+          prompt: candidate.prompt,
+          answer: resolveAnswer(candidate)
+        }))
+    ).slice(0, 3);
+    return {
+      ...base,
+      pairs: shuffle([{ id: item.id, prompt: item.prompt, answer }, ...distractors])
+    };
+  }
+
+  if (questionType === "pronunciation") {
+    return {
+      ...base,
+      prompt: `Say this out loud. ${item.prompt}`,
+      transcriptTarget: answer
+    };
+  }
 
   if (questionType === "mc_sentence") {
     const distractors = pickLevelAwareDistractors(pool, item, 3);
     return {
       ...base,
-      options: shuffle([item.target, ...distractors])
+      options: shuffle([answer, ...distractors])
     };
   }
 
-  if (questionType === "dialogue_turn") {
+  if (questionType === "dialogue_turn" || questionType === "roleplay") {
     const distractors = pickLevelAwareDistractors(pool, item, 3);
     return {
       ...base,
+      type: "dialogue_turn",
       prompt: `Choose the best response. ${item.prompt}`,
-      options: shuffle([item.target, ...distractors])
+      options: shuffle([answer, ...distractors])
     };
   }
 
   if (questionType === "cloze_sentence") {
-    const answerTokens = item.target.split(" ").filter(Boolean);
+    const answerTokens = answer.split(" ").filter(Boolean);
     const maskIndex = answerTokens.findIndex((token) => token.length > 3);
     const selectedMaskIndex = maskIndex >= 0 ? maskIndex : 0;
     const clozeAnswer = answerTokens[selectedMaskIndex];
     const fallbackDistractors = pool
-      .flatMap((entry) => entry.target.split(" "))
+      .flatMap((entry) => resolveAnswer(entry).split(" "))
       .filter((token) => token.length > 2 && token !== clozeAnswer);
     const clozeOptions = shuffle([clozeAnswer, ...shuffle(fallbackDistractors).slice(0, 3)]).slice(0, 4);
     const clozeTokens = [...answerTokens];
@@ -139,27 +199,28 @@ function createQuestion(item, pool, idx, category) {
   }
 
   if (questionType === "dictation_sentence") {
-    const answerTokens = item.target.split(" ");
+    const answerTokens = answer.split(" ");
     const tokenPool = pool
-      .flatMap((entry) => entry.target.split(" "))
+      .flatMap((entry) => resolveAnswer(entry).split(" "))
       .filter((token) => token.length > 2 && !answerTokens.includes(token));
     const noise = shuffle(tokenPool).slice(0, 2);
     return {
       ...base,
       prompt: `Listen and build the sentence. ${item.prompt}`,
-      audioText: item.target,
+      audioText: answer,
       tokens: shuffle([...answerTokens, ...noise])
     };
   }
 
-  const answerTokens = item.target.split(" ");
+  const answerTokens = answer.split(" ");
   const tokenPool = pool
-    .flatMap((entry) => entry.target.split(" "))
+    .flatMap((entry) => resolveAnswer(entry).split(" "))
     .filter((token) => token.length > 2 && !answerTokens.includes(token));
   const noise = shuffle(tokenPool).slice(0, 2);
 
   return {
     ...base,
+    type: "build_sentence",
     tokens: shuffle([...answerTokens, ...noise])
   };
 }
@@ -198,7 +259,7 @@ function createSessionGenerator(getCategoryItems) {
 
     const recommendedLevel = LEVEL_ORDER[clampLevelRank(adaptiveRank)];
     const maxRank = Math.min(clampLevelRank(adaptiveRank) + 1, LEVEL_ORDER.length - 1);
-    const candidatePool = all.filter((item) => levelRank(item.level) <= maxRank);
+    const candidatePool = all.filter((item) => levelRank(resolveDifficulty(item)) <= maxRank);
     const sourcePool = candidatePool.length >= count ? candidatePool : all;
     const dueSet = new Set(dueItemIds);
     const weakSet = new Set(weakItemIds);

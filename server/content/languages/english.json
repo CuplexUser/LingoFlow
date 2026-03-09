@@ -594,6 +594,190 @@
         "prompt": "Say: If I had practiced more, I would be more confident now.",
         "target": "If I had practiced more, I would be more confident now."
       }
+    ],
+    "hobbies_leisure": [
+      {
+        "id": "en-ho-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Flashcard: reading books",
+        "correctAnswer": "reading books",
+        "hints": [
+          "Think about a quiet hobby."
+        ],
+        "exerciseType": "flashcard",
+        "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "en-ho-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I play tennis on Saturday mornings.",
+        "correctAnswer": "I play tennis on Saturday mornings.",
+        "hints": [
+          "Use the present tense."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "en-ho-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you like to do after work?",
+        "correctAnswer": "I usually paint or go for a run.",
+        "hints": [
+          "Mention two leisure activities."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "en-ho-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
+        "correctAnswer": "My hobbies help me disconnect from stress and stay creative.",
+        "hints": [
+          "Use a reflective tone."
+        ],
+        "exerciseType": "pronunciation",
+        "audioUrl": "/audio/lesson-chime.wav"
+      }
+    ],
+    "science_technology": [
+      {
+        "id": "en-st-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My phone battery is almost empty.",
+        "correctAnswer": "My phone battery is almost empty.",
+        "hints": [
+          "Talk about your device."
+        ]
+      },
+      {
+        "id": "en-st-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I need to update the app before the meeting.",
+        "correctAnswer": "I need to update the app before the meeting.",
+        "hints": [
+          "Think about software updates."
+        ]
+      },
+      {
+        "id": "en-st-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
+        "correctAnswer": "This tool saves time because it automates repetitive tasks.",
+        "hints": [
+          "Mention automation."
+        ],
+        "exerciseType": "matching"
+      },
+      {
+        "id": "en-st-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: We should discuss the ethical impact of new technology.",
+        "correctAnswer": "We should discuss the ethical impact of new technology.",
+        "hints": [
+          "Use a thoughtful tone."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "culture_history": [
+      {
+        "id": "en-ch-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This museum is very interesting.",
+        "correctAnswer": "This museum is very interesting.",
+        "hints": [
+          "Simple opinion sentence."
+        ],
+        "imageUrl": "/images/museum-arch.svg"
+      },
+      {
+        "id": "en-ch-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: In Sweden, fika is a social coffee break.",
+        "correctAnswer": "In Sweden, fika is a social coffee break.",
+        "hints": [
+          "Mention the custom by name."
+        ],
+        "culturalNote": "Fika is less about rushing coffee and more about pausing together."
+      },
+      {
+        "id": "en-ch-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Why is this old town important?",
+        "correctAnswer": "It shows how people lived here centuries ago.",
+        "hints": [
+          "Answer like a guide."
+        ],
+        "exerciseType": "roleplay",
+        "culturalNote": "Historic districts often highlight local crafts, architecture, and civic identity."
+      },
+      {
+        "id": "en-ch-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
+        "correctAnswer": "Learning local customs helps me understand the language more deeply.",
+        "hints": [
+          "Connect culture and language."
+        ],
+        "exerciseType": "pronunciation",
+        "audioUrl": "/audio/lesson-chime.wav"
+      }
+    ],
+    "environment_sustainability": [
+      {
+        "id": "en-ev-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I recycle paper and glass at home.",
+        "correctAnswer": "I recycle paper and glass at home.",
+        "hints": [
+          "Mention two materials."
+        ],
+        "imageUrl": "/images/recycle-loop.svg"
+      },
+      {
+        "id": "en-ev-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We take the bus to reduce traffic and pollution.",
+        "correctAnswer": "We take the bus to reduce traffic and pollution.",
+        "hints": [
+          "Transport can be sustainable."
+        ]
+      },
+      {
+        "id": "en-ev-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
+        "correctAnswer": "Small daily habits can make a meaningful environmental difference.",
+        "hints": [
+          "Focus on impact."
+        ]
+      },
+      {
+        "id": "en-ev-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
+        "correctAnswer": "Sustainable policy should balance climate goals with social fairness.",
+        "hints": [
+          "Use an analytical sentence."
+        ],
+        "exerciseType": "pronunciation"
+      }
     ]
   }
 }

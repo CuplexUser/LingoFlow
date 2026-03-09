@@ -47,6 +47,19 @@ export type ResetPasswordPayload = {
   password: string;
 };
 
+export type CommunityExercisePayload = {
+  language: string;
+  category: string;
+  prompt: string;
+  correctAnswer: string;
+  hints?: string[];
+  difficulty?: string;
+  audioUrl?: string;
+  imageUrl?: string;
+  culturalNote?: string;
+  exerciseType?: string;
+};
+
 const API_BASE = (import.meta.env.VITE_API_BASE || "/api").replace(/\/$/, "");
 
 let authToken: string | null = null;
@@ -152,5 +165,7 @@ export const api = {
   getStats: (language?: string) =>
     request(`/stats${language ? `?language=${encodeURIComponent(language)}` : ""}`),
   completeSession: (payload: Record<string, unknown>) =>
-    request("/session/complete", { method: "POST", body: JSON.stringify(payload) })
+    request("/session/complete", { method: "POST", body: JSON.stringify(payload) }),
+  contributeExercise: (payload: CommunityExercisePayload) =>
+    request("/community/contribute", { method: "POST", body: JSON.stringify(payload) })
 };

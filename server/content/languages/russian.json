@@ -594,6 +594,186 @@
         "prompt": "Say: If I had practiced more, I would be more confident now.",
         "target": "Если бы я больше практиковался, сейчас я был бы увереннее."
       }
+    ],
+    "hobbies_leisure": [
+      {
+        "id": "ru-ho-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Flashcard: читать книги",
+        "correctAnswer": "читать книги",
+        "hints": [
+          "Это спокойное хобби."
+        ],
+        "exerciseType": "flashcard",
+        "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "ru-ho-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I play tennis on Saturday mornings.",
+        "correctAnswer": "Я играю в теннис по субботам утром.",
+        "hints": [
+          "Используй настоящее время."
+        ]
+      },
+      {
+        "id": "ru-ho-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you like to do after work?",
+        "correctAnswer": "Обычно я рисую или иду бегать.",
+        "hints": [
+          "Назови два занятия."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "ru-ho-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
+        "correctAnswer": "Мои увлечения помогают мне отключиться от стресса и оставаться творческим.",
+        "hints": [
+          "Используй более рефлексивный тон."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "science_technology": [
+      {
+        "id": "ru-st-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My phone battery is almost empty.",
+        "correctAnswer": "Батарея моего телефона почти разряжена.",
+        "hints": [
+          "Речь о твоём устройстве."
+        ]
+      },
+      {
+        "id": "ru-st-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I need to update the app before the meeting.",
+        "correctAnswer": "Мне нужно обновить приложение перед встречей.",
+        "hints": [
+          "Подумай об обновлении."
+        ]
+      },
+      {
+        "id": "ru-st-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
+        "correctAnswer": "Этот инструмент экономит время, потому что автоматизирует повторяющиеся задачи.",
+        "hints": [
+          "Упомяни автоматизацию."
+        ],
+        "exerciseType": "matching"
+      },
+      {
+        "id": "ru-st-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: We should discuss the ethical impact of new technology.",
+        "correctAnswer": "Нам стоит обсудить этическое влияние новых технологий.",
+        "hints": [
+          "Подумай о последствиях."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "culture_history": [
+      {
+        "id": "ru-ch-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This museum is very interesting.",
+        "correctAnswer": "Этот музей очень интересный.",
+        "hints": [
+          "Простое мнение."
+        ],
+        "imageUrl": "/images/museum-arch.svg"
+      },
+      {
+        "id": "ru-ch-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: In Sweden, fika is a social coffee break.",
+        "correctAnswer": "В Швеции фика это социальный кофейный перерыв.",
+        "hints": [
+          "Назови эту традицию."
+        ],
+        "culturalNote": "Фика связана не только с кофе, но и с совместной паузой и разговором."
+      },
+      {
+        "id": "ru-ch-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Why is this old town important?",
+        "correctAnswer": "Он показывает, как люди жили здесь много веков назад.",
+        "hints": [
+          "Ответь как гид."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "ru-ch-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
+        "correctAnswer": "Изучение местных обычаев помогает мне глубже понять язык.",
+        "hints": [
+          "Свяжи культуру и язык."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "environment_sustainability": [
+      {
+        "id": "ru-ev-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I recycle paper and glass at home.",
+        "correctAnswer": "Я перерабатываю бумагу и стекло дома.",
+        "hints": [
+          "Назови два материала."
+        ],
+        "imageUrl": "/images/recycle-loop.svg"
+      },
+      {
+        "id": "ru-ev-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We take the bus to reduce traffic and pollution.",
+        "correctAnswer": "Мы ездим на автобусе, чтобы сократить трафик и загрязнение.",
+        "hints": [
+          "Подумай об устойчивом транспорте."
+        ]
+      },
+      {
+        "id": "ru-ev-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
+        "correctAnswer": "Небольшие ежедневные привычки могут заметно помочь окружающей среде.",
+        "hints": [
+          "Сфокусируйся на ежедневном влиянии."
+        ]
+      },
+      {
+        "id": "ru-ev-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
+        "correctAnswer": "Устойчивая политика должна уравновешивать климатические цели и социальную справедливость.",
+        "hints": [
+          "Используй более аналитическую фразу."
+        ],
+        "exerciseType": "pronunciation"
+      }
     ]
   }
 }

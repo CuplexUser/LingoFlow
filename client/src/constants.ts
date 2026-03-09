@@ -1,5 +1,6 @@
 export const PAGE_PATHS = {
   learn: "/learn",
+  contribute: "/contribute",
   setup: "/setup",
   stats: "/stats"
 } as const;
@@ -23,7 +24,8 @@ export const DEFAULT_DRAFT = {
   selfRatedLevel: "a1",
   learnerName: "Learner",
   learnerBio: "",
-  focusArea: ""
+  focusArea: "",
+  betaLessonsEnabled: false
 } as const;
 
 export type ThemeMode = "auto" | "light" | "dark";

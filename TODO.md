@@ -26,6 +26,34 @@ This file captures current product and technical priorities for future assignmen
 - [x] Refactor `server/src/data.ts` into smaller focused modules.
 - [x] Set up Husky pre-commit verification hooks.
 
+## Phase 9: Content breadth and richer lesson formats
+
+- [x] Add new course categories:
+  - `Hobbies & Leisure`
+  - `Science & Technology`
+  - `Culture & History`
+  - `Environment & Sustainability`
+- [ ] Expand each new category from the starter batch toward a 20-50 exercise target per level.
+- [x] Seed starter JSON batches with richer exercise fields:
+  - `prompt`
+  - `correctAnswer`
+  - `hints`
+  - `difficulty`
+  - optional `audioUrl`, `imageUrl`, `culturalNote`, `exerciseType`
+- [x] Add culture-aware starter content, including Swedish `fika` notes.
+- [x] Extend session rendering for richer lesson types:
+  - flashcards
+  - matching
+  - pronunciation capture
+  - image display
+  - Web Audio playback for referenced clips
+- [x] Add a learner beta flag for experimental lessons.
+- [x] Add a community exercise contribution route and frontend submission form.
+- [x] Track per-exercise usage/completion data in the DB for iteration.
+- [x] Surface recommendation data based on learner strengths and weak spots.
+- [ ] Add moderation review tooling for community exercises.
+- [ ] Add sourced language-specific audio batches from providers such as Forvo or LibriVox.
+
 ## Completed archive
 
 ## Phase 1: Reliability and anti-trivial-cheat

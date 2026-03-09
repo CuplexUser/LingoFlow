@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { api } from "./api";
+import contributeIcon from "./assets/icon-contribute.svg";
 import learnIcon from "./assets/icon-learn.svg";
 import setupIcon from "./assets/icon-setup.svg";
 import statsIcon from "./assets/icon-stats.svg";
 import { AuthPage } from "./components/AuthPage";
+import { ContributePage } from "./components/ContributePage";
 import { LearnPage } from "./components/LearnPage";
 import { SetupPage } from "./components/SetupPage";
 import { StatsPage } from "./components/StatsPage";
@@ -18,7 +20,7 @@ import {
 import { getPageFromPathname, getSystemTheme, resolveTheme } from "./utils/theme";
 
 type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
-type AppPage = "learn" | "setup" | "stats";
+type AppPage = "learn" | "contribute" | "setup" | "stats";
 const ACTIVE_COURSE_LANGUAGE_STORAGE_KEY = "lingoflow_active_course_language";
 const ACTIVE_SESSIONS_STORAGE_KEY = "lingoflow_active_sessions";
 
@@ -530,6 +532,12 @@ export default function App() {
     }
   }
 
+  async function submitContribution(payload: any) {
+    const result = await api.contributeExercise(payload);
+    setStatusMessage(result?.message || "Exercise submitted for moderation.");
+    return result;
+  }
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (!activeCourseLanguage) return;
@@ -579,6 +587,7 @@ export default function App() {
 
   const tabs = [
     { id: "learn", label: "Learn", icon: learnIcon },
+    { id: "contribute", label: "Contribute", icon: contributeIcon },
     { id: "setup", label: "Setup", icon: setupIcon },
     { id: "stats", label: "Stats", icon: statsIcon }
   ] as const;
@@ -694,6 +703,14 @@ export default function App() {
           }
           onOpenSetup={() => navigateToPage("setup")}
           onOpenStats={() => navigateToPage("stats")}
+        />
+      ) : null}
+
+      {activePage === "contribute" ? (
+        <ContributePage
+          activeCourseLanguage={activeCourseLanguage}
+          courseCategories={courseCategories}
+          onSubmitContribution={submitContribution}
         />
       ) : null}
 

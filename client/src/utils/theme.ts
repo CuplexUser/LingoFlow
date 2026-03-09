@@ -1,6 +1,7 @@
 import { PAGE_PATHS, type ThemeMode } from "../constants";
 
-export function getPageFromPathname(pathname: string): "learn" | "setup" | "stats" {
+export function getPageFromPathname(pathname: string): "learn" | "contribute" | "setup" | "stats" {
+  if (pathname === PAGE_PATHS.contribute) return "contribute";
   if (pathname === PAGE_PATHS.setup) return "setup";
   if (pathname === PAGE_PATHS.stats) return "stats";
   return "learn";

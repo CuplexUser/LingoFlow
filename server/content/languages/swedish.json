@@ -594,6 +594,189 @@
         "prompt": "Say: If I had practiced more, I would be more confident now.",
         "target": "Om jag hade övat mer skulle jag vara säkrare nu."
       }
+    ],
+    "hobbies_leisure": [
+      {
+        "id": "sv-ho-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Flashcard: att lasa",
+        "correctAnswer": "att lasa",
+        "hints": [
+          "Det handlar om en lugn hobby."
+        ],
+        "exerciseType": "flashcard",
+        "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "sv-ho-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I play tennis on Saturday mornings.",
+        "correctAnswer": "Jag spelar tennis pa lordagsmorgnar.",
+        "hints": [
+          "Anvand presens."
+        ]
+      },
+      {
+        "id": "sv-ho-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you like to do after work?",
+        "correctAnswer": "Jag brukar mala eller ge mig ut och springa.",
+        "hints": [
+          "Namna tva fritidsaktiviteter."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "sv-ho-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
+        "correctAnswer": "Mina hobbyer hjalper mig att koppla bort stress och forbli kreativ.",
+        "hints": [
+          "Anvand ett reflekterande tonfall."
+        ],
+        "exerciseType": "pronunciation",
+        "audioUrl": "/audio/lesson-chime.wav"
+      }
+    ],
+    "science_technology": [
+      {
+        "id": "sv-st-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My phone battery is almost empty.",
+        "correctAnswer": "Batteriet i min mobil ar nastan slut.",
+        "hints": [
+          "Tanka pa din enhet."
+        ]
+      },
+      {
+        "id": "sv-st-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I need to update the app before the meeting.",
+        "correctAnswer": "Jag maste uppdatera appen fore motet.",
+        "hints": [
+          "Det handlar om en uppdatering."
+        ]
+      },
+      {
+        "id": "sv-st-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
+        "correctAnswer": "Det har verktyget sparar tid eftersom det automatiserar upprepade uppgifter.",
+        "hints": [
+          "Namna automatisering."
+        ],
+        "exerciseType": "matching"
+      },
+      {
+        "id": "sv-st-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: We should discuss the ethical impact of new technology.",
+        "correctAnswer": "Vi borde diskutera den etiska påverkan av ny teknik.",
+        "hints": [
+          "Tank efter pa konsekvenser."
+        ],
+        "exerciseType": "pronunciation"
+      }
+    ],
+    "culture_history": [
+      {
+        "id": "sv-ch-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This museum is very interesting.",
+        "correctAnswer": "Det har museet ar mycket intressant.",
+        "hints": [
+          "En enkel asikt."
+        ],
+        "imageUrl": "/images/museum-arch.svg"
+      },
+      {
+        "id": "sv-ch-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: In Sweden, fika is a social coffee break.",
+        "correctAnswer": "I Sverige ar fika en social kaffepaus.",
+        "hints": [
+          "Namnet pa vanan ar viktigt."
+        ],
+        "culturalNote": "Fika handlar om att samlas, prata och ta en paus tillsammans."
+      },
+      {
+        "id": "sv-ch-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Why is this old town important?",
+        "correctAnswer": "Den visar hur manniskor levde har for flera hundra ar sedan.",
+        "hints": [
+          "Svara som en guide."
+        ],
+        "exerciseType": "roleplay",
+        "culturalNote": "Gamla stan och liknande miljöer visar ofta hantverk, handel och stadsutveckling."
+      },
+      {
+        "id": "sv-ch-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
+        "correctAnswer": "Att lara sig lokala seder hjalper mig att forsta spraket pa djupet.",
+        "hints": [
+          "Knyt ihop kultur och sprak."
+        ],
+        "exerciseType": "pronunciation",
+        "audioUrl": "/audio/lesson-chime.wav"
+      }
+    ],
+    "environment_sustainability": [
+      {
+        "id": "sv-ev-a1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I recycle paper and glass at home.",
+        "correctAnswer": "Jag atervinner papper och glas hemma.",
+        "hints": [
+          "Namna tva material."
+        ],
+        "imageUrl": "/images/recycle-loop.svg"
+      },
+      {
+        "id": "sv-ev-a2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We take the bus to reduce traffic and pollution.",
+        "correctAnswer": "Vi tar bussen for att minska trafik och fororeningar.",
+        "hints": [
+          "Tank pa hallbara resor."
+        ]
+      },
+      {
+        "id": "sv-ev-b1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
+        "correctAnswer": "Sma dagliga vanor kan gora verklig skillnad for miljoen.",
+        "hints": [
+          "Fokusera pa vardaglig effekt."
+        ]
+      },
+      {
+        "id": "sv-ev-b2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
+        "correctAnswer": "Hallbar politik bor balansera klimatmal med social rattvisa.",
+        "hints": [
+          "Anvand ett analyserande sprak."
+        ],
+        "exerciseType": "pronunciation"
+      }
     ]
   }
 }
