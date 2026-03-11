@@ -5,10 +5,12 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 ## Features
 
 - Category-based learning path (`Essentials`, `Conversation`, `Travel`, `Work`, `Health`, `Family & Friends`, `Food & Cooking`, `Grammar`)
+  plus optional experimental categories (`Hobbies & Leisure`, `Science & Technology`, `Culture & History`, `Environment & Sustainability`)
 - Randomized challenge sessions per category
 - Full-sentence practice (not only one-word answers)
 - Sentence-builder exercises with correction feedback and reveal flow
-- Expanded exercise types: cloze deletion, listen-and-build sentence, guided dialogue completion
+- Expanded exercise types: flashcards, matching, cloze deletion, listen-and-build sentence, guided dialogue completion, pronunciation checks
+- Pronunciation checks accept close matches (>= 90% similarity) instead of strict exact-match
 - Adaptive CEFR-style progression (`A1` → `B2`) based on mastery
 - Persistent progress (XP, streak, level, category mastery, daily XP, per-item progress) via `better-sqlite3`
 - Multi-user account support with auth (`register`, `verify-email`, `login`, `google`, `me`) and user-scoped persistence
@@ -47,6 +49,13 @@ Optional environment variables:
 - `LOG_LEVEL` (server): `debug` | `info` | `warn` | `error` (default: `info`).
 
 Create `server/.env` (copy from `server/.env.example`) to set server-side variables in local development.
+
+## Beta Categories And Dev Unlock
+
+- In Setup, enable `Enable beta lessons and experimental categories` to show experimental categories in the catalog.
+- In dev builds only, a second Setup toggle appears: `Dev only: unlock all lessons (test user)`.
+  - This forces all categories to be startable immediately for the signed-in user.
+  - The server only honors this flag when `NODE_ENV !== "production"`.
 
 ## Production Build
 

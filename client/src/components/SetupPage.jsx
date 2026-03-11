@@ -114,6 +114,17 @@ export function SetupPage({ languages, settings, draftSettings, onDraftChange, o
           />
           <span>Enable beta lessons and experimental categories</span>
         </label>
+
+        {import.meta.env.DEV ? (
+          <label className="toggle-label">
+            <input
+              type="checkbox"
+              checked={Boolean(draftSettings.unlockAllLessons)}
+              onChange={(event) => onDraftChange({ unlockAllLessons: event.target.checked })}
+            />
+            <span>Dev only: unlock all lessons</span>
+          </label>
+        ) : null}
       </div>
 
       <div className="setup-preview">
@@ -123,6 +134,7 @@ export function SetupPage({ languages, settings, draftSettings, onDraftChange, o
         <p>Level: {(settings?.selfRatedLevel || "a1").toUpperCase()}</p>
         <p>Plan: {settings?.dailyMinutes ?? 20} min/day, {settings?.weeklyGoalSessions ?? 5} sessions/week</p>
         <p>Beta lessons: {settings?.betaLessonsEnabled ? "On" : "Off"}</p>
+        {import.meta.env.DEV ? <p>Unlock all lessons: {settings?.unlockAllLessons ? "On" : "Off"}</p> : null}
       </div>
 
       <div className="hero-actions">

@@ -600,13 +600,35 @@
         "id": "en-ho-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Flashcard: reading books",
-        "correctAnswer": "reading books",
+        "prompt": "To read books",
+        "correctAnswer": "to read books",
         "hints": [
           "Think about a quiet hobby."
         ],
         "exerciseType": "flashcard",
         "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "en-ho-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To go hiking",
+        "correctAnswer": "to go hiking",
+        "hints": [
+          "An outdoor hobby."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "en-ho-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To play chess",
+        "correctAnswer": "to play chess",
+        "hints": [
+          "A strategy board game."
+        ],
+        "exerciseType": "flashcard"
       },
       {
         "id": "en-ho-a2",
@@ -616,6 +638,28 @@
         "correctAnswer": "I play tennis on Saturday mornings.",
         "hints": [
           "Use the present tense."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "en-ho-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I watch movies at home.",
+        "correctAnswer": "I watch movies at home.",
+        "hints": [
+          "A simple leisure routine."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "en-ho-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I swim at the pool.",
+        "correctAnswer": "I swim at the pool.",
+        "hints": [
+          "A short activity sentence."
         ],
         "exerciseType": "build_sentence"
       },
@@ -631,16 +675,60 @@
         "exerciseType": "roleplay"
       },
       {
+        "id": "en-ho-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you do on weekends?",
+        "correctAnswer": "I meet friends and play games.",
+        "hints": [
+          "A friendly, natural answer."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "en-ho-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Do you like sports?",
+        "correctAnswer": "Yes, I play football sometimes.",
+        "hints": [
+          "Answer with a frequency word."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
         "id": "en-ho-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
-        "correctAnswer": "My hobbies help me disconnect from stress and stay creative.",
+        "prompt": "Say: I relax by reading books.",
+        "correctAnswer": "I relax by reading books.",
         "hints": [
           "Use a reflective tone."
         ],
         "exerciseType": "pronunciation",
         "audioUrl": "/audio/lesson-chime.wav"
+      },
+      {
+        "id": "en-ho-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I practice guitar every day.",
+        "correctAnswer": "I practice guitar every day.",
+        "hints": [
+          "A clear daily habit."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "en-ho-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I enjoy painting in my free time.",
+        "correctAnswer": "I enjoy painting in my free time.",
+        "hints": [
+          "A common hobby phrase."
+        ],
+        "exerciseType": "pronunciation"
       }
     ],
     "science_technology": [
@@ -655,34 +743,118 @@
         ]
       },
       {
+        "id": "en-st-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: The Wi-Fi is not working.",
+        "correctAnswer": "The Wi-Fi is not working.",
+        "hints": [
+          "A common connection problem."
+        ]
+      },
+      {
+        "id": "en-st-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My laptop is slow today.",
+        "correctAnswer": "My laptop is slow today.",
+        "hints": [
+          "A simple device complaint."
+        ]
+      },
+      {
         "id": "en-st-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I need to update the app before the meeting.",
-        "correctAnswer": "I need to update the app before the meeting.",
+        "prompt": "Say: I need to update the app.",
+        "correctAnswer": "I need to update the app.",
         "hints": [
           "Think about software updates."
+        ]
+      },
+      {
+        "id": "en-st-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: Can you send me the link?",
+        "correctAnswer": "Can you send me the link?",
+        "hints": [
+          "Ask for a URL."
+        ]
+      },
+      {
+        "id": "en-st-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I forgot my password.",
+        "correctAnswer": "I forgot my password.",
+        "hints": [
+          "A very useful sentence."
         ]
       },
       {
         "id": "en-st-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
-        "correctAnswer": "This tool saves time because it automates repetitive tasks.",
+        "prompt": "an update",
+        "correctAnswer": "an update",
         "hints": [
-          "Mention automation."
+          "Match the tech term."
         ],
         "exerciseType": "matching"
+      },
+      {
+        "id": "en-st-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please restart the computer.",
+        "correctAnswer": "Please restart the computer.",
+        "hints": [
+          "A practical instruction."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "en-st-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. My screen is frozen.",
+        "correctAnswer": "Try closing the app and reopening it.",
+        "hints": [
+          "Offer a quick fix."
+        ],
+        "exerciseType": "roleplay"
       },
       {
         "id": "en-st-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should discuss the ethical impact of new technology.",
-        "correctAnswer": "We should discuss the ethical impact of new technology.",
+        "prompt": "Say: We should discuss tech ethics.",
+        "correctAnswer": "We should discuss tech ethics.",
         "hints": [
-          "Use a thoughtful tone."
+          "A short thoughtful sentence."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "en-st-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Data privacy matters to me.",
+        "correctAnswer": "Data privacy matters to me.",
+        "hints": [
+          "Talk about privacy."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "en-st-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Please back up the files.",
+        "correctAnswer": "Please back up the files.",
+        "hints": [
+          "A helpful reminder."
         ],
         "exerciseType": "pronunciation"
       }
@@ -700,15 +872,57 @@
         "imageUrl": "/images/museum-arch.svg"
       },
       {
+        "id": "en-ch-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a museum ticket",
+        "correctAnswer": "a museum ticket",
+        "hints": [
+          "Match the phrase."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "en-ch-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This statue is famous.",
+        "correctAnswer": "This statue is famous.",
+        "hints": [
+          "A simple description."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
         "id": "en-ch-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: In Sweden, fika is a social coffee break.",
-        "correctAnswer": "In Sweden, fika is a social coffee break.",
+        "prompt": "Say: In Sweden, fika is a coffee break.",
+        "correctAnswer": "In Sweden, fika is a coffee break.",
         "hints": [
           "Mention the custom by name."
         ],
         "culturalNote": "Fika is less about rushing coffee and more about pausing together."
+      },
+      {
+        "id": "en-ch-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: This building is very old.",
+        "correctAnswer": "This building is very old.",
+        "hints": [
+          "Describe the place."
+        ]
+      },
+      {
+        "id": "en-ch-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The guide speaks very clearly.",
+        "correctAnswer": "The guide speaks very clearly.",
+        "hints": [
+          "Talk about a guide."
+        ]
       },
       {
         "id": "en-ch-b1",
@@ -723,16 +937,60 @@
         "culturalNote": "Historic districts often highlight local crafts, architecture, and civic identity."
       },
       {
+        "id": "en-ch-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Who built this castle?",
+        "correctAnswer": "It was built by a king.",
+        "hints": [
+          "Answer simply and clearly."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "en-ch-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "a tradition",
+        "correctAnswer": "a tradition",
+        "hints": [
+          "Match the cultural term."
+        ],
+        "exerciseType": "matching"
+      },
+      {
         "id": "en-ch-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
-        "correctAnswer": "Learning local customs helps me understand the language more deeply.",
+        "prompt": "Say: Could you explain this tradition to me?",
+        "correctAnswer": "Could you explain this tradition to me?",
         "hints": [
-          "Connect culture and language."
+          "A polite question about local culture."
         ],
         "exerciseType": "pronunciation",
         "audioUrl": "/audio/lesson-chime.wav"
+      },
+      {
+        "id": "en-ch-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I love learning local history.",
+        "correctAnswer": "I love learning local history.",
+        "hints": [
+          "A positive statement."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "en-ch-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: This legend is popular here.",
+        "correctAnswer": "This legend is popular here.",
+        "hints": [
+          "Use a natural tone."
+        ],
+        "exerciseType": "pronunciation"
       }
     ],
     "environment_sustainability": [
@@ -748,33 +1006,117 @@
         "imageUrl": "/images/recycle-loop.svg"
       },
       {
+        "id": "en-ev-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I turn off the lights.",
+        "correctAnswer": "I turn off the lights.",
+        "hints": [
+          "A simple saving action."
+        ]
+      },
+      {
+        "id": "en-ev-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a reusable bottle",
+        "correctAnswer": "a reusable bottle",
+        "hints": [
+          "Match the phrase."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
         "id": "en-ev-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce traffic and pollution.",
-        "correctAnswer": "We take the bus to reduce traffic and pollution.",
+        "prompt": "Say: We take the bus to reduce pollution.",
+        "correctAnswer": "We take the bus to reduce pollution.",
         "hints": [
           "Transport can be sustainable."
+        ]
+      },
+      {
+        "id": "en-ev-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We bring reusable bags.",
+        "correctAnswer": "We bring reusable bags.",
+        "hints": [
+          "A practical habit."
+        ]
+      },
+      {
+        "id": "en-ev-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I try to waste less food.",
+        "correctAnswer": "I try to waste less food.",
+        "hints": [
+          "Talk about food waste."
         ]
       },
       {
         "id": "en-ev-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
-        "correctAnswer": "Small daily habits can make a meaningful environmental difference.",
+        "prompt": "Say: Small habits make a big difference.",
+        "correctAnswer": "Small habits make a big difference.",
         "hints": [
           "Focus on impact."
         ]
       },
       {
+        "id": "en-ev-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please sort the trash.",
+        "correctAnswer": "Please sort the trash.",
+        "hints": [
+          "A useful instruction."
+        ]
+      },
+      {
+        "id": "en-ev-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "carbon footprint",
+        "correctAnswer": "carbon footprint",
+        "hints": [
+          "Match the sustainability term."
+        ],
+        "exerciseType": "matching"
+      },
+      {
         "id": "en-ev-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
-        "correctAnswer": "Sustainable policy should balance climate goals with social fairness.",
+        "prompt": "Say: We should reduce carbon emissions.",
+        "correctAnswer": "We should reduce carbon emissions.",
         "hints": [
-          "Use an analytical sentence."
+          "A clear climate goal."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "en-ev-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Climate action starts locally.",
+        "correctAnswer": "Climate action starts locally.",
+        "hints": [
+          "A short statement."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "en-ev-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Renewable energy is getting cheaper.",
+        "correctAnswer": "Renewable energy is getting cheaper.",
+        "hints": [
+          "A practical observation."
         ],
         "exerciseType": "pronunciation"
       }

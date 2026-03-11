@@ -870,6 +870,15 @@ textarea {
   margin: 12px 0;
 }
 
+.pronunciation-target {
+  margin: 6px 0 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface-muted);
+  font-weight: 600;
+}
+
 .flashcard {
   width: min(100%, 420px);
   min-height: 170px;
@@ -897,6 +906,20 @@ textarea {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+}
+
+.matching-shell {
+  margin: 12px 0;
+}
+
+.matching-instructions {
+  margin: 0 0 6px;
+  color: var(--text-muted);
+}
+
+.matching-hint {
+  margin: 0 0 10px;
+  font-weight: 600;
 }
 
 .matching-column {

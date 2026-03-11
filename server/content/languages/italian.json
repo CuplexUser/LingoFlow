@@ -600,13 +600,35 @@
         "id": "it-ho-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Flashcard: leggere libri",
+        "prompt": "To read books",
         "correctAnswer": "leggere libri",
         "hints": [
           "E un hobby tranquillo."
         ],
         "exerciseType": "flashcard",
         "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "it-ho-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To go hiking",
+        "correctAnswer": "fare un escursione",
+        "hints": [
+          "Un hobby all aria aperta."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "it-ho-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To play chess",
+        "correctAnswer": "giocare a scacchi",
+        "hints": [
+          "Un gioco da tavolo."
+        ],
+        "exerciseType": "flashcard"
       },
       {
         "id": "it-ho-a2",
@@ -616,7 +638,30 @@
         "correctAnswer": "Gioco a tennis il sabato mattina.",
         "hints": [
           "Usa il presente."
-        ]
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "it-ho-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I watch movies at home.",
+        "correctAnswer": "Guardo film a casa.",
+        "hints": [
+          "Un piano semplice."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "it-ho-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I swim at the pool.",
+        "correctAnswer": "Nuoto in piscina.",
+        "hints": [
+          "Una frase corta."
+        ],
+        "exerciseType": "build_sentence"
       },
       {
         "id": "it-ho-b1",
@@ -630,13 +675,57 @@
         "exerciseType": "roleplay"
       },
       {
+        "id": "it-ho-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you do on weekends?",
+        "correctAnswer": "Vedo amici e gioco.",
+        "hints": [
+          "Una risposta naturale."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "it-ho-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Do you like sports?",
+        "correctAnswer": "Si, a volte gioco a calcio.",
+        "hints": [
+          "Usa una parola di frequenza."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
         "id": "it-ho-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
-        "correctAnswer": "I miei hobby mi aiutano a staccare dallo stress e a restare creativo.",
+        "prompt": "Say: I relax by reading books.",
+        "correctAnswer": "Mi rilasso leggendo libri.",
         "hints": [
           "Usa un tono riflessivo."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-ho-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I practice guitar every day.",
+        "correctAnswer": "Pratico la chitarra ogni giorno.",
+        "hints": [
+          "Un abitudine quotidiana."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-ho-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I enjoy painting in my free time.",
+        "correctAnswer": "Mi piace dipingere nel tempo libero.",
+        "hints": [
+          "Una frase comune."
         ],
         "exerciseType": "pronunciation"
       }
@@ -653,34 +742,118 @@
         ]
       },
       {
+        "id": "it-st-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: The Wi-Fi is not working.",
+        "correctAnswer": "Il wifi non funziona.",
+        "hints": [
+          "Un problema comune."
+        ]
+      },
+      {
+        "id": "it-st-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My laptop is slow today.",
+        "correctAnswer": "Il mio portatile e lento oggi.",
+        "hints": [
+          "Una frase semplice."
+        ]
+      },
+      {
         "id": "it-st-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I need to update the app before the meeting.",
-        "correctAnswer": "Devo aggiornare l app prima della riunione.",
+        "prompt": "Say: I need to update the app.",
+        "correctAnswer": "Devo aggiornare l app.",
         "hints": [
           "Pensa a un aggiornamento."
+        ]
+      },
+      {
+        "id": "it-st-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: Can you send me the link?",
+        "correctAnswer": "Puoi mandarmi il link?",
+        "hints": [
+          "Chiedi un link."
+        ]
+      },
+      {
+        "id": "it-st-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I forgot my password.",
+        "correctAnswer": "Ho dimenticato la password.",
+        "hints": [
+          "Una frase utile."
         ]
       },
       {
         "id": "it-st-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
-        "correctAnswer": "Questo strumento fa risparmiare tempo perche automatizza compiti ripetitivi.",
+        "prompt": "an update",
+        "correctAnswer": "un aggiornamento",
         "hints": [
-          "Nomina l automazione."
+          "Abbina il termine."
         ],
         "exerciseType": "matching"
+      },
+      {
+        "id": "it-st-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please restart the computer.",
+        "correctAnswer": "Per favore, riavvia il computer.",
+        "hints": [
+          "Un istruzione pratica."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "it-st-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. My screen is frozen.",
+        "correctAnswer": "Chiudi l app e riaprila.",
+        "hints": [
+          "Una soluzione rapida."
+        ],
+        "exerciseType": "roleplay"
       },
       {
         "id": "it-st-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should discuss the ethical impact of new technology.",
-        "correctAnswer": "Dovremmo discutere l impatto etico della nuova tecnologia.",
+        "prompt": "Say: We should discuss tech ethics.",
+        "correctAnswer": "Dovremmo parlare di etica tecnologica.",
         "hints": [
-          "Pensa alle conseguenze."
+          "Una frase corta."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-st-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Data privacy matters to me.",
+        "correctAnswer": "La privacy dei dati mi importa.",
+        "hints": [
+          "Parla di privacy."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-st-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Please back up the files.",
+        "correctAnswer": "Fai un backup dei file.",
+        "hints": [
+          "Un promemoria utile."
         ],
         "exerciseType": "pronunciation"
       }
@@ -698,15 +871,57 @@
         "imageUrl": "/images/museum-arch.svg"
       },
       {
+        "id": "it-ch-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a museum ticket",
+        "correctAnswer": "un biglietto del museo",
+        "hints": [
+          "Abbina la frase."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "it-ch-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This statue is famous.",
+        "correctAnswer": "Questa statua e famosa.",
+        "hints": [
+          "Una descrizione semplice."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
         "id": "it-ch-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: In Sweden, fika is a social coffee break.",
-        "correctAnswer": "In Svezia la fika e una pausa caffe sociale.",
+        "prompt": "Say: In Sweden, fika is a coffee break.",
+        "correctAnswer": "In Svezia la fika e una pausa caffe.",
         "hints": [
           "Nomina l usanza."
         ],
         "culturalNote": "La fika mette al centro il tempo condiviso e la conversazione."
+      },
+      {
+        "id": "it-ch-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: This building is very old.",
+        "correctAnswer": "Questo edificio e molto vecchio.",
+        "hints": [
+          "Descrivi il luogo."
+        ]
+      },
+      {
+        "id": "it-ch-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The guide speaks very clearly.",
+        "correctAnswer": "La guida parla molto chiaro.",
+        "hints": [
+          "Parla della guida."
+        ]
       },
       {
         "id": "it-ch-b1",
@@ -720,13 +935,57 @@
         "exerciseType": "roleplay"
       },
       {
+        "id": "it-ch-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Who built this castle?",
+        "correctAnswer": "L ha costruito un re.",
+        "hints": [
+          "Una risposta chiara."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "it-ch-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "a tradition",
+        "correctAnswer": "una tradizione",
+        "hints": [
+          "Abbina il termine."
+        ],
+        "exerciseType": "matching"
+      },
+      {
         "id": "it-ch-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
-        "correctAnswer": "Imparare le usanze locali mi aiuta a capire la lingua piu a fondo.",
+        "prompt": "Say: Could you explain this tradition to me?",
+        "correctAnswer": "Puoi spiegarmi questa tradizione, per favore?",
         "hints": [
-          "Collega cultura e lingua."
+          "Una domanda educata."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-ch-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I love learning local history.",
+        "correctAnswer": "Amo imparare la storia locale.",
+        "hints": [
+          "Una frase positiva."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-ch-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: This legend is popular here.",
+        "correctAnswer": "Questa leggenda e popolare qui.",
+        "hints": [
+          "Usa un tono naturale."
         ],
         "exerciseType": "pronunciation"
       }
@@ -744,33 +1003,117 @@
         "imageUrl": "/images/recycle-loop.svg"
       },
       {
+        "id": "it-ev-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I turn off the lights.",
+        "correctAnswer": "Spengo le luci.",
+        "hints": [
+          "Un azione semplice."
+        ]
+      },
+      {
+        "id": "it-ev-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a reusable bottle",
+        "correctAnswer": "una bottiglia riutilizzabile",
+        "hints": [
+          "Abbina la frase."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
         "id": "it-ev-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce traffic and pollution.",
-        "correctAnswer": "Prendiamo l autobus per ridurre traffico e inquinamento.",
+        "prompt": "Say: We take the bus to reduce pollution.",
+        "correctAnswer": "Prendiamo l autobus per ridurre l inquinamento.",
         "hints": [
-          "Pensa al trasporto sostenibile."
+          "Trasporto sostenibile."
+        ]
+      },
+      {
+        "id": "it-ev-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We bring reusable bags.",
+        "correctAnswer": "Portiamo borse riutilizzabili.",
+        "hints": [
+          "Un abitudine pratica."
+        ]
+      },
+      {
+        "id": "it-ev-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I try to waste less food.",
+        "correctAnswer": "Cerco di sprecare meno cibo.",
+        "hints": [
+          "Parla dello spreco."
         ]
       },
       {
         "id": "it-ev-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
-        "correctAnswer": "Piccole abitudini quotidiane possono fare una vera differenza ambientale.",
+        "prompt": "Say: Small habits make a big difference.",
+        "correctAnswer": "Piccole abitudini fanno una grande differenza.",
         "hints": [
-          "Parla dell impatto quotidiano."
+          "Focalizzati sull impatto."
         ]
+      },
+      {
+        "id": "it-ev-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please sort the trash.",
+        "correctAnswer": "Per favore, separa la spazzatura.",
+        "hints": [
+          "Un istruzione utile."
+        ]
+      },
+      {
+        "id": "it-ev-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "carbon footprint",
+        "correctAnswer": "impronta di carbonio",
+        "hints": [
+          "Abbina il termine."
+        ],
+        "exerciseType": "matching"
       },
       {
         "id": "it-ev-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
-        "correctAnswer": "Una politica sostenibile dovrebbe bilanciare gli obiettivi climatici con l equita sociale.",
+        "prompt": "Say: We should reduce carbon emissions.",
+        "correctAnswer": "Dovremmo ridurre le emissioni di carbonio.",
         "hints": [
-          "Usa una frase analitica."
+          "Un obiettivo chiaro."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-ev-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Climate action starts locally.",
+        "correctAnswer": "L azione climatica parte localmente.",
+        "hints": [
+          "Una frase corta."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "it-ev-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Renewable energy is getting cheaper.",
+        "correctAnswer": "L energia rinnovabile costa meno.",
+        "hints": [
+          "Un osservazione pratica."
         ],
         "exerciseType": "pronunciation"
       }

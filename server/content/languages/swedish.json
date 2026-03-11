@@ -600,13 +600,35 @@
         "id": "sv-ho-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Flashcard: att lasa",
-        "correctAnswer": "att lasa",
+        "prompt": "To read books",
+        "correctAnswer": "att lasa bocker",
         "hints": [
           "Det handlar om en lugn hobby."
         ],
         "exerciseType": "flashcard",
         "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "sv-ho-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To go hiking",
+        "correctAnswer": "att vandra",
+        "hints": [
+          "En hobby utomhus."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "sv-ho-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To play chess",
+        "correctAnswer": "att spela schack",
+        "hints": [
+          "Ett strategi-spel."
+        ],
+        "exerciseType": "flashcard"
       },
       {
         "id": "sv-ho-a2",
@@ -616,7 +638,30 @@
         "correctAnswer": "Jag spelar tennis pa lordagsmorgnar.",
         "hints": [
           "Anvand presens."
-        ]
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "sv-ho-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I watch movies at home.",
+        "correctAnswer": "Jag ser pa filmer hemma.",
+        "hints": [
+          "Ett enkelt fritidsplan."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "sv-ho-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I swim at the pool.",
+        "correctAnswer": "Jag simmar i bassangen.",
+        "hints": [
+          "En kort fras."
+        ],
+        "exerciseType": "build_sentence"
       },
       {
         "id": "sv-ho-b1",
@@ -630,16 +675,60 @@
         "exerciseType": "roleplay"
       },
       {
+        "id": "sv-ho-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you do on weekends?",
+        "correctAnswer": "Jag traffar vanner och spelar spel.",
+        "hints": [
+          "En naturlig vardagsfras."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "sv-ho-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Do you like sports?",
+        "correctAnswer": "Ja, jag spelar fotboll ibland.",
+        "hints": [
+          "Svar med en frekvens."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
         "id": "sv-ho-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
-        "correctAnswer": "Mina hobbyer hjalper mig att koppla bort stress och forbli kreativ.",
+        "prompt": "Say: I relax by reading books.",
+        "correctAnswer": "Jag kopplar av med att lasa.",
         "hints": [
           "Anvand ett reflekterande tonfall."
         ],
         "exerciseType": "pronunciation",
         "audioUrl": "/audio/lesson-chime.wav"
+      },
+      {
+        "id": "sv-ho-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I practice guitar every day.",
+        "correctAnswer": "Jag ovar gitarr varje dag.",
+        "hints": [
+          "En tydlig vardagsvana."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "sv-ho-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I enjoy painting in my free time.",
+        "correctAnswer": "Jag tycker om att mala pa fritiden.",
+        "hints": [
+          "En vanlig hobbyfras."
+        ],
+        "exerciseType": "pronunciation"
       }
     ],
     "science_technology": [
@@ -654,34 +743,118 @@
         ]
       },
       {
+        "id": "sv-st-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: The Wi-Fi is not working.",
+        "correctAnswer": "Wifi fungerar inte.",
+        "hints": [
+          "Ett vanligt problem."
+        ]
+      },
+      {
+        "id": "sv-st-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My laptop is slow today.",
+        "correctAnswer": "Min dator ar seg idag.",
+        "hints": [
+          "En enkel klagan."
+        ]
+      },
+      {
         "id": "sv-st-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I need to update the app before the meeting.",
-        "correctAnswer": "Jag maste uppdatera appen fore motet.",
+        "prompt": "Say: I need to update the app.",
+        "correctAnswer": "Jag maste uppdatera appen.",
         "hints": [
           "Det handlar om en uppdatering."
+        ]
+      },
+      {
+        "id": "sv-st-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: Can you send me the link?",
+        "correctAnswer": "Kan du skicka mig lanken?",
+        "hints": [
+          "Be om en lank."
+        ]
+      },
+      {
+        "id": "sv-st-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I forgot my password.",
+        "correctAnswer": "Jag har glomt mitt losenord.",
+        "hints": [
+          "En mycket anvandbar fras."
         ]
       },
       {
         "id": "sv-st-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
-        "correctAnswer": "Det har verktyget sparar tid eftersom det automatiserar upprepade uppgifter.",
+        "prompt": "an update",
+        "correctAnswer": "en uppdatering",
         "hints": [
-          "Namna automatisering."
+          "Matcha termen."
         ],
         "exerciseType": "matching"
+      },
+      {
+        "id": "sv-st-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please restart the computer.",
+        "correctAnswer": "Starta om datorn, tack.",
+        "hints": [
+          "En praktisk instruktion."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "sv-st-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. My screen is frozen.",
+        "correctAnswer": "Prova att stanga appen och oppna igen.",
+        "hints": [
+          "En snabb losning."
+        ],
+        "exerciseType": "roleplay"
       },
       {
         "id": "sv-st-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should discuss the ethical impact of new technology.",
-        "correctAnswer": "Vi borde diskutera den etiska påverkan av ny teknik.",
+        "prompt": "Say: We should discuss tech ethics.",
+        "correctAnswer": "Vi borde prata om tekniketik.",
         "hints": [
-          "Tank efter pa konsekvenser."
+          "En kort tanke."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "sv-st-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Data privacy matters to me.",
+        "correctAnswer": "Datasekretess ar viktigt for mig.",
+        "hints": [
+          "Prata om integritet."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "sv-st-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Please back up the files.",
+        "correctAnswer": "Gor en backup av filerna.",
+        "hints": [
+          "En nyttig paminnelse."
         ],
         "exerciseType": "pronunciation"
       }
@@ -699,15 +872,57 @@
         "imageUrl": "/images/museum-arch.svg"
       },
       {
+        "id": "sv-ch-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a museum ticket",
+        "correctAnswer": "en biljett till museet",
+        "hints": [
+          "Matcha frasen."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "sv-ch-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This statue is famous.",
+        "correctAnswer": "Den har statyn ar kand.",
+        "hints": [
+          "En enkel beskrivning."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
         "id": "sv-ch-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: In Sweden, fika is a social coffee break.",
-        "correctAnswer": "I Sverige ar fika en social kaffepaus.",
+        "prompt": "Say: In Sweden, fika is a coffee break.",
+        "correctAnswer": "I Sverige ar fika en kaffepaus.",
         "hints": [
           "Namnet pa vanan ar viktigt."
         ],
         "culturalNote": "Fika handlar om att samlas, prata och ta en paus tillsammans."
+      },
+      {
+        "id": "sv-ch-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: This building is very old.",
+        "correctAnswer": "Den har byggnaden ar mycket gammal.",
+        "hints": [
+          "Beskriv platsen."
+        ]
+      },
+      {
+        "id": "sv-ch-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The guide speaks very clearly.",
+        "correctAnswer": "Guiden pratar mycket tydligt.",
+        "hints": [
+          "Prata om en guide."
+        ]
       },
       {
         "id": "sv-ch-b1",
@@ -722,16 +937,60 @@
         "culturalNote": "Gamla stan och liknande miljöer visar ofta hantverk, handel och stadsutveckling."
       },
       {
+        "id": "sv-ch-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Who built this castle?",
+        "correctAnswer": "Den byggdes av en kung.",
+        "hints": [
+          "Svara kort och tydligt."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "sv-ch-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "a tradition",
+        "correctAnswer": "en tradition",
+        "hints": [
+          "Matcha termen."
+        ],
+        "exerciseType": "matching"
+      },
+      {
         "id": "sv-ch-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
-        "correctAnswer": "Att lara sig lokala seder hjalper mig att forsta spraket pa djupet.",
+        "prompt": "Say: Could you explain this tradition to me?",
+        "correctAnswer": "Kan du forklara den har traditionen?",
         "hints": [
-          "Knyt ihop kultur och sprak."
+          "En vanlig fraga pa museer och resor."
         ],
         "exerciseType": "pronunciation",
         "audioUrl": "/audio/lesson-chime.wav"
+      },
+      {
+        "id": "sv-ch-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I love learning local history.",
+        "correctAnswer": "Jag alskar att lara mig lokal historia.",
+        "hints": [
+          "En positiv fras."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "sv-ch-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: This legend is popular here.",
+        "correctAnswer": "Den har legenden ar popular har.",
+        "hints": [
+          "Anvand ett naturligt tonfall."
+        ],
+        "exerciseType": "pronunciation"
       }
     ],
     "environment_sustainability": [
@@ -747,33 +1006,117 @@
         "imageUrl": "/images/recycle-loop.svg"
       },
       {
+        "id": "sv-ev-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I turn off the lights.",
+        "correctAnswer": "Jag slacker lamporna.",
+        "hints": [
+          "En enkel vardagsvana."
+        ]
+      },
+      {
+        "id": "sv-ev-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a reusable bottle",
+        "correctAnswer": "en ateranvandbar flaska",
+        "hints": [
+          "Matcha frasen."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
         "id": "sv-ev-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce traffic and pollution.",
-        "correctAnswer": "Vi tar bussen for att minska trafik och fororeningar.",
+        "prompt": "Say: We take the bus to reduce pollution.",
+        "correctAnswer": "Vi tar bussen for att minska fororeningar.",
         "hints": [
           "Tank pa hallbara resor."
+        ]
+      },
+      {
+        "id": "sv-ev-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We bring reusable bags.",
+        "correctAnswer": "Vi tar med ateranvandbara pasar.",
+        "hints": [
+          "En praktisk vana."
+        ]
+      },
+      {
+        "id": "sv-ev-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I try to waste less food.",
+        "correctAnswer": "Jag forsoker slosa mindre mat.",
+        "hints": [
+          "Prata om matsvinn."
         ]
       },
       {
         "id": "sv-ev-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
-        "correctAnswer": "Sma dagliga vanor kan gora verklig skillnad for miljoen.",
+        "prompt": "Say: Small habits make a big difference.",
+        "correctAnswer": "Sma vanor gor stor skillnad.",
         "hints": [
-          "Fokusera pa vardaglig effekt."
+          "Fokusera pa effekt."
         ]
+      },
+      {
+        "id": "sv-ev-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please sort the trash.",
+        "correctAnswer": "Sortera soporna, tack.",
+        "hints": [
+          "En nyttig instruktion."
+        ]
+      },
+      {
+        "id": "sv-ev-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "carbon footprint",
+        "correctAnswer": "koldioxidavtryck",
+        "hints": [
+          "Matcha termen."
+        ],
+        "exerciseType": "matching"
       },
       {
         "id": "sv-ev-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
-        "correctAnswer": "Hallbar politik bor balansera klimatmal med social rattvisa.",
+        "prompt": "Say: We should reduce carbon emissions.",
+        "correctAnswer": "Vi borde minska koldioxidutslapp.",
         "hints": [
-          "Anvand ett analyserande sprak."
+          "Ett tydligt mal."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "sv-ev-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Climate action starts locally.",
+        "correctAnswer": "Klimatarbete borjar lokalt.",
+        "hints": [
+          "En kort fras."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "sv-ev-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Renewable energy is getting cheaper.",
+        "correctAnswer": "Fornybar energi blir billigare.",
+        "hints": [
+          "En praktisk observation."
         ],
         "exerciseType": "pronunciation"
       }

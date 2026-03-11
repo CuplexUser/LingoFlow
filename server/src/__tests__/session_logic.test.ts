@@ -45,6 +45,44 @@ test("evaluateAttempt validates build sentence variants", () => {
   assert.equal(wrong.errorType, "word_order");
 });
 
+test("evaluateAttempt accepts close pronunciation matches", () => {
+  const question = {
+    id: "p1",
+    type: "pronunciation",
+    answer: "I relax by reading books.",
+    acceptedAnswers: ["I relax by reading books"]
+  };
+
+  const ok = evaluateAttempt(question, { textAnswer: "I relax by reading bokks" });
+  const wrong = evaluateAttempt(question, { textAnswer: "I relax by playing games" });
+
+  assert.equal(ok.correct, true);
+  assert.equal(wrong.correct, false);
+});
+
+test("evaluateAttempt grades matching exercises order-independently", () => {
+  const question = {
+    id: "m1",
+    type: "matching",
+    pairs: [
+      { prompt: "A", answer: "1" },
+      { prompt: "B", answer: "2" },
+      { prompt: "C", answer: "3" },
+      { prompt: "D", answer: "4" }
+    ]
+  };
+
+  const ok = evaluateAttempt(question, {
+    matchingPairs: [
+      { prompt: "C", answer: "3" },
+      { prompt: "A", answer: "1" },
+      { prompt: "D", answer: "4" },
+      { prompt: "B", answer: "2" }
+    ]
+  });
+  assert.equal(ok.correct, true);
+});
+
 test("calculateXp penalizes mistakes and hints", () => {
   const high = calculateXp({
     score: 10,

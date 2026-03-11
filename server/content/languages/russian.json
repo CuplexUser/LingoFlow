@@ -600,13 +600,35 @@
         "id": "ru-ho-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Flashcard: читать книги",
+        "prompt": "To read books",
         "correctAnswer": "читать книги",
         "hints": [
           "Это спокойное хобби."
         ],
         "exerciseType": "flashcard",
         "imageUrl": "/images/bookshelf.svg"
+      },
+      {
+        "id": "ru-ho-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To go hiking",
+        "correctAnswer": "ходить в поход",
+        "hints": [
+          "Хобби на природе."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "ru-ho-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "To play chess",
+        "correctAnswer": "играть в шахматы",
+        "hints": [
+          "Игра на логику."
+        ],
+        "exerciseType": "flashcard"
       },
       {
         "id": "ru-ho-a2",
@@ -616,7 +638,30 @@
         "correctAnswer": "Я играю в теннис по субботам утром.",
         "hints": [
           "Используй настоящее время."
-        ]
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "ru-ho-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I watch movies at home.",
+        "correctAnswer": "Я смотрю фильмы дома.",
+        "hints": [
+          "Обычный досуг."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "ru-ho-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I swim at the pool.",
+        "correctAnswer": "Я плаваю в бассейне.",
+        "hints": [
+          "Короткая фраза."
+        ],
+        "exerciseType": "build_sentence"
       },
       {
         "id": "ru-ho-b1",
@@ -630,13 +675,57 @@
         "exerciseType": "roleplay"
       },
       {
+        "id": "ru-ho-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. What do you do on weekends?",
+        "correctAnswer": "Я встречаюсь с друзьями и играю.",
+        "hints": [
+          "Естественный ответ."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "ru-ho-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Do you like sports?",
+        "correctAnswer": "Да, я иногда играю в футбол.",
+        "hints": [
+          "Добавь слово про частоту."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
         "id": "ru-ho-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: My hobbies help me disconnect from stress and stay creative.",
-        "correctAnswer": "Мои увлечения помогают мне отключиться от стресса и оставаться творческим.",
+        "prompt": "Say: I relax by reading books.",
+        "correctAnswer": "Я расслабляюсь, читая книги.",
         "hints": [
           "Используй более рефлексивный тон."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-ho-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I practice guitar every day.",
+        "correctAnswer": "Я играю на гитаре каждый день.",
+        "hints": [
+          "Ежедневная привычка."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-ho-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I enjoy painting in my free time.",
+        "correctAnswer": "Мне нравится рисовать в свободное время.",
+        "hints": [
+          "Частая фраза про хобби."
         ],
         "exerciseType": "pronunciation"
       }
@@ -653,34 +742,118 @@
         ]
       },
       {
+        "id": "ru-st-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: The Wi-Fi is not working.",
+        "correctAnswer": "Wi-Fi не работает.",
+        "hints": [
+          "Частая проблема."
+        ]
+      },
+      {
+        "id": "ru-st-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: My laptop is slow today.",
+        "correctAnswer": "Мой ноутбук сегодня тормозит.",
+        "hints": [
+          "Простая жалоба."
+        ]
+      },
+      {
         "id": "ru-st-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I need to update the app before the meeting.",
-        "correctAnswer": "Мне нужно обновить приложение перед встречей.",
+        "prompt": "Say: I need to update the app.",
+        "correctAnswer": "Мне нужно обновить приложение.",
         "hints": [
           "Подумай об обновлении."
+        ]
+      },
+      {
+        "id": "ru-st-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: Can you send me the link?",
+        "correctAnswer": "Можешь прислать мне ссылку?",
+        "hints": [
+          "Попроси ссылку."
+        ]
+      },
+      {
+        "id": "ru-st-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I forgot my password.",
+        "correctAnswer": "Я забыл свой пароль.",
+        "hints": [
+          "Очень полезная фраза."
         ]
       },
       {
         "id": "ru-st-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: This tool saves time because it automates repetitive tasks.",
-        "correctAnswer": "Этот инструмент экономит время, потому что автоматизирует повторяющиеся задачи.",
+        "prompt": "an update",
+        "correctAnswer": "обновление",
         "hints": [
-          "Упомяни автоматизацию."
+          "Сопоставь термин."
         ],
         "exerciseType": "matching"
+      },
+      {
+        "id": "ru-st-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please restart the computer.",
+        "correctAnswer": "Пожалуйста, перезагрузи компьютер.",
+        "hints": [
+          "Практичная просьба."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "ru-st-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. My screen is frozen.",
+        "correctAnswer": "Попробуй закрыть приложение и открыть снова.",
+        "hints": [
+          "Быстрое решение."
+        ],
+        "exerciseType": "roleplay"
       },
       {
         "id": "ru-st-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should discuss the ethical impact of new technology.",
-        "correctAnswer": "Нам стоит обсудить этическое влияние новых технологий.",
+        "prompt": "Say: We should discuss tech ethics.",
+        "correctAnswer": "Нужно обсудить этику технологий.",
         "hints": [
-          "Подумай о последствиях."
+          "Короткая мысль."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-st-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Data privacy matters to me.",
+        "correctAnswer": "Мне важна конфиденциальность данных.",
+        "hints": [
+          "Про приватность."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-st-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Please back up the files.",
+        "correctAnswer": "Сделай резервную копию файлов.",
+        "hints": [
+          "Полезная просьба."
         ],
         "exerciseType": "pronunciation"
       }
@@ -698,15 +871,57 @@
         "imageUrl": "/images/museum-arch.svg"
       },
       {
+        "id": "ru-ch-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a museum ticket",
+        "correctAnswer": "билет в музей",
+        "hints": [
+          "Сопоставь фразу."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
+        "id": "ru-ch-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This statue is famous.",
+        "correctAnswer": "Эта статуя очень известна.",
+        "hints": [
+          "Простое описание."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
         "id": "ru-ch-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: In Sweden, fika is a social coffee break.",
-        "correctAnswer": "В Швеции фика это социальный кофейный перерыв.",
+        "prompt": "Say: In Sweden, fika is a coffee break.",
+        "correctAnswer": "В Швеции фика это перерыв на кофе.",
         "hints": [
           "Назови эту традицию."
         ],
         "culturalNote": "Фика связана не только с кофе, но и с совместной паузой и разговором."
+      },
+      {
+        "id": "ru-ch-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: This building is very old.",
+        "correctAnswer": "Это здание очень старое.",
+        "hints": [
+          "Опиши место."
+        ]
+      },
+      {
+        "id": "ru-ch-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The guide speaks very clearly.",
+        "correctAnswer": "Гид говорит очень понятно.",
+        "hints": [
+          "Про гида."
+        ]
       },
       {
         "id": "ru-ch-b1",
@@ -720,13 +935,57 @@
         "exerciseType": "roleplay"
       },
       {
+        "id": "ru-ch-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Choose the best response. Who built this castle?",
+        "correctAnswer": "Его построил король.",
+        "hints": [
+          "Ответь кратко."
+        ],
+        "exerciseType": "roleplay"
+      },
+      {
+        "id": "ru-ch-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "a tradition",
+        "correctAnswer": "традиция",
+        "hints": [
+          "Сопоставь термин."
+        ],
+        "exerciseType": "matching"
+      },
+      {
         "id": "ru-ch-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Learning local customs helps me understand the language more deeply.",
-        "correctAnswer": "Изучение местных обычаев помогает мне глубже понять язык.",
+        "prompt": "Say: Could you explain this tradition to me?",
+        "correctAnswer": "Можешь объяснить мне эту традицию?",
         "hints": [
-          "Свяжи культуру и язык."
+          "Вежливый вопрос."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-ch-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: I love learning local history.",
+        "correctAnswer": "Мне нравится изучать местную историю.",
+        "hints": [
+          "Позитивная фраза."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-ch-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: This legend is popular here.",
+        "correctAnswer": "Эта легенда популярна здесь.",
+        "hints": [
+          "Естественный тон."
         ],
         "exerciseType": "pronunciation"
       }
@@ -744,33 +1003,117 @@
         "imageUrl": "/images/recycle-loop.svg"
       },
       {
+        "id": "ru-ev-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I turn off the lights.",
+        "correctAnswer": "Я выключаю свет.",
+        "hints": [
+          "Простое действие."
+        ]
+      },
+      {
+        "id": "ru-ev-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a reusable bottle",
+        "correctAnswer": "многоразовая бутылка",
+        "hints": [
+          "Сопоставь фразу."
+        ],
+        "exerciseType": "flashcard"
+      },
+      {
         "id": "ru-ev-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce traffic and pollution.",
-        "correctAnswer": "Мы ездим на автобусе, чтобы сократить трафик и загрязнение.",
+        "prompt": "Say: We take the bus to reduce pollution.",
+        "correctAnswer": "Мы едем на автобусе, чтобы меньше загрязнять.",
         "hints": [
-          "Подумай об устойчивом транспорте."
+          "Устойчивый транспорт."
+        ]
+      },
+      {
+        "id": "ru-ev-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: We bring reusable bags.",
+        "correctAnswer": "Мы берем многоразовые сумки.",
+        "hints": [
+          "Практичная привычка."
+        ]
+      },
+      {
+        "id": "ru-ev-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I try to waste less food.",
+        "correctAnswer": "Я стараюсь меньше выбрасывать еду.",
+        "hints": [
+          "Про пищевые отходы."
         ]
       },
       {
         "id": "ru-ev-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small daily habits can make a meaningful environmental difference.",
-        "correctAnswer": "Небольшие ежедневные привычки могут заметно помочь окружающей среде.",
+        "prompt": "Say: Small habits make a big difference.",
+        "correctAnswer": "Маленькие привычки дают большой эффект.",
         "hints": [
-          "Сфокусируйся на ежедневном влиянии."
+          "Сфокусируйся на эффекте."
         ]
+      },
+      {
+        "id": "ru-ev-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Please sort the trash.",
+        "correctAnswer": "Пожалуйста, сортируй мусор.",
+        "hints": [
+          "Полезная просьба."
+        ]
+      },
+      {
+        "id": "ru-ev-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "carbon footprint",
+        "correctAnswer": "углеродный след",
+        "hints": [
+          "Сопоставь термин."
+        ],
+        "exerciseType": "matching"
       },
       {
         "id": "ru-ev-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Sustainable policy should balance climate goals with social fairness.",
-        "correctAnswer": "Устойчивая политика должна уравновешивать климатические цели и социальную справедливость.",
+        "prompt": "Say: We should reduce carbon emissions.",
+        "correctAnswer": "Нужно сократить выбросы углерода.",
         "hints": [
-          "Используй более аналитическую фразу."
+          "Четкая цель."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-ev-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Climate action starts locally.",
+        "correctAnswer": "Климатические действия начинаются локально.",
+        "hints": [
+          "Короткая фраза."
+        ],
+        "exerciseType": "pronunciation"
+      },
+      {
+        "id": "ru-ev-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Renewable energy is getting cheaper.",
+        "correctAnswer": "Возобновляемая энергия становится дешевле.",
+        "hints": [
+          "Практичное наблюдение."
         ],
         "exerciseType": "pronunciation"
       }

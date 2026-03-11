@@ -25,7 +25,8 @@ export const DEFAULT_DRAFT = {
   learnerName: "Learner",
   learnerBio: "",
   focusArea: "",
-  betaLessonsEnabled: false
+  betaLessonsEnabled: false,
+  unlockAllLessons: false
 } as const;
 
 export type ThemeMode = "auto" | "light" | "dark";

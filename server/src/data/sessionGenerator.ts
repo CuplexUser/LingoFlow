@@ -21,6 +21,20 @@ function resolveDifficulty(item) {
   return String(item?.difficulty || item?.level || "a1").trim().toLowerCase();
 }
 
+function countWords(text) {
+  const trimmed = String(text || "").trim();
+  if (!trimmed) return 0;
+  return trimmed.split(/\s+/g).filter(Boolean).length;
+}
+
+function stripExercisePrefix(text) {
+  return String(text || "")
+    .replace(/^say:\s*/i, "")
+    .replace(/^flashcard:\s*/i, "")
+    .replace(/^choose the best response\.\s*/i, "")
+    .trim();
+}
+
 function buildMediaFields(item) {
   return {
     hints: Array.isArray(item?.hints) ? item.hints : [],
@@ -115,8 +129,14 @@ function createQuestion(item, pool, idx, category) {
     "dialogue_turn"
   ];
   const requestedType = String(item.exerciseType || "").trim().toLowerCase();
-  const questionType = requestedType || questionTypeCycle[idx % questionTypeCycle.length];
+  let questionType = requestedType || questionTypeCycle[idx % questionTypeCycle.length];
   const answer = resolveAnswer(item);
+
+  // Speaking long sentences is frustrating; fall back to a non-speaking exercise.
+  if (questionType === "pronunciation" && countWords(answer) > 7) {
+    questionType = "build_sentence";
+  }
+
   const base = {
     id: item.id,
     type: questionType,
@@ -132,6 +152,7 @@ function createQuestion(item, pool, idx, category) {
   if (questionType === "flashcard") {
     return {
       ...base,
+      prompt: "Flashcard: Tap to flip",
       front: item.prompt,
       back: answer
     };
@@ -143,13 +164,14 @@ function createQuestion(item, pool, idx, category) {
         .filter((candidate) => candidate.id !== item.id)
         .map((candidate) => ({
           id: candidate.id,
-          prompt: candidate.prompt,
+          prompt: stripExercisePrefix(candidate.prompt),
           answer: resolveAnswer(candidate)
         }))
     ).slice(0, 3);
     return {
       ...base,
-      pairs: shuffle([{ id: item.id, prompt: item.prompt, answer }, ...distractors])
+      prompt: "Match each phrase to its translation.",
+      pairs: shuffle([{ id: item.id, prompt: stripExercisePrefix(item.prompt), answer }, ...distractors])
     };
   }
 
@@ -171,10 +193,13 @@ function createQuestion(item, pool, idx, category) {
 
   if (questionType === "dialogue_turn" || questionType === "roleplay") {
     const distractors = pickLevelAwareDistractors(pool, item, 3);
+    const promptBase = String(item.prompt || "").trim();
+    const normalized = promptBase.toLowerCase();
+    const prefix = "choose the best response.";
     return {
       ...base,
       type: "dialogue_turn",
-      prompt: `Choose the best response. ${item.prompt}`,
+      prompt: normalized.startsWith(prefix) ? promptBase : `Choose the best response. ${promptBase}`,
       options: shuffle([answer, ...distractors])
     };
   }

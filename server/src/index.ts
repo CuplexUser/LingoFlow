@@ -145,12 +145,56 @@ function normalizeSentence(text: string): string {
     .trim();
 }
 
+function levenshteinDistance(left: string, right: string): number {
+  const a = String(left || "");
+  const b = String(right || "");
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+
+  const rows = a.length + 1;
+  const cols = b.length + 1;
+  const dp = Array.from({ length: rows }, () => Array(cols).fill(0));
+
+  for (let i = 0; i < rows; i += 1) dp[i][0] = i;
+  for (let j = 0; j < cols; j += 1) dp[0][j] = j;
+
+  for (let i = 1; i < rows; i += 1) {
+    for (let j = 1; j < cols; j += 1) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + cost
+      );
+    }
+  }
+
+  return dp[rows - 1][cols - 1];
+}
+
+function similarityRatio(left: string, right: string): number {
+  const a = String(left || "");
+  const b = String(right || "");
+  const maxLen = Math.max(a.length, b.length);
+  if (!maxLen) return 1;
+  return 1 - (levenshteinDistance(a, b) / maxLen);
+}
+
 function isAnswerMatch(question: SessionQuestion, submitted: string): boolean {
   const expectedVariants = [question.answer, ...(question.acceptedAnswers || [])]
     .map((value) => normalizeSentence(value))
     .filter(Boolean);
   const normalizedSubmitted = normalizeSentence(submitted);
   return expectedVariants.includes(normalizedSubmitted);
+}
+
+function isPronunciationMatch(question: SessionQuestion, submitted: string): boolean {
+  if (isAnswerMatch(question, submitted)) return true;
+  const normalizedExpected = normalizeSentence(question.answer);
+  const normalizedSubmitted = normalizeSentence(submitted);
+  if (!normalizedSubmitted) return false;
+  return similarityRatio(normalizedExpected, normalizedSubmitted) >= 0.9;
 }
 
 function classifyError(question: SessionQuestion, submitted: string): ErrorType {
@@ -179,6 +223,12 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
   }
   if (question.type === "pronunciation") {
     submitted = attempt?.textAnswer || attempt?.builtSentence || "";
+    const correct = isPronunciationMatch(question, submitted);
+    return {
+      correct,
+      errorType: correct ? "none" : classifyError(question, submitted),
+      submitted
+    };
   }
   if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
     submitted = attempt?.selectedOption || "";
@@ -198,10 +248,10 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
       : [];
     const correct = expectedPairs.length > 0 &&
       submittedPairs.length === expectedPairs.length &&
-      submittedPairs.every((pair, index) =>
-        normalizeSentence(pair.prompt) === normalizeSentence(expectedPairs[index].prompt) &&
-        normalizeSentence(pair.answer) === normalizeSentence(expectedPairs[index].answer)
-      );
+      expectedPairs.every((expected) => submittedPairs.some((pair) =>
+        normalizeSentence(pair.prompt) === normalizeSentence(expected.prompt) &&
+        normalizeSentence(pair.answer) === normalizeSentence(expected.answer)
+      ));
     return {
       correct,
       errorType: correct ? "none" : "wrong_option",
@@ -1020,6 +1070,7 @@ function createApp(): ExpressApp {
   app.get("/api/course", requireAuth, (req: AuthenticatedRequest, res: Response) => {
     const userId = req.authUserId;
     const settings = database.getSettings(userId);
+    const devUnlockAll = process.env.NODE_ENV !== "production" && Boolean(settings.unlockAllLessons);
     const language = String(req.query.language || settings.targetLanguage || "spanish").toLowerCase();
     const categories = getCourseOverview(language);
     const categoryProgress = database.getCategoryProgress(userId, language);
@@ -1030,7 +1081,9 @@ function createApp(): ExpressApp {
       const progress = progressMap.get(category.id);
       const previousCategory = index > 0 ? categories[index - 1] : null;
       const previousProgress = previousCategory ? progressMap.get(previousCategory.id) : null;
-      const unlocked = index === 0
+      const unlocked = devUnlockAll
+        ? true
+        : index === 0
         ? true
         : Boolean(previousProgress && (previousProgress.mastery >= 35 || previousProgress.attempts >= 2));
 
@@ -1118,9 +1171,11 @@ function createApp(): ExpressApp {
       learnerName,
       learnerBio,
       focusArea,
-      betaLessonsEnabled
+      betaLessonsEnabled,
+      unlockAllLessons
     } = req.body || {};
 
+    const devUnlockAll = process.env.NODE_ENV !== "production" && Boolean(unlockAllLessons);
     const row = database.saveSettings(userId, {
       nativeLanguage: nativeLanguage || "english",
       targetLanguage: targetLanguage || "spanish",
@@ -1133,7 +1188,8 @@ function createApp(): ExpressApp {
       learnerName: String(learnerName || "Learner").trim() || "Learner",
       learnerBio: String(learnerBio || "").trim(),
       focusArea: String(focusArea || "").trim(),
-      betaLessonsEnabled: Boolean(betaLessonsEnabled)
+      betaLessonsEnabled: Boolean(betaLessonsEnabled),
+      unlockAllLessons: devUnlockAll
     });
 
     res.json(row);

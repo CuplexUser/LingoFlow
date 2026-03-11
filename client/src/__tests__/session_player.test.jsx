@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { vi } from "vitest";
 import { SessionPlayer } from "../components/SessionPlayer";
 
 test("session player supports retry and reveal flow after repeated mistakes", async () => {
@@ -84,4 +85,37 @@ test("session progress stays anchored to the original session length", async () 
 
   expect(await screen.findByText("Pick thanks")).toBeInTheDocument();
   expect(screen.getByText("2/2")).toBeInTheDocument();
+});
+
+test("pronunciation accepts close transcripts", async () => {
+  const user = userEvent.setup();
+  const onFinish = vi.fn();
+  render(
+    <SessionPlayer
+      session={{
+        language: "english",
+        categoryLabel: "Hobbies",
+        recommendedLevel: "a1",
+        questions: [
+          {
+            id: "p1",
+            type: "pronunciation",
+            prompt: "Say this out loud.",
+            answer: "I relax by reading books.",
+            acceptedAnswers: ["I relax by reading books"]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={onFinish}
+      onSnapshot={() => {}}
+    />
+  );
+
+  await user.type(screen.getByLabelText("Transcript"), "I relax by reading bokks");
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({ score: 1, maxScore: 1 })
+  );
 });

@@ -8,6 +8,50 @@ function normalizeSentence(text) {
     .trim();
 }
 
+function levenshteinDistance(left, right) {
+  const a = String(left || "");
+  const b = String(right || "");
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+
+  const rows = a.length + 1;
+  const cols = b.length + 1;
+  const dp = Array.from({ length: rows }, () => Array(cols).fill(0));
+
+  for (let i = 0; i < rows; i += 1) dp[i][0] = i;
+  for (let j = 0; j < cols; j += 1) dp[0][j] = j;
+
+  for (let i = 1; i < rows; i += 1) {
+    for (let j = 1; j < cols; j += 1) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + cost
+      );
+    }
+  }
+
+  return dp[rows - 1][cols - 1];
+}
+
+function similarityRatio(left, right) {
+  const a = String(left || "");
+  const b = String(right || "");
+  const maxLen = Math.max(a.length, b.length);
+  if (!maxLen) return 1;
+  return 1 - (levenshteinDistance(a, b) / maxLen);
+}
+
+function isPronunciationCloseEnough(expected, submitted, threshold = 0.9) {
+  const normalizedExpected = normalizeSentence(expected);
+  const normalizedSubmitted = normalizeSentence(submitted);
+  if (!normalizedSubmitted) return false;
+  if (normalizedSubmitted === normalizedExpected) return true;
+  return similarityRatio(normalizedExpected, normalizedSubmitted) >= threshold;
+}
+
 function joinBuiltWords(question, selectedTokenIndexes) {
   return question.type === "build_sentence" || question.type === "dictation_sentence"
     ? selectedTokenIndexes.map((idx) => question.tokens[idx]).join(" ")
@@ -279,7 +323,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     if (question.type === "cloze_sentence") return selectedOption === question.clozeAnswer;
     if (question.type === "flashcard") return selectedOption === "known";
     if (question.type === "pronunciation") {
-      return normalizeSentence(pronunciationTranscript || selectedOption) === normalizeSentence(question.answer);
+      return isPronunciationCloseEnough(
+        question.answer,
+        pronunciationTranscript || selectedOption,
+        0.9
+      );
     }
     if (question.type === "matching") {
       return matchingPairs.length === (question.pairs?.length || 0) &&
@@ -342,6 +390,18 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
 
   function submitAnswer() {
     if (!canSubmit()) return;
+
+    if (question.type === "flashcard") {
+      const attemptEntry = buildAttemptEntry();
+      const nextAttemptLog = [...attemptLog, attemptEntry];
+      setAttemptLog(nextAttemptLog);
+
+      const knewIt = selectedOption === "known";
+      const nextScore = knewIt ? score + 1 : score;
+      if (knewIt) setScore(nextScore);
+      goNext(nextAttemptLog, nextScore);
+      return;
+    }
 
     const correct = isCurrentAnswerCorrect();
     const attemptEntry = buildAttemptEntry();
@@ -504,6 +564,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       </div>
 
       <h2>{question.prompt}</h2>
+      {question.type === "pronunciation" ? (
+        <p className="pronunciation-target">
+          <strong>Say:</strong> {question.answer}
+        </p>
+      ) : null}
       {question.imageUrl ? <img className="exercise-image" src={question.imageUrl} alt="" /> : null}
       {question.culturalNote ? <p className="cultural-note">{question.culturalNote}</p> : null}
       {speechError ? <p className="speech-error">{speechError}</p> : null}
@@ -584,7 +649,12 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       ) : null}
 
       {question.type === "matching" ? (
-        <div className="matching-grid">
+        <div className="matching-shell">
+          <p className="matching-instructions">
+            Tap a phrase on the left, then tap its matching translation on the right.
+          </p>
+          {!matchingPrompt ? <p className="matching-hint">Pick a left-side phrase to start.</p> : null}
+          <div className="matching-grid">
           <div className="matching-column">
             {question.pairs.map((pair) => (
               <button
@@ -600,7 +670,12 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
             {question.pairs.map((pair) => (
               <button
                 key={pair.answer}
-                className="option"
+                className={`option ${
+                  matchingPairs.find((entry) => entry.prompt === matchingPrompt)?.answer === pair.answer
+                    ? "selected"
+                    : ""
+                }`}
+                disabled={!matchingPrompt}
                 onClick={() => {
                   if (!matchingPrompt) return;
                   toggleMatchingPair(matchingPrompt, pair.answer);
@@ -609,6 +684,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
                 {pair.answer}
               </button>
             ))}
+          </div>
           </div>
         </div>
       ) : null}
