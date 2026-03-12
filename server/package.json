@@ -5,6 +5,10 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "nodemon --exec \"node --experimental-strip-types\" src/index.ts",
+    "typecheck": "node ../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "build:dist": "node -e \"require('fs').mkdirSync('dist',{recursive:true})\" && node ../client/node_modules/esbuild/bin/esbuild src/index.ts --bundle --platform=node --format=cjs --target=node20 --packages=external --minify --sourcemap --outfile=dist/index.js",
+    "build": "npm run typecheck && npm run build:dist",
+    "start:dist": "node dist/index.js",
     "start": "node --experimental-strip-types src/index.ts",
     "test": "node --experimental-strip-types --test src/__tests__/*.test.ts"
   },

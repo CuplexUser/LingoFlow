@@ -66,6 +66,15 @@ npm run start
 
 Open `http://localhost:4000`.
 
+### Server Build (Typecheck + Minified Bundle)
+
+The backend can also be built as a bundled, minified Node.js artifact:
+
+```bash
+npm run build --prefix server
+npm run start:dist --prefix server
+```
+
 ## Project Structure
 
 ```text
@@ -80,7 +89,10 @@ client/
   src/utils/         # Utilities (theme/path helpers)
   src/styles.css     # App styles
 server/
-  src/index.ts       # API routes
+  src/index.ts       # Express app setup + route registration
+  src/routes/        # Route modules (auth/course/session/user)
+  src/auth/          # Auth helpers (tokens/password hashing)
+  dist/              # Bundled/minified server build output
   src/data.ts        # Data entrypoint that re-exports data helpers
   src/data/          # Content loading, session generation, constants
   src/db.ts          # SQLite schema, auth users, user-scoped persistence
@@ -97,6 +109,8 @@ eslint.config.js     # Flat ESLint config for ESLint 10
 - `npm run dev`: run backend + frontend concurrently
 - `npm run build`: build frontend bundle
 - `npm run start`: serve backend and built frontend
+- `npm run build --prefix server`: typecheck + build a minified server bundle to `server/dist/index.js`
+- `npm run start:dist --prefix server`: run the bundled server build
 - `npm run lint`: run ESLint from the root flat config
 - `npm run lint:fix`: apply autofixable ESLint changes
 - `npm run format`: format the repo with Prettier

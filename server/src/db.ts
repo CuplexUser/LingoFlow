@@ -544,7 +544,7 @@ function computeStreakFromDatesDesc(datesDesc) {
   let previous = new Date(`${datesDesc[0]}T00:00:00Z`);
   for (let i = 1; i < datesDesc.length; i += 1) {
     const current = new Date(`${datesDesc[i]}T00:00:00Z`);
-    const diffDays = Math.floor((previous - current) / (24 * 60 * 60 * 1000));
+    const diffDays = Math.floor((previous.getTime() - current.getTime()) / (24 * 60 * 60 * 1000));
     if (diffDays !== 1) break;
     streak += 1;
     previous = current;
@@ -946,7 +946,7 @@ function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDateTime()
 
 function getSettings(userId = 1) {
   ensureUserState(userId);
-  const row = db.prepare(`
+  const row: any = db.prepare(`
     SELECT native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
            self_rated_level, learner_name, learner_bio, focus_area, beta_lessons_enabled, unlock_all_lessons
     FROM settings
@@ -969,7 +969,8 @@ function getSettings(userId = 1) {
 
 function saveSettings(userId = 1, nextSettings = {}) {
   ensureUserState(userId);
-  const nextTargetLanguage = nextSettings.targetLanguage || "spanish";
+  const safeSettings = nextSettings as any;
+  const nextTargetLanguage = safeSettings.targetLanguage || "spanish";
   db.prepare(`
     UPDATE settings
     SET native_language = ?,
@@ -986,19 +987,19 @@ function saveSettings(userId = 1, nextSettings = {}) {
         updated_at = CURRENT_TIMESTAMP
     WHERE user_id = ?
   `).run(
-    nextSettings.nativeLanguage || "english",
+    safeSettings.nativeLanguage || "english",
     nextTargetLanguage,
-    Number.isInteger(nextSettings.dailyGoal) ? nextSettings.dailyGoal : 30,
-    Number.isInteger(nextSettings.dailyMinutes) ? nextSettings.dailyMinutes : 20,
-    Number.isInteger(nextSettings.weeklyGoalSessions) ? nextSettings.weeklyGoalSessions : 5,
-    ["a1", "a2", "b1", "b2"].includes(nextSettings.selfRatedLevel)
-      ? nextSettings.selfRatedLevel
+    Number.isInteger(safeSettings.dailyGoal) ? safeSettings.dailyGoal : 30,
+    Number.isInteger(safeSettings.dailyMinutes) ? safeSettings.dailyMinutes : 20,
+    Number.isInteger(safeSettings.weeklyGoalSessions) ? safeSettings.weeklyGoalSessions : 5,
+    ["a1", "a2", "b1", "b2"].includes(safeSettings.selfRatedLevel)
+      ? safeSettings.selfRatedLevel
       : "a1",
-    String(nextSettings.learnerName || "Learner").trim() || "Learner",
-    String(nextSettings.learnerBio || "").trim(),
-    String(nextSettings.focusArea || "").trim(),
-    nextSettings.betaLessonsEnabled ? 1 : 0,
-    nextSettings.unlockAllLessons ? 1 : 0,
+    String(safeSettings.learnerName || "Learner").trim() || "Learner",
+    String(safeSettings.learnerBio || "").trim(),
+    String(safeSettings.focusArea || "").trim(),
+    safeSettings.betaLessonsEnabled ? 1 : 0,
+    safeSettings.unlockAllLessons ? 1 : 0,
     userId
   );
 
@@ -1632,7 +1633,7 @@ function recordSession({
   } else {
     const last = new Date(progress.last_completed_date + "T00:00:00Z");
     const current = new Date(today + "T00:00:00Z");
-    const diffDays = Math.floor((current - last) / (24 * 60 * 60 * 1000));
+    const diffDays = Math.floor((current.getTime() - last.getTime()) / (24 * 60 * 60 * 1000));
     if (diffDays === 1) {
       nextStreak = progress.streak + 1;
     } else if (diffDays > 1) {

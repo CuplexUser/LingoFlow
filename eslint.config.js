@@ -11,7 +11,7 @@ const compatReactHooksPlugin = fixupPluginRules(reactHooksPlugin);
 
 module.exports = [
   {
-    ignores: ["node_modules/**", "client/dist/**", "server/data/**"]
+    ignores: ["node_modules/**", "client/dist/**", "server/dist/**", "server/data/**"]
   },
   {
     files: ["eslint.config.js"],

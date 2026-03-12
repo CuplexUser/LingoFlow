@@ -116,7 +116,7 @@ function loadLanguageContent() {
   }
 
   const languages: Array<{ id: string; label: string; flag: string; contentSha256: string }> = [];
-  const course: Record<string, Record<string, Array<{ id: string; level: string; prompt: string; target: string }>>> = {};
+  const course: Record<string, Record<string, any[]>> = {};
   const contentMeta: Record<string, { sha256: string; itemCount: number; loadedAt: string; fileName: string }> = {};
   const seenLanguageIds = new Set<string>();
   const loadedAt = new Date().toISOString();
