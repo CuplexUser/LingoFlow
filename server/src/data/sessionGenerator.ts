@@ -120,7 +120,7 @@ function pickLevelAwareDistractors(pool, item, count) {
   return shuffle(source.map((candidate) => resolveAnswer(candidate))).slice(0, count);
 }
 
-function createQuestion(item, pool, idx, category) {
+function createQuestion(item, pool, idx, category, language, englishRoleplayAnswerByPrompt) {
   const questionTypeCycle = [
     "mc_sentence",
     "build_sentence",
@@ -131,6 +131,11 @@ function createQuestion(item, pool, idx, category) {
   const requestedType = String(item.exerciseType || "").trim().toLowerCase();
   let questionType = requestedType || questionTypeCycle[idx % questionTypeCycle.length];
   const answer = resolveAnswer(item);
+  const answerEnglish = questionType === "roleplay"
+    ? (language === "english"
+      ? answer
+      : String(englishRoleplayAnswerByPrompt?.get(String(item.prompt || "")) || "").trim())
+    : "";
 
   // Speaking long sentences is frustrating; fall back to a non-speaking exercise.
   if (questionType === "pronunciation" && countWords(answer) > 7) {
@@ -140,10 +145,12 @@ function createQuestion(item, pool, idx, category) {
   const base = {
     id: item.id,
     type: questionType,
+    exerciseType: requestedType || questionType,
     level: item.level,
     prompt: item.prompt,
     answer,
     correctAnswer: answer,
+    answerEnglish: answerEnglish || undefined,
     acceptedAnswers: buildAcceptedAnswers(answer),
     objective: deriveObjective(category, item.level),
     ...buildMediaFields(item)
@@ -178,7 +185,7 @@ function createQuestion(item, pool, idx, category) {
   if (questionType === "pronunciation") {
     return {
       ...base,
-      prompt: `Say this out loud. ${item.prompt}`,
+      prompt: `${item.prompt}`,
       transcriptTarget: answer
     };
   }
@@ -198,8 +205,7 @@ function createQuestion(item, pool, idx, category) {
     const prefix = "choose the best response.";
     return {
       ...base,
-      type: "dialogue_turn",
-      prompt: normalized.startsWith(prefix) ? promptBase : `Choose the best response. ${promptBase}`,
+      prompt: normalized.startsWith(prefix) ? promptBase : `${promptBase}`,
       options: shuffle([answer, ...distractors])
     };
   }
@@ -231,7 +237,7 @@ function createQuestion(item, pool, idx, category) {
     const noise = shuffle(tokenPool).slice(0, 2);
     return {
       ...base,
-      prompt: `Listen and build the sentence. ${item.prompt}`,
+      prompt: `${item.prompt}`,
       audioText: answer,
       tokens: shuffle([...answerTokens, ...noise])
     };
@@ -269,6 +275,12 @@ function createSessionGenerator(getCategoryItems) {
       };
     }
 
+    const englishRoleplayAnswerByPrompt = new Map(
+      getCategoryItems("english", category)
+        .filter((item) => String(item?.exerciseType || "").trim().toLowerCase() === "roleplay")
+        .map((item) => [String(item.prompt || ""), resolveAnswer(item)])
+    );
+
     const baselineLevel = recommendedLevelFromMastery(mastery);
     let adaptiveRank = levelRank(baselineLevel);
 
@@ -301,7 +313,9 @@ function createSessionGenerator(getCategoryItems) {
 
     const remaining = shuffle(sourcePool.filter((item) => !selectedIds.has(item.id)));
     const selected = [...dueItems, ...weakItems, ...remaining].slice(0, targetCount);
-    const questions = selected.map((item, idx) => createQuestion(item, sourcePool, idx, category));
+    const questions = selected.map((item, idx) =>
+      createQuestion(item, sourcePool, idx, category, language, englishRoleplayAnswerByPrompt)
+    );
 
     return {
       recommendedLevel,

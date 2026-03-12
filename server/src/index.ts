@@ -28,6 +28,7 @@ type QuestionType =
   | "cloze_sentence"
   | "dictation_sentence"
   | "dialogue_turn"
+  | "roleplay"
   | "flashcard"
   | "matching"
   | "pronunciation";
@@ -230,7 +231,7 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
       submitted
     };
   }
-  if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
+  if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay") {
     submitted = attempt?.selectedOption || "";
   }
   if (question.type === "flashcard") {

@@ -78,6 +78,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   );
   const [attemptLog, setAttemptLog] = useState(() => resumeState.attemptLog || []);
   const [feedback, setFeedback] = useState(() => resumeState.feedback || null);
+  const [roleplayHintVisible, setRoleplayHintVisible] = useState(
+    () => resumeState.roleplayHintVisible || false
+  );
   const [speechError, setSpeechError] = useState("");
   const [questionMistakes, setQuestionMistakes] = useState(() => resumeState.questionMistakes || 0);
   const [totalMistakes, setTotalMistakes] = useState(() => resumeState.totalMistakes || 0);
@@ -91,6 +94,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   );
   const [matchingPairs, setMatchingPairs] = useState(() => resumeState.matchingPairs || []);
   const [matchingPrompt, setMatchingPrompt] = useState(null);
+  const [matchingPromptOrder, setMatchingPromptOrder] = useState(() => resumeState.matchingPromptOrder || []);
+  const [matchingAnswerOrder, setMatchingAnswerOrder] = useState(() => resumeState.matchingAnswerOrder || []);
   const snapshotRef = useRef("");
   const draggedWordIndexRef = useRef(null);
   const builtWordDropHandledRef = useRef(false);
@@ -122,6 +127,24 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   }, [supportsSpeech]);
 
   useEffect(() => {
+    function shuffleArray(items) {
+      const next = [...items];
+      for (let i = next.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [next[i], next[j]] = [next[j], next[i]];
+      }
+      return next;
+    }
+
+    if (question?.type !== "matching") return;
+    const pairs = Array.isArray(question.pairs) ? question.pairs : [];
+    const prompts = pairs.map((pair) => pair.prompt).filter(Boolean);
+    const answers = pairs.map((pair) => pair.answer).filter(Boolean);
+    setMatchingPromptOrder(shuffleArray(prompts));
+    setMatchingAnswerOrder(shuffleArray(answers));
+  }, [question?.id, question?.type]);
+
+  useEffect(() => {
     const snapshot = {
       questionsQueue,
       fixedQuestionCount,
@@ -131,13 +154,17 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       selectedTokenIndexes,
       attemptLog,
       feedback,
+      roleplayHintVisible,
       questionMistakes,
       totalMistakes,
       hintsUsed,
       revealedAnswers,
       flashcardRevealed,
       pronunciationTranscript,
-      matchingPairs
+      matchingPairs,
+      matchingPrompt,
+      matchingPromptOrder,
+      matchingAnswerOrder
     };
     const serialized = JSON.stringify(snapshot);
     if (serialized !== snapshotRef.current) {
@@ -153,6 +180,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     selectedTokenIndexes,
     attemptLog,
     feedback,
+    roleplayHintVisible,
     questionMistakes,
     totalMistakes,
     hintsUsed,
@@ -160,6 +188,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     flashcardRevealed,
     pronunciationTranscript,
     matchingPairs,
+    matchingPrompt,
+    matchingPromptOrder,
+    matchingAnswerOrder,
     onSnapshot
   ]);
 
@@ -295,30 +326,67 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     draggedWordIndexRef.current = null;
   }
 
-  function toggleMatchingPair(prompt, answer) {
-    const existing = matchingPairs.find((pair) => pair.prompt === prompt);
-    const next = existing
-      ? matchingPairs.map((pair) => (pair.prompt === prompt ? { prompt, answer } : pair))
-      : [...matchingPairs, { prompt, answer }];
-    setMatchingPairs(next);
-    setMatchingPrompt(null);
+  function applyMatchingAssignment(prompt, answer, fromPrompt = "") {
+    const normalizedPrompt = String(prompt || "");
+    const normalizedAnswer = String(answer || "");
+    const normalizedFromPrompt = String(fromPrompt || "");
+    if (!normalizedPrompt || !normalizedAnswer) return;
+
+    // 1-to-1: move the answer, don't duplicate it.
+    setMatchingPairs((prev) => {
+      const filtered = prev.filter((pair) =>
+        pair.prompt !== normalizedPrompt &&
+        pair.prompt !== normalizedFromPrompt &&
+        pair.answer !== normalizedAnswer
+      );
+      return [...filtered, { prompt: normalizedPrompt, answer: normalizedAnswer }];
+    });
     setFeedback(null);
+  }
+
+  function clearMatchingAssignment(prompt) {
+    const normalizedPrompt = String(prompt || "");
+    if (!normalizedPrompt) return;
+    setMatchingPairs((prev) => prev.filter((pair) => pair.prompt !== normalizedPrompt));
+    setFeedback(null);
+  }
+
+  function startMatchingDrag(event, answer, fromPrompt = "") {
+    if (!event?.dataTransfer) return;
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", JSON.stringify({ answer, fromPrompt }));
+  }
+
+  function readMatchingDragPayload(event) {
+    try {
+      const raw = event?.dataTransfer?.getData("text/plain") || "";
+      const parsed = JSON.parse(raw);
+      const answer = String(parsed?.answer || "");
+      const fromPrompt = String(parsed?.fromPrompt || "");
+      if (!answer) return null;
+      return { answer, fromPrompt };
+    } catch (_error) {
+      return null;
+    }
   }
 
   function resetCurrentSelection() {
     setSelectedOption("");
     setSelectedTokenIndexes([]);
     setFeedback(null);
+    setRoleplayHintVisible(false);
     setQuestionMistakes(0);
     setFlashcardRevealed(false);
     setPronunciationTranscript("");
     setMatchingPairs([]);
     setMatchingPrompt(null);
+    setMatchingPromptOrder([]);
+    setMatchingAnswerOrder([]);
   }
 
   function isCurrentAnswerCorrect() {
-    if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
-      return selectedOption === question.answer;
+    if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay") {
+      return normalizeSentence(selectedOption) === normalizeSentence(question.answer);
     }
     if (question.type === "cloze_sentence") return selectedOption === question.clozeAnswer;
     if (question.type === "flashcard") return selectedOption === "known";
@@ -342,7 +410,12 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   }
 
   function canSubmit() {
-    if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "cloze_sentence") {
+    if (
+      question.type === "mc_sentence" ||
+      question.type === "dialogue_turn" ||
+      question.type === "roleplay" ||
+      question.type === "cloze_sentence"
+    ) {
       return Boolean(selectedOption);
     }
     if (question.type === "flashcard") return flashcardRevealed && Boolean(selectedOption);
@@ -358,6 +431,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       selectedOption:
         question.type === "mc_sentence" ||
         question.type === "dialogue_turn" ||
+        question.type === "roleplay" ||
         question.type === "cloze_sentence" ||
         question.type === "flashcard"
           ? selectedOption
@@ -412,10 +486,12 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       const nextMistakes = questionMistakes + 1;
       setQuestionMistakes(nextMistakes);
       setTotalMistakes((value) => value + 1);
-      setHintsUsed((value) => value + 1);
+      if (question.type !== "roleplay") {
+        setHintsUsed((value) => value + 1);
+      }
 
       const answerWords = String(question.answer || "").split(" ").filter(Boolean);
-      const showReveal = nextMistakes >= 2;
+      const showReveal = question.type !== "roleplay" && nextMistakes >= 2;
 
       setFeedback({
         type: "error",
@@ -429,7 +505,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
             ? answerWords
             : null,
         correctOption:
-          question.type === "mc_sentence" ||
+          question.type === "roleplay"
+            ? null
+            : question.type === "mc_sentence" ||
           question.type === "dialogue_turn" ||
           question.type === "cloze_sentence" ||
           question.type === "pronunciation" ||
@@ -446,8 +524,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   }
 
   function revealAnswer() {
+    if (question.type === "roleplay") return;
     const answerWords = String(question.answer || "").split(" ").filter(Boolean);
-    if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
+    if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay") {
       setSelectedOption(question.answer);
     } else if (question.type === "cloze_sentence") {
       setSelectedOption(question.clozeAnswer);
@@ -560,10 +639,34 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       <div className="challenge-badges">
         <span>{session.categoryLabel}</span>
         <span>Level: {session.recommendedLevel.toUpperCase()}</span>
+        {question.type === "roleplay" ? <span>Roleplay</span> : null}
         <span>{currentStep}/{fixedQuestionCount}</span>
       </div>
 
       <h2>{question.prompt}</h2>
+      {question.type === "roleplay" ? (
+        <div className="build-hints">
+          <button
+            type="button"
+            className="speak-button"
+            onClick={() => {
+              setHintsUsed((value) => value + 1);
+              setRoleplayHintVisible(true);
+              setFeedback(null);
+            }}
+          >
+            Hint: English Response
+          </button>
+          {roleplayHintVisible ? (
+            <span className="hint-chip">{question.answerEnglish || "No English hint available."}</span>
+          ) : null}
+        </div>
+      ) : null}
+      {question.type === "roleplay" && question.hints?.length ? (
+        <div className="build-hints">
+          <span className="hint-chip">{question.hints[0]}</span>
+        </div>
+      ) : null}
       {question.type === "pronunciation" ? (
         <p className="pronunciation-target">
           <strong>Say:</strong> {question.answer}
@@ -573,7 +676,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       {question.culturalNote ? <p className="cultural-note">{question.culturalNote}</p> : null}
       {speechError ? <p className="speech-error">{speechError}</p> : null}
 
-      {question.type === "mc_sentence" || question.type === "dialogue_turn" ? (
+      {question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay" ? (
         <div className="options">
           {question.options.map((option) => (
             <div key={option} className="option-row">
@@ -651,40 +754,81 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       {question.type === "matching" ? (
         <div className="matching-shell">
           <p className="matching-instructions">
-            Tap a phrase on the left, then tap its matching translation on the right.
+            Drag each translation piece onto the correct prompt slot.
           </p>
-          {!matchingPrompt ? <p className="matching-hint">Pick a left-side phrase to start.</p> : null}
-          <div className="matching-grid">
-          <div className="matching-column">
-            {question.pairs.map((pair) => (
-              <button
-                key={pair.prompt}
-                className={`option ${matchingPrompt === pair.prompt ? "selected" : ""}`}
-                onClick={() => setMatchingPrompt(pair.prompt)}
-              >
-                {pair.prompt}
-              </button>
-            ))}
-          </div>
-          <div className="matching-column">
-            {question.pairs.map((pair) => (
-              <button
-                key={pair.answer}
-                className={`option ${
-                  matchingPairs.find((entry) => entry.prompt === matchingPrompt)?.answer === pair.answer
-                    ? "selected"
-                    : ""
-                }`}
-                disabled={!matchingPrompt}
-                onClick={() => {
-                  if (!matchingPrompt) return;
-                  toggleMatchingPair(matchingPrompt, pair.answer);
-                }}
-              >
-                {pair.answer}
-              </button>
-            ))}
-          </div>
+          <div className="matching-puzzle">
+            <div className="puzzle-board">
+              {(matchingPromptOrder.length ? matchingPromptOrder : question.pairs.map((pair) => pair.prompt)).map(
+                (prompt) => {
+                  const assigned = matchingPairs.find((entry) => entry.prompt === prompt)?.answer || "";
+                  const filled = Boolean(assigned);
+                  return (
+                    <div className="puzzle-row" key={prompt}>
+                      <div className="puzzle-piece puzzle-prompt">{prompt}</div>
+                      <div
+                        className={`puzzle-slot ${filled ? "filled" : ""}`}
+                        onDragOver={(event) => event.preventDefault()}
+                        onDrop={(event) => {
+                          event.preventDefault();
+                          const payload = readMatchingDragPayload(event);
+                          if (!payload) return;
+                          applyMatchingAssignment(prompt, payload.answer, payload.fromPrompt);
+                        }}
+                      >
+                        {filled ? (
+                          <>
+                            <div
+                              className="puzzle-piece puzzle-answer"
+                              draggable
+                              onDragStart={(event) => startMatchingDrag(event, assigned, prompt)}
+                            >
+                              {assigned}
+                            </div>
+                            <button
+                              className="ghost-button puzzle-clear"
+                              type="button"
+                              onClick={() => clearMatchingAssignment(prompt)}
+                            >
+                              Clear
+                            </button>
+                          </>
+                        ) : (
+                          <span className="puzzle-placeholder">Drop answer here</span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                }
+              )}
+            </div>
+
+            <div
+              className="puzzle-pool"
+              onDragOver={(event) => event.preventDefault()}
+              onDrop={(event) => {
+                event.preventDefault();
+                const payload = readMatchingDragPayload(event);
+                if (!payload?.fromPrompt) return;
+                clearMatchingAssignment(payload.fromPrompt);
+              }}
+            >
+              {(matchingAnswerOrder.length ? matchingAnswerOrder : question.pairs.map((pair) => pair.answer))
+                .filter((answer) => !matchingPairs.some((entry) => entry.answer === answer))
+                .map((answer) => (
+                  <div
+                    key={answer}
+                    className="puzzle-piece puzzle-answer"
+                    draggable
+                    onDragStart={(event) => startMatchingDrag(event, answer, "")}
+                  >
+                    {answer}
+                  </div>
+                ))}
+              {(matchingAnswerOrder.length ? matchingAnswerOrder : question.pairs.map((pair) => pair.answer))
+                .filter((answer) => !matchingPairs.some((entry) => entry.answer === answer)).length === 0 ? (
+                <span className="puzzle-pool-empty">All answers placed.</span>
+              ) : null}
+            </div>
           </div>
         </div>
       ) : null}
@@ -747,7 +891,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         </div>
       ) : null}
 
-      <button className="primary-button" onClick={submitAnswer} disabled={!canSubmit()}>
+      <button
+        className="primary-button"
+        onClick={submitAnswer}
+        disabled={!canSubmit()}
+      >
         Check
       </button>
     </section>
