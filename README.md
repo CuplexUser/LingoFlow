@@ -55,10 +55,9 @@ Optional environment variables:
 
 Create `server/.env` (copy from `server/.env.example`) to set server-side variables in local development.
 
-## Beta Categories And Dev Unlock
+## Dev Unlock
 
-- In Setup, enable `Enable beta lessons and experimental categories` to show experimental categories in the catalog.
-- In dev builds only, a second Setup toggle appears: `Dev only: unlock all lessons (test user)`.
+- In dev builds only, a Setup toggle appears: `Dev only: unlock all lessons (test user)`.
   - This forces all categories to be startable immediately for the signed-in user.
   - The server only honors this flag when `NODE_ENV !== "production"`.
 
