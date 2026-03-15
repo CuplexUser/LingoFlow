@@ -183,13 +183,13 @@ test("loads and resumes an active session from local storage", async () => {
   expect(screen.getByRole("button", { name: "Exit Session" })).toBeInTheDocument();
 });
 
-test("learn page shows a single next-up focus", async () => {
+test("learn page highlights the recommended focus and catalog toggle", async () => {
   setupApiFixtures();
   render(<App />);
 
-  await screen.findByText("Next Up");
+  await screen.findByText("Recommended Next");
   expect(screen.getByRole("button", { name: "Start Recommended Session" })).toBeInTheDocument();
-  expect(screen.queryByRole("button", { name: "Show Catalog" })).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Show Catalog" })).toBeInTheDocument();
 });
 
 test("shows updated level-up style session status after completion", async () => {
