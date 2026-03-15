@@ -16,6 +16,11 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Multi-user account support with auth (`register`, `verify-email`, `login`, `google`, `me`) and user-scoped persistence
 - Dedicated login/register UI with token-based session persistence and sign-out
 - Multi-language course support per account with smooth in-app course switching
+- Per-language session resume with autosaved session snapshots
+- Learn home with a recommended next focus and expandable full catalog
+- Practice modes for speaking, listening, and word-matching drills
+- Stats dashboard with completion, accuracy, weak-spot insights, and per-language rollups
+- Theme switcher (auto/light/dark)
 - Language options: `English`, `Spanish`, `Russian`, `Italian`, `Swedish`
 
 ## Tech Stack
@@ -80,8 +85,9 @@ npm run start:dist --prefix server
 ```text
 client/
   src/App.tsx        # App shell + orchestration
-  src/components/    # Learn/Setup/Stats/SessionPlayer components
+  src/components/    # Learn/Practice/Setup/Stats/SessionPlayer components
                   # + AuthPage (login/register/google sign-in)
+                  # + ContributePage and contribution flows
   src/__tests__/     # Frontend tests (Vitest + Testing Library)
   src/test/          # Test setup
   src/api.ts         # API client
