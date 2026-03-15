@@ -2,11 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 import { api } from "./api";
 import contributeIcon from "./assets/icon-contribute.svg";
 import learnIcon from "./assets/icon-learn.svg";
+import practiceIcon from "./assets/icon-practice.svg";
 import setupIcon from "./assets/icon-setup.svg";
 import statsIcon from "./assets/icon-stats.svg";
 import { AuthPage } from "./components/AuthPage";
 import { ContributePage } from "./components/ContributePage";
 import { LearnPage } from "./components/LearnPage";
+import { PracticePage } from "./components/PracticePage";
 import { SetupPage } from "./components/SetupPage";
 import { StatsPage } from "./components/StatsPage";
 import {
@@ -20,7 +22,7 @@ import {
 import { getPageFromPathname, getSystemTheme, resolveTheme } from "./utils/theme";
 
 type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
-type AppPage = "learn" | "contribute" | "setup" | "stats";
+type AppPage = "learn" | "practice" | "contribute" | "setup" | "stats";
 const ACTIVE_COURSE_LANGUAGE_STORAGE_KEY = "lingoflow_active_course_language";
 const ACTIVE_SESSIONS_STORAGE_KEY = "lingoflow_active_sessions";
 
@@ -502,6 +504,33 @@ export default function App() {
     }
   }
 
+  async function startPractice(mode: string, category: any) {
+    if (!settings || !activeCourseLanguage) return;
+    if (!category) return;
+
+    try {
+      const session: any = await api.startSession({
+        language: activeCourseLanguage,
+        category: category.id,
+        count: 10,
+        mode
+      });
+
+      setActiveSessionsByLanguage((prev) => ({
+        ...prev,
+        [activeCourseLanguage]: {
+          ...session,
+          categoryLabel: category.label,
+          practiceMode: mode
+        }
+      }));
+      navigateToPage("practice");
+      setStatusMessage("");
+    } catch (_error) {
+      setStatusMessage("Could not start a practice session.");
+    }
+  }
+
   async function finishSession(sessionReport: any) {
     if (!activeSession || !settings) return;
 
@@ -587,6 +616,7 @@ export default function App() {
 
   const tabs = [
     { id: "learn", label: "Learn", icon: learnIcon },
+    { id: "practice", label: "Practice", icon: practiceIcon },
     { id: "contribute", label: "Contribute", icon: contributeIcon },
     { id: "setup", label: "Setup", icon: setupIcon },
     { id: "stats", label: "Stats", icon: statsIcon }
@@ -664,10 +694,13 @@ export default function App() {
 
       {statusMessage ? <div className="status">{statusMessage}</div> : null}
 
-      {activeSession && activePage !== "learn" ? (
+      {activeSession && activePage !== "learn" && activePage !== "practice" ? (
         <div className="status">
           Session paused in <strong>{activeSession.categoryLabel}</strong>.
-          <button className="ghost-button" onClick={() => navigateToPage("learn")}>
+          <button
+            className="ghost-button"
+            onClick={() => navigateToPage(activeSession.practiceMode ? "practice" : "learn")}
+          >
             Resume Session
           </button>
         </div>
@@ -703,6 +736,35 @@ export default function App() {
           }
           onOpenSetup={() => navigateToPage("setup")}
           onOpenStats={() => navigateToPage("stats")}
+        />
+      ) : null}
+
+      {activePage === "practice" ? (
+        <PracticePage
+          courseCategories={courseCategories}
+          activeSession={activeSession}
+          onStartPractice={startPractice}
+          onFinishSession={finishSession}
+          onExitSession={() => {
+            if (!activeCourseLanguage) return;
+            setActiveSessionsByLanguage((prev) => {
+              const next = { ...prev };
+              delete next[activeCourseLanguage];
+              return next;
+            });
+          }}
+          onSessionSnapshot={(snapshot: any) =>
+            setActiveSessionsByLanguage((prev) => {
+              if (!activeCourseLanguage || !prev[activeCourseLanguage]) return prev;
+              return {
+                ...prev,
+                [activeCourseLanguage]: {
+                  ...prev[activeCourseLanguage],
+                  resumeState: snapshot
+                }
+              };
+            })
+          }
         />
       ) : null}
 

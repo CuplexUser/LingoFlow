@@ -35,6 +35,30 @@ function stripExercisePrefix(text) {
     .trim();
 }
 
+function filterItemsForMode(items, mode) {
+  const normalizedMode = String(mode || "").trim().toLowerCase();
+  if (!normalizedMode) return items;
+
+  const filtered = items.filter((item) => {
+    const exerciseType = String(item?.exerciseType || "").trim().toLowerCase();
+    if (normalizedMode === "speak") {
+      return exerciseType === "pronunciation" && countWords(resolveAnswer(item)) <= 6;
+    }
+    if (normalizedMode === "listen") {
+      return countWords(resolveAnswer(item)) > 0;
+    }
+    if (normalizedMode === "words") {
+      return countWords(resolveAnswer(item)) <= 1;
+    }
+    return true;
+  });
+
+  if (filtered.length < Math.min(4, items.length)) {
+    return items;
+  }
+  return filtered;
+}
+
 function buildMediaFields(item) {
   return {
     hints: Array.isArray(item?.hints) ? item.hints : [],
@@ -60,6 +84,11 @@ function createCourseSelectors(course) {
     return course[language]?.[category] || [];
   }
 
+  function getAllItems(language) {
+    const catalog = course[language] || {};
+    return CATEGORIES.flatMap((category) => catalog[category.id] || []);
+  }
+
   function getCourseOverview(language) {
     const catalog = course[language] || {};
     return CATEGORIES.map((category) => {
@@ -82,6 +111,7 @@ function createCourseSelectors(course) {
 
   return {
     getCategoryItems,
+    getAllItems,
     getCourseOverview
   };
 }
@@ -117,6 +147,24 @@ function pickLevelAwareDistractors(pool, item, count) {
     ? sameBand
     : pool.filter((candidate) => resolveAnswer(candidate) !== resolveAnswer(item));
   return shuffle(source.map((candidate) => resolveAnswer(candidate))).slice(0, count);
+}
+
+function dedupeItems(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const id = String(item?.id || "");
+    if (!id || seen.has(id)) return false;
+    seen.add(id);
+    return true;
+  });
+}
+
+function buildPracticePool(getAllItems, language, practicePool) {
+  const allItems = getAllItems(language);
+  const poolItems = typeof practicePool === "function"
+    ? practicePool(language)
+    : Array.isArray(practicePool?.[language]) ? practicePool[language] : [];
+  return dedupeItems([...poolItems, ...allItems]);
 }
 
 function createQuestion(item, pool, idx, category, language, englishRoleplayAnswerByPrompt) {
@@ -255,7 +303,57 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
   };
 }
 
-function createSessionGenerator(getCategoryItems) {
+function createPracticeSpeakQuestion(item) {
+  const answer = resolveAnswer(item);
+  return {
+    id: item.id,
+    type: "practice_speak",
+    exerciseType: "practice_speak",
+    level: item.level,
+    prompt: "Pronounce the phrase.",
+    answer,
+    correctAnswer: answer,
+    acceptedAnswers: buildAcceptedAnswers(answer),
+    objective: "practice-speak",
+    ...buildMediaFields(item)
+  };
+}
+
+function createPracticeListenQuestion(item, pool) {
+  const answer = resolveAnswer(item);
+  const distractors = pickLevelAwareDistractors(pool, item, 3);
+  return {
+    id: item.id,
+    type: "practice_listen",
+    exerciseType: "practice_listen",
+    level: item.level,
+    prompt: "Listen and choose the correct phrase.",
+    answer,
+    correctAnswer: answer,
+    options: shuffle([answer, ...distractors]),
+    acceptedAnswers: buildAcceptedAnswers(answer),
+    objective: "practice-listen",
+    ...buildMediaFields(item)
+  };
+}
+
+function createPracticeWordsQuestion(items) {
+  const pairs = items.map((item) => ({
+    left: resolveAnswer(item),
+    right: stripExercisePrefix(item.prompt || "")
+  })).filter((pair) => pair.left && pair.right && pair.left !== pair.right);
+
+  return {
+    id: `practice-words-${Date.now()}`,
+    type: "practice_words",
+    exerciseType: "practice_words",
+    level: "a1",
+    prompt: "Match each word to its translation.",
+    pairs
+  };
+}
+
+function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
   return function generateSession({
     language,
     category,
@@ -264,13 +362,76 @@ function createSessionGenerator(getCategoryItems) {
     recentAccuracy = null,
     selfRatedLevel = "a1",
     dueItemIds = [],
-    weakItemIds = []
+    weakItemIds = [],
+    mode
   }) {
-    const all = getCategoryItems(language, category);
+    const isPracticeMode = Boolean(mode);
+    const sourceItems = isPracticeMode
+      ? buildPracticePool(getAllItems, language, practicePool)
+      : getCategoryItems(language, category);
+    const all = filterItemsForMode(sourceItems, mode);
     if (!all.length) {
       return {
         recommendedLevel: "a1",
         questions: []
+      };
+    }
+
+    if (mode === "words") {
+      const selected = [];
+      const usedLeft = new Set();
+      const usedRight = new Set();
+      const wordPools = [
+        all.filter((item) => countWords(resolveAnswer(item)) <= 1),
+        all.filter((item) => countWords(resolveAnswer(item)) <= 2),
+        all.filter((item) => countWords(resolveAnswer(item)) <= 3),
+        all
+      ];
+
+      wordPools.forEach((pool) => {
+        shuffle(pool).forEach((item) => {
+          if (selected.length >= 8) return;
+          const left = resolveAnswer(item);
+          const right = stripExercisePrefix(item.prompt || "");
+          if (!left || !right || left === right) return;
+          if (countWords(left) > 1 || countWords(right) > 1) return;
+          if (usedLeft.has(left) || usedRight.has(right)) return;
+          usedLeft.add(left);
+          usedRight.add(right);
+          selected.push(item);
+        });
+      });
+
+      if (selected.length < 8) {
+        return { recommendedLevel: "a1", questions: [] };
+      }
+      return {
+        recommendedLevel: "a1",
+        difficultyMultiplier: LEVEL_XP_MULTIPLIER.a1,
+        questions: [createPracticeWordsQuestion(selected)]
+      };
+    }
+
+    if (mode === "speak") {
+      const speakPool = all.filter((item) =>
+        String(item?.exerciseType || "").trim().toLowerCase() === "pronunciation" &&
+        countWords(resolveAnswer(item)) <= 6
+      );
+      const selected = shuffle(speakPool.length ? speakPool : all).slice(0, count);
+      return {
+        recommendedLevel: selfRatedLevel,
+        difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
+        questions: selected.map((item) => createPracticeSpeakQuestion(item))
+      };
+    }
+
+    if (mode === "listen") {
+      const listenPool = all.filter((item) => countWords(resolveAnswer(item)) <= 10);
+      const selected = shuffle(listenPool.length ? listenPool : all).slice(0, count);
+      return {
+        recommendedLevel: selfRatedLevel,
+        difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
+        questions: selected.map((item) => createPracticeListenQuestion(item, all))
       };
     }
 

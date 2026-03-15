@@ -60,6 +60,55 @@ test("evaluateAttempt accepts close pronunciation matches", () => {
   assert.equal(wrong.correct, false);
 });
 
+test("evaluateAttempt supports practice speak and listen", () => {
+  const speak = {
+    id: "ps1",
+    type: "practice_speak",
+    answer: "I read books.",
+    acceptedAnswers: ["I read books"]
+  };
+  const listen = {
+    id: "pl1",
+    type: "practice_listen",
+    answer: "I eat fruit."
+  };
+
+  const speakOk = evaluateAttempt(speak, { textAnswer: "I read bokks" });
+  const listenOk = evaluateAttempt(listen, { selectedOption: "I eat fruit." });
+  const listenWrong = evaluateAttempt(listen, { selectedOption: "I drink tea." });
+
+  assert.equal(speakOk.correct, true);
+  assert.equal(listenOk.correct, true);
+  assert.equal(listenWrong.correct, false);
+});
+
+test("evaluateAttempt supports practice words pairs", () => {
+  const question = {
+    id: "pw1",
+    type: "practice_words",
+    pairs: [
+      { left: "gato", right: "cat" },
+      { left: "perro", right: "dog" }
+    ]
+  };
+
+  const ok = evaluateAttempt(question, {
+    practicePairs: [
+      { left: "perro", right: "dog" },
+      { left: "gato", right: "cat" }
+    ]
+  });
+  const wrong = evaluateAttempt(question, {
+    practicePairs: [
+      { left: "perro", right: "cat" },
+      { left: "gato", right: "dog" }
+    ]
+  });
+
+  assert.equal(ok.correct, true);
+  assert.equal(wrong.correct, false);
+});
+
 test("evaluateAttempt grades matching exercises order-independently", () => {
   const question = {
     id: "m1",
@@ -119,6 +168,49 @@ test("generateSession includes expanded exercise types", () => {
   assert.ok(types.has("cloze_sentence"));
   assert.ok(types.has("dictation_sentence"));
   assert.ok(types.has("dialogue_turn"));
+});
+
+test("generateSession creates practice modes", () => {
+  const speak = generateSession({
+    language: "spanish",
+    category: "essentials",
+    mastery: 10,
+    count: 6,
+    selfRatedLevel: "a1",
+    dueItemIds: [],
+    weakItemIds: [],
+    mode: "speak"
+  });
+  assert.ok(speak.questions.length >= 1);
+  assert.equal(speak.questions[0].type, "practice_speak");
+
+  const listen = generateSession({
+    language: "spanish",
+    category: "essentials",
+    mastery: 10,
+    count: 6,
+    selfRatedLevel: "a1",
+    dueItemIds: [],
+    weakItemIds: [],
+    mode: "listen"
+  });
+  assert.ok(listen.questions.length >= 1);
+  assert.equal(listen.questions[0].type, "practice_listen");
+
+  const words = generateSession({
+    language: "spanish",
+    category: "essentials",
+    mastery: 10,
+    count: 6,
+    selfRatedLevel: "a1",
+    dueItemIds: [],
+    weakItemIds: [],
+    mode: "words"
+  });
+  if (words.questions.length) {
+    assert.equal(words.questions[0].type, "practice_words");
+    assert.equal(words.questions[0].pairs.length, 8);
+  }
 });
 
 test("recordSession updates mastery and daily xp", () => {

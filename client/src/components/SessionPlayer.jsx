@@ -92,6 +92,21 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const [pronunciationTranscript, setPronunciationTranscript] = useState(
     () => resumeState.pronunciationTranscript || ""
   );
+  const [practiceWordMatches, setPracticeWordMatches] = useState(
+    () => resumeState.practiceWordMatches || []
+  );
+  const [practiceLeftOrder, setPracticeLeftOrder] = useState(
+    () => resumeState.practiceLeftOrder || []
+  );
+  const [practiceRightOrder, setPracticeRightOrder] = useState(
+    () => resumeState.practiceRightOrder || []
+  );
+  const [practiceSelection, setPracticeSelection] = useState(
+    () => resumeState.practiceSelection || { left: "", right: "" }
+  );
+  const [practiceFeedback, setPracticeFeedback] = useState(
+    () => resumeState.practiceFeedback || ""
+  );
   const [matchingPairs, setMatchingPairs] = useState(() => resumeState.matchingPairs || []);
   const [matchingPrompt, setMatchingPrompt] = useState(null);
   const [matchingPromptOrder, setMatchingPromptOrder] = useState(() => resumeState.matchingPromptOrder || []);
@@ -100,6 +115,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   const draggedWordIndexRef = useRef(null);
   const builtWordDropHandledRef = useRef(false);
   const audioContextRef = useRef(null);
+  const practiceCompletedRef = useRef(false);
 
   const supportsSpeech = typeof window !== "undefined" &&
     "speechSynthesis" in window &&
@@ -145,6 +161,28 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   }, [question?.id, question?.type]);
 
   useEffect(() => {
+    function shuffleArray(items) {
+      const next = [...items];
+      for (let i = next.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [next[i], next[j]] = [next[j], next[i]];
+      }
+      return next;
+    }
+
+    if (question?.type !== "practice_words") return;
+    const pairs = Array.isArray(question.pairs) ? question.pairs : [];
+    const lefts = pairs.map((pair) => pair.left).filter(Boolean);
+    const rights = pairs.map((pair) => pair.right).filter(Boolean);
+    setPracticeLeftOrder(shuffleArray(lefts));
+    setPracticeRightOrder(shuffleArray(rights));
+    setPracticeWordMatches([]);
+    setPracticeSelection({ left: "", right: "" });
+    setPracticeFeedback("");
+    practiceCompletedRef.current = false;
+  }, [question?.id, question?.type]);
+
+  useEffect(() => {
     const snapshot = {
       questionsQueue,
       fixedQuestionCount,
@@ -161,6 +199,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       revealedAnswers,
       flashcardRevealed,
       pronunciationTranscript,
+      practiceWordMatches,
+      practiceLeftOrder,
+      practiceRightOrder,
+      practiceSelection,
+      practiceFeedback,
       matchingPairs,
       matchingPrompt,
       matchingPromptOrder,
@@ -187,6 +230,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     revealedAnswers,
     flashcardRevealed,
     pronunciationTranscript,
+    practiceWordMatches,
+    practiceLeftOrder,
+    practiceRightOrder,
+    practiceSelection,
+    practiceFeedback,
     matchingPairs,
     matchingPrompt,
     matchingPromptOrder,
@@ -378,6 +426,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     setQuestionMistakes(0);
     setFlashcardRevealed(false);
     setPronunciationTranscript("");
+    setPracticeWordMatches([]);
+    setPracticeSelection({ left: "", right: "" });
+    setPracticeFeedback("");
+    setPracticeLeftOrder([]);
+    setPracticeRightOrder([]);
     setMatchingPairs([]);
     setMatchingPrompt(null);
     setMatchingPromptOrder([]);
@@ -385,17 +438,25 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   }
 
   function isCurrentAnswerCorrect() {
-    if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay") {
+    if (
+      question.type === "mc_sentence" ||
+      question.type === "dialogue_turn" ||
+      question.type === "roleplay" ||
+      question.type === "practice_listen"
+    ) {
       return normalizeSentence(selectedOption) === normalizeSentence(question.answer);
     }
     if (question.type === "cloze_sentence") return selectedOption === question.clozeAnswer;
     if (question.type === "flashcard") return selectedOption === "known";
-    if (question.type === "pronunciation") {
+    if (question.type === "pronunciation" || question.type === "practice_speak") {
       return isPronunciationCloseEnough(
         question.answer,
         pronunciationTranscript || selectedOption,
         0.9
       );
+    }
+    if (question.type === "practice_words") {
+      return practiceWordMatches.length === (question.pairs?.length || 0);
     }
     if (question.type === "matching") {
       return matchingPairs.length === (question.pairs?.length || 0) &&
@@ -414,13 +475,17 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       question.type === "mc_sentence" ||
       question.type === "dialogue_turn" ||
       question.type === "roleplay" ||
+      question.type === "practice_listen" ||
       question.type === "cloze_sentence"
     ) {
       return Boolean(selectedOption);
     }
     if (question.type === "flashcard") return flashcardRevealed && Boolean(selectedOption);
-    if (question.type === "pronunciation") return Boolean(pronunciationTranscript || selectedOption);
+    if (question.type === "pronunciation" || question.type === "practice_speak") {
+      return Boolean(pronunciationTranscript || selectedOption);
+    }
     if (question.type === "matching") return matchingPairs.length === (question.pairs?.length || 0);
+    if (question.type === "practice_words") return false;
     return selectedTokenIndexes.length > 0;
   }
 
@@ -433,7 +498,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         question.type === "dialogue_turn" ||
         question.type === "roleplay" ||
         question.type === "cloze_sentence" ||
-        question.type === "flashcard"
+        question.type === "flashcard" ||
+        question.type === "practice_listen"
           ? selectedOption
           : "",
       builtSentence:
@@ -441,7 +507,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
           ? builtSentence
           : "",
       textAnswer: question.type === "pronunciation" ? (pronunciationTranscript || selectedOption) : "",
-      matchingPairs: question.type === "matching" ? matchingPairs : []
+      matchingPairs: question.type === "matching" ? matchingPairs : [],
+      practicePairs: question.type === "practice_words" ? practiceWordMatches : []
     };
   }
 
@@ -541,6 +608,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     } else if (question.type === "pronunciation") {
       setPronunciationTranscript(question.answer);
       setSelectedOption(question.answer);
+    } else if (question.type === "practice_speak") {
+      setPronunciationTranscript(question.answer);
+      setSelectedOption(question.answer);
     } else if (question.type === "matching") {
       setMatchingPairs((question.pairs || []).map((pair) => ({ prompt: pair.prompt, answer: pair.answer })));
     } else {
@@ -569,6 +639,61 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         : prev
     );
   }
+
+  function handlePracticeWordPick(side, value) {
+    setPracticeFeedback("");
+    const selected = {
+      left: side === "left" ? value : practiceSelection.left,
+      right: side === "right" ? value : practiceSelection.right
+    };
+    setPracticeSelection(selected);
+    if (!selected.left || !selected.right) return;
+    const correctPair = (question.pairs || []).find((pair) =>
+      pair.left === selected.left && pair.right === selected.right
+    );
+    if (correctPair) {
+      setPracticeWordMatches((prev) => {
+        if (prev.some((pair) => pair.left === selected.left || pair.right === selected.right)) {
+          return prev;
+        }
+        return [...prev, { left: selected.left, right: selected.right }];
+      });
+      setPracticeFeedback("Correct match.");
+    } else {
+      setPracticeFeedback("Incorrect match. Try again.");
+    }
+    setPracticeSelection({ left: "", right: "" });
+  }
+
+  useEffect(() => {
+    if (question.type !== "practice_words") return;
+    if (!question.pairs?.length) return;
+    if (practiceWordMatches.length !== question.pairs.length) return;
+    if (practiceCompletedRef.current) return;
+    practiceCompletedRef.current = true;
+    const attemptEntry = buildAttemptEntry();
+    const nextAttemptLog = [...attemptLog, attemptEntry];
+    setAttemptLog(nextAttemptLog);
+    onFinish({
+      attempts: nextAttemptLog,
+      score,
+      maxScore: fixedQuestionCount,
+      mistakes: totalMistakes,
+      hintsUsed,
+      revealedAnswers
+    });
+  }, [
+    question.type,
+    question.pairs,
+    practiceWordMatches,
+    attemptLog,
+    score,
+    fixedQuestionCount,
+    totalMistakes,
+    hintsUsed,
+    revealedAnswers,
+    onFinish
+  ]);
 
   function renderBuildInterface(dictation = false) {
     return (
@@ -673,7 +798,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
           <span className="hint-chip">{question.hints[0]}</span>
         </div>
       ) : null}
-      {question.type === "pronunciation" ? (
+      {question.type === "pronunciation" || question.type === "practice_speak" ? (
         <p className="pronunciation-target">
           <strong>Say:</strong> {question.answer}
         </p>
@@ -697,6 +822,24 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
               </button>
               <button type="button" className="speak-button" onClick={() => speakAlternative(option)}>
                 Speak
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : null}
+
+      {question.type === "practice_listen" ? (
+        <div className="options">
+          {question.options.map((option) => (
+            <div key={option} className="option-row">
+              <button
+                className={`option ${selectedOption === option ? "selected" : ""}`}
+                onClick={() => {
+                  setSelectedOption(option);
+                  setFeedback(null);
+                }}
+              >
+                {option}
               </button>
             </div>
           ))}
@@ -867,6 +1010,103 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         </div>
       ) : null}
 
+      {question.type === "practice_speak" ? (
+        <div className="pronunciation-shell">
+          <div className="hero-actions">
+            <button className="ghost-button" type="button" onClick={startPronunciationCheck}>
+              Start Pronunciation Check
+            </button>
+          </div>
+          <label>
+            Transcript
+            <input
+              value={pronunciationTranscript}
+              onChange={(event) => {
+                setPronunciationTranscript(event.target.value);
+                setSelectedOption(event.target.value);
+                setFeedback(null);
+              }}
+              placeholder="Speech transcript or typed fallback"
+            />
+          </label>
+        </div>
+      ) : null}
+
+      {question.type === "practice_listen" ? (
+        <div className="pronunciation-shell">
+          <div className="hero-actions">
+            <button
+              className="speak-button"
+              type="button"
+              onClick={() => {
+                if (question.audioUrl) {
+                  playAudioUrl(question.audioUrl);
+                } else {
+                  speakText(question.answer, getSpeechLanguage());
+                }
+              }}
+            >
+              Play Audio
+            </button>
+          </div>
+        </div>
+      ) : null}
+
+      {question.type === "practice_words" ? (
+        <div className="matching-shell practice-words">
+          <p className="matching-instructions">
+            Tap a word on the left, then its translation on the right. Correct pairs stay locked.
+          </p>
+          <div className="practice-words-grid">
+            <div className="practice-words-column">
+              {(practiceLeftOrder.length ? practiceLeftOrder : (question.pairs || []).map((pair) => pair.left)).map(
+                (left) => {
+                  const matched = practiceWordMatches.find((pair) => pair.left === left);
+                  const selected = practiceSelection.left === left;
+                  return (
+                    <button
+                      key={left}
+                      className={`puzzle-piece practice-word ${matched ? "filled" : ""} ${selected ? "selected" : ""}`}
+                      type="button"
+                      onClick={() => {
+                        if (matched) return;
+                        handlePracticeWordPick("left", left);
+                      }}
+                    >
+                      {left}
+                      {matched ? <span className="practice-word-match">✓</span> : null}
+                    </button>
+                  );
+                }
+              )}
+            </div>
+            <div className="practice-words-column">
+              {(practiceRightOrder.length ? practiceRightOrder : (question.pairs || []).map((pair) => pair.right)).map(
+                (right) => {
+                  const matched = practiceWordMatches.find((pair) => pair.right === right);
+                  const selected = practiceSelection.right === right;
+                  return (
+                    <button
+                      key={right}
+                      className={`puzzle-piece practice-word ${matched ? "filled" : ""} ${selected ? "selected" : ""}`}
+                      type="button"
+                      onClick={() => {
+                        if (matched) return;
+                        handlePracticeWordPick("right", right);
+                      }}
+                    >
+                      {right}
+                      {matched ? <span className="practice-word-match">✓</span> : null}
+                    </button>
+                  );
+                }
+              )}
+            </div>
+          </div>
+          {practiceFeedback ? <p className="lock-note">{practiceFeedback}</p> : null}
+        </div>
+      ) : null}
+
       {feedback ? (
         <div className={`feedback ${feedback.type}`}>
           <strong>{feedback.message}</strong>
@@ -900,13 +1140,15 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         </div>
       ) : null}
 
-      <button
-        className="primary-button"
-        onClick={submitAnswer}
-        disabled={!canSubmit()}
-      >
-        Check
-      </button>
+      {question.type !== "practice_words" ? (
+        <button
+          className="primary-button"
+          onClick={submitAnswer}
+          disabled={!canSubmit()}
+        >
+          Check
+        </button>
+      ) : null}
     </section>
   );
 }

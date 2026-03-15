@@ -25,7 +25,10 @@ type QuestionType =
   | "roleplay"
   | "flashcard"
   | "matching"
-  | "pronunciation";
+  | "pronunciation"
+  | "practice_speak"
+  | "practice_listen"
+  | "practice_words";
 
 interface SessionQuestion {
   id: string;
@@ -42,6 +45,7 @@ interface SessionAttempt {
   textAnswer?: string;
   selectedOption?: string;
   matchingPairs?: Array<{ prompt: string; answer: string }>;
+  practicePairs?: Array<{ left: string; right: string }>;
 }
 
 interface AttemptEvaluation {
@@ -175,7 +179,7 @@ function isPronunciationMatch(question: SessionQuestion, submitted: string): boo
 }
 
 function classifyError(question: SessionQuestion, submitted: string): ErrorType {
-  if (question.type === "build_sentence" || question.type === "pronunciation") {
+  if (question.type === "build_sentence" || question.type === "pronunciation" || question.type === "practice_speak") {
     const expectedTokens = normalizeSentence(question.answer).split(" ").filter(Boolean);
     const actualTokens = normalizeSentence(submitted).split(" ").filter(Boolean);
     if (!actualTokens.length) return "missing_answer";
@@ -198,7 +202,7 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
   if (question.type === "dictation_sentence") {
     submitted = attempt?.builtSentence || attempt?.textAnswer || "";
   }
-  if (question.type === "pronunciation") {
+  if (question.type === "pronunciation" || question.type === "practice_speak") {
     submitted = attempt?.textAnswer || attempt?.builtSentence || "";
     const correct = isPronunciationMatch(question, submitted);
     return {
@@ -207,7 +211,12 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
       submitted
     };
   }
-  if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay") {
+  if (
+    question.type === "mc_sentence" ||
+    question.type === "dialogue_turn" ||
+    question.type === "roleplay" ||
+    question.type === "practice_listen"
+  ) {
     submitted = attempt?.selectedOption || "";
   }
   if (question.type === "flashcard") {
@@ -218,16 +227,23 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
       submitted
     };
   }
-  if (question.type === "matching") {
-    const submittedPairs = Array.isArray(attempt?.matchingPairs) ? attempt.matchingPairs : [];
-    const expectedPairs = Array.isArray((question as SessionQuestion & { pairs?: Array<{ prompt: string; answer: string }> }).pairs)
-      ? (question as SessionQuestion & { pairs?: Array<{ prompt: string; answer: string }> }).pairs
+  if (question.type === "matching" || question.type === "practice_words") {
+    const isPracticeWords = question.type === "practice_words";
+    const submittedPairs = Array.isArray(
+      isPracticeWords ? attempt?.practicePairs : attempt?.matchingPairs
+    )
+      ? (isPracticeWords ? attempt?.practicePairs : attempt?.matchingPairs)
+      : [];
+    const expectedPairs = Array.isArray(
+      (question as SessionQuestion & { pairs?: Array<{ prompt?: string; answer?: string; left?: string; right?: string }> }).pairs
+    )
+      ? (question as SessionQuestion & { pairs?: Array<{ prompt?: string; answer?: string; left?: string; right?: string }> }).pairs
       : [];
     const correct = expectedPairs.length > 0 &&
       submittedPairs.length === expectedPairs.length &&
       expectedPairs.every((expected) => submittedPairs.some((pair) =>
-        normalizeSentence(pair.prompt) === normalizeSentence(expected.prompt) &&
-        normalizeSentence(pair.answer) === normalizeSentence(expected.answer)
+        normalizeSentence(isPracticeWords ? pair.left : pair.prompt) === normalizeSentence(isPracticeWords ? expected.left : expected.prompt) &&
+        normalizeSentence(isPracticeWords ? pair.right : pair.answer) === normalizeSentence(isPracticeWords ? expected.right : expected.answer)
       ));
     return {
       correct,

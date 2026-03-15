@@ -1,0 +1,52 @@
+{
+  "english": [
+    { "prompt": "gato", "answer": "cat" },
+    { "prompt": "perro", "answer": "dog" },
+    { "prompt": "agua", "answer": "water" },
+    { "prompt": "pan", "answer": "bread" },
+    { "prompt": "libro", "answer": "book" },
+    { "prompt": "casa", "answer": "house" },
+    { "prompt": "sol", "answer": "sun" },
+    { "prompt": "noche", "answer": "night" }
+  ],
+  "spanish": [
+    { "prompt": "cat", "answer": "gato" },
+    { "prompt": "dog", "answer": "perro" },
+    { "prompt": "water", "answer": "agua" },
+    { "prompt": "bread", "answer": "pan" },
+    { "prompt": "book", "answer": "libro" },
+    { "prompt": "house", "answer": "casa" },
+    { "prompt": "sun", "answer": "sol" },
+    { "prompt": "night", "answer": "noche" }
+  ],
+  "italian": [
+    { "prompt": "cat", "answer": "gatto" },
+    { "prompt": "dog", "answer": "cane" },
+    { "prompt": "water", "answer": "acqua" },
+    { "prompt": "bread", "answer": "pane" },
+    { "prompt": "book", "answer": "libro" },
+    { "prompt": "house", "answer": "casa" },
+    { "prompt": "sun", "answer": "sole" },
+    { "prompt": "night", "answer": "notte" }
+  ],
+  "russian": [
+    { "prompt": "cat", "answer": "кот" },
+    { "prompt": "dog", "answer": "собака" },
+    { "prompt": "water", "answer": "вода" },
+    { "prompt": "bread", "answer": "хлеб" },
+    { "prompt": "book", "answer": "книга" },
+    { "prompt": "house", "answer": "дом" },
+    { "prompt": "sun", "answer": "солнце" },
+    { "prompt": "night", "answer": "ночь" }
+  ],
+  "swedish": [
+    { "prompt": "cat", "answer": "katt" },
+    { "prompt": "dog", "answer": "hund" },
+    { "prompt": "water", "answer": "vatten" },
+    { "prompt": "bread", "answer": "bröd" },
+    { "prompt": "book", "answer": "bok" },
+    { "prompt": "house", "answer": "hus" },
+    { "prompt": "sun", "answer": "sol" },
+    { "prompt": "night", "answer": "natt" }
+  ]
+}

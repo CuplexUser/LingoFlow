@@ -183,19 +183,13 @@ test("loads and resumes an active session from local storage", async () => {
   expect(screen.getByRole("button", { name: "Exit Session" })).toBeInTheDocument();
 });
 
-test("learn page keeps the full catalog collapsed by default", async () => {
+test("learn page shows a single next-up focus", async () => {
   setupApiFixtures();
-  const user = userEvent.setup();
   render(<App />);
 
-  await screen.findByText("Recommended Next");
+  await screen.findByText("Next Up");
   expect(screen.getByRole("button", { name: "Start Recommended Session" })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: "Show Catalog" })).toBeInTheDocument();
-  expect(screen.queryByRole("button", { name: "Start Challenge" })).not.toBeInTheDocument();
-
-  await user.click(screen.getByRole("button", { name: "Show Catalog" }));
-  expect(screen.getByRole("button", { name: "Hide Catalog" })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: "Start Challenge" })).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: "Show Catalog" })).not.toBeInTheDocument();
 });
 
 test("shows updated level-up style session status after completion", async () => {

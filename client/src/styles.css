@@ -205,7 +205,7 @@ body {
 
 .nav-strip {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 10px;
   border-color: var(--line-strong);
   background: var(--surface-muted);
@@ -993,6 +993,39 @@ textarea {
 .puzzle-answer:active {
   cursor: grabbing;
   transform: scale(0.99);
+}
+
+.practice-words .practice-word {
+  cursor: pointer;
+}
+
+.practice-words .practice-word.filled {
+  border-color: #9bcf9d;
+  background: #f0f9f0;
+  color: #2c5f2d;
+}
+
+.practice-words .practice-word.selected {
+  border-color: #94b9ff;
+  box-shadow: 0 0 0 2px rgba(120, 160, 255, 0.2);
+}
+
+.practice-words-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.practice-words-column {
+  display: grid;
+  gap: 10px;
+}
+
+.practice-word-match {
+  margin-left: auto;
+  color: #2c5f2d;
+  font-weight: 800;
 }
 
 .puzzle-slot {

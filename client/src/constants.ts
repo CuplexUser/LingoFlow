@@ -1,5 +1,6 @@
 export const PAGE_PATHS = {
   learn: "/learn",
+  practice: "/practice",
   contribute: "/contribute",
   setup: "/setup",
   stats: "/stats"

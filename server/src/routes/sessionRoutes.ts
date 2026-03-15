@@ -17,7 +17,10 @@ type QuestionType =
   | "roleplay"
   | "flashcard"
   | "matching"
-  | "pronunciation";
+  | "pronunciation"
+  | "practice_speak"
+  | "practice_listen"
+  | "practice_words";
 
 interface SessionQuestion {
   id: string;
@@ -44,7 +47,7 @@ function registerSessionRoutes(
 
   app.post("/api/session/start", requireAuth, (req: any, res: any) => {
     const userId = req.authUserId;
-    const { language, category, count } = req.body || {};
+    const { language, category, count, mode } = req.body || {};
     if (!language || !category) {
       return res.status(400).json({ error: "language and category are required" });
     }
@@ -62,7 +65,8 @@ function registerSessionRoutes(
       selfRatedLevel: settings.selfRatedLevel,
       dueItemIds: hints.dueItemIds,
       weakItemIds: hints.weakItemIds,
-      count: Number.isInteger(count) ? Math.max(6, Math.min(15, count)) : 10
+      count: Number.isInteger(count) ? Math.max(6, Math.min(15, count)) : 10,
+      mode
     });
 
     if (!session.questions.length) {
@@ -87,7 +91,8 @@ function registerSessionRoutes(
       language,
       recommendedLevel: session.recommendedLevel,
       difficultyMultiplier: session.difficultyMultiplier,
-      questions: session.questions
+      questions: session.questions,
+      practiceMode: mode || ""
     });
   });
 
@@ -122,6 +127,8 @@ function registerSessionRoutes(
     const questionMap = new Map<string, SessionQuestion>(
       session.questions.map((question: SessionQuestion) => [question.id, question])
     );
+    const isPracticeSession = session.questions.length > 0 &&
+      session.questions.every((question: SessionQuestion) => String(question.type || "").startsWith("practice_"));
     let score = 0;
     let mistakes = 0;
     const evaluatedAttempts: Array<{
@@ -153,60 +160,70 @@ function registerSessionRoutes(
     const safeRevealedAnswers = Number.isFinite(revealedAnswers)
       ? Math.max(0, Math.floor(revealedAnswers))
       : 0;
-    const xp = calculateXp({
-      score,
-      maxScore: effectiveMaxScore,
-      mistakes,
-      hintsUsed: safeHintsUsed,
-      revealedAnswers: safeRevealedAnswers,
-      difficultyLevel: session.difficultyLevel
-    });
+    const xp = isPracticeSession
+      ? { xpGained: 0, accuracy: effectiveMaxScore > 0 ? score / effectiveMaxScore : 0 }
+      : calculateXp({
+        score,
+        maxScore: effectiveMaxScore,
+        mistakes,
+        hintsUsed: safeHintsUsed,
+        revealedAnswers: safeRevealedAnswers,
+        difficultyLevel: session.difficultyLevel
+      });
 
     const today = database.toIsoDate();
-    const saved = database.recordSession({
-      userId,
-      language,
-      category,
-      score,
-      maxScore: effectiveMaxScore,
-      mistakes,
-      xpGained: xp.xpGained,
-      difficultyLevel: session.difficultyLevel,
-      today
-    });
-
-    evaluatedAttempts.forEach((entry) => {
-      database.upsertItemProgressAttempt({
+    const saved = isPracticeSession
+      ? null
+      : database.recordSession({
         userId,
         language,
         category,
-        itemId: entry.question.id,
-        objective: entry.question.objective || "",
-        correct: entry.correct,
-        errorType: entry.errorType,
+        score,
+        maxScore: effectiveMaxScore,
+        mistakes,
+        xpGained: xp.xpGained,
+        difficultyLevel: session.difficultyLevel,
         today
       });
-      database.recordAttemptHistory({
-        userId,
-        sessionId,
-        language,
-        category,
-        itemId: entry.question.id,
-        objective: entry.question.objective || "",
-        questionType: entry.question.type || "",
-        correct: entry.correct,
-        errorType: entry.errorType
+
+    if (!isPracticeSession) {
+      evaluatedAttempts.forEach((entry) => {
+        database.upsertItemProgressAttempt({
+          userId,
+          language,
+          category,
+          itemId: entry.question.id,
+          objective: entry.question.objective || "",
+          correct: entry.correct,
+          errorType: entry.errorType,
+          today
+        });
+        database.recordAttemptHistory({
+          userId,
+          sessionId,
+          language,
+          category,
+          itemId: entry.question.id,
+          objective: entry.question.objective || "",
+          questionType: entry.question.type || "",
+          correct: entry.correct,
+          errorType: entry.errorType
+        });
+        database.recordExerciseUsage({
+          userId,
+          language,
+          category,
+          itemId: entry.question.id,
+          correct: entry.correct
+        });
       });
-      database.recordExerciseUsage({
-        userId,
-        language,
-        category,
-        itemId: entry.question.id,
-        correct: entry.correct
-      });
-    });
+    }
 
     database.markActiveSessionCompleted(sessionId, userId);
+    const progress = isPracticeSession ? database.getProgress(userId, language) : null;
+    const categoryProgress = isPracticeSession
+      ? progress?.categories?.find((item: any) => item.category === category)
+      : null;
     return res.json({
       ok: true,
       evaluated: {
@@ -215,11 +232,11 @@ function registerSessionRoutes(
         mistakes,
         accuracy: Number((xp.accuracy * 100).toFixed(1))
       },
-      xpGained: saved.xpGained,
-      streak: saved.streak,
-      learnerLevel: saved.learnerLevel,
-      mastery: saved.mastery,
-      levelUnlocked: saved.levelUnlocked
+      xpGained: isPracticeSession ? 0 : saved.xpGained,
+      streak: isPracticeSession ? progress?.streak ?? 0 : saved.streak,
+      learnerLevel: isPracticeSession ? progress?.learnerLevel ?? 1 : saved.learnerLevel,
+      mastery: isPracticeSession ? categoryProgress?.mastery ?? 0 : saved.mastery,
+      levelUnlocked: isPracticeSession ? categoryProgress?.levelUnlocked ?? "a1" : saved.levelUnlocked
     });
   });
 }

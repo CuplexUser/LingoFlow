@@ -119,3 +119,112 @@ test("pronunciation accepts close transcripts", async () => {
     expect.objectContaining({ score: 1, maxScore: 1 })
   );
 });
+
+test("practice speak accepts close transcripts", async () => {
+  const user = userEvent.setup();
+  const onFinish = vi.fn();
+  render(
+    <SessionPlayer
+      session={{
+        language: "english",
+        categoryLabel: "Practice",
+        recommendedLevel: "a1",
+        questions: [
+          {
+            id: "ps1",
+            type: "practice_speak",
+            prompt: "Pronounce the phrase.",
+            answer: "I read books.",
+            acceptedAnswers: ["I read books"]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={onFinish}
+      onSnapshot={() => {}}
+    />
+  );
+
+  await user.type(screen.getByLabelText("Transcript"), "I read bokks");
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({ score: 1, maxScore: 1 })
+  );
+});
+
+test("practice listen uses multiple choice selection", async () => {
+  const user = userEvent.setup();
+  const onFinish = vi.fn();
+  render(
+    <SessionPlayer
+      session={{
+        language: "english",
+        categoryLabel: "Practice",
+        recommendedLevel: "a1",
+        questions: [
+          {
+            id: "pl1",
+            type: "practice_listen",
+            prompt: "Listen and choose.",
+            answer: "I eat fruit.",
+            options: ["I eat fruit.", "I read books.", "I play chess.", "I drink tea."]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={onFinish}
+      onSnapshot={() => {}}
+    />
+  );
+
+  await user.click(screen.getByRole("button", { name: "I eat fruit." }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({ score: 1, maxScore: 1 })
+  );
+});
+
+test("practice words locks correct pairs and finishes when complete", async () => {
+  const user = userEvent.setup();
+  const onFinish = vi.fn();
+  render(
+    <SessionPlayer
+      session={{
+        language: "spanish",
+        categoryLabel: "Practice",
+        recommendedLevel: "a1",
+        questions: [
+          {
+            id: "pw1",
+            type: "practice_words",
+            prompt: "Match each word to its translation.",
+            pairs: [
+              { left: "gato", right: "cat" },
+              { left: "perro", right: "dog" }
+            ]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={onFinish}
+      onSnapshot={() => {}}
+    />
+  );
+
+  await user.click(screen.getByRole("button", { name: "gato" }));
+  await user.click(screen.getByRole("button", { name: "dog" }));
+  expect(screen.getByText("Incorrect match. Try again.")).toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "gato" }));
+  await user.click(screen.getByRole("button", { name: "cat" }));
+  expect(screen.getByText("Correct match.")).toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "perro" }));
+  await user.click(screen.getByRole("button", { name: "dog" }));
+
+  expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({ maxScore: 1 })
+  );
+});
