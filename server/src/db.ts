@@ -84,13 +84,12 @@ function migrateLegacySingleUserSchema() {
         learner_name TEXT NOT NULL DEFAULT 'Learner',
         learner_bio TEXT NOT NULL DEFAULT '',
         focus_area TEXT NOT NULL DEFAULT '',
-        beta_lessons_enabled INTEGER NOT NULL DEFAULT 0,
         unlock_all_lessons INTEGER NOT NULL DEFAULT 0,
         updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
       );
       INSERT INTO settings (
         user_id, native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
-        self_rated_level, learner_name, learner_bio, focus_area, beta_lessons_enabled, unlock_all_lessons, updated_at
+        self_rated_level, learner_name, learner_bio, focus_area, unlock_all_lessons, updated_at
       )
       SELECT
         1,
@@ -103,7 +102,6 @@ function migrateLegacySingleUserSchema() {
         COALESCE(learner_name, 'Learner'),
         COALESCE(learner_bio, ''),
         COALESCE(focus_area, ''),
-        0,
         0,
         COALESCE(updated_at, CURRENT_TIMESTAMP)
       FROM settings_legacy
@@ -306,7 +304,6 @@ db.exec(`
     learner_name TEXT NOT NULL DEFAULT 'Learner',
     learner_bio TEXT NOT NULL DEFAULT '',
     focus_area TEXT NOT NULL DEFAULT '',
-    beta_lessons_enabled INTEGER NOT NULL DEFAULT 0,
     unlock_all_lessons INTEGER NOT NULL DEFAULT 0,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
@@ -510,10 +507,6 @@ function ensureSettingsColumns() {
 
   if (!names.has("self_rated_level")) {
     db.exec("ALTER TABLE settings ADD COLUMN self_rated_level TEXT NOT NULL DEFAULT 'a1'");
-  }
-
-  if (!names.has("beta_lessons_enabled")) {
-    db.exec("ALTER TABLE settings ADD COLUMN beta_lessons_enabled INTEGER NOT NULL DEFAULT 0");
   }
 
   if (!names.has("unlock_all_lessons")) {
@@ -948,7 +941,7 @@ function getSettings(userId = 1) {
   ensureUserState(userId);
   const row: any = db.prepare(`
     SELECT native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
-           self_rated_level, learner_name, learner_bio, focus_area, beta_lessons_enabled, unlock_all_lessons
+           self_rated_level, learner_name, learner_bio, focus_area, unlock_all_lessons
     FROM settings
     WHERE user_id = ?
   `).get(userId);
@@ -962,7 +955,6 @@ function getSettings(userId = 1) {
     learnerName: row.learner_name,
     learnerBio: row.learner_bio,
     focusArea: row.focus_area,
-    betaLessonsEnabled: Boolean(row.beta_lessons_enabled),
     unlockAllLessons: Boolean(row.unlock_all_lessons)
   };
 }
@@ -982,7 +974,6 @@ function saveSettings(userId = 1, nextSettings = {}) {
         learner_name = ?,
         learner_bio = ?,
         focus_area = ?,
-        beta_lessons_enabled = ?,
         unlock_all_lessons = ?,
         updated_at = CURRENT_TIMESTAMP
     WHERE user_id = ?
@@ -998,7 +989,6 @@ function saveSettings(userId = 1, nextSettings = {}) {
     String(safeSettings.learnerName || "Learner").trim() || "Learner",
     String(safeSettings.learnerBio || "").trim(),
     String(safeSettings.focusArea || "").trim(),
-    safeSettings.betaLessonsEnabled ? 1 : 0,
     safeSettings.unlockAllLessons ? 1 : 0,
     userId
   );
@@ -1554,8 +1544,7 @@ function getStats(userId = 1, language) {
     categoryStats,
     errorTypeTrend,
     objectiveStats,
-    usageStats,
-    betaLessonsEnabled: Boolean(settings.betaLessonsEnabled)
+    usageStats
   };
 }
 

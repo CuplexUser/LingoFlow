@@ -18,7 +18,6 @@ function registerUserRoutes(app: any, deps: any): void {
       learnerName,
       learnerBio,
       focusArea,
-      betaLessonsEnabled,
       unlockAllLessons
     } = req.body || {};
 
@@ -35,7 +34,6 @@ function registerUserRoutes(app: any, deps: any): void {
       learnerName: String(learnerName || "Learner").trim() || "Learner",
       learnerBio: String(learnerBio || "").trim(),
       focusArea: String(focusArea || "").trim(),
-      betaLessonsEnabled: Boolean(betaLessonsEnabled),
       unlockAllLessons: devUnlockAll
     });
 
