@@ -43,7 +43,6 @@ export function LearnPage({
   );
   const masteredCategories = courseCategories.filter((category) => category.mastery >= 75).length;
   const recommendedCategories = courseCategories.filter((category) => category.recommended).slice(0, 3);
-  const betaCategories = courseCategories.filter((category) => category.beta);
 
   if (activeSession) {
     return (
@@ -174,7 +173,6 @@ export function LearnPage({
                   <span>{category.levelUnlocked.toUpperCase()}</span>
                   <span>{category.accuracy.toFixed(1)}% accuracy</span>
                   {category.recommended ? <span>Recommended</span> : null}
-                  {category.beta ? <span>Beta</span> : null}
                 </div>
               </div>
               <div className="category-row-progress">
@@ -274,36 +272,6 @@ export function LearnPage({
         </section>
       ) : null}
 
-      {betaCategories.length ? (
-        <section className="panel categories">
-          <div className="section-heading">
-            <div>
-              <h2>Experimental Lessons</h2>
-              <p className="subtitle">Beta categories for richer cultural and scenario-driven content.</p>
-            </div>
-          </div>
-          <div className="category-grid compact-grid">
-            {betaCategories.map((category) => (
-              <article key={category.id} className="category-card">
-                <div>
-                  <h3>{category.label}</h3>
-                  <p>{category.description}</p>
-                  {category.sampleCulturalNotes?.map((note) => (
-                    <p key={note} className="lock-note">{note}</p>
-                  ))}
-                </div>
-                <button
-                  className="ghost-button"
-                  onClick={() => onStartCategory(category)}
-                  disabled={!category.unlocked}
-                >
-                  {category.unlocked ? "Try Beta Lesson" : "Locked"}
-                </button>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
     </>
   );
 }

@@ -36,7 +36,6 @@ function registerCourseRoutes(app: any, deps: any): void {
         accuracy: progress?.accuracy ?? 0,
         levelUnlocked: progress?.levelUnlocked ?? "a1",
         recommended: recommendedCategoryIds.has(category.id),
-        betaVisible: !category.beta || Boolean(settings.betaLessonsEnabled),
         unlocked,
         lockReason: unlocked
           ? ""
@@ -44,7 +43,7 @@ function registerCourseRoutes(app: any, deps: any): void {
       };
     });
 
-    res.json(enriched.filter((category: any) => category.betaVisible));
+    res.json(enriched);
   });
 }
 

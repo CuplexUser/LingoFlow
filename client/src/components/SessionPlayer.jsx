@@ -849,7 +849,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
               Start Pronunciation Check
             </button>
             <button className="ghost-button" type="button" onClick={skipPronunciationExercise}>
-              Can't speak now
+              Can&apos;t speak now
             </button>
           </div>
           <label>

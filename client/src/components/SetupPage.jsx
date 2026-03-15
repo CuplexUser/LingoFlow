@@ -106,15 +106,6 @@ export function SetupPage({ languages, settings, draftSettings, onDraftChange, o
           />
         </label>
 
-        <label className="toggle-label">
-          <input
-            type="checkbox"
-            checked={Boolean(draftSettings.betaLessonsEnabled)}
-            onChange={(event) => onDraftChange({ betaLessonsEnabled: event.target.checked })}
-          />
-          <span>Enable beta lessons and experimental categories</span>
-        </label>
-
         {import.meta.env.DEV ? (
           <label className="toggle-label">
             <input
@@ -133,7 +124,6 @@ export function SetupPage({ languages, settings, draftSettings, onDraftChange, o
         <p>{settings?.learnerBio || "No profile details saved yet."}</p>
         <p>Level: {(settings?.selfRatedLevel || "a1").toUpperCase()}</p>
         <p>Plan: {settings?.dailyMinutes ?? 20} min/day, {settings?.weeklyGoalSessions ?? 5} sessions/week</p>
-        <p>Beta lessons: {settings?.betaLessonsEnabled ? "On" : "Off"}</p>
         {import.meta.env.DEV ? <p>Unlock all lessons: {settings?.unlockAllLessons ? "On" : "Off"}</p> : null}
       </div>
 

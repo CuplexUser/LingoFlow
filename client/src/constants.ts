@@ -25,7 +25,6 @@ export const DEFAULT_DRAFT = {
   learnerName: "Learner",
   learnerBio: "",
   focusArea: "",
-  betaLessonsEnabled: false,
   unlockAllLessons: false
 } as const;
 

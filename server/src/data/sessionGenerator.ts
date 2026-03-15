@@ -71,7 +71,6 @@ function createCourseSelectors(course) {
         ...category,
         totalPhrases: items.length,
         levels,
-        beta: Boolean(category.experimental),
         mediaRichCount: items.filter((item) => item.audioUrl || item.imageUrl).length,
         sampleCulturalNotes: items
           .map((item) => String(item.culturalNote || "").trim())
