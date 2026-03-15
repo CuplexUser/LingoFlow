@@ -2,13 +2,13 @@
 
 ## Project Structure & Module Organization
 - `client/`: React + Vite frontend.
-- `client/src/App.jsx`: Main UI flow (settings, category landing page, session player).
-- `client/src/api.js`: Frontend API wrapper for backend routes.
+- `client/src/App.tsx`: Main UI flow (settings, category landing page, session player, resume).
+- `client/src/api.ts`: Frontend API wrapper for backend routes.
 - `client/src/styles.css`: Global styles.
 - `server/`: Express API + SQLite persistence.
-- `server/src/index.js`: HTTP routes (`/api/course`, `/api/session/start`, `/api/session/complete`, etc.).
-- `server/src/data.js`: Language/course content and session generation logic.
-- `server/src/db.js`: `better-sqlite3` schema and progression persistence.
+- `server/src/index.ts`: HTTP routes (`/api/course`, `/api/session/start`, `/api/session/complete`, etc.).
+- `server/src/data.ts`: Language/course content and session generation logic.
+- `server/src/db.ts`: `better-sqlite3` schema and progression persistence.
 - `server/data/`: Runtime database files (`lingoflow.db`).
 
 ## Build, Test, and Development Commands

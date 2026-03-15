@@ -16,9 +16,9 @@ const CATEGORIES = [
     experimental: true
   },
   {
-    id: "environment_sustainability",
-    label: "Environment & Sustainability",
-    description: "Climate, recycling, transport, and community choices",
+    id: "nature_animals",
+    label: "Nature & Animals",
+    description: "Animals, plants, weather, and outdoor activities",
     experimental: true
   }
 ];

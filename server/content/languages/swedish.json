@@ -993,130 +993,132 @@
         "exerciseType": "pronunciation"
       }
     ],
-    "environment_sustainability": [
+    "nature_animals": [
       {
-        "id": "sv-ev-a1",
+        "id": "sv-na-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Say: I recycle paper and glass at home.",
-        "correctAnswer": "Jag atervinner papper och glas hemma.",
+        "prompt": "Say: There is a cat on the roof.",
+        "correctAnswer": "Det finns en katt på taket.",
         "hints": [
-          "Namna tva material."
-        ],
-        "imageUrl": "/images/recycle-loop.svg"
-      },
-      {
-        "id": "sv-ev-a1-2",
-        "level": "a1",
-        "difficulty": "a1",
-        "prompt": "Say: I turn off the lights.",
-        "correctAnswer": "Jag slacker lamporna.",
-        "hints": [
-          "En enkel vardagsvana."
+          "Use 'there is' to describe location."
         ]
       },
       {
-        "id": "sv-ev-a1-3",
+        "id": "sv-na-a1-2",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "a reusable bottle",
-        "correctAnswer": "en ateranvandbar flaska",
+        "prompt": "Say: The dog is big and friendly.",
+        "correctAnswer": "Hunden är stor och vänlig.",
         "hints": [
-          "Matcha frasen."
+          "Describe an animal with two adjectives."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "sv-na-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a river",
+        "correctAnswer": "en älv",
+        "hints": [
+          "A place where water flows."
         ],
         "exerciseType": "flashcard"
       },
       {
-        "id": "sv-ev-a2",
+        "id": "sv-na-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce pollution.",
-        "correctAnswer": "Vi tar bussen for att minska fororeningar.",
+        "prompt": "Say: The horse is running across the field.",
+        "correctAnswer": "Hästen springer över fältet.",
         "hints": [
-          "Tank pa hallbara resor."
+          "Use present continuous for an action happening now."
         ]
       },
       {
-        "id": "sv-ev-a2-2",
+        "id": "sv-na-a2-2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We bring reusable bags.",
-        "correctAnswer": "Vi tar med ateranvandbara pasar.",
+        "prompt": "Ask: What is the name of that bird?",
+        "correctAnswer": "Vad heter den där fågeln?",
         "hints": [
-          "En praktisk vana."
+          "Ask for the name of something you see."
         ]
       },
       {
-        "id": "sv-ev-a2-3",
+        "id": "sv-na-a2-3",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I try to waste less food.",
-        "correctAnswer": "Jag forsoker slosa mindre mat.",
+        "prompt": "Say: I saw a fox near the forest last night.",
+        "correctAnswer": "Igår kväll såg jag en räv nära skogen.",
         "hints": [
-          "Prata om matsvinn."
+          "Use past simple to describe what you saw."
         ]
       },
       {
-        "id": "sv-ev-b1",
+        "id": "sv-na-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small habits make a big difference.",
-        "correctAnswer": "Sma vanor gor stor skillnad.",
+        "prompt": "Say: Wolves usually travel in packs and hunt together.",
+        "correctAnswer": "Vargar reser vanligtvis i flock och jagar tillsammans.",
         "hints": [
-          "Fokusera pa effekt."
-        ]
+          "Use 'usually' to describe typical animal behavior."
+        ],
+        "exerciseType": "build_sentence"
       },
       {
-        "id": "sv-ev-b1-2",
+        "id": "sv-na-b1-2",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Please sort the trash.",
-        "correctAnswer": "Sortera soporna, tack.",
+        "prompt": "Choose the best response. Why do birds migrate?",
+        "correctAnswer": "De flyger till varmare platser för att hitta mat på vintern.",
         "hints": [
-          "En nyttig instruktion."
-        ]
+          "Give a simple factual reason."
+        ],
+        "exerciseType": "roleplay"
       },
       {
-        "id": "sv-ev-b1-3",
+        "id": "sv-na-b1-3",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "carbon footprint",
-        "correctAnswer": "koldioxidavtryck",
+        "prompt": "a predator",
+        "correctAnswer": "ett rovdjur",
         "hints": [
-          "Matcha termen."
+          "An animal that hunts other animals."
         ],
         "exerciseType": "matching"
       },
       {
-        "id": "sv-ev-b2",
+        "id": "sv-na-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should reduce carbon emissions.",
-        "correctAnswer": "Vi borde minska koldioxidutslapp.",
+        "prompt": "Say: Sharks are often misunderstood and are rarely dangerous to humans.",
+        "correctAnswer": "Hajar missförstås ofta och är sällan farliga för människor.",
         "hints": [
-          "Ett tydligt mal."
+          "Use passive voice and adverbs of frequency."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "sv-ev-b2-2",
+        "id": "sv-na-b2-2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Climate action starts locally.",
-        "correctAnswer": "Klimatarbete borjar lokalt.",
+        "prompt": "Say: The trail winds through dense woodland before opening onto the lake.",
+        "correctAnswer": "Stigen slingrar sig genom tät skog innan den öppnar sig mot sjön.",
         "hints": [
-          "En kort fras."
+          "Describe a natural landscape with precise vocabulary."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "sv-ev-b2-3",
+        "id": "sv-na-b2-3",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Renewable energy is getting cheaper.",
-        "correctAnswer": "Fornybar energi blir billigare.",
+        "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
+        "correctAnswer": "Vissa arter har anpassat sig anmärkningsvärt bra till att leva sida vid sida med människor.",
         "hints": [
-          "En praktisk observation."
+          "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
       }

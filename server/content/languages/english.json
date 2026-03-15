@@ -993,130 +993,132 @@
         "exerciseType": "pronunciation"
       }
     ],
-    "environment_sustainability": [
+    "nature_animals": [
       {
-        "id": "en-ev-a1",
+        "id": "en-na-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Say: I recycle paper and glass at home.",
-        "correctAnswer": "I recycle paper and glass at home.",
+        "prompt": "Say: There is a cat on the roof.",
+        "correctAnswer": "There is a cat on the roof.",
         "hints": [
-          "Mention two materials."
-        ],
-        "imageUrl": "/images/recycle-loop.svg"
-      },
-      {
-        "id": "en-ev-a1-2",
-        "level": "a1",
-        "difficulty": "a1",
-        "prompt": "Say: I turn off the lights.",
-        "correctAnswer": "I turn off the lights.",
-        "hints": [
-          "A simple saving action."
+          "Use 'there is' to describe location."
         ]
       },
       {
-        "id": "en-ev-a1-3",
+        "id": "en-na-a1-2",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "a reusable bottle",
-        "correctAnswer": "a reusable bottle",
+        "prompt": "Say: The dog is big and friendly.",
+        "correctAnswer": "The dog is big and friendly.",
         "hints": [
-          "Match the phrase."
+          "Describe an animal with two adjectives."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "en-na-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a river",
+        "correctAnswer": "a river",
+        "hints": [
+          "A place where water flows."
         ],
         "exerciseType": "flashcard"
       },
       {
-        "id": "en-ev-a2",
+        "id": "en-na-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce pollution.",
-        "correctAnswer": "We take the bus to reduce pollution.",
+        "prompt": "Say: The horse is running across the field.",
+        "correctAnswer": "The horse is running across the field.",
         "hints": [
-          "Transport can be sustainable."
+          "Use present continuous for an action happening now."
         ]
       },
       {
-        "id": "en-ev-a2-2",
+        "id": "en-na-a2-2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We bring reusable bags.",
-        "correctAnswer": "We bring reusable bags.",
+        "prompt": "Ask: What is the name of that bird?",
+        "correctAnswer": "What is the name of that bird?",
         "hints": [
-          "A practical habit."
+          "Ask for the name of something you see."
         ]
       },
       {
-        "id": "en-ev-a2-3",
+        "id": "en-na-a2-3",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I try to waste less food.",
-        "correctAnswer": "I try to waste less food.",
+        "prompt": "Say: I saw a fox near the forest last night.",
+        "correctAnswer": "I saw a fox near the forest last night.",
         "hints": [
-          "Talk about food waste."
+          "Use past simple to describe what you saw."
         ]
       },
       {
-        "id": "en-ev-b1",
+        "id": "en-na-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small habits make a big difference.",
-        "correctAnswer": "Small habits make a big difference.",
+        "prompt": "Say: Wolves usually travel in packs and hunt together.",
+        "correctAnswer": "Wolves usually travel in packs and hunt together.",
         "hints": [
-          "Focus on impact."
-        ]
+          "Use 'usually' to describe typical animal behavior."
+        ],
+        "exerciseType": "build_sentence"
       },
       {
-        "id": "en-ev-b1-2",
+        "id": "en-na-b1-2",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Please sort the trash.",
-        "correctAnswer": "Please sort the trash.",
+        "prompt": "Choose the best response. Why do birds migrate?",
+        "correctAnswer": "They fly to warmer places to find food in winter.",
         "hints": [
-          "A useful instruction."
-        ]
+          "Give a simple factual reason."
+        ],
+        "exerciseType": "roleplay"
       },
       {
-        "id": "en-ev-b1-3",
+        "id": "en-na-b1-3",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "carbon footprint",
-        "correctAnswer": "carbon footprint",
+        "prompt": "a predator",
+        "correctAnswer": "a predator",
         "hints": [
-          "Match the sustainability term."
+          "An animal that hunts other animals."
         ],
         "exerciseType": "matching"
       },
       {
-        "id": "en-ev-b2",
+        "id": "en-na-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should reduce carbon emissions.",
-        "correctAnswer": "We should reduce carbon emissions.",
+        "prompt": "Say: Sharks are often misunderstood and are rarely dangerous to humans.",
+        "correctAnswer": "Sharks are often misunderstood and are rarely dangerous to humans.",
         "hints": [
-          "A clear climate goal."
+          "Use passive voice and adverbs of frequency."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "en-ev-b2-2",
+        "id": "en-na-b2-2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Climate action starts locally.",
-        "correctAnswer": "Climate action starts locally.",
+        "prompt": "Say: The trail winds through dense woodland before opening onto the lake.",
+        "correctAnswer": "The trail winds through dense woodland before opening onto the lake.",
         "hints": [
-          "A short statement."
+          "Describe a natural landscape with precise vocabulary."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "en-ev-b2-3",
+        "id": "en-na-b2-3",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Renewable energy is getting cheaper.",
-        "correctAnswer": "Renewable energy is getting cheaper.",
+        "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
+        "correctAnswer": "Some species have adapted remarkably well to living alongside humans.",
         "hints": [
-          "A practical observation."
+          "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
       }

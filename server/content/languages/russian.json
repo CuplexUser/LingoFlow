@@ -990,130 +990,132 @@
         "exerciseType": "pronunciation"
       }
     ],
-    "environment_sustainability": [
+    "nature_animals": [
       {
-        "id": "ru-ev-a1",
+        "id": "ru-na-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Say: I recycle paper and glass at home.",
-        "correctAnswer": "Я перерабатываю бумагу и стекло дома.",
+        "prompt": "Say: There is a cat on the roof.",
+        "correctAnswer": "На крыше есть кошка.",
         "hints": [
-          "Назови два материала."
-        ],
-        "imageUrl": "/images/recycle-loop.svg"
-      },
-      {
-        "id": "ru-ev-a1-2",
-        "level": "a1",
-        "difficulty": "a1",
-        "prompt": "Say: I turn off the lights.",
-        "correctAnswer": "Я выключаю свет.",
-        "hints": [
-          "Простое действие."
+          "Use 'there is' to describe location."
         ]
       },
       {
-        "id": "ru-ev-a1-3",
+        "id": "ru-na-a1-2",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "a reusable bottle",
-        "correctAnswer": "многоразовая бутылка",
+        "prompt": "Say: The dog is big and friendly.",
+        "correctAnswer": "Собака большая и дружелюбная.",
         "hints": [
-          "Сопоставь фразу."
+          "Describe an animal with two adjectives."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "ru-na-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a river",
+        "correctAnswer": "река",
+        "hints": [
+          "A place where water flows."
         ],
         "exerciseType": "flashcard"
       },
       {
-        "id": "ru-ev-a2",
+        "id": "ru-na-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce pollution.",
-        "correctAnswer": "Мы едем на автобусе, чтобы меньше загрязнять.",
+        "prompt": "Say: The horse is running across the field.",
+        "correctAnswer": "Лошадь бежит по полю.",
         "hints": [
-          "Устойчивый транспорт."
+          "Use present continuous for an action happening now."
         ]
       },
       {
-        "id": "ru-ev-a2-2",
+        "id": "ru-na-a2-2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We bring reusable bags.",
-        "correctAnswer": "Мы берем многоразовые сумки.",
+        "prompt": "Ask: What is the name of that bird?",
+        "correctAnswer": "Как зовут ту птицу?",
         "hints": [
-          "Практичная привычка."
+          "Ask for the name of something you see."
         ]
       },
       {
-        "id": "ru-ev-a2-3",
+        "id": "ru-na-a2-3",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I try to waste less food.",
-        "correctAnswer": "Я стараюсь меньше выбрасывать еду.",
+        "prompt": "Say: I saw a fox near the forest last night.",
+        "correctAnswer": "Вчера вечером я видел лису около леса.",
         "hints": [
-          "Про пищевые отходы."
+          "Use past simple to describe what you saw."
         ]
       },
       {
-        "id": "ru-ev-b1",
+        "id": "ru-na-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small habits make a big difference.",
-        "correctAnswer": "Маленькие привычки дают большой эффект.",
+        "prompt": "Say: Wolves usually travel in packs and hunt together.",
+        "correctAnswer": "Волки обычно передвигаются стаей и охотятся вместе.",
         "hints": [
-          "Сфокусируйся на эффекте."
-        ]
+          "Use 'usually' to describe typical animal behavior."
+        ],
+        "exerciseType": "build_sentence"
       },
       {
-        "id": "ru-ev-b1-2",
+        "id": "ru-na-b1-2",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Please sort the trash.",
-        "correctAnswer": "Пожалуйста, сортируй мусор.",
+        "prompt": "Choose the best response. Why do birds migrate?",
+        "correctAnswer": "Они улетают в тёплые места, чтобы найти еду зимой.",
         "hints": [
-          "Полезная просьба."
-        ]
+          "Give a simple factual reason."
+        ],
+        "exerciseType": "roleplay"
       },
       {
-        "id": "ru-ev-b1-3",
+        "id": "ru-na-b1-3",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "carbon footprint",
-        "correctAnswer": "углеродный след",
+        "prompt": "a predator",
+        "correctAnswer": "хищник",
         "hints": [
-          "Сопоставь термин."
+          "An animal that hunts other animals."
         ],
         "exerciseType": "matching"
       },
       {
-        "id": "ru-ev-b2",
+        "id": "ru-na-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should reduce carbon emissions.",
-        "correctAnswer": "Нужно сократить выбросы углерода.",
+        "prompt": "Say: Sharks are often misunderstood and are rarely dangerous to humans.",
+        "correctAnswer": "Акул часто неправильно понимают, и они редко опасны для людей.",
         "hints": [
-          "Четкая цель."
+          "Use passive voice and adverbs of frequency."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "ru-ev-b2-2",
+        "id": "ru-na-b2-2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Climate action starts locally.",
-        "correctAnswer": "Климатические действия начинаются локально.",
+        "prompt": "Say: The trail winds through dense woodland before opening onto the lake.",
+        "correctAnswer": "Тропа извивается через густой лес, прежде чем выйти к озеру.",
         "hints": [
-          "Короткая фраза."
+          "Describe a natural landscape with precise vocabulary."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "ru-ev-b2-3",
+        "id": "ru-na-b2-3",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Renewable energy is getting cheaper.",
-        "correctAnswer": "Возобновляемая энергия становится дешевле.",
+        "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
+        "correctAnswer": "Некоторые виды замечательно хорошо приспособились к жизни рядом с людьми.",
         "hints": [
-          "Практичное наблюдение."
+          "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
       }

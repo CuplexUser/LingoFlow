@@ -523,6 +523,12 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     goNext(nextAttemptLog, nextScore);
   }
 
+  function skipPronunciationExercise() {
+    if (question.type !== "pronunciation") return;
+    setSpeechError("");
+    goNext(attemptLog, score);
+  }
+
   function revealAnswer() {
     if (question.type === "roleplay") return;
     const answerWords = String(question.answer || "").split(" ").filter(Boolean);
@@ -841,6 +847,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
             </button>
             <button className="ghost-button" type="button" onClick={startPronunciationCheck}>
               Start Pronunciation Check
+            </button>
+            <button className="ghost-button" type="button" onClick={skipPronunciationExercise}>
+              Can't speak now
             </button>
           </div>
           <label>

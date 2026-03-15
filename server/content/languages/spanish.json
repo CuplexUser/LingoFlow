@@ -990,130 +990,132 @@
         "exerciseType": "pronunciation"
       }
     ],
-    "environment_sustainability": [
+    "nature_animals": [
       {
-        "id": "es-ev-a1",
+        "id": "es-na-a1",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "Say: I recycle paper and glass at home.",
-        "correctAnswer": "Reciclo papel y vidrio en casa.",
+        "prompt": "Say: There is a cat on the roof.",
+        "correctAnswer": "Hay un gato en el tejado.",
         "hints": [
-          "Menciona dos materiales."
-        ],
-        "imageUrl": "/images/recycle-loop.svg"
-      },
-      {
-        "id": "es-ev-a1-2",
-        "level": "a1",
-        "difficulty": "a1",
-        "prompt": "Say: I turn off the lights.",
-        "correctAnswer": "Apago las luces.",
-        "hints": [
-          "Una accion simple."
+          "Use 'there is' to describe location."
         ]
       },
       {
-        "id": "es-ev-a1-3",
+        "id": "es-na-a1-2",
         "level": "a1",
         "difficulty": "a1",
-        "prompt": "a reusable bottle",
-        "correctAnswer": "una botella reutilizable",
+        "prompt": "Say: The dog is big and friendly.",
+        "correctAnswer": "El perro es grande y amigable.",
         "hints": [
-          "Empareja la frase."
+          "Describe an animal with two adjectives."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "es-na-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "a river",
+        "correctAnswer": "un río",
+        "hints": [
+          "A place where water flows."
         ],
         "exerciseType": "flashcard"
       },
       {
-        "id": "es-ev-a2",
+        "id": "es-na-a2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We take the bus to reduce pollution.",
-        "correctAnswer": "Tomamos el autobus para reducir la contaminacion.",
+        "prompt": "Say: The horse is running across the field.",
+        "correctAnswer": "El caballo está corriendo a través del campo.",
         "hints": [
-          "Transporte sostenible."
+          "Use present continuous for an action happening now."
         ]
       },
       {
-        "id": "es-ev-a2-2",
+        "id": "es-na-a2-2",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: We bring reusable bags.",
-        "correctAnswer": "Traemos bolsas reutilizables.",
+        "prompt": "Ask: What is the name of that bird?",
+        "correctAnswer": "¿Cómo se llama ese pájaro?",
         "hints": [
-          "Un habito practico."
+          "Ask for the name of something you see."
         ]
       },
       {
-        "id": "es-ev-a2-3",
+        "id": "es-na-a2-3",
         "level": "a2",
         "difficulty": "a2",
-        "prompt": "Say: I try to waste less food.",
-        "correctAnswer": "Intento desperdiciar menos comida.",
+        "prompt": "Say: I saw a fox near the forest last night.",
+        "correctAnswer": "Anoche vi un zorro cerca del bosque.",
         "hints": [
-          "Habla del desperdicio."
+          "Use past simple to describe what you saw."
         ]
       },
       {
-        "id": "es-ev-b1",
+        "id": "es-na-b1",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Small habits make a big difference.",
-        "correctAnswer": "Pequenos habitos marcan una gran diferencia.",
+        "prompt": "Say: Wolves usually travel in packs and hunt together.",
+        "correctAnswer": "Los lobos suelen viajar en manadas y cazar juntos.",
         "hints": [
-          "Enfocate en el impacto."
-        ]
+          "Use 'usually' to describe typical animal behavior."
+        ],
+        "exerciseType": "build_sentence"
       },
       {
-        "id": "es-ev-b1-2",
+        "id": "es-na-b1-2",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "Say: Please sort the trash.",
-        "correctAnswer": "Por favor, separa la basura.",
+        "prompt": "Choose the best response. Why do birds migrate?",
+        "correctAnswer": "Vuelan a lugares más cálidos para encontrar comida en invierno.",
         "hints": [
-          "Una instruccion util."
-        ]
+          "Give a simple factual reason."
+        ],
+        "exerciseType": "roleplay"
       },
       {
-        "id": "es-ev-b1-3",
+        "id": "es-na-b1-3",
         "level": "b1",
         "difficulty": "b1",
-        "prompt": "carbon footprint",
-        "correctAnswer": "huella de carbono",
+        "prompt": "a predator",
+        "correctAnswer": "un depredador",
         "hints": [
-          "Empareja el termino."
+          "An animal that hunts other animals."
         ],
         "exerciseType": "matching"
       },
       {
-        "id": "es-ev-b2",
+        "id": "es-na-b2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: We should reduce carbon emissions.",
-        "correctAnswer": "Debemos reducir las emisiones de carbono.",
+        "prompt": "Say: Sharks are often misunderstood and are rarely dangerous to humans.",
+        "correctAnswer": "Los tiburones a menudo son mal comprendidos y rara vez son peligrosos para los humanos.",
         "hints": [
-          "Un objetivo claro."
+          "Use passive voice and adverbs of frequency."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-ev-b2-2",
+        "id": "es-na-b2-2",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Climate action starts locally.",
-        "correctAnswer": "La accion climatica empieza localmente.",
+        "prompt": "Say: The trail winds through dense woodland before opening onto the lake.",
+        "correctAnswer": "El sendero serpentea a través de un bosque denso antes de abrirse al lago.",
         "hints": [
-          "Una frase corta."
+          "Describe a natural landscape with precise vocabulary."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-ev-b2-3",
+        "id": "es-na-b2-3",
         "level": "b2",
         "difficulty": "b2",
-        "prompt": "Say: Renewable energy is getting cheaper.",
-        "correctAnswer": "La energia renovable es mas barata.",
+        "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
+        "correctAnswer": "Algunas especies se han adaptado notablemente bien a vivir junto a los humanos.",
         "hints": [
-          "Una observacion practica."
+          "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
       }
