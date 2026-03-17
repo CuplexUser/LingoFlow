@@ -11,6 +11,7 @@ import { LearnPage } from "./components/LearnPage";
 import { PracticePage } from "./components/PracticePage";
 import { SetupPage } from "./components/SetupPage";
 import { StatsPage } from "./components/StatsPage";
+import { appVersion } from "./version";
 import {
   AUTH_PATHS,
   AUTH_TOKEN_STORAGE_KEY,
@@ -797,6 +798,8 @@ export default function App() {
           languages={languages}
         />
       ) : null}
+
+      <footer className="app-footer">Version {appVersion}</footer>
     </main>
   );
 }

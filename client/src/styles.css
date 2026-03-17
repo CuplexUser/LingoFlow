@@ -344,6 +344,15 @@ body {
   flex-wrap: wrap;
 }
 
+.app-footer {
+  margin: 24px 0 8px;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .hero-card {
   display: grid;
   grid-template-columns: 1.25fr 1fr;

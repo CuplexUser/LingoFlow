@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "version": "node scripts/write-version.js",
     "install:all": "npm install && npm install --prefix server && npm install --prefix client",
-    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-    "build": "npm run build --prefix client",
+    "dev": "npm run version && concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run version && npm run build --prefix client",
     "start": "npm run start --prefix server",
     "test": "npm run test:server && npm run test:client",
     "test:server": "npm run test --prefix server",
