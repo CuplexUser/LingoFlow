@@ -1655,6 +1655,58 @@ function recordSession({
   };
 }
 
+function recordPracticeXp({
+  userId = 1,
+  language,
+  xpGained,
+  today
+}) {
+  ensureUserState(userId);
+  ensureLanguageProgress(userId, language);
+
+  const progress = db.prepare(`
+    SELECT total_xp, streak, last_completed_date
+    FROM language_progress
+    WHERE user_id = ? AND language = ?
+  `).get(userId, language);
+
+  let nextStreak = progress.streak;
+  if (!progress.last_completed_date) {
+    nextStreak = 1;
+  } else {
+    const last = new Date(progress.last_completed_date + "T00:00:00Z");
+    const current = new Date(today + "T00:00:00Z");
+    const diffDays = Math.floor((current.getTime() - last.getTime()) / (24 * 60 * 60 * 1000));
+    if (diffDays === 1) {
+      nextStreak = progress.streak + 1;
+    } else if (diffDays > 1) {
+      nextStreak = 1;
+    }
+  }
+
+  const totalXp = progress.total_xp + xpGained;
+  const learnerLevel = levelFromXp(totalXp);
+  addDailyXp(userId, language, today, xpGained);
+
+  db.prepare(`
+    UPDATE language_progress
+    SET total_xp = ?,
+        streak = ?,
+        learner_level = ?,
+        last_completed_date = ?,
+        updated_at = CURRENT_TIMESTAMP
+    WHERE user_id = ? AND language = ?
+  `).run(totalXp, nextStreak, learnerLevel, today, userId, language);
+
+  refreshAggregateProgressFromLanguageProgress(userId);
+
+  return {
+    xpGained,
+    streak: nextStreak,
+    learnerLevel
+  };
+}
+
 module.exports = {
   getUserByEmail,
   getUserById,
@@ -1686,6 +1738,7 @@ module.exports = {
   getProgressOverview,
   getStats,
   recordSession,
+  recordPracticeXp,
   addDailyXp,
   toIsoDate,
   toIsoDateTime

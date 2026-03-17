@@ -19,6 +19,7 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Per-language session resume with autosaved session snapshots
 - Learn home with a recommended next focus and expandable full catalog
 - Practice modes for speaking, listening, and word-matching drills
+- Practice sessions award fixed XP (Speak: 10, Listen: 10, Words: 5)
 - Stats dashboard with completion, accuracy, weak-spot insights, and per-language rollups
 - Theme switcher (auto/light/dark)
 - Language options: `English`, `Spanish`, `Russian`, `Italian`, `Swedish`

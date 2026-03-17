@@ -24,6 +24,15 @@ function makeAttempt(question) {
   if (question.type === "dictation_sentence") {
     return { questionId: question.id, builtSentence: question.answer };
   }
+  if (question.type === "practice_speak") {
+    return { questionId: question.id, textAnswer: question.answer };
+  }
+  if (question.type === "practice_listen") {
+    return { questionId: question.id, selectedOption: question.answer };
+  }
+  if (question.type === "practice_words") {
+    return { questionId: question.id, practicePairs: question.pairs };
+  }
   return { questionId: question.id, builtSentence: question.answer };
 }
 
@@ -114,6 +123,64 @@ test("session start and complete happy path", async (t) => {
     })
   });
   assert.equal(replayRes.status, 409);
+});
+
+test("practice sessions award fixed XP and update progress", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "practice-xp");
+
+  const modes = [
+    { mode: "speak", expectedXp: 10 },
+    { mode: "listen", expectedXp: 10 },
+    { mode: "words", expectedXp: 5 }
+  ];
+
+  let expectedTotal = 0;
+
+  for (const entry of modes) {
+    const startRes = await fetch(`${base}/api/session/start`, {
+      method: "POST",
+      headers: authHeaders,
+      body: JSON.stringify({
+        language: "spanish",
+        category: "essentials",
+        count: 8,
+        mode: entry.mode
+      })
+    });
+    assert.equal(startRes.status, 200);
+    const session = await startRes.json();
+    assert.ok(session.sessionId);
+    assert.ok(Array.isArray(session.questions));
+    assert.ok(session.questions.length >= 1);
+
+    const attempts = session.questions.map((question) => makeAttempt(question));
+    const completeRes = await fetch(`${base}/api/session/complete`, {
+      method: "POST",
+      headers: authHeaders,
+      body: JSON.stringify({
+        sessionId: session.sessionId,
+        language: "spanish",
+        category: "essentials",
+        attempts
+      })
+    });
+    assert.equal(completeRes.status, 200);
+    const completed = await completeRes.json();
+    assert.equal(completed.ok, true);
+    assert.equal(completed.xpGained, entry.expectedXp);
+    expectedTotal += entry.expectedXp;
+  }
+
+  const progressRes = await fetch(`${base}/api/progress?language=spanish`, { headers: authHeaders });
+  assert.equal(progressRes.status, 200);
+  const progress = await progressRes.json();
+  assert.equal(progress.totalXp, expectedTotal);
+  assert.equal(progress.todayXp, expectedTotal);
 });
 
 test("session complete rejects unknown question ids", async (t) => {

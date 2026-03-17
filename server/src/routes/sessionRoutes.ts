@@ -39,6 +39,20 @@ interface SessionAttempt {
   matchingPairs?: Array<{ prompt: string; answer: string }>;
 }
 
+const PRACTICE_XP_BY_TYPE: Record<string, number> = {
+  practice_speak: 10,
+  practice_listen: 10,
+  practice_words: 5
+};
+
+function getPracticeXp(questions: SessionQuestion[]): number {
+  if (!Array.isArray(questions) || !questions.length) return 0;
+  const types = new Set(questions.map((question) => question.type));
+  if (types.size !== 1) return 0;
+  const [type] = Array.from(types);
+  return PRACTICE_XP_BY_TYPE[type] || 0;
+}
+
 function registerSessionRoutes(
   app: any,
   deps: any
@@ -160,8 +174,9 @@ function registerSessionRoutes(
     const safeRevealedAnswers = Number.isFinite(revealedAnswers)
       ? Math.max(0, Math.floor(revealedAnswers))
       : 0;
+    const practiceXp = isPracticeSession ? getPracticeXp(session.questions) : 0;
     const xp = isPracticeSession
-      ? { xpGained: 0, accuracy: effectiveMaxScore > 0 ? score / effectiveMaxScore : 0 }
+      ? { xpGained: practiceXp, accuracy: effectiveMaxScore > 0 ? score / effectiveMaxScore : 0 }
       : calculateXp({
         score,
         maxScore: effectiveMaxScore,
@@ -173,7 +188,12 @@ function registerSessionRoutes(
 
     const today = database.toIsoDate();
     const saved = isPracticeSession
-      ? null
+      ? database.recordPracticeXp({
+        userId,
+        language,
+        xpGained: xp.xpGained,
+        today
+      })
       : database.recordSession({
         userId,
         language,
@@ -232,9 +252,9 @@ function registerSessionRoutes(
         mistakes,
         accuracy: Number((xp.accuracy * 100).toFixed(1))
       },
-      xpGained: isPracticeSession ? 0 : saved.xpGained,
-      streak: isPracticeSession ? progress?.streak ?? 0 : saved.streak,
-      learnerLevel: isPracticeSession ? progress?.learnerLevel ?? 1 : saved.learnerLevel,
+      xpGained: saved.xpGained,
+      streak: saved.streak,
+      learnerLevel: saved.learnerLevel,
       mastery: isPracticeSession ? categoryProgress?.mastery ?? 0 : saved.mastery,
       levelUnlocked: isPracticeSession ? categoryProgress?.levelUnlocked ?? "a1" : saved.levelUnlocked
     });
