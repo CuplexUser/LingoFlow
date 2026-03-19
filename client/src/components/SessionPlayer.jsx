@@ -250,7 +250,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     return "en-US";
   }
 
-  async function playAudioUrl(url) {
+  async function playAudioUrl(url, playbackRate = 1) {
     if (typeof window === "undefined" || !window.AudioContext) {
       setSpeechError("Web Audio is not supported in this browser.");
       return;
@@ -264,6 +264,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       const audioBuffer = await audioContextRef.current.decodeAudioData(arrayBuffer.slice(0));
       const source = audioContextRef.current.createBufferSource();
       source.buffer = audioBuffer;
+      const safePlaybackRate = Number.isFinite(playbackRate) ? playbackRate : 1;
+      source.playbackRate.value = safePlaybackRate;
       source.connect(audioContextRef.current.destination);
       source.start();
       setSpeechError("");
@@ -272,7 +274,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     }
   }
 
-  function speakText(text, language = getSpeechLanguage()) {
+  function speakText(text, language = getSpeechLanguage(), rate = 0.95) {
     if (!supportsSpeech) {
       setSpeechError("Speech is not supported in this browser.");
       return;
@@ -280,7 +282,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = language;
-    utterance.rate = 0.95;
+    const safeRate = Number.isFinite(rate) ? rate : 0.95;
+    utterance.rate = safeRate;
     utterance.onstart = () => setSpeechError("");
     utterance.onerror = () => setSpeechError("Could not play this audio hint.");
     window.speechSynthesis.cancel();
@@ -304,6 +307,16 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       return;
     }
     speakText(translatedSentence, getSpeechLanguage());
+  }
+
+  function speakPronunciationTarget(playbackRate = 1) {
+    const targetSentence = String(question.answer || "").trim();
+    if (!targetSentence) return;
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl, playbackRate);
+      return;
+    }
+    speakText(targetSentence, getSpeechLanguage(), Math.max(0.1, playbackRate));
   }
 
   function startPronunciationCheck() {
@@ -1013,6 +1026,12 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       {question.type === "practice_speak" ? (
         <div className="pronunciation-shell">
           <div className="hero-actions">
+            <button className="speak-button" type="button" onClick={() => speakPronunciationTarget()}>
+              Listen
+            </button>
+            <button className="speak-button" type="button" onClick={() => speakPronunciationTarget(0.70)}>
+              Listen (slow)
+            </button>
             <button className="ghost-button" type="button" onClick={startPronunciationCheck}>
               Start Pronunciation Check
             </button>

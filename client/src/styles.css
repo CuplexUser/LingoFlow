@@ -876,8 +876,11 @@ textarea {
 }
 
 .speak-button:hover {
-  border-color: #292524;
-  background: var(--surface-muted);
+  /* border-color: #292524; */
+  /* background: var(--surface-muted); */
+  border-color: #646464;
+  background: #262e39;
+  color: #ffffff;  
 }
 
 .speech-error {
