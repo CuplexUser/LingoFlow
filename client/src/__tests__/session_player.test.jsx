@@ -151,6 +151,16 @@ test("practice speak accepts close transcripts", async () => {
   expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({ score: 1, maxScore: 1 })
   );
+  expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({
+      attempts: [
+        expect.objectContaining({
+          questionId: "ps1",
+          textAnswer: "I read bokks"
+        })
+      ]
+    })
+  );
 });
 
 test("practice listen uses multiple choice selection", async () => {
@@ -226,5 +236,51 @@ test("practice words locks correct pairs and finishes when complete", async () =
 
   expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({ maxScore: 1 })
+  );
+});
+
+test("revealed answers complete with zero score for that item", async () => {
+  const user = userEvent.setup();
+  const onFinish = vi.fn();
+  render(
+    <SessionPlayer
+      session={{
+        language: "spanish",
+        categoryLabel: "Essentials",
+        recommendedLevel: "a1",
+        questions: [
+          {
+            id: "q-reveal",
+            type: "build_sentence",
+            prompt: "Build greeting",
+            answer: "Hola amigo",
+            acceptedAnswers: [],
+            tokens: ["Hola", "adios", "amigo"]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={onFinish}
+      onSnapshot={() => {}}
+    />
+  );
+
+  await user.click(screen.getByRole("button", { name: "adios" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+  await user.click(screen.getByRole("button", { name: "Reveal Answer" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({
+      score: 0,
+      maxScore: 1,
+      attempts: expect.arrayContaining([
+        expect.objectContaining({
+          questionId: "q-reveal",
+          revealed: true
+        })
+      ])
+    })
   );
 });

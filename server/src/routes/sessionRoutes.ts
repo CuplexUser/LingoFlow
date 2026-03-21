@@ -37,6 +37,7 @@ interface SessionAttempt {
   textAnswer?: string;
   selectedOption?: string;
   matchingPairs?: Array<{ prompt: string; answer: string }>;
+  revealed?: boolean;
 }
 
 const PRACTICE_XP_BY_TYPE: Record<string, number> = {
@@ -144,7 +145,7 @@ function registerSessionRoutes(
     const isPracticeSession = session.questions.length > 0 &&
       session.questions.every((question: SessionQuestion) => String(question.type || "").startsWith("practice_"));
     let score = 0;
-    let mistakes = 0;
+    const questionStats = new Map<string, { hasIncorrect: boolean; awarded: boolean }>();
     const evaluatedAttempts: Array<{
       question: SessionQuestion;
       correct: boolean;
@@ -159,8 +160,23 @@ function registerSessionRoutes(
       }
 
       const evaluation = evaluateAttempt(question, attempt);
-      if (evaluation.correct) score += 1;
-      else mistakes += 1;
+      const revealed = Boolean(attempt?.revealed);
+      if (!questionStats.has(questionId)) {
+        questionStats.set(questionId, { hasIncorrect: false, awarded: false });
+      }
+      const stats = questionStats.get(questionId);
+      if (!stats) {
+        return res.status(500).json({ error: "Question scoring state missing" });
+      }
+
+      if (evaluation.correct) {
+        if (!stats.awarded) {
+          if (!revealed) score += 1;
+          stats.awarded = true;
+        }
+      } else {
+        stats.hasIncorrect = true;
+      }
       evaluatedAttempts.push({
         question,
         correct: evaluation.correct,
@@ -168,8 +184,10 @@ function registerSessionRoutes(
       });
     }
 
+    const mistakes = Array.from(questionStats.values()).filter((entry) => entry.hasIncorrect).length;
+
     const baseMaxScore = session.questions.length;
-    const effectiveMaxScore = Math.max(baseMaxScore, score + mistakes);
+    const effectiveMaxScore = baseMaxScore;
     const safeHintsUsed = Number.isFinite(hintsUsed) ? Math.max(0, Math.floor(hintsUsed)) : 0;
     const safeRevealedAnswers = Number.isFinite(revealedAnswers)
       ? Math.max(0, Math.floor(revealedAnswers))

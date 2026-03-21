@@ -78,6 +78,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
   );
   const [attemptLog, setAttemptLog] = useState(() => resumeState.attemptLog || []);
   const [feedback, setFeedback] = useState(() => resumeState.feedback || null);
+  const [revealedCurrentQuestion, setRevealedCurrentQuestion] = useState(
+    () => resumeState.revealedCurrentQuestion || false
+  );
   const [roleplayHintVisible, setRoleplayHintVisible] = useState(
     () => resumeState.roleplayHintVisible || false
   );
@@ -192,6 +195,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       selectedTokenIndexes,
       attemptLog,
       feedback,
+      revealedCurrentQuestion,
       roleplayHintVisible,
       questionMistakes,
       totalMistakes,
@@ -223,6 +227,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     selectedTokenIndexes,
     attemptLog,
     feedback,
+    revealedCurrentQuestion,
     roleplayHintVisible,
     questionMistakes,
     totalMistakes,
@@ -435,6 +440,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
     setSelectedOption("");
     setSelectedTokenIndexes([]);
     setFeedback(null);
+    setRevealedCurrentQuestion(false);
     setRoleplayHintVisible(false);
     setQuestionMistakes(0);
     setFlashcardRevealed(false);
@@ -519,7 +525,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
         question.type === "build_sentence" || question.type === "dictation_sentence"
           ? builtSentence
           : "",
-      textAnswer: question.type === "pronunciation" ? (pronunciationTranscript || selectedOption) : "",
+      textAnswer:
+        question.type === "pronunciation" || question.type === "practice_speak"
+          ? (pronunciationTranscript || selectedOption)
+          : "",
+      revealed: revealedCurrentQuestion,
       matchingPairs: question.type === "matching" ? matchingPairs : [],
       practicePairs: question.type === "practice_words" ? practiceWordMatches : []
     };
@@ -598,8 +608,10 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
       return;
     }
 
-    const nextScore = score + 1;
-    setScore(nextScore);
+    const nextScore = revealedCurrentQuestion ? score : score + 1;
+    if (!revealedCurrentQuestion) {
+      setScore(nextScore);
+    }
     goNext(nextAttemptLog, nextScore);
   }
 
@@ -642,6 +654,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }) {
 
     setHintsUsed((value) => value + 1);
     setRevealedAnswers((value) => value + 1);
+    setRevealedCurrentQuestion(true);
     setFeedback((prev) =>
       prev
         ? {

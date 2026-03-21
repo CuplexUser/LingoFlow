@@ -36,6 +36,38 @@ function makeAttempt(question) {
   return { questionId: question.id, builtSentence: question.answer };
 }
 
+function makeWrongAttempt(question) {
+  if (question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "practice_listen") {
+    return { questionId: question.id, selectedOption: "__wrong__" };
+  }
+  if (question.type === "cloze_sentence") {
+    return { questionId: question.id, selectedOption: "__wrong__" };
+  }
+  if (question.type === "dictation_sentence" || question.type === "build_sentence") {
+    return { questionId: question.id, builtSentence: "__wrong__" };
+  }
+  if (question.type === "practice_speak" || question.type === "pronunciation") {
+    return { questionId: question.id, textAnswer: "__wrong__" };
+  }
+  if (question.type === "practice_words") {
+    const pairs = Array.isArray(question.pairs) ? question.pairs : [];
+    const wrongPairs = pairs.map((pair) => ({ left: pair.left, right: "__wrong__" }));
+    return { questionId: question.id, practicePairs: wrongPairs };
+  }
+  if (question.type === "matching") {
+    const pairs = Array.isArray(question.pairs) ? question.pairs : [];
+    const wrongPairs = pairs.map((pair) => ({ prompt: pair.prompt, answer: "__wrong__" }));
+    return { questionId: question.id, matchingPairs: wrongPairs };
+  }
+  if (question.type === "roleplay") {
+    return { questionId: question.id, selectedOption: "__wrong__" };
+  }
+  if (question.type === "flashcard") {
+    return { questionId: question.id, selectedOption: "review" };
+  }
+  return { questionId: question.id, builtSentence: "__wrong__" };
+}
+
 async function createAuthHeaders(base, label) {
   const email = `${label}-${Date.now()}@example.com`;
   const registerRes = await fetch(`${base}/api/auth/register`, {
@@ -213,6 +245,97 @@ test("session complete rejects unknown question ids", async (t) => {
     })
   });
   assert.equal(invalid.status, 400);
+});
+
+test("revealed attempts are worth zero points", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "reveal-zero");
+
+  const startRes = await fetch(`${base}/api/session/start`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "essentials",
+      count: 6
+    })
+  });
+  assert.equal(startRes.status, 200);
+  const session = await startRes.json();
+
+  const attempts = session.questions.map((question) => ({
+    ...makeAttempt(question),
+    revealed: true
+  }));
+  const completeRes = await fetch(`${base}/api/session/complete`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      sessionId: session.sessionId,
+      language: "spanish",
+      category: "essentials",
+      attempts,
+      hintsUsed: 0,
+      revealedAnswers: attempts.length
+    })
+  });
+  assert.equal(completeRes.status, 200);
+  const completed = await completeRes.json();
+  assert.equal(completed.evaluated.score, 0);
+  assert.equal(completed.evaluated.maxScore, session.questions.length);
+});
+
+test("mistakes count unique incorrect questions, not retry attempts", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "mistake-unique");
+
+  const startRes = await fetch(`${base}/api/session/start`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "essentials",
+      count: 6
+    })
+  });
+  assert.equal(startRes.status, 200);
+  const session = await startRes.json();
+  assert.ok(Array.isArray(session.questions));
+  assert.ok(session.questions.length >= 6);
+
+  const [first, ...rest] = session.questions;
+  const attempts = [
+    makeWrongAttempt(first),
+    makeWrongAttempt(first),
+    { ...makeAttempt(first), revealed: true },
+    ...rest.map((question) => makeAttempt(question))
+  ];
+
+  const completeRes = await fetch(`${base}/api/session/complete`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      sessionId: session.sessionId,
+      language: "spanish",
+      category: "essentials",
+      attempts,
+      hintsUsed: 0,
+      revealedAnswers: 1
+    })
+  });
+  assert.equal(completeRes.status, 200);
+  const completed = await completeRes.json();
+  assert.equal(completed.evaluated.score, session.questions.length - 1);
+  assert.equal(completed.evaluated.maxScore, session.questions.length);
+  assert.equal(completed.evaluated.mistakes, 1);
 });
 
 test("auth users get isolated progress state", async (t) => {
