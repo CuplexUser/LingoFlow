@@ -1,6 +1,39 @@
 import { SessionPlayer } from "./SessionPlayer";
+import type { CourseCategory } from "../types/course";
+import type { ActiveSession, PracticeMode, SessionReport, SessionSnapshot } from "../types/session";
 
-function pickPracticeCategory(courseCategories) {
+type PracticePageProps = {
+  courseCategories: CourseCategory[];
+  activeSession: ActiveSession | null;
+  onStartPractice: (mode: PracticeMode, category: CourseCategory) => void | Promise<void>;
+  onFinishSession: (sessionReport: SessionReport) => void | Promise<void>;
+  onExitSession: () => void;
+  onSessionSnapshot: (snapshot: SessionSnapshot) => void;
+};
+
+const PRACTICE_MODES: Array<{
+  id: PracticeMode;
+  title: string;
+  description: string;
+}> = [
+  {
+    id: "speak",
+    title: "Speak",
+    description: "Pronounce short phrases out loud."
+  },
+  {
+    id: "listen",
+    title: "Listen",
+    description: "Hear the audio and choose the correct phrase."
+  },
+  {
+    id: "words",
+    title: "Words",
+    description: "Quick tap-to-match 8 words. No dragging."
+  }
+];
+
+function pickPracticeCategory(courseCategories: CourseCategory[]): CourseCategory | null {
   const unlocked = courseCategories.filter((category) => category.unlocked);
   if (unlocked.length) return unlocked[0];
   return courseCategories[0] || null;
@@ -13,7 +46,7 @@ export function PracticePage({
   onFinishSession,
   onExitSession,
   onSessionSnapshot
-}) {
+}: PracticePageProps) {
   const practiceCategory = pickPracticeCategory(courseCategories);
   const preferredLabel = practiceCategory?.label || "your course";
 
@@ -23,7 +56,7 @@ export function PracticePage({
         session={activeSession}
         onBack={onExitSession}
         onFinish={onFinishSession}
-        onSnapshot={(snapshot) => onSessionSnapshot(snapshot)}
+        onSnapshot={onSessionSnapshot}
       />
     );
   }
@@ -50,23 +83,7 @@ export function PracticePage({
         </div>
 
         <div className="category-grid compact-grid">
-          {[
-            {
-              id: "speak",
-              title: "Speak",
-              description: "Pronounce short phrases out loud."
-            },
-            {
-              id: "listen",
-              title: "Listen",
-              description: "Hear the audio and choose the correct phrase."
-            },
-            {
-              id: "words",
-              title: "Words",
-              description: "Quick tap-to-match 8 words. No dragging."
-            }
-          ].map((mode) => (
+          {PRACTICE_MODES.map((mode) => (
             <article key={mode.id} className="category-card">
               <div>
                 <h3>{mode.title}</h3>

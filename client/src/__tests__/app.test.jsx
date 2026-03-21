@@ -27,7 +27,11 @@ const apiMock = vi.hoisted(() => ({
 }));
 
 vi.mock("../api", () => ({
-  api: apiMock
+  api: apiMock,
+  normalizeActiveSession: vi.fn((session) => ({
+    ...session,
+    questions: Array.isArray(session?.questions) ? session.questions : []
+  }))
 }));
 
 function setupApiFixtures() {

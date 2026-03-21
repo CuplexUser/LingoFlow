@@ -1,6 +1,18 @@
+import type { CommunityExercisePayload } from "../api";
+import type { CourseCategory } from "../types/course";
 import { ContributionPanel } from "./ContributionPanel";
 
-export function ContributePage({ activeCourseLanguage, courseCategories, onSubmitContribution }) {
+type ContributePageProps = {
+  activeCourseLanguage: string;
+  courseCategories: CourseCategory[];
+  onSubmitContribution: (payload: CommunityExercisePayload) => Promise<{ message?: string }>;
+};
+
+export function ContributePage({
+  activeCourseLanguage,
+  courseCategories,
+  onSubmitContribution
+}: ContributePageProps) {
   return (
     <>
       <section className="panel hero-card">

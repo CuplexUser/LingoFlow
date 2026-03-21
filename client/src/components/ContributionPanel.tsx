@@ -1,6 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent } from "react";
+import type { CommunityExercisePayload } from "../api";
+import type { CourseCategory } from "../types/course";
+import type { ContributionExerciseType, ContributionForm, ContributionIdeaType } from "../types/contribution";
 
-const INITIAL_FORM = {
+const INITIAL_FORM: ContributionForm = {
   category: "",
   ideaType: "content",
   title: "",
@@ -15,8 +18,14 @@ const INITIAL_FORM = {
   exerciseType: "build_sentence"
 };
 
-export function ContributionPanel({ language, categories, onSubmit }) {
-  const [form, setForm] = useState(INITIAL_FORM);
+type ContributionPanelProps = {
+  language: string;
+  categories: CourseCategory[];
+  onSubmit: (payload: CommunityExercisePayload) => Promise<{ message?: string }>;
+};
+
+export function ContributionPanel({ language, categories, onSubmit }: ContributionPanelProps) {
+  const [form, setForm] = useState<ContributionForm>(INITIAL_FORM);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const availableCategories = useMemo(
@@ -24,7 +33,11 @@ export function ContributionPanel({ language, categories, onSubmit }) {
     [categories]
   );
 
-  async function submit(event) {
+  function updateForm(patch: Partial<ContributionForm>) {
+    setForm((prev) => ({ ...prev, ...patch }));
+  }
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!language || !form.category || !form.title.trim() || !form.proposal.trim()) {
       setMessage("Choose a category and fill in the idea title and proposal.");
@@ -57,8 +70,8 @@ export function ContributionPanel({ language, categories, onSubmit }) {
       });
       setMessage(result?.message || "Idea submitted for moderation.");
       setForm((prev) => ({ ...INITIAL_FORM, category: prev.category }));
-    } catch (error) {
-      setMessage(error.message || "Could not submit this idea.");
+    } catch (error: unknown) {
+      setMessage(error instanceof Error ? error.message : "Could not submit this idea.");
     } finally {
       setBusy(false);
     }
@@ -77,7 +90,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Category
           <select
             value={form.category}
-            onChange={(event) => setForm((prev) => ({ ...prev, category: event.target.value }))}
+            onChange={(event) => updateForm({ category: event.target.value })}
           >
             <option value="">Select category</option>
             {availableCategories.map((category) => (
@@ -90,7 +103,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Idea Type
           <select
             value={form.ideaType}
-            onChange={(event) => setForm((prev) => ({ ...prev, ideaType: event.target.value }))}
+            onChange={(event) => updateForm({ ideaType: event.target.value as ContributionIdeaType })}
           >
             <option value="content">Content Idea</option>
             <option value="exercise">Exercise Format</option>
@@ -104,7 +117,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Difficulty
           <select
             value={form.difficulty}
-            onChange={(event) => setForm((prev) => ({ ...prev, difficulty: event.target.value }))}
+            onChange={(event) => updateForm({ difficulty: event.target.value })}
           >
             <option value="a1">A1</option>
             <option value="a2">A2</option>
@@ -117,7 +130,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Exercise Type
           <select
             value={form.exerciseType}
-            onChange={(event) => setForm((prev) => ({ ...prev, exerciseType: event.target.value }))}
+            onChange={(event) => updateForm({ exerciseType: event.target.value as ContributionExerciseType })}
           >
             <option value="build_sentence">Build Sentence</option>
             <option value="dialogue_turn">Dialogue</option>
@@ -131,7 +144,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Idea Title
           <textarea
             value={form.title}
-            onChange={(event) => setForm((prev) => ({ ...prev, title: event.target.value }))}
+            onChange={(event) => updateForm({ title: event.target.value })}
             placeholder="Example: Add a fika small-talk lesson with audio and etiquette notes."
           />
         </label>
@@ -140,7 +153,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Proposal
           <textarea
             value={form.proposal}
-            onChange={(event) => setForm((prev) => ({ ...prev, proposal: event.target.value }))}
+            onChange={(event) => updateForm({ proposal: event.target.value })}
             placeholder="Describe what should be added or changed, and what the learner would see."
           />
         </label>
@@ -149,7 +162,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Learner Need
           <textarea
             value={form.learnerNeed}
-            onChange={(event) => setForm((prev) => ({ ...prev, learnerNeed: event.target.value }))}
+            onChange={(event) => updateForm({ learnerNeed: event.target.value })}
             placeholder="What problem would this idea solve for learners?"
           />
         </label>
@@ -158,7 +171,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Example Content
           <textarea
             value={form.exampleContent}
-            onChange={(event) => setForm((prev) => ({ ...prev, exampleContent: event.target.value }))}
+            onChange={(event) => updateForm({ exampleContent: event.target.value })}
             placeholder="Optional sample prompt, dialogue line, vocabulary list, or scenario."
           />
         </label>
@@ -167,7 +180,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Implementation Notes
           <textarea
             value={form.implementationNotes}
-            onChange={(event) => setForm((prev) => ({ ...prev, implementationNotes: event.target.value }))}
+            onChange={(event) => updateForm({ implementationNotes: event.target.value })}
             placeholder="Optional notes about UI, flow, moderation, or rollout."
           />
         </label>
@@ -176,7 +189,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Audio URL
           <input
             value={form.audioUrl}
-            onChange={(event) => setForm((prev) => ({ ...prev, audioUrl: event.target.value }))}
+            onChange={(event) => updateForm({ audioUrl: event.target.value })}
             placeholder="Optional external or local audio URL"
           />
         </label>
@@ -185,7 +198,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Image URL
           <input
             value={form.imageUrl}
-            onChange={(event) => setForm((prev) => ({ ...prev, imageUrl: event.target.value }))}
+            onChange={(event) => updateForm({ imageUrl: event.target.value })}
             placeholder="Optional image URL"
           />
         </label>
@@ -194,7 +207,7 @@ export function ContributionPanel({ language, categories, onSubmit }) {
           Cultural Note
           <textarea
             value={form.culturalNote}
-            onChange={(event) => setForm((prev) => ({ ...prev, culturalNote: event.target.value }))}
+            onChange={(event) => updateForm({ culturalNote: event.target.value })}
             placeholder="Optional context like etiquette, customs, history, or regional nuance."
           />
         </label>

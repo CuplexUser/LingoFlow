@@ -1,5 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { api } from "./api";
+import {
+  api,
+  type AuthSuccessPayload,
+  type AuthUser,
+  type CommunityExercisePayload
+} from "./api";
 import contributeIcon from "./assets/icon-contribute.svg";
 import learnIcon from "./assets/icon-learn.svg";
 import practiceIcon from "./assets/icon-practice.svg";
@@ -11,118 +16,72 @@ import { LearnPage } from "./components/LearnPage";
 import { PracticePage } from "./components/PracticePage";
 import { SetupPage } from "./components/SetupPage";
 import { StatsPage } from "./components/StatsPage";
+import {
+  useAppNavigation,
+  type AuthMode
+} from "./hooks/useAppNavigation";
+import { useAuthenticatedAppData } from "./hooks/useAuthenticatedAppData";
+import { useCourseSessionState } from "./hooks/useCourseSessionState";
+import { useThemeMode } from "./hooks/useThemeMode";
 import { appVersion } from "./version";
 import {
   AUTH_PATHS,
   AUTH_TOKEN_STORAGE_KEY,
-  DEFAULT_DRAFT,
-  PAGE_PATHS,
-  THEME_STORAGE_KEY,
   type ThemeMode
 } from "./constants";
-import { getPageFromPathname, getSystemTheme, resolveTheme } from "./utils/theme";
-
-type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
-type AppPage = "learn" | "practice" | "contribute" | "setup" | "stats";
-const ACTIVE_COURSE_LANGUAGE_STORAGE_KEY = "lingoflow_active_course_language";
-const ACTIVE_SESSIONS_STORAGE_KEY = "lingoflow_active_sessions";
-
-function loadStoredSessionsByLanguage() {
-  if (typeof window === "undefined") return {};
-  try {
-    const rawMap = window.localStorage.getItem(ACTIVE_SESSIONS_STORAGE_KEY);
-    if (rawMap) {
-      const parsed = JSON.parse(rawMap);
-      if (parsed && typeof parsed === "object") {
-        return parsed as Record<string, any>;
-      }
-    }
-
-    const legacyRaw = window.localStorage.getItem("lingoflow_active_session");
-    if (!legacyRaw) return {};
-    const legacy = JSON.parse(legacyRaw);
-    if (!legacy || !legacy.language || !Array.isArray(legacy.questions) || !legacy.questions.length) {
-      return {};
-    }
-    return { [legacy.language]: legacy };
-  } catch (_error) {
-    return {};
-  }
-}
-
-function getAuthModeFromPathname(pathname: string): AuthMode {
-  if (pathname === AUTH_PATHS.register) return "register";
-  if (pathname === AUTH_PATHS.forgotPassword) return "forgotPassword";
-  if (pathname === AUTH_PATHS.resetPassword) return "resetPassword";
-  return "login";
-}
+import type {
+  CourseCategory,
+  LearnerSettings
+} from "./types/course";
+import type {
+  PracticeMode,
+  SessionReport
+} from "./types/session";
 
 export default function App() {
-  const [authMode, setAuthMode] = useState<AuthMode>(() => {
-    if (typeof window === "undefined") return "login";
-    return getAuthModeFromPathname(window.location.pathname);
-  });
   const [resetToken, setResetToken] = useState("");
-  const [authUser, setAuthUser] = useState<any>(null);
+  const [authUser, setAuthUser] = useState<AuthUser | null>(null);
   const [authBusy, setAuthBusy] = useState(false);
   const [authError, setAuthError] = useState("");
   const [authNotice, setAuthNotice] = useState("");
   const [loginFailureCount, setLoginFailureCount] = useState(0);
-  const [languages, setLanguages] = useState<any[]>([]);
-  const [activeCourseLanguage, setActiveCourseLanguage] = useState<string>(() => {
-    if (typeof window === "undefined") return "";
-    return String(window.localStorage.getItem(ACTIVE_COURSE_LANGUAGE_STORAGE_KEY) || "").trim().toLowerCase();
-  });
-  const [settings, setSettings] = useState<any>(null);
-  const [draftSettings, setDraftSettings] = useState<any>(DEFAULT_DRAFT);
-  const [progress, setProgress] = useState<any>(null);
-  const [progressOverview, setProgressOverview] = useState<any>(null);
-  const [statsData, setStatsData] = useState<any>(null);
-  const [courseCategories, setCourseCategories] = useState<any[]>([]);
-  const [activeSessionsByLanguage, setActiveSessionsByLanguage] = useState<Record<string, any>>(
-    () => loadStoredSessionsByLanguage()
-  );
-  const [activePage, setActivePage] = useState<AppPage>(() => {
-    if (typeof window === "undefined") return "learn";
-    return getPageFromPathname(window.location.pathname);
-  });
   const [statusMessage, setStatusMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
-    if (typeof window === "undefined") return "auto";
-    const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-    return stored === "light" || stored === "dark" || stored === "auto" ? stored : "auto";
+  const { themeMode, setThemeMode } = useThemeMode();
+  const {
+    activeCourseLanguage,
+    setActiveCourseLanguage,
+    activeSessionsByLanguage,
+    setActiveSessionsByLanguage,
+    clearActiveSession,
+    clearAllActiveSessions,
+    saveSessionSnapshot
+  } = useCourseSessionState();
+  const {
+    authMode,
+    setAuthMode,
+    activePage,
+    navigateToPage,
+    navigateAuthMode
+  } = useAppNavigation({ authenticated: Boolean(authUser) });
+  const {
+    languages,
+    settings,
+    draftSettings,
+    progress,
+    progressOverview,
+    statsData,
+    courseCategories,
+    setSettings,
+    setDraftSettings,
+    hydrateAuthenticatedApp,
+    refreshCourseAndProgress,
+    resetAuthenticatedAppData
+  } = useAuthenticatedAppData({
+    activeCourseLanguage,
+    setActiveCourseLanguage
   });
-
-  const activeTheme = useMemo(() => resolveTheme(themeMode), [themeMode]);
   const activeSession = activeCourseLanguage ? activeSessionsByLanguage[activeCourseLanguage] || null : null;
-
-  async function hydrateAuthenticatedApp() {
-    const [langs, conf] = await Promise.all([api.getLanguages(), api.getSettings()]);
-    setLanguages(langs);
-    setSettings(conf);
-    setDraftSettings({ ...DEFAULT_DRAFT, ...conf });
-    const availableLanguageIds = new Set((langs || []).map((item: any) => item.id));
-    const preferredLanguage = String(activeCourseLanguage || "").toLowerCase();
-    const initialCourseLanguage = availableLanguageIds.has(preferredLanguage)
-      ? preferredLanguage
-      : String(conf.targetLanguage || "spanish").toLowerCase();
-    setActiveCourseLanguage(initialCourseLanguage);
-    await refreshCourseAndProgress(initialCourseLanguage);
-  }
-
-  async function refreshCourseAndProgress(targetLanguage: string) {
-    const [course, prog, stats, overview] = await Promise.all([
-      api.getCourse(targetLanguage),
-      api.getProgress(targetLanguage),
-      api.getStats(targetLanguage),
-      api.getProgressOverview()
-    ]);
-    setCourseCategories(course as any[]);
-    setProgress(prog);
-    setStatsData(stats);
-    setProgressOverview(overview);
-  }
 
   async function switchCourseLanguage(nextLanguage: string) {
     const safeLanguage = String(nextLanguage || "").trim().toLowerCase();
@@ -135,6 +94,50 @@ export default function App() {
       setStatusMessage("Could not switch course language right now.");
     }
   }
+
+  useEffect(() => {
+    async function verifyEmailFromUrl() {
+      if (typeof window === "undefined") return;
+      const url = new URL(window.location.href);
+      if (url.pathname !== "/verify-email") return;
+
+      const token = url.searchParams.get("token");
+      if (!token) {
+        setAuthError("Missing verification token.");
+        window.history.replaceState({}, "", AUTH_PATHS.login);
+        return;
+      }
+
+      setLoading(false);
+      setAuthBusy(true);
+      setAuthError("");
+      setAuthNotice("");
+      try {
+        const result = await api.verifyEmail({ token });
+        setAuthMode("login");
+        setAuthNotice(result?.message || "Email verified. You can sign in now.");
+      } catch (error: unknown) {
+        setAuthError(error instanceof Error ? error.message : "Email verification failed.");
+      } finally {
+        setAuthBusy(false);
+        window.history.replaceState({}, "", AUTH_PATHS.login);
+      }
+    }
+
+    verifyEmailFromUrl();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    if (url.pathname !== AUTH_PATHS.resetPassword) return;
+    const token = String(url.searchParams.get("token") || "").trim();
+    setResetToken(token);
+    setAuthMode("resetPassword");
+    if (!token) {
+      setAuthError("Missing password reset token.");
+    }
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -197,127 +200,17 @@ export default function App() {
     };
   }, []);
 
-  useEffect(() => {
-    async function verifyEmailFromUrl() {
-      if (typeof window === "undefined") return;
-      const url = new URL(window.location.href);
-      if (url.pathname !== "/verify-email") return;
-
-      const token = url.searchParams.get("token");
-      if (!token) {
-        setAuthError("Missing verification token.");
-        window.history.replaceState({}, "", AUTH_PATHS.login);
-        return;
-      }
-
-      setLoading(false);
-      setAuthBusy(true);
-      setAuthError("");
-      setAuthNotice("");
-      try {
-        const result = await api.verifyEmail({ token });
-        setAuthMode("login");
-        setAuthNotice(result?.message || "Email verified. You can sign in now.");
-      } catch (error: any) {
-        setAuthError(error.message || "Email verification failed.");
-      } finally {
-        setAuthBusy(false);
-        window.history.replaceState({}, "", AUTH_PATHS.login);
-      }
-    }
-
-    verifyEmailFromUrl();
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const url = new URL(window.location.href);
-    if (url.pathname !== AUTH_PATHS.resetPassword) return;
-    const token = String(url.searchParams.get("token") || "").trim();
-    setResetToken(token);
-    setAuthMode("resetPassword");
-    if (!token) {
-      setAuthError("Missing password reset token.");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem(THEME_STORAGE_KEY, themeMode);
-  }, [themeMode]);
-
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.documentElement.setAttribute("data-theme", activeTheme);
-  }, [activeTheme]);
-
-  useEffect(() => {
-    if (themeMode !== "auto" || typeof window === "undefined" || !window.matchMedia) return;
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => {
-      document.documentElement.setAttribute("data-theme", getSystemTheme());
-    };
-    mediaQuery.addEventListener("change", onChange);
-    return () => mediaQuery.removeEventListener("change", onChange);
-  }, [themeMode]);
-
-  useEffect(() => {
-    if (!settings) return;
-    setDraftSettings({ ...DEFAULT_DRAFT, ...settings });
-  }, [settings]);
-
-  useEffect(() => {
-    function onPopState() {
-      if (!authUser) {
-        setAuthMode(getAuthModeFromPathname(window.location.pathname));
-        return;
-      }
-      const nextPage = getPageFromPathname(window.location.pathname);
-      setActivePage(nextPage);
-    }
-
-    window.addEventListener("popstate", onPopState);
-    return () => window.removeEventListener("popstate", onPopState);
-  }, [authUser]);
-
-  useEffect(() => {
-    const knownPaths = authUser
-      ? Object.values(PAGE_PATHS)
-      : Object.values(AUTH_PATHS);
-    if (!knownPaths.includes(window.location.pathname as any)) {
-      window.history.replaceState({}, "", authUser ? PAGE_PATHS.learn : AUTH_PATHS.login);
-      if (authUser) {
-        setActivePage("learn");
-      } else {
-        setAuthMode("login");
-      }
-    }
-  }, [authUser]);
-
-  function navigateToPage(nextPage: AppPage) {
-    const path = PAGE_PATHS[nextPage] || PAGE_PATHS.learn;
-    if (window.location.pathname !== path) {
-      window.history.pushState({}, "", path);
-    }
-    setActivePage(nextPage);
-  }
-
-  function navigateAuthMode(nextMode: AuthMode) {
-    const safeMode = nextMode;
-    const path = AUTH_PATHS[safeMode];
-    if (window.location.pathname !== path) {
-      window.history.pushState({}, "", path);
-    }
-    setAuthMode(safeMode);
-    if (safeMode !== "login") {
+  function handleNavigateAuthMode(nextMode: AuthMode) {
+    navigateAuthMode(nextMode);
+    if (nextMode !== "login") {
       setLoginFailureCount(0);
     }
-    if (safeMode !== "resetPassword") {
+    if (nextMode !== "resetPassword") {
       setResetToken("");
     }
   }
 
-  async function onAuthSuccess(payload: any) {
+  async function onAuthSuccess(payload: AuthSuccessPayload) {
     if (!payload?.token || !payload?.user) {
       throw new Error("Authentication response is invalid");
     }
@@ -341,8 +234,8 @@ export default function App() {
       setAuthNotice(
         payload?.message || "Account created. Check your email for a verification link before sign in."
       );
-    } catch (error: any) {
-      setAuthError(error.message || "Could not register.");
+    } catch (error: unknown) {
+      setAuthError(error instanceof Error ? error.message : "Could not register.");
     } finally {
       setAuthBusy(false);
     }
@@ -355,9 +248,9 @@ export default function App() {
     try {
       const payload = await api.login(form);
       await onAuthSuccess(payload);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setLoginFailureCount((prev) => prev + 1);
-      setAuthError(error.message || "Could not sign in.");
+      setAuthError(error instanceof Error ? error.message : "Could not sign in.");
     } finally {
       setAuthBusy(false);
     }
@@ -378,8 +271,8 @@ export default function App() {
         payload?.message ||
         "If your account is still pending verification, we sent a new email."
       );
-    } catch (error: any) {
-      setAuthError(error.message || "Could not resend verification email.");
+    } catch (error: unknown) {
+      setAuthError(error instanceof Error ? error.message : "Could not resend verification email.");
     } finally {
       setAuthBusy(false);
     }
@@ -400,8 +293,8 @@ export default function App() {
         payload?.message ||
         "If an account exists for this email, a password reset link has been sent."
       );
-    } catch (error: any) {
-      setAuthError(error.message || "Could not send password reset email.");
+    } catch (error: unknown) {
+      setAuthError(error instanceof Error ? error.message : "Could not send password reset email.");
     } finally {
       setAuthBusy(false);
     }
@@ -425,8 +318,8 @@ export default function App() {
       if (window.location.pathname !== AUTH_PATHS.login) {
         window.history.replaceState({}, "", AUTH_PATHS.login);
       }
-    } catch (error: any) {
-      setAuthError(error.message || "Could not reset password.");
+    } catch (error: unknown) {
+      setAuthError(error instanceof Error ? error.message : "Could not reset password.");
     } finally {
       setAuthBusy(false);
     }
@@ -443,18 +336,14 @@ export default function App() {
   function signOut() {
     api.clearAuthToken();
     if (typeof window !== "undefined") {
-      window.localStorage.removeItem(ACTIVE_SESSIONS_STORAGE_KEY);
-      window.localStorage.removeItem(ACTIVE_COURSE_LANGUAGE_STORAGE_KEY);
+      window.localStorage.removeItem("lingoflow_active_sessions");
+      window.localStorage.removeItem("lingoflow_active_course_language");
       window.localStorage.removeItem("lingoflow_active_session");
     }
     setAuthUser(null);
-    setSettings(null);
-    setProgress(null);
-    setProgressOverview(null);
-    setStatsData(null);
-    setCourseCategories([]);
-    setActiveSessionsByLanguage({});
+    resetAuthenticatedAppData();
     setActiveCourseLanguage("");
+    clearAllActiveSessions();
     setStatusMessage("You have signed out.");
     setAuthNotice("");
   }
@@ -465,7 +354,7 @@ export default function App() {
     try {
       const saved = await api.saveSettings({ ...settings, ...draftSettings });
       setSettings(saved);
-      const languageIds = new Set((languages || []).map((item: any) => item.id));
+      const languageIds = new Set((languages || []).map((item) => item.id));
       const resolvedLanguage = languageIds.has(activeCourseLanguage)
         ? activeCourseLanguage
         : String(saved.targetLanguage || "spanish").toLowerCase();
@@ -477,7 +366,7 @@ export default function App() {
     }
   }
 
-  async function startCategory(category: any) {
+  async function startCategory(category: CourseCategory) {
     if (!settings || !activeCourseLanguage) return;
     if (!category.unlocked) {
       setStatusMessage(category.lockReason || "This category is still locked.");
@@ -485,7 +374,7 @@ export default function App() {
     }
 
     try {
-      const session: any = await api.startSession({
+      const session = await api.startSession({
         language: activeCourseLanguage,
         category: category.id,
         count: 10
@@ -505,12 +394,12 @@ export default function App() {
     }
   }
 
-  async function startPractice(mode: string, category: any) {
+  async function startPractice(mode: PracticeMode, category: CourseCategory) {
     if (!settings || !activeCourseLanguage) return;
     if (!category) return;
 
     try {
-      const session: any = await api.startSession({
+      const session = await api.startSession({
         language: activeCourseLanguage,
         category: category.id,
         count: 10,
@@ -532,11 +421,11 @@ export default function App() {
     }
   }
 
-  async function finishSession(sessionReport: any) {
+  async function finishSession(sessionReport: SessionReport) {
     if (!activeSession || !settings) return;
 
     try {
-      const result: any = await api.completeSession({
+      const result = await api.completeSession({
         sessionId: activeSession.sessionId,
         language: activeSession.language,
         category: activeSession.category,
@@ -562,23 +451,11 @@ export default function App() {
     }
   }
 
-  async function submitContribution(payload: any) {
+  async function submitContribution(payload: CommunityExercisePayload) {
     const result = await api.contributeExercise(payload);
     setStatusMessage(result?.message || "Exercise submitted for moderation.");
     return result;
   }
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!activeCourseLanguage) return;
-    window.localStorage.setItem(ACTIVE_COURSE_LANGUAGE_STORAGE_KEY, activeCourseLanguage);
-  }, [activeCourseLanguage]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem(ACTIVE_SESSIONS_STORAGE_KEY, JSON.stringify(activeSessionsByLanguage));
-    window.localStorage.removeItem("lingoflow_active_session");
-  }, [activeSessionsByLanguage]);
 
   const dailyProgressPercent = useMemo(() => {
     if (!settings || !progress) return 0;
@@ -604,7 +481,7 @@ export default function App() {
         noticeMessage={authNotice}
         showForgotPassword={loginFailureCount >= 1}
         resetToken={resetToken}
-        onModeChange={navigateAuthMode}
+        onModeChange={handleNavigateAuthMode}
         onRegister={register}
         onLogin={login}
         onResendVerification={resendVerification}
@@ -717,24 +594,9 @@ export default function App() {
           onFinishSession={finishSession}
           onExitSession={() => {
             if (!activeCourseLanguage) return;
-            setActiveSessionsByLanguage((prev) => {
-              const next = { ...prev };
-              delete next[activeCourseLanguage];
-              return next;
-            });
+            clearActiveSession(activeCourseLanguage);
           }}
-          onSessionSnapshot={(snapshot: any) =>
-            setActiveSessionsByLanguage((prev) => {
-              if (!activeCourseLanguage || !prev[activeCourseLanguage]) return prev;
-              return {
-                ...prev,
-                [activeCourseLanguage]: {
-                  ...prev[activeCourseLanguage],
-                  resumeState: snapshot
-                }
-              };
-            })
-          }
+          onSessionSnapshot={(snapshot) => saveSessionSnapshot(activeCourseLanguage, snapshot)}
           onOpenSetup={() => navigateToPage("setup")}
           onOpenStats={() => navigateToPage("stats")}
         />
@@ -748,24 +610,9 @@ export default function App() {
           onFinishSession={finishSession}
           onExitSession={() => {
             if (!activeCourseLanguage) return;
-            setActiveSessionsByLanguage((prev) => {
-              const next = { ...prev };
-              delete next[activeCourseLanguage];
-              return next;
-            });
+            clearActiveSession(activeCourseLanguage);
           }}
-          onSessionSnapshot={(snapshot: any) =>
-            setActiveSessionsByLanguage((prev) => {
-              if (!activeCourseLanguage || !prev[activeCourseLanguage]) return prev;
-              return {
-                ...prev,
-                [activeCourseLanguage]: {
-                  ...prev[activeCourseLanguage],
-                  resumeState: snapshot
-                }
-              };
-            })
-          }
+          onSessionSnapshot={(snapshot) => saveSessionSnapshot(activeCourseLanguage, snapshot)}
         />
       ) : null}
 
@@ -782,9 +629,11 @@ export default function App() {
           languages={languages}
           settings={settings}
           draftSettings={draftSettings}
-          onDraftChange={(patch: any) => setDraftSettings((prev: any) => ({ ...prev, ...patch }))}
+          onDraftChange={(patch: Partial<LearnerSettings>) =>
+            setDraftSettings((prev) => ({ ...prev, ...patch }))
+          }
           onSave={saveSetup}
-          onReset={() => setDraftSettings({ ...DEFAULT_DRAFT, ...settings })}
+          onReset={() => setDraftSettings((settings ? { ...settings } : draftSettings))}
         />
       ) : null}
 

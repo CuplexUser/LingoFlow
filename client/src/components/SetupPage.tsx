@@ -1,4 +1,32 @@
-export function SetupPage({ languages, settings, draftSettings, onDraftChange, onSave, onReset }) {
+import type { ChangeEvent } from "react";
+import type { LanguageOption, LearnerSettings } from "../types/course";
+
+type SetupPageProps = {
+  languages: LanguageOption[];
+  settings: LearnerSettings | null;
+  draftSettings: LearnerSettings;
+  onDraftChange: (patch: Partial<LearnerSettings>) => void;
+  onSave: () => void | Promise<void>;
+  onReset: () => void;
+};
+
+export function SetupPage({
+  languages,
+  settings,
+  draftSettings,
+  onDraftChange,
+  onSave,
+  onReset
+}: SetupPageProps) {
+  function handleNumberChange(
+    key: "dailyGoal" | "dailyMinutes" | "weeklyGoalSessions",
+    fallback: number
+  ) {
+    return (event: ChangeEvent<HTMLInputElement>) => {
+      onDraftChange({ [key]: Number(event.target.value) || fallback });
+    };
+  }
+
   return (
     <section className="panel settings-panel">
       <h2>Learning Setup</h2>
@@ -55,7 +83,7 @@ export function SetupPage({ languages, settings, draftSettings, onDraftChange, o
             min="20"
             max="500"
             value={draftSettings.dailyGoal}
-            onChange={(event) => onDraftChange({ dailyGoal: Number(event.target.value) || 30 })}
+            onChange={handleNumberChange("dailyGoal", 30)}
           />
         </label>
 
@@ -66,7 +94,7 @@ export function SetupPage({ languages, settings, draftSettings, onDraftChange, o
             min="5"
             max="240"
             value={draftSettings.dailyMinutes}
-            onChange={(event) => onDraftChange({ dailyMinutes: Number(event.target.value) || 20 })}
+            onChange={handleNumberChange("dailyMinutes", 20)}
           />
         </label>
 
@@ -77,9 +105,7 @@ export function SetupPage({ languages, settings, draftSettings, onDraftChange, o
             min="1"
             max="21"
             value={draftSettings.weeklyGoalSessions}
-            onChange={(event) =>
-              onDraftChange({ weeklyGoalSessions: Number(event.target.value) || 5 })
-            }
+            onChange={handleNumberChange("weeklyGoalSessions", 5)}
           />
         </label>
 

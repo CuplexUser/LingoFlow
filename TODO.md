@@ -10,7 +10,9 @@ This file captures current product and technical priorities for future assignmen
 
 ## Current focus
 
-## Phase 7: Integrity, operations, and scale
+## Active roadmap
+
+### Phase 7: Integrity, operations, and scale
 
 - [ ] Prevent score inflation via duplicate `questionId` submissions.
 - [ ] Wrap session completion writes in a DB transaction (atomic completion).
@@ -19,14 +21,20 @@ This file captures current product and technical priorities for future assignmen
 - [ ] Add SQLite indexes for stats/history query paths.
 - [x] Add structured request/error logging and basic health diagnostics.
 
-## Phase 8: Quality tooling and maintainability
+### Phase 8: Quality tooling and maintainability
 
 - [x] Expand progression test coverage with level-up and unlock-threshold edge cases.
 - [x] Add project-level ESLint and Prettier configuration in `package.json`.
 - [x] Refactor `server/src/data.ts` into smaller focused modules.
 - [x] Set up Husky pre-commit verification hooks.
+- [x] Start the client TypeScript migration:
+  - install React type packages
+  - switch the client entrypoint to `main.tsx`
+  - replace JS/JSX compatibility shims with direct TS/TSX modules
+- [x] Add typed client domain models for course, session, and contribution flows.
+- [x] Normalize raw session payloads into discriminated TypeScript question unions.
 
-## Phase 9: Content breadth and richer lesson formats
+### Phase 9: Content breadth and richer lesson formats
 
 - [x] Add new course categories:
   - `Hobbies & Leisure`
@@ -56,7 +64,7 @@ This file captures current product and technical priorities for future assignmen
 
 ## Completed archive
 
-## Phase 1: Reliability and anti-trivial-cheat
+### Phase 1: Reliability and anti-trivial-cheat
 
 - [x] Move final scoring authority to server:
   - create server-side session records (`sessionId` + question IDs + expected answers)
@@ -68,7 +76,7 @@ This file captures current product and technical priorities for future assignmen
   - ensure `difficultyLevel` and category match started session
   - prevent completion of unknown/expired session IDs
 
-## Phase 2: Automated tests
+### Phase 2: Automated tests
 
 - [x] Add backend test setup under `server/src/__tests__/`.
 - [x] Unit tests for:
@@ -80,7 +88,7 @@ This file captures current product and technical priorities for future assignmen
   - `/api/session/start` -> `/api/session/complete` happy path
   - invalid completion payloads
 
-## Phase 3: Better learning depth
+### Phase 3: Better learning depth
 
 - [x] Add per-item progress model (`item_progress`) for retention:
   - `item_id`, `ease`, `last_seen`, `next_due`, `streak`, `error_count`
@@ -92,7 +100,7 @@ This file captures current product and technical priorities for future assignmen
 - [x] Improve distractor generation quality:
   - same grammar pattern / semantic neighborhood distractors
 
-## Phase 4: Learning experience expansion
+### Phase 4: Learning experience expansion
 
 - [x] Add exercise types:
   - cloze deletion
@@ -114,14 +122,14 @@ This file captures current product and technical priorities for future assignmen
 
 These items are intentionally left open for the next development cycle.
 
-## Phase 5: Multi-user foundation
+### Phase 5: Multi-user foundation
 
 - [x] Add `users` table and authentication endpoints (register/login/me).
 - [x] Add `user_id` ownership to learner data tables and queries.
 - [x] Derive user identity server-side from auth token/session (never trust client-sent user id).
 - [x] Migrate existing single-user data into a default user safely.
 
-## Phase 6: Frontend architecture and test coverage
+### Phase 6: Frontend architecture and test coverage
 
 - [x] Refactor `client/src/App.jsx` into smaller components/hooks.
 - [x] Add frontend tests under `client/src/__tests__/`:
@@ -129,7 +137,38 @@ These items are intentionally left open for the next development cycle.
   - setup save/reset behavior
   - stats rendering with API fixtures
 
-## Phase 6 follow-up: Deployable auth UX
+### Phase 6 extension: TypeScript client architecture
+
+- [x] Convert page-level client components to `.tsx` modules:
+  - `LearnPage`
+  - `PracticePage`
+  - `SetupPage`
+  - `StatsPage`
+  - `ContributePage`
+  - `ContributionPanel`
+- [x] Convert `SessionPlayer` and extracted session modules to TypeScript:
+  - `SessionPlayer.tsx`
+  - `SessionPanels.tsx`
+  - `sessionHelpers.ts`
+- [x] Extract `SessionPlayer` cross-cutting concerns into hooks:
+  - `useSessionSpeech`
+  - `useSessionSnapshot`
+  - `useSessionEngine`
+- [x] Extract app-shell concerns into hooks:
+  - `useThemeMode`
+  - `useAppNavigation`
+  - `useCourseSessionState`
+  - `useAuthenticatedAppData`
+- [x] Add focused client tests for:
+  - session normalization
+  - navigation hook behavior
+  - stored session persistence behavior
+- [x] Verify the migrated client with:
+  - `npx tsc --noEmit -p client/tsconfig.json`
+  - `npm run test --prefix client`
+  - `npm run build --prefix client`
+
+### Phase 6 follow-up: Deployable auth UX
 
 - [x] Add dedicated frontend login and registration pages.
 - [x] Add token persistence and authenticated API calls in client.

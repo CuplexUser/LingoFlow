@@ -1,6 +1,21 @@
 import { useMemo, useState } from "react";
 import mascotHero from "../assets/mascot-hero.png";
 import { SessionPlayer } from "./SessionPlayer";
+import type { CourseCategory, LearnerProgress, LearnerSettings } from "../types/course";
+import type { ActiveSession, SessionReport, SessionSnapshot } from "../types/session";
+
+type LearnPageProps = {
+  settings: LearnerSettings | null;
+  progress: LearnerProgress | null;
+  courseCategories: CourseCategory[];
+  activeSession: ActiveSession | null;
+  onStartCategory: (category: CourseCategory) => void | Promise<void>;
+  onFinishSession: (sessionReport: SessionReport) => void | Promise<void>;
+  onExitSession: () => void;
+  onSessionSnapshot: (snapshot: SessionSnapshot) => void;
+  onOpenSetup: () => void;
+  onOpenStats: () => void;
+};
 
 export function LearnPage({
   settings,
@@ -13,7 +28,7 @@ export function LearnPage({
   onSessionSnapshot,
   onOpenSetup,
   onOpenStats
-}) {
+}: LearnPageProps) {
   const [showFullCatalog, setShowFullCatalog] = useState(false);
   const nextUnlockedCategory = courseCategories.find(
     (category) => category.unlocked && category.attempts === 0
@@ -35,7 +50,7 @@ export function LearnPage({
     ...unlockedCategories.filter((category) => category.id !== continueCategory?.id),
     ...lockedCategories
   ]
-    .filter(Boolean)
+    .filter((category): category is CourseCategory => Boolean(category))
     .slice(0, 4);
   const totalPhrases = courseCategories.reduce(
     (sum, category) => sum + (category.totalPhrases || 0),
@@ -50,7 +65,7 @@ export function LearnPage({
         session={activeSession}
         onBack={onExitSession}
         onFinish={onFinishSession}
-        onSnapshot={(snapshot) => onSessionSnapshot(snapshot)}
+        onSnapshot={onSessionSnapshot}
       />
     );
   }
@@ -271,7 +286,6 @@ export function LearnPage({
           </div>
         </section>
       ) : null}
-
     </>
   );
 }

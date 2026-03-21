@@ -1,4 +1,29 @@
-export function StatsPage({ settings, progress, courseCategories, statsData, progressOverview, languages }) {
+import type {
+  CourseCategory,
+  LanguageOption,
+  LearnerProgress,
+  LearnerSettings,
+  ProgressOverview,
+  StatsData
+} from "../types/course";
+
+type StatsPageProps = {
+  settings: LearnerSettings | null;
+  progress: LearnerProgress | null;
+  courseCategories: CourseCategory[];
+  statsData: StatsData | null;
+  progressOverview: ProgressOverview | null;
+  languages: LanguageOption[];
+};
+
+export function StatsPage({
+  settings,
+  progress,
+  courseCategories,
+  statsData,
+  progressOverview,
+  languages
+}: StatsPageProps) {
   const totalCategoryCount = statsData?.categoryCount ?? courseCategories.length ?? 0;
 
   return (
@@ -78,7 +103,7 @@ export function StatsPage({ settings, progress, courseCategories, statsData, pro
           <p>
             {progressOverview.languages
               .map((entry) => {
-                const label = languages?.find((item) => item.id === entry.language)?.label || entry.language;
+                const label = languages.find((item) => item.id === entry.language)?.label || entry.language;
                 return `${label}: ${entry.totalXp} XP, ${entry.streak} day streak`;
               })
               .join(" | ")}

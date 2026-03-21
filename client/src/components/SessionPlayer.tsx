@@ -1,0 +1,569 @@
+import { useEffect, useRef, useState, type DragEvent } from "react";
+import {
+  AudioActionPanel,
+  BuildSentencePanel,
+  ClozeSentencePanel,
+  FeedbackPanel,
+  FlashcardPanel,
+  MatchingPanel,
+  MultipleChoicePanel,
+  PracticeWordsPanel,
+  TranscriptExercisePanel
+} from "./session/SessionPanels";
+import {
+  joinBuiltWords,
+  shuffleArray
+} from "./session/sessionHelpers";
+import { useSessionEngine } from "./session/useSessionEngine";
+import { useSessionSnapshot } from "./session/useSessionSnapshot";
+import { useSessionSpeech } from "./session/useSessionSpeech";
+import type {
+  ActiveSession,
+  SessionFeedback,
+  SessionQuestion,
+  SessionReport,
+  SessionSnapshot
+} from "../types/session";
+
+type SessionPlayerProps = {
+  session: ActiveSession;
+  onBack: () => void;
+  onFinish: (report: SessionReport) => void | Promise<void>;
+  onSnapshot: (snapshot: SessionSnapshot) => void;
+};
+
+type MatchingPair = {
+  prompt: string;
+  answer: string;
+};
+
+type PracticeWordPair = {
+  left: string;
+  right: string;
+};
+
+type MatchingDragPayload = {
+  answer: string;
+  fromPrompt: string;
+};
+
+export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: SessionPlayerProps) {
+  const resumeState = session.resumeState || {};
+  const fixedQuestionCount = Math.max(
+    1,
+    Number(resumeState.fixedQuestionCount) || session.questions.length || 1
+  );
+  const [questionsQueue] = useState<SessionQuestion[]>(() => {
+    const resumedQueue = Array.isArray(resumeState.questionsQueue)
+      ? resumeState.questionsQueue.slice(0, fixedQuestionCount)
+      : [];
+    return resumedQueue.length ? resumedQueue : session.questions.slice(0, fixedQuestionCount);
+  });
+  const [index, setIndex] = useState(() => resumeState.index || 0);
+  const [score, setScore] = useState(() => resumeState.score || 0);
+  const [selectedOption, setSelectedOption] = useState(() => resumeState.selectedOption || "");
+  const [selectedTokenIndexes, setSelectedTokenIndexes] = useState<number[]>(
+    () => resumeState.selectedTokenIndexes || []
+  );
+  const [attemptLog, setAttemptLog] = useState(() => resumeState.attemptLog || []);
+  const [feedback, setFeedback] = useState<SessionFeedback | null>(() => resumeState.feedback || null);
+  const [revealedCurrentQuestion, setRevealedCurrentQuestion] = useState(
+    () => resumeState.revealedCurrentQuestion || false
+  );
+  const [roleplayHintVisible, setRoleplayHintVisible] = useState(
+    () => resumeState.roleplayHintVisible || false
+  );
+  const [questionMistakes, setQuestionMistakes] = useState(() => resumeState.questionMistakes || 0);
+  const [totalMistakes, setTotalMistakes] = useState(() => resumeState.totalMistakes || 0);
+  const [hintsUsed, setHintsUsed] = useState(() => resumeState.hintsUsed || 0);
+  const [revealedAnswers, setRevealedAnswers] = useState(() => resumeState.revealedAnswers || 0);
+  const [flashcardRevealed, setFlashcardRevealed] = useState(
+    () => resumeState.flashcardRevealed || false
+  );
+  const [pronunciationTranscript, setPronunciationTranscript] = useState(
+    () => resumeState.pronunciationTranscript || ""
+  );
+  const [practiceWordMatches, setPracticeWordMatches] = useState<PracticeWordPair[]>(
+    () => resumeState.practiceWordMatches || []
+  );
+  const [practiceLeftOrder, setPracticeLeftOrder] = useState<string[]>(
+    () => resumeState.practiceLeftOrder || []
+  );
+  const [practiceRightOrder, setPracticeRightOrder] = useState<string[]>(
+    () => resumeState.practiceRightOrder || []
+  );
+  const [practiceSelection, setPracticeSelection] = useState<PracticeWordPair>(
+    () => resumeState.practiceSelection || { left: "", right: "" }
+  );
+  const [practiceFeedback, setPracticeFeedback] = useState(
+    () => resumeState.practiceFeedback || ""
+  );
+  const [practiceCompleted, setPracticeCompleted] = useState(false);
+  const [matchingPairs, setMatchingPairs] = useState<MatchingPair[]>(() => resumeState.matchingPairs || []);
+  const [matchingPromptOrder, setMatchingPromptOrder] = useState<string[]>(() => resumeState.matchingPromptOrder || []);
+  const [matchingAnswerOrder, setMatchingAnswerOrder] = useState<string[]>(() => resumeState.matchingAnswerOrder || []);
+  const draggedWordIndexRef = useRef<number | null>(null);
+  const builtWordDropHandledRef = useRef(false);
+
+  const question = questionsQueue[index];
+  const currentStep = Math.min(index + 1, fixedQuestionCount);
+  const progress = Math.round((currentStep / fixedQuestionCount) * 100);
+  const builtWords = question.type === "build_sentence" || question.type === "dictation_sentence"
+    ? selectedTokenIndexes.map((idx: number) => question.tokens?.[idx] || "")
+    : [];
+  const builtSentence = joinBuiltWords(question, selectedTokenIndexes);
+  const snapshot: SessionSnapshot = {
+    questionsQueue,
+    fixedQuestionCount,
+    index,
+    score,
+    selectedOption,
+    selectedTokenIndexes,
+    attemptLog,
+    feedback,
+    revealedCurrentQuestion,
+    roleplayHintVisible,
+    questionMistakes,
+    totalMistakes,
+    hintsUsed,
+    revealedAnswers,
+    flashcardRevealed,
+    pronunciationTranscript,
+    practiceWordMatches,
+    practiceLeftOrder,
+    practiceRightOrder,
+    practiceSelection,
+    practiceFeedback,
+    matchingPairs,
+    matchingPromptOrder,
+    matchingAnswerOrder
+  };
+  const {
+    speechError,
+    setSpeechError,
+    playAudioUrl,
+    speakText,
+    startPronunciationCheck
+  } = useSessionSpeech({
+    language: session.language,
+    onTranscriptCaptured: (transcript) => {
+      setPronunciationTranscript(transcript);
+      setSelectedOption(transcript);
+      setFeedback(null);
+    }
+  });
+  const {
+    canSubmit,
+    submitAnswer,
+    skipPronunciationExercise,
+    revealAnswer,
+    handlePracticeWordPick,
+    handleOptionSelect,
+    handleTranscriptChange,
+    handleRoleplayHint
+  } = useSessionEngine({
+    question,
+    questionsQueue,
+    index,
+    score,
+    fixedQuestionCount,
+    totalMistakes,
+    hintsUsed,
+    revealedAnswers,
+    selectedOption,
+    selectedTokenIndexes,
+    builtSentence,
+    revealedCurrentQuestion,
+    flashcardRevealed,
+    pronunciationTranscript,
+    practiceWordMatches,
+    practiceSelection,
+    practiceCompleted,
+    matchingPairs,
+    attemptLog,
+    onFinish,
+    setIndex,
+    setScore,
+    setSelectedOption,
+    setSelectedTokenIndexes,
+    setAttemptLog,
+    setFeedback,
+    setRevealedCurrentQuestion,
+    setRoleplayHintVisible,
+    setQuestionMistakes,
+    setTotalMistakes,
+    setHintsUsed,
+    setRevealedAnswers,
+    setFlashcardRevealed,
+    setPronunciationTranscript,
+    setPracticeWordMatches,
+    setPracticeSelection,
+    setPracticeFeedback,
+    setPracticeLeftOrder,
+    setPracticeRightOrder,
+    setMatchingPairs,
+    setMatchingPromptOrder,
+    setMatchingAnswerOrder,
+    markPracticeCompleted: () => setPracticeCompleted(true),
+    resetPracticeCompleted: () => setPracticeCompleted(false),
+    clearSpeechError: () => setSpeechError("")
+  });
+
+  useEffect(() => {
+    if (question?.type !== "matching") return;
+    const pairs = Array.isArray(question.pairs) ? question.pairs : [];
+      const prompts = pairs.map((pair) => pair.prompt || "").filter(Boolean);
+      const answers = pairs.map((pair) => pair.answer || "").filter(Boolean);
+    setMatchingPromptOrder(shuffleArray(prompts));
+    setMatchingAnswerOrder(shuffleArray(answers));
+  }, [question?.id, question?.type]);
+
+  useEffect(() => {
+    if (question?.type !== "practice_words") return;
+    const pairs = Array.isArray(question.pairs) ? question.pairs : [];
+    const lefts = pairs.map((pair) => pair.left || "").filter(Boolean);
+    const rights = pairs.map((pair) => pair.right || "").filter(Boolean);
+    setPracticeLeftOrder(shuffleArray(lefts));
+    setPracticeRightOrder(shuffleArray(rights));
+    setPracticeWordMatches([]);
+    setPracticeSelection({ left: "", right: "" });
+    setPracticeFeedback("");
+    setPracticeCompleted(false);
+  }, [question?.id, question?.type]);
+
+  useSessionSnapshot({ snapshot, onSnapshot });
+
+  function speakAlternative(text: string) {
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl);
+      return;
+    }
+    speakText(text);
+  }
+
+  function speakBuildTranslationHint() {
+    const translatedSentence = "answer" in question ? String(question.answer || "").trim() : "";
+    if (!translatedSentence) return;
+    setHintsUsed((value) => value + 1);
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl);
+      return;
+    }
+    speakText(translatedSentence);
+  }
+
+  function speakPronunciationTarget(playbackRate = 1) {
+    const targetSentence = "answer" in question ? String(question.answer || "").trim() : "";
+    if (!targetSentence) return;
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl, playbackRate);
+      return;
+    }
+    speakText(targetSentence, Math.max(0.1, playbackRate));
+  }
+
+  function toggleToken(tokenIndex: number) {
+    setSelectedTokenIndexes((prev) => {
+      if (prev.includes(tokenIndex)) {
+        return prev.filter((idx: number) => idx !== tokenIndex);
+      }
+      return [...prev, tokenIndex];
+    });
+    setFeedback(null);
+  }
+
+  function reorderSelectedWords(fromIndex: number, toIndex: number) {
+    setSelectedTokenIndexes((prev) => {
+      if (fromIndex < 0 || toIndex < 0 || fromIndex >= prev.length || toIndex >= prev.length) {
+        return prev;
+      }
+      if (fromIndex === toIndex) return prev;
+      const next = [...prev];
+      const [moved] = next.splice(fromIndex, 1);
+      next.splice(toIndex, 0, moved);
+      return next;
+    });
+    setFeedback(null);
+  }
+
+  function removeSelectedWordAt(wordIndex: number) {
+    setSelectedTokenIndexes((prev) => {
+      if (wordIndex < 0 || wordIndex >= prev.length) return prev;
+      const next = [...prev];
+      next.splice(wordIndex, 1);
+      return next;
+    });
+    setFeedback(null);
+  }
+
+  function handleBuiltWordDragStart(wordIndex: number) {
+    draggedWordIndexRef.current = wordIndex;
+    builtWordDropHandledRef.current = false;
+  }
+
+  function handleBuiltWordDrop(targetIndex: number) {
+    const fromIndex = draggedWordIndexRef.current;
+    if (!Number.isInteger(fromIndex)) return;
+    builtWordDropHandledRef.current = true;
+    reorderSelectedWords(Number(fromIndex), targetIndex);
+    draggedWordIndexRef.current = null;
+  }
+
+  function applyMatchingAssignment(prompt: string, answer: string, fromPrompt = "") {
+    const normalizedPrompt = String(prompt || "");
+    const normalizedAnswer = String(answer || "");
+    const normalizedFromPrompt = String(fromPrompt || "");
+    if (!normalizedPrompt || !normalizedAnswer) return;
+
+    // 1-to-1: move the answer, don't duplicate it.
+    setMatchingPairs((prev) => {
+      const filtered = prev.filter((pair) =>
+        pair.prompt !== normalizedPrompt &&
+        pair.prompt !== normalizedFromPrompt &&
+        pair.answer !== normalizedAnswer
+      );
+      return [...filtered, { prompt: normalizedPrompt, answer: normalizedAnswer }];
+    });
+    setFeedback(null);
+  }
+
+  function clearMatchingAssignment(prompt: string) {
+    const normalizedPrompt = String(prompt || "");
+    if (!normalizedPrompt) return;
+    setMatchingPairs((prev) => prev.filter((pair) => pair.prompt !== normalizedPrompt));
+    setFeedback(null);
+  }
+
+  function startMatchingDrag(event: DragEvent<HTMLElement>, answer: string, fromPrompt = "") {
+    if (!event?.dataTransfer) return;
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", JSON.stringify({ answer, fromPrompt }));
+  }
+
+  function readMatchingDragPayload(event: DragEvent<HTMLElement>): MatchingDragPayload | null {
+    try {
+      const raw = event?.dataTransfer?.getData("text/plain") || "";
+      const parsed = JSON.parse(raw);
+      const answer = String(parsed?.answer || "");
+      const fromPrompt = String(parsed?.fromPrompt || "");
+      if (!answer) return null;
+      return { answer, fromPrompt };
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function handleBuiltWordDragEnd() {
+    if (
+      Number.isInteger(draggedWordIndexRef.current) &&
+      !builtWordDropHandledRef.current
+    ) {
+      removeSelectedWordAt(Number(draggedWordIndexRef.current));
+    }
+    draggedWordIndexRef.current = null;
+    builtWordDropHandledRef.current = false;
+  }
+
+  function handlePracticeListenAudio() {
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl);
+      return;
+    }
+    speakText("answer" in question ? String(question.answer || "") : "");
+  }
+
+  return (
+    <section className="panel lesson-player">
+      <div className="lesson-header">
+        <button className="ghost-button" onClick={onBack}>Exit Session</button>
+        <div className="meter">
+          <div style={{ width: `${progress}%` }} />
+        </div>
+      </div>
+
+      <div className="challenge-badges">
+        <span>{session.categoryLabel}</span>
+        <span>Level: {session.recommendedLevel.toUpperCase()}</span>
+        {question.type === "roleplay" ? <span>Roleplay</span> : null}
+        <span>{currentStep}/{fixedQuestionCount}</span>
+      </div>
+
+      <h2>{question.prompt}</h2>
+      {question.type === "roleplay" ? (
+        <div className="build-hints">
+          <button
+            type="button"
+            className="speak-button"
+            onClick={handleRoleplayHint}
+          >
+            Hint: English Response
+          </button>
+          {roleplayHintVisible ? (
+            <span className="hint-chip">{question.answerEnglish || "No English hint available."}</span>
+          ) : null}
+        </div>
+      ) : null}
+      {question.type === "roleplay" && question.hints?.length ? (
+        <div className="build-hints">
+          <span className="hint-chip">{question.hints[0]}</span>
+        </div>
+      ) : null}
+      {question.type === "pronunciation" || question.type === "practice_speak" ? (
+        <p className="pronunciation-target">
+          <strong>Say:</strong> {question.answer}
+        </p>
+      ) : null}
+      {question.imageUrl ? <img className="exercise-image" src={question.imageUrl} alt="" /> : null}
+      {question.culturalNote ? <p className="cultural-note">{question.culturalNote}</p> : null}
+      {speechError ? <p className="speech-error">{speechError}</p> : null}
+
+      {question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay" ? (
+        <MultipleChoicePanel
+          options={question.options || []}
+          selectedOption={selectedOption}
+          onSelect={handleOptionSelect}
+          onSpeakOption={speakAlternative}
+          withSpeakButton
+        />
+      ) : null}
+
+      {question.type === "practice_listen" ? (
+        <MultipleChoicePanel
+          options={question.options || []}
+          selectedOption={selectedOption}
+          onSelect={handleOptionSelect}
+        />
+      ) : null}
+
+      {question.type === "cloze_sentence" ? (
+        <ClozeSentencePanel
+          question={question}
+          selectedOption={selectedOption}
+          onSelect={handleOptionSelect}
+        />
+      ) : null}
+
+      {question.type === "build_sentence" ? (
+        <BuildSentencePanel
+          dictation={false}
+          question={question}
+          builtSentence={builtSentence}
+          builtWords={builtWords}
+          selectedTokenIndexes={selectedTokenIndexes}
+          onHint={speakBuildTranslationHint}
+          onTokenSelect={toggleToken}
+          onBuiltWordDragStart={handleBuiltWordDragStart}
+          onBuiltWordDrop={handleBuiltWordDrop}
+          onBuiltWordDragEnd={handleBuiltWordDragEnd}
+        />
+      ) : null}
+      {question.type === "dictation_sentence" ? (
+        <BuildSentencePanel
+          dictation
+          question={question}
+          builtSentence={builtSentence}
+          builtWords={builtWords}
+          selectedTokenIndexes={selectedTokenIndexes}
+          onHint={speakBuildTranslationHint}
+          onTokenSelect={toggleToken}
+          onBuiltWordDragStart={handleBuiltWordDragStart}
+          onBuiltWordDrop={handleBuiltWordDrop}
+          onBuiltWordDragEnd={handleBuiltWordDragEnd}
+        />
+      ) : null}
+
+      {question.type === "flashcard" ? (
+        <FlashcardPanel
+          question={question}
+          flashcardRevealed={flashcardRevealed}
+          onToggleReveal={() => setFlashcardRevealed((value: boolean) => !value)}
+          onNeedReview={() => {
+            setFlashcardRevealed(true);
+            setSelectedOption("review");
+          }}
+          onKnown={() => {
+            setFlashcardRevealed(true);
+            setSelectedOption("known");
+          }}
+        />
+      ) : null}
+
+      {question.type === "matching" ? (
+        <MatchingPanel
+          question={question}
+          matchingPromptOrder={matchingPromptOrder}
+          matchingAnswerOrder={matchingAnswerOrder}
+          matchingPairs={matchingPairs}
+          onReadDragPayload={readMatchingDragPayload}
+          onApplyAssignment={applyMatchingAssignment}
+          onStartDrag={startMatchingDrag}
+          onClearAssignment={clearMatchingAssignment}
+        />
+      ) : null}
+
+      {question.type === "pronunciation" ? (
+        <TranscriptExercisePanel
+          transcript={pronunciationTranscript}
+          onTranscriptChange={handleTranscriptChange}
+          actionButtons={[
+            <button key="play" className="speak-button" type="button" onClick={speakBuildTranslationHint}>
+              Play Prompt
+            </button>,
+            <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
+              Start Pronunciation Check
+            </button>,
+            <button key="skip" className="ghost-button" type="button" onClick={skipPronunciationExercise}>
+              Can&apos;t speak now
+            </button>
+          ]}
+        />
+      ) : null}
+
+      {question.type === "practice_speak" ? (
+        <TranscriptExercisePanel
+          transcript={pronunciationTranscript}
+          onTranscriptChange={handleTranscriptChange}
+          actionButtons={[
+            <button key="listen" className="speak-button" type="button" onClick={() => speakPronunciationTarget()}>
+              Listen
+            </button>,
+            <button key="slow" className="speak-button" type="button" onClick={() => speakPronunciationTarget(0.70)}>
+              Listen (slow)
+            </button>,
+            <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
+              Start Pronunciation Check
+            </button>
+          ]}
+        />
+      ) : null}
+
+      {question.type === "practice_listen" ? (
+        <AudioActionPanel onPlay={handlePracticeListenAudio} />
+      ) : null}
+
+      {question.type === "practice_words" ? (
+        <PracticeWordsPanel
+          question={question}
+          practiceLeftOrder={practiceLeftOrder}
+          practiceRightOrder={practiceRightOrder}
+          practiceWordMatches={practiceWordMatches}
+          practiceSelection={practiceSelection}
+          practiceFeedback={practiceFeedback}
+          onPick={handlePracticeWordPick}
+        />
+      ) : null}
+
+      <FeedbackPanel feedback={feedback} builtWords={builtWords} onReveal={revealAnswer} />
+
+      {question.type !== "practice_words" ? (
+        <button
+          className="primary-button"
+          onClick={submitAnswer}
+          disabled={!canSubmit()}
+        >
+          Check
+        </button>
+      ) : null}
+    </section>
+  );
+}
