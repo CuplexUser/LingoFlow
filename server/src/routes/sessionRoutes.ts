@@ -147,7 +147,10 @@ function registerSessionRoutes(
     const isPracticeSession = session.questions.length > 0 &&
       session.questions.every((question: SessionQuestion) => String(question.type || "").startsWith("practice_"));
     let score = 0;
-    const questionStats = new Map<string, { hasIncorrect: boolean; awarded: boolean }>();
+    let mistakes = 0;
+    const practiceQuestionStats = isPracticeSession
+      ? new Map<string, { hasIncorrect: boolean; awarded: boolean }>()
+      : null;
     const evaluatedAttempts: Array<{
       question: SessionQuestion;
       correct: boolean;
@@ -163,21 +166,26 @@ function registerSessionRoutes(
 
       const evaluation = evaluateAttempt(question, attempt);
       const revealed = Boolean(attempt?.revealed);
-      if (!questionStats.has(questionId)) {
-        questionStats.set(questionId, { hasIncorrect: false, awarded: false });
-      }
-      const stats = questionStats.get(questionId);
-      if (!stats) {
-        return res.status(500).json({ error: "Question scoring state missing" });
-      }
+      if (isPracticeSession) {
+        if (!practiceQuestionStats?.has(questionId)) {
+          practiceQuestionStats?.set(questionId, { hasIncorrect: false, awarded: false });
+        }
+        const stats = practiceQuestionStats?.get(questionId);
+        if (!stats) {
+          return res.status(500).json({ error: "Question scoring state missing" });
+        }
 
-      if (evaluation.correct) {
-        if (!stats.awarded) {
-          if (!revealed) score += 1;
-          stats.awarded = true;
+        if (evaluation.correct) {
+          if (!stats.awarded) {
+            if (!revealed) score += 1;
+            stats.awarded = true;
+          }
+        } else {
+          stats.hasIncorrect = true;
         }
       } else {
-        stats.hasIncorrect = true;
+        if (evaluation.correct) score += 1;
+        else mistakes += 1;
       }
       evaluatedAttempts.push({
         question,
@@ -186,11 +194,19 @@ function registerSessionRoutes(
       });
     }
 
-    const mistakes = Array.from(questionStats.values()).filter((entry) => entry.hasIncorrect).length;
+    if (isPracticeSession) {
+      mistakes = Array.from(practiceQuestionStats?.values() || [])
+        .filter((entry) => entry.hasIncorrect)
+        .length;
+    }
 
     const baseMaxScore = session.questions.length;
-    score = Math.min(score, baseMaxScore);
-    const effectiveMaxScore = baseMaxScore;
+    if (isPracticeSession) {
+      score = Math.min(score, baseMaxScore);
+    }
+    const effectiveMaxScore = isPracticeSession
+      ? baseMaxScore
+      : Math.max(baseMaxScore, score + mistakes);
     const safeHintsUsed = Number.isFinite(hintsUsed) ? Math.max(0, Math.floor(hintsUsed)) : 0;
     const safeRevealedAnswers = Number.isFinite(revealedAnswers)
       ? Math.max(0, Math.floor(revealedAnswers))

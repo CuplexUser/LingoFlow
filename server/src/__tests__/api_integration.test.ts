@@ -248,7 +248,7 @@ test("session complete rejects unknown question ids", async (t) => {
   assert.equal(invalid.status, 400);
 });
 
-test("revealed attempts are worth zero points", async (t) => {
+test("practice revealed attempts are worth zero points", async (t) => {
   const app = createApp();
   const server = app.listen(0);
   t.after(() => server.close());
@@ -262,7 +262,8 @@ test("revealed attempts are worth zero points", async (t) => {
     body: JSON.stringify({
       language: "spanish",
       category: "essentials",
-      count: 6
+      count: 6,
+      mode: "speak"
     })
   });
   assert.equal(startRes.status, 200);
@@ -290,7 +291,7 @@ test("revealed attempts are worth zero points", async (t) => {
   assert.equal(completed.evaluated.maxScore, session.questions.length);
 });
 
-test("mistakes count unique incorrect questions, not retry attempts", async (t) => {
+test("practice mistakes count unique incorrect questions, not retry attempts", async (t) => {
   const app = createApp();
   const server = app.listen(0);
   t.after(() => server.close());
@@ -304,7 +305,8 @@ test("mistakes count unique incorrect questions, not retry attempts", async (t) 
     body: JSON.stringify({
       language: "spanish",
       category: "essentials",
-      count: 6
+      count: 6,
+      mode: "speak"
     })
   });
   assert.equal(startRes.status, 200);
