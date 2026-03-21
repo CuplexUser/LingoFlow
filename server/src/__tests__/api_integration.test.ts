@@ -166,7 +166,7 @@ test("practice sessions award fixed XP and update progress", async (t) => {
   const authHeaders = await createAuthHeaders(base, "practice-xp");
 
   const modes = [
-    { mode: "speak", expectedXp: 10 },
+    { mode: "speak", expectedXp: "by-score" },
     { mode: "listen", expectedXp: 10 },
     { mode: "words", expectedXp: 5 }
   ];
@@ -204,8 +204,9 @@ test("practice sessions award fixed XP and update progress", async (t) => {
     assert.equal(completeRes.status, 200);
     const completed = await completeRes.json();
     assert.equal(completed.ok, true);
-    assert.equal(completed.xpGained, entry.expectedXp);
-    expectedTotal += entry.expectedXp;
+    const expectedXp = entry.expectedXp === "by-score" ? completed.evaluated.score : entry.expectedXp;
+    assert.equal(completed.xpGained, expectedXp);
+    expectedTotal += expectedXp;
   }
 
   const progressRes = await fetch(`${base}/api/progress?language=spanish`, { headers: authHeaders });
@@ -336,6 +337,51 @@ test("mistakes count unique incorrect questions, not retry attempts", async (t) 
   assert.equal(completed.evaluated.score, session.questions.length - 1);
   assert.equal(completed.evaluated.maxScore, session.questions.length);
   assert.equal(completed.evaluated.mistakes, 1);
+});
+
+test("score is capped to session question count", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "score-cap");
+
+  const startRes = await fetch(`${base}/api/session/start`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      language: "russian",
+      category: "essentials",
+      count: 9,
+      mode: "speak"
+    })
+  });
+  assert.equal(startRes.status, 200);
+  const session = await startRes.json();
+  assert.ok(Array.isArray(session.questions));
+  assert.ok(session.questions.length >= 1);
+
+  const first = session.questions[0];
+  const attempts = [
+    ...session.questions.map((question) => makeAttempt(question)),
+    ...Array.from({ length: 25 }, () => makeAttempt(first))
+  ];
+
+  const completeRes = await fetch(`${base}/api/session/complete`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      sessionId: session.sessionId,
+      language: "russian",
+      category: "essentials",
+      attempts
+    })
+  });
+  assert.equal(completeRes.status, 200);
+  const completed = await completeRes.json();
+  assert.equal(completed.evaluated.maxScore, session.questions.length);
+  assert.equal(completed.evaluated.score, session.questions.length);
 });
 
 test("auth users get isolated progress state", async (t) => {

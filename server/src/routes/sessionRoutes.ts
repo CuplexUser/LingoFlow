@@ -41,16 +41,18 @@ interface SessionAttempt {
 }
 
 const PRACTICE_XP_BY_TYPE: Record<string, number> = {
-  practice_speak: 10,
   practice_listen: 10,
   practice_words: 5
 };
 
-function getPracticeXp(questions: SessionQuestion[]): number {
+function getPracticeXp(questions: SessionQuestion[], score: number): number {
   if (!Array.isArray(questions) || !questions.length) return 0;
   const types = new Set(questions.map((question) => question.type));
   if (types.size !== 1) return 0;
   const [type] = Array.from(types);
+  if (type === "practice_speak") {
+    return Math.max(0, Math.min(score, questions.length));
+  }
   return PRACTICE_XP_BY_TYPE[type] || 0;
 }
 
@@ -187,12 +189,13 @@ function registerSessionRoutes(
     const mistakes = Array.from(questionStats.values()).filter((entry) => entry.hasIncorrect).length;
 
     const baseMaxScore = session.questions.length;
+    score = Math.min(score, baseMaxScore);
     const effectiveMaxScore = baseMaxScore;
     const safeHintsUsed = Number.isFinite(hintsUsed) ? Math.max(0, Math.floor(hintsUsed)) : 0;
     const safeRevealedAnswers = Number.isFinite(revealedAnswers)
       ? Math.max(0, Math.floor(revealedAnswers))
       : 0;
-    const practiceXp = isPracticeSession ? getPracticeXp(session.questions) : 0;
+    const practiceXp = isPracticeSession ? getPracticeXp(session.questions, score) : 0;
     const xp = isPracticeSession
       ? { xpGained: practiceXp, accuracy: effectiveMaxScore > 0 ? score / effectiveMaxScore : 0 }
       : calculateXp({
