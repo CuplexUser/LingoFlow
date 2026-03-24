@@ -674,6 +674,36 @@ textarea {
   color: var(--text-muted);
 }
 
+.contribution-list {
+  display: grid;
+  gap: 12px;
+}
+
+.contribution-card {
+  display: grid;
+  gap: 10px;
+}
+
+.contribution-status {
+  text-transform: capitalize;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  background: var(--surface);
+}
+
+.contribution-status.status-pending {
+  color: #8a5a00;
+}
+
+.contribution-status.status-approved {
+  color: #1d6d35;
+}
+
+.contribution-status.status-rejected {
+  color: #9a3030;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

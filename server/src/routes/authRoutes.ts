@@ -134,6 +134,18 @@ function registerAuthRoutes(app, deps) {
     googleOauthClient,
     googleOauthClientId
   } = deps;
+  const contributionReviewerEmails = new Set(
+    String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
+      .split(",")
+      .map((email) => email.trim().toLowerCase())
+      .filter(Boolean)
+  );
+
+  function canModerateCommunityExercises(user) {
+    if (!user) return false;
+    if (user.id === 1) return true;
+    return contributionReviewerEmails.has(String(user.email || "").trim().toLowerCase());
+  }
 
   function isGoogleOauthConfigured() {
     return Boolean(googleOauthClient && googleOauthClientId);
@@ -453,7 +465,8 @@ function registerAuthRoutes(app, deps) {
         email: user.email,
         displayName: user.displayName,
         emailVerified: user.emailVerified,
-        authProvider: user.authProvider
+        authProvider: user.authProvider,
+        canModerateCommunityExercises: canModerateCommunityExercises(user)
       }
     });
   });

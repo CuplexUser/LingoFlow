@@ -26,3 +26,26 @@ export type ContributionForm = {
   culturalNote: string;
   exerciseType: ContributionExerciseType;
 };
+
+export type ContributionModerationStatus = "pending" | "approved" | "rejected";
+
+export type ContributionSubmission = {
+  id: number;
+  language: string;
+  category: string;
+  prompt: string;
+  correctAnswer: string;
+  hints: string[];
+  difficulty: string;
+  audioUrl: string;
+  imageUrl: string;
+  culturalNote: string;
+  exerciseType: string;
+  moderationStatus: ContributionModerationStatus;
+  createdAt: string;
+  submitter: {
+    id: number;
+    email: string;
+    displayName: string;
+  } | null;
+};

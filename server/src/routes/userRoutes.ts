@@ -1,5 +1,18 @@
 function registerUserRoutes(app: any, deps: any): void {
   const { requireAuth, database } = deps;
+  const contributionReviewerEmails = new Set(
+    String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
+      .split(",")
+      .map((email) => email.trim().toLowerCase())
+      .filter(Boolean)
+  );
+
+  function canModerateCommunityExercises(userId: number) {
+    const user = database.getUserById(userId);
+    if (!user) return false;
+    if (user.id === 1) return true;
+    return contributionReviewerEmails.has(String(user.email || "").trim().toLowerCase());
+  }
 
   app.get("/api/settings", requireAuth, (req: any, res: any) => {
     const userId = req.authUserId;
@@ -116,6 +129,60 @@ function registerUserRoutes(app: any, deps: any): void {
         difficulty: saved.difficulty,
         moderationStatus: saved.moderation_status
       }
+    });
+  });
+
+  app.get("/api/community/contributions", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const canModerate = canModerateCommunityExercises(userId);
+    const scope = String(req.query.scope || "").trim().toLowerCase();
+    const includeAll = canModerate && scope === "all";
+    const moderationStatus = String(req.query.status || "").trim().toLowerCase();
+    const language = String(req.query.language || "").trim().toLowerCase();
+    const category = String(req.query.category || "").trim();
+    const limit = Number.parseInt(String(req.query.limit || "50"), 10);
+
+    const submissions = database.listCommunityExercises({
+      userId,
+      includeAll,
+      language,
+      category,
+      moderationStatus,
+      limit
+    });
+
+    return res.json({
+      ok: true,
+      canModerate,
+      scope: includeAll ? "all" : "mine",
+      submissions
+    });
+  });
+
+  app.patch("/api/community/contributions/:id", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    if (!canModerateCommunityExercises(userId)) {
+      return res.status(403).json({ error: "Reviewer access required" });
+    }
+
+    const id = Number.parseInt(String(req.params.id || ""), 10);
+    const moderationStatus = String(req.body?.moderationStatus || "").trim().toLowerCase();
+    if (!Number.isInteger(id) || id <= 0) {
+      return res.status(400).json({ error: "A valid contribution id is required" });
+    }
+    if (!["pending", "approved", "rejected"].includes(moderationStatus)) {
+      return res.status(400).json({ error: "moderationStatus must be pending, approved, or rejected" });
+    }
+
+    const submission = database.updateCommunityExerciseModerationStatus({ id, moderationStatus });
+    if (!submission) {
+      return res.status(404).json({ error: "Contribution not found" });
+    }
+
+    return res.json({
+      ok: true,
+      message: `Contribution marked ${moderationStatus}.`,
+      submission
     });
   });
 }

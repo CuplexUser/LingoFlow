@@ -7,6 +7,7 @@ import type {
   StatsData,
   CourseCategory
 } from "./types/course";
+import type { ContributionModerationStatus, ContributionSubmission } from "./types/contribution";
 import type {
   ActiveSession,
   BuildSentenceQuestion,
@@ -34,6 +35,7 @@ export type AuthUser = {
   displayName: string;
   emailVerified?: boolean;
   authProvider?: string;
+  canModerateCommunityExercises?: boolean;
 };
 
 export type AuthSuccessPayload = {
@@ -80,6 +82,17 @@ export type CommunityExercisePayload = {
   imageUrl?: string;
   culturalNote?: string;
   exerciseType?: string;
+};
+
+export type CommunityContributionListResponse = {
+  ok?: boolean;
+  canModerate: boolean;
+  scope: "mine" | "all";
+  submissions: ContributionSubmission[];
+};
+
+export type CommunityContributionUpdatePayload = {
+  moderationStatus: ContributionModerationStatus;
 };
 
 export type SessionStartPayload = {
@@ -371,6 +384,27 @@ export const api = {
     request<StatsData>(`/stats${language ? `?language=${encodeURIComponent(language)}` : ""}`),
   completeSession: (payload: SessionCompletePayload) =>
     request<CompleteSessionResponse>("/session/complete", { method: "POST", body: JSON.stringify(payload) }),
+  getCommunityContributions: (params: {
+    scope?: "mine" | "all";
+    status?: ContributionModerationStatus | "";
+    language?: string;
+    category?: string;
+    limit?: number;
+  } = {}) => {
+    const searchParams = new URLSearchParams();
+    if (params.scope) searchParams.set("scope", params.scope);
+    if (params.status) searchParams.set("status", params.status);
+    if (params.language) searchParams.set("language", params.language);
+    if (params.category) searchParams.set("category", params.category);
+    if (params.limit) searchParams.set("limit", String(params.limit));
+    const query = searchParams.toString();
+    return request<CommunityContributionListResponse>(`/community/contributions${query ? `?${query}` : ""}`);
+  },
+  updateCommunityContributionStatus: (id: number, payload: CommunityContributionUpdatePayload) =>
+    request<{ ok?: boolean; message?: string; submission?: ContributionSubmission }>(
+      `/community/contributions/${id}`,
+      { method: "PATCH", body: JSON.stringify(payload) }
+    ),
   contributeExercise: (payload: CommunityExercisePayload) =>
     request<MessageResponse>("/community/contribute", { method: "POST", body: JSON.stringify(payload) })
 };

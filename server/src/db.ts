@@ -1419,6 +1419,140 @@ function createCommunityExercise({
   `).get(result.lastInsertRowid);
 }
 
+function parseCommunityExerciseRow(row) {
+  if (!row) return null;
+  let hints = [];
+  try {
+    hints = JSON.parse(row.hints_json || "[]");
+  } catch (_error) {
+    hints = [];
+  }
+
+  return {
+    id: row.id,
+    language: row.language,
+    category: row.category,
+    prompt: row.prompt,
+    correctAnswer: row.correct_answer,
+    hints: Array.isArray(hints) ? hints : [],
+    difficulty: row.difficulty,
+    audioUrl: row.audio_url,
+    imageUrl: row.image_url,
+    culturalNote: row.cultural_note,
+    exerciseType: row.exercise_type,
+    moderationStatus: row.moderation_status,
+    createdAt: row.created_at,
+    submitter: row.submitter_id
+      ? {
+          id: row.submitter_id,
+          email: row.submitter_email,
+          displayName: row.submitter_name
+        }
+      : null
+  };
+}
+
+function listCommunityExercises({
+  userId = 1,
+  includeAll = false,
+  language = "",
+  category = "",
+  moderationStatus = "",
+  limit = 50
+}) {
+  const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(limit, 200)) : 50;
+  const filters = [];
+  const params = [];
+
+  if (!includeAll) {
+    filters.push("ce.user_id = ?");
+    params.push(userId);
+  }
+  if (language) {
+    filters.push("ce.language = ?");
+    params.push(String(language).trim().toLowerCase());
+  }
+  if (category) {
+    filters.push("ce.category = ?");
+    params.push(String(category).trim());
+  }
+  if (moderationStatus) {
+    filters.push("ce.moderation_status = ?");
+    params.push(String(moderationStatus).trim().toLowerCase());
+  }
+
+  const whereClause = filters.length ? `WHERE ${filters.join(" AND ")}` : "";
+  const rows = db.prepare(`
+    SELECT
+      ce.id,
+      ce.language,
+      ce.category,
+      ce.prompt,
+      ce.correct_answer,
+      ce.hints_json,
+      ce.difficulty,
+      ce.audio_url,
+      ce.image_url,
+      ce.cultural_note,
+      ce.exercise_type,
+      ce.moderation_status,
+      ce.created_at,
+      u.id AS submitter_id,
+      u.email AS submitter_email,
+      u.display_name AS submitter_name
+    FROM community_exercises ce
+    JOIN users u ON u.id = ce.user_id
+    ${whereClause}
+    ORDER BY
+      CASE ce.moderation_status
+        WHEN 'pending' THEN 0
+        WHEN 'approved' THEN 1
+        WHEN 'rejected' THEN 2
+        ELSE 3
+      END,
+      ce.created_at DESC
+    LIMIT ?
+  `).all(...params, safeLimit);
+
+  return rows.map(parseCommunityExerciseRow);
+}
+
+function updateCommunityExerciseModerationStatus({
+  id,
+  moderationStatus
+}) {
+  db.prepare(`
+    UPDATE community_exercises
+    SET moderation_status = ?
+    WHERE id = ?
+  `).run(String(moderationStatus || "pending").trim().toLowerCase(), Number(id));
+
+  const row = db.prepare(`
+    SELECT
+      ce.id,
+      ce.language,
+      ce.category,
+      ce.prompt,
+      ce.correct_answer,
+      ce.hints_json,
+      ce.difficulty,
+      ce.audio_url,
+      ce.image_url,
+      ce.cultural_note,
+      ce.exercise_type,
+      ce.moderation_status,
+      ce.created_at,
+      u.id AS submitter_id,
+      u.email AS submitter_email,
+      u.display_name AS submitter_name
+    FROM community_exercises ce
+    JOIN users u ON u.id = ce.user_id
+    WHERE ce.id = ?
+  `).get(Number(id));
+
+  return parseCommunityExerciseRow(row);
+}
+
 function getStats(userId = 1, language) {
   const settings = getSettings(userId);
   const progress = getProgress(userId, language);
@@ -1733,6 +1867,8 @@ module.exports = {
   getItemSelectionHints,
   getCategoryRecommendations,
   createCommunityExercise,
+  listCommunityExercises,
+  updateCommunityExerciseModerationStatus,
   getTodayXp,
   getProgress,
   getProgressOverview,

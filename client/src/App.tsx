@@ -457,6 +457,22 @@ export default function App() {
     return result;
   }
 
+  async function loadContributions(params: {
+    scope?: "mine" | "all";
+    status?: "pending" | "approved" | "rejected" | "";
+    language?: string;
+    category?: string;
+    limit?: number;
+  }) {
+    return api.getCommunityContributions(params);
+  }
+
+  async function updateContributionStatus(id: number, payload: { moderationStatus: "pending" | "approved" | "rejected" }) {
+    const result = await api.updateCommunityContributionStatus(id, payload);
+    setStatusMessage(result?.message || "Contribution updated.");
+    return result;
+  }
+
   const dailyProgressPercent = useMemo(() => {
     if (!settings || !progress) return 0;
     return Math.min(100, Math.round(((progress.todayXp || 0) / settings.dailyGoal) * 100));
@@ -618,9 +634,12 @@ export default function App() {
 
       {activePage === "contribute" ? (
         <ContributePage
+          canModerateCommunityExercises={Boolean(authUser?.canModerateCommunityExercises)}
           activeCourseLanguage={activeCourseLanguage}
           courseCategories={courseCategories}
           onSubmitContribution={submitContribution}
+          onLoadContributions={loadContributions}
+          onUpdateContributionStatus={updateContributionStatus}
         />
       ) : null}
 

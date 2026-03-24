@@ -52,9 +52,15 @@ Optional environment variables:
 - `LINGOFLOW_AUTH_SECRET` (server): auth token signing secret for production.
 - `PUBLIC_APP_URL` (server): base URL used inside verification emails (e.g. `https://app.example.com`).
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE`, `EMAIL_FROM` (server): SMTP delivery for confirmation emails.
+- `CONTRIBUTION_REVIEWER_EMAILS` (server): comma-separated reviewer/admin email list for moderating community contribution submissions.
 - `LOG_LEVEL` (server): `debug` | `info` | `warn` | `error` (default: `info`).
 
 Create `server/.env` (copy from `server/.env.example`) to set server-side variables in local development.
+
+Community contribution moderation notes:
+
+- The first registered user is automatically treated as a reviewer/admin.
+- Additional moderators can be granted access with `CONTRIBUTION_REVIEWER_EMAILS`.
 
 ## Dev Unlock
 

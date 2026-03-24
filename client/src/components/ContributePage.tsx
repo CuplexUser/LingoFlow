@@ -1,17 +1,34 @@
-import type { CommunityExercisePayload } from "../api";
+import type {
+  CommunityContributionListResponse,
+  CommunityContributionUpdatePayload,
+  CommunityExercisePayload
+} from "../api";
 import type { CourseCategory } from "../types/course";
+import { ContributionInbox } from "./ContributionInbox";
 import { ContributionPanel } from "./ContributionPanel";
 
 type ContributePageProps = {
+  canModerateCommunityExercises: boolean;
   activeCourseLanguage: string;
   courseCategories: CourseCategory[];
   onSubmitContribution: (payload: CommunityExercisePayload) => Promise<{ message?: string }>;
+  onLoadContributions: (params: {
+    scope?: "mine" | "all";
+    status?: "pending" | "approved" | "rejected" | "";
+    language?: string;
+    category?: string;
+    limit?: number;
+  }) => Promise<CommunityContributionListResponse>;
+  onUpdateContributionStatus: (id: number, payload: CommunityContributionUpdatePayload) => Promise<{ message?: string }>;
 };
 
 export function ContributePage({
+  canModerateCommunityExercises,
   activeCourseLanguage,
   courseCategories,
-  onSubmitContribution
+  onSubmitContribution,
+  onLoadContributions,
+  onUpdateContributionStatus
 }: ContributePageProps) {
   return (
     <>
@@ -30,6 +47,14 @@ export function ContributePage({
         language={activeCourseLanguage}
         categories={courseCategories}
         onSubmit={onSubmitContribution}
+      />
+
+      <ContributionInbox
+        language={activeCourseLanguage}
+        categoryOptions={courseCategories.map((category) => ({ id: category.id, label: category.label }))}
+        canModerate={canModerateCommunityExercises}
+        onLoad={onLoadContributions}
+        onUpdateStatus={onUpdateContributionStatus}
       />
     </>
   );
