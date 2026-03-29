@@ -34,9 +34,15 @@ import type {
   LearnerSettings
 } from "./types/course";
 import type {
+  ActiveSession,
   PracticeMode,
   SessionReport
 } from "./types/session";
+
+type MistakeReviewOffer = {
+  language: string;
+  session: ActiveSession;
+};
 
 export default function App() {
   const [resetToken, setResetToken] = useState("");
@@ -46,8 +52,10 @@ export default function App() {
   const [authNotice, setAuthNotice] = useState("");
   const [loginFailureCount, setLoginFailureCount] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
+  const [sessionShareLine, setSessionShareLine] = useState("");
+  const [mistakeReviewOffer, setMistakeReviewOffer] = useState<MistakeReviewOffer | null>(null);
   const [loading, setLoading] = useState(true);
-  const { themeMode, setThemeMode } = useThemeMode();
+  const { themeMode, setThemeMode, activeTheme } = useThemeMode();
   const {
     activeCourseLanguage,
     setActiveCourseLanguage,
@@ -345,6 +353,8 @@ export default function App() {
     setActiveCourseLanguage("");
     clearAllActiveSessions();
     setStatusMessage("You have signed out.");
+    setSessionShareLine("");
+    setMistakeReviewOffer(null);
     setAuthNotice("");
   }
 
@@ -387,6 +397,7 @@ export default function App() {
           categoryLabel: category.label
         }
       }));
+      setMistakeReviewOffer(null);
       navigateToPage("learn");
       setStatusMessage("");
     } catch (_error) {
@@ -414,6 +425,7 @@ export default function App() {
           practiceMode: mode
         }
       }));
+      setMistakeReviewOffer(null);
       navigateToPage("practice");
       setStatusMessage("");
     } catch (_error) {
@@ -421,18 +433,47 @@ export default function App() {
     }
   }
 
+  async function startDailyChallenge() {
+    if (!settings || !activeCourseLanguage) return;
+
+    try {
+      const session = await api.startDailyChallenge({
+        language: activeCourseLanguage
+      });
+      const categoryLabel = courseCategories.find((item) => item.id === session.category)?.label || "Daily Challenge";
+      setActiveSessionsByLanguage((prev) => ({
+        ...prev,
+        [activeCourseLanguage]: {
+          ...session,
+          categoryLabel
+        }
+      }));
+      setMistakeReviewOffer(null);
+      navigateToPage("learn");
+      setStatusMessage("Daily challenge ready.");
+    } catch (_error) {
+      setStatusMessage("Could not load today's daily challenge.");
+    }
+  }
+
   async function finishSession(sessionReport: SessionReport) {
     if (!activeSession || !settings) return;
 
     try {
+      const completedSession = activeSession;
       const result = await api.completeSession({
-        sessionId: activeSession.sessionId,
-        language: activeSession.language,
-        category: activeSession.category,
+        sessionId: completedSession.sessionId,
+        language: completedSession.language,
+        category: completedSession.category,
         attempts: sessionReport.attempts,
         hintsUsed: sessionReport.hintsUsed,
         revealedAnswers: sessionReport.revealedAnswers
       });
+      const languageLabel = languages.find((item) => item.id === completedSession.language)?.label || completedSession.language;
+      const categoryLabel = completedSession.categoryLabel;
+      const streak = result.streak ?? progress?.streak ?? 0;
+      const summaryLine = `${result.evaluated.score}/${result.evaluated.maxScore} on ${languageLabel} ${categoryLabel} ${result.levelUnlocked.toUpperCase()} · ${streak} day streak`;
+      setSessionShareLine(summaryLine);
 
       setStatusMessage(
         `Session complete: ${result.evaluated.score}/${result.evaluated.maxScore} ` +
@@ -442,10 +483,26 @@ export default function App() {
 
       setActiveSessionsByLanguage((prev) => {
         const next = { ...prev };
-        delete next[activeSession.language];
+        delete next[completedSession.language];
         return next;
       });
-      await refreshCourseAndProgress(activeSession.language);
+      const mistakeIds = Array.from(new Set(sessionReport.mistakeQuestionIds || []));
+      const wrongQuestions = completedSession.questions.filter((question) => mistakeIds.includes(question.id));
+      if (wrongQuestions.length) {
+        setMistakeReviewOffer({
+          language: completedSession.language,
+          session: {
+            ...completedSession,
+            sessionId: `${completedSession.sessionId}-mistake-review-${Date.now()}`,
+            categoryLabel: `${completedSession.categoryLabel} Mistake Review`,
+            questions: wrongQuestions,
+            resumeState: undefined
+          }
+        });
+      } else {
+        setMistakeReviewOffer(null);
+      }
+      await refreshCourseAndProgress(completedSession.language);
     } catch (_error) {
       setStatusMessage("Could not save session progress.");
     }
@@ -455,6 +512,32 @@ export default function App() {
     const result = await api.contributeExercise(payload);
     setStatusMessage(result?.message || "Exercise submitted for moderation.");
     return result;
+  }
+
+  function startMistakeReview() {
+    if (!mistakeReviewOffer) return;
+    setActiveCourseLanguage(mistakeReviewOffer.language);
+    setActiveSessionsByLanguage((prev) => ({
+      ...prev,
+      [mistakeReviewOffer.language]: mistakeReviewOffer.session
+    }));
+    setStatusMessage(`Reviewing ${mistakeReviewOffer.session.questions.length} mistakes.`);
+    setMistakeReviewOffer(null);
+    navigateToPage(mistakeReviewOffer.session.practiceMode ? "practice" : "learn");
+  }
+
+  async function copySessionSummary() {
+    if (!sessionShareLine) return;
+    if (typeof navigator === "undefined" || !navigator.clipboard) {
+      setStatusMessage("Clipboard is unavailable in this browser.");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(sessionShareLine);
+      setStatusMessage("Session summary copied.");
+    } catch (_error) {
+      setStatusMessage("Could not copy session summary.");
+    }
   }
 
   async function loadContributions(params: {
@@ -588,6 +671,25 @@ export default function App() {
 
       {statusMessage ? <div className="status">{statusMessage}</div> : null}
 
+      {mistakeReviewOffer ? (
+        <div className="status">
+          You have a mistake drill ready.
+          <button className="ghost-button" onClick={startMistakeReview}>
+            Review mistakes
+          </button>
+        </div>
+      ) : null}
+
+      {sessionShareLine ? (
+        <section className="panel setup-preview">
+          <h3>Session Share Card</h3>
+          <p>{sessionShareLine}</p>
+          <button className="ghost-button" onClick={copySessionSummary}>
+            Copy one-liner
+          </button>
+        </section>
+      ) : null}
+
       {activeSession && activePage !== "learn" && activePage !== "practice" ? (
         <div className="status">
           Session paused in <strong>{activeSession.categoryLabel}</strong>.
@@ -607,6 +709,7 @@ export default function App() {
           courseCategories={courseCategories}
           activeSession={activeSession}
           onStartCategory={startCategory}
+          onStartDailyChallenge={startDailyChallenge}
           onFinishSession={finishSession}
           onExitSession={() => {
             if (!activeCourseLanguage) return;
@@ -658,6 +761,7 @@ export default function App() {
 
       {activePage === "stats" ? (
         <StatsPage
+          activeTheme={activeTheme}
           settings={settings}
           progress={progress}
           courseCategories={courseCategories}

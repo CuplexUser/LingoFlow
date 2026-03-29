@@ -162,6 +162,39 @@ test("session start and complete happy path", async (t) => {
   assert.equal(replayRes.status, 409);
 });
 
+test("daily challenge is deterministic per language/day across users", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const learnerA = await createAuthHeaders(base, "daily-a");
+  const learnerB = await createAuthHeaders(base, "daily-b");
+
+  const startDaily = async (headers) => {
+    const response = await fetch(`${base}/api/session/daily`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ language: "russian" })
+    });
+    assert.equal(response.status, 200);
+    return response.json();
+  };
+
+  const dailyA = await startDaily(learnerA);
+  const dailyB = await startDaily(learnerB);
+
+  assert.equal(dailyA.isDailyChallenge, true);
+  assert.equal(dailyB.isDailyChallenge, true);
+  assert.equal(dailyA.dailyChallengeDate, dailyB.dailyChallengeDate);
+  assert.equal(dailyA.category, dailyB.category);
+  assert.equal(dailyA.recommendedLevel, dailyB.recommendedLevel);
+  assert.deepEqual(
+    dailyA.questions.map((question) => question.id),
+    dailyB.questions.map((question) => question.id)
+  );
+});
+
 test("practice sessions award fixed XP and update progress", async (t) => {
   const app = createApp();
   const server = app.listen(0);
@@ -219,6 +252,40 @@ test("practice sessions award fixed XP and update progress", async (t) => {
   const progress = await progressRes.json();
   assert.equal(progress.totalXp, expectedTotal);
   assert.equal(progress.todayXp, expectedTotal);
+});
+
+test("settings and progress overview normalize invalid language ids", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "language-normalization");
+
+  const saveSettingsRes = await fetch(`${base}/api/settings`, {
+    method: "PUT",
+    headers: authHeaders,
+    body: JSON.stringify({
+      nativeLanguage: "english",
+      targetLanguage: "1",
+      dailyGoal: 25,
+      dailyMinutes: 20,
+      weeklyGoalSessions: 5,
+      selfRatedLevel: "a1",
+      learnerName: "Learner",
+      learnerBio: "",
+      focusArea: "travel"
+    })
+  });
+  assert.equal(saveSettingsRes.status, 200);
+  const savedSettings = await saveSettingsRes.json();
+  assert.equal(savedSettings.targetLanguage, "spanish");
+
+  const overviewRes = await fetch(`${base}/api/progress-overview`, { headers: authHeaders });
+  assert.equal(overviewRes.status, 200);
+  const overview = await overviewRes.json();
+  assert.ok(Array.isArray(overview.languages));
+  assert.equal(overview.languages.some((entry) => /^[0-9]+$/.test(String(entry.language))), false);
 });
 
 test("session complete rejects unknown question ids", async (t) => {

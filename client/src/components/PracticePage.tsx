@@ -1,4 +1,5 @@
 import { SessionPlayer } from "./SessionPlayer";
+import { SessionPlayerErrorBoundary } from "./SessionPlayerErrorBoundary";
 import type { CourseCategory } from "../types/course";
 import type { ActiveSession, PracticeMode, SessionReport, SessionSnapshot } from "../types/session";
 
@@ -52,12 +53,14 @@ export function PracticePage({
 
   if (activeSession) {
     return (
-      <SessionPlayer
-        session={activeSession}
-        onBack={onExitSession}
-        onFinish={onFinishSession}
-        onSnapshot={onSessionSnapshot}
-      />
+      <SessionPlayerErrorBoundary>
+        <SessionPlayer
+          session={activeSession}
+          onBack={onExitSession}
+          onFinish={onFinishSession}
+          onSnapshot={onSessionSnapshot}
+        />
+      </SessionPlayerErrorBoundary>
     );
   }
 

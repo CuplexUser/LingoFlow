@@ -123,6 +123,8 @@ export type CompleteSessionResponse = {
     mistakes: number;
   };
   xpGained: number;
+  streak?: number;
+  learnerLevel?: number;
   mastery: number;
   levelUnlocked: string;
 };
@@ -299,6 +301,8 @@ export function normalizeActiveSession(rawSession: RawActiveSession): ActiveSess
     categoryLabel: asString(rawSession.categoryLabel),
     recommendedLevel: asString(rawSession.recommendedLevel),
     practiceMode: rawSession.practiceMode,
+    isDailyChallenge: Boolean(rawSession.isDailyChallenge),
+    dailyChallengeDate: asOptionalString(rawSession.dailyChallengeDate),
     resumeState: rawSession.resumeState,
     questions: Array.isArray(rawSession.questions)
       ? rawSession.questions
@@ -373,6 +377,9 @@ export const api = {
     request<CourseCategory[]>(`/course?language=${encodeURIComponent(language)}`),
   startSession: (payload: SessionStartPayload) =>
     request<RawActiveSession>("/session/start", { method: "POST", body: JSON.stringify(payload) })
+      .then(normalizeActiveSession),
+  startDailyChallenge: (payload: { language: string }) =>
+    request<RawActiveSession>("/session/daily", { method: "POST", body: JSON.stringify(payload) })
       .then(normalizeActiveSession),
   getSettings: () => request<LearnerSettings>("/settings"),
   saveSettings: (payload: LearnerSettings) =>

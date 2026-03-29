@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import mascotHero from "../assets/mascot-hero.png";
 import { SessionPlayer } from "./SessionPlayer";
+import { SessionPlayerErrorBoundary } from "./SessionPlayerErrorBoundary";
 import type { CourseCategory, LearnerProgress, LearnerSettings } from "../types/course";
 import type { ActiveSession, SessionReport, SessionSnapshot } from "../types/session";
 
@@ -10,6 +11,7 @@ type LearnPageProps = {
   courseCategories: CourseCategory[];
   activeSession: ActiveSession | null;
   onStartCategory: (category: CourseCategory) => void | Promise<void>;
+  onStartDailyChallenge: () => void | Promise<void>;
   onFinishSession: (sessionReport: SessionReport) => void | Promise<void>;
   onExitSession: () => void;
   onSessionSnapshot: (snapshot: SessionSnapshot) => void;
@@ -23,6 +25,7 @@ export function LearnPage({
   courseCategories,
   activeSession,
   onStartCategory,
+  onStartDailyChallenge,
   onFinishSession,
   onExitSession,
   onSessionSnapshot,
@@ -61,12 +64,14 @@ export function LearnPage({
 
   if (activeSession) {
     return (
-      <SessionPlayer
-        session={activeSession}
-        onBack={onExitSession}
-        onFinish={onFinishSession}
-        onSnapshot={onSessionSnapshot}
-      />
+      <SessionPlayerErrorBoundary>
+        <SessionPlayer
+          session={activeSession}
+          onBack={onExitSession}
+          onFinish={onFinishSession}
+          onSnapshot={onSessionSnapshot}
+        />
+      </SessionPlayerErrorBoundary>
     );
   }
 
@@ -81,9 +86,11 @@ export function LearnPage({
             {" "}<strong>{settings?.focusArea || "everyday conversation"}</strong>.
           </p>
           <div className="hero-actions">
+            <button className="ghost-button" onClick={onStartDailyChallenge}>Daily Challenge</button>
             <button className="primary-button" onClick={onOpenSetup}>Edit Setup</button>
             <button className="ghost-button" onClick={onOpenStats}>View Stats</button>
           </div>
+          <p className="subtitle">Daily challenge is the same for everyone in your language today.</p>
         </div>
         <img src={mascotHero} alt="Cartoon Lingo buddy" className="hero-art" />
       </section>

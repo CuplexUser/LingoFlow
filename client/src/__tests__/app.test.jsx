@@ -158,8 +158,10 @@ test("stats page renders fixture insights", async () => {
 
   expect(await screen.findByText("Focus Next")).toBeInTheDocument();
   expect(screen.getByText("Improve these categories next: essentials.")).toBeInTheDocument();
-  expect(screen.getByText(/grammar-a1 \(55%\)/)).toBeInTheDocument();
-  expect(screen.getByText(/word_order: 4/)).toBeInTheDocument();
+  expect(screen.getByText("Grammar A1")).toBeInTheDocument();
+  expect(screen.getByText("55% acc")).toBeInTheDocument();
+  expect(screen.getByText("Word Order")).toBeInTheDocument();
+  expect(screen.getByText("4")).toBeInTheDocument();
 });
 
 test("loads and resumes an active session from local storage", async () => {

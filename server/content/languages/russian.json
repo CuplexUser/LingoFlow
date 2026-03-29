@@ -593,6 +593,44 @@
         "level": "b2",
         "prompt": "Say: If I had practiced more, I would be more confident now.",
         "target": "Если бы я больше практиковался, сейчас я был бы увереннее."
+      },
+      {
+        "id": "ru-gr-13",
+        "level": "a1",
+        "prompt": "Choose the informal version: Where are you from?",
+        "target": "Откуда ты?",
+        "hints": [
+          "Use informal singular \"ты\"."
+        ],
+        "exerciseType": "dialogue_turn"
+      },
+      {
+        "id": "ru-gr-14",
+        "level": "a1",
+        "prompt": "Choose the formal version: Where are you from?",
+        "target": "Откуда вы?",
+        "hints": [
+          "Use polite \"вы\"."
+        ],
+        "exerciseType": "dialogue_turn"
+      },
+      {
+        "id": "ru-gr-15",
+        "level": "a2",
+        "prompt": "Say this politely to a stranger: Could you repeat that?",
+        "target": "Не могли бы вы повторить это?",
+        "hints": [
+          "Polite request form with \"вы\"."
+        ]
+      },
+      {
+        "id": "ru-gr-16",
+        "level": "a2",
+        "prompt": "Say this to a close friend: Could you repeat that?",
+        "target": "Ты можешь повторить это?",
+        "hints": [
+          "Informal request form with \"ты\"."
+        ]
       }
     ],
     "hobbies_leisure": [

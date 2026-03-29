@@ -104,6 +104,7 @@ describe("useCourseSessionState", () => {
         selectedOption: "Gracias",
         selectedTokenIndexes: [],
         attemptLog: [],
+        mistakeQuestionIds: [],
         feedback: null,
         revealedCurrentQuestion: false,
         roleplayHintVisible: false,

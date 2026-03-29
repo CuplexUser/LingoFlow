@@ -196,6 +196,39 @@ test("practice listen uses multiple choice selection", async () => {
   );
 });
 
+test("keyboard shortcuts select options and submit", async () => {
+  const user = userEvent.setup();
+  const onFinish = vi.fn();
+  render(
+    <SessionPlayer
+      session={{
+        language: "spanish",
+        categoryLabel: "Essentials",
+        recommendedLevel: "a1",
+        questions: [
+          {
+            id: "k1",
+            type: "mc_sentence",
+            prompt: "Pick the greeting",
+            answer: "Hola",
+            options: ["Adios", "Hola", "Gracias", "Por favor"]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={onFinish}
+      onSnapshot={() => {}}
+    />
+  );
+
+  await user.keyboard("2");
+  await user.keyboard("{Enter}");
+
+  expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({ score: 1, maxScore: 1 })
+  );
+});
+
 test("practice words locks correct pairs and finishes when complete", async () => {
   const user = userEvent.setup();
   const onFinish = vi.fn();
@@ -275,6 +308,7 @@ test("revealed answers complete with zero score for that item", async () => {
     expect.objectContaining({
       score: 0,
       maxScore: 1,
+      mistakeQuestionIds: ["q-reveal"],
       attempts: expect.arrayContaining([
         expect.objectContaining({
           questionId: "q-reveal",

@@ -62,6 +62,22 @@ export type StatsData = {
   weakestCategories?: string[];
   objectiveStats?: StatsObjectiveEntry[];
   errorTypeTrend?: ErrorTypeTrendEntry[];
+  recommendedCategories?: string[];
+  categoryStats?: Array<{
+    category: string;
+    sessions: number;
+    accuracy: number;
+    lastCompletedAt?: string;
+  }>;
+  usageStats?: Array<{
+    itemId: string;
+    attempts: number;
+    correctAttempts: number;
+    completionRate: number;
+    lastUsedAt?: string;
+  }>;
+  sessionsByDay?: Array<{ date: string; sessions: number }>;
+  dailyXpHistory?: Array<{ date: string; xp: number }>;
 };
 
 export type LanguageProgressOverview = {

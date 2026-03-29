@@ -333,7 +333,15 @@ function createApp(): any {
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
   registerCourseRoutes(app, { requireAuth, database, LANGUAGES, getCourseOverview });
-  registerSessionRoutes(app, { requireAuth, database, generateSession, evaluateAttempt, calculateXp, crypto });
+  registerSessionRoutes(app, {
+    requireAuth,
+    database,
+    generateSession,
+    getCourseOverview,
+    evaluateAttempt,
+    calculateXp,
+    crypto
+  });
   registerUserRoutes(app, { requireAuth, database });
   registerAuthRoutes(app, {
     database,

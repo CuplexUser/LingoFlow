@@ -1,9 +1,9 @@
 const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER } = require("./constants.ts");
 
-function shuffle(items) {
+function shuffle(items, randomFn = Math.random) {
   const cloned = [...items];
   for (let i = cloned.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(randomFn() * (i + 1));
     [cloned[i], cloned[j]] = [cloned[j], cloned[i]];
   }
   return cloned;
@@ -136,7 +136,7 @@ function deriveObjective(category, level) {
   return `${category}-${level}-communication`;
 }
 
-function pickLevelAwareDistractors(pool, item, count) {
+function pickLevelAwareDistractors(pool, item, count, randomFn) {
   const ranked = levelRank(resolveDifficulty(item));
   const sameBand = pool.filter(
     (candidate) =>
@@ -146,7 +146,7 @@ function pickLevelAwareDistractors(pool, item, count) {
   const source = sameBand.length >= count
     ? sameBand
     : pool.filter((candidate) => resolveAnswer(candidate) !== resolveAnswer(item));
-  return shuffle(source.map((candidate) => resolveAnswer(candidate))).slice(0, count);
+  return shuffle(source.map((candidate) => resolveAnswer(candidate)), randomFn).slice(0, count);
 }
 
 function dedupeItems(items) {
@@ -167,7 +167,7 @@ function buildPracticePool(getAllItems, language, practicePool) {
   return dedupeItems([...poolItems, ...allItems]);
 }
 
-function createQuestion(item, pool, idx, category, language, englishRoleplayAnswerByPrompt) {
+function createQuestion(item, pool, idx, category, language, englishRoleplayAnswerByPrompt, randomFn) {
   const questionTypeCycle = [
     "mc_sentence",
     "build_sentence",
@@ -221,11 +221,11 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
           prompt: stripExercisePrefix(candidate.prompt),
           answer: resolveAnswer(candidate)
         }))
-    ).slice(0, 3);
+    , randomFn).slice(0, 3);
     return {
       ...base,
       prompt: "Match each phrase to its translation.",
-      pairs: shuffle([{ id: item.id, prompt: stripExercisePrefix(item.prompt), answer }, ...distractors])
+      pairs: shuffle([{ id: item.id, prompt: stripExercisePrefix(item.prompt), answer }, ...distractors], randomFn)
     };
   }
 
@@ -238,22 +238,22 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
   }
 
   if (questionType === "mc_sentence") {
-    const distractors = pickLevelAwareDistractors(pool, item, 3);
+    const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
     return {
       ...base,
-      options: shuffle([answer, ...distractors])
+      options: shuffle([answer, ...distractors], randomFn)
     };
   }
 
   if (questionType === "dialogue_turn" || questionType === "roleplay") {
-    const distractors = pickLevelAwareDistractors(pool, item, 3);
+    const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
     const promptBase = String(item.prompt || "").trim();
     const normalized = promptBase.toLowerCase();
     const prefix = "choose the best response.";
     return {
       ...base,
       prompt: normalized.startsWith(prefix) ? promptBase : `${promptBase}`,
-      options: shuffle([answer, ...distractors])
+      options: shuffle([answer, ...distractors], randomFn)
     };
   }
 
@@ -265,7 +265,10 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     const fallbackDistractors = pool
       .flatMap((entry) => resolveAnswer(entry).split(" "))
       .filter((token) => token.length > 2 && token !== clozeAnswer);
-    const clozeOptions = shuffle([clozeAnswer, ...shuffle(fallbackDistractors).slice(0, 3)]).slice(0, 4);
+    const clozeOptions = shuffle(
+      [clozeAnswer, ...shuffle(fallbackDistractors, randomFn).slice(0, 3)],
+      randomFn
+    ).slice(0, 4);
     const clozeTokens = [...answerTokens];
     clozeTokens[selectedMaskIndex] = "____";
     return {
@@ -281,12 +284,12 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     const tokenPool = pool
       .flatMap((entry) => resolveAnswer(entry).split(" "))
       .filter((token) => token.length > 2 && !answerTokens.includes(token));
-    const noise = shuffle(tokenPool).slice(0, 2);
+    const noise = shuffle(tokenPool, randomFn).slice(0, 2);
     return {
       ...base,
       prompt: `${item.prompt}`,
       audioText: answer,
-      tokens: shuffle([...answerTokens, ...noise])
+      tokens: shuffle([...answerTokens, ...noise], randomFn)
     };
   }
 
@@ -294,12 +297,12 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
   const tokenPool = pool
     .flatMap((entry) => resolveAnswer(entry).split(" "))
     .filter((token) => token.length > 2 && !answerTokens.includes(token));
-  const noise = shuffle(tokenPool).slice(0, 2);
+  const noise = shuffle(tokenPool, randomFn).slice(0, 2);
 
   return {
     ...base,
     type: "build_sentence",
-    tokens: shuffle([...answerTokens, ...noise])
+    tokens: shuffle([...answerTokens, ...noise], randomFn)
   };
 }
 
@@ -319,9 +322,9 @@ function createPracticeSpeakQuestion(item) {
   };
 }
 
-function createPracticeListenQuestion(item, pool) {
+function createPracticeListenQuestion(item, pool, randomFn) {
   const answer = resolveAnswer(item);
-  const distractors = pickLevelAwareDistractors(pool, item, 3);
+  const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
   return {
     id: item.id,
     type: "practice_listen",
@@ -330,7 +333,7 @@ function createPracticeListenQuestion(item, pool) {
     prompt: "Listen and choose the correct phrase.",
     answer,
     correctAnswer: answer,
-    options: shuffle([answer, ...distractors]),
+    options: shuffle([answer, ...distractors], randomFn),
     acceptedAnswers: buildAcceptedAnswers(answer),
     objective: "practice-listen",
     ...buildMediaFields(item)
@@ -363,8 +366,10 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     selfRatedLevel = "a1",
     dueItemIds = [],
     weakItemIds = [],
-    mode
+    mode,
+    random
   }) {
+    const randomFn = typeof random === "function" ? random : Math.random;
     const isPracticeMode = Boolean(mode);
     const sourceItems = isPracticeMode
       ? buildPracticePool(getAllItems, language, practicePool)
@@ -389,7 +394,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       ];
 
       wordPools.forEach((pool) => {
-        shuffle(pool).forEach((item) => {
+        shuffle(pool, randomFn).forEach((item) => {
           if (selected.length >= 8) return;
           const left = resolveAnswer(item);
           const right = stripExercisePrefix(item.prompt || "");
@@ -417,7 +422,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
         String(item?.exerciseType || "").trim().toLowerCase() === "pronunciation" &&
         countWords(resolveAnswer(item)) <= 6
       );
-      const selected = shuffle(speakPool.length ? speakPool : all).slice(0, count);
+      const selected = shuffle(speakPool.length ? speakPool : all, randomFn).slice(0, count);
       return {
         recommendedLevel: selfRatedLevel,
         difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
@@ -427,11 +432,11 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
 
     if (mode === "listen") {
       const listenPool = all.filter((item) => countWords(resolveAnswer(item)) <= 10);
-      const selected = shuffle(listenPool.length ? listenPool : all).slice(0, count);
+      const selected = shuffle(listenPool.length ? listenPool : all, randomFn).slice(0, count);
       return {
         recommendedLevel: selfRatedLevel,
         difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
-        questions: selected.map((item) => createPracticeListenQuestion(item, all))
+        questions: selected.map((item) => createPracticeListenQuestion(item, all, randomFn))
       };
     }
 
@@ -464,17 +469,17 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     const dueTarget = Math.max(0, Math.min(targetCount, Math.round(targetCount * 0.6)));
     const weakTarget = Math.max(0, Math.min(targetCount - dueTarget, Math.round(targetCount * 0.25)));
 
-    const dueItems = shuffle(sourcePool.filter((item) => dueSet.has(item.id))).slice(0, dueTarget);
+    const dueItems = shuffle(sourcePool.filter((item) => dueSet.has(item.id)), randomFn).slice(0, dueTarget);
     const selectedIds = new Set(dueItems.map((item) => item.id));
     const weakItems = shuffle(
       sourcePool.filter((item) => weakSet.has(item.id) && !selectedIds.has(item.id))
-    ).slice(0, weakTarget);
+    , randomFn).slice(0, weakTarget);
     weakItems.forEach((item) => selectedIds.add(item.id));
 
-    const remaining = shuffle(sourcePool.filter((item) => !selectedIds.has(item.id)));
+    const remaining = shuffle(sourcePool.filter((item) => !selectedIds.has(item.id)), randomFn);
     const selected = [...dueItems, ...weakItems, ...remaining].slice(0, targetCount);
     const questions = selected.map((item, idx) =>
-      createQuestion(item, sourcePool, idx, category, language, englishRoleplayAnswerByPrompt)
+      createQuestion(item, sourcePool, idx, category, language, englishRoleplayAnswerByPrompt, randomFn)
     );
 
     return {

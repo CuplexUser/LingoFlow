@@ -15,11 +15,22 @@ This file captures current product and technical priorities for future assignmen
 ### Phase 7: Integrity, operations, and scale
 
 - [ ] Prevent score inflation via duplicate `questionId` submissions.
-- [ ] Wrap session completion writes in a DB transaction (atomic completion).
+- [x] Wrap session completion writes in a DB transaction (atomic completion).
 - [x] Replace hardcoded frontend API base URL with environment configuration.
 - [ ] Add rate limiting for auth and session endpoints.
 - [ ] Add SQLite indexes for stats/history query paths.
 - [x] Add structured request/error logging and basic health diagnostics.
+
+### Phase 10: Session UX and retention polish
+
+- [x] Post-session mistake drill from attempt logs ("Review mistakes" mini-session).
+- [x] Stats visuals with bars and a 14-day XP trend graph from `daily_xp`.
+- [x] Refine stats visuals to match template blocks (KPI cards, chart titles, error pills, language rows) and ensure chart theming stays correct across dark/light toggles.
+- [x] Add focused Russian `ты` vs `вы` exercises.
+- [x] Session-player keyboard shortcuts (`1-4` select option, `Enter` submit).
+- [x] Daily challenge endpoint with deterministic same-per-language/per-day sessions.
+- [x] React error boundary around `SessionPlayer` with friendly fallback.
+- [x] Session summary share card with copyable one-line result.
 
 ### Phase 8: Quality tooling and maintainability
 

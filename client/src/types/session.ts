@@ -104,6 +104,7 @@ export type SessionSnapshot = {
   selectedOption: string;
   selectedTokenIndexes: number[];
   attemptLog: SessionAttempt[];
+  mistakeQuestionIds: string[];
   feedback: SessionFeedback | null;
   revealedCurrentQuestion: boolean;
   roleplayHintVisible: boolean;
@@ -139,6 +140,7 @@ export type SessionReport = {
   score?: number;
   maxScore?: number;
   mistakes?: number;
+  mistakeQuestionIds?: string[];
   hintsUsed: number;
   revealedAnswers: number;
 };
@@ -151,5 +153,7 @@ export type ActiveSession = {
   recommendedLevel: string;
   questions: SessionQuestion[];
   practiceMode?: PracticeMode;
+  isDailyChallenge?: boolean;
+  dailyChallengeDate?: string;
   resumeState?: Partial<SessionSnapshot>;
 };

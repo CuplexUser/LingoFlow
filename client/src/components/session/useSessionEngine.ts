@@ -44,12 +44,14 @@ type UseSessionEngineParams = {
   practiceCompleted: boolean;
   matchingPairs: MatchingPair[];
   attemptLog: SessionAttempt[];
+  mistakeQuestionIds: string[];
   onFinish: (report: SessionReport) => void | Promise<void>;
   setIndex: Dispatch<SetStateAction<number>>;
   setScore: Dispatch<SetStateAction<number>>;
   setSelectedOption: Dispatch<SetStateAction<string>>;
   setSelectedTokenIndexes: Dispatch<SetStateAction<number[]>>;
   setAttemptLog: Dispatch<SetStateAction<SessionAttempt[]>>;
+  setMistakeQuestionIds: Dispatch<SetStateAction<string[]>>;
   setFeedback: Dispatch<SetStateAction<SessionFeedback | null>>;
   setRevealedCurrentQuestion: Dispatch<SetStateAction<boolean>>;
   setRoleplayHintVisible: Dispatch<SetStateAction<boolean>>;
@@ -108,12 +110,14 @@ export function useSessionEngine({
   practiceCompleted,
   matchingPairs,
   attemptLog,
+  mistakeQuestionIds,
   onFinish,
   setIndex,
   setScore,
   setSelectedOption,
   setSelectedTokenIndexes,
   setAttemptLog,
+  setMistakeQuestionIds,
   setFeedback,
   setRevealedCurrentQuestion,
   setRoleplayHintVisible,
@@ -244,6 +248,7 @@ export function useSessionEngine({
         score: nextScore,
         maxScore: fixedQuestionCount,
         mistakes: totalMistakes,
+        mistakeQuestionIds,
         hintsUsed,
         revealedAnswers
       });
@@ -278,6 +283,9 @@ export function useSessionEngine({
       setQuestionMistakes((currentMistakes) => {
         const nextMistakes = currentMistakes + 1;
         setTotalMistakes((value) => value + 1);
+        setMistakeQuestionIds((value) =>
+          value.includes(question.id) ? value : [...value, question.id]
+        );
         if (question.type !== "roleplay") {
           setHintsUsed((value) => value + 1);
         }
@@ -429,6 +437,7 @@ export function useSessionEngine({
       score,
       maxScore: fixedQuestionCount,
       mistakes: totalMistakes,
+      mistakeQuestionIds,
       hintsUsed,
       revealedAnswers
     });
@@ -440,6 +449,7 @@ export function useSessionEngine({
     score,
     fixedQuestionCount,
     totalMistakes,
+    mistakeQuestionIds,
     hintsUsed,
     revealedAnswers,
     onFinish

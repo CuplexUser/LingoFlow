@@ -66,6 +66,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     () => resumeState.selectedTokenIndexes || []
   );
   const [attemptLog, setAttemptLog] = useState(() => resumeState.attemptLog || []);
+  const [mistakeQuestionIds, setMistakeQuestionIds] = useState<string[]>(
+    () => resumeState.mistakeQuestionIds || []
+  );
   const [feedback, setFeedback] = useState<SessionFeedback | null>(() => resumeState.feedback || null);
   const [revealedCurrentQuestion, setRevealedCurrentQuestion] = useState(
     () => resumeState.revealedCurrentQuestion || false
@@ -120,6 +123,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     selectedOption,
     selectedTokenIndexes,
     attemptLog,
+    mistakeQuestionIds,
     feedback,
     revealedCurrentQuestion,
     roleplayHintVisible,
@@ -181,12 +185,14 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     practiceCompleted,
     matchingPairs,
     attemptLog,
+    mistakeQuestionIds,
     onFinish,
     setIndex,
     setScore,
     setSelectedOption,
     setSelectedTokenIndexes,
     setAttemptLog,
+    setMistakeQuestionIds,
     setFeedback,
     setRevealedCurrentQuestion,
     setRoleplayHintVisible,
@@ -230,6 +236,49 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     setPracticeFeedback("");
     setPracticeCompleted(false);
   }, [question?.id, question?.type]);
+
+  useEffect(() => {
+    function isTypingTarget(target: EventTarget | null) {
+      if (!(target instanceof HTMLElement)) return false;
+      const tag = target.tagName.toLowerCase();
+      return target.isContentEditable || tag === "input" || tag === "textarea" || tag === "select";
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (isTypingTarget(event.target)) return;
+      if (event.repeat) return;
+
+      const optionQuestion = (
+        question.type === "mc_sentence" ||
+        question.type === "dialogue_turn" ||
+        question.type === "roleplay" ||
+        question.type === "practice_listen"
+      )
+        ? question
+        : question.type === "cloze_sentence"
+          ? { options: question.clozeOptions || [] }
+          : null;
+
+      const hasOptions = optionQuestion && Array.isArray(optionQuestion.options);
+      if (hasOptions && /^[1-4]$/.test(event.key)) {
+        const optionIndex = Number(event.key) - 1;
+        const option = optionQuestion.options[optionIndex];
+        if (typeof option === "string" && option) {
+          handleOptionSelect(option);
+          event.preventDefault();
+          return;
+        }
+      }
+
+      if (event.key === "Enter" && canSubmit()) {
+        submitAnswer();
+        event.preventDefault();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [question, canSubmit, handleOptionSelect, submitAnswer]);
 
   useSessionSnapshot({ snapshot, onSnapshot });
 
@@ -384,6 +433,10 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       <div className="challenge-badges">
         <span>{session.categoryLabel}</span>
         <span>Level: {session.recommendedLevel.toUpperCase()}</span>
+        {session.isDailyChallenge ? <span>Daily Challenge</span> : null}
+        {session.isDailyChallenge && session.dailyChallengeDate ? (
+          <span>{session.dailyChallengeDate}</span>
+        ) : null}
         {question.type === "roleplay" ? <span>Roleplay</span> : null}
         <span>{currentStep}/{fixedQuestionCount}</span>
       </div>
