@@ -286,6 +286,25 @@ test("settings and progress overview normalize invalid language ids", async (t) 
   const overview = await overviewRes.json();
   assert.ok(Array.isArray(overview.languages));
   assert.equal(overview.languages.some((entry) => /^[0-9]+$/.test(String(entry.language))), false);
+
+  const saveEqualLanguageRes = await fetch(`${base}/api/settings`, {
+    method: "PUT",
+    headers: authHeaders,
+    body: JSON.stringify({
+      nativeLanguage: "english",
+      targetLanguage: "english",
+      dailyGoal: 25,
+      dailyMinutes: 20,
+      weeklyGoalSessions: 5,
+      selfRatedLevel: "a1",
+      learnerName: "Learner",
+      learnerBio: "",
+      focusArea: "travel"
+    })
+  });
+  assert.equal(saveEqualLanguageRes.status, 200);
+  const sameLanguageSettings = await saveEqualLanguageRes.json();
+  assert.notEqual(sameLanguageSettings.targetLanguage, sameLanguageSettings.nativeLanguage);
 });
 
 test("session complete rejects unknown question ids", async (t) => {

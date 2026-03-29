@@ -45,11 +45,17 @@ export function useAuthenticatedAppData({
     setLanguages(langs);
     setSettings(conf);
     setDraftSettings({ ...DEFAULT_DRAFT, ...conf });
-    const availableLanguageIds = new Set(langs.map((item) => item.id));
+    const availableLanguageIds = new Set(
+      langs
+        .map((item) => item.id)
+        .filter((id) => id !== conf.nativeLanguage)
+    );
     const preferredLanguage = String(activeCourseLanguage || "").toLowerCase();
+    const targetLanguage = String(conf.targetLanguage || "spanish").toLowerCase();
+    const fallbackLanguage = langs.find((item) => item.id !== conf.nativeLanguage)?.id || targetLanguage;
     const initialCourseLanguage = availableLanguageIds.has(preferredLanguage)
       ? preferredLanguage
-      : String(conf.targetLanguage || "spanish").toLowerCase();
+      : (availableLanguageIds.has(targetLanguage) ? targetLanguage : fallbackLanguage);
     setActiveCourseLanguage(initialCourseLanguage);
     await refreshCourseAndProgress(initialCourseLanguage);
   }

@@ -535,6 +535,16 @@ function normalizeLanguageId(value, fallback = "spanish") {
   return "spanish";
 }
 
+function normalizeTargetLanguageId(targetLanguage, nativeLanguage, fallback = "spanish") {
+  const safeNativeLanguage = normalizeLanguageId(nativeLanguage, "english");
+  const safeTargetLanguage = normalizeLanguageId(targetLanguage, fallback);
+  if (safeTargetLanguage !== safeNativeLanguage) return safeTargetLanguage;
+
+  const safeFallback = normalizeLanguageId(fallback, "spanish");
+  if (safeFallback !== safeNativeLanguage) return safeFallback;
+  return safeNativeLanguage === "english" ? "spanish" : "english";
+}
+
 function ensureLanguageProgress(userId = 1, language = "spanish") {
   const safeLanguage = normalizeLanguageId(language, "spanish");
   db.prepare(`
@@ -1029,9 +1039,15 @@ function getSettings(userId = 1) {
     FROM settings
     WHERE user_id = ?
   `).get(userId);
+  const normalizedNativeLanguage = normalizeLanguageId(row.native_language, "english");
+  const normalizedTargetLanguage = normalizeTargetLanguageId(
+    row.target_language,
+    normalizedNativeLanguage,
+    "spanish"
+  );
   return {
-    nativeLanguage: row.native_language,
-    targetLanguage: normalizeLanguageId(row.target_language, "spanish"),
+    nativeLanguage: normalizedNativeLanguage,
+    targetLanguage: normalizedTargetLanguage,
     dailyGoal: row.daily_goal,
     dailyMinutes: row.daily_minutes,
     weeklyGoalSessions: row.weekly_goal_sessions,
@@ -1047,8 +1063,13 @@ function saveSettings(userId = 1, nextSettings = {}) {
   ensureUserState(userId);
   const safeSettings = nextSettings as any;
   const existingSettings = db.prepare("SELECT target_language FROM settings WHERE user_id = ?").get(userId);
+  const nextNativeLanguage = normalizeLanguageId(safeSettings.nativeLanguage, "english");
   const fallbackLanguage = normalizeLanguageId(existingSettings?.target_language, "spanish");
-  const nextTargetLanguage = normalizeLanguageId(safeSettings.targetLanguage, fallbackLanguage);
+  const nextTargetLanguage = normalizeTargetLanguageId(
+    safeSettings.targetLanguage,
+    nextNativeLanguage,
+    fallbackLanguage
+  );
   db.prepare(`
     UPDATE settings
     SET native_language = ?,
@@ -1064,7 +1085,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
         updated_at = CURRENT_TIMESTAMP
     WHERE user_id = ?
   `).run(
-    safeSettings.nativeLanguage || "english",
+    nextNativeLanguage,
     nextTargetLanguage,
     Number.isInteger(safeSettings.dailyGoal) ? safeSettings.dailyGoal : 30,
     Number.isInteger(safeSettings.dailyMinutes) ? safeSettings.dailyMinutes : 20,

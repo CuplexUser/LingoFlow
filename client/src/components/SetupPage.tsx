@@ -18,6 +18,10 @@ export function SetupPage({
   onSave,
   onReset
 }: SetupPageProps) {
+  const learningLanguages = languages.filter(
+    (language) => language.id !== draftSettings.nativeLanguage
+  );
+
   function handleNumberChange(
     key: "dailyGoal" | "dailyMinutes" | "weeklyGoalSessions",
     fallback: number
@@ -56,7 +60,17 @@ export function SetupPage({
           Native Language
           <select
             value={draftSettings.nativeLanguage}
-            onChange={(event) => onDraftChange({ nativeLanguage: event.target.value })}
+            onChange={(event) => {
+              const nextNative = event.target.value;
+              const patch: Partial<LearnerSettings> = { nativeLanguage: nextNative };
+              if (draftSettings.targetLanguage === nextNative) {
+                const fallbackTarget = languages.find((language) => language.id !== nextNative)?.id || "";
+                if (fallbackTarget) {
+                  patch.targetLanguage = fallbackTarget;
+                }
+              }
+              onDraftChange(patch);
+            }}
           >
             {languages.map((language) => (
               <option key={language.id} value={language.id}>{language.label}</option>
@@ -70,7 +84,7 @@ export function SetupPage({
             value={draftSettings.targetLanguage}
             onChange={(event) => onDraftChange({ targetLanguage: event.target.value })}
           >
-            {languages.map((language) => (
+            {learningLanguages.map((language) => (
               <option key={language.id} value={language.id}>{language.label}</option>
             ))}
           </select>

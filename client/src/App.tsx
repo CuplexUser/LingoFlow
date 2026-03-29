@@ -90,9 +90,14 @@ export default function App() {
     setActiveCourseLanguage
   });
   const activeSession = activeCourseLanguage ? activeSessionsByLanguage[activeCourseLanguage] || null : null;
+  const courseLanguages = useMemo(
+    () => languages.filter((language) => language.id !== settings?.nativeLanguage),
+    [languages, settings?.nativeLanguage]
+  );
 
   async function switchCourseLanguage(nextLanguage: string) {
     const safeLanguage = String(nextLanguage || "").trim().toLowerCase();
+    if (safeLanguage && safeLanguage === settings?.nativeLanguage) return;
     if (!safeLanguage || safeLanguage === activeCourseLanguage) return;
     try {
       setActiveCourseLanguage(safeLanguage);
@@ -364,7 +369,11 @@ export default function App() {
     try {
       const saved = await api.saveSettings({ ...settings, ...draftSettings });
       setSettings(saved);
-      const languageIds = new Set((languages || []).map((item) => item.id));
+      const languageIds = new Set(
+        (languages || [])
+          .map((item) => item.id)
+          .filter((id) => id !== saved.nativeLanguage)
+      );
       const resolvedLanguage = languageIds.has(activeCourseLanguage)
         ? activeCourseLanguage
         : String(saved.targetLanguage || "spanish").toLowerCase();
@@ -635,7 +644,7 @@ export default function App() {
                 onChange={(event) => switchCourseLanguage(event.target.value)}
                 aria-label="Active course language"
               >
-                {languages.map((language) => (
+                {courseLanguages.map((language) => (
                   <option key={language.id} value={language.id}>{language.label}</option>
                 ))}
               </select>
