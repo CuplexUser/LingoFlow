@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Install all workspace dependencies
+        run: npm run install:all
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check client
+        run: npx tsc --noEmit -p client/tsconfig.json
+
+      - name: Test server
+        run: npm run test:server
+
+      - name: Test client
+        run: npm run test:client

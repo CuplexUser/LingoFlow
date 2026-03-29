@@ -1197,8 +1197,10 @@ function upsertItemProgressAttempt({
     : Math.max(1.3, Number((previousEase - 0.2).toFixed(2)));
   const nextStreak = correct ? previousStreak + 1 : 0;
   const intervalDays = correct
-    ? Math.max(1, Math.round(nextStreak * nextEase))
-    : 1;
+  ? nextStreak === 1 ? 1
+  : nextStreak === 2 ? 6
+  : Math.round((nextStreak - 1) * nextEase)
+  : 1;
   const nextDueDate = addDaysIso(today, intervalDays);
 
   if (!existing) {
