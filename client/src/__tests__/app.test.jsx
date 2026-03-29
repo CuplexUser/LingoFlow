@@ -239,3 +239,34 @@ test("shows updated level-up style session status after completion", async () =>
   expect(screen.getByText(/\+130 XP/)).toBeInTheDocument();
   expect(screen.getByText(/Mastery 80.0% \(B2\)/)).toBeInTheDocument();
 });
+
+test("mistake review session completes locally without calling completeSession API", async () => {
+  setupApiFixtures();
+  const user = userEvent.setup();
+  window.localStorage.setItem("lingoflow_active_session", JSON.stringify({
+    sessionId: "mr-1",
+    language: "spanish",
+    category: "essentials",
+    categoryLabel: "Essentials Mistake Review",
+    recommendedLevel: "a1",
+    isMistakeReview: true,
+    questions: [
+      {
+        id: "q1",
+        type: "mc_sentence",
+        prompt: "Pick hello",
+        answer: "Hola",
+        options: ["Hola", "Adios"]
+      }
+    ]
+  }));
+
+  render(<App />);
+
+  await screen.findByText("Pick hello");
+  await user.click(screen.getByRole("button", { name: "Hola" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(apiMock.completeSession).not.toHaveBeenCalled();
+  expect(await screen.findByText("Mistake drill complete: 1/1.")).toBeInTheDocument();
+});

@@ -461,6 +461,18 @@ export default function App() {
 
     try {
       const completedSession = activeSession;
+      if (completedSession.isMistakeReview) {
+        const finalScore = Number(sessionReport.score || 0);
+        const maxScore = Number(sessionReport.maxScore || completedSession.questions.length || 0);
+        setStatusMessage(`Mistake drill complete: ${finalScore}/${maxScore}.`);
+        setActiveSessionsByLanguage((prev) => {
+          const next = { ...prev };
+          delete next[completedSession.language];
+          return next;
+        });
+        setMistakeReviewOffer(null);
+        return;
+      }
       const result = await api.completeSession({
         sessionId: completedSession.sessionId,
         language: completedSession.language,
@@ -495,6 +507,7 @@ export default function App() {
             ...completedSession,
             sessionId: `${completedSession.sessionId}-mistake-review-${Date.now()}`,
             categoryLabel: `${completedSession.categoryLabel} Mistake Review`,
+            isMistakeReview: true,
             questions: wrongQuestions,
             resumeState: undefined
           }

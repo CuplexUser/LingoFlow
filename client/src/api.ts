@@ -303,6 +303,7 @@ export function normalizeActiveSession(rawSession: RawActiveSession): ActiveSess
     practiceMode: rawSession.practiceMode,
     isDailyChallenge: Boolean(rawSession.isDailyChallenge),
     dailyChallengeDate: asOptionalString(rawSession.dailyChallengeDate),
+    isMistakeReview: Boolean(rawSession.isMistakeReview),
     resumeState: rawSession.resumeState,
     questions: Array.isArray(rawSession.questions)
       ? rawSession.questions

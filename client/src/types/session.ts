@@ -155,5 +155,6 @@ export type ActiveSession = {
   practiceMode?: PracticeMode;
   isDailyChallenge?: boolean;
   dailyChallengeDate?: string;
+  isMistakeReview?: boolean;
   resumeState?: Partial<SessionSnapshot>;
 };
