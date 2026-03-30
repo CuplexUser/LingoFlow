@@ -44,6 +44,51 @@ type MistakeReviewOffer = {
   session: ActiveSession;
 };
 
+type SharePlatformId = "x" | "whatsapp" | "facebook" | "telegram";
+
+const SHARE_PLATFORMS: Array<{ id: SharePlatformId; label: string }> = [
+  { id: "x", label: "Share on X" },
+  { id: "whatsapp", label: "Share on WhatsApp" },
+  { id: "facebook", label: "Share on Facebook" },
+  { id: "telegram", label: "Share on Telegram" }
+];
+
+function ShareIcon({ platform }: { platform: SharePlatformId | "native" }) {
+  if (platform === "x") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.9 3H22l-6.77 7.73L23 21h-6.1l-4.78-6.24L6.65 21H3.5l7.24-8.27L3 3h6.25l4.32 5.7L18.9 3Zm-1.06 16.2h1.7L8.33 4.7H6.5l11.34 14.5Z" />
+      </svg>
+    );
+  }
+  if (platform === "whatsapp") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.52 3.48A11.9 11.9 0 0 0 12.03 0C5.4 0 0 5.4 0 12.04c0 2.12.56 4.2 1.62 6.03L0 24l6.12-1.6a12.02 12.02 0 0 0 5.91 1.5h.01c6.64 0 12.04-5.4 12.04-12.03 0-3.22-1.25-6.24-3.56-8.39Zm-8.49 18.4h-.01a9.96 9.96 0 0 1-5.07-1.4l-.37-.22-3.63.95.97-3.53-.24-.36a9.93 9.93 0 0 1-1.54-5.28c0-5.5 4.48-9.98 9.99-9.98a9.9 9.9 0 0 1 7.06 2.93 9.88 9.88 0 0 1 2.92 7.06c0 5.5-4.48 9.98-9.98 9.98Zm5.47-7.48c-.3-.15-1.77-.88-2.04-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.94 1.18-.18.2-.35.22-.65.08-.3-.15-1.24-.46-2.36-1.47a8.86 8.86 0 0 1-1.63-2.03c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.08 2.9 1.23 3.1.15.2 2.12 3.24 5.13 4.54.72.3 1.28.48 1.71.62.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+      </svg>
+    );
+  }
+  if (platform === "facebook") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.98H7.9V12h2.54V9.8c0-2.5 1.49-3.88 3.77-3.88 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.62.77-1.62 1.56V12h2.76l-.44 2.9h-2.32v6.98A10 10 0 0 0 22 12Z" />
+      </svg>
+    );
+  }
+  if (platform === "telegram") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9.78 15.17 9.4 20.6c.54 0 .78-.23 1.06-.5l2.54-2.42 5.27 3.86c.97.53 1.65.25 1.91-.9l3.47-16.24h.01c.3-1.42-.51-1.98-1.45-1.63L1.86 10.6c-1.39.54-1.37 1.31-.24 1.66l5.2 1.62L18.9 6.3c.57-.38 1.08-.17.65.2L9.78 15.17Z" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.35a3.05 3.05 0 0 0 0-1.7l6.7-3.35a3 3 0 1 0-.9-1.8c0 .18.02.35.05.52l-6.7 3.35a3 3 0 1 0 0 2.56l6.7 3.35A3 3 0 1 0 18 16Z" />
+    </svg>
+  );
+}
+
 export default function App() {
   const [resetToken, setResetToken] = useState("");
   const [authUser, setAuthUser] = useState<AuthUser | null>(null);
@@ -562,6 +607,68 @@ export default function App() {
     }
   }
 
+  function resolveShareUrl(): string {
+    const configured = String(import.meta.env.VITE_PUBLIC_APP_URL || "").trim();
+    if (configured) return configured.replace(/\/$/, "");
+    if (typeof window !== "undefined" && window.location?.origin) {
+      return window.location.origin;
+    }
+    return "https://lingoflow.app";
+  }
+
+  function buildShareText(): string {
+    const shareUrl = resolveShareUrl();
+    return `I just finished a LingoFlow session: ${sessionShareLine}. Practice with me at ${shareUrl}`;
+  }
+
+  function buildShareUrl(platform: SharePlatformId): string {
+    const text = encodeURIComponent(buildShareText());
+    const pageUrl = encodeURIComponent(resolveShareUrl());
+    if (platform === "x") {
+      return `https://x.com/intent/tweet?text=${text}`;
+    }
+    if (platform === "whatsapp") {
+      return `https://wa.me/?text=${text}`;
+    }
+    if (platform === "facebook") {
+      return `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${text}`;
+    }
+    return `https://t.me/share/url?text=${text}`;
+  }
+
+  function shareToPlatform(platform: SharePlatformId) {
+    if (!sessionShareLine) return;
+    const url = buildShareUrl(platform);
+    if (typeof window === "undefined") return;
+    const opened = window.open(url, "_blank", "noopener,noreferrer");
+    if (opened) {
+      setStatusMessage(`Opened ${SHARE_PLATFORMS.find((item) => item.id === platform)?.label || "share link"}.`);
+      return;
+    }
+    setStatusMessage("Could not open share link in this browser.");
+  }
+
+  async function shareWithNative() {
+    if (!sessionShareLine) return;
+    const shareUrl = resolveShareUrl();
+    const shareText = buildShareText();
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      try {
+        await navigator.share({
+          title: "LingoFlow Session",
+          text: shareText,
+          url: shareUrl
+        });
+        setStatusMessage("Share sheet opened.");
+        return;
+      } catch (_error) {
+        await copySessionSummary();
+        return;
+      }
+    }
+    await copySessionSummary();
+  }
+
   async function loadContributions(params: {
     scope?: "mine" | "all";
     status?: "pending" | "approved" | "rejected" | "";
@@ -706,9 +813,25 @@ export default function App() {
         <section className="panel setup-preview">
           <h3>Session Share Card</h3>
           <p>{sessionShareLine}</p>
-          <button className="ghost-button" onClick={copySessionSummary}>
-            Copy one-liner
-          </button>
+          <div className="share-actions">
+            <button
+              className="ghost-button share-icon-button"
+              onClick={shareWithNative}
+            >
+              <ShareIcon platform="native" />
+              <span>Share</span>
+            </button>
+            {SHARE_PLATFORMS.map((platform) => (
+              <button
+                key={platform.id}
+                className="ghost-button share-icon-button"
+                onClick={() => shareToPlatform(platform.id)}
+              >
+                <ShareIcon platform={platform.id} />
+                <span>{platform.label}</span>
+              </button>
+            ))}
+          </div>
         </section>
       ) : null}
 

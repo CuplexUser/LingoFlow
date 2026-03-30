@@ -82,6 +82,52 @@ test("evaluateAttempt supports practice speak and listen", () => {
   assert.equal(listenWrong.correct, false);
 });
 
+test("evaluateAttempt accepts normalized cloze answers and classifies cloze mistakes", () => {
+  const question = {
+    id: "cl-1",
+    type: "cloze_sentence",
+    answer: "placeholder",
+    clozeAnswer: "rápido"
+  };
+
+  const ok = evaluateAttempt(question, { selectedOption: "Rápido!" });
+  const wrong = evaluateAttempt(question, { selectedOption: "Lento" });
+
+  assert.equal(ok.correct, true);
+  assert.equal(ok.errorType, "none");
+  assert.equal(wrong.correct, false);
+  assert.equal(wrong.errorType, "cloze_choice");
+});
+
+test("evaluateAttempt scores flashcards with known/unknown behavior", () => {
+  const question = {
+    id: "fc-1",
+    type: "flashcard",
+    answer: "unused"
+  };
+
+  const known = evaluateAttempt(question, { selectedOption: "known" });
+  const unknown = evaluateAttempt(question, { selectedOption: "unknown" });
+
+  assert.equal(known.correct, true);
+  assert.equal(known.errorType, "none");
+  assert.equal(unknown.correct, false);
+  assert.equal(unknown.errorType, "wrong_option");
+});
+
+test("evaluateAttempt normalizes punctuation/case for multiple-choice scoring", () => {
+  const question = {
+    id: "mc-1",
+    type: "mc_sentence",
+    answer: "¡Buenos días!",
+    acceptedAnswers: []
+  };
+
+  const ok = evaluateAttempt(question, { selectedOption: "¡buenos días!" });
+  assert.equal(ok.correct, true);
+  assert.equal(ok.errorType, "none");
+});
+
 test("evaluateAttempt supports practice words pairs", () => {
   const question = {
     id: "pw1",
@@ -150,6 +196,39 @@ test("calculateXp penalizes mistakes and hints", () => {
     difficultyLevel: "b1"
   });
   assert.ok(high.xpGained > low.xpGained);
+});
+
+test("calculateXp enforces minimum XP floor for very poor outcomes", () => {
+  const result = calculateXp({
+    score: 0,
+    maxScore: 10,
+    mistakes: 20,
+    hintsUsed: 20,
+    revealedAnswers: 10,
+    difficultyLevel: "a1"
+  });
+  assert.equal(result.xpGained, 4);
+});
+
+test("calculateXp rewards higher difficulty for identical performance", () => {
+  const a1 = calculateXp({
+    score: 8,
+    maxScore: 10,
+    mistakes: 1,
+    hintsUsed: 0,
+    revealedAnswers: 0,
+    difficultyLevel: "a1"
+  });
+  const b2 = calculateXp({
+    score: 8,
+    maxScore: 10,
+    mistakes: 1,
+    hintsUsed: 0,
+    revealedAnswers: 0,
+    difficultyLevel: "b2"
+  });
+
+  assert.ok(b2.xpGained > a1.xpGained);
 });
 
 test("generateSession includes expanded exercise types", () => {

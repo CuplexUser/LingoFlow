@@ -35,6 +35,7 @@ vi.mock("../api", () => ({
 }));
 
 beforeEach(() => {
+  vi.restoreAllMocks();
   vi.clearAllMocks();
   window.localStorage.clear();
 });
@@ -130,6 +131,43 @@ function setupApiFixtures() {
   apiMock.saveSettings.mockImplementation(async (payload) => payload);
 }
 
+async function completeSessionAndShowShareCard(user) {
+  setupApiFixtures();
+  apiMock.completeSession.mockResolvedValue({
+    evaluated: {
+      score: 1,
+      maxScore: 1,
+      mistakes: 0
+    },
+    xpGained: 130,
+    mastery: 80,
+    levelUnlocked: "b2",
+    learnerLevel: 2
+  });
+  window.localStorage.setItem("lingoflow_active_session", JSON.stringify({
+    sessionId: "s2",
+    language: "spanish",
+    category: "essentials",
+    categoryLabel: "Essentials",
+    recommendedLevel: "a1",
+    questions: [
+      {
+        id: "q1",
+        type: "mc_sentence",
+        prompt: "Choose thanks",
+        answer: "Gracias",
+        options: ["Gracias", "Hola"]
+      }
+    ]
+  }));
+
+  render(<App />);
+  await screen.findByText("Choose thanks");
+  await user.click(screen.getByRole("button", { name: "Gracias" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+  await screen.findByText(/Session complete: 1\/1/);
+}
+
 test("setup page save and reset draft behavior", async () => {
   setupApiFixtures();
   const user = userEvent.setup();
@@ -204,45 +242,50 @@ test("learn page highlights the recommended focus and catalog toggle", async () 
 });
 
 test("shows updated level-up style session status after completion", async () => {
-  setupApiFixtures();
-  apiMock.completeSession.mockResolvedValue({
-    evaluated: {
-      score: 1,
-      maxScore: 1,
-      mistakes: 0
-    },
-    xpGained: 130,
-    mastery: 80,
-    levelUnlocked: "b2",
-    learnerLevel: 2
-  });
-  window.localStorage.setItem("lingoflow_active_session", JSON.stringify({
-    sessionId: "s2",
-    language: "spanish",
-    category: "essentials",
-    categoryLabel: "Essentials",
-    recommendedLevel: "a1",
-    questions: [
-      {
-        id: "q1",
-        type: "mc_sentence",
-        prompt: "Choose thanks",
-        answer: "Gracias",
-        options: ["Gracias", "Hola"]
-      }
-    ]
-  }));
-
   const user = userEvent.setup();
-  render(<App />);
+  await completeSessionAndShowShareCard(user);
 
-  await screen.findByText("Choose thanks");
-  await user.click(screen.getByRole("button", { name: "Gracias" }));
-  await user.click(screen.getByRole("button", { name: "Check" }));
-
-  expect(await screen.findByText(/Session complete: 1\/1/)).toBeInTheDocument();
   expect(screen.getByText(/\+130 XP/)).toBeInTheDocument();
   expect(screen.getByText(/Mastery 80.0% \(B2\)/)).toBeInTheDocument();
+});
+
+test("session share card opens platform share links", async () => {
+  const openSpy = vi.spyOn(window, "open").mockReturnValue({ closed: false });
+  const user = userEvent.setup();
+  await completeSessionAndShowShareCard(user);
+
+  await user.click(screen.getByRole("button", { name: "Share on X" }));
+  await user.click(screen.getByRole("button", { name: "Share on WhatsApp" }));
+  await user.click(screen.getByRole("button", { name: "Share on Facebook" }));
+  await user.click(screen.getByRole("button", { name: "Share on Telegram" }));
+
+  expect(openSpy).toHaveBeenCalledTimes(4);
+  const openedUrls = openSpy.mock.calls.map((call) => String(call[0]));
+  expect(openedUrls[0]).toContain("https://x.com/intent/tweet?text=");
+  expect(openedUrls[1]).toContain("https://wa.me/?text=");
+  expect(openedUrls[2]).toContain("https://www.facebook.com/sharer/sharer.php?");
+  expect(openedUrls[3]).toContain("https://t.me/share/url?text=");
+  expect(openedUrls[0]).toContain(encodeURIComponent("Practice with me at"));
+});
+
+test("session share card uses navigator.share when available", async () => {
+  const shareMock = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(window.navigator, "share", {
+    configurable: true,
+    value: shareMock
+  });
+
+  const user = userEvent.setup();
+  await completeSessionAndShowShareCard(user);
+
+  await user.click(screen.getByRole("button", { name: "Share" }));
+
+  expect(shareMock).toHaveBeenCalledTimes(1);
+  expect(shareMock).toHaveBeenCalledWith(expect.objectContaining({
+    text: expect.stringContaining("1/1 on Spanish Essentials B2"),
+    url: expect.stringContaining("http://localhost")
+  }));
+  expect(await screen.findByText("Share sheet opened.")).toBeInTheDocument();
 });
 
 test("mistake review session completes locally without calling completeSession API", async () => {
