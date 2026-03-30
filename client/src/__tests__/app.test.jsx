@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { vi } from "vitest";
+import { beforeEach, vi } from "vitest";
 import App from "../App";
 
 const apiMock = vi.hoisted(() => ({
@@ -33,6 +33,11 @@ vi.mock("../api", () => ({
     questions: Array.isArray(session?.questions) ? session.questions : []
   }))
 }));
+
+beforeEach(() => {
+  vi.clearAllMocks();
+  window.localStorage.clear();
+});
 
 function setupApiFixtures() {
   window.localStorage.setItem("lingoflow_auth_token", "test-token");
