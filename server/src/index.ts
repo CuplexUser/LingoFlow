@@ -78,6 +78,7 @@ const logger = require("./logger.ts");
 const {
   LANGUAGES,
   getCourseOverview,
+  getContentMetrics,
   generateSession,
   LEVEL_XP_MULTIPLIER
 } = require("./data.ts");
@@ -332,7 +333,7 @@ function createApp(): any {
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
-  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, getCourseOverview });
+  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, getCourseOverview, getContentMetrics });
   registerSessionRoutes(app, {
     requireAuth,
     database,

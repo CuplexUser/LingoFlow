@@ -75,6 +75,30 @@
         "level": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
         "target": "Jag vill tala naturligt, inte bara korrekt."
+      },
+      {
+        "id": "sv-es-13",
+        "level": "a2",
+        "prompt": "Say: Could you write that down for me?",
+        "target": "Kan du skriva ner det åt mig?"
+      },
+      {
+        "id": "sv-es-14",
+        "level": "b1",
+        "prompt": "Say: I feel more confident when I speak in longer sentences.",
+        "target": "Jag känner mig säkrare när jag talar i längre meningar."
+      },
+      {
+        "id": "sv-es-15",
+        "level": "b2",
+        "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
+        "target": "Även när jag gör små misstag kan jag hålla samtalet flytande."
+      },
+      {
+        "id": "sv-es-16",
+        "level": "b2",
+        "prompt": "Say: I try to choose expressions that sound natural in context.",
+        "target": "Jag försöker välja uttryck som låter naturliga i sitt sammanhang."
       }
     ],
     "conversation": [
@@ -297,6 +321,30 @@
         "level": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
         "target": "Vi borde dokumentera den här processen så att hela teamet kan återanvända den."
+      },
+      {
+        "id": "sv-wo-13",
+        "level": "a1",
+        "prompt": "Say: I start work at eight o'clock.",
+        "target": "Jag börjar arbeta klockan åtta."
+      },
+      {
+        "id": "sv-wo-14",
+        "level": "a1",
+        "prompt": "Ask: Where is the meeting room?",
+        "target": "Var ligger mötesrummet?"
+      },
+      {
+        "id": "sv-wo-15",
+        "level": "a2",
+        "prompt": "Say: I am updating the spreadsheet before lunch.",
+        "target": "Jag uppdaterar kalkylbladet före lunch."
+      },
+      {
+        "id": "sv-wo-16",
+        "level": "b1",
+        "prompt": "Say: Let's review the client feedback before we finalize the plan.",
+        "target": "Låt oss gå igenom kundens feedback innan vi slutför planen."
       }
     ],
     "health": [

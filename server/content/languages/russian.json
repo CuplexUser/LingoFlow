@@ -75,6 +75,30 @@
         "level": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
         "target": "Я хочу говорить естественно, а не только правильно."
+      },
+      {
+        "id": "ru-es-13",
+        "level": "a2",
+        "prompt": "Say: Could you write that down for me?",
+        "target": "Не могли бы вы записать это для меня?"
+      },
+      {
+        "id": "ru-es-14",
+        "level": "b1",
+        "prompt": "Say: I feel more confident when I speak in longer sentences.",
+        "target": "Я чувствую себя увереннее, когда говорю более длинными предложениями."
+      },
+      {
+        "id": "ru-es-15",
+        "level": "b2",
+        "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
+        "target": "Даже когда я делаю небольшие ошибки, я могу поддерживать разговор."
+      },
+      {
+        "id": "ru-es-16",
+        "level": "b2",
+        "prompt": "Say: I try to choose expressions that sound natural in context.",
+        "target": "Я стараюсь выбирать выражения, которые естественно звучат в контексте."
       }
     ],
     "conversation": [
@@ -297,6 +321,30 @@
         "level": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
         "target": "Нам стоит задокументировать этот процесс, чтобы вся команда могла использовать его снова."
+      },
+      {
+        "id": "ru-wo-13",
+        "level": "a1",
+        "prompt": "Say: I start work at eight o'clock.",
+        "target": "Я начинаю работать в восемь часов."
+      },
+      {
+        "id": "ru-wo-14",
+        "level": "a1",
+        "prompt": "Ask: Where is the meeting room?",
+        "target": "Где находится переговорная?"
+      },
+      {
+        "id": "ru-wo-15",
+        "level": "a2",
+        "prompt": "Say: I am updating the spreadsheet before lunch.",
+        "target": "Я обновляю таблицу перед обедом."
+      },
+      {
+        "id": "ru-wo-16",
+        "level": "b1",
+        "prompt": "Say: Let's review the client feedback before we finalize the plan.",
+        "target": "Давайте обсудим отзывы клиента, прежде чем окончательно утвердим план."
       }
     ],
     "health": [

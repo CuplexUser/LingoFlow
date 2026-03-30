@@ -75,6 +75,30 @@
         "level": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
         "target": "Voglio parlare in modo naturale, non solo corretto."
+      },
+      {
+        "id": "it-es-13",
+        "level": "a2",
+        "prompt": "Say: Could you write that down for me?",
+        "target": "Potresti scriverlo per me?"
+      },
+      {
+        "id": "it-es-14",
+        "level": "b1",
+        "prompt": "Say: I feel more confident when I speak in longer sentences.",
+        "target": "Mi sento più sicuro quando parlo con frasi più lunghe."
+      },
+      {
+        "id": "it-es-15",
+        "level": "b2",
+        "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
+        "target": "Anche quando faccio piccoli errori, riesco a mantenere fluida la conversazione."
+      },
+      {
+        "id": "it-es-16",
+        "level": "b2",
+        "prompt": "Say: I try to choose expressions that sound natural in context.",
+        "target": "Cerco di scegliere espressioni che suonino naturali nel contesto."
       }
     ],
     "conversation": [
@@ -297,6 +321,30 @@
         "level": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
         "target": "Dovremmo documentare questo processo così tutto il team potrà riutilizzarlo."
+      },
+      {
+        "id": "it-wo-13",
+        "level": "a1",
+        "prompt": "Say: I start work at eight o'clock.",
+        "target": "Inizio a lavorare alle otto."
+      },
+      {
+        "id": "it-wo-14",
+        "level": "a1",
+        "prompt": "Ask: Where is the meeting room?",
+        "target": "Dov'è la sala riunioni?"
+      },
+      {
+        "id": "it-wo-15",
+        "level": "a2",
+        "prompt": "Say: I am updating the spreadsheet before lunch.",
+        "target": "Sto aggiornando il foglio di calcolo prima di pranzo."
+      },
+      {
+        "id": "it-wo-16",
+        "level": "b1",
+        "prompt": "Say: Let's review the client feedback before we finalize the plan.",
+        "target": "Rivediamo il feedback del cliente prima di finalizzare il piano."
       }
     ],
     "health": [

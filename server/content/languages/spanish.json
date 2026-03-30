@@ -75,6 +75,30 @@
         "level": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
         "target": "Quiero hablar con naturalidad, no solo correctamente."
+      },
+      {
+        "id": "sp-es-13",
+        "level": "a2",
+        "prompt": "Say: Could you write that down for me?",
+        "target": "¿Podrías escribir eso para mí?"
+      },
+      {
+        "id": "sp-es-14",
+        "level": "b1",
+        "prompt": "Say: I feel more confident when I speak in longer sentences.",
+        "target": "Me siento con más confianza cuando hablo en frases más largas."
+      },
+      {
+        "id": "sp-es-15",
+        "level": "b2",
+        "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
+        "target": "Aunque cometa pequeños errores, puedo mantener fluida la conversación."
+      },
+      {
+        "id": "sp-es-16",
+        "level": "b2",
+        "prompt": "Say: I try to choose expressions that sound natural in context.",
+        "target": "Intento elegir expresiones que suenen naturales en contexto."
       }
     ],
     "conversation": [
@@ -297,6 +321,30 @@
         "level": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
         "target": "Deberíamos documentar este proceso para que todo el equipo pueda reutilizarlo."
+      },
+      {
+        "id": "sp-wo-13",
+        "level": "a1",
+        "prompt": "Say: I start work at eight o'clock.",
+        "target": "Empiezo a trabajar a las ocho."
+      },
+      {
+        "id": "sp-wo-14",
+        "level": "a1",
+        "prompt": "Ask: Where is the meeting room?",
+        "target": "¿Dónde está la sala de reuniones?"
+      },
+      {
+        "id": "sp-wo-15",
+        "level": "a2",
+        "prompt": "Say: I am updating the spreadsheet before lunch.",
+        "target": "Estoy actualizando la hoja de cálculo antes del almuerzo."
+      },
+      {
+        "id": "sp-wo-16",
+        "level": "b1",
+        "prompt": "Say: Let's review the client feedback before we finalize the plan.",
+        "target": "Revisemos los comentarios del cliente antes de finalizar el plan."
       }
     ],
     "health": [

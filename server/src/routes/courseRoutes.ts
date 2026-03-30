@@ -1,5 +1,5 @@
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, getCourseOverview } = deps;
+  const { requireAuth, database, LANGUAGES, getCourseOverview, getContentMetrics } = deps;
 
   app.get("/api/health", (_req: any, res: any) => {
     res.json({ ok: true });
@@ -44,6 +44,11 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
 
     res.json(enriched);
+  });
+
+  app.get("/api/content/metrics", requireAuth, (req: any, res: any) => {
+    const language = String(req.query.language || "").trim().toLowerCase();
+    res.json(getContentMetrics({ language }));
   });
 }
 

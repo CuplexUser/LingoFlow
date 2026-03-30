@@ -12,7 +12,7 @@ const testDbPath = path.join(
 process.env.LINGOFLOW_DB_PATH = testDbPath;
 
 const { calculateXp, evaluateAttempt, normalizeSentence } = require("../index.ts");
-const { generateSession } = require("../data.ts");
+const { generateSession, getContentMetrics } = require("../data.ts");
 const database = require("../db.ts");
 
 function createTestUser(prefix) {
@@ -211,6 +211,19 @@ test("generateSession creates practice modes", () => {
     assert.equal(words.questions[0].type, "practice_words");
     assert.equal(words.questions[0].pairs.length, 8);
   }
+});
+
+test("content metrics exposes level coverage and under-target buckets", () => {
+  const metrics = getContentMetrics({ language: "spanish" });
+  assert.ok(metrics.generatedAt);
+  assert.equal(metrics.targetPerLevel, 20);
+  assert.equal(metrics.languages.length, 1);
+  const spanish = metrics.languages[0];
+  assert.equal(spanish.id, "spanish");
+  const essentials = spanish.categories.find((entry) => entry.id === "essentials");
+  assert.ok(essentials);
+  assert.ok(typeof essentials.levelCounts.a1 === "number");
+  assert.ok(Array.isArray(essentials.underTargetByLevel));
 });
 
 test("recordSession updates mastery and daily xp", () => {

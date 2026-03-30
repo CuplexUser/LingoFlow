@@ -73,6 +73,37 @@ This file captures current product and technical priorities for future assignmen
 - [ ] Add moderation review tooling for community exercises.
 - [ ] Add sourced language-specific audio batches from providers such as Forvo or LibriVox.
 
+### Phase 11: Content quality and learning depth plan
+
+- [x] Baseline and instrumentation pass before content expansion:
+  - define per-language/category baseline metrics (accuracy, reveal rate, retry rate, completion rate)
+  - capture objective-level weak spots to guide which content to add first
+  - lock an evaluation checklist for each content PR (clarity, CEFR fit, distractor quality, hint usefulness)
+- [x] Phrase bank expansion (`server/content/languages/*.json`):
+  - expand high-traffic categories first, then underused categories
+  - target 20-50 exercises per level with balanced skill mix (recognition, production, listening, word order)
+  - add accepted-answer variants and culturally natural phrasing to reduce false negatives
+- [x] Exercise variety improvements (`server/src/data/sessionGenerator.ts`, `server/src/data/practicePool.ts`):
+  - rebalance question-type rotation to avoid repeated patterns in a single session
+  - diversify distractor construction by error type (word-order, tense, lexical confusion, formality/register)
+  - add rule-based templates for objective-specific generation (e.g., pronouns, agreement, verb forms)
+- [x] Difficulty and unlock pacing tuning (`server/src/data/sessionGenerator.ts`, progression rules in `server/src/db.ts`):
+  - tune adaptation weights so difficulty shifts are smoother between sessions
+  - adjust unlock thresholds with guardrails to prevent early lockouts and late stagnation
+  - validate with progression simulations and edge-case tests (high reveal usage, low streak learners, fast improvers)
+- [x] Category-specific mistake patterns and hints (`server/content/languages/*.json` + session evaluation paths):
+  - map each category/objective to likely mistake families and attach targeted hints/remediation prompts
+  - prioritize hints that coach thought process, not just answer reveal
+  - add remediation loops in follow-up sessions for repeated error types
+- [x] Daily challenge freshness and curation (`/api/session/daily` generation path):
+  - preserve deterministic per-day behavior while increasing intra-week variety
+  - add weighted objective rotation so daily challenges cover breadth over 7-day windows
+  - include one "stretch" item and one "confidence" item per challenge where possible
+- [x] Verification and rollout for all content updates:
+  - add/update tests for generation balance, difficulty adaptation, and daily challenge coverage
+  - run `npm run test --prefix server` and manual session spot checks across at least 3 languages
+  - ship in small batches with changelog notes and quick post-release metric review
+
 ## Completed archive
 
 ### Phase 1: Reliability and anti-trivial-cheat

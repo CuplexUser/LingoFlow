@@ -65,6 +65,17 @@ function createSeededRandom(seedText: string, crypto: any): () => number {
   };
 }
 
+function dayOfYearIndex(isoDate: string): number {
+  const [yearStr, monthStr, dayStr] = String(isoDate || "").split("-");
+  const year = Number(yearStr);
+  const month = Number(monthStr);
+  const day = Number(dayStr);
+  if (!Number.isFinite(year) || !Number.isFinite(month) || !Number.isFinite(day)) return 0;
+  const utcToday = Date.UTC(year, month - 1, day);
+  const utcYearStart = Date.UTC(year, 0, 1);
+  return Math.max(0, Math.floor((utcToday - utcYearStart) / (1000 * 60 * 60 * 24)));
+}
+
 function registerSessionRoutes(
   app: any,
   deps: any
@@ -149,8 +160,7 @@ function registerSessionRoutes(
       return res.status(404).json({ error: "No daily challenge categories found for this language" });
     }
 
-    const pickCategoryRandom = createSeededRandom(`${language}:${today}:daily-category`, crypto);
-    const startIndex = Math.floor(pickCategoryRandom() * candidateCategories.length);
+    const startIndex = dayOfYearIndex(today) % candidateCategories.length;
     let selectedCategory = "";
     let selectedSession: any = null;
 
@@ -166,7 +176,8 @@ function registerSessionRoutes(
         dueItemIds: [],
         weakItemIds: [],
         count: 10,
-        random: createSeededRandom(`${language}:${today}:${categoryId}:daily-session`, crypto)
+        random: createSeededRandom(`${language}:${today}:${categoryId}:daily-session`, crypto),
+        dailyMode: true
       });
       if (Array.isArray(session?.questions) && session.questions.length) {
         selectedCategory = categoryId;

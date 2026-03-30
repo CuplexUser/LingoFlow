@@ -136,6 +136,31 @@ function deriveObjective(category, level) {
   return `${category}-${level}-communication`;
 }
 
+const MISTAKE_PROFILE_BY_CATEGORY = {
+  grammar: ["word_order", "grammar_or_vocab", "missing_word"],
+  travel: ["wrong_option", "missing_answer"],
+  work: ["word_order", "grammar_or_vocab"],
+  science_technology: ["grammar_or_vocab", "wrong_option"],
+  default: ["wrong_option", "missing_answer"]
+};
+
+function getMistakeProfile(category) {
+  return MISTAKE_PROFILE_BY_CATEGORY[category] || MISTAKE_PROFILE_BY_CATEGORY.default;
+}
+
+function buildFallbackHint(category, questionType) {
+  if (category === "grammar") {
+    return "Check word order and verb form before submitting.";
+  }
+  if (category === "travel") {
+    return "Use a clear, polite phrase you would say in a real travel situation.";
+  }
+  if (questionType === "build_sentence" || questionType === "dictation_sentence") {
+    return "Re-read the full sentence and confirm each key word is present.";
+  }
+  return "Choose the most natural phrase for the context.";
+}
+
 function pickLevelAwareDistractors(pool, item, count, randomFn) {
   const ranked = levelRank(resolveDifficulty(item));
   const sameBand = pool.filter(
@@ -167,32 +192,48 @@ function buildPracticePool(getAllItems, language, practicePool) {
   return dedupeItems([...poolItems, ...allItems]);
 }
 
-function createQuestion(item, pool, idx, category, language, englishRoleplayAnswerByPrompt, randomFn) {
-  const questionTypeCycle = [
-    "mc_sentence",
-    "build_sentence",
-    "cloze_sentence",
-    "dictation_sentence",
-    "dialogue_turn"
-  ];
+function buildQuestionTypePlan(items) {
+  const cycle = ["mc_sentence", "build_sentence", "cloze_sentence", "dictation_sentence", "dialogue_turn"];
+  let cycleIndex = 0;
+  const recent: string[] = [];
+  return items.map((item) => {
+    const fixedType = String(item?.exerciseType || "").trim().toLowerCase();
+    if (fixedType) {
+      recent.push(fixedType);
+      if (recent.length > 2) recent.shift();
+      return fixedType;
+    }
+    let type = cycle[cycleIndex % cycle.length];
+    cycleIndex += 1;
+    if (recent.length >= 2 && recent[0] === recent[1] && recent[1] === type) {
+      type = cycle[cycleIndex % cycle.length];
+      cycleIndex += 1;
+    }
+    recent.push(type);
+    if (recent.length > 2) recent.shift();
+    return type;
+  });
+}
+
+function createQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn) {
   const requestedType = String(item.exerciseType || "").trim().toLowerCase();
-  let questionType = requestedType || questionTypeCycle[idx % questionTypeCycle.length];
+  let resolvedType = questionType || requestedType || "mc_sentence";
   const answer = resolveAnswer(item);
-  const answerEnglish = questionType === "roleplay"
+  const answerEnglish = resolvedType === "roleplay"
     ? (language === "english"
       ? answer
       : String(englishRoleplayAnswerByPrompt?.get(String(item.prompt || "")) || "").trim())
     : "";
 
   // Speaking long sentences is frustrating; fall back to a non-speaking exercise.
-  if (questionType === "pronunciation" && countWords(answer) > 7) {
-    questionType = "build_sentence";
+  if (resolvedType === "pronunciation" && countWords(answer) > 7) {
+    resolvedType = "build_sentence";
   }
 
   const base = {
     id: item.id,
-    type: questionType,
-    exerciseType: requestedType || questionType,
+    type: resolvedType,
+    exerciseType: requestedType || resolvedType,
     level: item.level,
     prompt: item.prompt,
     answer,
@@ -200,10 +241,14 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     answerEnglish: answerEnglish || undefined,
     acceptedAnswers: buildAcceptedAnswers(answer),
     objective: deriveObjective(category, item.level),
+    expectedMistakeTypes: getMistakeProfile(category),
     ...buildMediaFields(item)
   };
+  if (!Array.isArray(base.hints) || !base.hints.length) {
+    base.hints = [buildFallbackHint(category, resolvedType)];
+  }
 
-  if (questionType === "flashcard") {
+  if (resolvedType === "flashcard") {
     return {
       ...base,
       prompt: "Flashcard: Tap to flip",
@@ -212,7 +257,7 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     };
   }
 
-  if (questionType === "matching") {
+  if (resolvedType === "matching") {
     const distractors = shuffle(
       pool
         .filter((candidate) => candidate.id !== item.id)
@@ -229,7 +274,7 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     };
   }
 
-  if (questionType === "pronunciation") {
+  if (resolvedType === "pronunciation") {
     return {
       ...base,
       prompt: `${item.prompt}`,
@@ -237,7 +282,7 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     };
   }
 
-  if (questionType === "mc_sentence") {
+  if (resolvedType === "mc_sentence") {
     const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
     return {
       ...base,
@@ -245,7 +290,7 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     };
   }
 
-  if (questionType === "dialogue_turn" || questionType === "roleplay") {
+  if (resolvedType === "dialogue_turn" || resolvedType === "roleplay") {
     const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
     const promptBase = String(item.prompt || "").trim();
     const normalized = promptBase.toLowerCase();
@@ -257,7 +302,7 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     };
   }
 
-  if (questionType === "cloze_sentence") {
+  if (resolvedType === "cloze_sentence") {
     const answerTokens = answer.split(" ").filter(Boolean);
     const maskIndex = answerTokens.findIndex((token) => token.length > 3);
     const selectedMaskIndex = maskIndex >= 0 ? maskIndex : 0;
@@ -279,7 +324,7 @@ function createQuestion(item, pool, idx, category, language, englishRoleplayAnsw
     };
   }
 
-  if (questionType === "dictation_sentence") {
+  if (resolvedType === "dictation_sentence") {
     const answerTokens = answer.split(" ");
     const tokenPool = pool
       .flatMap((entry) => resolveAnswer(entry).split(" "))
@@ -356,6 +401,37 @@ function createPracticeWordsQuestion(items) {
   };
 }
 
+function selectByLevelWindow(items, centerRank, count, randomFn) {
+  const scored = shuffle(items, randomFn)
+    .map((item) => {
+      const rank = levelRank(resolveDifficulty(item));
+      return {
+        item,
+        score: Math.abs(rank - centerRank)
+      };
+    })
+    .sort((a, b) => a.score - b.score);
+  return scored.slice(0, count).map((entry) => entry.item);
+}
+
+function applyDailyCuration(selectedItems, sourcePool, recommendedRank, randomFn) {
+  if (!selectedItems.length) return selectedItems;
+  const selectedIds = new Set(selectedItems.map((item) => item.id));
+  const confidence = shuffle(
+    sourcePool.filter((item) => levelRank(resolveDifficulty(item)) <= recommendedRank && !selectedIds.has(item.id)),
+    randomFn
+  )[0];
+  const stretch = shuffle(
+    sourcePool.filter((item) => levelRank(resolveDifficulty(item)) > recommendedRank && !selectedIds.has(item.id)),
+    randomFn
+  )[0];
+
+  const curated = [...selectedItems];
+  if (confidence && curated.length >= 1) curated[0] = confidence;
+  if (stretch && curated.length >= 2) curated[curated.length - 1] = stretch;
+  return dedupeItems(curated);
+}
+
 function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
   return function generateSession({
     language,
@@ -367,7 +443,8 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     dueItemIds = [],
     weakItemIds = [],
     mode,
-    random
+    random,
+    dailyMode = false
   }) {
     const randomFn = typeof random === "function" ? random : Math.random;
     const isPracticeMode = Boolean(mode);
@@ -450,8 +527,8 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     let adaptiveRank = levelRank(baselineLevel);
 
     if (Number.isFinite(recentAccuracy)) {
-      if (recentAccuracy >= 0.88) adaptiveRank += 1;
-      if (recentAccuracy <= 0.55) adaptiveRank -= 1;
+      if (recentAccuracy >= 0.92) adaptiveRank += 1;
+      if (recentAccuracy <= 0.45) adaptiveRank -= 1;
     }
 
     const selfRatedRank = levelRank(selfRatedLevel);
@@ -459,9 +536,14 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       adaptiveRank = Math.max(adaptiveRank, selfRatedRank - 1);
     }
 
-    const recommendedLevel = LEVEL_ORDER[clampLevelRank(adaptiveRank)];
-    const maxRank = Math.min(clampLevelRank(adaptiveRank) + 1, LEVEL_ORDER.length - 1);
-    const candidatePool = all.filter((item) => levelRank(resolveDifficulty(item)) <= maxRank);
+    const recommendedRank = clampLevelRank(adaptiveRank);
+    const recommendedLevel = LEVEL_ORDER[recommendedRank];
+    const minRank = Math.max(0, recommendedRank - 1);
+    const maxRank = Math.min(recommendedRank + 1, LEVEL_ORDER.length - 1);
+    const candidatePool = all.filter((item) => {
+      const itemRank = levelRank(resolveDifficulty(item));
+      return itemRank >= minRank && itemRank <= maxRank;
+    });
     const sourcePool = candidatePool.length >= count ? candidatePool : all;
     const dueSet = new Set(dueItemIds);
     const weakSet = new Set(weakItemIds);
@@ -476,10 +558,15 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     , randomFn).slice(0, weakTarget);
     weakItems.forEach((item) => selectedIds.add(item.id));
 
-    const remaining = shuffle(sourcePool.filter((item) => !selectedIds.has(item.id)), randomFn);
-    const selected = [...dueItems, ...weakItems, ...remaining].slice(0, targetCount);
+    const remaining = sourcePool.filter((item) => !selectedIds.has(item.id));
+    const levelSmoothed = selectByLevelWindow(remaining, recommendedRank, Math.max(0, targetCount - dueItems.length - weakItems.length), randomFn);
+    let selected = [...dueItems, ...weakItems, ...levelSmoothed].slice(0, targetCount);
+    if (dailyMode) {
+      selected = applyDailyCuration(selected, sourcePool, recommendedRank, randomFn).slice(0, targetCount);
+    }
+    const plannedTypes = buildQuestionTypePlan(selected);
     const questions = selected.map((item, idx) =>
-      createQuestion(item, sourcePool, idx, category, language, englishRoleplayAnswerByPrompt, randomFn)
+      createQuestion(item, sourcePool, plannedTypes[idx], category, language, englishRoleplayAnswerByPrompt, randomFn)
     );
 
     return {
