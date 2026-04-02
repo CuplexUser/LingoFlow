@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   api,
   type AuthSuccessPayload,
@@ -90,6 +90,7 @@ function ShareIcon({ platform }: { platform: SharePlatformId | "native" }) {
 }
 
 export default function App() {
+  const loginVisitTrackedRef = useRef(false);
   const [resetToken, setResetToken] = useState("");
   const [authUser, setAuthUser] = useState<AuthUser | null>(null);
   const [authBusy, setAuthBusy] = useState(false);
@@ -257,6 +258,19 @@ export default function App() {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (authUser) return;
+    if (authMode !== "login") return;
+    if (window.location.pathname !== AUTH_PATHS.login) return;
+    if (loginVisitTrackedRef.current) return;
+
+    loginVisitTrackedRef.current = true;
+    api.trackLoginPageVisit().catch(() => {
+      // Lightweight telemetry: avoid disturbing sign-in flow if this fails.
+    });
+  }, [authMode, authUser]);
 
   function handleNavigateAuthMode(nextMode: AuthMode) {
     navigateAuthMode(nextMode);

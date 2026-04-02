@@ -68,6 +68,7 @@ interface AuthenticatedRequest {
   body?: any;
   query?: any;
   path: string;
+  method: string;
   requestId: string;
   authUserId: number | null;
   authFromToken: boolean;

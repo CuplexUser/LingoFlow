@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const Database = require("better-sqlite3");
 
 const configuredDbPath = process.env.LINGOFLOW_DB_PATH
@@ -456,6 +457,20 @@ db.exec(`
     moderation_status TEXT NOT NULL DEFAULT 'pending',
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+
+  CREATE TABLE IF NOT EXISTS login_page_daily_stats (
+    date TEXT PRIMARY KEY,
+    total_visits INTEGER NOT NULL DEFAULT 0,
+    unique_visitors INTEGER NOT NULL DEFAULT 0,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS login_page_unique_visitors (
+    date TEXT NOT NULL,
+    visitor_hash TEXT NOT NULL,
+    first_seen_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(date, visitor_hash)
+  );
 `);
 
 db.exec(`
@@ -479,6 +494,8 @@ db.exec(`
   ON exercise_usage(user_id, language, category, last_used_at DESC);
   CREATE INDEX IF NOT EXISTS idx_community_exercises_user_status
   ON community_exercises(user_id, moderation_status, created_at DESC);
+  CREATE INDEX IF NOT EXISTS idx_login_page_unique_visitors_date
+  ON login_page_unique_visitors(date);
 `);
 
 function ensureSettingsColumns() {
@@ -1663,6 +1680,88 @@ function updateCommunityExerciseModerationStatus({
   return parseCommunityExerciseRow(row);
 }
 
+function hashVisitorIp(ipAddress) {
+  const safeIpAddress = String(ipAddress || "").trim();
+  if (!safeIpAddress) return "";
+  const salt = String(process.env.VISITOR_HASH_SALT || "lingoflow-visitor-salt");
+  return crypto
+    .createHash("sha256")
+    .update(`${salt}:${safeIpAddress}`)
+    .digest("hex");
+}
+
+function recordLoginPageVisit({ ipAddress }) {
+  const visitorHash = hashVisitorIp(ipAddress);
+  if (!visitorHash) return { ok: false };
+  const today = toIsoDate();
+
+  const tx = db.transaction(() => {
+    db.prepare(`
+      INSERT INTO login_page_daily_stats (date, total_visits, unique_visitors, updated_at)
+      VALUES (?, 1, 0, CURRENT_TIMESTAMP)
+      ON CONFLICT(date) DO UPDATE SET
+        total_visits = total_visits + 1,
+        updated_at = CURRENT_TIMESTAMP
+    `).run(today);
+
+    const insertedUnique = db.prepare(`
+      INSERT OR IGNORE INTO login_page_unique_visitors (date, visitor_hash)
+      VALUES (?, ?)
+    `).run(today, visitorHash);
+
+    if (insertedUnique.changes > 0) {
+      db.prepare(`
+        UPDATE login_page_daily_stats
+        SET unique_visitors = unique_visitors + 1,
+            updated_at = CURRENT_TIMESTAMP
+        WHERE date = ?
+      `).run(today);
+    }
+  });
+
+  tx();
+  return { ok: true };
+}
+
+function getVisitorStats({
+  sinceDays = 30
+} = {}) {
+  const safeSinceDays = Number.isInteger(sinceDays)
+    ? Math.max(1, Math.min(sinceDays, 365))
+    : 30;
+  const sinceWindow = `-${safeSinceDays - 1} days`;
+  const limit = safeSinceDays;
+
+  const totals = db.prepare(`
+    SELECT
+      COALESCE(SUM(total_visits), 0) AS total_visits,
+      COALESCE(SUM(unique_visitors), 0) AS unique_visitors
+    FROM login_page_daily_stats
+    WHERE date >= DATE('now', ?)
+  `).get(sinceWindow);
+
+  const dailyRows = db.prepare(`
+    SELECT date, total_visits, unique_visitors
+    FROM login_page_daily_stats
+    WHERE date >= DATE('now', ?)
+    ORDER BY date DESC
+    LIMIT ?
+  `).all(sinceWindow, limit).map((row) => ({
+    date: row.date,
+    totalVisits: row.total_visits,
+    uniqueVisitors: row.unique_visitors
+  }));
+
+  return {
+    sinceDays: safeSinceDays,
+    loginPage: {
+      totalVisits: totals?.total_visits || 0,
+      uniqueVisitors: totals?.unique_visitors || 0,
+      daily: dailyRows
+    }
+  };
+}
+
 function getStats(userId = 1, language) {
   const settings = getSettings(userId);
   const safeLanguage = normalizeLanguageId(language, settings.targetLanguage || "spanish");
@@ -2018,6 +2117,8 @@ module.exports = {
   createCommunityExercise,
   listCommunityExercises,
   updateCommunityExerciseModerationStatus,
+  recordLoginPageVisit,
+  getVisitorStats,
   getTodayXp,
   getProgress,
   getProgressOverview,

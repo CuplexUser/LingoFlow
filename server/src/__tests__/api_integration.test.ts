@@ -950,3 +950,61 @@ test("non-reviewers cannot update community contribution moderation status", asy
   assert.ok(target);
   assert.equal(target.moderationStatus, "pending");
 });
+
+test("visitor stats include only login page aggregate metrics", async (t) => {
+  const reviewerEmail = `reviewer-${Date.now()}-visitor-stats@example.com`;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
+  t.after(() => {
+    delete process.env.CONTRIBUTION_REVIEWER_EMAILS;
+  });
+
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const reviewerHeaders = await createAuthHeadersForEmail(base, reviewerEmail, "Reviewer");
+  const authHeaders = await createAuthHeaders(base, "visitor-stats");
+
+  const firstIp = "198.51.100.10";
+  const secondIp = "203.0.113.7";
+
+  const firstVisitA = await fetch(`${base}/api/visitors/login`, {
+    method: "POST",
+    headers: { "x-forwarded-for": firstIp, "content-type": "application/json" },
+    body: JSON.stringify({})
+  });
+  assert.equal(firstVisitA.status, 202);
+
+  const firstVisitB = await fetch(`${base}/api/visitors/login`, {
+    method: "POST",
+    headers: { "x-forwarded-for": firstIp, "content-type": "application/json" },
+    body: JSON.stringify({})
+  });
+  assert.equal(firstVisitB.status, 202);
+
+  const secondVisit = await fetch(`${base}/api/progress-overview`, {
+    headers: { ...authHeaders, "x-forwarded-for": secondIp }
+  });
+  assert.equal(secondVisit.status, 200);
+
+  const forbiddenStatsRes = await fetch(`${base}/api/visitors/stats?sinceDays=7&limit=20`, {
+    headers: { ...authHeaders, "x-forwarded-for": firstIp }
+  });
+  assert.equal(forbiddenStatsRes.status, 403);
+
+  const statsRes = await fetch(`${base}/api/visitors/stats?sinceDays=7&limit=20`, {
+    headers: { ...reviewerHeaders, "x-forwarded-for": firstIp }
+  });
+  assert.equal(statsRes.status, 200);
+  const stats = await statsRes.json();
+
+  assert.equal(stats.sinceDays, 7);
+  assert.ok(stats.loginPage);
+  assert.equal(stats.loginPage.totalVisits, 2);
+  assert.equal(stats.loginPage.uniqueVisitors, 1);
+  assert.ok(Array.isArray(stats.loginPage.daily));
+  assert.ok(stats.loginPage.daily.length >= 1);
+  assert.equal(stats.loginPage.daily[0].totalVisits, 2);
+  assert.equal(stats.loginPage.daily[0].uniqueVisitors, 1);
+});

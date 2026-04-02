@@ -82,6 +82,16 @@ function registerUserRoutes(app: any, deps: any): void {
     res.json(stats);
   });
 
+  app.get("/api/visitors/stats", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    if (!canModerateCommunityExercises(userId)) {
+      return res.status(403).json({ error: "Reviewer access required" });
+    }
+    const sinceDays = Number.parseInt(String(req.query.sinceDays || "30"), 10);
+    const stats = database.getVisitorStats({ sinceDays });
+    res.json(stats);
+  });
+
   app.post("/api/community/contribute", requireAuth, (req: any, res: any) => {
     const userId = req.authUserId;
     const {

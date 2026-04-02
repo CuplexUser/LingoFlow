@@ -373,6 +373,8 @@ export const api = {
       { method: "POST", body: JSON.stringify(payload) }
     ),
   getMe: () => request<{ user: AuthUser }>("/auth/me"),
+  trackLoginPageVisit: () =>
+    request<{ ok: boolean }>("/visitors/login", { method: "POST", body: JSON.stringify({}) }),
   getLanguages: () => request<LanguageOption[]>("/languages"),
   getCourse: (language: string) =>
     request<CourseCategory[]>(`/course?language=${encodeURIComponent(language)}`),

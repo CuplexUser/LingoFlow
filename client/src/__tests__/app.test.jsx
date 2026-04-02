@@ -14,6 +14,7 @@ const apiMock = vi.hoisted(() => ({
   resetPassword: vi.fn(),
   verifyEmail: vi.fn(),
   getGoogleOAuthStartUrl: vi.fn(() => "/api/auth/google/start"),
+  trackLoginPageVisit: vi.fn(),
   getMe: vi.fn(),
   getLanguages: vi.fn(),
   getSettings: vi.fn(),
@@ -43,6 +44,7 @@ beforeEach(() => {
 function setupApiFixtures() {
   window.localStorage.setItem("lingoflow_auth_token", "test-token");
   apiMock.getAuthToken.mockReturnValue("test-token");
+  apiMock.trackLoginPageVisit.mockResolvedValue({ ok: true });
   apiMock.getMe.mockResolvedValue({
     user: {
       id: 2,
