@@ -139,6 +139,7 @@ eslint.config.js     # Flat ESLint config for ESLint 10
 - Validation for unknown question IDs and invalid completion attempts
 - Normalized answer checking and accepted-answer variant support
 - Level-aware distractor selection and spaced-priority item selection
+- Matching exercise generation now excludes roleplay/dialogue prompts from distractor pairs
 - Daily XP aggregation (`todayXp`) and per-item retention tracking
 
 ## Testing
@@ -169,25 +170,35 @@ eslint.config.js     # Flat ESLint config for ESLint 10
 
 ## API Overview
 
+- `GET /api/health`
 - `POST /api/auth/register`
 - `POST /api/auth/login`
 - `POST /api/auth/resend-verification`
+- `POST /api/auth/forgot-password`
+- `POST /api/auth/reset-password`
 - `POST /api/auth/verify-email`
 - `GET /api/auth/me`
 - `GET /api/auth/google/start`
 - `GET /api/auth/google/callback`
 - `GET /api/languages`
+- `POST /api/visitors/login`
 - `GET /api/course?language=<id>`
+- `GET /api/content/metrics?language=<id>`
 - `POST /api/session/start`
+- `POST /api/session/daily`
 - `POST /api/session/complete`
 - `GET /api/settings`
 - `PUT /api/settings`
 - `GET /api/progress?language=<id>`
 - `GET /api/progress-overview`
 - `GET /api/stats?language=<id>`
+- `GET /api/visitors/stats`
+- `POST /api/community/contribute`
+- `GET /api/community/contributions`
+- `PATCH /api/community/contributions/:id`
 
 Notes:
-- Protected learner endpoints (`/api/course`, `/api/session/*`, `/api/settings`, `/api/progress`, `/api/stats`) require a bearer token.
+- Protected learner endpoints (`/api/course`, `/api/content/metrics`, `/api/session/*`, `/api/settings`, `/api/progress`, `/api/stats`, `/api/visitors/stats`, `/api/community/*`) require a bearer token.
 - Email/password users must verify email before login is allowed.
 - Auth and request flow logs are emitted as JSON with `requestId` for correlation.
 
