@@ -35,6 +35,15 @@ function stripExercisePrefix(text) {
     .trim();
 }
 
+function isRoleplayLikeItem(item) {
+  const exerciseType = String(item?.exerciseType || "").trim().toLowerCase();
+  if (exerciseType === "roleplay" || exerciseType === "dialogue_turn") {
+    return true;
+  }
+  const prompt = String(item?.prompt || "").trim().toLowerCase();
+  return prompt.startsWith("choose the best response.");
+}
+
 function filterItemsForMode(items, mode) {
   const normalizedMode = String(mode || "").trim().toLowerCase();
   if (!normalizedMode) return items;
@@ -260,7 +269,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   if (resolvedType === "matching") {
     const distractors = shuffle(
       pool
-        .filter((candidate) => candidate.id !== item.id)
+        .filter((candidate) => candidate.id !== item.id && !isRoleplayLikeItem(candidate))
         .map((candidate) => ({
           id: candidate.id,
           prompt: stripExercisePrefix(candidate.prompt),
