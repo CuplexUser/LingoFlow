@@ -7,677 +7,1095 @@
       {
         "id": "ru-es-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Hello, how are you?",
-        "target": "Привет, как дела?"
+        "correctAnswer": "Привет, как дела?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-es-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Thank you very much for your help.",
-        "target": "Большое спасибо за твою помощь."
+        "correctAnswer": "Большое спасибо за твою помощь.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-es-3",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not understand this sentence.",
-        "target": "Я не понимаю это предложение."
+        "correctAnswer": "Я не понимаю это предложение.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-es-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you speak more slowly, please?",
-        "target": "Можете говорить медленнее, пожалуйста?"
+        "correctAnswer": "Можете говорить медленнее, пожалуйста?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-es-5",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am learning Russian every day.",
-        "target": "Я учу русский язык каждый день."
+        "correctAnswer": "Я учу русский язык каждый день.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-es-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I made a mistake, but I will try again.",
-        "target": "Я сделал ошибку, но попробую снова."
+        "correctAnswer": "Я сделал ошибку, но попробую снова.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-es-7",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would like to improve my pronunciation.",
-        "target": "Я хотел бы улучшить своё произношение."
+        "correctAnswer": "Я хотел бы улучшить своё произношение.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-es-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
-        "target": "Я могу объяснить своё мнение с ясными аргументами."
+        "correctAnswer": "Я могу объяснить своё мнение с ясными аргументами.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-es-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Excuse me, where is the bathroom?",
-        "target": "Извините, где находится туалет?"
+        "correctAnswer": "Извините, где находится туалет?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-es-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you repeat that one more time?",
-        "target": "Не могли бы вы повторить это еще раз?"
+        "correctAnswer": "Не могли бы вы повторить это еще раз?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-es-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I understand the idea, but I need more practice.",
-        "target": "Я понимаю идею, но мне нужно больше практики."
+        "correctAnswer": "Я понимаю идею, но мне нужно больше практики.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-es-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
-        "target": "Я хочу говорить естественно, а не только правильно."
+        "correctAnswer": "Я хочу говорить естественно, а не только правильно.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-es-13",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you write that down for me?",
-        "target": "Не могли бы вы записать это для меня?"
+        "correctAnswer": "Не могли бы вы записать это для меня?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-es-14",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I feel more confident when I speak in longer sentences.",
-        "target": "Я чувствую себя увереннее, когда говорю более длинными предложениями."
+        "correctAnswer": "Я чувствую себя увереннее, когда говорю более длинными предложениями.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-es-15",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
-        "target": "Даже когда я делаю небольшие ошибки, я могу поддерживать разговор."
+        "correctAnswer": "Даже когда я делаю небольшие ошибки, я могу поддерживать разговор.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-es-16",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I try to choose expressions that sound natural in context.",
-        "target": "Я стараюсь выбирать выражения, которые естественно звучат в контексте."
+        "correctAnswer": "Я стараюсь выбирать выражения, которые естественно звучат в контексте.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "conversation": [
       {
         "id": "ru-co-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: What is your name?",
-        "target": "Как тебя зовут?"
+        "correctAnswer": "Как тебя зовут?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-co-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My name is Alex and I am from the United States.",
-        "target": "Меня зовут Алекс, и я из США."
+        "correctAnswer": "Меня зовут Алекс, и я из США.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-co-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: It is nice to meet you in person.",
-        "target": "Приятно познакомиться лично."
+        "correctAnswer": "Приятно познакомиться лично.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-co-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: What do you usually do on weekends?",
-        "target": "Что ты обычно делаешь по выходным?"
+        "correctAnswer": "Что ты обычно делаешь по выходным?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-co-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I enjoy talking about books and current events.",
-        "target": "Мне нравится говорить о книгах и текущих событиях."
+        "correctAnswer": "Мне нравится говорить о книгах и текущих событиях.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-co-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: In my opinion, consistency is more important than intensity.",
-        "target": "По моему мнению, регулярность важнее интенсивности."
+        "correctAnswer": "По моему мнению, регулярность важнее интенсивности.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-co-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-        "target": "Раньше я был застенчивым, но теперь уверенно выражаю свои мысли."
+        "correctAnswer": "Раньше я был застенчивым, но теперь уверенно выражаю свои мысли.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-co-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
-        "target": "Хотя мы не согласны, я уважаю твою точку зрения."
+        "correctAnswer": "Хотя мы не согласны, я уважаю твою точку зрения.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-co-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where are you from?",
-        "target": "Откуда вы?"
+        "correctAnswer": "Откуда вы?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-co-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I usually spend my evenings reading or walking.",
-        "target": "Обычно я провожу вечера за чтением или прогулкой."
+        "correctAnswer": "Обычно я провожу вечера за чтением или прогулкой.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-co-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What kind of topics do you enjoy discussing?",
-        "target": "Какие темы вы любите обсуждать?"
+        "correctAnswer": "Какие темы вы любите обсуждать?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-co-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
-        "target": "Я ценю откровенные разговоры, даже когда они трудные."
+        "correctAnswer": "Я ценю откровенные разговоры, даже когда они трудные.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "travel": [
       {
         "id": "ru-tr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the train station?",
-        "target": "Где находится железнодорожный вокзал?"
+        "correctAnswer": "Где находится железнодорожный вокзал?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-tr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: How much does this ticket cost?",
-        "target": "Сколько стоит этот билет?"
+        "correctAnswer": "Сколько стоит этот билет?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-tr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I need a room for two nights.",
-        "target": "Мне нужен номер на две ночи."
+        "correctAnswer": "Мне нужен номер на две ночи.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-tr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Does this bus go to the city center?",
-        "target": "Этот автобус едет в центр города?"
+        "correctAnswer": "Этот автобус едет в центр города?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-tr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My flight was delayed because of bad weather.",
-        "target": "Мой рейс задержали из-за плохой погоды."
+        "correctAnswer": "Мой рейс задержали из-за плохой погоды.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-tr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I lost my passport and need help immediately.",
-        "target": "Я потерял паспорт и мне срочно нужна помощь."
+        "correctAnswer": "Я потерял паспорт и мне срочно нужна помощь.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-tr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
-        "target": "Не могли бы вы порекомендовать безопасный район рядом с центром?"
+        "correctAnswer": "Не могли бы вы порекомендовать безопасный район рядом с центром?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-tr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
-        "target": "Я предпочёл бы более спокойный маршрут, даже если он займет больше времени."
+        "correctAnswer": "Я предпочёл бы более спокойный маршрут, даже если он займет больше времени.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-tr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Which platform does the train leave from?",
-        "target": "С какой платформы отправляется поезд?"
+        "correctAnswer": "С какой платформы отправляется поезд?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-tr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I would like to check in for my reservation.",
-        "target": "Я хочу зарегистрироваться по своему бронированию."
+        "correctAnswer": "Я хочу зарегистрироваться по своему бронированию.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-tr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The museum is within walking distance from the hotel.",
-        "target": "Музей находится в пешей доступности от отеля."
+        "correctAnswer": "Музей находится в пешей доступности от отеля.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-tr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Is there a faster connection if I change lines once?",
-        "target": "Есть ли более быстрое сообщение, если я один раз пересяду?"
+        "correctAnswer": "Есть ли более быстрое сообщение, если я один раз пересяду?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "work": [
       {
         "id": "ru-wo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I work in a small software company.",
-        "target": "Я работаю в небольшой IT-компании."
+        "correctAnswer": "Я работаю в небольшой IT-компании.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-wo-2",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We have a meeting at nine in the morning.",
-        "target": "У нас встреча в девять утра."
+        "correctAnswer": "У нас встреча в девять утра.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-wo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Could you send me the updated report?",
-        "target": "Можете отправить мне обновлённый отчёт?"
+        "correctAnswer": "Можете отправить мне обновлённый отчёт?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-wo-4",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We should prioritize the tasks with the highest impact.",
-        "target": "Нам нужно приоритизировать задачи с наибольшим эффектом."
+        "correctAnswer": "Нам нужно приоритизировать задачи с наибольшим эффектом.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-wo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I finished the draft, but it still needs revision.",
-        "target": "Я закончил черновик, но его ещё нужно доработать."
+        "correctAnswer": "Я закончил черновик, но его ещё нужно доработать.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-wo-6",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Our proposal focuses on long-term sustainability.",
-        "target": "Наше предложение ориентировано на долгосрочную устойчивость."
+        "correctAnswer": "Наше предложение ориентировано на долгосрочную устойчивость.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-wo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If we align our goals, we can deliver faster.",
-        "target": "Если мы согласуем цели, мы сможем быстрее выполнить задачу."
+        "correctAnswer": "Если мы согласуем цели, мы сможем быстрее выполнить задачу.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-wo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
-        "target": "Какие метрики определят успех этого проекта?"
+        "correctAnswer": "Какие метрики определят успех этого проекта?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-wo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am still learning the tools for this job.",
-        "target": "Я все еще осваиваю инструменты для этой работы."
+        "correctAnswer": "Я все еще осваиваю инструменты для этой работы.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-wo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can we move the meeting to the afternoon?",
-        "target": "Можем ли мы перенести встречу на вторую половину дня?"
+        "correctAnswer": "Можем ли мы перенести встречу на вторую половину дня?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-wo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
-        "target": "Мне нужны более четкие приоритеты, прежде чем я смогу оценить сроки."
+        "correctAnswer": "Мне нужны более четкие приоритеты, прежде чем я смогу оценить сроки.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-wo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
-        "target": "Нам стоит задокументировать этот процесс, чтобы вся команда могла использовать его снова."
+        "correctAnswer": "Нам стоит задокументировать этот процесс, чтобы вся команда могла использовать его снова.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-wo-13",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I start work at eight o'clock.",
-        "target": "Я начинаю работать в восемь часов."
+        "correctAnswer": "Я начинаю работать в восемь часов.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-wo-14",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the meeting room?",
-        "target": "Где находится переговорная?"
+        "correctAnswer": "Где находится переговорная?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-wo-15",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am updating the spreadsheet before lunch.",
-        "target": "Я обновляю таблицу перед обедом."
+        "correctAnswer": "Я обновляю таблицу перед обедом.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-wo-16",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: Let's review the client feedback before we finalize the plan.",
-        "target": "Давайте обсудим отзывы клиента, прежде чем окончательно утвердим план."
+        "correctAnswer": "Давайте обсудим отзывы клиента, прежде чем окончательно утвердим план.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       }
     ],
     "health": [
       {
         "id": "ru-he-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not feel well today.",
-        "target": "Сегодня я плохо себя чувствую."
+        "correctAnswer": "Сегодня я плохо себя чувствую.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-he-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the nearest pharmacy?",
-        "target": "Где находится ближайшая аптека?"
+        "correctAnswer": "Где находится ближайшая аптека?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-he-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I have had a headache since this morning.",
-        "target": "У меня болит голова с самого утра."
+        "correctAnswer": "У меня болит голова с самого утра.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-he-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am allergic to peanuts.",
-        "target": "У меня аллергия на арахис."
+        "correctAnswer": "У меня аллергия на арахис.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-he-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: Should I take this medicine before or after meals?",
-        "target": "Мне принимать это лекарство до или после еды?"
+        "correctAnswer": "Мне принимать это лекарство до или после еды?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-he-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The pain gets worse when I walk quickly.",
-        "target": "Боль усиливается, когда я быстро хожу."
+        "correctAnswer": "Боль усиливается, когда я быстро хожу.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-he-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I need a full checkup because these symptoms persist.",
-        "target": "Мне нужно полное обследование, потому что эти симптомы не проходят."
+        "correctAnswer": "Мне нужно полное обследование, потому что эти симптомы не проходят.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-he-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
-        "target": "Можете подробно объяснить варианты лечения?"
+        "correctAnswer": "Можете подробно объяснить варианты лечения?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-he-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My throat hurts when I swallow.",
-        "target": "У меня болит горло, когда я глотаю."
+        "correctAnswer": "У меня болит горло, когда я глотаю.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-he-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Do I need an appointment for this checkup?",
-        "target": "Мне нужна запись на этот осмотр?"
+        "correctAnswer": "Мне нужна запись на этот осмотр?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-he-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been feeling tired for several days.",
-        "target": "Я чувствую усталость уже несколько дней."
+        "correctAnswer": "Я чувствую усталость уже несколько дней.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-he-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would like a second opinion before starting treatment.",
-        "target": "Мне бы хотелось получить второе мнение перед началом лечения."
+        "correctAnswer": "Мне бы хотелось получить второе мнение перед началом лечения.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "family_friends": [
       {
         "id": "ru-fa-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: This is my brother and that is my cousin.",
-        "target": "Это мой брат, а это мой двоюродный брат."
+        "correctAnswer": "Это мой брат, а это мой двоюродный брат.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-fa-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My friends are very kind and funny.",
-        "target": "Мои друзья очень добрые и весёлые."
+        "correctAnswer": "Мои друзья очень добрые и весёлые.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-fa-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Are you visiting your family this weekend?",
-        "target": "Ты навещаешь семью в эти выходные?"
+        "correctAnswer": "Ты навещаешь семью в эти выходные?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-fa-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We usually have dinner together on Sundays.",
-        "target": "Обычно мы ужинаем вместе по воскресеньям."
+        "correctAnswer": "Обычно мы ужинаем вместе по воскресеньям.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-fa-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I grew up with my grandparents in a small town.",
-        "target": "Я вырос с бабушкой и дедушкой в маленьком городе."
+        "correctAnswer": "Я вырос с бабушкой и дедушкой в маленьком городе.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-fa-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My best friend always gives me honest advice.",
-        "target": "Мой лучший друг всегда даёт мне честные советы."
+        "correctAnswer": "Мой лучший друг всегда даёт мне честные советы.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-fa-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Even when we disagree, we try to listen respectfully.",
-        "target": "Даже когда мы не согласны, мы стараемся уважительно слушать друг друга."
+        "correctAnswer": "Даже когда мы не согласны, мы стараемся уважительно слушать друг друга.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-fa-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
-        "target": "Семейные традиции помогают нам сохранять связь между поколениями."
+        "correctAnswer": "Семейные традиции помогают нам сохранять связь между поколениями.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-fa-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My sister lives near my parents.",
-        "target": "Моя сестра живет рядом с моими родителями."
+        "correctAnswer": "Моя сестра живет рядом с моими родителями.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-fa-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Would you like to come over for dinner on Friday?",
-        "target": "Хочешь прийти на ужин в пятницу?"
+        "correctAnswer": "Хочешь прийти на ужин в пятницу?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-fa-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We stay close even though we live in different cities.",
-        "target": "Мы остаемся близки, хотя живем в разных городах."
+        "correctAnswer": "Мы остаемся близки, хотя живем в разных городах.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-fa-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Good friendships require time, trust, and patience.",
-        "target": "Хорошая дружба требует времени, доверия и терпения."
+        "correctAnswer": "Хорошая дружба требует времени, доверия и терпения.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "food_cooking": [
       {
         "id": "ru-fo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I would like a coffee and a sandwich.",
-        "target": "Я бы хотел кофе и сэндвич."
+        "correctAnswer": "Я бы хотел кофе и сэндвич.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-fo-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Do you have vegetarian options?",
-        "target": "У вас есть вегетарианские блюда?"
+        "correctAnswer": "У вас есть вегетарианские блюда?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-fo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am cooking rice with vegetables tonight.",
-        "target": "Сегодня вечером я готовлю рис с овощами."
+        "correctAnswer": "Сегодня вечером я готовлю рис с овощами.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-fo-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can you add less salt, please?",
-        "target": "Можно добавить меньше соли, пожалуйста?"
+        "correctAnswer": "Можно добавить меньше соли, пожалуйста?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-fo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The soup tastes better after it simmers for an hour.",
-        "target": "Суп вкуснее, если он томится около часа."
+        "correctAnswer": "Суп вкуснее, если он томится около часа.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-fo-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I forgot one ingredient, so I changed the recipe.",
-        "target": "Я забыл один ингредиент, поэтому изменил рецепт."
+        "correctAnswer": "Я забыл один ингредиент, поэтому изменил рецепт.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-fo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: This dish combines sweet, spicy, and smoky flavors.",
-        "target": "Это блюдо сочетает сладкие, острые и копчёные вкусы."
+        "correctAnswer": "Это блюдо сочетает сладкие, острые и копчёные вкусы.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-fo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
-        "target": "Какая техника делает соус более однородным?"
+        "correctAnswer": "Какая техника делает соус более однородным?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-fo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Can I have water without ice?",
-        "target": "Можно мне воду без льда?"
+        "correctAnswer": "Можно мне воду без льда?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-fo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I baked bread at home for the first time.",
-        "target": "Я впервые испек хлеб дома."
+        "correctAnswer": "Я впервые испек хлеб дома.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-fo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What ingredients make this dish so flavorful?",
-        "target": "Какие ингредиенты делают это блюдо таким вкусным?"
+        "correctAnswer": "Какие ингредиенты делают это блюдо таким вкусным?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-fo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I prefer recipes that are simple but still balanced.",
-        "target": "Я предпочитаю простые, но сбалансированные рецепты."
+        "correctAnswer": "Я предпочитаю простые, но сбалансированные рецепты.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "grammar": [
       {
         "id": "ru-gr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am reading a short story now.",
-        "target": "Сейчас я читаю короткий рассказ."
+        "correctAnswer": "Сейчас я читаю короткий рассказ.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-gr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Yesterday I studied for two hours.",
-        "target": "Вчера я занимался два часа."
+        "correctAnswer": "Вчера я занимался два часа.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-gr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Tomorrow I will practice with my friend.",
-        "target": "Завтра я буду практиковаться с другом."
+        "correctAnswer": "Завтра я буду практиковаться с другом.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-gr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: If I have time, I will review the lesson.",
-        "target": "Если у меня будет время, я повторю урок."
+        "correctAnswer": "Если у меня будет время, я повторю урок.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-gr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been studying Russian for six months.",
-        "target": "Я изучаю русский язык уже шесть месяцев."
+        "correctAnswer": "Я изучаю русский язык уже шесть месяцев.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-gr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would travel more if flights were cheaper.",
-        "target": "Я бы больше путешествовал, если бы билеты были дешевле."
+        "correctAnswer": "Я бы больше путешествовал, если бы билеты были дешевле.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-gr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: By the time we arrive, they will have finished dinner.",
-        "target": "К тому времени, как мы приедем, они уже закончат ужин."
+        "correctAnswer": "К тому времени, как мы приедем, они уже закончат ужин.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-gr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
-        "target": "Если бы я знал раньше, я бы изменил план."
+        "correctAnswer": "Если бы я знал раньше, я бы изменил план.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-gr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Every morning I write three new words.",
-        "target": "Каждое утро я записываю три новых слова."
+        "correctAnswer": "Каждое утро я записываю три новых слова.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-gr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We were cooking when the guests arrived.",
-        "target": "Мы готовили, когда пришли гости."
+        "correctAnswer": "Мы готовили, когда пришли гости.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "ru-gr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I had already left when the message arrived.",
-        "target": "Я уже ушел, когда пришло сообщение."
+        "correctAnswer": "Я уже ушел, когда пришло сообщение.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "ru-gr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If I had practiced more, I would be more confident now.",
-        "target": "Если бы я больше практиковался, сейчас я был бы увереннее."
+        "correctAnswer": "Если бы я больше практиковался, сейчас я был бы увереннее.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "ru-gr-13",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Choose the informal version: Where are you from?",
-        "target": "Откуда ты?",
+        "correctAnswer": "Откуда ты?",
         "hints": [
-          "Use informal singular \"ты\"."
-        ],
-        "exerciseType": "dialogue_turn"
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-gr-14",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Choose the formal version: Where are you from?",
-        "target": "Откуда вы?",
+        "correctAnswer": "Откуда вы?",
         "hints": [
-          "Use polite \"вы\"."
-        ],
-        "exerciseType": "dialogue_turn"
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "ru-gr-15",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say this politely to a stranger: Could you repeat that?",
-        "target": "Не могли бы вы повторить это?",
+        "correctAnswer": "Не могли бы вы повторить это?",
         "hints": [
-          "Polite request form with \"вы\"."
+          "Pay attention to the sentence structure."
         ]
       },
       {
         "id": "ru-gr-16",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say this to a close friend: Could you repeat that?",
-        "target": "Ты можешь повторить это?",
+        "correctAnswer": "Ты можешь повторить это?",
         "hints": [
-          "Informal request form with \"ты\"."
+          "Pay attention to the sentence structure."
         ]
       }
     ],
@@ -689,7 +1107,7 @@
         "prompt": "To read books",
         "correctAnswer": "читать книги",
         "hints": [
-          "Это спокойное хобби."
+          "Think about a quiet hobby."
         ],
         "exerciseType": "flashcard",
         "imageUrl": "/images/bookshelf.svg"
@@ -701,7 +1119,7 @@
         "prompt": "To go hiking",
         "correctAnswer": "ходить в поход",
         "hints": [
-          "Хобби на природе."
+          "An outdoor hobby."
         ],
         "exerciseType": "flashcard"
       },
@@ -712,7 +1130,7 @@
         "prompt": "To play chess",
         "correctAnswer": "играть в шахматы",
         "hints": [
-          "Игра на логику."
+          "A strategy board game."
         ],
         "exerciseType": "flashcard"
       },
@@ -723,7 +1141,7 @@
         "prompt": "Say: I play tennis on Saturday mornings.",
         "correctAnswer": "Я играю в теннис по субботам утром.",
         "hints": [
-          "Используй настоящее время."
+          "Use the present tense."
         ],
         "exerciseType": "build_sentence"
       },
@@ -734,7 +1152,7 @@
         "prompt": "Say: I watch movies at home.",
         "correctAnswer": "Я смотрю фильмы дома.",
         "hints": [
-          "Обычный досуг."
+          "A simple leisure routine."
         ],
         "exerciseType": "build_sentence"
       },
@@ -745,7 +1163,7 @@
         "prompt": "Say: I swim at the pool.",
         "correctAnswer": "Я плаваю в бассейне.",
         "hints": [
-          "Короткая фраза."
+          "A short activity sentence."
         ],
         "exerciseType": "build_sentence"
       },
@@ -756,7 +1174,7 @@
         "prompt": "Choose the best response. What do you like to do after work?",
         "correctAnswer": "Обычно я рисую или иду бегать.",
         "hints": [
-          "Назови два занятия."
+          "Mention two leisure activities."
         ],
         "exerciseType": "roleplay"
       },
@@ -767,7 +1185,7 @@
         "prompt": "Choose the best response. What do you do on weekends?",
         "correctAnswer": "Я встречаюсь с друзьями и играю.",
         "hints": [
-          "Естественный ответ."
+          "A friendly, natural answer."
         ],
         "exerciseType": "roleplay"
       },
@@ -778,7 +1196,7 @@
         "prompt": "Choose the best response. Do you like sports?",
         "correctAnswer": "Да, я иногда играю в футбол.",
         "hints": [
-          "Добавь слово про частоту."
+          "Answer with a frequency word."
         ],
         "exerciseType": "roleplay"
       },
@@ -789,7 +1207,7 @@
         "prompt": "Say: I relax by reading books.",
         "correctAnswer": "Я расслабляюсь, читая книги.",
         "hints": [
-          "Используй более рефлексивный тон."
+          "Use a reflective tone."
         ],
         "exerciseType": "pronunciation"
       },
@@ -800,7 +1218,7 @@
         "prompt": "Say: I practice guitar every day.",
         "correctAnswer": "Я играю на гитаре каждый день.",
         "hints": [
-          "Ежедневная привычка."
+          "A clear daily habit."
         ],
         "exerciseType": "pronunciation"
       },
@@ -811,7 +1229,7 @@
         "prompt": "Say: I enjoy painting in my free time.",
         "correctAnswer": "Мне нравится рисовать в свободное время.",
         "hints": [
-          "Частая фраза про хобби."
+          "A common hobby phrase."
         ],
         "exerciseType": "pronunciation"
       }
@@ -824,7 +1242,7 @@
         "prompt": "Say: My phone battery is almost empty.",
         "correctAnswer": "Батарея моего телефона почти разряжена.",
         "hints": [
-          "Речь о твоём устройстве."
+          "Talk about your device."
         ]
       },
       {
@@ -834,7 +1252,7 @@
         "prompt": "Say: The Wi-Fi is not working.",
         "correctAnswer": "Wi-Fi не работает.",
         "hints": [
-          "Частая проблема."
+          "A common connection problem."
         ]
       },
       {
@@ -844,7 +1262,7 @@
         "prompt": "Say: My laptop is slow today.",
         "correctAnswer": "Мой ноутбук сегодня тормозит.",
         "hints": [
-          "Простая жалоба."
+          "A simple device complaint."
         ]
       },
       {
@@ -854,7 +1272,7 @@
         "prompt": "Say: I need to update the app.",
         "correctAnswer": "Мне нужно обновить приложение.",
         "hints": [
-          "Подумай об обновлении."
+          "Think about software updates."
         ]
       },
       {
@@ -864,7 +1282,7 @@
         "prompt": "Say: Can you send me the link?",
         "correctAnswer": "Можешь прислать мне ссылку?",
         "hints": [
-          "Попроси ссылку."
+          "Ask for a URL."
         ]
       },
       {
@@ -874,7 +1292,7 @@
         "prompt": "Say: I forgot my password.",
         "correctAnswer": "Я забыл свой пароль.",
         "hints": [
-          "Очень полезная фраза."
+          "A very useful sentence."
         ]
       },
       {
@@ -884,7 +1302,7 @@
         "prompt": "an update",
         "correctAnswer": "обновление",
         "hints": [
-          "Сопоставь термин."
+          "Match the tech term."
         ],
         "exerciseType": "matching"
       },
@@ -895,7 +1313,7 @@
         "prompt": "Say: Please restart the computer.",
         "correctAnswer": "Пожалуйста, перезагрузи компьютер.",
         "hints": [
-          "Практичная просьба."
+          "A practical instruction."
         ],
         "exerciseType": "build_sentence"
       },
@@ -906,7 +1324,7 @@
         "prompt": "Choose the best response. My screen is frozen.",
         "correctAnswer": "Попробуй закрыть приложение и открыть снова.",
         "hints": [
-          "Быстрое решение."
+          "Offer a quick fix."
         ],
         "exerciseType": "roleplay"
       },
@@ -917,7 +1335,7 @@
         "prompt": "Say: We should discuss tech ethics.",
         "correctAnswer": "Нужно обсудить этику технологий.",
         "hints": [
-          "Короткая мысль."
+          "A short thoughtful sentence."
         ],
         "exerciseType": "pronunciation"
       },
@@ -928,7 +1346,7 @@
         "prompt": "Say: Data privacy matters to me.",
         "correctAnswer": "Мне важна конфиденциальность данных.",
         "hints": [
-          "Про приватность."
+          "Talk about privacy."
         ],
         "exerciseType": "pronunciation"
       },
@@ -939,7 +1357,7 @@
         "prompt": "Say: Please back up the files.",
         "correctAnswer": "Сделай резервную копию файлов.",
         "hints": [
-          "Полезная просьба."
+          "A helpful reminder."
         ],
         "exerciseType": "pronunciation"
       }
@@ -952,7 +1370,7 @@
         "prompt": "Say: This museum is very interesting.",
         "correctAnswer": "Этот музей очень интересный.",
         "hints": [
-          "Простое мнение."
+          "A simple opinion sentence."
         ],
         "imageUrl": "/images/museum-arch.svg"
       },
@@ -963,7 +1381,7 @@
         "prompt": "a museum ticket",
         "correctAnswer": "билет в музей",
         "hints": [
-          "Сопоставь фразу."
+          "Match the phrase."
         ],
         "exerciseType": "flashcard"
       },
@@ -974,7 +1392,7 @@
         "prompt": "Say: This statue is famous.",
         "correctAnswer": "Эта статуя знаменита.",
         "hints": [
-          "Простое описание."
+          "A simple description."
         ],
         "exerciseType": "build_sentence"
       },
@@ -985,7 +1403,7 @@
         "prompt": "Say: In Sweden, fika is a coffee break.",
         "correctAnswer": "В Швеции фика это перерыв на кофе.",
         "hints": [
-          "Назови эту традицию."
+          "Mention the custom by name."
         ],
         "culturalNote": "Фика связана не только с кофе, но и с совместной паузой и разговором."
       },
@@ -996,7 +1414,7 @@
         "prompt": "Say: This building is very old.",
         "correctAnswer": "Это здание очень старое.",
         "hints": [
-          "Опиши место."
+          "Describe the place."
         ]
       },
       {
@@ -1006,7 +1424,7 @@
         "prompt": "Say: The guide speaks very clearly.",
         "correctAnswer": "Гид говорит очень понятно.",
         "hints": [
-          "Про гида."
+          "Talk about a guide."
         ]
       },
       {
@@ -1016,7 +1434,7 @@
         "prompt": "Choose the best response. Why is this old town important?",
         "correctAnswer": "Он показывает, как люди жили здесь много веков назад.",
         "hints": [
-          "Ответь как гид."
+          "Answer like a guide."
         ],
         "exerciseType": "roleplay"
       },
@@ -1027,7 +1445,7 @@
         "prompt": "Choose the best response. Who built this castle?",
         "correctAnswer": "Его построил король.",
         "hints": [
-          "Ответь кратко."
+          "Answer simply and clearly."
         ],
         "exerciseType": "roleplay"
       },
@@ -1038,7 +1456,7 @@
         "prompt": "a tradition",
         "correctAnswer": "традиция",
         "hints": [
-          "Сопоставь термин."
+          "Match the cultural term."
         ],
         "exerciseType": "matching"
       },
@@ -1049,7 +1467,7 @@
         "prompt": "Say: Could you explain this tradition to me?",
         "correctAnswer": "Можешь объяснить мне эту традицию?",
         "hints": [
-          "Вежливый вопрос."
+          "A polite question about local culture."
         ],
         "exerciseType": "pronunciation"
       },
@@ -1060,7 +1478,7 @@
         "prompt": "Say: I love learning local history.",
         "correctAnswer": "Мне нравится изучать местную историю.",
         "hints": [
-          "Позитивная фраза."
+          "A positive statement."
         ],
         "exerciseType": "pronunciation"
       },
@@ -1071,7 +1489,7 @@
         "prompt": "Say: This legend is popular here.",
         "correctAnswer": "Эта легенда популярна здесь.",
         "hints": [
-          "Естественный тон."
+          "Use a natural tone."
         ],
         "exerciseType": "pronunciation"
       }
@@ -1204,6 +1622,437 @@
           "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
+      }
+    ],
+    "sports_fitness": [
+      {
+        "id": "ru-sf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I like to play football with my friends.",
+        "correctAnswer": "Мне нравится играть в футбол с друзьями.",
+        "hints": [
+          "Use 'I like + infinitive' for preferences."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "ru-sf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "football / swimming / running / cycling",
+        "correctAnswer": "плавание",
+        "hints": [
+          "Which sport is done in water?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "футбол",
+          "плавание",
+          "бег",
+          "велоспорт"
+        ]
+      },
+      {
+        "id": "ru-sf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I go running every morning.",
+        "correctAnswer": "Я бегаю каждое утро.",
+        "hints": [
+          "Use simple present for regular actions."
+        ]
+      },
+      {
+        "id": "ru-sf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I train at the gym three times a week.",
+        "correctAnswer": "Я занимаюсь в спортзале три раза в неделю.",
+        "hints": [
+          "Include a frequency expression."
+        ]
+      },
+      {
+        "id": "ru-sf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What does 'to warm up' mean?",
+        "correctAnswer": "подготовка тела перед тренировкой",
+        "hints": [
+          "Think about what you do before exercising."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "заминка",
+          "подготовка тела перед тренировкой",
+          "растяжка после бега",
+          "поднятие тяжестей"
+        ]
+      },
+      {
+        "id": "ru-sf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: My favourite sport is tennis and I play it on weekends.",
+        "correctAnswer": "Мой любимый вид спорта — теннис, я играю по выходным.",
+        "hints": [
+          "Combine a preference with a habit."
+        ]
+      },
+      {
+        "id": "ru-sf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: She has been training for the marathon for six months.",
+        "correctAnswer": "Она готовится к марафону уже шесть месяцев.",
+        "hints": [
+          "Use present tense with duration for an ongoing action."
+        ]
+      },
+      {
+        "id": "ru-sf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Regular exercise improves both physical and mental health.",
+        "correctAnswer": "Регулярные упражнения улучшают как физическое, так и психическое здоровье.",
+        "hints": [
+          "Use the third-person singular."
+        ]
+      },
+      {
+        "id": "ru-sf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to set a personal best' mean?",
+        "correctAnswer": "достичь лучшего результата в своей жизни",
+        "hints": [
+          "Think about competitive sport records."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "подготовить снаряжение",
+          "достичь лучшего результата в своей жизни",
+          "тренироваться с тренером",
+          "вступить в новую команду"
+        ]
+      },
+      {
+        "id": "ru-sf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
+        "correctAnswer": "Элитные спортсмены должны сочетать интенсивные тренировки с достаточным временем для восстановления.",
+        "hints": [
+          "Use the modal 'must' for obligation."
+        ]
+      },
+      {
+        "id": "ru-sf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
+        "correctAnswer": "Физиотерапевт посоветовал ему временно снизить нагрузку.",
+        "hints": [
+          "Use 'advise + infinitive' construction."
+        ]
+      },
+      {
+        "id": "ru-sf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The sponsorship deal transformed the club's financial prospects.",
+        "correctAnswer": "Спонсорское соглашение изменило финансовые перспективы клуба.",
+        "hints": [
+          "Use past tense for a completed event."
+        ]
+      }
+    ],
+    "news_media": [
+      {
+        "id": "ru-nm-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I read the news every morning.",
+        "correctAnswer": "Я читаю новости каждое утро.",
+        "hints": [
+          "Use simple present for daily habits."
+        ]
+      },
+      {
+        "id": "ru-nm-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "newspaper / television / radio / podcast",
+        "correctAnswer": "телевидение",
+        "hints": [
+          "Which medium uses moving images?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "газета",
+          "телевидение",
+          "радио",
+          "подкаст"
+        ]
+      },
+      {
+        "id": "ru-nm-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This article is interesting.",
+        "correctAnswer": "Эта статья интересная.",
+        "hints": [
+          "A simple opinion sentence."
+        ]
+      },
+      {
+        "id": "ru-nm-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I prefer reading news online to watching it on TV.",
+        "correctAnswer": "Я предпочитаю читать новости онлайн, а не смотреть их по телевизору.",
+        "hints": [
+          "Use 'prefer + infinitive + rather than + infinitive'."
+        ]
+      },
+      {
+        "id": "ru-nm-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What is a 'headline'?",
+        "correctAnswer": "название новостной статьи",
+        "hints": [
+          "It appears at the top of each news story."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "имя журналиста",
+          "название новостной статьи",
+          "подпись к фотографии",
+          "дата публикации"
+        ]
+      },
+      {
+        "id": "ru-nm-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The reporter interviewed several witnesses.",
+        "correctAnswer": "Репортёр взял интервью у нескольких свидетелей.",
+        "hints": [
+          "Use past tense for a completed action."
+        ]
+      },
+      {
+        "id": "ru-nm-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: It is important to verify information before sharing it.",
+        "correctAnswer": "Важно проверять информацию перед тем, как ею делиться.",
+        "hints": [
+          "Use 'it is important + infinitive'."
+        ]
+      },
+      {
+        "id": "ru-nm-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to go viral' mean?",
+        "correctAnswer": "быстро распространиться в интернете",
+        "hints": [
+          "Think about how content spreads online."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "заразиться вирусом",
+          "быстро распространиться в интернете",
+          "быть удалённым",
+          "быть опубликованным в печати"
+        ]
+      },
+      {
+        "id": "ru-nm-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: The documentary raised serious questions about media bias.",
+        "correctAnswer": "Документальный фильм поднял серьёзные вопросы о предвзятости СМИ.",
+        "hints": [
+          "'Raise questions' is a fixed collocation; use past tense."
+        ]
+      },
+      {
+        "id": "ru-nm-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
+        "correctAnswer": "Журналистика расследований играет ключевую роль в привлечении власти к ответственности.",
+        "hints": [
+          "Use the noun phrase 'play a role in'."
+        ]
+      },
+      {
+        "id": "ru-nm-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The editorial board decided to retract the story after new evidence emerged.",
+        "correctAnswer": "Редакционная коллегия решила отозвать материал после появления новых доказательств.",
+        "hints": [
+          "'Retract' means to officially withdraw a published statement."
+        ]
+      },
+      {
+        "id": "ru-nm-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
+        "correctAnswer": "Алгоритмическая фильтрация всё больше определяет, какую информацию потребляет аудитория.",
+        "hints": [
+          "Use the third-person singular."
+        ],
+        "culturalNote": "Это предложение отражает современные дискуссии об информационных пузырях."
+      }
+    ],
+    "money_finance": [
+      {
+        "id": "ru-mf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I need to go to the bank.",
+        "correctAnswer": "Мне нужно пойти в банк.",
+        "hints": [
+          "Use 'need to + infinitive' for necessity."
+        ]
+      },
+      {
+        "id": "ru-mf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "bank / shop / hospital / library",
+        "correctAnswer": "банк",
+        "hints": [
+          "Where do you manage money?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "банк",
+          "магазин",
+          "больница",
+          "библиотека"
+        ]
+      },
+      {
+        "id": "ru-mf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: Can I pay by card?",
+        "correctAnswer": "Можно оплатить картой?",
+        "hints": [
+          "Use 'Can I + verb' to ask for permission."
+        ]
+      },
+      {
+        "id": "ru-mf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I am saving money to buy a new laptop.",
+        "correctAnswer": "Я откладываю деньги, чтобы купить новый ноутбук.",
+        "hints": [
+          "Use present continuous + infinitive of purpose."
+        ]
+      },
+      {
+        "id": "ru-mf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What is an 'ATM'?",
+        "correctAnswer": "автоматическое устройство для снятия наличных",
+        "hints": [
+          "It dispenses cash."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "автоматическое устройство для снятия наличных",
+          "метод расширенных транзакций",
+          "режим автоматического перевода",
+          "авторизованный терминал"
+        ]
+      },
+      {
+        "id": "ru-mf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I spend too much money on coffee every week.",
+        "correctAnswer": "Я трачу слишком много денег на кофе каждую неделю.",
+        "hints": [
+          "Use 'spend money on' for expenses."
+        ]
+      },
+      {
+        "id": "ru-mf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: I have set up a monthly budget to track my expenses.",
+        "correctAnswer": "Я составил ежемесячный бюджет, чтобы отслеживать расходы.",
+        "hints": [
+          "Use present perfect for a recent action with present relevance."
+        ]
+      },
+      {
+        "id": "ru-mf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What is an 'interest rate'?",
+        "correctAnswer": "процент, начисляемый на кредит или получаемый по вкладу",
+        "hints": [
+          "It affects how much you pay or earn over time."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "комиссия за открытие счёта",
+          "процент, начисляемый на кредит или получаемый по вкладу",
+          "ежедневный обменный курс",
+          "государственный подоходный налог"
+        ]
+      },
+      {
+        "id": "ru-mf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: If I had saved more last year, I could afford this holiday.",
+        "correctAnswer": "Если бы я больше откладывал в прошлом году, я мог бы позволить себе этот отпуск.",
+        "hints": [
+          "Use third conditional for past regret."
+        ]
+      },
+      {
+        "id": "ru-mf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Inflation erodes purchasing power if wages fail to keep pace.",
+        "correctAnswer": "Инфляция подрывает покупательную способность, если заработные платы не успевают за ней.",
+        "hints": [
+          "Use zero conditional for general economic truths."
+        ]
+      },
+      {
+        "id": "ru-mf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The central bank is expected to raise interest rates next quarter.",
+        "correctAnswer": "Ожидается, что центральный банк повысит процентные ставки в следующем квартале.",
+        "hints": [
+          "Use passive 'is expected to' for reported predictions."
+        ]
+      },
+      {
+        "id": "ru-mf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Diversifying your portfolio mitigates exposure to market volatility.",
+        "correctAnswer": "Диверсификация портфеля снижает подверженность рыночной волатильности.",
+        "hints": [
+          "Gerund subject; formal register."
+        ]
       }
     ]
   }

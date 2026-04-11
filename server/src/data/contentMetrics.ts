@@ -2,6 +2,7 @@ const { LEVEL_ORDER } = require("./constants.ts");
 
 function normalizeExerciseType(item: any): string {
   const raw = String(item?.exerciseType || "").trim().toLowerCase();
+  if (raw === "multiple_choice") return "mc_sentence";
   return raw || "unspecified";
 }
 

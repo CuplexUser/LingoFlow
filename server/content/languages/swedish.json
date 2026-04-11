@@ -7,640 +7,1056 @@
       {
         "id": "sv-es-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Hello, how are you?",
-        "target": "Hej, hur mår du?"
+        "correctAnswer": "Hej, hur mår du?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-es-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Thank you very much for your help.",
-        "target": "Tack så mycket för din hjälp."
+        "correctAnswer": "Tack så mycket för din hjälp.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-es-3",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not understand this sentence.",
-        "target": "Jag förstår inte den här meningen."
+        "correctAnswer": "Jag förstår inte den här meningen.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-es-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you speak more slowly, please?",
-        "target": "Kan du prata långsammare, tack?"
+        "correctAnswer": "Kan du prata långsammare, tack?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-es-5",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am learning Swedish every day.",
-        "target": "Jag lär mig svenska varje dag."
+        "correctAnswer": "Jag lär mig svenska varje dag.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-es-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I made a mistake, but I will try again.",
-        "target": "Jag gjorde ett misstag, men jag ska försöka igen."
+        "correctAnswer": "Jag gjorde ett misstag, men jag ska försöka igen.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-es-7",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would like to improve my pronunciation.",
-        "target": "Jag skulle vilja förbättra mitt uttal."
+        "correctAnswer": "Jag skulle vilja förbättra mitt uttal.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-es-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
-        "target": "Jag kan förklara min åsikt med tydliga argument."
+        "correctAnswer": "Jag kan förklara min åsikt med tydliga argument.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-es-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Excuse me, where is the bathroom?",
-        "target": "Ursäkta, var är toaletten?"
+        "correctAnswer": "Ursäkta, var är toaletten?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-es-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you repeat that one more time?",
-        "target": "Kan du upprepa det en gång till?"
+        "correctAnswer": "Kan du upprepa det en gång till?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-es-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I understand the idea, but I need more practice.",
-        "target": "Jag förstår idén, men jag behöver mer övning."
+        "correctAnswer": "Jag förstår idén, men jag behöver mer övning.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-es-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
-        "target": "Jag vill tala naturligt, inte bara korrekt."
+        "correctAnswer": "Jag vill tala naturligt, inte bara korrekt.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-es-13",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you write that down for me?",
-        "target": "Kan du skriva ner det åt mig?"
+        "correctAnswer": "Kan du skriva ner det åt mig?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-es-14",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I feel more confident when I speak in longer sentences.",
-        "target": "Jag känner mig säkrare när jag talar i längre meningar."
+        "correctAnswer": "Jag känner mig säkrare när jag talar i längre meningar.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-es-15",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
-        "target": "Även när jag gör små misstag kan jag hålla samtalet flytande."
+        "correctAnswer": "Även när jag gör små misstag kan jag hålla samtalet flytande.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-es-16",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I try to choose expressions that sound natural in context.",
-        "target": "Jag försöker välja uttryck som låter naturliga i sitt sammanhang."
+        "correctAnswer": "Jag försöker välja uttryck som låter naturliga i sitt sammanhang.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "conversation": [
       {
         "id": "sv-co-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: What is your name?",
-        "target": "Vad heter du?"
+        "correctAnswer": "Vad heter du?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-co-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My name is Alex and I am from the United States.",
-        "target": "Jag heter Alex och jag kommer från USA."
+        "correctAnswer": "Jag heter Alex och jag kommer från USA.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-co-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: It is nice to meet you in person.",
-        "target": "Trevligt att träffas personligen."
+        "correctAnswer": "Trevligt att träffas personligen.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-co-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: What do you usually do on weekends?",
-        "target": "Vad brukar du göra på helgerna?"
+        "correctAnswer": "Vad brukar du göra på helgerna?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-co-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I enjoy talking about books and current events.",
-        "target": "Jag tycker om att prata om böcker och aktuella händelser."
+        "correctAnswer": "Jag tycker om att prata om böcker och aktuella händelser.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-co-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: In my opinion, consistency is more important than intensity.",
-        "target": "Enligt min åsikt är konsekvens viktigare än intensitet."
+        "correctAnswer": "Enligt min åsikt är konsekvens viktigare än intensitet.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-co-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-        "target": "Jag brukade vara blyg, men nu uttrycker jag mina idéer självsäkert."
+        "correctAnswer": "Jag brukade vara blyg, men nu uttrycker jag mina idéer självsäkert.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-co-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
-        "target": "Även om vi inte håller med varandra respekterar jag ditt perspektiv."
+        "correctAnswer": "Även om vi inte håller med varandra respekterar jag ditt perspektiv.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-co-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where are you from?",
-        "target": "Var kommer du ifrån?"
+        "correctAnswer": "Var kommer du ifrån?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-co-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I usually spend my evenings reading or walking.",
-        "target": "Jag brukar tillbringa kvällarna med att läsa eller promenera."
+        "correctAnswer": "Jag brukar tillbringa kvällarna med att läsa eller promenera.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-co-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What kind of topics do you enjoy discussing?",
-        "target": "Vilken sorts ämnen tycker du om att diskutera?"
+        "correctAnswer": "Vilken sorts ämnen tycker du om att diskutera?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-co-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
-        "target": "Jag uppskattar ärliga samtal, även när de är svåra."
+        "correctAnswer": "Jag uppskattar ärliga samtal, även när de är svåra.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "travel": [
       {
         "id": "sv-tr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the train station?",
-        "target": "Var ligger tågstationen?"
+        "correctAnswer": "Var ligger tågstationen?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-tr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: How much does this ticket cost?",
-        "target": "Hur mycket kostar den här biljetten?"
+        "correctAnswer": "Hur mycket kostar den här biljetten?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-tr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I need a room for two nights.",
-        "target": "Jag behöver ett rum för två nätter."
+        "correctAnswer": "Jag behöver ett rum för två nätter.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-tr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Does this bus go to the city center?",
-        "target": "Går den här bussen till centrum?"
+        "correctAnswer": "Går den här bussen till centrum?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-tr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My flight was delayed because of bad weather.",
-        "target": "Mitt flyg blev försenat på grund av dåligt väder."
+        "correctAnswer": "Mitt flyg blev försenat på grund av dåligt väder.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-tr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I lost my passport and need help immediately.",
-        "target": "Jag tappade mitt pass och behöver hjälp omedelbart."
+        "correctAnswer": "Jag tappade mitt pass och behöver hjälp omedelbart.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-tr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
-        "target": "Kan du rekommendera ett säkert område nära centrum?"
+        "correctAnswer": "Kan du rekommendera ett säkert område nära centrum?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-tr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
-        "target": "Jag skulle föredra en lugnare väg, även om den tar längre tid."
+        "correctAnswer": "Jag skulle föredra en lugnare väg, även om den tar längre tid.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-tr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Which platform does the train leave from?",
-        "target": "Vilken perrong går tåget från?"
+        "correctAnswer": "Vilken perrong går tåget från?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-tr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I would like to check in for my reservation.",
-        "target": "Jag skulle vilja checka in för min bokning."
+        "correctAnswer": "Jag skulle vilja checka in för min bokning.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-tr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The museum is within walking distance from the hotel.",
-        "target": "Museet ligger på gångavstånd från hotellet."
+        "correctAnswer": "Museet ligger på gångavstånd från hotellet.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-tr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Is there a faster connection if I change lines once?",
-        "target": "Finns det en snabbare förbindelse om jag byter linje en gång?"
+        "correctAnswer": "Finns det en snabbare förbindelse om jag byter linje en gång?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "work": [
       {
         "id": "sv-wo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I work in a small software company.",
-        "target": "Jag arbetar på ett litet mjukvaruföretag."
+        "correctAnswer": "Jag arbetar på ett litet mjukvaruföretag.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-wo-2",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We have a meeting at nine in the morning.",
-        "target": "Vi har ett möte klockan nio på morgonen."
+        "correctAnswer": "Vi har ett möte klockan nio på morgonen.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-wo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Could you send me the updated report?",
-        "target": "Kan du skicka mig den uppdaterade rapporten?"
+        "correctAnswer": "Kan du skicka mig den uppdaterade rapporten?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-wo-4",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We should prioritize the tasks with the highest impact.",
-        "target": "Vi bör prioritera uppgifterna med störst påverkan."
+        "correctAnswer": "Vi bör prioritera uppgifterna med störst påverkan.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-wo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I finished the draft, but it still needs revision.",
-        "target": "Jag blev klar med utkastet, men det behöver fortfarande revideras."
+        "correctAnswer": "Jag blev klar med utkastet, men det behöver fortfarande revideras.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-wo-6",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Our proposal focuses on long-term sustainability.",
-        "target": "Vårt förslag fokuserar på långsiktig hållbarhet."
+        "correctAnswer": "Vårt förslag fokuserar på långsiktig hållbarhet.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-wo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If we align our goals, we can deliver faster.",
-        "target": "Om vi samordnar våra mål kan vi leverera snabbare."
+        "correctAnswer": "Om vi samordnar våra mål kan vi leverera snabbare.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-wo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
-        "target": "Vilka mätvärden kommer att definiera framgång för det här projektet?"
+        "correctAnswer": "Vilka mätvärden kommer att definiera framgång för det här projektet?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-wo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am still learning the tools for this job.",
-        "target": "Jag lär mig fortfarande verktygen för det här jobbet."
+        "correctAnswer": "Jag lär mig fortfarande verktygen för det här jobbet.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-wo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can we move the meeting to the afternoon?",
-        "target": "Kan vi flytta mötet till eftermiddagen?"
+        "correctAnswer": "Kan vi flytta mötet till eftermiddagen?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-wo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
-        "target": "Jag behöver tydligare prioriteringar innan jag kan uppskatta tidsplanen."
+        "correctAnswer": "Jag behöver tydligare prioriteringar innan jag kan uppskatta tidsplanen.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-wo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
-        "target": "Vi borde dokumentera den här processen så att hela teamet kan återanvända den."
+        "correctAnswer": "Vi borde dokumentera den här processen så att hela teamet kan återanvända den.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-wo-13",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I start work at eight o'clock.",
-        "target": "Jag börjar arbeta klockan åtta."
+        "correctAnswer": "Jag börjar arbeta klockan åtta.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-wo-14",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the meeting room?",
-        "target": "Var ligger mötesrummet?"
+        "correctAnswer": "Var ligger mötesrummet?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-wo-15",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am updating the spreadsheet before lunch.",
-        "target": "Jag uppdaterar kalkylbladet före lunch."
+        "correctAnswer": "Jag uppdaterar kalkylbladet före lunch.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-wo-16",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: Let's review the client feedback before we finalize the plan.",
-        "target": "Låt oss gå igenom kundens feedback innan vi slutför planen."
+        "correctAnswer": "Låt oss gå igenom kundens feedback innan vi slutför planen.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       }
     ],
     "health": [
       {
         "id": "sv-he-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not feel well today.",
-        "target": "Jag mår inte bra i dag."
+        "correctAnswer": "Jag mår inte bra i dag.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-he-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the nearest pharmacy?",
-        "target": "Var finns närmaste apotek?"
+        "correctAnswer": "Var finns närmaste apotek?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-he-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I have had a headache since this morning.",
-        "target": "Jag har haft huvudvärk sedan i morse."
+        "correctAnswer": "Jag har haft huvudvärk sedan i morse.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-he-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am allergic to peanuts.",
-        "target": "Jag är allergisk mot jordnötter."
+        "correctAnswer": "Jag är allergisk mot jordnötter.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-he-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: Should I take this medicine before or after meals?",
-        "target": "Ska jag ta den här medicinen före eller efter måltider?"
+        "correctAnswer": "Ska jag ta den här medicinen före eller efter måltider?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-he-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The pain gets worse when I walk quickly.",
-        "target": "Smärtan blir värre när jag går snabbt."
+        "correctAnswer": "Smärtan blir värre när jag går snabbt.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-he-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I need a full checkup because these symptoms persist.",
-        "target": "Jag behöver en fullständig undersökning eftersom de här symtomen kvarstår."
+        "correctAnswer": "Jag behöver en fullständig undersökning eftersom de här symtomen kvarstår.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-he-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
-        "target": "Kan du förklara behandlingsalternativen i detalj?"
+        "correctAnswer": "Kan du förklara behandlingsalternativen i detalj?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-he-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My throat hurts when I swallow.",
-        "target": "Det gör ont i halsen när jag sväljer."
+        "correctAnswer": "Det gör ont i halsen när jag sväljer.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-he-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Do I need an appointment for this checkup?",
-        "target": "Behöver jag en tid för den här undersökningen?"
+        "correctAnswer": "Behöver jag en tid för den här undersökningen?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-he-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been feeling tired for several days.",
-        "target": "Jag har känt mig trött i flera dagar."
+        "correctAnswer": "Jag har känt mig trött i flera dagar.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-he-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would like a second opinion before starting treatment.",
-        "target": "Jag skulle vilja ha en second opinion innan behandlingen börjar."
+        "correctAnswer": "Jag skulle vilja ha en second opinion innan behandlingen börjar.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "family_friends": [
       {
         "id": "sv-fa-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: This is my brother and that is my cousin.",
-        "target": "Det här är min bror och det där är min kusin."
+        "correctAnswer": "Det här är min bror och det där är min kusin.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-fa-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My friends are very kind and funny.",
-        "target": "Mina vänner är väldigt snälla och roliga."
+        "correctAnswer": "Mina vänner är väldigt snälla och roliga.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-fa-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Are you visiting your family this weekend?",
-        "target": "Ska du hälsa på din familj den här helgen?"
+        "correctAnswer": "Ska du hälsa på din familj den här helgen?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-fa-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We usually have dinner together on Sundays.",
-        "target": "Vi brukar äta middag tillsammans på söndagar."
+        "correctAnswer": "Vi brukar äta middag tillsammans på söndagar.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-fa-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I grew up with my grandparents in a small town.",
-        "target": "Jag växte upp med mina morföräldrar i en liten stad."
+        "correctAnswer": "Jag växte upp med mina morföräldrar i en liten stad.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-fa-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My best friend always gives me honest advice.",
-        "target": "Min bästa vän ger mig alltid ärliga råd."
+        "correctAnswer": "Min bästa vän ger mig alltid ärliga råd.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-fa-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Even when we disagree, we try to listen respectfully.",
-        "target": "Även när vi inte håller med varandra försöker vi lyssna respektfullt."
+        "correctAnswer": "Även när vi inte håller med varandra försöker vi lyssna respektfullt.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-fa-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
-        "target": "Familjetraditioner hjälper oss att hålla kontakten mellan generationer."
+        "correctAnswer": "Familjetraditioner hjälper oss att hålla kontakten mellan generationer.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-fa-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My sister lives near my parents.",
-        "target": "Min syster bor nära mina föräldrar."
+        "correctAnswer": "Min syster bor nära mina föräldrar.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-fa-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Would you like to come over for dinner on Friday?",
-        "target": "Vill du komma över på middag på fredag?"
+        "correctAnswer": "Vill du komma över på middag på fredag?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-fa-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We stay close even though we live in different cities.",
-        "target": "Vi håller oss nära varandra trots att vi bor i olika städer."
+        "correctAnswer": "Vi håller oss nära varandra trots att vi bor i olika städer.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-fa-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Good friendships require time, trust, and patience.",
-        "target": "Goda vänskaper kräver tid, tillit och tålamod."
+        "correctAnswer": "Goda vänskaper kräver tid, tillit och tålamod.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "food_cooking": [
       {
         "id": "sv-fo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I would like a coffee and a sandwich.",
-        "target": "Jag skulle vilja ha en kaffe och en smörgås."
+        "correctAnswer": "Jag skulle vilja ha en kaffe och en smörgås.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-fo-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Do you have vegetarian options?",
-        "target": "Har ni vegetariska alternativ?"
+        "correctAnswer": "Har ni vegetariska alternativ?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-fo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am cooking rice with vegetables tonight.",
-        "target": "I kväll lagar jag ris med grönsaker."
+        "correctAnswer": "I kväll lagar jag ris med grönsaker.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-fo-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can you add less salt, please?",
-        "target": "Kan du lägga i mindre salt, tack?"
+        "correctAnswer": "Kan du lägga i mindre salt, tack?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-fo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The soup tastes better after it simmers for an hour.",
-        "target": "Soppan smakar bättre efter att den får sjuda i en timme."
+        "correctAnswer": "Soppan smakar bättre efter att den får sjuda i en timme.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-fo-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I forgot one ingredient, so I changed the recipe.",
-        "target": "Jag glömde en ingrediens, så jag ändrade receptet."
+        "correctAnswer": "Jag glömde en ingrediens, så jag ändrade receptet.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-fo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: This dish combines sweet, spicy, and smoky flavors.",
-        "target": "Den här rätten kombinerar söta, starka och rökiga smaker."
+        "correctAnswer": "Den här rätten kombinerar söta, starka och rökiga smaker.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-fo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
-        "target": "Vilken teknik ger såsen en jämnare konsistens?"
+        "correctAnswer": "Vilken teknik ger såsen en jämnare konsistens?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-fo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Can I have water without ice?",
-        "target": "Kan jag få vatten utan is?"
+        "correctAnswer": "Kan jag få vatten utan is?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-fo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I baked bread at home for the first time.",
-        "target": "Jag bakade bröd hemma för första gången."
+        "correctAnswer": "Jag bakade bröd hemma för första gången.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-fo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What ingredients make this dish so flavorful?",
-        "target": "Vilka ingredienser gör den här rätten så smakrik?"
+        "correctAnswer": "Vilka ingredienser gör den här rätten så smakrik?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-fo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I prefer recipes that are simple but still balanced.",
-        "target": "Jag föredrar recept som är enkla men ändå balanserade."
+        "correctAnswer": "Jag föredrar recept som är enkla men ändå balanserade.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "grammar": [
       {
         "id": "sv-gr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am reading a short story now.",
-        "target": "Jag läser en kort berättelse nu."
+        "correctAnswer": "Jag läser en kort berättelse nu.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-gr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Yesterday I studied for two hours.",
-        "target": "I går studerade jag i två timmar."
+        "correctAnswer": "I går studerade jag i två timmar.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-gr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Tomorrow I will practice with my friend.",
-        "target": "I morgon ska jag öva med min vän."
+        "correctAnswer": "I morgon ska jag öva med min vän.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-gr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: If I have time, I will review the lesson.",
-        "target": "Om jag har tid ska jag repetera lektionen."
+        "correctAnswer": "Om jag har tid ska jag repetera lektionen.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-gr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been studying Swedish for six months.",
-        "target": "Jag har studerat svenska i sex månader."
+        "correctAnswer": "Jag har studerat svenska i sex månader.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-gr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would travel more if flights were cheaper.",
-        "target": "Jag skulle resa mer om flygen var billigare."
+        "correctAnswer": "Jag skulle resa mer om flygen var billigare.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-gr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: By the time we arrive, they will have finished dinner.",
-        "target": "När vi kommer fram kommer de att ha avslutat middagen."
+        "correctAnswer": "När vi kommer fram kommer de att ha avslutat middagen.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-gr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
-        "target": "Hade jag vetat det tidigare skulle jag ha ändrat planen."
+        "correctAnswer": "Hade jag vetat det tidigare skulle jag ha ändrat planen.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sv-gr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Every morning I write three new words.",
-        "target": "Varje morgon skriver jag tre nya ord."
+        "correctAnswer": "Varje morgon skriver jag tre nya ord.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sv-gr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We were cooking when the guests arrived.",
-        "target": "Vi lagade mat när gästerna kom."
+        "correctAnswer": "Vi lagade mat när gästerna kom.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sv-gr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I had already left when the message arrived.",
-        "target": "Jag hade redan gått när meddelandet kom."
+        "correctAnswer": "Jag hade redan gått när meddelandet kom.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sv-gr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If I had practiced more, I would be more confident now.",
-        "target": "Om jag hade övat mer skulle jag vara säkrare nu."
+        "correctAnswer": "Om jag hade övat mer skulle jag vara säkrare nu.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "hobbies_leisure": [
@@ -651,7 +1067,7 @@
         "prompt": "To read books",
         "correctAnswer": "att läsa böcker",
         "hints": [
-          "Det handlar om en lugn hobby."
+          "A quiet hobby."
         ],
         "exerciseType": "flashcard",
         "imageUrl": "/images/bookshelf.svg"
@@ -663,7 +1079,7 @@
         "prompt": "To go hiking",
         "correctAnswer": "att vandra",
         "hints": [
-          "En hobby utomhus."
+          "An outdoor hobby."
         ],
         "exerciseType": "flashcard"
       },
@@ -674,7 +1090,7 @@
         "prompt": "To play chess",
         "correctAnswer": "att spela schack",
         "hints": [
-          "Ett strategi-spel."
+          "A strategy board game."
         ],
         "exerciseType": "flashcard"
       },
@@ -685,7 +1101,7 @@
         "prompt": "Say: I play tennis on Saturday mornings.",
         "correctAnswer": "Jag spelar tennis på lördagsmorgnar.",
         "hints": [
-          "Anvand presens."
+          "Use the present tense."
         ],
         "exerciseType": "build_sentence"
       },
@@ -696,7 +1112,7 @@
         "prompt": "Say: I watch movies at home.",
         "correctAnswer": "Jag ser på filmer hemma.",
         "hints": [
-          "Ett enkelt fritidsplan."
+          "A short activity sentence."
         ],
         "exerciseType": "build_sentence"
       },
@@ -707,7 +1123,7 @@
         "prompt": "Say: I swim at the pool.",
         "correctAnswer": "Jag simmar i bassängen.",
         "hints": [
-          "En kort fras."
+          "Keep the phrase short."
         ],
         "exerciseType": "build_sentence"
       },
@@ -718,7 +1134,7 @@
         "prompt": "Choose the best response. What do you like to do after work?",
         "correctAnswer": "Jag brukar måla eller ge mig ut och springa.",
         "hints": [
-          "Namna tva fritidsaktiviteter."
+          "Mention two leisure activities."
         ],
         "exerciseType": "roleplay"
       },
@@ -729,7 +1145,7 @@
         "prompt": "Choose the best response. What do you do on weekends?",
         "correctAnswer": "Jag träffar vänner och spelar spel.",
         "hints": [
-          "En naturlig vardagsfras."
+          "A friendly, natural answer."
         ],
         "exerciseType": "roleplay"
       },
@@ -740,7 +1156,7 @@
         "prompt": "Choose the best response. Do you like sports?",
         "correctAnswer": "Ja, jag spelar fotboll ibland.",
         "hints": [
-          "Svar med en frekvens."
+          "Answer with a frequency word."
         ],
         "exerciseType": "roleplay"
       },
@@ -751,7 +1167,7 @@
         "prompt": "Say: I relax by reading books.",
         "correctAnswer": "Jag kopplar av med att läsa.",
         "hints": [
-          "Anvand ett reflekterande tonfall."
+          "Use a reflective tone."
         ],
         "exerciseType": "pronunciation",
         "audioUrl": "/audio/lesson-chime.wav"
@@ -763,7 +1179,7 @@
         "prompt": "Say: I practice guitar every day.",
         "correctAnswer": "Jag övar gitarr varje dag.",
         "hints": [
-          "En tydlig vardagsvana."
+          "A clear daily habit."
         ],
         "exerciseType": "pronunciation"
       },
@@ -774,7 +1190,7 @@
         "prompt": "Say: I enjoy painting in my free time.",
         "correctAnswer": "Jag tycker om att måla på fritiden.",
         "hints": [
-          "En vanlig hobbyfras."
+          "A common hobby phrase."
         ],
         "exerciseType": "pronunciation"
       }
@@ -787,7 +1203,7 @@
         "prompt": "Say: My phone battery is almost empty.",
         "correctAnswer": "Batteriet i min mobil är nästan slut.",
         "hints": [
-          "Tanka pa din enhet."
+          "Talk about your device."
         ]
       },
       {
@@ -797,7 +1213,7 @@
         "prompt": "Say: The Wi-Fi is not working.",
         "correctAnswer": "Wifi fungerar inte.",
         "hints": [
-          "Ett vanligt problem."
+          "A common connection problem."
         ]
       },
       {
@@ -807,7 +1223,7 @@
         "prompt": "Say: My laptop is slow today.",
         "correctAnswer": "Min dator är seg idag.",
         "hints": [
-          "En enkel klagan."
+          "A simple device complaint."
         ]
       },
       {
@@ -817,7 +1233,7 @@
         "prompt": "Say: I need to update the app.",
         "correctAnswer": "Jag måste uppdatera appen.",
         "hints": [
-          "Det handlar om en uppdatering."
+          "Think about software updates."
         ]
       },
       {
@@ -827,7 +1243,7 @@
         "prompt": "Say: Can you send me the link?",
         "correctAnswer": "Kan du skicka mig länken?",
         "hints": [
-          "Be om en lank."
+          "Ask for a URL."
         ]
       },
       {
@@ -837,7 +1253,7 @@
         "prompt": "Say: I forgot my password.",
         "correctAnswer": "Jag har glömt mitt lösenord.",
         "hints": [
-          "En mycket anvandbar fras."
+          "A very useful sentence."
         ]
       },
       {
@@ -847,7 +1263,7 @@
         "prompt": "an update",
         "correctAnswer": "en uppdatering",
         "hints": [
-          "Matcha termen."
+          "Match the tech term."
         ],
         "exerciseType": "matching"
       },
@@ -858,7 +1274,7 @@
         "prompt": "Say: Please restart the computer.",
         "correctAnswer": "Starta om datorn, tack.",
         "hints": [
-          "En praktisk instruktion."
+          "A practical instruction."
         ],
         "exerciseType": "build_sentence"
       },
@@ -869,7 +1285,7 @@
         "prompt": "Choose the best response. My screen is frozen.",
         "correctAnswer": "Prova att stänga appen och öppna igen.",
         "hints": [
-          "En snabb losning."
+          "Offer a quick fix."
         ],
         "exerciseType": "roleplay"
       },
@@ -880,7 +1296,7 @@
         "prompt": "Say: We should discuss tech ethics.",
         "correctAnswer": "Vi borde prata om tekniketik.",
         "hints": [
-          "En kort tanke."
+          "A short thoughtful sentence."
         ],
         "exerciseType": "pronunciation"
       },
@@ -891,7 +1307,7 @@
         "prompt": "Say: Data privacy matters to me.",
         "correctAnswer": "Datasekretess är viktigt för mig.",
         "hints": [
-          "Prata om integritet."
+          "Talk about privacy."
         ],
         "exerciseType": "pronunciation"
       },
@@ -902,7 +1318,7 @@
         "prompt": "Say: Please back up the files.",
         "correctAnswer": "Gör en backup av filerna.",
         "hints": [
-          "En nyttig paminnelse."
+          "A helpful reminder."
         ],
         "exerciseType": "pronunciation"
       }
@@ -915,7 +1331,7 @@
         "prompt": "Say: This museum is very interesting.",
         "correctAnswer": "Det här museet är mycket intressant.",
         "hints": [
-          "En enkel asikt."
+          "A simple opinion sentence."
         ],
         "imageUrl": "/images/museum-arch.svg"
       },
@@ -926,7 +1342,7 @@
         "prompt": "a museum ticket",
         "correctAnswer": "en biljett till museet",
         "hints": [
-          "Matcha frasen."
+          "Match the phrase."
         ],
         "exerciseType": "flashcard"
       },
@@ -937,7 +1353,7 @@
         "prompt": "Say: This statue is famous.",
         "correctAnswer": "Den här statyn är känd.",
         "hints": [
-          "En enkel beskrivning."
+          "A simple description."
         ],
         "exerciseType": "build_sentence"
       },
@@ -948,7 +1364,7 @@
         "prompt": "Say: In Sweden, fika is a coffee break.",
         "correctAnswer": "I Sverige är fika en kaffepaus.",
         "hints": [
-          "Namnet pa vanan ar viktigt."
+          "Mention the custom by name."
         ],
         "culturalNote": "Fika handlar om att samlas, prata och ta en paus tillsammans."
       },
@@ -959,7 +1375,7 @@
         "prompt": "Say: This building is very old.",
         "correctAnswer": "Den här byggnaden är mycket gammal.",
         "hints": [
-          "Beskriv platsen."
+          "Describe the place."
         ]
       },
       {
@@ -969,7 +1385,7 @@
         "prompt": "Say: The guide speaks very clearly.",
         "correctAnswer": "Guiden pratar mycket tydligt.",
         "hints": [
-          "Prata om en guide."
+          "Talk about a guide."
         ]
       },
       {
@@ -979,7 +1395,7 @@
         "prompt": "Choose the best response. Why is this old town important?",
         "correctAnswer": "Den visar hur människor levde här för flera hundra år sedan.",
         "hints": [
-          "Svara som en guide."
+          "Answer like a guide."
         ],
         "exerciseType": "roleplay",
         "culturalNote": "Gamla stan och liknande miljöer visar ofta hantverk, handel och stadsutveckling."
@@ -991,7 +1407,7 @@
         "prompt": "Choose the best response. Who built this castle?",
         "correctAnswer": "Den byggdes av en kung.",
         "hints": [
-          "Svara kort och tydligt."
+          "Answer simply and clearly."
         ],
         "exerciseType": "roleplay"
       },
@@ -1002,7 +1418,7 @@
         "prompt": "a tradition",
         "correctAnswer": "en tradition",
         "hints": [
-          "Matcha termen."
+          "Match the tech term."
         ],
         "exerciseType": "matching"
       },
@@ -1013,7 +1429,7 @@
         "prompt": "Say: Could you explain this tradition to me?",
         "correctAnswer": "Kan du förklara den här traditionen?",
         "hints": [
-          "En vanlig fraga pa museer och resor."
+          "A polite question about local culture."
         ],
         "exerciseType": "pronunciation",
         "audioUrl": "/audio/lesson-chime.wav"
@@ -1025,7 +1441,7 @@
         "prompt": "Say: I love learning local history.",
         "correctAnswer": "Jag älskar att lära mig lokal historia.",
         "hints": [
-          "En positiv fras."
+          "A positive statement."
         ],
         "exerciseType": "pronunciation"
       },
@@ -1036,7 +1452,7 @@
         "prompt": "Say: This legend is popular here.",
         "correctAnswer": "Den här legenden är populär här.",
         "hints": [
-          "Anvand ett naturligt tonfall."
+          "Use a natural tone."
         ],
         "exerciseType": "pronunciation"
       }
@@ -1169,6 +1585,437 @@
           "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
+      }
+    ],
+    "sports_fitness": [
+      {
+        "id": "sv-sf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I like to play football with my friends.",
+        "correctAnswer": "Jag gillar att spela fotboll med mina vänner.",
+        "hints": [
+          "Use 'like to + infinitive' for preferences."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "sv-sf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "football / swimming / running / cycling",
+        "correctAnswer": "simning",
+        "hints": [
+          "Which sport is done in water?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "fotboll",
+          "simning",
+          "löpning",
+          "cykling"
+        ]
+      },
+      {
+        "id": "sv-sf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I go running every morning.",
+        "correctAnswer": "Jag springer varje morgon.",
+        "hints": [
+          "Use simple present for habits."
+        ]
+      },
+      {
+        "id": "sv-sf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I train at the gym three times a week.",
+        "correctAnswer": "Jag tränar på gymmet tre gånger i veckan.",
+        "hints": [
+          "Include a frequency expression."
+        ]
+      },
+      {
+        "id": "sv-sf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What does 'to warm up' mean?",
+        "correctAnswer": "att förbereda kroppen inför träning",
+        "hints": [
+          "Think about what you do before exercising."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "att varva ned",
+          "att förbereda kroppen inför träning",
+          "att stretcha efter löpning",
+          "att lyfta vikter"
+        ]
+      },
+      {
+        "id": "sv-sf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: My favourite sport is tennis and I play it on weekends.",
+        "correctAnswer": "Min favoritsporten är tennis och jag spelar på helgerna.",
+        "hints": [
+          "Combine a preference with a habit."
+        ]
+      },
+      {
+        "id": "sv-sf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: She has been training for the marathon for six months.",
+        "correctAnswer": "Hon har tränat för maraton i sex månader.",
+        "hints": [
+          "Use present perfect for an ongoing action."
+        ]
+      },
+      {
+        "id": "sv-sf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Regular exercise improves both physical and mental health.",
+        "correctAnswer": "Regelbunden motion förbättrar både den fysiska och mentala hälsan.",
+        "hints": [
+          "Use the third-person singular."
+        ]
+      },
+      {
+        "id": "sv-sf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to set a personal best' mean?",
+        "correctAnswer": "att uppnå sitt bästa resultat någonsin",
+        "hints": [
+          "Think about competitive sport records."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "att ställa i ordning utrustning",
+          "att uppnå sitt bästa resultat någonsin",
+          "att träna med en tränare",
+          "att gå med i ett nytt lag"
+        ]
+      },
+      {
+        "id": "sv-sf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
+        "correctAnswer": "Elitidrottare måste balansera intensiv träning med tillräcklig återhämtningstid.",
+        "hints": [
+          "Use the modal 'must' for obligation."
+        ]
+      },
+      {
+        "id": "sv-sf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
+        "correctAnswer": "Sjukgymnasten rådde honom att tillfälligt minska träningsbelastningen.",
+        "hints": [
+          "Use 'advise someone to + infinitive'."
+        ]
+      },
+      {
+        "id": "sv-sf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The sponsorship deal transformed the club's financial prospects.",
+        "correctAnswer": "Sponsoravtalet förändrade klubbens ekonomiska utsikter.",
+        "hints": [
+          "Use past tense for a completed event."
+        ]
+      }
+    ],
+    "news_media": [
+      {
+        "id": "sv-nm-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I read the news every morning.",
+        "correctAnswer": "Jag läser nyheterna varje morgon.",
+        "hints": [
+          "Use simple present for daily routines."
+        ]
+      },
+      {
+        "id": "sv-nm-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "newspaper / television / radio / podcast",
+        "correctAnswer": "television",
+        "hints": [
+          "Which medium uses moving images?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "tidning",
+          "television",
+          "radio",
+          "podd"
+        ]
+      },
+      {
+        "id": "sv-nm-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This article is interesting.",
+        "correctAnswer": "Den här artikeln är intressant.",
+        "hints": [
+          "A simple opinion sentence."
+        ]
+      },
+      {
+        "id": "sv-nm-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I prefer reading news online to watching it on TV.",
+        "correctAnswer": "Jag föredrar att läsa nyheter online framför att titta på dem på TV.",
+        "hints": [
+          "Use 'prefer to + infinitive + rather than + infinitive'."
+        ]
+      },
+      {
+        "id": "sv-nm-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What is a 'headline'?",
+        "correctAnswer": "titeln på en nyhetsartikel",
+        "hints": [
+          "It appears at the top of each news story."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "journalistens namn",
+          "titeln på en nyhetsartikel",
+          "en bildtext",
+          "publiceringsdatumet"
+        ]
+      },
+      {
+        "id": "sv-nm-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The reporter interviewed several witnesses.",
+        "correctAnswer": "Reportern intervjuade flera vittnen.",
+        "hints": [
+          "Use past tense for a completed action."
+        ]
+      },
+      {
+        "id": "sv-nm-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: It is important to verify information before sharing it.",
+        "correctAnswer": "Det är viktigt att verifiera information innan man delar den.",
+        "hints": [
+          "Use 'it is + adjective + to + infinitive'."
+        ]
+      },
+      {
+        "id": "sv-nm-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to go viral' mean?",
+        "correctAnswer": "att spridas snabbt på internet",
+        "hints": [
+          "Think about how content spreads online."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "att bli smittad",
+          "att spridas snabbt på internet",
+          "att tas bort",
+          "att publiceras i tryck"
+        ]
+      },
+      {
+        "id": "sv-nm-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: The documentary raised serious questions about media bias.",
+        "correctAnswer": "Dokumentären väckte allvarliga frågor om mediabias.",
+        "hints": [
+          "'Raise questions' is a fixed collocation; use past tense."
+        ]
+      },
+      {
+        "id": "sv-nm-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
+        "correctAnswer": "Undersökande journalistik spelar en avgörande roll för att hålla makten ansvarig.",
+        "hints": [
+          "Use gerund after 'role in'."
+        ]
+      },
+      {
+        "id": "sv-nm-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The editorial board decided to retract the story after new evidence emerged.",
+        "correctAnswer": "Redaktionen beslutade att dra tillbaka artikeln efter att nya bevis framkom.",
+        "hints": [
+          "'Retract' means to officially withdraw a published statement."
+        ]
+      },
+      {
+        "id": "sv-nm-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
+        "correctAnswer": "Algoritmisk kuration formar i allt högre grad vilken information publiken tar del av.",
+        "hints": [
+          "Use third-person singular; note the formal register."
+        ],
+        "culturalNote": "Denna mening speglar moderna debatter om filterbubblor."
+      }
+    ],
+    "money_finance": [
+      {
+        "id": "sv-mf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I need to go to the bank.",
+        "correctAnswer": "Jag behöver gå till banken.",
+        "hints": [
+          "Use 'need to + infinitive' for necessity."
+        ]
+      },
+      {
+        "id": "sv-mf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "bank / shop / hospital / library",
+        "correctAnswer": "bank",
+        "hints": [
+          "Where do you manage money?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "bank",
+          "affär",
+          "sjukhus",
+          "bibliotek"
+        ]
+      },
+      {
+        "id": "sv-mf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: Can I pay by card?",
+        "correctAnswer": "Kan jag betala med kort?",
+        "hints": [
+          "Use 'Can I + verb?' to ask for permission."
+        ]
+      },
+      {
+        "id": "sv-mf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I am saving money to buy a new laptop.",
+        "correctAnswer": "Jag sparar pengar för att köpa en ny bärbar dator.",
+        "hints": [
+          "Use present continuous + infinitive of purpose."
+        ]
+      },
+      {
+        "id": "sv-mf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What is an 'ATM'?",
+        "correctAnswer": "en automat som ger ut kontanter",
+        "hints": [
+          "It dispenses cash."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "en automat som ger ut kontanter",
+          "en avancerad transaktionsmetod",
+          "ett automatiskt överföringsläge",
+          "en auktoriserad terminal"
+        ]
+      },
+      {
+        "id": "sv-mf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I spend too much money on coffee every week.",
+        "correctAnswer": "Jag spenderar för mycket pengar på kaffe varje vecka.",
+        "hints": [
+          "Use 'spend money on' for expenses."
+        ]
+      },
+      {
+        "id": "sv-mf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: I have set up a monthly budget to track my expenses.",
+        "correctAnswer": "Jag har satt upp en månadsbudget för att följa mina utgifter.",
+        "hints": [
+          "Use present perfect for a recent action with present relevance."
+        ]
+      },
+      {
+        "id": "sv-mf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What is an 'interest rate'?",
+        "correctAnswer": "den procentsats som tas ut på lån eller tjänas på sparande",
+        "hints": [
+          "It affects how much you pay or earn over time."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "en avgift för att öppna ett konto",
+          "den procentsats som tas ut på lån eller tjänas på sparande",
+          "den dagliga växelkursen",
+          "en statlig inkomstskatt"
+        ]
+      },
+      {
+        "id": "sv-mf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: If I had saved more last year, I could afford this holiday.",
+        "correctAnswer": "Om jag hade sparat mer förra året hade jag haft råd med den här semestern.",
+        "hints": [
+          "Use third conditional for past regret."
+        ]
+      },
+      {
+        "id": "sv-mf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Inflation erodes purchasing power if wages fail to keep pace.",
+        "correctAnswer": "Inflation urholkar köpkraften om lönerna inte håller jämna steg.",
+        "hints": [
+          "Use zero conditional for general economic truths."
+        ]
+      },
+      {
+        "id": "sv-mf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The central bank is expected to raise interest rates next quarter.",
+        "correctAnswer": "Centralbanken förväntas höja räntorna nästa kvartal.",
+        "hints": [
+          "Use passive 'is expected to' for reported predictions."
+        ]
+      },
+      {
+        "id": "sv-mf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Diversifying your portfolio mitigates exposure to market volatility.",
+        "correctAnswer": "Att diversifiera sin portfölj minskar exponeringen mot marknadsvolatilitet.",
+        "hints": [
+          "Gerund subject; formal register."
+        ]
       }
     ]
   }

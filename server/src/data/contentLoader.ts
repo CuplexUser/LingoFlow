@@ -4,6 +4,18 @@ const crypto: typeof import("crypto") = require("crypto");
 const { CATEGORIES, LEVEL_ORDER } = require("./constants.ts");
 
 const CONTENT_DIR = path.join(__dirname, "..", "..", "content", "languages");
+const SUPPORTED_EXERCISE_TYPES = [
+  "flashcard",
+  "matching",
+  "pronunciation",
+  "roleplay",
+  "mc_sentence",
+  "multiple_choice",
+  "build_sentence",
+  "cloze_sentence",
+  "dictation_sentence",
+  "dialogue_turn"
+];
 
 function parseJsonFile(filePath: string): unknown {
   const raw = fs.readFileSync(filePath, "utf8");
@@ -49,17 +61,7 @@ function validateCourseItem(item: unknown, languageId: string, categoryId: strin
   if (!Array.isArray(hints)) {
     throw new Error(`${prefix}.hints must be an array`);
   }
-  if (exerciseType && ![
-    "flashcard",
-    "matching",
-    "pronunciation",
-    "roleplay",
-    "mc_sentence",
-    "build_sentence",
-    "cloze_sentence",
-    "dictation_sentence",
-    "dialogue_turn"
-  ].includes(exerciseType)) {
+  if (exerciseType && !SUPPORTED_EXERCISE_TYPES.includes(exerciseType)) {
     throw new Error(`${prefix}.exerciseType is not supported`);
   }
 }

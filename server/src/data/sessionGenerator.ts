@@ -27,6 +27,13 @@ function countWords(text) {
   return trimmed.split(/\s+/g).filter(Boolean).length;
 }
 
+function normalizeComparableText(text) {
+  return String(text || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[.,!?;:()"']/g, "");
+}
+
 function stripExercisePrefix(text) {
   return String(text || "")
     .replace(/^say:\s*/i, "")
@@ -35,8 +42,15 @@ function stripExercisePrefix(text) {
     .trim();
 }
 
+function normalizeExerciseType(value) {
+  const raw = String(value || "").trim().toLowerCase();
+  if (!raw) return "";
+  if (raw === "multiple_choice") return "mc_sentence";
+  return raw;
+}
+
 function isRoleplayLikeItem(item) {
-  const exerciseType = String(item?.exerciseType || "").trim().toLowerCase();
+  const exerciseType = normalizeExerciseType(item?.exerciseType);
   if (exerciseType === "roleplay" || exerciseType === "dialogue_turn") {
     return true;
   }
@@ -49,7 +63,7 @@ function filterItemsForMode(items, mode) {
   if (!normalizedMode) return items;
 
   const filtered = items.filter((item) => {
-    const exerciseType = String(item?.exerciseType || "").trim().toLowerCase();
+    const exerciseType = normalizeExerciseType(item?.exerciseType);
     if (normalizedMode === "speak") {
       return exerciseType === "pronunciation" && countWords(resolveAnswer(item)) <= 6;
     }
@@ -171,16 +185,63 @@ function buildFallbackHint(category, questionType) {
 }
 
 function pickLevelAwareDistractors(pool, item, count, randomFn) {
+  const answer = resolveAnswer(item);
+  const normalizedAnswer = normalizeComparableText(answer);
+  const answerWordCount = countWords(answer);
+  const enforceSentenceLike = answerWordCount >= 4;
   const ranked = levelRank(resolveDifficulty(item));
-  const sameBand = pool.filter(
-    (candidate) =>
-      resolveAnswer(candidate) !== resolveAnswer(item) &&
-      Math.abs(levelRank(resolveDifficulty(candidate)) - ranked) <= 1
+  const allCandidates = pool.filter((candidate) => {
+    const candidateAnswer = resolveAnswer(candidate);
+    return normalizeComparableText(candidateAnswer) !== normalizedAnswer;
+  });
+
+  const sameBand = allCandidates.filter(
+    (candidate) => Math.abs(levelRank(resolveDifficulty(candidate)) - ranked) <= 1
   );
-  const source = sameBand.length >= count
-    ? sameBand
-    : pool.filter((candidate) => resolveAnswer(candidate) !== resolveAnswer(item));
-  return shuffle(source.map((candidate) => resolveAnswer(candidate)), randomFn).slice(0, count);
+  const initial = sameBand.length >= count ? sameBand : allCandidates;
+
+  const candidateWordCount = (candidate) => countWords(resolveAnswer(candidate));
+  let filtered = initial;
+
+  if (enforceSentenceLike) {
+    const minWords = Math.max(3, answerWordCount - 3);
+    const maxWords = answerWordCount + 4;
+    const nearLength = filtered.filter((candidate) => {
+      const words = candidateWordCount(candidate);
+      return words >= minWords && words <= maxWords;
+    });
+    if (nearLength.length >= count) {
+      filtered = nearLength;
+    } else {
+      const sentenceLike = filtered.filter((candidate) => candidateWordCount(candidate) >= 3);
+      if (sentenceLike.length) {
+        filtered = sentenceLike;
+      }
+    }
+  }
+
+  const uniqueDistractors = [];
+  const seenAnswers = new Set();
+  shuffle(filtered, randomFn).forEach((candidate) => {
+    const candidateAnswer = resolveAnswer(candidate);
+    const normalizedCandidate = normalizeComparableText(candidateAnswer);
+    if (!candidateAnswer || seenAnswers.has(normalizedCandidate)) return;
+    seenAnswers.add(normalizedCandidate);
+    uniqueDistractors.push(candidateAnswer);
+  });
+
+  if (uniqueDistractors.length < count) {
+    shuffle(allCandidates, randomFn).forEach((candidate) => {
+      if (uniqueDistractors.length >= count) return;
+      if (enforceSentenceLike && candidateWordCount(candidate) < 3) return;
+      const candidateAnswer = resolveAnswer(candidate);
+      const normalizedCandidate = normalizeComparableText(candidateAnswer);
+      if (!candidateAnswer || seenAnswers.has(normalizedCandidate)) return;
+      seenAnswers.add(normalizedCandidate);
+      uniqueDistractors.push(candidateAnswer);
+    });
+  }
+  return uniqueDistractors.slice(0, count);
 }
 
 function dedupeItems(items) {
@@ -206,7 +267,7 @@ function buildQuestionTypePlan(items) {
   let cycleIndex = 0;
   const recent: string[] = [];
   return items.map((item) => {
-    const fixedType = String(item?.exerciseType || "").trim().toLowerCase();
+    const fixedType = normalizeExerciseType(item?.exerciseType);
     if (fixedType) {
       recent.push(fixedType);
       if (recent.length > 2) recent.shift();
@@ -225,8 +286,8 @@ function buildQuestionTypePlan(items) {
 }
 
 function createQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn) {
-  const requestedType = String(item.exerciseType || "").trim().toLowerCase();
-  let resolvedType = questionType || requestedType || "mc_sentence";
+  const requestedType = normalizeExerciseType(item.exerciseType);
+  let resolvedType = normalizeExerciseType(questionType) || requestedType || "mc_sentence";
   const answer = resolveAnswer(item);
   const answerEnglish = resolvedType === "roleplay"
     ? (language === "english"
@@ -505,7 +566,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
 
     if (mode === "speak") {
       const speakPool = all.filter((item) =>
-        String(item?.exerciseType || "").trim().toLowerCase() === "pronunciation" &&
+        normalizeExerciseType(item?.exerciseType) === "pronunciation" &&
         countWords(resolveAnswer(item)) <= 6
       );
       const selected = shuffle(speakPool.length ? speakPool : all, randomFn).slice(0, count);
@@ -528,7 +589,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
 
     const englishRoleplayAnswerByPrompt = new Map(
       getCategoryItems("english", category)
-        .filter((item) => String(item?.exerciseType || "").trim().toLowerCase() === "roleplay")
+        .filter((item) => normalizeExerciseType(item?.exerciseType) === "roleplay")
         .map((item) => [String(item.prompt || ""), resolveAnswer(item)])
     );
 

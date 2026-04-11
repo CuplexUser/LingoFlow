@@ -115,6 +115,18 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     ? selectedTokenIndexes.map((idx: number) => question.tokens?.[idx] || "")
     : [];
   const builtSentence = joinBuiltWords(question, selectedTokenIndexes);
+  const promptText = String(question.prompt || "");
+  const primaryHint = Array.isArray(question.hints) ? question.hints[0] : "";
+  const showEssentialHint = Boolean(primaryHint) && (
+    (
+      (question.type === "mc_sentence" ||
+        question.type === "dialogue_turn" ||
+        question.type === "practice_listen" ||
+        question.type === "cloze_sentence") &&
+      promptText.includes("/")
+    ) ||
+    question.type === "practice_listen"
+  );
   const snapshot: SessionSnapshot = {
     questionsQueue,
     fixedQuestionCount,
@@ -459,6 +471,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       {question.type === "roleplay" && question.hints?.length ? (
         <div className="build-hints">
           <span className="hint-chip">{question.hints[0]}</span>
+        </div>
+      ) : null}
+      {showEssentialHint ? (
+        <div className="build-hints">
+          <span className="hint-chip">{primaryHint}</span>
         </div>
       ) : null}
       {question.type === "pronunciation" || question.type === "practice_speak" ? (

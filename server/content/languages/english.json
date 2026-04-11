@@ -7,592 +7,976 @@
       {
         "id": "en-es-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Hello, how are you?",
-        "target": "Hello, how are you?"
+        "correctAnswer": "Hello, how are you?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-es-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Thank you very much for your help.",
-        "target": "Thank you very much for your help."
+        "correctAnswer": "Thank you very much for your help.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-es-3",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not understand this sentence.",
-        "target": "I do not understand this sentence."
+        "correctAnswer": "I do not understand this sentence.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-es-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you speak more slowly, please?",
-        "target": "Could you speak more slowly, please?"
+        "correctAnswer": "Could you speak more slowly, please?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-es-5",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am learning English every day.",
-        "target": "I am learning English every day."
+        "correctAnswer": "I am learning English every day.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-es-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I made a mistake, but I will try again.",
-        "target": "I made a mistake, but I will try again."
+        "correctAnswer": "I made a mistake, but I will try again.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-es-7",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would like to improve my pronunciation.",
-        "target": "I would like to improve my pronunciation."
+        "correctAnswer": "I would like to improve my pronunciation.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-es-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
-        "target": "I can explain my opinion with clear arguments."
+        "correctAnswer": "I can explain my opinion with clear arguments.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-es-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Excuse me, where is the bathroom?",
-        "target": "Excuse me, where is the bathroom?"
+        "correctAnswer": "Excuse me, where is the bathroom?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-es-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you repeat that one more time?",
-        "target": "Could you repeat that one more time?"
+        "correctAnswer": "Could you repeat that one more time?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-es-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I understand the idea, but I need more practice.",
-        "target": "I understand the idea, but I need more practice."
+        "correctAnswer": "I understand the idea, but I need more practice.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-es-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
-        "target": "I want to speak naturally, not only correctly."
+        "correctAnswer": "I want to speak naturally, not only correctly.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "conversation": [
       {
         "id": "en-co-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: What is your name?",
-        "target": "What is your name?"
+        "correctAnswer": "What is your name?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-co-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My name is Alex and I am from the United States.",
-        "target": "My name is Alex and I am from the United States."
+        "correctAnswer": "My name is Alex and I am from the United States.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-co-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: It is nice to meet you in person.",
-        "target": "It is nice to meet you in person."
+        "correctAnswer": "It is nice to meet you in person.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-co-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: What do you usually do on weekends?",
-        "target": "What do you usually do on weekends?"
+        "correctAnswer": "What do you usually do on weekends?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-co-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I enjoy talking about books and current events.",
-        "target": "I enjoy talking about books and current events."
+        "correctAnswer": "I enjoy talking about books and current events.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-co-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: In my opinion, consistency is more important than intensity.",
-        "target": "In my opinion, consistency is more important than intensity."
+        "correctAnswer": "In my opinion, consistency is more important than intensity.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-co-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-        "target": "I used to be shy, but now I express my ideas confidently."
+        "correctAnswer": "I used to be shy, but now I express my ideas confidently.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-co-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
-        "target": "Although we disagree, I respect your perspective."
+        "correctAnswer": "Although we disagree, I respect your perspective.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-co-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where are you from?",
-        "target": "Where are you from?"
+        "correctAnswer": "Where are you from?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-co-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I usually spend my evenings reading or walking.",
-        "target": "I usually spend my evenings reading or walking."
+        "correctAnswer": "I usually spend my evenings reading or walking.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-co-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What kind of topics do you enjoy discussing?",
-        "target": "What kind of topics do you enjoy discussing?"
+        "correctAnswer": "What kind of topics do you enjoy discussing?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-co-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
-        "target": "I appreciate honest conversations, even when they are difficult."
+        "correctAnswer": "I appreciate honest conversations, even when they are difficult.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "travel": [
       {
         "id": "en-tr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the train station?",
-        "target": "Where is the train station?"
+        "correctAnswer": "Where is the train station?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-tr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: How much does this ticket cost?",
-        "target": "How much does this ticket cost?"
+        "correctAnswer": "How much does this ticket cost?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-tr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I need a room for two nights.",
-        "target": "I need a room for two nights."
+        "correctAnswer": "I need a room for two nights.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-tr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Does this bus go to the city center?",
-        "target": "Does this bus go to the city center?"
+        "correctAnswer": "Does this bus go to the city center?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-tr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My flight was delayed because of bad weather.",
-        "target": "My flight was delayed because of bad weather."
+        "correctAnswer": "My flight was delayed because of bad weather.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-tr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I lost my passport and need help immediately.",
-        "target": "I lost my passport and need help immediately."
+        "correctAnswer": "I lost my passport and need help immediately.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-tr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
-        "target": "Could you recommend a safe neighborhood near downtown?"
+        "correctAnswer": "Could you recommend a safe neighborhood near downtown?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-tr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
-        "target": "I would prefer a quieter route, even if it takes longer."
+        "correctAnswer": "I would prefer a quieter route, even if it takes longer.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-tr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Which platform does the train leave from?",
-        "target": "Which platform does the train leave from?"
+        "correctAnswer": "Which platform does the train leave from?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-tr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I would like to check in for my reservation.",
-        "target": "I would like to check in for my reservation."
+        "correctAnswer": "I would like to check in for my reservation.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-tr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The museum is within walking distance from the hotel.",
-        "target": "The museum is within walking distance from the hotel."
+        "correctAnswer": "The museum is within walking distance from the hotel.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-tr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Is there a faster connection if I change lines once?",
-        "target": "Is there a faster connection if I change lines once?"
+        "correctAnswer": "Is there a faster connection if I change lines once?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "work": [
       {
         "id": "en-wo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I work in a small software company.",
-        "target": "I work in a small software company."
+        "correctAnswer": "I work in a small software company.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-wo-2",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We have a meeting at nine in the morning.",
-        "target": "We have a meeting at nine in the morning."
+        "correctAnswer": "We have a meeting at nine in the morning.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-wo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Could you send me the updated report?",
-        "target": "Could you send me the updated report?"
+        "correctAnswer": "Could you send me the updated report?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-wo-4",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We should prioritize the tasks with the highest impact.",
-        "target": "We should prioritize the tasks with the highest impact."
+        "correctAnswer": "We should prioritize the tasks with the highest impact.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-wo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I finished the draft, but it still needs revision.",
-        "target": "I finished the draft, but it still needs revision."
+        "correctAnswer": "I finished the draft, but it still needs revision.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-wo-6",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Our proposal focuses on long-term sustainability.",
-        "target": "Our proposal focuses on long-term sustainability."
+        "correctAnswer": "Our proposal focuses on long-term sustainability.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-wo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If we align our goals, we can deliver faster.",
-        "target": "If we align our goals, we can deliver faster."
+        "correctAnswer": "If we align our goals, we can deliver faster.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-wo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
-        "target": "What metrics will define success for this project?"
+        "correctAnswer": "What metrics will define success for this project?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-wo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am still learning the tools for this job.",
-        "target": "I am still learning the tools for this job."
+        "correctAnswer": "I am still learning the tools for this job.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-wo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can we move the meeting to the afternoon?",
-        "target": "Can we move the meeting to the afternoon?"
+        "correctAnswer": "Can we move the meeting to the afternoon?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-wo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
-        "target": "I need clearer priorities before I can estimate the timeline."
+        "correctAnswer": "I need clearer priorities before I can estimate the timeline.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-wo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
-        "target": "We should document this process so the whole team can reuse it."
+        "correctAnswer": "We should document this process so the whole team can reuse it.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "health": [
       {
         "id": "en-he-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not feel well today.",
-        "target": "I do not feel well today."
+        "correctAnswer": "I do not feel well today.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-he-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the nearest pharmacy?",
-        "target": "Where is the nearest pharmacy?"
+        "correctAnswer": "Where is the nearest pharmacy?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-he-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I have had a headache since this morning.",
-        "target": "I have had a headache since this morning."
+        "correctAnswer": "I have had a headache since this morning.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-he-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am allergic to peanuts.",
-        "target": "I am allergic to peanuts."
+        "correctAnswer": "I am allergic to peanuts.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-he-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: Should I take this medicine before or after meals?",
-        "target": "Should I take this medicine before or after meals?"
+        "correctAnswer": "Should I take this medicine before or after meals?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-he-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The pain gets worse when I walk quickly.",
-        "target": "The pain gets worse when I walk quickly."
+        "correctAnswer": "The pain gets worse when I walk quickly.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-he-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I need a full checkup because these symptoms persist.",
-        "target": "I need a full checkup because these symptoms persist."
+        "correctAnswer": "I need a full checkup because these symptoms persist.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-he-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
-        "target": "Could you explain the treatment options in detail?"
+        "correctAnswer": "Could you explain the treatment options in detail?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-he-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My throat hurts when I swallow.",
-        "target": "My throat hurts when I swallow."
+        "correctAnswer": "My throat hurts when I swallow.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-he-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Do I need an appointment for this checkup?",
-        "target": "Do I need an appointment for this checkup?"
+        "correctAnswer": "Do I need an appointment for this checkup?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-he-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been feeling tired for several days.",
-        "target": "I have been feeling tired for several days."
+        "correctAnswer": "I have been feeling tired for several days.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-he-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would like a second opinion before starting treatment.",
-        "target": "I would like a second opinion before starting treatment."
+        "correctAnswer": "I would like a second opinion before starting treatment.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "family_friends": [
       {
         "id": "en-fa-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: This is my brother and that is my cousin.",
-        "target": "This is my brother and that is my cousin."
+        "correctAnswer": "This is my brother and that is my cousin.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-fa-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My friends are very kind and funny.",
-        "target": "My friends are very kind and funny."
+        "correctAnswer": "My friends are very kind and funny.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-fa-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Are you visiting your family this weekend?",
-        "target": "Are you visiting your family this weekend?"
+        "correctAnswer": "Are you visiting your family this weekend?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-fa-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We usually have dinner together on Sundays.",
-        "target": "We usually have dinner together on Sundays."
+        "correctAnswer": "We usually have dinner together on Sundays.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-fa-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I grew up with my grandparents in a small town.",
-        "target": "I grew up with my grandparents in a small town."
+        "correctAnswer": "I grew up with my grandparents in a small town.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-fa-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My best friend always gives me honest advice.",
-        "target": "My best friend always gives me honest advice."
+        "correctAnswer": "My best friend always gives me honest advice.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-fa-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Even when we disagree, we try to listen respectfully.",
-        "target": "Even when we disagree, we try to listen respectfully."
+        "correctAnswer": "Even when we disagree, we try to listen respectfully.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-fa-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
-        "target": "Family traditions help us stay connected across generations."
+        "correctAnswer": "Family traditions help us stay connected across generations.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-fa-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My sister lives near my parents.",
-        "target": "My sister lives near my parents."
+        "correctAnswer": "My sister lives near my parents.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-fa-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Would you like to come over for dinner on Friday?",
-        "target": "Would you like to come over for dinner on Friday?"
+        "correctAnswer": "Would you like to come over for dinner on Friday?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-fa-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We stay close even though we live in different cities.",
-        "target": "We stay close even though we live in different cities."
+        "correctAnswer": "We stay close even though we live in different cities.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-fa-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Good friendships require time, trust, and patience.",
-        "target": "Good friendships require time, trust, and patience."
+        "correctAnswer": "Good friendships require time, trust, and patience.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "food_cooking": [
       {
         "id": "en-fo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I would like a coffee and a sandwich.",
-        "target": "I would like a coffee and a sandwich."
+        "correctAnswer": "I would like a coffee and a sandwich.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-fo-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Do you have vegetarian options?",
-        "target": "Do you have vegetarian options?"
+        "correctAnswer": "Do you have vegetarian options?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-fo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am cooking rice with vegetables tonight.",
-        "target": "I am cooking rice with vegetables tonight."
+        "correctAnswer": "I am cooking rice with vegetables tonight.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-fo-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can you add less salt, please?",
-        "target": "Can you add less salt, please?"
+        "correctAnswer": "Can you add less salt, please?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-fo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The soup tastes better after it simmers for an hour.",
-        "target": "The soup tastes better after it simmers for an hour."
+        "correctAnswer": "The soup tastes better after it simmers for an hour.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-fo-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I forgot one ingredient, so I changed the recipe.",
-        "target": "I forgot one ingredient, so I changed the recipe."
+        "correctAnswer": "I forgot one ingredient, so I changed the recipe.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-fo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: This dish combines sweet, spicy, and smoky flavors.",
-        "target": "This dish combines sweet, spicy, and smoky flavors."
+        "correctAnswer": "This dish combines sweet, spicy, and smoky flavors.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-fo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
-        "target": "Which technique gives the sauce a smoother texture?"
+        "correctAnswer": "Which technique gives the sauce a smoother texture?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-fo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Can I have water without ice?",
-        "target": "Can I have water without ice?"
+        "correctAnswer": "Can I have water without ice?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-fo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I baked bread at home for the first time.",
-        "target": "I baked bread at home for the first time."
+        "correctAnswer": "I baked bread at home for the first time.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-fo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What ingredients make this dish so flavorful?",
-        "target": "What ingredients make this dish so flavorful?"
+        "correctAnswer": "What ingredients make this dish so flavorful?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-fo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I prefer recipes that are simple but still balanced.",
-        "target": "I prefer recipes that are simple but still balanced."
+        "correctAnswer": "I prefer recipes that are simple but still balanced.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "grammar": [
       {
         "id": "en-gr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am reading a short story now.",
-        "target": "I am reading a short story now."
+        "correctAnswer": "I am reading a short story now.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-gr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Yesterday I studied for two hours.",
-        "target": "Yesterday I studied for two hours."
+        "correctAnswer": "Yesterday I studied for two hours.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-gr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Tomorrow I will practice with my friend.",
-        "target": "Tomorrow I will practice with my friend."
+        "correctAnswer": "Tomorrow I will practice with my friend.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-gr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: If I have time, I will review the lesson.",
-        "target": "If I have time, I will review the lesson."
+        "correctAnswer": "If I have time, I will review the lesson.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-gr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been studying English for six months.",
-        "target": "I have been studying English for six months."
+        "correctAnswer": "I have been studying English for six months.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-gr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would travel more if flights were cheaper.",
-        "target": "I would travel more if flights were cheaper."
+        "correctAnswer": "I would travel more if flights were cheaper.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-gr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: By the time we arrive, they will have finished dinner.",
-        "target": "By the time we arrive, they will have finished dinner."
+        "correctAnswer": "By the time we arrive, they will have finished dinner.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-gr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
-        "target": "Had I known earlier, I would have changed the plan."
+        "correctAnswer": "Had I known earlier, I would have changed the plan.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "en-gr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Every morning I write three new words.",
-        "target": "Every morning I write three new words."
+        "correctAnswer": "Every morning I write three new words.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "en-gr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We were cooking when the guests arrived.",
-        "target": "We were cooking when the guests arrived."
+        "correctAnswer": "We were cooking when the guests arrived.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "en-gr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I had already left when the message arrived.",
-        "target": "I had already left when the message arrived."
+        "correctAnswer": "I had already left when the message arrived.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "en-gr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If I had practiced more, I would be more confident now.",
-        "target": "If I had practiced more, I would be more confident now."
+        "correctAnswer": "If I had practiced more, I would be more confident now.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "hobbies_leisure": [
@@ -1121,6 +1505,438 @@
           "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
+      }
+    ],
+    "sports_fitness": [
+      {
+        "id": "en-sf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I like to play football with my friends.",
+        "correctAnswer": "I like to play football with my friends.",
+        "hints": [
+          "Use simple present for habits."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "en-sf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "football / swimming / running / cycling",
+        "correctAnswer": "swimming",
+        "hints": [
+          "Which is done in water?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "football",
+          "swimming",
+          "running",
+          "cycling"
+        ]
+      },
+      {
+        "id": "en-sf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I go running every morning.",
+        "correctAnswer": "I go running every morning.",
+        "hints": [
+          "Use 'go + verb-ing' for sport activities."
+        ]
+      },
+      {
+        "id": "en-sf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I train at the gym three times a week.",
+        "correctAnswer": "I train at the gym three times a week.",
+        "hints": [
+          "Include a frequency expression."
+        ]
+      },
+      {
+        "id": "en-sf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What does 'to warm up' mean?",
+        "correctAnswer": "to prepare your body before exercise",
+        "hints": [
+          "Think about what you do before a workout."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "to cool down",
+          "to prepare your body before exercise",
+          "to stretch after running",
+          "to lift weights"
+        ]
+      },
+      {
+        "id": "en-sf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: My favourite sport is tennis and I play it on weekends.",
+        "correctAnswer": "My favourite sport is tennis and I play it on weekends.",
+        "hints": [
+          "Combine a preference with a habit."
+        ]
+      },
+      {
+        "id": "en-sf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: She has been training for the marathon for six months.",
+        "correctAnswer": "She has been training for the marathon for six months.",
+        "hints": [
+          "Use present perfect continuous for ongoing action."
+        ]
+      },
+      {
+        "id": "en-sf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Regular exercise improves both physical and mental health.",
+        "correctAnswer": "Regular exercise improves both physical and mental health.",
+        "hints": [
+          "Use third-person singular present."
+        ]
+      },
+      {
+        "id": "en-sf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to set a personal best' mean?",
+        "correctAnswer": "to achieve your best performance ever",
+        "hints": [
+          "Think about competitive sport records."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "to set up equipment",
+          "to achieve your best performance ever",
+          "to train with a coach",
+          "to join a new team"
+        ]
+      },
+      {
+        "id": "en-sf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
+        "correctAnswer": "Elite athletes must balance intense training with adequate recovery time.",
+        "hints": [
+          "Use modal 'must' for obligation."
+        ]
+      },
+      {
+        "id": "en-sf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
+        "correctAnswer": "The physiotherapist advised him to reduce his training load temporarily.",
+        "hints": [
+          "Use 'advise + object + infinitive'."
+        ]
+      },
+      {
+        "id": "en-sf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The sponsorship deal transformed the club's financial prospects.",
+        "correctAnswer": "The sponsorship deal transformed the club's financial prospects.",
+        "hints": [
+          "Use past simple for a completed event."
+        ]
+      }
+    ],
+    "news_media": [
+      {
+        "id": "en-nm-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I read the news every morning.",
+        "correctAnswer": "I read the news every morning.",
+        "hints": [
+          "Use simple present for daily routines."
+        ]
+      },
+      {
+        "id": "en-nm-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "newspaper / television / radio / podcast",
+        "correctAnswer": "television",
+        "hints": [
+          "Which medium uses moving images?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "newspaper",
+          "television",
+          "radio",
+          "podcast"
+        ]
+      },
+      {
+        "id": "en-nm-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This article is interesting.",
+        "correctAnswer": "This article is interesting.",
+        "hints": [
+          "Simple opinion sentence.",
+          "Use 'this' for something near."
+        ]
+      },
+      {
+        "id": "en-nm-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I prefer reading news online to watching it on TV.",
+        "correctAnswer": "I prefer reading news online to watching it on TV.",
+        "hints": [
+          "Use 'prefer + gerund + to + gerund'."
+        ]
+      },
+      {
+        "id": "en-nm-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What is a 'headline'?",
+        "correctAnswer": "the title of a news article",
+        "hints": [
+          "It appears at the top of a news story."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "the journalist's name",
+          "the title of a news article",
+          "a photo caption",
+          "the publication date"
+        ]
+      },
+      {
+        "id": "en-nm-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The reporter interviewed several witnesses.",
+        "correctAnswer": "The reporter interviewed several witnesses.",
+        "hints": [
+          "Use simple past for a completed action."
+        ]
+      },
+      {
+        "id": "en-nm-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: It is important to verify information before sharing it.",
+        "correctAnswer": "It is important to verify information before sharing it.",
+        "hints": [
+          "Use 'it is + adjective + to + infinitive'."
+        ]
+      },
+      {
+        "id": "en-nm-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to go viral' mean?",
+        "correctAnswer": "to spread rapidly on the internet",
+        "hints": [
+          "Think about how content travels online."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "to become infected",
+          "to spread rapidly on the internet",
+          "to be deleted",
+          "to be published in print"
+        ]
+      },
+      {
+        "id": "en-nm-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: The documentary raised serious questions about media bias.",
+        "correctAnswer": "The documentary raised serious questions about media bias.",
+        "hints": [
+          "Use simple past; 'raise questions' is a fixed collocation."
+        ]
+      },
+      {
+        "id": "en-nm-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
+        "correctAnswer": "Investigative journalism plays a crucial role in holding power accountable.",
+        "hints": [
+          "Use gerund after 'role in'."
+        ]
+      },
+      {
+        "id": "en-nm-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The editorial board decided to retract the story after new evidence emerged.",
+        "correctAnswer": "The editorial board decided to retract the story after new evidence emerged.",
+        "hints": [
+          "'Retract' means to officially withdraw a published statement."
+        ]
+      },
+      {
+        "id": "en-nm-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
+        "correctAnswer": "Algorithmic curation increasingly shapes what information audiences consume.",
+        "hints": [
+          "Use third-person singular; note the formal register."
+        ],
+        "culturalNote": "This sentence reflects modern debates about filter bubbles."
+      }
+    ],
+    "money_finance": [
+      {
+        "id": "en-mf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I need to go to the bank.",
+        "correctAnswer": "I need to go to the bank.",
+        "hints": [
+          "Use 'need to + infinitive' for necessity."
+        ]
+      },
+      {
+        "id": "en-mf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "bank / shop / hospital / library",
+        "correctAnswer": "bank",
+        "hints": [
+          "Where do you manage money?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "bank",
+          "shop",
+          "hospital",
+          "library"
+        ]
+      },
+      {
+        "id": "en-mf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: Can I pay by card?",
+        "correctAnswer": "Can I pay by card?",
+        "hints": [
+          "Use 'Can I + verb' to ask for permission."
+        ]
+      },
+      {
+        "id": "en-mf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I am saving money to buy a new laptop.",
+        "correctAnswer": "I am saving money to buy a new laptop.",
+        "hints": [
+          "Use present continuous + infinitive of purpose."
+        ]
+      },
+      {
+        "id": "en-mf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What does 'ATM' stand for?",
+        "correctAnswer": "Automated Teller Machine",
+        "hints": [
+          "It dispenses cash."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "Automated Teller Machine",
+          "Advanced Transaction Method",
+          "Automatic Transfer Mode",
+          "Authorised Terminal Money"
+        ]
+      },
+      {
+        "id": "en-mf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I spend too much money on coffee every week.",
+        "correctAnswer": "I spend too much money on coffee every week.",
+        "hints": [
+          "Use 'spend money on' for expenses."
+        ]
+      },
+      {
+        "id": "en-mf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: I have set up a monthly budget to track my expenses.",
+        "correctAnswer": "I have set up a monthly budget to track my expenses.",
+        "hints": [
+          "Use present perfect for a recent action with present relevance."
+        ]
+      },
+      {
+        "id": "en-mf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What is 'interest rate'?",
+        "correctAnswer": "the percentage charged on a loan or earned on savings",
+        "hints": [
+          "It affects how much you pay or earn over time."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "a fee for opening an account",
+          "the percentage charged on a loan or earned on savings",
+          "the daily exchange rate",
+          "a government tax on income"
+        ]
+      },
+      {
+        "id": "en-mf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: If I had saved more last year, I could afford this holiday.",
+        "correctAnswer": "If I had saved more last year, I could afford this holiday.",
+        "hints": [
+          "Use third conditional for past regret."
+        ]
+      },
+      {
+        "id": "en-mf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Inflation erodes purchasing power if wages fail to keep pace.",
+        "correctAnswer": "Inflation erodes purchasing power if wages fail to keep pace.",
+        "hints": [
+          "Use zero conditional for general economic truths."
+        ]
+      },
+      {
+        "id": "en-mf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The central bank is expected to raise interest rates next quarter.",
+        "correctAnswer": "The central bank is expected to raise interest rates next quarter.",
+        "hints": [
+          "Use passive 'is expected to' for reported predictions."
+        ]
+      },
+      {
+        "id": "en-mf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Diversifying your portfolio mitigates exposure to market volatility.",
+        "correctAnswer": "Diversifying your portfolio mitigates exposure to market volatility.",
+        "hints": [
+          "Gerund subject; 'mitigate' is formal register."
+        ]
       }
     ]
   }

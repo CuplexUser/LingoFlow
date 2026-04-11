@@ -8,6 +8,9 @@ const CATEGORIES = [
   { id: "food_cooking", label: "Food & Cooking", description: "Meals, recipes, and dining" },
   { id: "grammar", label: "Grammar", description: "Sentence structures and tenses" },
   { id: "hobbies_leisure", label: "Hobbies & Leisure", description: "Free-time activities and interests" },
+  { id: "sports_fitness", label: "Sports & Fitness", description: "Exercise, training, and active lifestyle vocabulary" },
+  { id: "news_media", label: "News & Media", description: "Current events, journalism, and media literacy language" },
+  { id: "money_finance", label: "Money & Finance", description: "Banking, budgeting, payments, and financial conversations" },
   { id: "science_technology", label: "Science & Technology", description: "Modern tools, ideas, and innovation" },
   {
     id: "culture_history",

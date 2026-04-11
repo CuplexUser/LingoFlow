@@ -70,3 +70,79 @@ test("matching questions do not include roleplay prompts as distractors", () => 
     "roleplay prompts should not appear in matching UI"
   );
 });
+
+test("multiple choice sentence options avoid single-word distractors", () => {
+  const course = {
+    english: {
+      news_media: [
+        {
+          id: "news-main",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "I read the news every morning.",
+          correctAnswer: "I read the news every morning.",
+          exerciseType: "multiple_choice"
+        },
+        {
+          id: "news-sentence-1",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "The reporter interviewed several witnesses.",
+          correctAnswer: "The reporter interviewed several witnesses.",
+          exerciseType: "multiple_choice"
+        },
+        {
+          id: "news-sentence-2",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "We watched the evening bulletin together.",
+          correctAnswer: "We watched the evening bulletin together.",
+          exerciseType: "multiple_choice"
+        },
+        {
+          id: "news-word-1",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "Headline",
+          correctAnswer: "Headline",
+          exerciseType: "multiple_choice"
+        },
+        {
+          id: "news-word-2",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "Broadcast",
+          correctAnswer: "Broadcast",
+          exerciseType: "multiple_choice"
+        }
+      ]
+    }
+  };
+
+  const selectors = createCourseSelectors(course);
+  const generateSession = createSessionGenerator(
+    selectors.getCategoryItems,
+    selectors.getAllItems
+  );
+  const session = generateSession({
+    language: "english",
+    category: "news_media",
+    count: 5,
+    random: () => 0
+  });
+
+  const multipleChoiceQuestion = session.questions.find((question) => question.id === "news-main");
+  assert.ok(multipleChoiceQuestion, "expected a multiple-choice question");
+  assert.equal(multipleChoiceQuestion.type, "mc_sentence");
+  assert.ok(Array.isArray(multipleChoiceQuestion.options));
+
+  const distractors = multipleChoiceQuestion.options.filter(
+    (option) => option !== "I read the news every morning."
+  );
+  assert.ok(distractors.length > 0, "expected at least one distractor");
+  assert.equal(
+    distractors.some((option) => option.trim().split(/\s+/g).filter(Boolean).length < 3),
+    false,
+    "sentence-style prompts should not receive single-word distractors"
+  );
+});

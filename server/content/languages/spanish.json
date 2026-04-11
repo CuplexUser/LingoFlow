@@ -7,1040 +7,1456 @@
       {
         "id": "sp-es-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Hello, how are you?",
-        "target": "Hola, ¿cómo estás?"
+        "correctAnswer": "Hola, ¿cómo estás?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-es-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Thank you very much for your help.",
-        "target": "Muchas gracias por tu ayuda."
+        "correctAnswer": "Muchas gracias por tu ayuda.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-es-3",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not understand this sentence.",
-        "target": "No entiendo esta oración."
+        "correctAnswer": "No entiendo esta oración.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-es-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you speak more slowly, please?",
-        "target": "¿Podrías hablar más despacio, por favor?"
+        "correctAnswer": "¿Podrías hablar más despacio, por favor?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-es-5",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am learning Spanish every day.",
-        "target": "Estoy aprendiendo español todos los días."
+        "correctAnswer": "Estoy aprendiendo español todos los días.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-es-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I made a mistake, but I will try again.",
-        "target": "Cometí un error, pero lo intentaré de nuevo."
+        "correctAnswer": "Cometí un error, pero lo intentaré de nuevo.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-es-7",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would like to improve my pronunciation.",
-        "target": "Me gustaría mejorar mi pronunciación."
+        "correctAnswer": "Me gustaría mejorar mi pronunciación.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-es-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I can explain my opinion with clear arguments.",
-        "target": "Puedo explicar mi opinión con argumentos claros."
+        "correctAnswer": "Puedo explicar mi opinión con argumentos claros.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-es-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Excuse me, where is the bathroom?",
-        "target": "Disculpe, ¿dónde está el baño?"
+        "correctAnswer": "Disculpe, ¿dónde está el baño?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-es-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you repeat that one more time?",
-        "target": "¿Podría repetir eso una vez más?"
+        "correctAnswer": "¿Podría repetir eso una vez más?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-es-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I understand the idea, but I need more practice.",
-        "target": "Entiendo la idea, pero necesito más práctica."
+        "correctAnswer": "Entiendo la idea, pero necesito más práctica.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-es-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I want to speak naturally, not only correctly.",
-        "target": "Quiero hablar con naturalidad, no solo correctamente."
+        "correctAnswer": "Quiero hablar con naturalidad, no solo correctamente.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-es-13",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Could you write that down for me?",
-        "target": "¿Podrías escribir eso para mí?"
+        "correctAnswer": "¿Podrías escribir eso para mí?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-es-14",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I feel more confident when I speak in longer sentences.",
-        "target": "Me siento con más confianza cuando hablo en frases más largas."
+        "correctAnswer": "Me siento con más confianza cuando hablo en frases más largas.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-es-15",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
-        "target": "Aunque cometa pequeños errores, puedo mantener fluida la conversación."
+        "correctAnswer": "Aunque cometa pequeños errores, puedo mantener fluida la conversación.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-es-16",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I try to choose expressions that sound natural in context.",
-        "target": "Intento elegir expresiones que suenen naturales en contexto."
+        "correctAnswer": "Intento elegir expresiones que suenen naturales en contexto.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "conversation": [
       {
         "id": "sp-co-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: What is your name?",
-        "target": "¿Cómo te llamas?"
+        "correctAnswer": "¿Cómo te llamas?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-co-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My name is Alex and I am from the United States.",
-        "target": "Me llamo Alex y soy de Estados Unidos."
+        "correctAnswer": "Me llamo Alex y soy de Estados Unidos.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-co-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: It is nice to meet you in person.",
-        "target": "Es un placer conocerte en persona."
+        "correctAnswer": "Es un placer conocerte en persona.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-co-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: What do you usually do on weekends?",
-        "target": "¿Qué sueles hacer los fines de semana?"
+        "correctAnswer": "¿Qué sueles hacer los fines de semana?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-co-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I enjoy talking about books and current events.",
-        "target": "Disfruto hablar sobre libros y temas actuales."
+        "correctAnswer": "Disfruto hablar sobre libros y temas actuales.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-co-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: In my opinion, consistency is more important than intensity.",
-        "target": "En mi opinión, la constancia es más importante que la intensidad."
+        "correctAnswer": "En mi opinión, la constancia es más importante que la intensidad.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-co-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-        "target": "Antes era tímido, pero ahora expreso mis ideas con confianza."
+        "correctAnswer": "Antes era tímido, pero ahora expreso mis ideas con confianza.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-co-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Although we disagree, I respect your perspective.",
-        "target": "Aunque no estamos de acuerdo, respeto tu perspectiva."
+        "correctAnswer": "Aunque no estamos de acuerdo, respeto tu perspectiva.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-co-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where are you from?",
-        "target": "¿De dónde eres?"
+        "correctAnswer": "¿De dónde eres?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-co-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I usually spend my evenings reading or walking.",
-        "target": "Normalmente paso las tardes leyendo o caminando."
+        "correctAnswer": "Normalmente paso las tardes leyendo o caminando.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-co-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What kind of topics do you enjoy discussing?",
-        "target": "¿Qué tipo de temas te gusta hablar?"
+        "correctAnswer": "¿Qué tipo de temas te gusta hablar?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-co-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
-        "target": "Aprecio las conversaciones sinceras, incluso cuando son difíciles."
+        "correctAnswer": "Aprecio las conversaciones sinceras, incluso cuando son difíciles.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "travel": [
       {
         "id": "sp-tr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the train station?",
-        "target": "¿Dónde está la estación de tren?"
+        "correctAnswer": "¿Dónde está la estación de tren?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-tr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: How much does this ticket cost?",
-        "target": "¿Cuánto cuesta este billete?"
+        "correctAnswer": "¿Cuánto cuesta este billete?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-tr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I need a room for two nights.",
-        "target": "Necesito una habitación para dos noches."
+        "correctAnswer": "Necesito una habitación para dos noches.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-tr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Does this bus go to the city center?",
-        "target": "¿Este autobús va al centro de la ciudad?"
+        "correctAnswer": "¿Este autobús va al centro de la ciudad?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-tr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My flight was delayed because of bad weather.",
-        "target": "Mi vuelo se retrasó por el mal tiempo."
+        "correctAnswer": "Mi vuelo se retrasó por el mal tiempo.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-tr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I lost my passport and need help immediately.",
-        "target": "Perdí mi pasaporte y necesito ayuda inmediatamente."
+        "correctAnswer": "Perdí mi pasaporte y necesito ayuda inmediatamente.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-tr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
-        "target": "¿Podría recomendarme un barrio seguro cerca del centro?"
+        "correctAnswer": "¿Podría recomendarme un barrio seguro cerca del centro?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-tr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
-        "target": "Prefiero una ruta más tranquila, aunque tarde más."
+        "correctAnswer": "Prefiero una ruta más tranquila, aunque tarde más.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-tr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Which platform does the train leave from?",
-        "target": "¿De qué andén sale el tren?"
+        "correctAnswer": "¿De qué andén sale el tren?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-tr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I would like to check in for my reservation.",
-        "target": "Quisiera registrarme para mi reserva."
+        "correctAnswer": "Quisiera registrarme para mi reserva.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-tr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The museum is within walking distance from the hotel.",
-        "target": "El museo está a poca distancia a pie del hotel."
+        "correctAnswer": "El museo está a poca distancia a pie del hotel.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-tr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Is there a faster connection if I change lines once?",
-        "target": "¿Hay una conexión más rápida si hago un cambio de línea?"
+        "correctAnswer": "¿Hay una conexión más rápida si hago un cambio de línea?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "work": [
       {
         "id": "sp-wo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I work in a small software company.",
-        "target": "Trabajo en una pequeña empresa de software."
+        "correctAnswer": "Trabajo en una pequeña empresa de software.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-wo-2",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We have a meeting at nine in the morning.",
-        "target": "Tenemos una reunión a las nueve de la mañana."
+        "correctAnswer": "Tenemos una reunión a las nueve de la mañana.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-wo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Could you send me the updated report?",
-        "target": "¿Podrías enviarme el informe actualizado?"
+        "correctAnswer": "¿Podrías enviarme el informe actualizado?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-wo-4",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We should prioritize the tasks with the highest impact.",
-        "target": "Deberíamos priorizar las tareas con mayor impacto."
+        "correctAnswer": "Deberíamos priorizar las tareas con mayor impacto.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-wo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I finished the draft, but it still needs revision.",
-        "target": "Terminé el borrador, pero aún necesita revisión."
+        "correctAnswer": "Terminé el borrador, pero aún necesita revisión.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-wo-6",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Our proposal focuses on long-term sustainability.",
-        "target": "Nuestra propuesta se centra en la sostenibilidad a largo plazo."
+        "correctAnswer": "Nuestra propuesta se centra en la sostenibilidad a largo plazo.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-wo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If we align our goals, we can deliver faster.",
-        "target": "Si alineamos nuestros objetivos, podemos entregar más rápido."
+        "correctAnswer": "Si alineamos nuestros objetivos, podemos entregar más rápido.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-wo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: What metrics will define success for this project?",
-        "target": "¿Qué métricas definirán el éxito de este proyecto?"
+        "correctAnswer": "¿Qué métricas definirán el éxito de este proyecto?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-wo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am still learning the tools for this job.",
-        "target": "Todavía estoy aprendiendo las herramientas de este trabajo."
+        "correctAnswer": "Todavía estoy aprendiendo las herramientas de este trabajo.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-wo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can we move the meeting to the afternoon?",
-        "target": "¿Podemos mover la reunión a la tarde?"
+        "correctAnswer": "¿Podemos mover la reunión a la tarde?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-wo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
-        "target": "Necesito prioridades más claras antes de poder estimar el plazo."
+        "correctAnswer": "Necesito prioridades más claras antes de poder estimar el plazo.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-wo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: We should document this process so the whole team can reuse it.",
-        "target": "Deberíamos documentar este proceso para que todo el equipo pueda reutilizarlo."
+        "correctAnswer": "Deberíamos documentar este proceso para que todo el equipo pueda reutilizarlo.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-wo-13",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I start work at eight o'clock.",
-        "target": "Empiezo a trabajar a las ocho."
+        "correctAnswer": "Empiezo a trabajar a las ocho.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-wo-14",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the meeting room?",
-        "target": "¿Dónde está la sala de reuniones?"
+        "correctAnswer": "¿Dónde está la sala de reuniones?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-wo-15",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am updating the spreadsheet before lunch.",
-        "target": "Estoy actualizando la hoja de cálculo antes del almuerzo."
+        "correctAnswer": "Estoy actualizando la hoja de cálculo antes del almuerzo.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-wo-16",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: Let's review the client feedback before we finalize the plan.",
-        "target": "Revisemos los comentarios del cliente antes de finalizar el plan."
+        "correctAnswer": "Revisemos los comentarios del cliente antes de finalizar el plan.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       }
     ],
     "health": [
       {
         "id": "sp-he-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I do not feel well today.",
-        "target": "No me siento bien hoy."
+        "correctAnswer": "No me siento bien hoy.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-he-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Where is the nearest pharmacy?",
-        "target": "¿Dónde está la farmacia más cercana?"
+        "correctAnswer": "¿Dónde está la farmacia más cercana?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-he-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I have had a headache since this morning.",
-        "target": "Tengo dolor de cabeza desde esta mañana."
+        "correctAnswer": "Tengo dolor de cabeza desde esta mañana.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-he-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am allergic to peanuts.",
-        "target": "Soy alérgico a los cacahuetes."
+        "correctAnswer": "Soy alérgico a los cacahuetes.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-he-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: Should I take this medicine before or after meals?",
-        "target": "¿Debo tomar este medicamento antes o después de comer?"
+        "correctAnswer": "¿Debo tomar este medicamento antes o después de comer?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-he-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The pain gets worse when I walk quickly.",
-        "target": "El dolor empeora cuando camino rápido."
+        "correctAnswer": "El dolor empeora cuando camino rápido.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-he-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I need a full checkup because these symptoms persist.",
-        "target": "Necesito un chequeo completo porque estos síntomas persisten."
+        "correctAnswer": "Necesito un chequeo completo porque estos síntomas persisten.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-he-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Could you explain the treatment options in detail?",
-        "target": "¿Podría explicar en detalle las opciones de tratamiento?"
+        "correctAnswer": "¿Podría explicar en detalle las opciones de tratamiento?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-he-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My throat hurts when I swallow.",
-        "target": "Me duele la garganta al tragar."
+        "correctAnswer": "Me duele la garganta al tragar.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-he-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Do I need an appointment for this checkup?",
-        "target": "¿Necesito una cita para este chequeo?"
+        "correctAnswer": "¿Necesito una cita para este chequeo?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-he-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been feeling tired for several days.",
-        "target": "Me he sentido cansado durante varios días."
+        "correctAnswer": "Me he sentido cansado durante varios días.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-he-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I would like a second opinion before starting treatment.",
-        "target": "Me gustaría una segunda opinión antes de empezar el tratamiento."
+        "correctAnswer": "Me gustaría una segunda opinión antes de empezar el tratamiento.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "family_friends": [
       {
         "id": "sp-fa-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: This is my brother and that is my cousin.",
-        "target": "Este es mi hermano y ese es mi primo."
+        "correctAnswer": "Este es mi hermano y ese es mi primo.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-fa-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My friends are very kind and funny.",
-        "target": "Mis amigos son muy amables y divertidos."
+        "correctAnswer": "Mis amigos son muy amables y divertidos.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-fa-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Are you visiting your family this weekend?",
-        "target": "¿Vas a visitar a tu familia este fin de semana?"
+        "correctAnswer": "¿Vas a visitar a tu familia este fin de semana?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-fa-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We usually have dinner together on Sundays.",
-        "target": "Normalmente cenamos juntos los domingos."
+        "correctAnswer": "Normalmente cenamos juntos los domingos.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-fa-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I grew up with my grandparents in a small town.",
-        "target": "Crecí con mis abuelos en un pueblo pequeño."
+        "correctAnswer": "Crecí con mis abuelos en un pueblo pequeño.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-fa-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: My best friend always gives me honest advice.",
-        "target": "Mi mejor amigo siempre me da consejos sinceros."
+        "correctAnswer": "Mi mejor amigo siempre me da consejos sinceros.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-fa-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Even when we disagree, we try to listen respectfully.",
-        "target": "Incluso cuando no estamos de acuerdo, intentamos escuchar con respeto."
+        "correctAnswer": "Incluso cuando no estamos de acuerdo, intentamos escuchar con respeto.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-fa-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Family traditions help us stay connected across generations.",
-        "target": "Las tradiciones familiares nos ayudan a mantenernos unidos entre generaciones."
+        "correctAnswer": "Las tradiciones familiares nos ayudan a mantenernos unidos entre generaciones.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-fa-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: My sister lives near my parents.",
-        "target": "Mi hermana vive cerca de mis padres."
+        "correctAnswer": "Mi hermana vive cerca de mis padres.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-fa-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Would you like to come over for dinner on Friday?",
-        "target": "¿Te gustaría venir a cenar el viernes?"
+        "correctAnswer": "¿Te gustaría venir a cenar el viernes?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-fa-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: We stay close even though we live in different cities.",
-        "target": "Seguimos unidos aunque vivimos en ciudades diferentes."
+        "correctAnswer": "Seguimos unidos aunque vivimos en ciudades diferentes.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-fa-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Good friendships require time, trust, and patience.",
-        "target": "Las buenas amistades requieren tiempo, confianza y paciencia."
+        "correctAnswer": "Las buenas amistades requieren tiempo, confianza y paciencia.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "food_cooking": [
       {
         "id": "sp-fo-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I would like a coffee and a sandwich.",
-        "target": "Me gustaría un café y un sándwich."
+        "correctAnswer": "Me gustaría un café y un sándwich.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-fo-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Do you have vegetarian options?",
-        "target": "¿Tienen opciones vegetarianas?"
+        "correctAnswer": "¿Tienen opciones vegetarianas?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-fo-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I am cooking rice with vegetables tonight.",
-        "target": "Esta noche estoy cocinando arroz con verduras."
+        "correctAnswer": "Esta noche estoy cocinando arroz con verduras.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-fo-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Ask: Can you add less salt, please?",
-        "target": "¿Puede poner menos sal, por favor?"
+        "correctAnswer": "¿Puede poner menos sal, por favor?",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-fo-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: The soup tastes better after it simmers for an hour.",
-        "target": "La sopa sabe mejor después de hervir a fuego lento durante una hora."
+        "correctAnswer": "La sopa sabe mejor después de hervir a fuego lento durante una hora.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-fo-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I forgot one ingredient, so I changed the recipe.",
-        "target": "Olvidé un ingrediente, así que cambié la receta."
+        "correctAnswer": "Olvidé un ingrediente, así que cambié la receta.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-fo-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: This dish combines sweet, spicy, and smoky flavors.",
-        "target": "Este plato combina sabores dulces, picantes y ahumados."
+        "correctAnswer": "Este plato combina sabores dulces, picantes y ahumados.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-fo-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Ask: Which technique gives the sauce a smoother texture?",
-        "target": "¿Qué técnica le da a la salsa una textura más suave?"
+        "correctAnswer": "¿Qué técnica le da a la salsa una textura más suave?",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-fo-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Ask: Can I have water without ice?",
-        "target": "¿Me puede traer agua sin hielo?"
+        "correctAnswer": "¿Me puede traer agua sin hielo?",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-fo-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: I baked bread at home for the first time.",
-        "target": "Horneé pan en casa por primera vez."
+        "correctAnswer": "Horneé pan en casa por primera vez.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-fo-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Ask: What ingredients make this dish so flavorful?",
-        "target": "¿Qué ingredientes hacen que este plato tenga tanto sabor?"
+        "correctAnswer": "¿Qué ingredientes hacen que este plato tenga tanto sabor?",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-fo-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: I prefer recipes that are simple but still balanced.",
-        "target": "Prefiero recetas que sean sencillas pero equilibradas."
+        "correctAnswer": "Prefiero recetas que sean sencillas pero equilibradas.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "grammar": [
       {
         "id": "sp-gr-1",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: I am reading a short story now.",
-        "target": "Estoy leyendo un cuento corto ahora."
+        "correctAnswer": "Estoy leyendo un cuento corto ahora.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-gr-2",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Yesterday I studied for two hours.",
-        "target": "Ayer estudié durante dos horas."
+        "correctAnswer": "Ayer estudié durante dos horas.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-gr-3",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: Tomorrow I will practice with my friend.",
-        "target": "Mañana practicaré con mi amigo."
+        "correctAnswer": "Mañana practicaré con mi amigo.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-gr-4",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: If I have time, I will review the lesson.",
-        "target": "Si tengo tiempo, repasaré la lección."
+        "correctAnswer": "Si tengo tiempo, repasaré la lección.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-gr-5",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I have been studying Spanish for six months.",
-        "target": "He estado estudiando español durante seis meses."
+        "correctAnswer": "He estado estudiando español durante seis meses.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-gr-6",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I would travel more if flights were cheaper.",
-        "target": "Viajaría más si los vuelos fueran más baratos."
+        "correctAnswer": "Viajaría más si los vuelos fueran más baratos.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-gr-7",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: By the time we arrive, they will have finished dinner.",
-        "target": "Para cuando lleguemos, ellos habrán terminado de cenar."
+        "correctAnswer": "Para cuando lleguemos, ellos habrán terminado de cenar.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-gr-8",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: Had I known earlier, I would have changed the plan.",
-        "target": "Si lo hubiera sabido antes, habría cambiado el plan."
+        "correctAnswer": "Si lo hubiera sabido antes, habría cambiado el plan.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       },
       {
         "id": "sp-gr-9",
         "level": "a1",
+        "difficulty": "a1",
         "prompt": "Say: Every morning I write three new words.",
-        "target": "Cada mañana escribo tres palabras nuevas."
+        "correctAnswer": "Cada mañana escribo tres palabras nuevas.",
+        "hints": [
+          "Practise this phrase out loud."
+        ]
       },
       {
         "id": "sp-gr-10",
         "level": "a2",
+        "difficulty": "a2",
         "prompt": "Say: We were cooking when the guests arrived.",
-        "target": "Estábamos cocinando cuando llegaron los invitados."
+        "correctAnswer": "Estábamos cocinando cuando llegaron los invitados.",
+        "hints": [
+          "Pay attention to the sentence structure."
+        ]
       },
       {
         "id": "sp-gr-11",
         "level": "b1",
+        "difficulty": "b1",
         "prompt": "Say: I had already left when the message arrived.",
-        "target": "Ya me había ido cuando llegó el mensaje."
+        "correctAnswer": "Ya me había ido cuando llegó el mensaje.",
+        "hints": [
+          "Notice the tense or modal used."
+        ]
       },
       {
         "id": "sp-gr-12",
         "level": "b2",
+        "difficulty": "b2",
         "prompt": "Say: If I had practiced more, I would be more confident now.",
-        "target": "Si hubiera practicado más, ahora tendría más confianza."
+        "correctAnswer": "Si hubiera practicado más, ahora tendría más confianza.",
+        "hints": [
+          "Focus on natural phrasing and word order."
+        ]
       }
     ],
     "hobbies_leisure": [
       {
-        "id": "es-ho-a1",
+        "id": "sp-ho-a1",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "To read books",
         "correctAnswer": "leer libros",
         "hints": [
-          "Es un pasatiempo tranquilo."
+          "A quiet hobby."
         ],
         "exerciseType": "flashcard",
         "imageUrl": "/images/bookshelf.svg"
       },
       {
-        "id": "es-ho-a1-2",
+        "id": "sp-ho-a1-2",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "To go hiking",
         "correctAnswer": "ir de excursion",
         "hints": [
-          "Una actividad al aire libre."
+          "An outdoor hobby."
         ],
         "exerciseType": "flashcard"
       },
       {
-        "id": "es-ho-a1-3",
+        "id": "sp-ho-a1-3",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "To play chess",
         "correctAnswer": "jugar al ajedrez",
         "hints": [
-          "Un juego de mesa."
+          "A strategy board game."
         ],
         "exerciseType": "flashcard"
       },
       {
-        "id": "es-ho-a2",
+        "id": "sp-ho-a2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: I play tennis on Saturday mornings.",
         "correctAnswer": "Juego al tenis los sabados por la manana.",
         "hints": [
-          "Usa el presente."
+          "Use the present tense."
         ],
         "exerciseType": "build_sentence"
       },
       {
-        "id": "es-ho-a2-2",
+        "id": "sp-ho-a2-2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: I watch movies at home.",
         "correctAnswer": "Veo peliculas en casa.",
         "hints": [
-          "Un plan simple."
+          "A short activity sentence."
         ],
         "exerciseType": "build_sentence"
       },
       {
-        "id": "es-ho-a2-3",
+        "id": "sp-ho-a2-3",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: I swim at the pool.",
         "correctAnswer": "Nado en la piscina.",
         "hints": [
-          "Una frase corta."
+          "Keep the phrase short."
         ],
         "exerciseType": "build_sentence"
       },
       {
-        "id": "es-ho-b1",
+        "id": "sp-ho-b1",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Choose the best response. What do you like to do after work?",
         "correctAnswer": "Normalmente pinto o salgo a correr.",
         "hints": [
-          "Menciona dos actividades."
+          "Mention two leisure activities."
         ],
         "exerciseType": "roleplay"
       },
       {
-        "id": "es-ho-b1-2",
+        "id": "sp-ho-b1-2",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Choose the best response. What do you do on weekends?",
         "correctAnswer": "Quedo con amigos y juego.",
         "hints": [
-          "Una respuesta natural."
+          "A friendly, natural answer."
         ],
         "exerciseType": "roleplay"
       },
       {
-        "id": "es-ho-b1-3",
+        "id": "sp-ho-b1-3",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Choose the best response. Do you like sports?",
         "correctAnswer": "Si, a veces juego al futbol.",
         "hints": [
-          "Usa una palabra de frecuencia."
+          "Answer with a frequency word."
         ],
         "exerciseType": "roleplay"
       },
       {
-        "id": "es-ho-b2",
+        "id": "sp-ho-b2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: I relax by reading books.",
         "correctAnswer": "Me relajo leyendo libros.",
         "hints": [
-          "Usa un tono reflexivo."
+          "Use a reflective tone."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-ho-b2-2",
+        "id": "sp-ho-b2-2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: I practice guitar every day.",
         "correctAnswer": "Practico la guitarra cada dia.",
         "hints": [
-          "Un habito diario."
+          "A clear daily habit."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-ho-b2-3",
+        "id": "sp-ho-b2-3",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: I enjoy painting in my free time.",
         "correctAnswer": "Disfruto pintar en mi tiempo libre.",
         "hints": [
-          "Una frase comun."
+          "A common hobby phrase."
         ],
         "exerciseType": "pronunciation"
       }
     ],
     "science_technology": [
       {
-        "id": "es-st-a1",
+        "id": "sp-st-a1",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "Say: My phone battery is almost empty.",
         "correctAnswer": "La bateria de mi telefono esta casi vacia.",
         "hints": [
-          "Habla de tu dispositivo."
+          "Talk about your device."
         ]
       },
       {
-        "id": "es-st-a1-2",
+        "id": "sp-st-a1-2",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "Say: The Wi-Fi is not working.",
         "correctAnswer": "El wifi no funciona.",
         "hints": [
-          "Un problema comun."
+          "A common connection problem."
         ]
       },
       {
-        "id": "es-st-a1-3",
+        "id": "sp-st-a1-3",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "Say: My laptop is slow today.",
         "correctAnswer": "Mi portatil esta lento hoy.",
         "hints": [
-          "Una queja simple."
+          "A simple device complaint."
         ]
       },
       {
-        "id": "es-st-a2",
+        "id": "sp-st-a2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: I need to update the app.",
         "correctAnswer": "Necesito actualizar la aplicacion.",
         "hints": [
-          "Piensa en una actualizacion."
+          "Think about software updates."
         ]
       },
       {
-        "id": "es-st-a2-2",
+        "id": "sp-st-a2-2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: Can you send me the link?",
         "correctAnswer": "Puedes enviarme el enlace?",
         "hints": [
-          "Pide un enlace."
+          "Ask for a URL."
         ]
       },
       {
-        "id": "es-st-a2-3",
+        "id": "sp-st-a2-3",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: I forgot my password.",
         "correctAnswer": "Olvide mi contrasena.",
         "hints": [
-          "Una frase muy util."
+          "A very useful sentence."
         ]
       },
       {
-        "id": "es-st-b1",
+        "id": "sp-st-b1",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "an update",
         "correctAnswer": "una actualizacion",
         "hints": [
-          "Empareja el termino."
+          "Match the tech term."
         ],
         "exerciseType": "matching"
       },
       {
-        "id": "es-st-b1-2",
+        "id": "sp-st-b1-2",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Say: Please restart the computer.",
         "correctAnswer": "Por favor, reinicia el ordenador.",
         "hints": [
-          "Una instruccion practica."
+          "A practical instruction."
         ],
         "exerciseType": "build_sentence"
       },
       {
-        "id": "es-st-b1-3",
+        "id": "sp-st-b1-3",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Choose the best response. My screen is frozen.",
         "correctAnswer": "Cierra la app y abrela otra vez.",
         "hints": [
-          "Una solucion rapida."
+          "Offer a quick fix."
         ],
         "exerciseType": "roleplay"
       },
       {
-        "id": "es-st-b2",
+        "id": "sp-st-b2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: We should discuss tech ethics.",
         "correctAnswer": "Debemos hablar de etica tecnologica.",
         "hints": [
-          "Una frase corta."
+          "Keep the phrase short."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-st-b2-2",
+        "id": "sp-st-b2-2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: Data privacy matters to me.",
         "correctAnswer": "La privacidad de datos me importa.",
         "hints": [
-          "Habla de privacidad."
+          "Talk about privacy."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-st-b2-3",
+        "id": "sp-st-b2-3",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: Please back up the files.",
         "correctAnswer": "Haz una copia de seguridad.",
         "hints": [
-          "Un recordatorio util."
+          "A helpful reminder."
         ],
         "exerciseType": "pronunciation"
       }
     ],
     "culture_history": [
       {
-        "id": "es-ch-a1",
+        "id": "sp-ch-a1",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "Say: This museum is very interesting.",
         "correctAnswer": "Este museo es muy interesante.",
         "hints": [
-          "Opinion simple."
+          "A simple opinion sentence."
         ],
         "imageUrl": "/images/museum-arch.svg"
       },
       {
-        "id": "es-ch-a1-2",
+        "id": "sp-ch-a1-2",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "a museum ticket",
         "correctAnswer": "una entrada del museo",
         "hints": [
-          "Empareja la frase."
+          "Match the phrase."
         ],
         "exerciseType": "flashcard"
       },
       {
-        "id": "es-ch-a1-3",
+        "id": "sp-ch-a1-3",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "Say: This statue is famous.",
         "correctAnswer": "Esta estatua es famosa.",
         "hints": [
-          "Una descripcion simple."
+          "A simple description."
         ],
         "exerciseType": "build_sentence"
       },
       {
-        "id": "es-ch-a2",
+        "id": "sp-ch-a2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: In Sweden, fika is a coffee break.",
         "correctAnswer": "En Suecia, la fika es una pausa para cafe.",
         "hints": [
-          "Nombra la costumbre."
+          "Mention the custom by name."
         ],
         "culturalNote": "La fika se centra en compartir tiempo y conversacion."
       },
       {
-        "id": "es-ch-a2-2",
+        "id": "sp-ch-a2-2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: This building is very old.",
         "correctAnswer": "Este edificio es muy antiguo.",
         "hints": [
-          "Describe el lugar."
+          "Describe the place."
         ]
       },
       {
-        "id": "es-ch-a2-3",
+        "id": "sp-ch-a2-3",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: The guide speaks very clearly.",
         "correctAnswer": "El guia habla muy claro.",
         "hints": [
-          "Habla del guia."
+          "Talk about a guide."
         ]
       },
       {
-        "id": "es-ch-b1",
+        "id": "sp-ch-b1",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Choose the best response. Why is this old town important?",
         "correctAnswer": "Muestra como vivia la gente aqui hace siglos.",
         "hints": [
-          "Responde como guia."
+          "Answer like a guide."
         ],
         "exerciseType": "roleplay"
       },
       {
-        "id": "es-ch-b1-2",
+        "id": "sp-ch-b1-2",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Choose the best response. Who built this castle?",
         "correctAnswer": "Lo construyo un rey.",
         "hints": [
-          "Una respuesta clara."
+          "Answer simply and clearly."
         ],
         "exerciseType": "roleplay"
       },
       {
-        "id": "es-ch-b1-3",
+        "id": "sp-ch-b1-3",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "a tradition",
         "correctAnswer": "una tradicion",
         "hints": [
-          "Empareja el termino."
+          "Match the tech term."
         ],
         "exerciseType": "matching"
       },
       {
-        "id": "es-ch-b2",
+        "id": "sp-ch-b2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: Could you explain this tradition to me?",
         "correctAnswer": "Puedes explicarme esta tradicion, por favor?",
         "hints": [
-          "Pregunta con educacion."
+          "A polite question about local culture."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-ch-b2-2",
+        "id": "sp-ch-b2-2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: I love learning local history.",
         "correctAnswer": "Me encanta aprender historia local.",
         "hints": [
-          "Una frase positiva."
+          "A positive statement."
         ],
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-ch-b2-3",
+        "id": "sp-ch-b2-3",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: This legend is popular here.",
         "correctAnswer": "Esta leyenda es popular aqui.",
         "hints": [
-          "Usa un tono natural."
+          "Use a natural tone."
         ],
         "exerciseType": "pronunciation"
       }
     ],
     "nature_animals": [
       {
-        "id": "es-na-a1",
+        "id": "sp-na-a1",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "Say: There is a cat on the roof.",
@@ -1050,7 +1466,7 @@
         ]
       },
       {
-        "id": "es-na-a1-2",
+        "id": "sp-na-a1-2",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "Say: The dog is big and friendly.",
@@ -1061,7 +1477,7 @@
         "exerciseType": "build_sentence"
       },
       {
-        "id": "es-na-a1-3",
+        "id": "sp-na-a1-3",
         "level": "a1",
         "difficulty": "a1",
         "prompt": "a river",
@@ -1072,7 +1488,7 @@
         "exerciseType": "flashcard"
       },
       {
-        "id": "es-na-a2",
+        "id": "sp-na-a2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: The horse is running across the field.",
@@ -1082,7 +1498,7 @@
         ]
       },
       {
-        "id": "es-na-a2-2",
+        "id": "sp-na-a2-2",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Ask: What is the name of that bird?",
@@ -1092,7 +1508,7 @@
         ]
       },
       {
-        "id": "es-na-a2-3",
+        "id": "sp-na-a2-3",
         "level": "a2",
         "difficulty": "a2",
         "prompt": "Say: I saw a fox near the forest last night.",
@@ -1102,7 +1518,7 @@
         ]
       },
       {
-        "id": "es-na-b1",
+        "id": "sp-na-b1",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Say: Wolves usually travel in packs and hunt together.",
@@ -1113,7 +1529,7 @@
         "exerciseType": "build_sentence"
       },
       {
-        "id": "es-na-b1-2",
+        "id": "sp-na-b1-2",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "Choose the best response. Why do birds migrate?",
@@ -1124,7 +1540,7 @@
         "exerciseType": "roleplay"
       },
       {
-        "id": "es-na-b1-3",
+        "id": "sp-na-b1-3",
         "level": "b1",
         "difficulty": "b1",
         "prompt": "a predator",
@@ -1135,7 +1551,7 @@
         "exerciseType": "matching"
       },
       {
-        "id": "es-na-b2",
+        "id": "sp-na-b2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: Sharks are often misunderstood and are rarely dangerous to humans.",
@@ -1146,7 +1562,7 @@
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-na-b2-2",
+        "id": "sp-na-b2-2",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: The trail winds through dense woodland before opening onto the lake.",
@@ -1157,7 +1573,7 @@
         "exerciseType": "pronunciation"
       },
       {
-        "id": "es-na-b2-3",
+        "id": "sp-na-b2-3",
         "level": "b2",
         "difficulty": "b2",
         "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
@@ -1166,6 +1582,437 @@
           "Use present perfect with an adverb for emphasis."
         ],
         "exerciseType": "pronunciation"
+      }
+    ],
+    "sports_fitness": [
+      {
+        "id": "sp-sf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I like to play football with my friends.",
+        "correctAnswer": "Me gusta jugar al fútbol con mis amigos.",
+        "hints": [
+          "Use 'I like + infinitive' for preferences."
+        ],
+        "exerciseType": "build_sentence"
+      },
+      {
+        "id": "sp-sf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "football / swimming / running / cycling",
+        "correctAnswer": "natación",
+        "hints": [
+          "Which sport is done in water?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "fútbol",
+          "natación",
+          "correr",
+          "ciclismo"
+        ]
+      },
+      {
+        "id": "sp-sf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I go running every morning.",
+        "correctAnswer": "Salgo a correr cada mañana.",
+        "hints": [
+          "Use 'go + verb-ing' for sport activities."
+        ]
+      },
+      {
+        "id": "sp-sf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I train at the gym three times a week.",
+        "correctAnswer": "Me entreno en el gimnasio tres veces a la semana.",
+        "hints": [
+          "Include a frequency expression."
+        ]
+      },
+      {
+        "id": "sp-sf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What does 'to warm up' mean?",
+        "correctAnswer": "preparar el cuerpo antes del ejercicio",
+        "hints": [
+          "Think about what you do before exercising."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "enfriarse",
+          "preparar el cuerpo antes del ejercicio",
+          "estirarse después de correr",
+          "levantar pesas"
+        ]
+      },
+      {
+        "id": "sp-sf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: My favourite sport is tennis and I play it on weekends.",
+        "correctAnswer": "Mi deporte favorito es el tenis y lo practico los fines de semana.",
+        "hints": [
+          "Combine a preference with a habit."
+        ]
+      },
+      {
+        "id": "sp-sf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: She has been training for the marathon for six months.",
+        "correctAnswer": "Lleva seis meses entrenando para el maratón.",
+        "hints": [
+          "Use present tense with duration for an ongoing action."
+        ]
+      },
+      {
+        "id": "sp-sf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: Regular exercise improves both physical and mental health.",
+        "correctAnswer": "El ejercicio regular mejora tanto la salud física como la mental.",
+        "hints": [
+          "Use the third-person singular."
+        ]
+      },
+      {
+        "id": "sp-sf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to set a personal best' mean?",
+        "correctAnswer": "lograr tu mejor resultado de siempre",
+        "hints": [
+          "Think about competitive sport records."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "preparar el equipo",
+          "lograr tu mejor resultado de siempre",
+          "entrenar con un entrenador",
+          "unirse a un nuevo equipo"
+        ]
+      },
+      {
+        "id": "sp-sf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
+        "correctAnswer": "Los atletas de élite deben equilibrar el entrenamiento intenso con un tiempo de recuperación adecuado.",
+        "hints": [
+          "Use the modal 'must' for obligation."
+        ]
+      },
+      {
+        "id": "sp-sf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
+        "correctAnswer": "El fisioterapeuta le aconsejó reducir temporalmente su carga de entrenamiento.",
+        "hints": [
+          "Use 'advise someone to + infinitive'."
+        ]
+      },
+      {
+        "id": "sp-sf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The sponsorship deal transformed the club's financial prospects.",
+        "correctAnswer": "El acuerdo de patrocinio transformó las perspectivas financieras del club.",
+        "hints": [
+          "Use past tense for a completed event."
+        ]
+      }
+    ],
+    "news_media": [
+      {
+        "id": "sp-nm-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I read the news every morning.",
+        "correctAnswer": "Leo las noticias cada mañana.",
+        "hints": [
+          "Use simple present for daily routines."
+        ]
+      },
+      {
+        "id": "sp-nm-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "newspaper / television / radio / podcast",
+        "correctAnswer": "televisión",
+        "hints": [
+          "Which medium uses moving images?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "periódico",
+          "televisión",
+          "radio",
+          "pódcast"
+        ]
+      },
+      {
+        "id": "sp-nm-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: This article is interesting.",
+        "correctAnswer": "Este artículo es interesante.",
+        "hints": [
+          "A simple opinion sentence."
+        ]
+      },
+      {
+        "id": "sp-nm-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I prefer reading news online to watching it on TV.",
+        "correctAnswer": "Prefiero leer las noticias en línea a verlas en la televisión.",
+        "hints": [
+          "Use 'prefer + infinitive + rather than + infinitive'."
+        ]
+      },
+      {
+        "id": "sp-nm-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What is a 'headline'?",
+        "correctAnswer": "el título de un artículo periodístico",
+        "hints": [
+          "It appears at the top of each news story."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "el nombre del periodista",
+          "el título de un artículo periodístico",
+          "un pie de foto",
+          "la fecha de publicación"
+        ]
+      },
+      {
+        "id": "sp-nm-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: The reporter interviewed several witnesses.",
+        "correctAnswer": "El reportero entrevistó a varios testigos.",
+        "hints": [
+          "Use past tense for a completed action."
+        ]
+      },
+      {
+        "id": "sp-nm-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: It is important to verify information before sharing it.",
+        "correctAnswer": "Es importante verificar la información antes de compartirla.",
+        "hints": [
+          "Use 'it is + adjective + to + infinitive'."
+        ]
+      },
+      {
+        "id": "sp-nm-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What does 'to go viral' mean?",
+        "correctAnswer": "difundirse rápidamente por internet",
+        "hints": [
+          "Think about how content spreads online."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "infectarse",
+          "difundirse rápidamente por internet",
+          "ser eliminado",
+          "publicarse en papel"
+        ]
+      },
+      {
+        "id": "sp-nm-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: The documentary raised serious questions about media bias.",
+        "correctAnswer": "El documental planteó serias preguntas sobre el sesgo de los medios.",
+        "hints": [
+          "'Raise questions' is a fixed collocation; use past tense."
+        ]
+      },
+      {
+        "id": "sp-nm-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
+        "correctAnswer": "El periodismo de investigación juega un papel crucial para exigir responsabilidades al poder.",
+        "hints": [
+          "Use gerund after 'role in'."
+        ]
+      },
+      {
+        "id": "sp-nm-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The editorial board decided to retract the story after new evidence emerged.",
+        "correctAnswer": "El consejo editorial decidió retirar la historia tras surgir nuevas pruebas.",
+        "hints": [
+          "'Retract' means to officially withdraw a published statement."
+        ]
+      },
+      {
+        "id": "sp-nm-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
+        "correctAnswer": "La curación algorítmica determina cada vez más qué información consumen las audiencias.",
+        "hints": [
+          "Use third-person singular; note the formal register."
+        ],
+        "culturalNote": "Esta frase refleja los debates actuales sobre las burbujas de filtro."
+      }
+    ],
+    "money_finance": [
+      {
+        "id": "sp-mf-a1-1",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: I need to go to the bank.",
+        "correctAnswer": "Necesito ir al banco.",
+        "hints": [
+          "Use 'need to + infinitive' for necessity."
+        ]
+      },
+      {
+        "id": "sp-mf-a1-2",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "banco / tienda / hospital / biblioteca",
+        "correctAnswer": "banco",
+        "hints": [
+          "Where do you manage money?"
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "banco",
+          "tienda",
+          "hospital",
+          "biblioteca"
+        ]
+      },
+      {
+        "id": "sp-mf-a1-3",
+        "level": "a1",
+        "difficulty": "a1",
+        "prompt": "Say: Can I pay by card?",
+        "correctAnswer": "¿Puedo pagar con tarjeta?",
+        "hints": [
+          "Use 'Can I + verb?' to ask for permission."
+        ]
+      },
+      {
+        "id": "sp-mf-a2-1",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I am saving money to buy a new laptop.",
+        "correctAnswer": "Estoy ahorrando dinero para comprar un nuevo ordenador.",
+        "hints": [
+          "Use present continuous + infinitive of purpose."
+        ]
+      },
+      {
+        "id": "sp-mf-a2-2",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "What is an 'ATM'?",
+        "correctAnswer": "una máquina que dispensa efectivo",
+        "hints": [
+          "It dispenses cash."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "una máquina que dispensa efectivo",
+          "un método de transacción avanzado",
+          "un modo de transferencia automática",
+          "un terminal autorizado"
+        ]
+      },
+      {
+        "id": "sp-mf-a2-3",
+        "level": "a2",
+        "difficulty": "a2",
+        "prompt": "Say: I spend too much money on coffee every week.",
+        "correctAnswer": "Gasto demasiado dinero en café cada semana.",
+        "hints": [
+          "Use 'spend money on' for expenses."
+        ]
+      },
+      {
+        "id": "sp-mf-b1-1",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: I have set up a monthly budget to track my expenses.",
+        "correctAnswer": "He establecido un presupuesto mensual para controlar mis gastos.",
+        "hints": [
+          "Use present perfect for a recent action with present relevance."
+        ]
+      },
+      {
+        "id": "sp-mf-b1-2",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "What is an 'interest rate'?",
+        "correctAnswer": "el porcentaje cobrado por un préstamo o ganado en ahorros",
+        "hints": [
+          "It affects how much you pay or earn over time."
+        ],
+        "exerciseType": "multiple_choice",
+        "options": [
+          "una comisión por abrir una cuenta",
+          "el porcentaje cobrado por un préstamo o ganado en ahorros",
+          "el tipo de cambio diario",
+          "un impuesto sobre la renta"
+        ]
+      },
+      {
+        "id": "sp-mf-b1-3",
+        "level": "b1",
+        "difficulty": "b1",
+        "prompt": "Say: If I had saved more last year, I could afford this holiday.",
+        "correctAnswer": "Si hubiera ahorrado más el año pasado, podría permitirme estas vacaciones.",
+        "hints": [
+          "Use third conditional for past regret."
+        ]
+      },
+      {
+        "id": "sp-mf-b2-1",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Inflation erodes purchasing power if wages fail to keep pace.",
+        "correctAnswer": "La inflación erosiona el poder adquisitivo si los salarios no siguen el ritmo.",
+        "hints": [
+          "Use zero conditional for general economic truths."
+        ]
+      },
+      {
+        "id": "sp-mf-b2-2",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: The central bank is expected to raise interest rates next quarter.",
+        "correctAnswer": "Se espera que el banco central suba los tipos de interés el próximo trimestre.",
+        "hints": [
+          "Use passive 'is expected to' for reported predictions."
+        ]
+      },
+      {
+        "id": "sp-mf-b2-3",
+        "level": "b2",
+        "difficulty": "b2",
+        "prompt": "Say: Diversifying your portfolio mitigates exposure to market volatility.",
+        "correctAnswer": "Diversificar la cartera mitiga la exposición a la volatilidad del mercado.",
+        "hints": [
+          "Gerund subject; formal register."
+        ]
       }
     ]
   }
