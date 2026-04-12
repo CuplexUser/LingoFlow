@@ -15,6 +15,7 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Persistent progress (XP, streak, level, category mastery, daily XP, per-item progress) via `better-sqlite3`
 - Multi-user account support with auth (`register`, `verify-email`, `login`, `google`, `me`) and user-scoped persistence
 - Dedicated login/register UI with token-based session persistence and sign-out
+- Setup page danger zone for account deletion (requires password + explicit irreversible-action confirmation)
 - Multi-language course support per account with smooth in-app course switching
 - Per-language session resume with autosaved session snapshots
 - Learn home with a recommended next focus and expandable full catalog
@@ -177,6 +178,7 @@ eslint.config.js     # Flat ESLint config for ESLint 10
 - `POST /api/auth/forgot-password`
 - `POST /api/auth/reset-password`
 - `POST /api/auth/verify-email`
+- `POST /api/auth/delete-account`
 - `GET /api/auth/me`
 - `GET /api/auth/google/start`
 - `GET /api/auth/google/callback`
@@ -200,6 +202,7 @@ eslint.config.js     # Flat ESLint config for ESLint 10
 Notes:
 - Protected learner endpoints (`/api/course`, `/api/content/metrics`, `/api/session/*`, `/api/settings`, `/api/progress`, `/api/stats`, `/api/visitors/stats`, `/api/community/*`) require a bearer token.
 - Email/password users must verify email before login is allowed.
+- In-app account deletion is currently available for local (password) accounts only; it requires both password confirmation and an explicit irreversible-action confirmation flag.
 - Auth and request flow logs are emitted as JSON with `requestId` for correlation.
 
 ## Troubleshooting
