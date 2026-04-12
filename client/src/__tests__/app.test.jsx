@@ -12,6 +12,7 @@ const apiMock = vi.hoisted(() => ({
   resendVerification: vi.fn(),
   forgotPassword: vi.fn(),
   resetPassword: vi.fn(),
+  deleteAccount: vi.fn(),
   verifyEmail: vi.fn(),
   getGoogleOAuthStartUrl: vi.fn(() => "/api/auth/google/start"),
   trackLoginPageVisit: vi.fn(),
@@ -49,7 +50,8 @@ function setupApiFixtures() {
     user: {
       id: 2,
       email: "test@example.com",
-      displayName: "Tester"
+      displayName: "Tester",
+      authProvider: "local"
     }
   });
   const settings = {
@@ -131,6 +133,7 @@ function setupApiFixtures() {
     ]
   });
   apiMock.saveSettings.mockImplementation(async (payload) => payload);
+  apiMock.deleteAccount.mockResolvedValue({ ok: true, message: "Account deleted." });
 }
 
 async function completeSessionAndShowShareCard(user) {
@@ -207,6 +210,53 @@ test("stats page renders fixture insights", async () => {
   expect(screen.getByText("55% acc")).toBeInTheDocument();
   expect(screen.getByText("Word Order")).toBeInTheDocument();
   expect(screen.getByText("4")).toBeInTheDocument();
+});
+
+test("setup page allows local users to delete account with password + confirmation", async () => {
+  setupApiFixtures();
+  const user = userEvent.setup();
+  render(<App />);
+
+  await screen.findByText("LingoFlow");
+  await user.click(screen.getByRole("button", { name: "Setup" }));
+  expect(await screen.findByText("Danger Zone")).toBeInTheDocument();
+
+  const deleteButton = screen.getByRole("button", { name: "Delete Account" });
+  expect(deleteButton).toBeDisabled();
+
+  await user.type(screen.getByPlaceholderText("Enter your current password"), "Password123!");
+  await user.click(screen.getByRole("checkbox", { name: /I understand this action is permanent/i }));
+  expect(deleteButton).toBeEnabled();
+  await user.click(deleteButton);
+
+  await waitFor(() =>
+    expect(apiMock.deleteAccount).toHaveBeenCalledWith({
+      password: "Password123!",
+      confirmDelete: true
+    })
+  );
+  expect(await screen.findByText("Sign in to your account")).toBeInTheDocument();
+  expect(screen.getByText("Account deleted successfully.")).toBeInTheDocument();
+});
+
+test("setup page hides in-app account deletion for oauth users", async () => {
+  setupApiFixtures();
+  apiMock.getMe.mockResolvedValueOnce({
+    user: {
+      id: 2,
+      email: "oauth@example.com",
+      displayName: "OAuth Tester",
+      authProvider: "google"
+    }
+  });
+  const user = userEvent.setup();
+  render(<App />);
+
+  await screen.findByText("LingoFlow");
+  await user.click(screen.getByRole("button", { name: "Setup" }));
+  expect(await screen.findByText("Danger Zone")).toBeInTheDocument();
+  expect(screen.getByText("Account deletion in-app is available only for password-based accounts.")).toBeInTheDocument();
+  expect(screen.queryByPlaceholderText("Enter your current password")).not.toBeInTheDocument();
 });
 
 test("loads and resumes an active session from local storage", async () => {

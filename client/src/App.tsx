@@ -422,6 +422,29 @@ export default function App() {
     setAuthNotice("");
   }
 
+  async function deleteAccount(form: { password: string; confirmDelete: boolean }) {
+    await api.deleteAccount(form);
+    api.clearAuthToken();
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("lingoflow_active_sessions");
+      window.localStorage.removeItem("lingoflow_active_course_language");
+      window.localStorage.removeItem("lingoflow_active_session");
+    }
+    setAuthUser(null);
+    resetAuthenticatedAppData();
+    setActiveCourseLanguage("");
+    clearAllActiveSessions();
+    setStatusMessage("");
+    setSessionShareLine("");
+    setMistakeReviewOffer(null);
+    setAuthError("");
+    setAuthMode("login");
+    setAuthNotice("Account deleted successfully.");
+    if (typeof window !== "undefined" && window.location.pathname !== AUTH_PATHS.login) {
+      window.history.replaceState({}, "", AUTH_PATHS.login);
+    }
+  }
+
   async function saveSetup() {
     if (!settings) return;
 
@@ -910,11 +933,13 @@ export default function App() {
           languages={languages}
           settings={settings}
           draftSettings={draftSettings}
+          authProvider={authUser?.authProvider}
           onDraftChange={(patch: Partial<LearnerSettings>) =>
             setDraftSettings((prev) => ({ ...prev, ...patch }))
           }
           onSave={saveSetup}
           onReset={() => setDraftSettings((settings ? { ...settings } : draftSettings))}
+          onDeleteAccount={deleteAccount}
         />
       ) : null}
 

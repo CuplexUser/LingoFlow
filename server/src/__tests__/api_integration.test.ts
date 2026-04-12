@@ -13,6 +13,14 @@ process.env.LINGOFLOW_DB_PATH = testDbPath;
 process.env.NODE_ENV = "test";
 
 const { createApp } = require("../index.ts");
+const database = require("../db.ts");
+const { createTokenService } = require("../auth/tokenService.ts");
+
+const testTokenService = createTokenService({
+  authSecret: process.env.LINGOFLOW_AUTH_SECRET || "lingoflow-dev-secret-change-me",
+  tokenTtlSeconds: 60 * 60 * 24 * 30,
+  googleStateTtlSeconds: 10 * 60
+});
 
 function makeAttempt(question) {
   if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
@@ -820,6 +828,96 @@ test("forgot password issues token and reset updates login credentials", async (
     body: JSON.stringify({ email, password: newPassword })
   });
   assert.equal(newLoginRes.status, 200);
+});
+
+test("delete account requires explicit confirmation", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const email = `delete-confirm-${Date.now()}@example.com`;
+  const authHeaders = await createAuthHeadersForEmail(base, email, "Delete Confirm");
+
+  const deleteRes = await fetch(`${base}/api/auth/delete-account`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      password: "Password123!",
+      confirmDelete: false
+    })
+  });
+  assert.equal(deleteRes.status, 400);
+
+  const loginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password: "Password123!" })
+  });
+  assert.equal(loginRes.status, 200);
+});
+
+test("delete account removes local account and invalidates existing auth token", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const email = `delete-success-${Date.now()}@example.com`;
+  const authHeaders = await createAuthHeadersForEmail(base, email, "Delete Success");
+
+  const deleteRes = await fetch(`${base}/api/auth/delete-account`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      password: "Password123!",
+      confirmDelete: true
+    })
+  });
+  assert.equal(deleteRes.status, 200);
+
+  const staleTokenRes = await fetch(`${base}/api/settings`, { headers: authHeaders });
+  assert.equal(staleTokenRes.status, 401);
+
+  const loginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password: "Password123!" })
+  });
+  assert.equal(loginRes.status, 401);
+});
+
+test("delete account is rejected for oauth users", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const oauthUser = database.createUser({
+    email: `oauth-delete-${Date.now()}@example.com`,
+    passwordHash: `oauth-google:${Date.now()}`,
+    displayName: "OAuth User",
+    authProvider: "google",
+    emailVerified: true
+  });
+  assert.ok(oauthUser);
+  const token = testTokenService.createAuthToken(oauthUser.id);
+
+  const deleteRes = await fetch(`${base}/api/auth/delete-account`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      password: "Password123!",
+      confirmDelete: true
+    })
+  });
+  assert.equal(deleteRes.status, 400);
 });
 
 test("community contributions are scoped to the signed-in learner by default", async (t) => {

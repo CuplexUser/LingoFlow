@@ -328,6 +328,15 @@ function createApp(): any {
       });
       return res.status(401).json({ error: "Authentication required" });
     }
+    const user = database.getUserById(req.authUserId);
+    if (!user) {
+      logger.logAuthEvent("auth_required_rejected", {
+        requestId: req.requestId,
+        path: req.path,
+        reason: "user_not_found"
+      });
+      return res.status(401).json({ error: "Authentication required" });
+    }
     return next();
   }
 

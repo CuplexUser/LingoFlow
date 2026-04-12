@@ -924,6 +924,18 @@ function createUser({ email, passwordHash, displayName, emailVerified = false, a
   return getUserById(userId);
 }
 
+function deleteUserById(userId) {
+  if (!Number.isInteger(userId) || userId <= 0) return false;
+  const tx = db.transaction(() => {
+    const result = db.prepare(`
+      DELETE FROM users
+      WHERE id = ?
+    `).run(userId);
+    return result.changes > 0;
+  });
+  return tx();
+}
+
 function createEmailVerification({ userId, token, expiresAt }) {
   db.prepare(`
     INSERT INTO email_verifications (user_id, token, expires_at)
@@ -2093,6 +2105,7 @@ module.exports = {
   getUserByEmail,
   getUserById,
   createUser,
+  deleteUserById,
   createEmailVerification,
   replaceEmailVerification,
   consumeEmailVerificationToken,

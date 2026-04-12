@@ -494,6 +494,57 @@ function registerAuthRoutes(app, deps) {
     });
   });
 
+  app.post("/api/auth/delete-account", (req, res) => {
+    if (!req.authUserId) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+
+    const user = database.getUserById(req.authUserId);
+    if (!user) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+
+    const confirmDelete = Boolean(req.body?.confirmDelete);
+    if (!confirmDelete) {
+      return res.status(400).json({ error: "Deletion confirmation is required" });
+    }
+
+    if (user.authProvider !== "local") {
+      return res.status(400).json({ error: "Account deletion is only available for password accounts" });
+    }
+
+    const localUser = database.getUserByEmail(user.email);
+    if (!localUser || localUser.authProvider !== "local") {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+
+    const password = String(req.body?.password || "");
+    if (!password || !verifyPassword(password, localUser.passwordHash)) {
+      logger.logAuthEvent("delete_account_rejected", {
+        requestId: req.requestId,
+        userId: localUser.id,
+        reason: "invalid_password"
+      });
+      return res.status(401).json({ error: "Invalid password" });
+    }
+
+    const deleted = database.deleteUserById(localUser.id);
+    if (!deleted) {
+      logger.logAuthEvent("delete_account_failed", {
+        requestId: req.requestId,
+        userId: localUser.id,
+        reason: "delete_failed"
+      });
+      return res.status(500).json({ error: "Could not delete account" });
+    }
+
+    logger.logAuthEvent("delete_account_success", {
+      requestId: req.requestId,
+      userId: localUser.id
+    });
+    return res.json({ ok: true, message: "Account deleted." });
+  });
+
   app.post("/api/auth/verify-email", (req, res) => {
     const token = normalizeInboundEmailToken(req.body?.token);
     if (!token) return res.status(400).json({ error: "token is required" });

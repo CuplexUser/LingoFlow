@@ -1,26 +1,35 @@
-import type { ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import type { LanguageOption, LearnerSettings } from "../types/course";
 
 type SetupPageProps = {
   languages: LanguageOption[];
   settings: LearnerSettings | null;
   draftSettings: LearnerSettings;
+  authProvider?: string;
   onDraftChange: (patch: Partial<LearnerSettings>) => void;
   onSave: () => void | Promise<void>;
   onReset: () => void;
+  onDeleteAccount: (payload: { password: string; confirmDelete: boolean }) => Promise<void>;
 };
 
 export function SetupPage({
   languages,
   settings,
   draftSettings,
+  authProvider,
   onDraftChange,
   onSave,
-  onReset
+  onReset,
+  onDeleteAccount
 }: SetupPageProps) {
+  const [deletePassword, setDeletePassword] = useState("");
+  const [deleteConfirmed, setDeleteConfirmed] = useState(false);
+  const [deleteBusy, setDeleteBusy] = useState(false);
+  const [deleteError, setDeleteError] = useState("");
   const learningLanguages = languages.filter(
     (language) => language.id !== draftSettings.nativeLanguage
   );
+  const canDeleteInApp = authProvider === "local";
 
   function handleNumberChange(
     key: "dailyGoal" | "dailyMinutes" | "weeklyGoalSessions",
@@ -29,6 +38,22 @@ export function SetupPage({
     return (event: ChangeEvent<HTMLInputElement>) => {
       onDraftChange({ [key]: Number(event.target.value) || fallback });
     };
+  }
+
+  async function handleDeleteAccount() {
+    if (!canDeleteInApp) return;
+    if (!deleteConfirmed || !deletePassword) return;
+    setDeleteBusy(true);
+    setDeleteError("");
+    try {
+      await onDeleteAccount({
+        password: deletePassword,
+        confirmDelete: true
+      });
+    } catch (error: unknown) {
+      setDeleteError(error instanceof Error ? error.message : "Could not delete account.");
+      setDeleteBusy(false);
+    }
   }
 
   return (
@@ -170,6 +195,47 @@ export function SetupPage({
       <div className="hero-actions">
         <button className="primary-button" onClick={onSave}>Save Setup</button>
         <button className="ghost-button" onClick={onReset}>Reset Draft</button>
+      </div>
+
+      <div className="setup-preview">
+        <h3>Danger Zone</h3>
+        {canDeleteInApp ? (
+          <>
+            <p>Deleting your account permanently removes your profile, progress, sessions, and submitted exercises.</p>
+            <label>
+              Confirm with your password
+              <input
+                type="password"
+                value={deletePassword}
+                onChange={(event) => setDeletePassword(event.target.value)}
+                placeholder="Enter your current password"
+                autoComplete="current-password"
+                disabled={deleteBusy}
+              />
+            </label>
+            <label className="toggle-label">
+              <input
+                type="checkbox"
+                checked={deleteConfirmed}
+                onChange={(event) => setDeleteConfirmed(event.target.checked)}
+                disabled={deleteBusy}
+              />
+              <span>I understand this action is permanent and cannot be undone.</span>
+            </label>
+            <div className="hero-actions">
+              <button
+                className="ghost-button"
+                onClick={handleDeleteAccount}
+                disabled={deleteBusy || !deleteConfirmed || !deletePassword}
+              >
+                {deleteBusy ? "Deleting account..." : "Delete Account"}
+              </button>
+            </div>
+            {deleteError ? <div className="feedback">{deleteError}</div> : null}
+          </>
+        ) : (
+          <p>Account deletion in-app is available only for password-based accounts.</p>
+        )}
       </div>
     </section>
   );

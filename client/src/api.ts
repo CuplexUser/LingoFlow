@@ -71,6 +71,11 @@ export type ResetPasswordPayload = {
   password: string;
 };
 
+export type DeleteAccountPayload = {
+  password: string;
+  confirmDelete: boolean;
+};
+
 export type CommunityExercisePayload = {
   language: string;
   category: string;
@@ -365,6 +370,11 @@ export const api = {
   resetPassword: (payload: ResetPasswordPayload) =>
     request<MessageResponse>(
       "/auth/reset-password",
+      { method: "POST", body: JSON.stringify(payload) }
+    ),
+  deleteAccount: (payload: DeleteAccountPayload) =>
+    request<MessageResponse>(
+      "/auth/delete-account",
       { method: "POST", body: JSON.stringify(payload) }
     ),
   verifyEmail: (payload: VerifyEmailPayload) =>
