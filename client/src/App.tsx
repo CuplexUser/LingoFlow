@@ -158,7 +158,7 @@ export default function App() {
     async function verifyEmailFromUrl() {
       if (typeof window === "undefined") return;
       const url = new URL(window.location.href);
-      if (url.pathname !== "/verify-email") return;
+      if (url.pathname !== AUTH_PATHS.verifyEmail) return;
 
       const token = url.searchParams.get("token");
       if (!token) {

@@ -669,6 +669,48 @@ test("resend verification issues fresh token and allows verification", async (t)
   assert.equal(loginRes.status, 200);
 });
 
+test("email verification accepts quoted-printable-mangled token from email clients", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const email = `qp-verify-${Date.now()}@example.com`;
+  const registerRes = await fetch(`${base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!",
+      displayName: "QP Verify"
+    })
+  });
+  assert.equal(registerRes.status, 201);
+  const registered = await registerRes.json();
+  assert.ok(registered.verificationToken);
+
+  const rawToken = String(registered.verificationToken);
+  const mangledToken = `3D${rawToken.slice(0, 14)}=${rawToken.slice(14)}`;
+
+  const verifyRes = await fetch(`${base}/api/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: mangledToken })
+  });
+  assert.equal(verifyRes.status, 200);
+
+  const loginRes = await fetch(`${base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      password: "Password123!"
+    })
+  });
+  assert.equal(loginRes.status, 200);
+});
+
 test("new account settings learnerName inherits registered display name", async (t) => {
   const app = createApp();
   const server = app.listen(0);

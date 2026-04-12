@@ -28,6 +28,29 @@ function buildPasswordResetLink(publicAppUrl, token) {
   return `${baseUrl}/reset-password?token=${encodeURIComponent(token)}`;
 }
 
+function normalizeInboundEmailToken(rawToken) {
+  const trimmed = String(rawToken || "").trim();
+  if (!trimmed) return "";
+  const lower = trimmed.toLowerCase();
+
+  // Some email clients surface quoted-printable encoded query values
+  // (for example `token=3Dabc...` with soft-break `=` insertions).
+  const likelyQuotedPrintableToken = /^3d[a-f0-9=]+$/i.test(lower);
+  if (!likelyQuotedPrintableToken) {
+    return trimmed;
+  }
+
+  const normalizedHex = lower
+    .replace(/^3d/, "")
+    .replace(/[^a-f0-9]/g, "");
+
+  if (normalizedHex.length === 64) {
+    return normalizedHex;
+  }
+
+  return trimmed;
+}
+
 function getEmailTransporter() {
   if (process.env.NODE_ENV === "test") {
     return null;
@@ -378,7 +401,7 @@ function registerAuthRoutes(app, deps) {
   });
 
   app.post("/api/auth/reset-password", (req, res) => {
-    const token = String(req.body?.token || "");
+    const token = normalizeInboundEmailToken(req.body?.token);
     const password = String(req.body?.password || "");
     if (!token || password.length < 8) {
       return res.status(400).json({ error: "Valid token and password are required" });
@@ -472,7 +495,7 @@ function registerAuthRoutes(app, deps) {
   });
 
   app.post("/api/auth/verify-email", (req, res) => {
-    const token = String(req.body?.token || "");
+    const token = normalizeInboundEmailToken(req.body?.token);
     if (!token) return res.status(400).json({ error: "token is required" });
     const user = database.consumeEmailVerificationToken(token);
     if (!user) {

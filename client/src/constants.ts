@@ -10,7 +10,8 @@ export const AUTH_PATHS = {
   login: "/login",
   register: "/register",
   forgotPassword: "/forgot-password",
-  resetPassword: "/reset-password"
+  resetPassword: "/reset-password",
+  verifyEmail: "/verify-email"
 } as const;
 
 export const THEME_STORAGE_KEY = "lingoflow_theme_mode";
