@@ -336,7 +336,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
           prompt: stripExercisePrefix(candidate.prompt),
           answer: resolveAnswer(candidate)
         }))
-    , randomFn).slice(0, 3);
+      , randomFn).slice(0, 3);
     return {
       ...base,
       prompt: "Match each phrase to its translation.",
@@ -353,7 +353,13 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "mc_sentence") {
-    const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
+    //const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
+    const authoredOptions = Array.isArray(item.options) && item.options.length >= 2
+      ? item.options.map((o) => String(o || "")).filter(Boolean)
+      : null;
+    const distractors = authoredOptions
+      ? authoredOptions.filter((o) => o !== answer).slice(0, 3)
+      : pickLevelAwareDistractors(pool, item, 3, randomFn);
     return {
       ...base,
       options: shuffle([answer, ...distractors], randomFn)
@@ -625,7 +631,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     const selectedIds = new Set(dueItems.map((item) => item.id));
     const weakItems = shuffle(
       sourcePool.filter((item) => weakSet.has(item.id) && !selectedIds.has(item.id))
-    , randomFn).slice(0, weakTarget);
+      , randomFn).slice(0, weakTarget);
     weakItems.forEach((item) => selectedIds.add(item.id));
 
     const remaining = sourcePool.filter((item) => !selectedIds.has(item.id));
