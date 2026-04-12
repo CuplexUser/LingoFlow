@@ -202,7 +202,7 @@ test("stats page renders fixture insights", async () => {
   await user.click(screen.getByRole("button", { name: "Stats" }));
 
   expect(await screen.findByText("Focus Next")).toBeInTheDocument();
-  expect(screen.getByText("Improve these categories next: essentials.")).toBeInTheDocument();
+  expect(screen.getByText("Improve these categories next: Essentials.")).toBeInTheDocument();
   expect(screen.getByText("Grammar A1")).toBeInTheDocument();
   expect(screen.getByText("55% acc")).toBeInTheDocument();
   expect(screen.getByText("Word Order")).toBeInTheDocument();

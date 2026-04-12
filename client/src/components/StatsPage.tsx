@@ -84,11 +84,18 @@ export function StatsPage({
   progressOverview,
   languages
 }: StatsPageProps) {
-  const totalCategoryCount = statsData?.categoryCount ?? courseCategories.length ?? 0;
+  const totalCategoryCount = courseCategories.length || statsData?.categoryCount || 0;
   const dailyXpHistory = (statsData?.dailyXpHistory || []).slice(-14);
   const sessionsByDay = (statsData?.sessionsByDay || []).slice(-7);
-  const completionPercent = statsData?.completionPercent ?? 0;
-  const accuracyPercent = statsData?.accuracyPercent ?? 0;
+  const completionPercent = courseCategories.length
+    ? Math.round(courseCategories.reduce((sum, category) => sum + category.mastery, 0) / courseCategories.length)
+    : (statsData?.completionPercent ?? 0);
+  const accuracyPercent = courseCategories.length
+    ? Math.round(courseCategories.reduce((sum, category) => sum + category.accuracy, 0) / courseCategories.length)
+    : (statsData?.accuracyPercent ?? 0);
+  const masteredCount = courseCategories.length
+    ? courseCategories.filter((category) => category.mastery >= 75).length
+    : (statsData?.masteredCount ?? 0);
   const weeklyGoalProgress = statsData?.weeklyGoalProgress ?? 0;
   const chartColors = getThemeChartColors(activeTheme);
   const activeLanguageLabel = languages.find((item) => item.id === settings?.targetLanguage)?.label || "Language";
@@ -133,22 +140,21 @@ export function StatsPage({
   }), [sessionsByDay, chartColors.bar, chartColors.line]);
 
   const categoryForCharts = useMemo(() => {
-    const source = statsData?.categoryStats?.length
-      ? statsData.categoryStats
-      : courseCategories.map((entry) => ({
-        category: entry.id,
-        sessions: entry.attempts,
-        accuracy: entry.accuracy
-      }));
-
-    return source
+    const statsByCategory = new Map(
+      (statsData?.categoryStats || []).map((entry) => [entry.category, entry])
+    );
+    return courseCategories
+      .map((category) => {
+        const fromStats = statsByCategory.get(category.id);
+        return {
+          category: category.id,
+          sessions: fromStats?.sessions ?? category.attempts ?? 0,
+          accuracy: Number.isFinite(category.accuracy) ? category.accuracy : (fromStats?.accuracy ?? 0),
+          label: category.label || toTitleFromId(category.id)
+        };
+      })
       .filter((entry) => Number.isFinite(entry.accuracy))
-      .sort((left, right) => right.accuracy - left.accuracy)
-      .slice(0, 8)
-      .map((entry) => ({
-        ...entry,
-        label: toTitleFromId(entry.category)
-      }));
+      .sort((left, right) => right.accuracy - left.accuracy);
   }, [statsData, courseCategories]);
 
   const radarData = useMemo(() => ({
@@ -213,22 +219,28 @@ export function StatsPage({
   const weeklyTarget = statsData?.weeklyGoalSessions ?? 5;
   const weakObjectives = (statsData?.objectiveStats || []).slice(0, 4);
   const overviewLanguages = useMemo(() => {
+    const overviewByLanguage = new Map(
+      (progressOverview?.languages || [])
+        .map((entry) => [String(entry.language || "").trim().toLowerCase(), entry] as const)
+        .filter(([languageId]) => Boolean(languageId))
+    );
     const knownLanguageIds = new Set(languages.map((item) => item.id));
-    return (progressOverview?.languages || [])
-      .map((entry) => {
-        const rawLanguage = String(entry.language || "").trim().toLowerCase();
+    const selectableLanguages = languages.filter((item) => item.id !== settings?.nativeLanguage);
+    return selectableLanguages
+      .map((language) => {
+        const rawLanguage = String(language.id || "").trim().toLowerCase();
         if (!rawLanguage) return null;
         if (/^\d+$/.test(rawLanguage) && !knownLanguageIds.has(rawLanguage)) return null;
-        const known = languages.find((item) => item.id === rawLanguage);
+        const fromOverview = overviewByLanguage.get(rawLanguage);
         return {
           key: rawLanguage,
-          label: known?.label || toTitleFromId(rawLanguage),
-          totalXp: entry.totalXp,
-          streak: entry.streak
+          label: language.label || toTitleFromId(rawLanguage),
+          totalXp: fromOverview?.totalXp ?? 0,
+          streak: fromOverview?.streak ?? 0
         };
       })
       .filter((entry): entry is { key: string; label: string; totalXp: number; streak: number } => Boolean(entry));
-  }, [progressOverview?.languages, languages]);
+  }, [progressOverview?.languages, languages, settings?.nativeLanguage]);
   const chartThemeKey = activeTheme;
   const barOptions = useMemo(() => ({
     ...commonOptions,
@@ -273,7 +285,7 @@ export function StatsPage({
 
         <article className="kpi">
           <div className="kpi-label">Mastered</div>
-          <div className="kpi-value">{statsData?.masteredCount ?? 0}/{totalCategoryCount}</div>
+          <div className="kpi-value">{masteredCount}/{totalCategoryCount}</div>
           <div className="kpi-sub">categories &gt;= 75% mastery</div>
         </article>
       </div>
@@ -302,7 +314,6 @@ export function StatsPage({
             {courseCategories
               .slice()
               .sort((left, right) => right.mastery - left.mastery)
-              .slice(0, 8)
               .map((category) => (
                 <div key={category.id} className="mastery-row">
                   <span className="mastery-label">{category.label}</span>
@@ -433,7 +444,13 @@ export function StatsPage({
       {statsData?.weakestCategories?.length ? (
         <div className="setup-preview">
           <h3>Focus Next</h3>
-          <p>Improve these categories next: {statsData.weakestCategories.join(", ")}.</p>
+          <p>
+            Improve these categories next: {
+              statsData.weakestCategories
+                .map((categoryId) => courseCategories.find((entry) => entry.id === categoryId)?.label || toTitleFromId(categoryId))
+                .join(", ")
+            }.
+          </p>
         </div>
       ) : null}
 
