@@ -3,7 +3,7 @@ import { AUTH_PATHS, PAGE_PATHS } from "../constants";
 import { getPageFromPathname } from "../utils/theme";
 
 export type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
-export type AppPage = "learn" | "practice" | "contribute" | "setup" | "stats";
+export type AppPage = "bookmarks" | "learn" | "practice" | "contribute" | "setup" | "stats";
 
 export function getAuthModeFromPathname(pathname: string): AuthMode {
   if (pathname === AUTH_PATHS.register) return "register";

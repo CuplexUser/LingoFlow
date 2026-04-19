@@ -21,7 +21,16 @@ LingoFlow is a React + Express language training app inspired by Duolingo, with 
 - Learn home with a recommended next focus and expandable full catalog
 - Practice modes for speaking, listening, and word-matching drills
 - Practice sessions award fixed XP (Speak: 10, Listen: 10, Words: 5)
-- Stats dashboard with completion, accuracy, weak-spot insights, and per-language rollups
+- Stats dashboard with completion, accuracy, weak-spot insights, per-language rollups, and a 14-day XP trend graph
+- Daily streak badge with "streak at risk" warning when no practice has been logged today
+- Live XP estimate tally in the session header, updating per correct answer
+- Session keyboard shortcuts: `1`–`4` select a multiple-choice option, `Enter` submits; shortcut labels are shown on option buttons
+- Smooth slide-up animation on question transitions
+- Correct-answer flash: 900 ms green banner before auto-advancing
+- Progressive build-sentence hints: first hint plays audio, second hint pulses the next token to place
+- Post-session "Review mistakes" mini-session drilled from attempt logs
+- Session summary share card with a copyable one-line result
+- Bookmarks: "Save for review" button on the session feedback panel; saved items appear on a dedicated Bookmarks page with text-to-speech playback and adjustable speed
 - Theme switcher (auto/light/dark)
 - Language options: `English`, `Spanish`, `Russian`, `Italian`, `Swedish`
 
@@ -92,7 +101,7 @@ npm run start:dist --prefix server
 ```text
 client/
   src/App.tsx        # App shell + orchestration
-  src/components/    # Learn/Practice/Setup/Stats/SessionPlayer components
+  src/components/    # Learn/Practice/Setup/Stats/SessionPlayer/BookmarksPage components
                   # + AuthPage (login/register/google sign-in)
                   # + ContributePage and contribution flows
   src/__tests__/     # Frontend tests (Vitest + Testing Library)
@@ -189,6 +198,9 @@ eslint.config.js     # Flat ESLint config for ESLint 10
 - `POST /api/session/start`
 - `POST /api/session/daily`
 - `POST /api/session/complete`
+- `GET /api/bookmarks?language=<id>`
+- `POST /api/bookmarks`
+- `DELETE /api/bookmarks/:questionId`
 - `GET /api/settings`
 - `PUT /api/settings`
 - `GET /api/progress?language=<id>`
@@ -200,7 +212,7 @@ eslint.config.js     # Flat ESLint config for ESLint 10
 - `PATCH /api/community/contributions/:id`
 
 Notes:
-- Protected learner endpoints (`/api/course`, `/api/content/metrics`, `/api/session/*`, `/api/settings`, `/api/progress`, `/api/stats`, `/api/visitors/stats`, `/api/community/*`) require a bearer token.
+- Protected learner endpoints (`/api/course`, `/api/content/metrics`, `/api/session/*`, `/api/bookmarks`, `/api/settings`, `/api/progress`, `/api/stats`, `/api/visitors/stats`, `/api/community/*`) require a bearer token.
 - Email/password users must verify email before login is allowed.
 - In-app account deletion is currently available for local (password) accounts only; it requires both password confirmation and an explicit irreversible-action confirmation flag.
 - Auth and request flow logs are emitted as JSON with `requestId` for correlation.

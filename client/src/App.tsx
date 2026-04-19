@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   api,
+  type Bookmark,
   type AuthSuccessPayload,
   type AuthUser,
   type CommunityExercisePayload
@@ -11,6 +12,7 @@ import practiceIcon from "./assets/icon-practice.svg";
 import setupIcon from "./assets/icon-setup.svg";
 import statsIcon from "./assets/icon-stats.svg";
 import { AuthPage } from "./components/AuthPage";
+import { BookmarksPage } from "./components/BookmarksPage";
 import { ContributePage } from "./components/ContributePage";
 import { LearnPage } from "./components/LearnPage";
 import { PracticePage } from "./components/PracticePage";
@@ -100,6 +102,9 @@ export default function App() {
   const [statusMessage, setStatusMessage] = useState("");
   const [sessionShareLine, setSessionShareLine] = useState("");
   const [mistakeReviewOffer, setMistakeReviewOffer] = useState<MistakeReviewOffer | null>(null);
+  const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+  const [bookmarksLoading, setBookmarksLoading] = useState(false);
+  const [bookmarksError, setBookmarksError] = useState("");
   const [loading, setLoading] = useState(true);
   const { themeMode, setThemeMode, activeTheme } = useThemeMode();
   const {
@@ -272,6 +277,36 @@ export default function App() {
     });
   }, [authMode, authUser]);
 
+  useEffect(() => {
+    if (!authUser || !activeCourseLanguage) return;
+    let cancelled = false;
+
+    async function loadBookmarks() {
+      const showLoading = activePage === "bookmarks";
+      if (showLoading) {
+        setBookmarksLoading(true);
+      }
+      setBookmarksError("");
+      try {
+        const data = await api.getBookmarks(activeCourseLanguage);
+        if (cancelled) return;
+        setBookmarks(data);
+      } catch (_error) {
+        if (cancelled) return;
+        setBookmarks([]);
+        setBookmarksError("Could not load bookmarks right now.");
+      } finally {
+        setBookmarksLoading(false);
+      }
+    }
+
+    loadBookmarks();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [authUser, activeCourseLanguage, activePage]);
+
   function handleNavigateAuthMode(nextMode: AuthMode) {
     navigateAuthMode(nextMode);
     if (nextMode !== "login") {
@@ -420,6 +455,9 @@ export default function App() {
     setSessionShareLine("");
     setMistakeReviewOffer(null);
     setAuthNotice("");
+    setBookmarks([]);
+    setBookmarksError("");
+    setBookmarksLoading(false);
   }
 
   async function deleteAccount(form: { password: string; confirmDelete: boolean }) {
@@ -438,6 +476,9 @@ export default function App() {
     setSessionShareLine("");
     setMistakeReviewOffer(null);
     setAuthError("");
+    setBookmarks([]);
+    setBookmarksError("");
+    setBookmarksLoading(false);
     setAuthMode("login");
     setAuthNotice("Account deleted successfully.");
     if (typeof window !== "undefined" && window.location.pathname !== AUTH_PATHS.login) {
@@ -722,6 +763,16 @@ export default function App() {
     return result;
   }
 
+  async function removeBookmark(questionId: string) {
+    try {
+      await api.removeBookmark(questionId);
+      setBookmarks((prev) => prev.filter((item) => item.questionId !== questionId));
+      setStatusMessage("Bookmark removed.");
+    } catch (_error) {
+      setStatusMessage("Could not remove bookmark.");
+    }
+  }
+
   const dailyProgressPercent = useMemo(() => {
     if (!settings || !progress) return 0;
     return Math.min(100, Math.round(((progress.todayXp || 0) / settings.dailyGoal) * 100));
@@ -732,6 +783,7 @@ export default function App() {
       ? (authUser?.email || authUser?.displayName || "Learner")
       : (authUser?.displayName || authUser?.email || "Learner");
   const activeLanguageLabel = languages.find((item) => item.id === activeCourseLanguage)?.label || "Language";
+  const bookmarkCountLabel = bookmarks.length > 99 ? "99+" : String(bookmarks.length);
 
   if (loading) {
     return <main className="app-shell">Loading LingoFlow...</main>;
@@ -784,6 +836,20 @@ export default function App() {
             </span>
           </div>
           <div className="topbar-actions">
+            <button
+              className={`bookmark-topbar-button${activePage === "bookmarks" ? " active" : ""}`}
+              type="button"
+              title="Bookmarks"
+              aria-label="Bookmarks"
+              onClick={() => navigateToPage("bookmarks")}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h12a1 1 0 0 1 1 1v17l-7-3-7 3V4a1 1 0 0 1 1-1Z" />
+              </svg>
+              {bookmarks.length ? (
+                <span className="bookmark-topbar-badge">{bookmarkCountLabel}</span>
+              ) : null}
+            </button>
             <label className="theme-switcher">
               Course
               <select
@@ -903,6 +969,16 @@ export default function App() {
           onSessionSnapshot={(snapshot) => saveSessionSnapshot(activeCourseLanguage, snapshot)}
           onOpenSetup={() => navigateToPage("setup")}
           onOpenStats={() => navigateToPage("stats")}
+        />
+      ) : null}
+
+      {activePage === "bookmarks" ? (
+        <BookmarksPage
+          bookmarks={bookmarks}
+          loading={bookmarksLoading}
+          errorMessage={bookmarksError}
+          activeLanguageLabel={activeLanguageLabel}
+          onRemoveBookmark={removeBookmark}
         />
       ) : null}
 
