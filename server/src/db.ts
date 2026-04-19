@@ -471,6 +471,18 @@ db.exec(`
     first_seen_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(date, visitor_hash)
   );
+
+  CREATE TABLE IF NOT EXISTS bookmarks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    question_id TEXT NOT NULL,
+    prompt TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    language TEXT NOT NULL,
+    category TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(user_id, question_id)
+  );
 `);
 
 db.exec(`
@@ -496,6 +508,14 @@ db.exec(`
   ON community_exercises(user_id, moderation_status, created_at DESC);
   CREATE INDEX IF NOT EXISTS idx_login_page_unique_visitors_date
   ON login_page_unique_visitors(date);
+  CREATE INDEX IF NOT EXISTS idx_daily_xp_user_date
+  ON daily_xp(user_id, date DESC);
+  CREATE INDEX IF NOT EXISTS idx_daily_xp_user_language_date
+  ON daily_xp(user_id, language, date DESC);
+  CREATE INDEX IF NOT EXISTS idx_progress_user
+  ON progress(user_id);
+  CREATE INDEX IF NOT EXISTS idx_bookmarks_user
+  ON bookmarks(user_id, created_at DESC);
 `);
 
 function ensureSettingsColumns() {
@@ -1774,6 +1794,38 @@ function getVisitorStats({
   };
 }
 
+function addBookmark(userId, { questionId, prompt, answer, language, category = "" }) {
+  db.prepare(`
+    INSERT OR IGNORE INTO bookmarks (user_id, question_id, prompt, answer, language, category)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `).run(userId, String(questionId), String(prompt), String(answer), String(language), String(category));
+}
+
+function removeBookmark(userId, questionId) {
+  db.prepare(`DELETE FROM bookmarks WHERE user_id = ? AND question_id = ?`).run(userId, String(questionId));
+}
+
+function getBookmarks(userId, language?) {
+  const safeLanguage = language ? normalizeLanguageId(language, "") : null;
+  const rows = safeLanguage
+    ? db.prepare(`SELECT * FROM bookmarks WHERE user_id = ? AND language = ? ORDER BY created_at DESC`).all(userId, safeLanguage)
+    : db.prepare(`SELECT * FROM bookmarks WHERE user_id = ? ORDER BY created_at DESC`).all(userId);
+  return rows.map((row) => ({
+    id: row.id,
+    questionId: row.question_id,
+    prompt: row.prompt,
+    answer: row.answer,
+    language: row.language,
+    category: row.category,
+    createdAt: row.created_at
+  }));
+}
+
+function isBookmarked(userId, questionId) {
+  const row = db.prepare(`SELECT 1 FROM bookmarks WHERE user_id = ? AND question_id = ?`).get(userId, String(questionId));
+  return Boolean(row);
+}
+
 function getStats(userId = 1, language) {
   const settings = getSettings(userId);
   const safeLanguage = normalizeLanguageId(language, settings.targetLanguage || "spanish");
@@ -2132,6 +2184,10 @@ module.exports = {
   updateCommunityExerciseModerationStatus,
   recordLoginPageVisit,
   getVisitorStats,
+  addBookmark,
+  removeBookmark,
+  getBookmarks,
+  isBookmarked,
   getTodayXp,
   getProgress,
   getProgressOverview,

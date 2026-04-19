@@ -459,7 +459,7 @@ export function FeedbackPanel({ feedback, builtWords, onReveal }: FeedbackPanelP
         </div>
       ) : null}
       {feedback.showReveal ? (
-        <button className="ghost-button" onClick={onReveal}>
+        <button type="button" className="ghost-button" onClick={onReveal}>
           Reveal Answer
         </button>
       ) : null}

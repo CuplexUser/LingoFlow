@@ -116,6 +116,18 @@ export type SessionCompletePayload = {
   revealedAnswers: number;
 };
 
+export type Bookmark = {
+  id: number;
+  questionId: string;
+  prompt: string;
+  answer: string;
+  language: string;
+  category: string;
+  createdAt: string;
+};
+
+export type BookmarkToggleResponse = { ok: boolean; bookmarked: boolean };
+
 export type MessageResponse = {
   ok?: boolean;
   message?: string;
@@ -426,5 +438,11 @@ export const api = {
       { method: "PATCH", body: JSON.stringify(payload) }
     ),
   contributeExercise: (payload: CommunityExercisePayload) =>
-    request<MessageResponse>("/community/contribute", { method: "POST", body: JSON.stringify(payload) })
+    request<MessageResponse>("/community/contribute", { method: "POST", body: JSON.stringify(payload) }),
+  getBookmarks: (language?: string) =>
+    request<Bookmark[]>(`/bookmarks${language ? `?language=${encodeURIComponent(language)}` : ""}`),
+  addBookmark: (payload: { questionId: string; prompt: string; answer: string; language: string; category: string }) =>
+    request<BookmarkToggleResponse>("/bookmarks", { method: "POST", body: JSON.stringify(payload) }),
+  removeBookmark: (questionId: string) =>
+    request<BookmarkToggleResponse>(`/bookmarks/${encodeURIComponent(questionId)}`, { method: "DELETE" })
 };

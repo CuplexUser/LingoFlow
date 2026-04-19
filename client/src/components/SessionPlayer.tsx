@@ -17,6 +17,7 @@ import {
 import { useSessionEngine } from "./session/useSessionEngine";
 import { useSessionSnapshot } from "./session/useSessionSnapshot";
 import { useSessionSpeech } from "./session/useSessionSpeech";
+import { api } from "../api";
 import type {
   ActiveSession,
   SessionFeedback,
@@ -106,11 +107,23 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   const [matchingPromptOrder, setMatchingPromptOrder] = useState<string[]>(() => resumeState.matchingPromptOrder || []);
   const [matchingAnswerOrder, setMatchingAnswerOrder] = useState<string[]>(() => resumeState.matchingAnswerOrder || []);
   const [buildHintCount, setBuildHintCount] = useState(0);
+  const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
   const draggedWordIndexRef = useRef<number | null>(null);
   const builtWordDropHandledRef = useRef(false);
 
   const question = questionsQueue[index];
   const currentStep = Math.min(index + 1, fixedQuestionCount);
+
+  // Mirror server-side XP formula for a live estimate (shown during the session)
+  const estimatedXp = (() => {
+    const levelMultipliers: Record<string, number> = { a1: 1.0, a2: 1.25, b1: 1.6, b2: 2.0 };
+    const lm = levelMultipliers[session.recommendedLevel] ?? 1;
+    const acc = fixedQuestionCount > 0 ? score / fixedQuestionCount : 0;
+    const baseXp = 16 + fixedQuestionCount * 2;
+    const bonus = acc >= 0.9 ? 8 : acc >= 0.75 ? 4 : 0;
+    const penalty = (acc < 0.5 ? 6 : 0) + totalMistakes * 2 + hintsUsed + revealedAnswers * 3;
+    return Math.max(4, Math.round(baseXp * lm + bonus - penalty));
+  })();
   const progress = Math.round((currentStep / fixedQuestionCount) * 100);
   const builtWords = question.type === "build_sentence" || question.type === "dictation_sentence"
     ? selectedTokenIndexes.map((idx: number) => question.tokens?.[idx] || "")
@@ -435,6 +448,23 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     }
   }
 
+  function toggleBookmark() {
+    const qid = question.id;
+    const isCurrentlyBookmarked = bookmarkedIds.has(qid);
+    setBookmarkedIds((prev) => {
+      const next = new Set(prev);
+      if (isCurrentlyBookmarked) next.delete(qid); else next.add(qid);
+      return next;
+    });
+    const prompt = String(question.prompt || "");
+    const answer = "answer" in question ? String(question.answer || "") : "";
+    if (isCurrentlyBookmarked) {
+      api.removeBookmark(qid).catch(() => {});
+    } else {
+      api.addBookmark({ questionId: qid, prompt, answer, language: session.language, category: session.categoryLabel }).catch(() => {});
+    }
+  }
+
   function handleBuiltWordDragEnd() {
     if (
       Number.isInteger(draggedWordIndexRef.current) &&
@@ -472,8 +502,21 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         ) : null}
         {question.type === "roleplay" ? <span>Roleplay</span> : null}
         <span>{currentStep}/{fixedQuestionCount}</span>
+        <span className="session-xp-tally">~{estimatedXp} XP</span>
+        <button
+          type="button"
+          className={`bookmark-btn${bookmarkedIds.has(question.id) ? " bookmarked" : ""}`}
+          onClick={toggleBookmark}
+          title="Save for review"
+          aria-label={bookmarkedIds.has(question.id) ? "Remove bookmark" : "Save for review"}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill={bookmarkedIds.has(question.id) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+        </button>
       </div>
 
+      <div key={question.id} className="question-body">
       <h2>{question.prompt}</h2>
       {question.type === "roleplay" ? (
         <div className="build-hints">
@@ -646,7 +689,11 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         />
       ) : null}
 
-      <FeedbackPanel feedback={feedback} builtWords={builtWords} onReveal={revealAnswer} />
+      <FeedbackPanel
+        feedback={feedback}
+        builtWords={builtWords}
+        onReveal={revealAnswer}
+      />
 
       {question.type !== "practice_words" ? (
         <button
@@ -657,6 +704,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           Check
         </button>
       ) : null}
+      </div>
     </section>
   );
 }

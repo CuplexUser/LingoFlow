@@ -424,10 +424,18 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   const answerTokens = answer.split(" ");
+  const answerSet = new Set(answerTokens.map((t) => t.toLowerCase()));
+  const avgAnswerLen = answerTokens.reduce((sum, t) => sum + t.length, 0) / Math.max(1, answerTokens.length);
   const tokenPool = pool
     .flatMap((entry) => resolveAnswer(entry).split(" "))
-    .filter((token) => token.length > 2 && !answerTokens.includes(token));
-  const noise = shuffle(tokenPool, randomFn).slice(0, 2);
+    .filter((token) => token.length > 2 && !answerSet.has(token.toLowerCase()));
+  // Prefer noise tokens whose length is close to the average answer-token length (plausible distractors)
+  const scored = tokenPool.map((token) => ({
+    token,
+    score: Math.abs(token.length - avgAnswerLen) + randomFn()
+  }));
+  scored.sort((a, b) => a.score - b.score);
+  const noise = scored.slice(0, 3).map((entry) => entry.token);
 
   return {
     ...base,

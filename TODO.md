@@ -14,11 +14,11 @@ This file captures current product and technical priorities for future assignmen
 
 ### Phase 7: Integrity, operations, and scale
 
-- [ ] Prevent score inflation via duplicate `questionId` submissions.
+- [x] Prevent score inflation via duplicate `questionId` submissions.
 - [x] Wrap session completion writes in a DB transaction (atomic completion).
 - [x] Replace hardcoded frontend API base URL with environment configuration.
-- [ ] Add rate limiting for auth and session endpoints.
-- [ ] Add SQLite indexes for stats/history query paths.
+- [x] Add rate limiting for auth and session endpoints.
+- [x] Add SQLite indexes for stats/history query paths.
 - [x] Add structured request/error logging and basic health diagnostics.
 
 ### Phase 10: Session UX and retention polish
@@ -31,6 +31,20 @@ This file captures current product and technical priorities for future assignmen
 - [x] Daily challenge endpoint with deterministic same-per-language/per-day sessions.
 - [x] React error boundary around `SessionPlayer` with friendly fallback.
 - [x] Session summary share card with copyable one-line result.
+
+### Phase 12: Engagement, quality, and UX polish
+
+- [x] Daily streak badge with "streak at risk" warning when no practice today.
+- [x] Live XP estimate tally in session header (updates per correct answer).
+- [x] Smooth question transitions (slide-up animation on question change).
+- [x] Improve `build_sentence` noise token quality: 3 plausible-length distractors instead of 2 random words.
+- [x] Bookmark / "Save for review" button on feedback panel — persisted per user via `bookmarks` table and `/api/bookmarks` REST endpoints.
+- [x] SQLite indexes on `daily_xp(user_id, date)`, `daily_xp(user_id, language, date)`, `progress(user_id)`, and `bookmarks(user_id)`.
+- [x] In-memory sliding-window rate limiting on auth endpoints (5 req/min for login/register, 10 req/min for others).
+- [x] Fix MC punctuation giveaway: normalize all option endings to match correct answer terminal punctuation.
+- [x] Progressive build-sentence hints: 1st click plays audio, 2nd click pulses the next token to place.
+- [x] Correct-answer flash: 900 ms "Correct!" green banner before auto-advancing.
+- [x] Keyboard shortcut key labels (1–4) on multiple-choice option buttons.
 
 ### Phase 8: Quality tooling and maintainability
 

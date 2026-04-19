@@ -1,6 +1,27 @@
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
+// In-memory sliding-window rate limiter. Keyed by IP address.
+const rateLimitStore = new Map<string, number[]>();
+
+function makeRateLimiter(maxRequests: number, windowMs: number) {
+  return (req: any, res: any, next: any) => {
+    if (process.env.NODE_ENV === "test") return next();
+    const key = String(req.ip || req.socket?.remoteAddress || "unknown");
+    const now = Date.now();
+    const timestamps = (rateLimitStore.get(key) || []).filter((t) => now - t < windowMs);
+    if (timestamps.length >= maxRequests) {
+      return res.status(429).json({ error: "Too many requests. Please try again later." });
+    }
+    timestamps.push(now);
+    rateLimitStore.set(key, timestamps);
+    next();
+  };
+}
+
+const authRateLimit = makeRateLimiter(10, 60_000);       // 10 per minute
+const sensitiveRateLimit = makeRateLimiter(5, 60_000);   // 5 per minute (login, register)
+
 function emailFingerprint(email) {
   const normalized = String(email || "").trim().toLowerCase();
   if (!normalized) return "none";
@@ -203,7 +224,7 @@ function registerAuthRoutes(app, deps) {
     };
   }
 
-  app.post("/api/auth/register", async (req, res) => {
+  app.post("/api/auth/register", sensitiveRateLimit, async (req, res) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     const password = String(req.body?.password || "");
     const displayName = String(req.body?.displayName || "Learner").trim() || "Learner";
@@ -285,7 +306,7 @@ function registerAuthRoutes(app, deps) {
     }
   });
 
-  app.post("/api/auth/login", (req, res) => {
+  app.post("/api/auth/login", sensitiveRateLimit, (req, res) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     const password = String(req.body?.password || "");
 
@@ -326,7 +347,7 @@ function registerAuthRoutes(app, deps) {
     });
   });
 
-  app.post("/api/auth/resend-verification", async (req, res) => {
+  app.post("/api/auth/resend-verification", authRateLimit, async (req, res) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     if (!email || !email.includes("@")) {
       return res.status(400).json({ error: "Valid email is required" });
@@ -362,7 +383,7 @@ function registerAuthRoutes(app, deps) {
     });
   });
 
-  app.post("/api/auth/forgot-password", async (req, res) => {
+  app.post("/api/auth/forgot-password", authRateLimit, async (req, res) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     if (!email || !email.includes("@")) {
       return res.status(400).json({ error: "Valid email is required" });
@@ -400,7 +421,7 @@ function registerAuthRoutes(app, deps) {
     });
   });
 
-  app.post("/api/auth/reset-password", (req, res) => {
+  app.post("/api/auth/reset-password", authRateLimit, (req, res) => {
     const token = normalizeInboundEmailToken(req.body?.token);
     const password = String(req.body?.password || "");
     if (!token || password.length < 8) {

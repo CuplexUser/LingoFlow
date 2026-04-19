@@ -101,6 +101,25 @@ body {
   background: var(--surface);
 }
 
+.streak-badge {
+  font-weight: 700;
+  color: #b45309;
+  border-color: #fcd34d;
+  background: #fffbeb;
+}
+
+.streak-badge.streak-at-risk {
+  color: #b91c1c;
+  border-color: #fca5a5;
+  background: #fff1f2;
+  animation: streak-pulse 2s ease-in-out infinite;
+}
+
+@keyframes streak-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 .auth-shell {
   min-height: 100vh;
   display: grid;
@@ -256,6 +275,18 @@ body {
 :root[data-theme="dark"] .token:hover,
 :root[data-theme="dark"] .option:hover {
   border-color: #7f8da3;
+}
+
+:root[data-theme="dark"] .streak-badge {
+  color: #fbbf24;
+  border-color: #78350f;
+  background: #1c1209;
+}
+
+:root[data-theme="dark"] .streak-badge.streak-at-risk {
+  color: #f87171;
+  border-color: #7f1d1d;
+  background: #1c0a0a;
 }
 
 :root[data-theme="dark"] .token.selected,
@@ -1235,6 +1266,20 @@ textarea {
   color: var(--text);
 }
 
+.session-xp-tally {
+  margin-left: auto;
+  color: #b45309 !important;
+  border-color: #fcd34d !important;
+  background: #fffbeb !important;
+  font-variant-numeric: tabular-nums;
+}
+
+:root[data-theme="dark"] .session-xp-tally {
+  color: #fbbf24 !important;
+  border-color: #78350f !important;
+  background: #1c1209 !important;
+}
+
 .meter {
   flex: 1;
   background: #dfddd9;
@@ -1246,6 +1291,15 @@ textarea {
 .meter > div {
   height: 100%;
   background: linear-gradient(90deg, #000 0%, #555 100%);
+}
+
+.question-body {
+  animation: question-enter 0.18s ease-out;
+}
+
+@keyframes question-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .options {
@@ -1417,6 +1471,7 @@ textarea {
   background: var(--surface);
   color: var(--text);
   font-weight: 650;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1555,6 +1610,7 @@ textarea {
   background: var(--surface);
   padding: 8px 12px;
   cursor: grab;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1648,6 +1704,37 @@ textarea {
   border-color: #8fc58f;
   background: #f0f9f0;
   color: #225526;
+}
+
+.bookmark-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 5px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted, #888);
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  margin-left: 2px;
+}
+
+.bookmark-btn:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.bookmark-btn.bookmarked {
+  color: #b45309;
+  background: #fffbeb;
+  border-color: #fcd34d;
+}
+
+:root[data-theme="dark"] .bookmark-btn.bookmarked {
+  color: #fbbf24;
+  background: #1c1209;
+  border-color: #78350f;
 }
 
 .feedback span {

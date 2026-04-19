@@ -778,7 +778,10 @@ export default function App() {
             <span>Course: {activeLanguageLabel}</span>
             <span>Level: {progress?.learnerLevel ?? 1}</span>
             <span>XP: {progress?.totalXp ?? 0}</span>
-            <span>Streak: {progress?.streak ?? 0}</span>
+            <span className={`streak-badge${progress && !progress.todayXp ? " streak-at-risk" : ""}`}>
+              {progress?.streak ?? 0} day streak
+              {progress && !progress.todayXp ? " · practice today!" : ""}
+            </span>
           </div>
           <div className="topbar-actions">
             <label className="theme-switcher">

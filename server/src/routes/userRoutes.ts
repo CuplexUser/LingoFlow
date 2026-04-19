@@ -195,6 +195,34 @@ function registerUserRoutes(app: any, deps: any): void {
       submission
     });
   });
+
+  app.get("/api/bookmarks", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const language = String(req.query.language || "").trim() || undefined;
+    return res.json(database.getBookmarks(userId, language));
+  });
+
+  app.post("/api/bookmarks", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const questionId = String(req.body?.questionId || "").trim();
+    const prompt = String(req.body?.prompt || "").trim();
+    const answer = String(req.body?.answer || "").trim();
+    const language = String(req.body?.language || "").trim();
+    const category = String(req.body?.category || "").trim();
+    if (!questionId || !prompt || !answer || !language) {
+      return res.status(400).json({ error: "questionId, prompt, answer, and language are required" });
+    }
+    database.addBookmark(userId, { questionId, prompt, answer, language, category });
+    return res.json({ ok: true, bookmarked: true });
+  });
+
+  app.delete("/api/bookmarks/:questionId", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const questionId = String(req.params.questionId || "").trim();
+    if (!questionId) return res.status(400).json({ error: "questionId is required" });
+    database.removeBookmark(userId, questionId);
+    return res.json({ ok: true, bookmarked: false });
+  });
 }
 
 module.exports = {
