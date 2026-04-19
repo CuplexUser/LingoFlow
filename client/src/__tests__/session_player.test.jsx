@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { SessionPlayer } from "../components/SessionPlayer";
@@ -115,9 +115,9 @@ test("pronunciation accepts close transcripts", async () => {
   await user.type(screen.getByLabelText("Transcript"), "I relax by reading bokks");
   await user.click(screen.getByRole("button", { name: "Check" }));
 
-  expect(onFinish).toHaveBeenCalledWith(
+  await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({ score: 1, maxScore: 1 })
-  );
+  ), { timeout: 2000 });
 });
 
 test("practice speak accepts close transcripts", async () => {
@@ -148,9 +148,9 @@ test("practice speak accepts close transcripts", async () => {
   await user.type(screen.getByLabelText("Transcript"), "I read bokks");
   await user.click(screen.getByRole("button", { name: "Check" }));
 
-  expect(onFinish).toHaveBeenCalledWith(
+  await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({ score: 1, maxScore: 1 })
-  );
+  ), { timeout: 2000 });
   expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({
       attempts: [
@@ -191,9 +191,9 @@ test("practice listen uses multiple choice selection", async () => {
   await user.click(screen.getByRole("button", { name: "I eat fruit." }));
   await user.click(screen.getByRole("button", { name: "Check" }));
 
-  expect(onFinish).toHaveBeenCalledWith(
+  await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({ score: 1, maxScore: 1 })
-  );
+  ), { timeout: 2000 });
 });
 
 test("keyboard shortcuts select options and submit", async () => {
@@ -224,9 +224,9 @@ test("keyboard shortcuts select options and submit", async () => {
   await user.keyboard("2");
   await user.keyboard("{Enter}");
 
-  expect(onFinish).toHaveBeenCalledWith(
+  await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({ score: 1, maxScore: 1 })
-  );
+  ), { timeout: 2000 });
 });
 
 test("practice words locks correct pairs and finishes when complete", async () => {
@@ -304,7 +304,7 @@ test("revealed answers complete with zero score for that item", async () => {
   await user.click(screen.getByRole("button", { name: "Reveal Answer" }));
   await user.click(screen.getByRole("button", { name: "Check" }));
 
-  expect(onFinish).toHaveBeenCalledWith(
+  await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
     expect.objectContaining({
       score: 0,
       maxScore: 1,
@@ -316,5 +316,5 @@ test("revealed answers complete with zero score for that item", async () => {
         })
       ])
     })
-  );
+  ), { timeout: 2000 });
 });

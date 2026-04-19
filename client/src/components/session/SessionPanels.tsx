@@ -31,7 +31,7 @@ export function MultipleChoicePanel({
             className={`option ${selectedOption === option ? "selected" : ""}`}
             onClick={() => onSelect(option)}
           >
-            <span className="option-key">{optionIndex + 1}</span>
+            <span className="option-key" aria-hidden="true">{optionIndex + 1}</span>
             {option}
           </button>
           {withSpeakButton && onSpeakOption ? (
