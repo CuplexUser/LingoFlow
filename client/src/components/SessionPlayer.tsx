@@ -105,6 +105,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   const [matchingPairs, setMatchingPairs] = useState<MatchingPair[]>(() => resumeState.matchingPairs || []);
   const [matchingPromptOrder, setMatchingPromptOrder] = useState<string[]>(() => resumeState.matchingPromptOrder || []);
   const [matchingAnswerOrder, setMatchingAnswerOrder] = useState<string[]>(() => resumeState.matchingAnswerOrder || []);
+  const [buildHintCount, setBuildHintCount] = useState(0);
   const draggedWordIndexRef = useRef<number | null>(null);
   const builtWordDropHandledRef = useRef(false);
 
@@ -115,6 +116,20 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     ? selectedTokenIndexes.map((idx: number) => question.tokens?.[idx] || "")
     : [];
   const builtSentence = joinBuiltWords(question, selectedTokenIndexes);
+  const buildAnswerText = (question.type === "build_sentence" || question.type === "dictation_sentence")
+    ? String(question.answer || "").trim()
+    : "";
+  const buildNextHintWordIndex = (() => {
+    if (buildHintCount < 2 || !buildAnswerText) return undefined;
+    const answerWords = buildAnswerText.split(/\s+/).filter(Boolean);
+    const nextWord = answerWords[selectedTokenIndexes.length];
+    if (!nextWord) return undefined;
+    const tokens = (question.type === "build_sentence" || question.type === "dictation_sentence")
+      ? question.tokens
+      : [];
+    const usedIndexes = new Set(selectedTokenIndexes);
+    return tokens.findIndex((t, i) => t === nextWord && !usedIndexes.has(i));
+  })();
   const promptText = String(question.prompt || "");
   const primaryHint = Array.isArray(question.hints) ? question.hints[0] : "";
   const showEssentialHint = Boolean(primaryHint) && (
@@ -198,6 +213,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     matchingPairs,
     attemptLog,
     mistakeQuestionIds,
+    successDelayMs: 900,
     onFinish,
     setIndex,
     setScore,
@@ -226,6 +242,10 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     resetPracticeCompleted: () => setPracticeCompleted(false),
     clearSpeechError: () => setSpeechError("")
   });
+
+  useEffect(() => {
+    setBuildHintCount(0);
+  }, [question?.id]);
 
   useEffect(() => {
     if (question?.type !== "matching") return;
@@ -306,6 +326,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     const translatedSentence = "answer" in question ? String(question.answer || "").trim() : "";
     if (!translatedSentence) return;
     setHintsUsed((value) => value + 1);
+    setBuildHintCount((c) => c + 1);
     if (question.audioUrl) {
       playAudioUrl(question.audioUrl);
       return;
@@ -520,6 +541,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           builtSentence={builtSentence}
           builtWords={builtWords}
           selectedTokenIndexes={selectedTokenIndexes}
+          nextHintWordIndex={buildNextHintWordIndex}
           onHint={speakBuildTranslationHint}
           onTokenSelect={toggleToken}
           onBuiltWordDragStart={handleBuiltWordDragStart}
@@ -534,6 +556,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           builtSentence={builtSentence}
           builtWords={builtWords}
           selectedTokenIndexes={selectedTokenIndexes}
+          nextHintWordIndex={buildNextHintWordIndex}
           onHint={speakBuildTranslationHint}
           onTokenSelect={toggleToken}
           onBuiltWordDragStart={handleBuiltWordDragStart}

@@ -139,6 +139,14 @@ function createCourseSelectors(course) {
   };
 }
 
+function unifyOptionPunctuation(options: string[], correctAnswer: string): string[] {
+  const terminalPunct = /[.!?¿¡]+$/;
+  const match = correctAnswer.match(terminalPunct);
+  if (!match) return options;
+  const terminal = match[0];
+  return options.map((opt) => opt.replace(terminalPunct, "") + terminal);
+}
+
 function buildAcceptedAnswers(target) {
   const compact = String(target || "").trim();
   if (!compact) return [];
@@ -360,9 +368,10 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     const distractors = authoredOptions
       ? authoredOptions.filter((o) => o !== answer).slice(0, 3)
       : pickLevelAwareDistractors(pool, item, 3, randomFn);
+    const rawOptions = shuffle([answer, ...distractors], randomFn);
     return {
       ...base,
-      options: shuffle([answer, ...distractors], randomFn)
+      options: unifyOptionPunctuation(rawOptions, answer)
     };
   }
 

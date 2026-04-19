@@ -1,4 +1,4 @@
-import { useEffect, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useRef, type Dispatch, type SetStateAction } from "react";
 import {
   isPronunciationCloseEnough,
   normalizeSentence
@@ -45,6 +45,7 @@ type UseSessionEngineParams = {
   matchingPairs: MatchingPair[];
   attemptLog: SessionAttempt[];
   mistakeQuestionIds: string[];
+  successDelayMs?: number;
   onFinish: (report: SessionReport) => void | Promise<void>;
   setIndex: Dispatch<SetStateAction<number>>;
   setScore: Dispatch<SetStateAction<number>>;
@@ -111,6 +112,7 @@ export function useSessionEngine({
   matchingPairs,
   attemptLog,
   mistakeQuestionIds,
+  successDelayMs,
   onFinish,
   setIndex,
   setScore,
@@ -138,7 +140,18 @@ export function useSessionEngine({
   markPracticeCompleted,
   clearSpeechError
 }: UseSessionEngineParams) {
+  type PendingAdvance = { log: SessionAttempt[]; nextScore: number; timer: ReturnType<typeof setTimeout> };
+  const pendingAdvanceRef = useRef<PendingAdvance | null>(null);
+
+  useEffect(() => () => {
+    if (pendingAdvanceRef.current) clearTimeout(pendingAdvanceRef.current.timer);
+  }, []);
+
   function resetCurrentSelection() {
+    if (pendingAdvanceRef.current) {
+      clearTimeout(pendingAdvanceRef.current.timer);
+      pendingAdvanceRef.current = null;
+    }
     setSelectedOption("");
     setSelectedTokenIndexes([]);
     setFeedback(null);
@@ -262,6 +275,15 @@ export function useSessionEngine({
   function submitAnswer() {
     if (!canSubmit()) return;
 
+    // If a correct-answer delay is in progress, advance immediately on re-submit
+    if (pendingAdvanceRef.current) {
+      clearTimeout(pendingAdvanceRef.current.timer);
+      const { log, nextScore } = pendingAdvanceRef.current;
+      pendingAdvanceRef.current = null;
+      goNext(log, nextScore);
+      return;
+    }
+
     if (question.type === "flashcard") {
       const attemptEntry = buildAttemptEntry();
       const nextAttemptLog = [...attemptLog, attemptEntry];
@@ -325,7 +347,18 @@ export function useSessionEngine({
     if (!revealedCurrentQuestion) {
       setScore(nextScore);
     }
-    goNext(nextAttemptLog, nextScore);
+
+    const delay = successDelayMs ?? 0;
+    if (delay > 0) {
+      setFeedback({ type: "success", message: "Correct!", hint: "", showReveal: false, answerWords: null, correctOption: null });
+      const timer = setTimeout(() => {
+        pendingAdvanceRef.current = null;
+        goNext(nextAttemptLog, nextScore);
+      }, delay);
+      pendingAdvanceRef.current = { log: nextAttemptLog, nextScore, timer };
+    } else {
+      goNext(nextAttemptLog, nextScore);
+    }
   }
 
   function skipPronunciationExercise() {

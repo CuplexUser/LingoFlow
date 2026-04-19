@@ -25,12 +25,13 @@ export function MultipleChoicePanel({
 }: MultipleChoicePanelProps) {
   return (
     <div className="options">
-      {options.map((option) => (
+      {options.map((option, optionIndex) => (
         <div key={option} className="option-row">
           <button
             className={`option ${selectedOption === option ? "selected" : ""}`}
             onClick={() => onSelect(option)}
           >
+            <span className="option-key">{optionIndex + 1}</span>
             {option}
           </button>
           {withSpeakButton && onSpeakOption ? (
@@ -75,6 +76,7 @@ type BuildSentencePanelProps = {
   builtSentence: string;
   builtWords: string[];
   selectedTokenIndexes: number[];
+  nextHintWordIndex?: number;
   onHint: () => void;
   onTokenSelect: (tokenIndex: number) => void;
   onBuiltWordDragStart: (wordIndex: number) => void;
@@ -88,6 +90,7 @@ export function BuildSentencePanel({
   builtSentence,
   builtWords,
   selectedTokenIndexes,
+  nextHintWordIndex,
   onHint,
   onTokenSelect,
   onBuiltWordDragStart,
@@ -132,10 +135,13 @@ export function BuildSentencePanel({
       <div className="tokens">
         {question.tokens.map((token, tokenIndex) => {
           const active = selectedTokenIndexes.includes(tokenIndex);
+          const isNextHint = nextHintWordIndex !== undefined &&
+            tokenIndex === nextHintWordIndex && !active;
           return (
             <button
+              type="button"
               key={`${token}-${tokenIndex}`}
-              className={`token ${active ? "selected" : ""}`}
+              className={`token ${active ? "selected" : ""} ${isNextHint ? "next-hint" : ""}`}
               onClick={() => onTokenSelect(tokenIndex)}
             >
               {token}

@@ -30,6 +30,7 @@ export function useSessionSpeech({
 }: UseSessionSpeechParams) {
   const [speechError, setSpeechError] = useState("");
   const audioContextRef = useRef<AudioContext | null>(null);
+  const audioLoadingRef = useRef(false);
 
   const supportsSpeech = typeof window !== "undefined" &&
     "speechSynthesis" in window &&
@@ -53,6 +54,8 @@ export function useSessionSpeech({
       setSpeechError("Web Audio is not supported in this browser.");
       return;
     }
+    if (audioLoadingRef.current) return;
+    audioLoadingRef.current = true;
     try {
       if (!audioContextRef.current) {
         audioContextRef.current = new window.AudioContext();
@@ -69,6 +72,8 @@ export function useSessionSpeech({
       setSpeechError("");
     } catch (_error) {
       setSpeechError("Could not play this audio clip.");
+    } finally {
+      audioLoadingRef.current = false;
     }
   }
 
@@ -82,7 +87,11 @@ export function useSessionSpeech({
     utterance.lang = getSpeechLanguage(language);
     utterance.rate = Number.isFinite(rate) ? rate : 0.95;
     utterance.onstart = () => setSpeechError("");
-    utterance.onerror = () => setSpeechError("Could not play this audio hint.");
+    utterance.onerror = (event) => {
+      const code = (event as SpeechSynthesisErrorEvent)?.error;
+      if (code === "canceled" || code === "interrupted") return;
+      setSpeechError("Could not play this audio hint.");
+    };
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(utterance);
   }
