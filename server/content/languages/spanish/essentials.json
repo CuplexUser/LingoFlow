@@ -1,0 +1,629 @@
+[
+  {
+    "id": "sp-es-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Hello, how are you?",
+    "correctAnswer": "Hola, ¿cómo estás?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-es-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Thank you very much for your help.",
+    "correctAnswer": "Muchas gracias por tu ayuda.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-es-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not understand this sentence.",
+    "correctAnswer": "No entiendo esta oración.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-es-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Excuse me, where is the bathroom?",
+    "correctAnswer": "Disculpe, ¿dónde está el baño?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-es-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Good morning",
+    "correctAnswer": "Buenos días",
+    "hints": [
+      "A greeting used in the morning."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-es-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My name is María.",
+    "correctAnswer": "Me llamo María.",
+    "hints": [
+      "Practise this phrase out loud."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-es-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Yes, please.",
+    "correctAnswer": "Sí, por favor.",
+    "hints": [
+      "A polite acceptance."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-es-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Goodbye",
+    "correctAnswer": "Adiós",
+    "hints": [
+      "A common farewell."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-es-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am sorry.",
+    "correctAnswer": "Lo siento.",
+    "hints": [
+      "An apology phrase."
+    ]
+  },
+  {
+    "id": "sp-es-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not speak Spanish well.",
+    "correctAnswer": "No hablo español bien.",
+    "hints": [
+      "Practise this phrase out loud."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-es-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: See you later!",
+    "correctAnswer": "¡Hasta luego!",
+    "hints": [
+      "A casual way to say goodbye."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-es-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Please",
+    "correctAnswer": "Por favor",
+    "hints": [
+      "A polite word used when asking for something."
+    ],
+    "exerciseType": "flashcard",
+    "imageUrl": "/images/placeholder.svg"
+  },
+  {
+    "id": "sp-es-a1-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best response. Someone says '¿Cómo te llamas?'",
+    "correctAnswer": "Me llamo Carlos.",
+    "hints": [
+      "They are asking your name."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-es-a1-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Nice to meet you.",
+    "correctAnswer": "Mucho gusto.",
+    "hints": [
+      "A greeting when meeting someone new."
+    ],
+    "culturalNote": "In many Spanish-speaking countries, people greet with a kiss on the cheek or a handshake."
+  },
+  {
+    "id": "sp-es-a1-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: How are you? (formal)",
+    "correctAnswer": "¿Cómo está usted?",
+    "hints": [
+      "Use the formal form of address."
+    ]
+  },
+  {
+    "id": "sp-es-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you speak more slowly, please?",
+    "correctAnswer": "¿Podrías hablar más despacio, por favor?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-es-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am learning Spanish every day.",
+    "correctAnswer": "Estoy aprendiendo español todos los días.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-es-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you repeat that one more time?",
+    "correctAnswer": "¿Podría repetir eso una vez más?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-es-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you write that down for me?",
+    "correctAnswer": "¿Podrías escribir eso para mí?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-es-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need help finding my hotel.",
+    "correctAnswer": "Necesito ayuda para encontrar mi hotel.",
+    "hints": [
+      "Use 'necesitar' followed by a noun."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-es-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: What time does the shop close?",
+    "correctAnswer": "¿A qué hora cierra la tienda?",
+    "hints": [
+      "Pay attention to the question structure."
+    ]
+  },
+  {
+    "id": "sp-es-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I would like a table for two, please.",
+    "correctAnswer": "Me gustaría una mesa para dos, por favor.",
+    "hints": [
+      "Use the conditional for polite requests."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-es-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. A waiter asks '¿Qué desea tomar?'",
+    "correctAnswer": "Un café con leche, por favor.",
+    "hints": [
+      "They are asking what you want to drink."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-es-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have been living here for two months.",
+    "correctAnswer": "Llevo dos meses viviendo aquí.",
+    "hints": [
+      "Use 'llevar + time + gerund' for duration."
+    ]
+  },
+  {
+    "id": "sp-es-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Can you recommend a good restaurant nearby?",
+    "correctAnswer": "¿Puedes recomendarme un buen restaurante cerca?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-es-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually wake up at seven o'clock.",
+    "correctAnswer": "Normalmente me despierto a las siete.",
+    "hints": [
+      "Use a reflexive verb for waking up."
+    ]
+  },
+  {
+    "id": "sp-es-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "How do you say 'you're welcome' in Spanish?",
+    "correctAnswer": "De nada.",
+    "hints": [
+      "The standard polite reply to 'gracias'."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-es-a2-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: Estoy ___ español todos los días.",
+    "correctAnswer": "aprendiendo",
+    "hints": [
+      "Use the present participle of 'aprender'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-es-a2-14",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Do you know where the bus stop is?",
+    "correctAnswer": "¿Sabes dónde está la parada de autobús?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-es-a2-15",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I left my jacket in the restaurant.",
+    "correctAnswer": "Dejé mi chaqueta en el restaurante.",
+    "hints": [
+      "Use the preterite tense for a completed action."
+    ]
+  },
+  {
+    "id": "sp-es-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I made a mistake, but I will try again.",
+    "correctAnswer": "Cometí un error, pero lo intentaré de nuevo.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sp-es-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would like to improve my pronunciation.",
+    "correctAnswer": "Me gustaría mejorar mi pronunciación.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sp-es-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I understand the idea, but I need more practice.",
+    "correctAnswer": "Entiendo la idea, pero necesito más práctica.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sp-es-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I feel more confident when I speak in longer sentences.",
+    "correctAnswer": "Me siento con más confianza cuando hablo en frases más largas.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sp-es-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: It is important that you practise every day.",
+    "correctAnswer": "Es importante que practiques todos los días.",
+    "hints": [
+      "Notice the subjunctive after 'es importante que'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-es-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: No creo que ___ fácil aprender un idioma nuevo.",
+    "correctAnswer": "sea",
+    "hints": [
+      "Use the subjunctive of 'ser' after 'no creo que'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-es-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Although it is difficult, I keep trying.",
+    "correctAnswer": "Aunque es difícil, sigo intentándolo.",
+    "hints": [
+      "Use 'aunque' as a connector."
+    ]
+  },
+  {
+    "id": "sp-es-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I think languages open many doors.",
+    "correctAnswer": "Creo que los idiomas abren muchas puertas.",
+    "hints": [
+      "Express an opinion with 'creo que'."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-es-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Someone asks 'Do you need anything else?'",
+    "correctAnswer": "No, eso es todo, gracias.",
+    "hints": [
+      "A polite way to decline."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-es-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I used to live in Madrid before moving here.",
+    "correctAnswer": "Vivía en Madrid antes de mudarme aquí.",
+    "hints": [
+      "Use the imperfect tense for habitual past actions."
+    ]
+  },
+  {
+    "id": "sp-es-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Could you explain that in a different way?",
+    "correctAnswer": "¿Podrías explicar eso de otra manera?",
+    "hints": [
+      "Use the conditional for polite requests."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-es-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: Quiero que me ___ la verdad.",
+    "correctAnswer": "digas",
+    "hints": [
+      "Use the subjunctive of 'decir' after 'quiero que'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-es-b1-13",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: If I have time tomorrow, I will visit the market.",
+    "correctAnswer": "Si tengo tiempo mañana, visitaré el mercado.",
+    "hints": [
+      "Use present tense in the 'si' clause and future in the main clause."
+    ]
+  },
+  {
+    "id": "sp-es-b1-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been studying for three hours without a break.",
+    "correctAnswer": "Llevo tres horas estudiando sin descanso.",
+    "hints": [
+      "Use 'llevar + time + gerund' for ongoing duration."
+    ]
+  },
+  {
+    "id": "sp-es-b1-15",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: It is necessary that we arrive on time.",
+    "correctAnswer": "Es necesario que lleguemos a tiempo.",
+    "hints": [
+      "Use the subjunctive after 'es necesario que'."
+    ]
+  },
+  {
+    "id": "sp-es-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I can explain my opinion with clear arguments.",
+    "correctAnswer": "Puedo explicar mi opinión con argumentos claros.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-es-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I want to speak naturally, not only correctly.",
+    "correctAnswer": "Quiero hablar con naturalidad, no solo correctamente.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-es-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
+    "correctAnswer": "Aunque cometa pequeños errores, puedo mantener fluida la conversación.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-es-16",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I try to choose expressions that sound natural in context.",
+    "correctAnswer": "Intento elegir expresiones que suenen naturales en contexto.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-es-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: If I had known earlier, I would have prepared better.",
+    "correctAnswer": "Si lo hubiera sabido antes, me habría preparado mejor.",
+    "hints": [
+      "Use the pluperfect subjunctive with the conditional perfect."
+    ]
+  },
+  {
+    "id": "sp-es-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is unlikely that the situation will change overnight.",
+    "correctAnswer": "Es poco probable que la situación cambie de la noche a la mañana.",
+    "hints": [
+      "Use the subjunctive after 'es poco probable que'."
+    ],
+    "culturalNote": "The expression 'de la noche a la mañana' is a common Spanish idiom meaning 'overnight' or 'suddenly'."
+  },
+  {
+    "id": "sp-es-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: Ojalá ___ más tiempo para viajar.",
+    "correctAnswer": "tuviera",
+    "hints": [
+      "Use the imperfect subjunctive after 'ojalá' for wishes."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-es-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: No matter what happens, I will not give up.",
+    "correctAnswer": "Pase lo que pase, no me rendiré.",
+    "hints": [
+      "Use a subjunctive reduplication for 'no matter what'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-es-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The more I practise, the more confident I become.",
+    "correctAnswer": "Cuanto más practico, más seguro me siento.",
+    "hints": [
+      "Use 'cuanto más... más...' for comparative correlatives."
+    ]
+  },
+  {
+    "id": "sp-es-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I doubt that they have considered all the possibilities.",
+    "correctAnswer": "Dudo que hayan considerado todas las posibilidades.",
+    "hints": [
+      "Use the present perfect subjunctive after 'dudo que'."
+    ]
+  },
+  {
+    "id": "sp-es-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Mastering a language requires both discipline and curiosity.",
+    "correctAnswer": "Dominar un idioma requiere tanto disciplina como curiosidad.",
+    "hints": [
+      "Use 'tanto... como...' for 'both... and...'."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-es-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. Someone says 'I find grammar really boring.'",
+    "correctAnswer": "A mí me parece que la gramática es fascinante una vez que le encuentras el sentido.",
+    "hints": [
+      "Politely disagree and offer your perspective."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-es-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had we started sooner, we would not be rushing now.",
+    "correctAnswer": "Si hubiéramos empezado antes, no estaríamos corriendo ahora.",
+    "hints": [
+      "Use the mixed conditional: pluperfect subjunctive + conditional."
+    ]
+  },
+  {
+    "id": "sp-es-b2-14",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: What matters most is not perfection but perseverance.",
+    "correctAnswer": "Lo que más importa no es la perfección, sino la perseverancia.",
+    "hints": [
+      "Use 'no es... sino...' for 'not... but rather...'."
+    ]
+  },
+  {
+    "id": "sp-es-b2-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I wish I could express myself as fluently in Spanish as in English.",
+    "correctAnswer": "Ojalá pudiera expresarme con tanta fluidez en español como en inglés.",
+    "hints": [
+      "Use 'ojalá' with the imperfect subjunctive for unreal wishes."
+    ]
+  }
+]

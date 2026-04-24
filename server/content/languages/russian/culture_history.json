@@ -1,0 +1,865 @@
+[
+  {
+    "id": "ru-ch-a1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This museum is very interesting.",
+    "correctAnswer": "Этот музей очень интересный.",
+    "hints": [
+      "A simple opinion sentence."
+    ],
+    "imageUrl": "/images/museum-arch.svg"
+  },
+  {
+    "id": "ru-ch-a1-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a museum ticket",
+    "correctAnswer": "билет в музей",
+    "hints": [
+      "Match the phrase."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ch-a1-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This statue is famous.",
+    "correctAnswer": "Эта статуя знаменита.",
+    "hints": [
+      "A simple description."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ch-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "the Kremlin",
+    "correctAnswer": "Кремль",
+    "hints": [
+      "Russia's most famous fortress and seat of government."
+    ],
+    "exerciseType": "flashcard",
+    "culturalNote": "Московский Кремль — символ России, объект Всемирного наследия ЮНЕСКО."
+  },
+  {
+    "id": "ru-ch-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Red Square is beautiful.",
+    "correctAnswer": "Красная площадь красивая.",
+    "hints": [
+      "'Красная' here means beautiful/red — the word originally meant beautiful in Old Russian."
+    ],
+    "culturalNote": "Слово 'красная' в старославянском означало 'красивая', а не 'красного цвета'."
+  },
+  {
+    "id": "ru-ch-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a church",
+    "correctAnswer": "церковь",
+    "hints": [
+      "A religious building, common across Russian towns."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ch-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I like Russian art.",
+    "correctAnswer": "Мне нравится русское искусство.",
+    "hints": [
+      "'Нравиться' + dative: 'Мне нравится' = I like."
+    ]
+  },
+  {
+    "id": "ru-ch-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is there an entrance fee?",
+    "correctAnswer": "Здесь платный вход?",
+    "hints": [
+      "A practical question at any museum or monument."
+    ]
+  },
+  {
+    "id": "ru-ch-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This palace is very old.",
+    "correctAnswer": "Этот дворец очень старый.",
+    "hints": [
+      "'Дворец' is masculine — adjectives must agree: 'старый'."
+    ]
+  },
+  {
+    "id": "ru-ch-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a monument",
+    "correctAnswer": "памятник",
+    "hints": [
+      "A structure built to honour someone or something."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ch-a2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: In Sweden, fika is a coffee break.",
+    "correctAnswer": "В Швеции фика это перерыв на кофе.",
+    "hints": [
+      "Mention the custom by name."
+    ],
+    "culturalNote": "Фика связана не только с кофе, но и с совместной паузой и разговором."
+  },
+  {
+    "id": "ru-ch-a2-2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This building is very old.",
+    "correctAnswer": "Это здание очень старое.",
+    "hints": [
+      "Describe the place."
+    ]
+  },
+  {
+    "id": "ru-ch-a2-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The guide speaks very clearly.",
+    "correctAnswer": "Гид говорит очень понятно.",
+    "hints": [
+      "Talk about a guide."
+    ]
+  },
+  {
+    "id": "ru-ch-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Maslenitsa is a spring festival in Russia.",
+    "correctAnswer": "Масленица — это весенний праздник в России.",
+    "hints": [
+      "Use a dash instead of 'is' when both subject and predicate are nouns in Russian."
+    ],
+    "culturalNote": "Масленица отмечается перед Великим постом. Главное угощение — блины."
+  },
+  {
+    "id": "ru-ch-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I visited the Tretyakov Gallery last summer.",
+    "correctAnswer": "Прошлым летом я посетил Третьяковскую галерею.",
+    "hints": [
+      "'Посетил' is perfective past — a completed single visit."
+    ],
+    "culturalNote": "Третьяковская галерея в Москве — крупнейшее собрание русского искусства в мире."
+  },
+  {
+    "id": "ru-ch-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: В России принято снимать ___ при входе в дом.",
+    "correctAnswer": "обувь",
+    "hints": [
+      "'Обувь' = footwear/shoes. Taking shoes off at the door is a widespread Russian custom."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-ch-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: When was this church built?",
+    "correctAnswer": "Когда была построена эта церковь?",
+    "hints": [
+      "Passive past: 'была построена' = was built. 'Церковь' is feminine."
+    ]
+  },
+  {
+    "id": "ru-ch-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Peter the Great founded Saint Petersburg.",
+    "correctAnswer": "Пётр Великий основал Санкт-Петербург.",
+    "hints": [
+      "'Основал' is the perfective past of 'основывать' = to found/establish."
+    ],
+    "culturalNote": "Санкт-Петербург был основан в 1703 году и служил столицей России до 1918 года."
+  },
+  {
+    "id": "ru-ch-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Russians celebrate New Year more than Christmas.",
+    "correctAnswer": "Россияне отмечают Новый год больше, чем Рождество.",
+    "hints": [
+      "'Больше, чем' = more than. New Year is the main winter holiday in Russia."
+    ],
+    "culturalNote": "Традиция новогодней ёлки в России перешла со времён советского периода."
+  },
+  {
+    "id": "ru-ch-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "a folk tale",
+    "correctAnswer": "народная сказка",
+    "hints": [
+      "Stories passed down through generations — think of Baba Yaga!"
+    ],
+    "exerciseType": "flashcard",
+    "culturalNote": "Баба-яга — самый известный персонаж русских народных сказок."
+  },
+  {
+    "id": "ru-ch-b1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Why is this old town important?",
+    "correctAnswer": "Он показывает, как люди жили здесь много веков назад.",
+    "hints": [
+      "Answer like a guide."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-ch-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Who built this castle?",
+    "correctAnswer": "Его построил король.",
+    "hints": [
+      "Answer simply and clearly."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-ch-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "a tradition",
+    "correctAnswer": "традиция",
+    "hints": [
+      "Match the cultural term."
+    ],
+    "exerciseType": "matching"
+  },
+  {
+    "id": "ru-ch-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Russian literature has had a profound influence on world culture.",
+    "correctAnswer": "Русская литература оказала огромное влияние на мировую культуру.",
+    "hints": [
+      "'Оказать влияние на' = to have an influence on. Accusative after 'на'."
+    ],
+    "culturalNote": "Толстой, Достоевский и Чехов входят в число самых переводимых писателей мира."
+  },
+  {
+    "id": "ru-ch-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The Trans-Siberian Railway connects Moscow to Vladivostok.",
+    "correctAnswer": "Транссибирская магистраль соединяет Москву с Владивостоком.",
+    "hints": [
+      "'Соединять с' = to connect with. 'С Владивостоком' is in the instrumental case."
+    ],
+    "culturalNote": "Транссиб — самая длинная железная дорога в мире (около 9 288 км)."
+  },
+  {
+    "id": "ru-ch-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Banya is an important part of Russian culture.",
+    "correctAnswer": "Баня — важная часть русской культуры.",
+    "hints": [
+      "Russian dash replaces 'is' between two nouns. 'Русской' = genitive feminine adjective."
+    ],
+    "culturalNote": "Баня — традиционная русская баня, которую часто посещают семьями или друзьями."
+  },
+  {
+    "id": "ru-ch-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: Пасха является важнейшим православным ___.",
+    "correctAnswer": "праздником",
+    "hints": [
+      "'Праздник' = holiday/festival. After 'является' (is/constitutes), use the instrumental case: 'праздником'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-ch-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The Soviet era left a lasting mark on Russian architecture.",
+    "correctAnswer": "Советская эпоха оставила глубокий след в российской архитектуре.",
+    "hints": [
+      "'Оставить след в' = to leave a mark on. 'В архитектуре' uses the prepositional case."
+    ]
+  },
+  {
+    "id": "ru-ch-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What does this symbol represent in Russian culture?",
+    "correctAnswer": "Что символизирует этот знак в русской культуре?",
+    "hints": [
+      "'Символизировать' = to symbolise. 'В русской культуре' = prepositional case."
+    ]
+  },
+  {
+    "id": "ru-ch-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Lake Baikal is the deepest lake in the world.",
+    "correctAnswer": "Байкал — самое глубокое озеро в мире.",
+    "hints": [
+      "Superlatives in Russian: 'самое глубокое' = the deepest (neuter adjective agreeing with 'озеро')."
+    ],
+    "culturalNote": "Байкал содержит около 20% всей пресной воды планеты и является объектом Всемирного наследия."
+  },
+  {
+    "id": "ru-ch-b2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Could you explain this tradition to me?",
+    "correctAnswer": "Можешь объяснить мне эту традицию?",
+    "hints": [
+      "A polite question about local culture."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ch-b2-2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I love learning local history.",
+    "correctAnswer": "Мне нравится изучать местную историю.",
+    "hints": [
+      "A positive statement."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ch-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: This legend is popular here.",
+    "correctAnswer": "Эта легенда популярна здесь.",
+    "hints": [
+      "Use a natural tone."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ch-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Russian Orthodox Christianity shaped the country's cultural identity for centuries.",
+    "correctAnswer": "Русское православное христианство формировало культурную идентичность страны на протяжении веков.",
+    "hints": [
+      "'На протяжении' + genitive = over the course of. Imperfective 'формировало' stresses the ongoing process."
+    ],
+    "culturalNote": "Русская православная церковь оказала глубокое влияние на искусство, архитектуру и нравы."
+  },
+  {
+    "id": "ru-ch-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The intelligentsia played a crucial role in shaping pre-revolutionary Russia.",
+    "correctAnswer": "Интеллигенция сыграла ключевую роль в формировании дореволюционной России.",
+    "hints": [
+      "'Сыграть роль в' = to play a role in. 'В формировании' — verbal noun in prepositional case."
+    ]
+  },
+  {
+    "id": "ru-ch-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Soviet propaganda transformed the way Russians perceived their own history.",
+    "correctAnswer": "Советская пропаганда изменила то, как россияне воспринимали свою собственную историю.",
+    "hints": [
+      "'То, как' introduces a clause meaning 'the way in which'. Perfective 'изменила' = transformed (fully)."
+    ]
+  },
+  {
+    "id": "ru-ch-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: Россия обладает богатым культурным ___, включающим литературу, музыку и балет.",
+    "correctAnswer": "наследием",
+    "hints": [
+      "'Наследие' = heritage. After 'обладать' (to possess), use the instrumental case: 'наследием'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-ch-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Constructivism was a revolutionary art movement that emerged in post-1917 Russia.",
+    "correctAnswer": "Конструктивизм — революционное художественное движение, возникшее в России после 1917 года.",
+    "hints": [
+      "'Возникшее' is an active past participle (short relative clause) agreeing with 'движение' (neuter)."
+    ],
+    "culturalNote": "Конструктивизм повлиял на графический дизайн, архитектуру и промышленное производство по всему миру."
+  },
+  {
+    "id": "ru-cu-a1-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I study culture and history every day.",
+    "correctAnswer": "Я каждый день изучаю культуру и историю.",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-a1-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can we practice culture and history now?",
+    "correctAnswer": "Мы можем сейчас практиковать культуру и историю?",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-cu-a1-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: heritage",
+    "correctAnswer": "наследие",
+    "hints": [
+      "Recall the most common Russian equivalent."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-cu-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need more time for culture and history.",
+    "correctAnswer": "Мне нужно больше времени на культуру и историю.",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-cu-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best translation: I regularly practice culture and history.",
+    "correctAnswer": "Я каждый день повторяю тему «культуру и историю».",
+    "hints": [
+      "Pick the most natural Russian sentence."
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-cu-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can we practice culture and history now?",
+    "correctAnswer": "Мы можем сейчас практиковать культуру и историю?",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This lesson on culture and history is useful.",
+    "correctAnswer": "Этот урок по теме «культуры и истории» полезный.",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-cu-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: museum",
+    "correctAnswer": "музей",
+    "hints": [
+      "Recall the most common Russian equivalent."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-cu-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I study culture and history every day.",
+    "correctAnswer": "Я каждый день изучаю культуру и историю.",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-cu-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best translation: I regularly practice culture and history.",
+    "correctAnswer": "Я каждый день повторяю тему «культуру и историю».",
+    "hints": [
+      "Pick the most natural Russian sentence."
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-cu-a2-1",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I practiced culture and history yesterday.",
+    "correctAnswer": "Я вчера практиковал культуру и историю.",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-a2-2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How can I improve in culture and history?",
+    "correctAnswer": "Как я могу улучшить навыки в теме «культуры и истории»?",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-cu-a2-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Я регулярно ____ темой «культуру и историю».",
+    "correctAnswer": "занимаюсь",
+    "hints": [
+      "Use a verb that matches the context and style."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-cu-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I understand culture and history better now.",
+    "correctAnswer": "Теперь я лучше понимаю тему «культуру и историю».",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-cu-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Roleplay: Ask your tutor for support with culture and history.",
+    "correctAnswer": "Можете дать мне больше упражнений по теме «культуры и истории»?",
+    "hints": [
+      "Use a polite, natural request."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-cu-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How can I improve in culture and history?",
+    "correctAnswer": "Как я могу улучшить навыки в теме «культуры и истории»?",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This exercise on culture and history was difficult.",
+    "correctAnswer": "Это упражнение по теме «культуры и истории» было трудным.",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-cu-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Я регулярно ____ темой «культуру и историю».",
+    "correctAnswer": "занимаюсь",
+    "hints": [
+      "Use a verb that matches the context and style."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-cu-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I practiced culture and history yesterday.",
+    "correctAnswer": "Я вчера практиковал культуру и историю.",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-cu-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Roleplay: Ask your tutor for support with culture and history.",
+    "correctAnswer": "Можете дать мне больше упражнений по теме «культуры и истории»?",
+    "hints": [
+      "Use a polite, natural request."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-cu-b1-1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Regular practice helps me improve in culture and history.",
+    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «культуры и истории».",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Which strategy works best for culture and history?",
+    "correctAnswer": "Какая стратегия лучше всего работает для темы «культуры и истории»?",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-cu-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Я постепенно ____ навыки в теме «культуру и историю».",
+    "correctAnswer": "развиваю",
+    "hints": [
+      "Use a verb that matches the context and style."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-cu-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Я стараюсь регулярно практиковать тему «культуру и историю».",
+    "hints": [
+      "Listen for key noun endings and word order."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-cu-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Roleplay: Ask your tutor for support with culture and history.",
+    "correctAnswer": "Мне бы хотелось больше практики по теме «культуры и истории», чтобы говорить увереннее.",
+    "hints": [
+      "Use a polite, natural request."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-cu-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Which strategy works best for culture and history?",
+    "correctAnswer": "Какая стратегия лучше всего работает для темы «культуры и истории»?",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I make fewer mistakes when I review culture and history.",
+    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «культуру и историю».",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-cu-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Я постепенно ____ навыки в теме «культуру и историю».",
+    "correctAnswer": "развиваю",
+    "hints": [
+      "Use a verb that matches the context and style."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-cu-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Я стараюсь регулярно практиковать тему «культуру и историю».",
+    "hints": [
+      "Listen for key noun endings and word order."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-cu-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Roleplay: Ask your tutor for support with culture and history.",
+    "correctAnswer": "Мне бы хотелось больше практики по теме «культуры и истории», чтобы говорить увереннее.",
+    "hints": [
+      "Use a polite, natural request."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-cu-b2-1",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Systematic practice has deepened my understanding of culture and history.",
+    "correctAnswer": "Системная практика углубила моё понимание темы «культуры и истории».",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-b2-2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Я системно ____ знания в теме «культуры и истории».",
+    "correctAnswer": "углубляю",
+    "hints": [
+      "Use a verb that matches the context and style."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-cu-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Системная практика темы «культуры и истории» помогает говорить увереннее.",
+    "hints": [
+      "Listen for key noun endings and word order."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-cu-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: Ask your tutor for support with culture and history.",
+    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «культуры и истории».",
+    "hints": [
+      "Use a polite, natural request."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-cu-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best translation: I regularly practice culture and history.",
+    "correctAnswer": "Я регулярно практикую тему «культуру и историю».",
+    "hints": [
+      "Pick the most natural Russian sentence."
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-cu-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you clarify a nuance in culture and history?",
+    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «культуры и истории»?",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Я системно ____ знания в теме «культуры и истории».",
+    "correctAnswer": "углубляю",
+    "hints": [
+      "Use a verb that matches the context and style."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-cu-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Системная практика темы «культуры и истории» помогает говорить увереннее.",
+    "hints": [
+      "Listen for key noun endings and word order."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-cu-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: Ask your tutor for support with culture and history.",
+    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «культуры и истории».",
+    "hints": [
+      "Use a polite, natural request."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-cu-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best translation: I regularly practice culture and history.",
+    "correctAnswer": "Я регулярно практикую тему «культуру и историю».",
+    "hints": [
+      "Pick the most natural Russian sentence."
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-cu-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I value detailed feedback on culture and history.",
+    "correctAnswer": "Я ценю подробную обратную связь по теме «культуры и истории».",
+    "hints": [
+      "Focus on natural Russian phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-cu-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Я системно ____ знания в теме «культуры и истории».",
+    "correctAnswer": "углубляю",
+    "hints": [
+      "Use a verb that matches the context and style."
+    ],
+    "exerciseType": "cloze_sentence"
+  }
+]

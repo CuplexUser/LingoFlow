@@ -1,0 +1,821 @@
+[
+  {
+    "id": "sp-co-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What is your name?",
+    "correctAnswer": "¿Cómo te llamas?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-co-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My name is Alex and I am from the United States.",
+    "correctAnswer": "Me llamo Alex y soy de Estados Unidos.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-co-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where are you from?",
+    "correctAnswer": "¿De dónde eres?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-cv-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I live in a big city.",
+    "correctAnswer": "Vivo en una ciudad grande.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sp-cv-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am twenty-five years old.",
+    "correctAnswer": "Tengo veinticinco años.",
+    "hints": [
+      "In Spanish, you use 'tener' (to have) for age."
+    ],
+    "culturalNote": "Spanish uses 'tener años' (to have years) rather than 'ser' (to be) when talking about age."
+  },
+  {
+    "id": "sp-cv-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I like music and sports.",
+    "correctAnswer": "Me gusta la música y el deporte.",
+    "hints": [
+      "Use 'me gusta' for things you like."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best response. Someone says 'Hola, ¿qué tal?'",
+    "correctAnswer": "Bien, gracias. ¿Y tú?",
+    "hints": [
+      "A standard reply to a casual greeting."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-cv-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Do you speak English?",
+    "correctAnswer": "¿Hablas inglés?",
+    "hints": [
+      "Practise this phrase out loud."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-cv-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I have two brothers and one sister.",
+    "correctAnswer": "Tengo dos hermanos y una hermana.",
+    "hints": [
+      "Use 'tener' for possession."
+    ]
+  },
+  {
+    "id": "sp-cv-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "A friend / An enemy",
+    "correctAnswer": "un amigo",
+    "hints": [
+      "Which one is positive?"
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-cv-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am a student.",
+    "correctAnswer": "Soy estudiante.",
+    "hints": [
+      "Use 'ser' for occupation."
+    ]
+  },
+  {
+    "id": "sp-cv-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: It is nice to meet you.",
+    "correctAnswer": "Encantado de conocerte.",
+    "hints": [
+      "A common greeting phrase."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-a1-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: ___ llamo Ana y soy de España.",
+    "correctAnswer": "Me",
+    "hints": [
+      "Use the reflexive pronoun that goes with 'I' in Spanish."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-cv-a1-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I work as a teacher.",
+    "correctAnswer": "Trabajo como maestro.",
+    "hints": [
+      "Use the first-person present of 'trabajar'."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "sp-cv-a1-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "vecino / maestro / médico / amigo",
+    "correctAnswer": "vecino",
+    "hints": [
+      "Which word means someone who lives near you?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "sp-cv-a1-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am from Spain and I speak Spanish.",
+    "correctAnswer": "Soy de España y hablo español.",
+    "hints": [
+      "Use 'ser' for origin and 'hablar' for language."
+    ]
+  },
+  {
+    "id": "sp-cv-a1-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I have a cat and a dog at home.",
+    "correctAnswer": "Tengo un gato y un perro en casa.",
+    "hints": [
+      "Use 'tener' for possession."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-a1-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How old are you?",
+    "correctAnswer": "¿Cuántos años tienes?",
+    "hints": [
+      "Use 'tener' when asking about age in Spanish."
+    ]
+  },
+  {
+    "id": "sp-co-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: It is nice to meet you in person.",
+    "correctAnswer": "Es un placer conocerte en persona.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-co-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What do you usually do on weekends?",
+    "correctAnswer": "¿Qué sueles hacer los fines de semana?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-co-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually spend my evenings reading or walking.",
+    "correctAnswer": "Normalmente paso las tardes leyendo o caminando.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-cv-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Last weekend I went to the cinema with my friends.",
+    "correctAnswer": "El fin de semana pasado fui al cine con mis amigos.",
+    "hints": [
+      "Use the preterite for completed past actions."
+    ]
+  },
+  {
+    "id": "sp-cv-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How long have you been living here?",
+    "correctAnswer": "¿Cuánto tiempo llevas viviendo aquí?",
+    "hints": [
+      "Use 'llevar + gerund' for duration."
+    ]
+  },
+  {
+    "id": "sp-cv-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am looking for a good café near here.",
+    "correctAnswer": "Estoy buscando un buen café cerca de aquí.",
+    "hints": [
+      "Use the present progressive for current actions."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. Someone asks '¿Tienes planes para esta noche?'",
+    "correctAnswer": "Sí, voy a cenar con unos amigos.",
+    "hints": [
+      "They are asking about your evening plans."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-cv-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: ¿___ gustó la película?",
+    "correctAnswer": "Te",
+    "hints": [
+      "Use the indirect object pronoun for 'you' (informal)."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-cv-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I enjoy cooking on the weekends.",
+    "correctAnswer": "Disfruto cocinar los fines de semana.",
+    "hints": [
+      "Use 'disfrutar' followed by an infinitive."
+    ]
+  },
+  {
+    "id": "sp-cv-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Would you like to go for a walk?",
+    "correctAnswer": "¿Te gustaría ir a dar un paseo?",
+    "hints": [
+      "Use the conditional of 'gustar' for polite invitations."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-cv-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I moved to this city two years ago.",
+    "correctAnswer": "Me mudé a esta ciudad hace dos años.",
+    "hints": [
+      "Use 'hace + time' for expressions of time ago."
+    ]
+  },
+  {
+    "id": "sp-cv-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: My favourite season is autumn because I love the colours.",
+    "correctAnswer": "Mi estación favorita es el otoño porque me encantan los colores.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sp-cv-a2-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I went to the market yesterday morning.",
+    "correctAnswer": "Fui al mercado ayer por la mañana.",
+    "hints": [
+      "Use the preterite of 'ir' for a completed past action."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "sp-cv-a2-14",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "un compañero de trabajo",
+    "correctAnswer": "un compañero de trabajo",
+    "hints": [
+      "A person you work alongside every day."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-cv-a2-15",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "simpático / antipático / trabajador / perezoso",
+    "correctAnswer": "antipático",
+    "hints": [
+      "Which word describes someone who is unfriendly or unpleasant?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "sp-cv-a2-16",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have been studying Spanish for six months.",
+    "correctAnswer": "Llevo seis meses estudiando español.",
+    "hints": [
+      "Use 'llevar + gerund' for time spent on an ongoing action."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-a2-17",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What is your job?",
+    "correctAnswer": "¿A qué te dedicas?",
+    "hints": [
+      "'¿A qué te dedicas?' is a natural way to ask someone's profession."
+    ]
+  },
+  {
+    "id": "sp-cv-a2-18",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I met her at a party last year.",
+    "correctAnswer": "La conocí en una fiesta el año pasado.",
+    "hints": [
+      "Use the preterite of 'conocer' for meeting someone for the first time."
+    ]
+  },
+  {
+    "id": "sp-co-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I enjoy talking about books and current events.",
+    "correctAnswer": "Disfruto hablar sobre libros y temas actuales.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sp-co-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: In my opinion, consistency is more important than intensity.",
+    "correctAnswer": "En mi opinión, la constancia es más importante que la intensidad.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sp-co-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What kind of topics do you enjoy discussing?",
+    "correctAnswer": "¿Qué tipo de temas te gusta hablar?",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would rather stay home tonight because I am tired.",
+    "correctAnswer": "Prefiero quedarme en casa esta noche porque estoy cansado.",
+    "hints": [
+      "Use 'preferir' with an infinitive."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Although we have different tastes, we always find something to do together.",
+    "correctAnswer": "Aunque tenemos gustos diferentes, siempre encontramos algo que hacer juntos.",
+    "hints": [
+      "Use 'aunque' as a concessive connector."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: Me alegra que ___ aquí conmigo.",
+    "correctAnswer": "estés",
+    "hints": [
+      "Use the subjunctive of 'estar' after 'me alegra que'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-cv-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I used to go out every Friday, but now I prefer quieter activities.",
+    "correctAnswer": "Antes salía todos los viernes, pero ahora prefiero actividades más tranquilas.",
+    "hints": [
+      "Use the imperfect for past habits."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A friend says 'I had a terrible day at work.'",
+    "correctAnswer": "Lo siento mucho. ¿Quieres hablar de ello?",
+    "hints": [
+      "Show empathy and offer support."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-cv-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: It seems to me that travelling broadens the mind.",
+    "correctAnswer": "Me parece que viajar amplía la mente.",
+    "hints": [
+      "Use 'me parece que' to express opinions."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have known her since we were children.",
+    "correctAnswer": "La conozco desde que éramos niños.",
+    "hints": [
+      "Use present tense with 'desde que' for ongoing states."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: If it rains tomorrow, we will stay inside and play board games.",
+    "correctAnswer": "Si llueve mañana, nos quedaremos dentro y jugaremos juegos de mesa.",
+    "hints": [
+      "Use the first conditional: si + present, future."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: What I like most about this city is the food.",
+    "correctAnswer": "Lo que más me gusta de esta ciudad es la comida.",
+    "hints": [
+      "Use 'lo que' for 'what' as a relative pronoun."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-13",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: We should meet more often, don't you think?",
+    "correctAnswer": "Deberíamos vernos más a menudo, ¿no crees?",
+    "hints": [
+      "Use the conditional of 'deber' for suggestions."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-cv-b1-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: He told me that he could not come to the party.",
+    "correctAnswer": "Me dijo que no podía venir a la fiesta.",
+    "hints": [
+      "Use reported speech with the imperfect tense."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-15",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am not sure whether I agree with that point of view.",
+    "correctAnswer": "No estoy seguro de si estoy de acuerdo con ese punto de vista.",
+    "hints": [
+      "Use 'no estoy seguro de si' for uncertainty."
+    ]
+  },
+  {
+    "id": "sp-cv-b1-16",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been learning Spanish for three years.",
+    "correctAnswer": "Llevo tres años aprendiendo español.",
+    "hints": [
+      "Use 'llevar + gerund' for an ongoing action up to the present."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "sp-cv-b1-17",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "la confianza",
+    "correctAnswer": "la confianza",
+    "hints": [
+      "Trust or self-assurance in yourself or another person."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-cv-b1-18",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "debatir / murmurar / interrumpir / aclarar",
+    "correctAnswer": "interrumpir",
+    "hints": [
+      "Which word means to cut someone off while they are speaking?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "sp-cv-b1-19",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A friend asks: 'What do you think about living abroad?'",
+    "correctAnswer": "Creo que puede ser una experiencia increíble, aunque al principio puede ser difícil adaptarse.",
+    "hints": [
+      "Give a balanced opinion using 'aunque' to introduce a concession."
+    ],
+    "exerciseType": "dialogue_turn",
+    "culturalNote": "Expressing a nuanced opinion with 'aunque' (although) is a mark of conversational maturity in Spanish."
+  },
+  {
+    "id": "sp-cv-b1-20",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I wish I had more time to travel.",
+    "correctAnswer": "Ojalá tuviera más tiempo para viajar.",
+    "hints": [
+      "Use 'ojalá' with the imperfect subjunctive for wishes about the present."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-b1-21",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: To be honest, I find it hard to talk about my feelings.",
+    "correctAnswer": "Para ser honesto, me cuesta hablar de mis sentimientos.",
+    "hints": [
+      "'Me cuesta' + infinitive expresses difficulty doing something."
+    ]
+  },
+  {
+    "id": "sp-co-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
+    "correctAnswer": "Antes era tímido, pero ahora expreso mis ideas con confianza.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-co-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Although we disagree, I respect your perspective.",
+    "correctAnswer": "Aunque no estamos de acuerdo, respeto tu perspectiva.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-co-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I appreciate honest conversations, even when they are difficult.",
+    "correctAnswer": "Aprecio las conversaciones sinceras, incluso cuando son difíciles.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is a pity that so few people question what they read online.",
+    "correctAnswer": "Es una lástima que tan poca gente cuestione lo que lee en internet.",
+    "hints": [
+      "Use the subjunctive after 'es una lástima que'."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The more diverse the perspectives, the richer the conversation becomes.",
+    "correctAnswer": "Cuanto más diversas sean las perspectivas, más rica se vuelve la conversación.",
+    "hints": [
+      "Use 'cuanto más... más...' for correlative comparisons."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: No habría dicho eso si ___ las consecuencias.",
+    "correctAnswer": "hubiera conocido",
+    "hints": [
+      "Use the pluperfect subjunctive for unreal past conditions."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-cv-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Regardless of what others think, I stand by my decision.",
+    "correctAnswer": "Independientemente de lo que piensen los demás, mantengo mi decisión.",
+    "hints": [
+      "Use 'independientemente de lo que' with the subjunctive."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. Someone says 'I think social media is ruining communication.'",
+    "correctAnswer": "Entiendo tu punto de vista, sin embargo, también ha facilitado conexiones a larga distancia.",
+    "hints": [
+      "Acknowledge their view and offer a nuanced counterpoint."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-cv-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would have loved to attend, had I not already made other plans.",
+    "correctAnswer": "Me habría encantado asistir, de no haber hecho ya otros planes.",
+    "hints": [
+      "Use 'de no haber + participle' as an alternative conditional."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: What strikes me most about their culture is their sense of community.",
+    "correctAnswer": "Lo que más me llama la atención de su cultura es su sentido de comunidad.",
+    "hints": [
+      "Use 'lo que más me llama la atención' for emphasis."
+    ],
+    "culturalNote": "In many Latin American communities, the sense of togetherness and mutual support is deeply rooted in daily life."
+  },
+  {
+    "id": "sp-cv-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I wish people would listen more and judge less.",
+    "correctAnswer": "Ojalá la gente escuchara más y juzgara menos.",
+    "hints": [
+      "Use 'ojalá' with the imperfect subjunctive for wishes."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It goes without saying that mutual respect is the foundation of any relationship.",
+    "correctAnswer": "Huelga decir que el respeto mutuo es la base de cualquier relación.",
+    "hints": [
+      "Use the idiomatic expression 'huelga decir que'."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Not only does she speak four languages, but she also understands cultural nuances.",
+    "correctAnswer": "No solo habla cuatro idiomas, sino que también comprende los matices culturales.",
+    "hints": [
+      "Use 'no solo... sino que también...' for emphasis."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-cv-b2-14",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Were it not for humour, many difficult conversations would never happen.",
+    "correctAnswer": "De no ser por el humor, muchas conversaciones difíciles nunca tendrían lugar.",
+    "hints": [
+      "Use 'de no ser por' for a formal conditional."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I firmly believe that empathy is the key to understanding one another.",
+    "correctAnswer": "Creo firmemente que la empatía es la clave para entendernos unos a otros.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "sp-cv-b2-16",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I known you were coming, I would have prepared more.",
+    "correctAnswer": "De haberlo sabido, me habría preparado más.",
+    "hints": [
+      "Use 'de haber + participle' as a formal alternative to the third conditional."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "sp-cv-b2-17",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "matizar",
+    "correctAnswer": "matizar",
+    "hints": [
+      "To add nuance or subtlety to an argument or statement."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-cv-b2-18",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "matiz / sesgo / tono / registro",
+    "correctAnswer": "sesgo",
+    "hints": [
+      "Which word means a prejudice or slant that distorts judgement?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "sp-cv-b2-19",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. Someone asks: 'Don't you think tradition holds society back?'",
+    "correctAnswer": "Depende. Algunas tradiciones refuerzan vínculos sociales, mientras que otras pueden limitar el progreso.",
+    "hints": [
+      "Open with 'depende' and present both sides of the argument."
+    ],
+    "exerciseType": "dialogue_turn",
+    "culturalNote": "Spanish-speaking cultures often value tradition deeply; acknowledging complexity in debate signals critical thinking."
+  },
+  {
+    "id": "sp-cv-b2-20",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Not only did she apologise, but she also offered to help.",
+    "correctAnswer": "No solo se disculpó, sino que también se ofreció a ayudar.",
+    "hints": [
+      "Use 'no solo... sino que también...' for a two-part emphatic structure."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-cv-b2-21",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The way you phrase something can change the entire tone of a conversation.",
+    "correctAnswer": "La forma en que expresas algo puede cambiar el tono completo de una conversación.",
+    "hints": [
+      "'La forma en que' introduces a relative clause about how something is done."
+    ]
+  }
+]

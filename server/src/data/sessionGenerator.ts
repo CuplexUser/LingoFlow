@@ -192,6 +192,29 @@ function buildFallbackHint(category, questionType) {
   return "Choose the most natural phrase for the context.";
 }
 
+function buildDictationPrompt(itemPrompt, answer) {
+  const rawPrompt = String(itemPrompt || "").trim();
+  const cleanedAnswer = String(answer || "").trim();
+  if (!rawPrompt) {
+    return "Listen and type the sentence you hear.";
+  }
+
+  const prefixPattern = /^(listen and type:|dictation:)\s*/i;
+  if (!prefixPattern.test(rawPrompt)) {
+    return rawPrompt;
+  }
+
+  const tail = rawPrompt.replace(prefixPattern, "").trim();
+  const normalizedTail = normalizeComparableText(tail);
+  const normalizedAnswer = normalizeComparableText(cleanedAnswer);
+
+  if (!tail || normalizedTail === normalizedAnswer) {
+    return "Listen and type the sentence you hear.";
+  }
+
+  return `Listen and type. Translation: ${tail}`;
+}
+
 function pickLevelAwareDistractors(pool, item, count, randomFn) {
   const answer = resolveAnswer(item);
   const normalizedAnswer = normalizeComparableText(answer);
@@ -417,7 +440,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     const noise = shuffle(tokenPool, randomFn).slice(0, 2);
     return {
       ...base,
-      prompt: `${item.prompt}`,
+      prompt: buildDictationPrompt(item.prompt, answer),
       audioText: answer,
       tokens: shuffle([...answerTokens, ...noise], randomFn)
     };

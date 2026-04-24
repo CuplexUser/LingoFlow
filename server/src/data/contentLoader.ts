@@ -107,14 +107,75 @@ function validateLanguagePayload(payload: unknown, fileName: string): void {
   }
 }
 
-function loadLanguageContent() {
-  const files = fs
-    .readdirSync(CONTENT_DIR)
-    .filter((entry) => entry.toLowerCase().endsWith(".json"))
-    .sort();
+function loadLanguageFromDirectory(dirPath: string, dirName: string) {
+  const metaPath = path.join(dirPath, "_meta.json");
+  if (!fs.existsSync(metaPath)) {
+    throw new Error(`${dirName}/_meta.json is missing`);
+  }
 
-  if (!files.length) {
-    throw new Error(`No language content files found in ${CONTENT_DIR}`);
+  const meta = parseJsonFile(metaPath) as { id: string; label: string; flag: string };
+  if (!meta.id || !meta.label || !meta.flag) {
+    throw new Error(`${dirName}/_meta.json must have id, label, and flag`);
+  }
+
+  const categoryIds = CATEGORIES.map((c: { id: string }) => c.id);
+  const courseParts: Record<string, unknown[]> = {};
+
+  for (const categoryId of categoryIds) {
+    const categoryPath = path.join(dirPath, `${categoryId}.json`);
+    if (!fs.existsSync(categoryPath)) {
+      throw new Error(`${dirName}/${categoryId}.json is missing`);
+    }
+    const exercises = parseJsonFile(categoryPath);
+    if (!Array.isArray(exercises)) {
+      throw new Error(`${dirName}/${categoryId}.json must be an array`);
+    }
+    courseParts[categoryId] = exercises;
+  }
+
+  // Check for unknown category files
+  const categoryFiles = fs
+    .readdirSync(dirPath)
+    .filter((f: string) => f.endsWith(".json") && f !== "_meta.json")
+    .map((f: string) => f.replace(".json", ""));
+  const unknownCategories = categoryFiles.filter((f: string) => !categoryIds.includes(f));
+  if (unknownCategories.length) {
+    throw new Error(`${dirName} has unknown category files: ${unknownCategories.join(", ")}`);
+  }
+
+  return { id: meta.id, label: meta.label, flag: meta.flag, course: courseParts };
+}
+
+function loadLanguageFromFile(filePath: string) {
+  const parsed = parseJsonFile(filePath) as {
+    id: string;
+    label: string;
+    flag: string;
+    course: Record<string, unknown[]>;
+  };
+  return { id: parsed.id, label: parsed.label, flag: parsed.flag, course: parsed.course };
+}
+
+function loadLanguageContent() {
+  const entries = fs.readdirSync(CONTENT_DIR);
+
+  // Collect language sources: directories (new format) and .json files (legacy format)
+  const languageSources: Array<{ type: "dir" | "file"; name: string; path: string }> = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(CONTENT_DIR, entry);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      languageSources.push({ type: "dir", name: entry, path: fullPath });
+    } else if (entry.toLowerCase().endsWith(".json")) {
+      languageSources.push({ type: "file", name: entry, path: fullPath });
+    }
+  }
+
+  languageSources.sort((a, b) => a.name.localeCompare(b.name));
+
+  if (!languageSources.length) {
+    throw new Error(`No language content found in ${CONTENT_DIR}`);
   }
 
   const languages: Array<{ id: string; label: string; flag: string; contentSha256: string }> = [];
@@ -123,35 +184,23 @@ function loadLanguageContent() {
   const seenLanguageIds = new Set<string>();
   const loadedAt = new Date().toISOString();
 
-  for (const fileName of files) {
-    const filePath = path.join(CONTENT_DIR, fileName);
-    const parsed = parseJsonFile(filePath) as {
-      id: string;
-      label: string;
-      flag: string;
-      course: Record<string, Array<{
-        id: string;
-        level: string;
-        prompt: string;
-        target?: string;
-        correctAnswer?: string;
-        hints?: string[];
-        difficulty?: string;
-        audioUrl?: string;
-        imageUrl?: string;
-        culturalNote?: string;
-        exerciseType?: string;
-      }>>;
-    };
-    validateLanguagePayload(parsed, fileName);
+  for (const source of languageSources) {
+    const parsed =
+      source.type === "dir"
+        ? loadLanguageFromDirectory(source.path, source.name)
+        : loadLanguageFromFile(source.path);
+
+    // Build the full payload shape for validation
+    const payload = { id: parsed.id, label: parsed.label, flag: parsed.flag, course: parsed.course };
+    validateLanguagePayload(payload, source.name);
 
     const languageId = parsed.id;
     if (seenLanguageIds.has(languageId)) {
-      throw new Error(`Duplicate language id across content files: ${languageId}`);
+      throw new Error(`Duplicate language id across content sources: ${languageId}`);
     }
     seenLanguageIds.add(languageId);
 
-    const canonical = JSON.stringify(parsed);
+    const canonical = JSON.stringify(payload);
     const sha256 = crypto.createHash("sha256").update(canonical).digest("hex");
     const itemCount = Object.values(parsed.course).reduce((total, items) => total + items.length, 0);
 
@@ -167,7 +216,7 @@ function loadLanguageContent() {
       sha256,
       itemCount,
       loadedAt,
-      fileName
+      fileName: source.name
     };
   }
 

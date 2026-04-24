@@ -1,0 +1,636 @@
+[
+  {
+    "id": "it-es-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Hello, how are you?",
+    "correctAnswer": "Ciao, come stai?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "it-es-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Thank you very much for your help.",
+    "correctAnswer": "Grazie mille per il tuo aiuto.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "it-es-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not understand this sentence.",
+    "correctAnswer": "Non capisco questa frase.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "it-es-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Excuse me, where is the bathroom?",
+    "correctAnswer": "Mi scusi, dov'è il bagno?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "it-es-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Good morning",
+    "correctAnswer": "Buongiorno",
+    "hints": [
+      "A common greeting used until the afternoon."
+    ],
+    "exerciseType": "flashcard",
+    "imageUrl": "/images/placeholder.svg"
+  },
+  {
+    "id": "it-es-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My name is Marco.",
+    "correctAnswer": "Mi chiamo Marco.",
+    "hints": [
+      "Use the reflexive verb 'chiamarsi'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Yes, please.",
+    "correctAnswer": "Sì, per favore.",
+    "hints": [
+      "A polite acceptance."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-es-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am sorry.",
+    "correctAnswer": "Mi dispiace.",
+    "hints": [
+      "Used to apologize."
+    ]
+  },
+  {
+    "id": "it-es-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Goodbye",
+    "correctAnswer": "Arrivederci",
+    "hints": [
+      "A formal way to say goodbye."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-es-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I speak a little Italian.",
+    "correctAnswer": "Parlo un po' d'italiano.",
+    "hints": [
+      "Use 'un po'' for 'a little'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: How much does it cost?",
+    "correctAnswer": "Quanto costa?",
+    "hints": [
+      "A useful question when shopping."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-es-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am fine, thank you.",
+    "correctAnswer": "Sto bene, grazie.",
+    "hints": [
+      "A standard response to 'Come stai?'."
+    ]
+  },
+  {
+    "id": "it-es-a1-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Please",
+    "correctAnswer": "Per favore",
+    "hints": [
+      "An essential polite word."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-es-a1-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Where is the exit?",
+    "correctAnswer": "Dov'è l'uscita?",
+    "hints": [
+      "Use 'dov'è' to ask where something is."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-a1-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: See you tomorrow!",
+    "correctAnswer": "A domani!",
+    "hints": [
+      "A casual farewell."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "it-es-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you speak more slowly, please?",
+    "correctAnswer": "Potresti parlare più lentamente, per favore?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "it-es-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am learning Italian every day.",
+    "correctAnswer": "Sto imparando l'italiano ogni giorno.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "it-es-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you repeat that one more time?",
+    "correctAnswer": "Potrebbe ripeterlo ancora una volta?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "it-es-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you write that down for me?",
+    "correctAnswer": "Potresti scriverlo per me?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "it-es-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually wake up at seven o'clock.",
+    "correctAnswer": "Di solito mi sveglio alle sette.",
+    "hints": [
+      "Use 'di solito' for habitual actions."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I went to the supermarket yesterday.",
+    "correctAnswer": "Ieri sono andato al supermercato.",
+    "hints": [
+      "Use the passato prossimo with 'essere' for movement verbs."
+    ]
+  },
+  {
+    "id": "it-es-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. Someone says: Scusi, parla inglese?",
+    "correctAnswer": "Sì, un po'. Come posso aiutarLa?",
+    "hints": [
+      "Use the formal Lei register when responding."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-es-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Can you help me find the station?",
+    "correctAnswer": "Puoi aiutarmi a trovare la stazione?",
+    "hints": [
+      "Combine 'aiutare' with the infinitive."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I do not know this word in Italian.",
+    "correctAnswer": "Non conosco questa parola in italiano.",
+    "hints": [
+      "'Conoscere' means to know or be familiar with."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-es-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I like this city very much.",
+    "correctAnswer": "Questa città mi piace molto.",
+    "hints": [
+      "'Piacere' works differently than English 'like'."
+    ]
+  },
+  {
+    "id": "it-es-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: What time does the shop close?",
+    "correctAnswer": "A che ora chiude il negozio?",
+    "hints": [
+      "Use 'a che ora' to ask about time."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need to buy a few things.",
+    "correctAnswer": "Devo comprare alcune cose.",
+    "hints": [
+      "'Dovere' + infinitive for necessity."
+    ]
+  },
+  {
+    "id": "it-es-a2-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The weather is very nice today.",
+    "correctAnswer": "Il tempo è molto bello oggi.",
+    "hints": [
+      "A common small-talk sentence."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "it-es-a2-14",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have been living here for two months.",
+    "correctAnswer": "Vivo qui da due mesi.",
+    "hints": [
+      "Italian uses the present tense with 'da' for ongoing duration."
+    ]
+  },
+  {
+    "id": "it-es-a2-15",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I would like a table for two, please.",
+    "correctAnswer": "Vorrei un tavolo per due, per favore.",
+    "hints": [
+      "Use the conditional 'vorrei' for polite requests."
+    ],
+    "exerciseType": "pronunciation",
+    "culturalNote": "In Italy, you often wait to be seated at restaurants."
+  },
+  {
+    "id": "it-es-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I made a mistake, but I will try again.",
+    "correctAnswer": "Ho fatto un errore, ma ci riproverò.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "it-es-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would like to improve my pronunciation.",
+    "correctAnswer": "Vorrei migliorare la mia pronuncia.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "it-es-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I understand the idea, but I need more practice.",
+    "correctAnswer": "Capisco l'idea, ma ho bisogno di più pratica.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "it-es-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I feel more confident when I speak in longer sentences.",
+    "correctAnswer": "Mi sento più sicuro quando parlo con frasi più lunghe.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "it-es-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I think it is important to respect different opinions.",
+    "correctAnswer": "Penso che sia importante rispettare opinioni diverse.",
+    "hints": [
+      "Use the congiuntivo after 'penso che'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Even though it was raining, we went for a walk.",
+    "correctAnswer": "Anche se pioveva, siamo andati a fare una passeggiata.",
+    "hints": [
+      "Use 'anche se' for concessive clauses.",
+      "The imperfetto describes the weather."
+    ]
+  },
+  {
+    "id": "it-es-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A friend asks: Come è andato l'esame?",
+    "correctAnswer": "Abbastanza bene, anche se ero un po' nervoso.",
+    "hints": [
+      "Give a balanced response with a concession."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-es-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Could you explain this expression to me?",
+    "correctAnswer": "Potresti spiegarmi questa espressione?",
+    "hints": [
+      "Use the conditional for polite requests."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-es-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been studying Italian for a year and I enjoy it a lot.",
+    "correctAnswer": "Studio l'italiano da un anno e mi piace molto.",
+    "hints": [
+      "Italian uses present tense with 'da' for ongoing actions."
+    ]
+  },
+  {
+    "id": "it-es-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: It depends on the situation.",
+    "correctAnswer": "Dipende dalla situazione.",
+    "hints": [
+      "Use 'dipendere da' for 'to depend on'."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "it-es-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I wish I had more free time.",
+    "correctAnswer": "Vorrei avere più tempo libero.",
+    "hints": [
+      "Use the conditional for wishes."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-es-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The more you practice, the faster you improve.",
+    "correctAnswer": "Più pratichi, più migliori velocemente.",
+    "hints": [
+      "'Più... più...' is the Italian comparative structure."
+    ]
+  },
+  {
+    "id": "it-es-b1-13",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am not sure, but I think the museum is closed on Mondays.",
+    "correctAnswer": "Non sono sicuro, ma credo che il museo sia chiuso il lunedì.",
+    "hints": [
+      "Use congiuntivo after 'credo che'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-b1-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I had already eaten when she arrived.",
+    "correctAnswer": "Avevo già mangiato quando lei è arrivata.",
+    "hints": [
+      "Use the trapassato prossimo for the earlier action."
+    ]
+  },
+  {
+    "id": "it-es-b1-15",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Let me know if you need anything.",
+    "correctAnswer": "Fammi sapere se hai bisogno di qualcosa.",
+    "hints": [
+      "Use the imperative of 'fare' with a pronoun."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-es-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I can explain my opinion with clear arguments.",
+    "correctAnswer": "Posso spiegare la mia opinione con argomenti chiari.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "it-es-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I want to speak naturally, not only correctly.",
+    "correctAnswer": "Voglio parlare in modo naturale, non solo corretto.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "it-es-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
+    "correctAnswer": "Anche quando faccio piccoli errori, riesco a mantenere fluida la conversazione.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "it-es-16",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I try to choose expressions that sound natural in context.",
+    "correctAnswer": "Cerco di scegliere espressioni che suonino naturali nel contesto.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "it-es-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: If I had known about the event, I would have attended.",
+    "correctAnswer": "Se avessi saputo dell'evento, ci sarei andato.",
+    "hints": [
+      "Use the congiuntivo trapassato + condizionale passato."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is essential that everyone be treated with dignity.",
+    "correctAnswer": "È essenziale che tutti siano trattati con dignità.",
+    "hints": [
+      "Use congiuntivo presente after impersonal expressions."
+    ]
+  },
+  {
+    "id": "it-es-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Although the evidence was circumstantial, the argument remained compelling.",
+    "correctAnswer": "Sebbene le prove fossero circostanziali, l'argomentazione rimaneva convincente.",
+    "hints": [
+      "Use 'sebbene' + congiuntivo for concession.",
+      "Use the imperfetto congiuntivo for past reference."
+    ]
+  },
+  {
+    "id": "it-es-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. Someone asks your opinion on a controversial topic.",
+    "correctAnswer": "Capisco il suo punto di vista, tuttavia non sono del tutto d'accordo.",
+    "hints": [
+      "Use formal register with 'tuttavia' as a connector."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-es-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The ability to express nuance is what distinguishes fluency from mere competence.",
+    "correctAnswer": "La capacità di esprimere sfumature è ciò che distingue la fluenza dalla mera competenza.",
+    "hints": [
+      "Use 'ciò che' for 'what' in relative clauses."
+    ]
+  },
+  {
+    "id": "it-es-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would rather have an honest disagreement than a superficial agreement.",
+    "correctAnswer": "Preferirei avere un disaccordo sincero piuttosto che un accordo superficiale.",
+    "hints": [
+      "Use 'piuttosto che' for 'rather than'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-es-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: No matter what happens, I will not give up on this goal.",
+    "correctAnswer": "Qualunque cosa succeda, non rinuncerò a questo obiettivo.",
+    "hints": [
+      "Use 'qualunque cosa' + congiuntivo."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "it-es-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had they consulted us beforehand, we could have avoided this misunderstanding.",
+    "correctAnswer": "Se ci avessero consultato prima, avremmo potuto evitare questo malinteso.",
+    "hints": [
+      "Third conditional with the periodo ipotetico del terzo tipo."
+    ]
+  },
+  {
+    "id": "it-es-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Mastering idiomatic expressions takes years of immersion.",
+    "correctAnswer": "Padroneggiare le espressioni idiomatiche richiede anni di immersione.",
+    "hints": [
+      "Use the infinitive as a subject."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-es-b2-14",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It seems unlikely that the deadline will be extended.",
+    "correctAnswer": "Sembra improbabile che la scadenza venga prorogata.",
+    "hints": [
+      "Use congiuntivo after 'sembra che'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-es-b2-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: In spite of the difficulties, we managed to reach an agreement.",
+    "correctAnswer": "Nonostante le difficoltà, siamo riusciti a raggiungere un accordo.",
+    "hints": [
+      "'Nonostante' can be used with a noun phrase directly."
+    ],
+    "culturalNote": "Italians value negotiation and reaching compromises, especially in business."
+  }
+]

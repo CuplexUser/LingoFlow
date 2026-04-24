@@ -26,6 +26,18 @@ function makeAttempt(question) {
   if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
     return { questionId: question.id, selectedOption: question.answer };
   }
+  if (question.type === "roleplay") {
+    return { questionId: question.id, selectedOption: question.answer };
+  }
+  if (question.type === "flashcard") {
+    return { questionId: question.id, selectedOption: "known" };
+  }
+  if (question.type === "pronunciation") {
+    return { questionId: question.id, textAnswer: question.answer };
+  }
+  if (question.type === "matching") {
+    return { questionId: question.id, matchingPairs: question.pairs };
+  }
   if (question.type === "cloze_sentence") {
     return { questionId: question.id, selectedOption: question.clozeAnswer };
   }

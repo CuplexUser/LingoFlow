@@ -1,0 +1,412 @@
+[
+  {
+    "id": "it-ch-a1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This museum is very interesting.",
+    "correctAnswer": "Questo museo è molto interessante.",
+    "hints": [
+      "A simple opinion sentence."
+    ],
+    "imageUrl": "/images/museum-arch.svg"
+  },
+  {
+    "id": "it-ch-a1-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a museum ticket",
+    "correctAnswer": "un biglietto del museo",
+    "hints": [
+      "Match the phrase."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-ch-a1-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This statue is famous.",
+    "correctAnswer": "Questa statua è famosa.",
+    "hints": [
+      "A simple description."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-ch-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a painting / a church / a fountain / a castle",
+    "correctAnswer": "un dipinto",
+    "hints": [
+      "Which one is a work of art on a flat surface?"
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-ch-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The Colosseum is in Rome.",
+    "correctAnswer": "Il Colosseo è a Roma.",
+    "hints": [
+      "Use 'è a' + city name for location.",
+      "Il Colosseo was built in the 1st century AD and could hold up to 80,000 spectators."
+    ],
+    "culturalNote": "Il Colosseo è il simbolo di Roma e uno dei monumenti più visitati al mondo."
+  },
+  {
+    "id": "it-ch-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Italy has many beautiful old cities.",
+    "correctAnswer": "L'Italia ha molte belle città antiche.",
+    "hints": [
+      "Adjectives must agree in gender and number with the noun."
+    ]
+  },
+  {
+    "id": "it-ch-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "the Renaissance",
+    "correctAnswer": "il Rinascimento",
+    "hints": [
+      "This cultural period in Italy produced Leonardo da Vinci and Michelangelo."
+    ],
+    "exerciseType": "flashcard",
+    "culturalNote": "Il Rinascimento italiano (XIV–XVII sec.) ha rivoluzionato arte, scienza e filosofia in Europa."
+  },
+  {
+    "id": "it-ch-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this church open to visitors?",
+    "correctAnswer": "Questa chiesa è aperta ai visitatori?",
+    "hints": [
+      "A simple yes/no question — just raise your intonation at the end."
+    ]
+  },
+  {
+    "id": "it-ch-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The Uffizi Gallery is in Florence.",
+    "correctAnswer": "La Galleria degli Uffizi è a Firenze.",
+    "hints": [
+      "Use the definite article with proper names of galleries."
+    ],
+    "culturalNote": "La Galleria degli Uffizi ospita una delle più importanti collezioni d'arte del mondo."
+  },
+  {
+    "id": "it-ch-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: La torre di Pisa è ___ . (The Tower of Pisa is famous.)",
+    "correctAnswer": "famosa",
+    "hints": [
+      "'Torre' is feminine, so the adjective ends in '-a'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-ch-a2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: In Sweden, fika is a coffee break.",
+    "correctAnswer": "In Svezia la fika è una pausa caffè.",
+    "hints": [
+      "Mention the custom by name."
+    ],
+    "culturalNote": "La fika mette al centro il tempo condiviso e la conversazione."
+  },
+  {
+    "id": "it-ch-a2-2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This building is very old.",
+    "correctAnswer": "Questo edificio è molto vecchio.",
+    "hints": [
+      "Describe the place."
+    ]
+  },
+  {
+    "id": "it-ch-a2-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The guide speaks very clearly.",
+    "correctAnswer": "La guida parla molto chiaramente.",
+    "hints": [
+      "Use the adverb 'chiaramente' — adverbs don't change form."
+    ]
+  },
+  {
+    "id": "it-ch-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I visited the Vatican Museums last year.",
+    "correctAnswer": "Ho visitato i Musei Vaticani l'anno scorso.",
+    "hints": [
+      "Use the passato prossimo: 'ho visitato' for a completed past action."
+    ],
+    "culturalNote": "I Musei Vaticani ospitano la Cappella Sistina con gli affreschi di Michelangelo."
+  },
+  {
+    "id": "it-ch-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Carnival in Venice is held every year in February.",
+    "correctAnswer": "Il Carnevale di Venezia si svolge ogni anno a febbraio.",
+    "hints": [
+      "'Si svolge' is the reflexive passive — 'it takes place'."
+    ],
+    "culturalNote": "Il Carnevale di Venezia è famoso per le maschere elaborate e risale al Medioevo."
+  },
+  {
+    "id": "it-ch-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: When was this cathedral built?",
+    "correctAnswer": "Quando è stata costruita questa cattedrale?",
+    "hints": [
+      "Passive voice in passato prossimo: 'è stata costruita' (feminine agreement)."
+    ]
+  },
+  {
+    "id": "it-ch-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Opera is a very important part of Italian culture.",
+    "correctAnswer": "L'opera è una parte molto importante della cultura italiana.",
+    "hints": [
+      "Use the definite article 'l'' before 'opera' — it starts with a vowel."
+    ],
+    "culturalNote": "L'opera italiana nasce a Firenze alla fine del '500 e ha influenzato la musica mondiale."
+  },
+  {
+    "id": "it-ch-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. Someone asks: 'Qual è il tuo monumento italiano preferito?' (What is your favourite Italian monument?)",
+    "correctAnswer": "Il mio preferito è il Pantheon di Roma — è straordinariamente ben conservato.",
+    "hints": [
+      "Give a specific example and add a reason."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-ch-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "a fresco / a mosaic / a sculpture / a relief",
+    "correctAnswer": "un affresco",
+    "hints": [
+      "Which is painted directly onto wet plaster? Famous examples are in the Sistine Chapel."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-ch-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: Leonardo da Vinci ha ___ la Gioconda. (Leonardo da Vinci painted the Mona Lisa.)",
+    "correctAnswer": "dipinto",
+    "hints": [
+      "'Dipingere' is irregular: passato prossimo is 'ha dipinto'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-ch-b1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Why is this old town important?",
+    "correctAnswer": "Mostra come vivevano le persone qui secoli fa.",
+    "hints": [
+      "Answer like a guide."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-ch-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Who built this castle?",
+    "correctAnswer": "Lo ha costruito un re medievale per difendere la città.",
+    "hints": [
+      "Answer simply and clearly — use object pronoun 'lo' before the verb."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-ch-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "a tradition",
+    "correctAnswer": "una tradizione",
+    "hints": [
+      "Match the cultural term."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-ch-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The Roman Empire influenced law, language, and architecture across Europe.",
+    "correctAnswer": "L'Impero Romano ha influenzato il diritto, la lingua e l'architettura in tutta Europa.",
+    "hints": [
+      "Use the passato prossimo for historical facts that have lasting relevance."
+    ],
+    "culturalNote": "Il latino, lingua dell'Impero Romano, è la base delle lingue romanze come l'italiano, lo spagnolo e il francese."
+  },
+  {
+    "id": "it-ch-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Dante Alighieri wrote the Divine Comedy in the early fourteenth century.",
+    "correctAnswer": "Dante Alighieri scrisse la Divina Commedia all'inizio del Trecento.",
+    "hints": [
+      "Use the passato remoto ('scrisse') for distant historical events."
+    ],
+    "culturalNote": "La Divina Commedia di Dante è considerata il fondamento della letteratura italiana e ha standardizzato la lingua italiana."
+  },
+  {
+    "id": "it-ch-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: While the north industrialised rapidly, the south remained primarily agricultural.",
+    "correctAnswer": "Mentre il nord si industrializzava rapidamente, il sud rimaneva prevalentemente agricolo.",
+    "hints": [
+      "Use the imperfetto for two simultaneous ongoing past situations."
+    ],
+    "culturalNote": "Il divario economico tra nord e sud Italia, chiamato 'questione meridionale', è un tema storico e politico ancora attuale."
+  },
+  {
+    "id": "it-ch-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I think that preserving cultural heritage is everyone's responsibility.",
+    "correctAnswer": "Penso che preservare il patrimonio culturale sia responsabilità di tutti.",
+    "hints": [
+      "'Penso che' + congiuntivo: 'sia' is congiuntivo presente of 'essere'."
+    ]
+  },
+  {
+    "id": "it-ch-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: This region is known for its Baroque architecture and vibrant street life.",
+    "correctAnswer": "Questa regione è conosciuta per la sua architettura barocca e la vivace vita di strada.",
+    "hints": [
+      "Passive 'è conosciuta per' — adjectives agree with the noun they modify."
+    ]
+  },
+  {
+    "id": "it-ch-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: Il Risorgimento è stato il processo attraverso cui l'Italia si è ___ nel 1861. (The Risorgimento was the process by which Italy unified in 1861.)",
+    "correctAnswer": "unificata",
+    "hints": [
+      "'Unificarsi' — reflexive verb; past participle agrees with 'Italia' (feminine): 'unificata'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "culturalNote": "Il Risorgimento è il movimento politico e militare che ha portato all'unificazione dell'Italia nel XIX secolo."
+  },
+  {
+    "id": "it-ch-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Regional dialects in Italy are so different that speakers from different areas sometimes struggle to understand each other.",
+    "correctAnswer": "I dialetti regionali in Italia sono così diversi che i parlanti di zone diverse a volte faticano a capirsi.",
+    "hints": [
+      "'Così... che' = so... that; 'faticano a + infinitivo' = struggle to."
+    ],
+    "culturalNote": "L'Italia ha una grande varietà di dialetti regionali, dal veneziano al napoletano, ancora parlati accanto all'italiano standard."
+  },
+  {
+    "id": "it-ch-b2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Could you explain this tradition to me?",
+    "correctAnswer": "Puoi spiegarmi questa tradizione, per favore?",
+    "hints": [
+      "A polite question about local culture."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-ch-b2-2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I love learning local history.",
+    "correctAnswer": "Amo imparare la storia locale.",
+    "hints": [
+      "A positive statement."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-ch-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: This legend is popular here.",
+    "correctAnswer": "Questa leggenda è popolare qui.",
+    "hints": [
+      "Use a natural tone."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "it-ch-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The Medici family's patronage of the arts made Florence the cradle of the Renaissance.",
+    "correctAnswer": "Il mecenatismo della famiglia de' Medici fece di Firenze la culla del Rinascimento.",
+    "hints": [
+      "Use the passato remoto 'fece' (irregular past of 'fare') for distant historical events."
+    ],
+    "culturalNote": "I Medici furono banchieri e signori di Firenze che finanziarono artisti come Botticelli, Leonardo e Michelangelo."
+  },
+  {
+    "id": "it-ch-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had Italy unified earlier, the industrial revolution might have spread southward more rapidly.",
+    "correctAnswer": "Se l'Italia si fosse unificata prima, la rivoluzione industriale avrebbe potuto diffondersi più rapidamente verso sud.",
+    "hints": [
+      "Third conditional: 'se + congiuntivo trapassato' + 'condizionale passato'."
+    ]
+  },
+  {
+    "id": "it-ch-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The influence of Roman law on Western legal systems cannot be overstated.",
+    "correctAnswer": "L'influenza del diritto romano sui sistemi giuridici occidentali non può essere sopravvalutata.",
+    "hints": [
+      "Modal passive: 'non può essere + participio passato'."
+    ]
+  },
+  {
+    "id": "it-ch-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is debated whether the decline of the Roman Empire was caused by internal collapse or external pressure.",
+    "correctAnswer": "Si dibatte se il declino dell'Impero Romano sia stato causato da un crollo interno o da pressioni esterne.",
+    "hints": [
+      "'Si dibatte se' + congiuntivo passato; 'sia stato causato' is passive congiuntivo passato."
+    ]
+  },
+  {
+    "id": "it-ch-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Cultural heritage must be protected so that future generations can understand their roots.",
+    "correctAnswer": "Il patrimonio culturale deve essere tutelato affinché le generazioni future possano comprendere le proprie radici.",
+    "hints": [
+      "'Affinché' + congiuntivo expresses purpose; 'possano' is congiuntivo presente of 'potere'."
+    ]
+  }
+]

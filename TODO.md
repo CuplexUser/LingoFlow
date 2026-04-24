@@ -10,7 +10,223 @@ This file captures current product and technical priorities for future assignmen
 
 ## Current focus
 
+Five priority tracks, ordered by priority:
+
+1. **Content expansion** — fill every category × level to 20-50 exercises per language
+2. **Moderation UI** — build the missing review workflow for community contributions
+3. **App.tsx refactor** — break the 1040-line orchestrator into focused modules
+4. **Test coverage** — close gaps in auth routes, page components, and E2E
+5. **Engagement features** — leaderboards, achievements, and weekly challenges
+
+---
+
 ## Active roadmap
+
+### Phase 13: Content file restructuring and expansion ★ PRIORITY 1
+
+The monolithic `<language>.json` files (~2000 lines each) are hard to maintain and expand.
+Split them into a directory-per-language, file-per-category structure so each file stays
+small and focused.
+
+**Step 1 — Restructure content files**
+
+New layout:
+```
+server/content/languages/
+  english/
+    _meta.json          # { id, label, flag }
+    essentials.json     # exercises array
+    conversation.json
+    travel.json
+    ...
+  spanish/
+    _meta.json
+    essentials.json
+    ...
+```
+
+- [x] Create a migration script that splits each `<language>.json` into the new structure.
+- [x] Update `contentLoader.ts` to scan language directories, load `_meta.json` + category files,
+      and merge them into the same in-memory shape the rest of the server expects.
+- [x] Keep validation (duplicate IDs, unknown categories, required fields) working across split files.
+- [x] Verify with `npm run test --prefix server` and a manual spot-check.
+- [x] Delete the old monolithic JSON files after migration passes.
+
+**Step 2 — Fill content gaps**
+
+Current state: ~936 exercises total, ~188 per language (English lags at 180).
+Target: 20-50 exercises per category × level × language.
+
+Progress snapshot (2026-04-24):
+- English `work` expanded to 20 per level (A1/A2/B1/B2).
+- English `essentials` expanded to A2=20 and B1=20.
+- English sparse categories expanded:
+  `hobbies_leisure`, `sports_fitness`, `news_media`, `money_finance`,
+  `science_technology`, `culture_history`, `nature_animals` now at A1=20, A2=20, B1=20, B2=18.
+- English core categories expanded:
+  `conversation` now at 20 per level, `travel` now at A1=20/A2=20/B1=20/B2=19,
+  and `health`, `family_friends`, `food_cooking`, `grammar` now at A1=20, A2=20, B1=20, B2=18.
+- Russian expansion completed across all categories:
+  every Russian category now has A1=20, A2=20, B1=20, B2=20.
+
+Coverage priorities (sparse categories first):
+1. **English shortfalls** — add missing exercises to Essentials B2, Work A1/A2/B1, Essentials A2/B1.
+2. **Newer categories** — `hobbies_leisure`, `sports_fitness`, `news_media`, `money_finance`,
+   `science_technology`, `culture_history`, `nature_animals` all sit at ~3 exercises per level.
+   Expand each to 15-20 per level with balanced exercise types.
+3. **Established categories** — `essentials`, `conversation`, `travel`, `work`, `health`,
+   `family_friends`, `food_cooking`, `grammar` — expand from ~3-4 to 20+ per level.
+4. **Exercise type balance** — each category should mix recognition (MC, cloze), production
+   (build_sentence, dictation), and recall (flashcard, matching) types.
+5. **Cultural notes** — add `culturalNote` fields to at least 20% of exercises per language,
+   especially in `culture_history`, `food_cooking`, and `conversation`.
+
+Quality checklist per batch:
+- [ ] CEFR level-appropriate vocabulary and grammar
+- [ ] At least 2 accepted answer variants for production exercises
+- [ ] Plausible distractors (same word class, similar length, common confusion pairs)
+- [ ] Hints that coach the thought process, not just reveal the answer
+- [ ] No duplicate `id` values across the language
+
+**Step 3 — Add new languages (stretch)**
+
+- [ ] Evaluate adding French, German, Portuguese, or Japanese based on user demand.
+- [ ] Each new language starts with the 5 core categories at A1-A2, minimum 15 exercises per level.
+
+---
+
+### Phase 14: Moderation UI for community contributions
+
+API endpoints exist (`/api/community/contributions`, PATCH `/api/community/contributions/:id`)
+but the frontend has no review workflow. Moderators currently cannot approve or reject submissions.
+
+**Step 1 — Moderation inbox page**
+
+- [ ] Build a `ModerationPage` (or extend `ContributionInbox`) with:
+  - filterable list by status (`pending`, `approved`, `rejected`), language, and category
+  - exercise preview card showing prompt, answer, hints, and metadata
+  - approve / reject / request-changes actions with optional reviewer comment
+  - batch selection for bulk approve/reject
+- [ ] Gate the page behind a moderator role check (use existing `CONTRIBUTION_REVIEWER_EMAILS`).
+
+**Step 2 — Review workflow**
+
+- [ ] Add `reviewer_comment` and `reviewed_by` columns to `contributions` table if missing.
+- [ ] On approve: optionally inject the exercise into the content pool (or flag for next content release).
+- [ ] On reject: send feedback to the contributor (visible on their ContributePage).
+- [ ] Add notification badge on nav when pending contributions exist (moderators only).
+
+**Step 3 — Contributor feedback loop**
+
+- [ ] Show submission status (pending / approved / rejected / changes requested) on ContributePage.
+- [ ] Display reviewer comments inline so contributors can iterate.
+
+---
+
+### Phase 15: App.tsx refactor
+
+`App.tsx` is 1040 lines with ~20 `useState` calls and deep prop drilling. Goal: break it
+into focused modules without changing user-visible behavior.
+
+**Step 1 — Extract context providers**
+
+- [ ] `AuthContext` — token, user, login/logout/register actions. Replaces auth-related
+      useState + handlers currently in App.tsx.
+- [ ] `CourseContext` — languages, progress, stats, active language/category. Replaces
+      course-related state and the `useAuthenticatedAppData` hydration.
+- [ ] `NavigationContext` — wrap `useAppNavigation` so any component can navigate without
+      prop drilling.
+- [ ] `SessionContext` — active session state, wrapping `useCourseSessionState`.
+
+**Step 2 — Extract page orchestration**
+
+- [ ] Move the page-switch logic into a `<PageRouter>` component that reads from
+      `NavigationContext` and renders the active page.
+- [ ] Each page receives only the props it needs from context, not everything from App.
+- [ ] App.tsx becomes a thin shell: providers → PageRouter → pages.
+
+**Step 3 — Verify**
+
+- [ ] `npm run build --prefix client` passes.
+- [ ] `npm run test --prefix client` passes.
+- [ ] Manual smoke test: login → learn → session → stats → setup → contribute → bookmarks.
+- [ ] No regressions in theme toggle, session pause/resume, or keyboard shortcuts.
+
+---
+
+### Phase 16: Test coverage expansion
+
+Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
+
+**Step 1 — Server test gaps**
+
+- [ ] Auth routes: register (validation, duplicate email), login (wrong password, unverified),
+      Google OAuth callback, email verification, password reset flow.
+- [ ] User routes: GET/PUT settings, GET progress, GET progress-overview, GET stats.
+- [ ] Bookmark routes: POST bookmark, GET bookmarks, DELETE bookmark.
+- [ ] Community routes: POST contribution, GET contributions (contributor vs moderator view),
+      PATCH contribution status.
+- [ ] Course routes: GET /api/course, GET /api/languages.
+- [ ] Edge cases: expired JWT, malformed tokens, rate limit enforcement.
+
+**Step 2 — Client test gaps**
+
+- [ ] Page components: LearnPage renders categories, PracticePage mode selection,
+      StatsPage chart rendering with mock data, SetupPage form save/reset.
+- [ ] SessionPlayer: full exercise flows for each type (MC submit, build_sentence drag,
+      cloze select, flashcard flip, matching pairs, pronunciation).
+- [ ] Session lifecycle: start → answer → complete → mistake drill → share card.
+- [ ] BookmarksPage: render bookmarks, delete, TTS playback trigger.
+- [ ] Auth flow: login form validation, registration, logout clears state.
+
+**Step 3 — E2E tests (stretch)**
+
+- [ ] Evaluate Playwright or Cypress for critical user journeys:
+  - register → verify → login → first session → complete → stats update
+  - daily challenge → streak increment
+  - contribute exercise → moderator approve
+
+---
+
+### Phase 17: Engagement features
+
+**Step 1 — Achievement system**
+
+- [ ] `achievements` table: `id`, `user_id`, `achievement_type`, `earned_at`, `metadata`.
+- [ ] Define achievement types:
+  - Streak milestones (3-day, 7-day, 30-day, 100-day)
+  - XP milestones (100, 500, 1000, 5000 XP)
+  - Category mastery (complete a category at 80%+)
+  - Completionist (all categories in a language at 50%+)
+  - Polyglot (practice 2+ languages)
+  - Speed demon (10 correct in a row with no hints)
+  - Night owl / early bird (practice at unusual hours)
+- [ ] Achievement check runs at session completion; newly earned ones show as a toast/modal.
+- [ ] Achievements page or section in StatsPage displaying earned badges with dates.
+
+**Step 2 — Leaderboards**
+
+- [ ] `GET /api/leaderboard?period=daily|weekly|alltime&language=<id>`
+- [ ] Leaderboard shows top 20 users by XP for the selected period.
+- [ ] User's own rank always visible (even if outside top 20).
+- [ ] Optional: opt-out for users who don't want to appear on leaderboards.
+- [ ] Frontend: `LeaderboardPage` or panel on LearnPage with tabs for period selection.
+
+**Step 3 — Weekly challenges**
+
+- [ ] Server generates a weekly challenge each Monday (deterministic from week number):
+  - "Earn 200 XP in Travel this week"
+  - "Complete 5 sessions without using hints"
+  - "Practice 3 different categories"
+- [ ] `weekly_challenges` table tracking progress and completion.
+- [ ] Challenge card on LearnPage with progress bar.
+- [ ] Bonus XP reward on completion (50-100 XP).
+
+**Step 4 — Social features (stretch)**
+
+- [ ] Friend system: add friends by username, see their streaks/achievements.
+- [ ] Challenge a friend: send a category/level challenge, compare scores.
+- [ ] Activity feed: "Alex just completed a 7-day streak!" notifications.
 
 ### Phase 7: Integrity, operations, and scale
 
@@ -231,4 +447,3 @@ These items are intentionally left open for the next development cycle.
 - [x] Add optional Google sign-in path (`/api/auth/google` + Google Identity button).
 - [x] Add sign-out flow and auth-gated app bootstrap.
 - [x] Require email verification for email/password registration before login.
-

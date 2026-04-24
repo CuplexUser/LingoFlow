@@ -1,0 +1,852 @@
+[
+  {
+    "id": "ru-es-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Hello, how are you?",
+    "correctAnswer": "Привет, как дела?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "ru-es-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Thank you very much for your help.",
+    "correctAnswer": "Большое спасибо за твою помощь.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "ru-es-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not understand this sentence.",
+    "correctAnswer": "Я не понимаю это предложение.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "ru-es-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Excuse me, where is the bathroom?",
+    "correctAnswer": "Извините, где находится туалет?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "ru-es-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Good morning",
+    "correctAnswer": "Доброе утро",
+    "hints": [
+      "A greeting used in the first half of the day."
+    ],
+    "exerciseType": "flashcard",
+    "imageUrl": "/images/placeholder.svg"
+  },
+  {
+    "id": "ru-es-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My name is Anna.",
+    "correctAnswer": "Меня зовут Анна.",
+    "hints": [
+      "Use the standard way to introduce yourself in Russian."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Yes, please.",
+    "correctAnswer": "Да, пожалуйста.",
+    "hints": [
+      "A polite affirmative reply."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-es-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: No, thank you.",
+    "correctAnswer": "Нет, спасибо.",
+    "hints": [
+      "A polite way to decline."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-es-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am sorry.",
+    "correctAnswer": "Простите.",
+    "hints": [
+      "A formal apology word."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-es-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Goodbye, see you tomorrow!",
+    "correctAnswer": "До свидания, увидимся завтра!",
+    "hints": [
+      "Combine a farewell with a future meeting."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best response. Someone says: Как дела?",
+    "correctAnswer": "Хорошо, спасибо!",
+    "hints": [
+      "Give a positive reply to 'How are you?'"
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-es-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I speak a little Russian.",
+    "correctAnswer": "Я немного говорю по-русски.",
+    "hints": [
+      "Use немного (a little) before the verb."
+    ]
+  },
+  {
+    "id": "ru-es-a1-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Please help me.",
+    "correctAnswer": "Помогите мне, пожалуйста.",
+    "hints": [
+      "Use the imperative form with пожалуйста."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-a1-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: How much does this cost?",
+    "correctAnswer": "Сколько это стоит?",
+    "hints": [
+      "A question about price."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-es-a1-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Good evening",
+    "correctAnswer": "Добрый вечер",
+    "hints": [
+      "An evening greeting."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-es-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you speak more slowly, please?",
+    "correctAnswer": "Можете говорить медленнее, пожалуйста?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "ru-es-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am learning Russian every day.",
+    "correctAnswer": "Я учу русский язык каждый день.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "ru-es-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you repeat that one more time?",
+    "correctAnswer": "Не могли бы вы повторить это еще раз?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "ru-es-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you write that down for me?",
+    "correctAnswer": "Не могли бы вы записать это для меня?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "ru-es-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I do not know this word yet.",
+    "correctAnswer": "Я ещё не знаю это слово.",
+    "hints": [
+      "Use ещё (yet/still) with negation."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: What does this word mean?",
+    "correctAnswer": "Что означает это слово?",
+    "hints": [
+      "Ask about the meaning of a word."
+    ]
+  },
+  {
+    "id": "ru-es-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. A stranger asks you for directions but you do not know.",
+    "correctAnswer": "Извините, я не знаю. Я не местный.",
+    "hints": [
+      "Politely say you cannot help.",
+      "Use the formal Вы register or a neutral phrase."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-es-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually take the bus to work.",
+    "correctAnswer": "Обычно я езжу на работу на автобусе.",
+    "hints": [
+      "Use обычно for habitual actions."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: Я ___ русский язык два месяца. (I have been studying Russian for two months.)",
+    "correctAnswer": "учу",
+    "hints": [
+      "Present tense of учить (to study/learn)."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-es-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need to buy a map of the city.",
+    "correctAnswer": "Мне нужно купить карту города.",
+    "hints": [
+      "Use мне нужно + infinitive for necessity."
+    ]
+  },
+  {
+    "id": "ru-es-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Извините, вы не подскажете, как пройти к метро?",
+    "hints": [
+      "A polite way to ask for directions.",
+      "Use the formal Вы form."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-es-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: It is warm today, but it was cold yesterday.",
+    "correctAnswer": "Сегодня тепло, но вчера было холодно.",
+    "hints": [
+      "Contrast present and past using но (but)."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-a2-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I like this city very much.",
+    "correctAnswer": "Мне очень нравится этот город.",
+    "hints": [
+      "Use the dative construction: мне нравится."
+    ]
+  },
+  {
+    "id": "ru-es-a2-14",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Where can I buy a phone charger?",
+    "correctAnswer": "Где я могу купить зарядку для телефона?",
+    "hints": [
+      "Use могу (can) + infinitive."
+    ]
+  },
+  {
+    "id": "ru-es-a2-15",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I went to the store after work.",
+    "correctAnswer": "После работы я пошёл в магазин.",
+    "hints": [
+      "Use past tense of идти.",
+      "Pay attention to the prefix по- for completed motion."
+    ]
+  },
+  {
+    "id": "ru-es-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I made a mistake, but I will try again.",
+    "correctAnswer": "Я сделал ошибку, но попробую снова.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "ru-es-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would like to improve my pronunciation.",
+    "correctAnswer": "Я хотел бы улучшить своё произношение.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "ru-es-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I understand the idea, but I need more practice.",
+    "correctAnswer": "Я понимаю идею, но мне нужно больше практики.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "ru-es-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I feel more confident when I speak in longer sentences.",
+    "correctAnswer": "Я чувствую себя увереннее, когда говорю более длинными предложениями.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "ru-es-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: Если бы у меня было больше времени, я бы ___ русский каждый день. (If I had more time, I would study Russian every day.)",
+    "correctAnswer": "учил",
+    "hints": [
+      "Past tense of учить in a conditional clause.",
+      "Imperfective aspect for a habitual action."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-es-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: It seems to me that this rule has many exceptions.",
+    "correctAnswer": "Мне кажется, что у этого правила много исключений.",
+    "hints": [
+      "Use мне кажется for expressing opinions.",
+      "Note the genitive case after у."
+    ]
+  },
+  {
+    "id": "ru-es-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been reading this book for a week and I really enjoy it.",
+    "correctAnswer": "Я читаю эту книгу уже неделю и она мне очень нравится.",
+    "hints": [
+      "Russian uses present tense with уже for ongoing duration."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Your teacher says your homework has many errors.",
+    "correctAnswer": "Спасибо за замечания, я постараюсь исправить ошибки.",
+    "hints": [
+      "Respond politely and show willingness to improve.",
+      "Use perfective постараюсь for a one-time effort."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-es-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Although I make mistakes, I keep trying.",
+    "correctAnswer": "Хотя я делаю ошибки, я продолжаю стараться.",
+    "hints": [
+      "Use хотя (although) to build a concessive clause."
+    ]
+  },
+  {
+    "id": "ru-es-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Не могли бы вы объяснить это правило ещё раз?",
+    "hints": [
+      "A polite classroom request.",
+      "Use the conditional form не могли бы."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-es-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I used to think Russian was very difficult, but now I enjoy it.",
+    "correctAnswer": "Раньше я думал, что русский язык очень сложный, но теперь мне он нравится.",
+    "hints": [
+      "Use раньше for 'used to'.",
+      "Contrast past and present attitudes."
+    ]
+  },
+  {
+    "id": "ru-es-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Could you recommend a good textbook for intermediate learners?",
+    "correctAnswer": "Не могли бы вы порекомендовать хороший учебник для среднего уровня?",
+    "hints": [
+      "Use the polite conditional construction."
+    ]
+  },
+  {
+    "id": "ru-es-b1-13",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I need to practice speaking more often.",
+    "correctAnswer": "Мне нужно чаще практиковать разговорную речь.",
+    "hints": [
+      "Use мне нужно + infinitive."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-b1-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The more I study, the easier it becomes.",
+    "correctAnswer": "Чем больше я учусь, тем легче становится.",
+    "hints": [
+      "Use the чем... тем... construction for comparatives."
+    ]
+  },
+  {
+    "id": "ru-es-b1-15",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: Мне нужно ___ к экзамену. (I need to prepare for the exam.)",
+    "correctAnswer": "подготовиться",
+    "hints": [
+      "Perfective reflexive verb: подготовиться.",
+      "The preposition к requires the dative case."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-es-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I can explain my opinion with clear arguments.",
+    "correctAnswer": "Я могу объяснить своё мнение с ясными аргументами.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-es-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I want to speak naturally, not only correctly.",
+    "correctAnswer": "Я хочу говорить естественно, а не только правильно.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-es-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
+    "correctAnswer": "Даже когда я делаю небольшие ошибки, я могу поддерживать разговор.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-es-16",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I try to choose expressions that sound natural in context.",
+    "correctAnswer": "Я стараюсь выбирать выражения, которые естественно звучат в контексте.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "ru-es-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Mastering the case system is essential for sounding fluent in Russian.",
+    "correctAnswer": "Владение падежной системой необходимо, чтобы звучать свободно по-русски.",
+    "hints": [
+      "Use an abstract noun (владение) as the subject.",
+      "Instrumental case: падежной системой."
+    ],
+    "culturalNote": "Russian has six grammatical cases, each changing noun endings to express different relationships."
+  },
+  {
+    "id": "ru-es-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Despite the complexity of Russian grammar, regular practice leads to progress.",
+    "correctAnswer": "Несмотря на сложность русской грамматики, регулярная практика ведёт к прогрессу.",
+    "hints": [
+      "Use несмотря на + accusative for 'despite'."
+    ]
+  },
+  {
+    "id": "ru-es-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: Он говорит по-русски так, ___ будто родился в Москве. (He speaks Russian as if he were born in Moscow.)",
+    "correctAnswer": "как",
+    "hints": [
+      "The construction как будто means 'as if'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-es-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would argue that context is more important than memorizing rules.",
+    "correctAnswer": "Я бы утверждал, что контекст важнее заучивания правил.",
+    "hints": [
+      "Use conditional бы with past tense for hypothetical statement.",
+      "Genitive case after comparative: важнее заучивания."
+    ]
+  },
+  {
+    "id": "ru-es-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Having studied several languages, I find Russian the most rewarding.",
+    "correctAnswer": "Изучив несколько языков, я считаю русский самым интересным.",
+    "hints": [
+      "Use a perfective gerund (деепричастие): изучив.",
+      "This is an advanced grammatical structure."
+    ]
+  },
+  {
+    "id": "ru-es-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The subtleties of word stress in Russian can change the meaning entirely.",
+    "correctAnswer": "Тонкости ударения в русском языке могут полностью изменить значение.",
+    "hints": [
+      "Use abstract vocabulary: тонкости, ударение, значение."
+    ],
+    "culturalNote": "Russian word stress is not fixed and can distinguish between different words, e.g. за́мок (castle) vs замо́к (lock)."
+  },
+  {
+    "id": "ru-es-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. Someone says your Russian accent is very good.",
+    "correctAnswer": "Спасибо, я много работаю над произношением, но мне ещё есть куда расти.",
+    "hints": [
+      "A modest, natural response.",
+      "Use the idiom есть куда расти (there is room for growth)."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-es-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: One must not underestimate the importance of listening practice.",
+    "correctAnswer": "Нельзя недооценивать важность практики аудирования.",
+    "hints": [
+      "Use нельзя + infinitive for 'one must not'."
+    ]
+  },
+  {
+    "id": "ru-es-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Чем больше я погружаюсь в язык, тем лучше я его понимаю.",
+    "hints": [
+      "A comparative construction: чем... тем..."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-es-b2-14",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It goes without saying that immersion accelerates language acquisition.",
+    "correctAnswer": "Само собой разумеется, что погружение ускоряет усвоение языка.",
+    "hints": [
+      "Use the fixed phrase само собой разумеется."
+    ]
+  },
+  {
+    "id": "ru-es-b2-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Were it not for patient teachers, I would never have reached this level.",
+    "correctAnswer": "Если бы не терпеливые учителя, я бы никогда не достиг этого уровня.",
+    "hints": [
+      "Use the counterfactual conditional: если бы не..."
+    ]
+  },
+  {
+    "id": "ru-es-a1-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am learning Russian every day.",
+    "correctAnswer": "Я учу русский каждый день.",
+    "hints": [
+      "Use a simple present-tense sentence."
+    ]
+  },
+  {
+    "id": "ru-es-a1-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can you repeat, please?",
+    "correctAnswer": "Повторите, пожалуйста?",
+    "hints": [
+      "Use polite singular/plural form."
+    ]
+  },
+  {
+    "id": "ru-es-a1-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need a little more time.",
+    "correctAnswer": "Мне нужно немного больше времени.",
+    "hints": [
+      "A useful phrase for class and conversation."
+    ]
+  },
+  {
+    "id": "ru-es-a1-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: thank you",
+    "correctAnswer": "спасибо",
+    "hints": [
+      "The most common word of gratitude."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-es-a1-20",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Build the sentence: My name is Pavel.",
+    "correctAnswer": "Меня зовут Павел.",
+    "hints": [
+      "Use the standard introduction pattern."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-es-a2-16",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I forgot my notebook at home.",
+    "correctAnswer": "Я забыл тетрадь дома.",
+    "acceptedAnswers": [
+      "Я забыла тетрадь дома."
+    ],
+    "hints": [
+      "Use past tense for a completed action."
+    ]
+  },
+  {
+    "id": "ru-es-a2-17",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Where can I practice speaking?",
+    "correctAnswer": "Где я могу потренировать разговорную речь?",
+    "hints": [
+      "Use могу + infinitive."
+    ]
+  },
+  {
+    "id": "ru-es-a2-18",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This word is difficult to pronounce.",
+    "correctAnswer": "Это слово трудно произнести.",
+    "hints": [
+      "Use short-form adverb трудно."
+    ]
+  },
+  {
+    "id": "ru-es-a2-19",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Я ____ русский уже два года.",
+    "correctAnswer": "учу",
+    "hints": [
+      "Use the verb 'to study/learn'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-es-a2-20",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you speak a little slower?",
+    "correctAnswer": "Можете говорить немного медленнее?",
+    "hints": [
+      "A polite listening-support request."
+    ]
+  },
+  {
+    "id": "ru-es-b1-16",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I understand the idea, but I need more examples.",
+    "correctAnswer": "Я понимаю идею, но мне нужно больше примеров.",
+    "hints": [
+      "Use contrast with но."
+    ]
+  },
+  {
+    "id": "ru-es-b1-17",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How can I improve my vocabulary faster?",
+    "correctAnswer": "Как я могу быстрее расширить словарный запас?",
+    "hints": [
+      "Use быстрее for comparative speed."
+    ]
+  },
+  {
+    "id": "ru-es-b1-18",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I make fewer mistakes when I review regularly.",
+    "correctAnswer": "Я делаю меньше ошибок, когда регулярно повторяю материал.",
+    "hints": [
+      "Use меньше with countable plural here."
+    ]
+  },
+  {
+    "id": "ru-es-b1-19",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Мне стало легче понимать речь на слух.",
+    "hints": [
+      "Listen for the phrase на слух."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-es-b1-20",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am trying to speak more naturally.",
+    "correctAnswer": "Я стараюсь говорить более естественно.",
+    "hints": [
+      "Use стараюсь + infinitive."
+    ]
+  },
+  {
+    "id": "ru-es-b2-16",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Context often helps me infer unknown words.",
+    "correctAnswer": "Контекст часто помогает мне выводить значение незнакомых слов.",
+    "hints": [
+      "Use abstract academic-style phrasing."
+    ]
+  },
+  {
+    "id": "ru-es-b2-17",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you clarify the nuance of this expression?",
+    "correctAnswer": "Не могли бы вы уточнить оттенок значения этого выражения?",
+    "hints": [
+      "Use formal politeness and precise vocabulary."
+    ]
+  },
+  {
+    "id": "ru-es-b2-18",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Fluency improves when practice is consistent.",
+    "correctAnswer": "Беглость речи улучшается, когда практика становится системной.",
+    "hints": [
+      "Use formal and concise structure."
+    ]
+  },
+  {
+    "id": "ru-es-b2-19",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I value feedback that is specific and constructive.",
+    "correctAnswer": "Я ценю обратную связь, которая конкретна и конструктивна.",
+    "hints": [
+      "Use a relative clause with которая."
+    ]
+  },
+  {
+    "id": "ru-es-b2-20",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: Thank your tutor for detailed corrections.",
+    "correctAnswer": "Спасибо за подробные исправления, они очень помогают мне прогрессировать.",
+    "hints": [
+      "Use a polite and natural appreciative tone."
+    ],
+    "exerciseType": "roleplay",
+    "culturalNote": "Russian learners often value direct but respectful correction in class."
+  }
+]
