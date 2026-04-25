@@ -144,31 +144,32 @@
     "id": "ru-mo-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study money and finance every day.",
-    "correctAnswer": "Я каждый день изучаю деньги и финансы.",
+    "prompt": "Vocabulary: coin",
+    "correctAnswer": "монета",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "A small metal piece used as money."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice money and finance now?",
-    "correctAnswer": "Мы можем сейчас практиковать деньги и финансы?",
+    "prompt": "Vocabulary: price",
+    "correctAnswer": "цена",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "How much something costs."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: expense",
-    "correctAnswer": "расход",
+    "prompt": "Vocabulary: cash",
+    "correctAnswer": "наличные",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Physical banknotes and coins."
     ],
     "exerciseType": "flashcard"
   },
@@ -176,53 +177,60 @@
     "id": "ru-mo-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for money and finance.",
-    "correctAnswer": "Мне нужно больше времени на деньги и финансы.",
+    "prompt": "Vocabulary: wallet",
+    "correctAnswer": "кошелёк",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "You keep your cards and cash in it."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice money and finance.",
-    "correctAnswer": "Я каждый день повторяю тему «деньги и финансы».",
+    "prompt": "Say: How much does it cost?",
+    "correctAnswer": "Сколько это стоит?",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "A basic shopping question."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "pronunciation"
   },
   {
     "id": "ru-mo-a1-6",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice money and finance now?",
-    "correctAnswer": "Мы можем сейчас практиковать деньги и финансы?",
+    "prompt": "Say: I don't have enough money.",
+    "correctAnswer": "У меня недостаточно денег.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use 'У меня' to express what you have or don't have."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on money and finance is useful.",
-    "correctAnswer": "Этот урок по теме «денег и финансов» полезный.",
+    "prompt": "Which word means 'to buy'?",
+    "correctAnswer": "купить",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Think of a common shopping verb."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "купить",
+      "продать",
+      "взять",
+      "дать"
+    ]
   },
   {
     "id": "ru-mo-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: savings",
-    "correctAnswer": "сбережения",
+    "prompt": "Vocabulary: receipt",
+    "correctAnswer": "чек",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "The paper you get after paying."
     ],
     "exerciseType": "flashcard"
   },
@@ -230,10 +238,10 @@
     "id": "ru-mo-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study money and finance every day.",
-    "correctAnswer": "Я каждый день изучаю деньги и финансы.",
+    "prompt": "Say: Do you accept credit cards?",
+    "correctAnswer": "Вы принимаете кредитные карты?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "A useful phrase when paying in a shop."
     ],
     "exerciseType": "pronunciation"
   },
@@ -241,33 +249,34 @@
     "id": "ru-mo-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice money and finance.",
-    "correctAnswer": "Я каждый день повторяю тему «деньги и финансы».",
+    "prompt": "Vocabulary: change (as in coins returned after paying)",
+    "correctAnswer": "сдача",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "What the cashier gives back when you overpay."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a1-11",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on money and finance is useful.",
-    "correctAnswer": "Этот урок по теме «денег и финансов» полезный.",
+    "prompt": "Say: The price is too high.",
+    "correctAnswer": "Цена слишком высокая.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Слишком' means 'too' (excessively)."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-a1-12",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for money and finance.",
-    "correctAnswer": "Мне нужно больше времени на деньги и финансы.",
+    "prompt": "Vocabulary: discount",
+    "correctAnswer": "скидка",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "A reduction in the original price."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a1-13",
@@ -276,7 +285,7 @@
     "prompt": "Vocabulary: budget",
     "correctAnswer": "бюджет",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "A plan for how to spend money."
     ],
     "exerciseType": "flashcard"
   },
@@ -284,10 +293,10 @@
     "id": "ru-mo-a1-14",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice money and finance now?",
-    "correctAnswer": "Мы можем сейчас практиковать деньги и финансы?",
+    "prompt": "Say: I want to exchange money.",
+    "correctAnswer": "Я хочу обменять деньги.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Use 'хочу + infinitive' to express a want."
     ],
     "exerciseType": "pronunciation"
   },
@@ -295,31 +304,38 @@
     "id": "ru-mo-a1-15",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice money and finance.",
-    "correctAnswer": "Я каждый день повторяю тему «деньги и финансы».",
+    "prompt": "Which word means 'expensive'?",
+    "correctAnswer": "дорогой",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "The opposite of 'cheap'."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "дорогой",
+      "дешёвый",
+      "новый",
+      "старый"
+    ]
   },
   {
     "id": "ru-mo-a1-16",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for money and finance.",
-    "correctAnswer": "Мне нужно больше времени на деньги и финансы.",
+    "prompt": "Vocabulary: salary",
+    "correctAnswer": "зарплата",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Money you earn from work."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a1-17",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study money and finance every day.",
-    "correctAnswer": "Я каждый день изучаю деньги и финансы.",
+    "prompt": "Say: I want to open a bank account.",
+    "correctAnswer": "Я хочу открыть банковский счёт.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Счёт' means account. Use 'банковский' as an adjective."
     ],
     "exerciseType": "build_sentence"
   },
@@ -327,31 +343,32 @@
     "id": "ru-mo-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced money and finance yesterday.",
-    "correctAnswer": "Я вчера практиковал деньги и финансы.",
+    "prompt": "Say: I withdrew one hundred euros from the ATM.",
+    "correctAnswer": "Я снял сто евро в банкомате.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use past tense of 'снять' (to withdraw)."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in money and finance?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «денег и финансов»?",
+    "prompt": "What does 'to transfer money' mean?",
+    "correctAnswer": "перевести деньги",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Sending money from one account to another."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «деньги и финансы».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Я плачу за квартиру каждый месяц — это моя главная ____.",
+    "correctAnswer": "расход",
     "hints": [
-      "Use a verb that matches the context and style."
+      "A regular cost or outgoing payment."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -359,10 +376,10 @@
     "id": "ru-mo-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand money and finance better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «деньги и финансы».",
+    "prompt": "Say: I pay my rent by bank transfer.",
+    "correctAnswer": "Я плачу аренду банковским переводом.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Банковский перевод' = bank transfer. Use instrumental case."
     ],
     "exerciseType": "pronunciation"
   },
@@ -370,10 +387,10 @@
     "id": "ru-mo-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «денег и финансов»?",
+    "prompt": "Roleplay: Ask a shop assistant if there is a discount on this item.",
+    "correctAnswer": "Есть ли скидка на этот товар?",
     "hints": [
-      "Use a polite, natural request."
+      "Use 'есть ли' for a polite yes/no question."
     ],
     "exerciseType": "roleplay"
   },
@@ -381,31 +398,32 @@
     "id": "ru-mo-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in money and finance?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «денег и финансов»?",
+    "prompt": "Say: I don't have enough money to buy a new phone.",
+    "correctAnswer": "У меня недостаточно денег, чтобы купить новый телефон.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use 'недостаточно + noun + чтобы + infinitive'."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on money and finance was difficult.",
-    "correctAnswer": "Это упражнение по теме «денег и финансов» было трудным.",
+    "prompt": "What is a 'loan'?",
+    "correctAnswer": "кредит",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Money borrowed from a bank that must be repaid with interest."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a2-8",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «деньги и финансы».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Чтобы купить машину, он взял ____ в банке.",
+    "correctAnswer": "кредит",
     "hints": [
-      "Use a verb that matches the context and style."
+      "A type of borrowing arrangement."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -413,10 +431,10 @@
     "id": "ru-mo-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced money and finance yesterday.",
-    "correctAnswer": "Я вчера практиковал деньги и финансы.",
+    "prompt": "Say: I checked my bank balance this morning.",
+    "correctAnswer": "Сегодня утром я проверил баланс счёта.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Use past tense; 'баланс счёта' = bank balance."
     ],
     "exerciseType": "pronunciation"
   },
@@ -424,10 +442,10 @@
     "id": "ru-mo-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «денег и финансов»?",
+    "prompt": "Roleplay: Tell a friend you are trying to cut down on unnecessary spending.",
+    "correctAnswer": "Я стараюсь сократить ненужные расходы.",
     "hints": [
-      "Use a polite, natural request."
+      "'Сократить расходы' = to cut spending."
     ],
     "exerciseType": "roleplay"
   },
@@ -435,31 +453,32 @@
     "id": "ru-mo-a2-11",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on money and finance was difficult.",
-    "correctAnswer": "Это упражнение по теме «денег и финансов» было трудным.",
+    "prompt": "Say: The exchange rate today is very good.",
+    "correctAnswer": "Сегодня очень выгодный курс обмена.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Курс обмена' = exchange rate; 'выгодный' = favourable."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-a2-12",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand money and finance better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «деньги и финансы».",
+    "prompt": "What does 'invoice' mean?",
+    "correctAnswer": "счёт-фактура / накладная",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "A document requesting payment for goods or services."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-mo-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «деньги и финансы».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: После покупки кассир выдал мне ____.",
+    "correctAnswer": "чек",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Proof of purchase given at checkout."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -467,10 +486,10 @@
     "id": "ru-mo-a2-14",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in money and finance?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «денег и финансов»?",
+    "prompt": "Say: My monthly expenses are higher than my income.",
+    "correctAnswer": "Мои ежемесячные расходы выше, чем мой доход.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Доход' = income; use comparative 'выше, чем'."
     ],
     "exerciseType": "pronunciation"
   },
@@ -478,10 +497,10 @@
     "id": "ru-mo-a2-15",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «денег и финансов»?",
+    "prompt": "Roleplay: Ask a bank clerk to help you fill in a transfer form.",
+    "correctAnswer": "Не могли бы вы помочь мне заполнить бланк перевода?",
     "hints": [
-      "Use a polite, natural request."
+      "Use 'не могли бы вы' for a polite request."
     ],
     "exerciseType": "roleplay"
   },
@@ -489,41 +508,49 @@
     "id": "ru-mo-a2-16",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand money and finance better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «деньги и финансы».",
+    "prompt": "Say: I usually pay for groceries in cash.",
+    "correctAnswer": "Обычно я плачу за продукты наличными.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Наличными' is the instrumental form of 'наличные'."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-a2-17",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced money and finance yesterday.",
-    "correctAnswer": "Я вчера практиковал деньги и финансы.",
+    "prompt": "Which phrase means 'to go into debt'?",
+    "correctAnswer": "залезть в долг",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "A colloquial expression for borrowing beyond your means."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "залезть в долг",
+      "сделать скидку",
+      "открыть вклад",
+      "снять деньги"
+    ]
   },
   {
     "id": "ru-mo-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in money and finance.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «денег и финансов».",
+    "prompt": "Say: I have been putting aside ten percent of my salary every month.",
+    "correctAnswer": "Я каждый месяц откладываю десять процентов от зарплаты.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use present tense for a habitual ongoing action."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for money and finance?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «денег и финансов»?",
+    "prompt": "Ask: What is the annual percentage rate on this loan?",
+    "correctAnswer": "Какова годовая процентная ставка по этому кредиту?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Годовая процентная ставка' = annual percentage rate (APR)."
     ],
     "exerciseType": "build_sentence"
   },
@@ -531,10 +558,10 @@
     "id": "ru-mo-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «деньги и финансы».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Чтобы не платить лишнее, важно сравнивать ____ перед покупкой.",
+    "correctAnswer": "цены",
     "hints": [
-      "Use a verb that matches the context and style."
+      "The plural of 'цена' in accusative."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -543,9 +570,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «деньги и финансы».",
+    "correctAnswer": "Банк предлагает выгодные условия по ипотеке для молодых семей.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for 'ипотека' (mortgage) and 'условия' (terms)."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -553,10 +580,10 @@
     "id": "ru-mo-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Мне бы хотелось больше практики по теме «денег и финансов», чтобы говорить увереннее.",
+    "prompt": "Roleplay: Negotiate a lower price with a market seller.",
+    "correctAnswer": "Не могли бы вы немного снизить цену? Я готов купить сразу несколько штук.",
     "hints": [
-      "Use a polite, natural request."
+      "Offer something in return to strengthen your negotiation."
     ],
     "exerciseType": "roleplay"
   },
@@ -564,53 +591,49 @@
     "id": "ru-mo-b1-6",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for money and finance?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «денег и финансов»?",
+    "prompt": "Say: If my salary increases next year, I will start investing.",
+    "correctAnswer": "Если моя зарплата вырастет в следующем году, я начну инвестировать.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use first conditional: 'если + present, future'."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review money and finance.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «деньги и финансы».",
+    "prompt": "What does 'net income' mean?",
+    "correctAnswer": "доход после вычета налогов",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "The amount you take home after taxes are deducted."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "доход после вычета налогов",
+      "общая выручка до расходов",
+      "ежемесячный взнос по кредиту",
+      "комиссия за банковский перевод"
+    ]
   },
   {
     "id": "ru-mo-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «деньги и финансы».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Он не смог оплатить ипотеку и теперь у него ____ задолженность.",
+    "correctAnswer": "просроченная",
     "hints": [
-      "Use a verb that matches the context and style."
+      "An adjective meaning overdue or past due."
     ],
     "exerciseType": "cloze_sentence"
-  },
-  {
-    "id": "ru-mo-b1-9",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «деньги и финансы».",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
-    "exerciseType": "dictation_sentence"
   },
   {
     "id": "ru-mo-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Мне бы хотелось больше практики по теме «денег и финансов», чтобы говорить увереннее.",
+    "prompt": "Roleplay: Explain to a friend why you prefer paying by card rather than cash.",
+    "correctAnswer": "Платить картой удобнее — не нужно носить с собой наличные, и все транзакции автоматически записываются.",
     "hints": [
-      "Use a polite, natural request."
+      "Give at least two reasons to make your argument convincing."
     ],
     "exerciseType": "roleplay"
   },
@@ -618,20 +641,21 @@
     "id": "ru-mo-b1-11",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review money and finance.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «деньги и финансы».",
+    "prompt": "Say: I compared several savings accounts before choosing this one.",
+    "correctAnswer": "Я сравнил несколько сберегательных счетов, прежде чем выбрать этот.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use past perfective to show a completed action before another."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b1-12",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in money and finance.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «денег и финансов».",
+    "prompt": "Say: My goal is to pay off my credit card debt within six months.",
+    "correctAnswer": "Моя цель — погасить долг по кредитной карте за шесть месяцев.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Погасить долг' = to pay off debt; use 'за + accusative' for duration."
     ],
     "exerciseType": "build_sentence"
   },
@@ -639,32 +663,21 @@
     "id": "ru-mo-b1-13",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «деньги и финансы».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Чем раньше вы начнёте откладывать, тем больше будет ваш ____ капитал.",
+    "correctAnswer": "накопленный",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Accumulated over time — a participial adjective."
     ],
     "exerciseType": "cloze_sentence"
-  },
-  {
-    "id": "ru-mo-b1-14",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «деньги и финансы».",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
-    "exerciseType": "dictation_sentence"
   },
   {
     "id": "ru-mo-b1-15",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Мне бы хотелось больше практики по теме «денег и финансов», чтобы говорить увереннее.",
+    "prompt": "Roleplay: Ask your bank about the fees associated with a foreign currency transfer.",
+    "correctAnswer": "Какие комиссии взимаются при переводе средств в иностранной валюте?",
     "hints": [
-      "Use a polite, natural request."
+      "'Взимать комиссию' = to charge a fee; use formal register."
     ],
     "exerciseType": "roleplay"
   },
@@ -672,63 +685,60 @@
     "id": "ru-mo-b1-16",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in money and finance.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «денег и финансов».",
+    "prompt": "Say: I would invest in real estate if I had more capital.",
+    "correctAnswer": "Я бы инвестировал в недвижимость, если бы у меня было больше капитала.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use second conditional for a hypothetical present situation."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b1-17",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in money and finance.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «денег и финансов».",
+    "prompt": "What does 'compound interest' mean in everyday financial language?",
+    "correctAnswer": "начисление процентов на уже накопленные проценты",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Interest that earns further interest over time."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "начисление процентов на уже накопленные проценты",
+      "единовременная выплата в конце срока",
+      "фиксированный ежемесячный платёж по кредиту",
+      "сумма налогового вычета"
+    ]
   },
   {
     "id": "ru-mo-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of money and finance.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «денег и финансов».",
+    "prompt": "Say: The government has introduced a windfall tax on energy company profits.",
+    "correctAnswer": "Правительство ввело налог на сверхприбыль энергетических компаний.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Налог на сверхприбыль' = windfall tax; use past perfective 'ввело'."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «денег и финансов».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Падение курса национальной валюты привело к росту ____ на импортные товары.",
+    "correctAnswer": "цен",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Genitive plural of 'цена' after 'рост'."
     ],
     "exerciseType": "cloze_sentence"
-  },
-  {
-    "id": "ru-mo-b2-3",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Системная практика темы «денег и финансов» помогает говорить увереннее.",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
-    "exerciseType": "dictation_sentence"
   },
   {
     "id": "ru-mo-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «денег и финансов».",
+    "prompt": "Roleplay: Advise a colleague on the risks of concentrating all investments in a single asset class.",
+    "correctAnswer": "Сосредоточение всех вложений в одном классе активов значительно увеличивает ваш риск. Диверсификация позволяет сгладить потери при падении отдельных рынков.",
     "hints": [
-      "Use a polite, natural request."
+      "Use formal register; mention both the risk and the alternative."
     ],
     "exerciseType": "roleplay"
   },
@@ -736,53 +746,49 @@
     "id": "ru-mo-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the best translation: I regularly practice money and finance.",
-    "correctAnswer": "Я регулярно практикую тему «деньги и финансы».",
+    "prompt": "Choose the best translation: Quantitative easing increases the money supply.",
+    "correctAnswer": "Количественное смягчение увеличивает денежную массу.",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "A central bank policy term — stay formal."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "options": [
+      "Количественное смягчение увеличивает денежную массу.",
+      "Количественное ослабление снижает стоимость кредитов.",
+      "Монетарный стимул уменьшает государственный долг.",
+      "Эмиссия валюты повышает процентные ставки."
+    ]
   },
   {
     "id": "ru-mo-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in money and finance?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «денег и финансов»?",
+    "prompt": "Ask: Could you walk me through the key differences between equity and debt financing?",
+    "correctAnswer": "Не могли бы вы объяснить основные различия между долевым и долговым финансированием?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use formal 'не могли бы вы' + infinitive; 'долевое финансирование' = equity, 'долговое' = debt."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «денег и финансов».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Высокий уровень государственного ____ может подорвать доверие инвесторов.",
+    "correctAnswer": "долга",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Genitive singular of 'долг' after 'уровень'."
     ],
     "exerciseType": "cloze_sentence"
-  },
-  {
-    "id": "ru-mo-b2-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Системная практика темы «денег и финансов» помогает говорить увереннее.",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
-    "exerciseType": "dictation_sentence"
   },
   {
     "id": "ru-mo-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «денег и финансов».",
+    "prompt": "Roleplay: Explain to a client why hedging currency risk is advisable for their international business.",
+    "correctAnswer": "Поскольку ваш бизнес работает с несколькими валютами, хеджирование валютных рисков позволит вам зафиксировать обменный курс и избежать непредвиденных потерь при резких колебаниях рынка.",
     "hints": [
-      "Use a polite, natural request."
+      "Use 'хеджирование' (hedging); explain the benefit clearly in formal language."
     ],
     "exerciseType": "roleplay"
   },
@@ -790,53 +796,49 @@
     "id": "ru-mo-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the best translation: I regularly practice money and finance.",
-    "correctAnswer": "Я регулярно практикую тему «деньги и финансы».",
+    "prompt": "Choose the best translation: Fiscal austerity measures were implemented to reduce the deficit.",
+    "correctAnswer": "Меры бюджетной экономии были введены с целью сокращения дефицита.",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "'Бюджетная экономия' = fiscal austerity; use passive past."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "options": [
+      "Меры бюджетной экономии были введены с целью сокращения дефицита.",
+      "Правительство снизило налоги для стимулирования экономики.",
+      "Центральный банк повысил резервные требования для банков.",
+      "Дефицит бюджета был покрыт за счёт эмиссии облигаций."
+    ]
   },
   {
     "id": "ru-mo-b2-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on money and finance.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «денег и финансов».",
+    "prompt": "Say: The IPO was oversubscribed, reflecting strong investor appetite.",
+    "correctAnswer": "IPO было переподписано, что свидетельствует о высоком интересе инвесторов.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Переподписано' = oversubscribed; 'свидетельствует о' = reflects/indicates."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b2-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «денег и финансов».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Центральный банк принял решение оставить ключевую ____ ставку без изменений.",
+    "correctAnswer": "процентную",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Adjective agreeing with 'ставка' (rate) in accusative feminine."
     ],
     "exerciseType": "cloze_sentence"
-  },
-  {
-    "id": "ru-mo-b2-13",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Системная практика темы «денег и финансов» помогает говорить увереннее.",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
-    "exerciseType": "dictation_sentence"
   },
   {
     "id": "ru-mo-b2-14",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Roleplay: Ask your tutor for support with money and finance.",
-    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «денег и финансов».",
+    "prompt": "Roleplay: Present the case for and against taking on leverage to fund expansion.",
+    "correctAnswer": "Привлечение заёмных средств ускоряет рост, однако увеличивает финансовую нагрузку и риск дефолта при ухудшении рыночной конъюнктуры. Всё зависит от того, насколько стабильны ваши денежные потоки.",
     "hints": [
-      "Use a polite, natural request."
+      "Present both sides; use 'однако' for contrast and 'зависит от' for nuance."
     ],
     "exerciseType": "roleplay"
   },
@@ -844,31 +846,38 @@
     "id": "ru-mo-b2-15",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the best translation: I regularly practice money and finance.",
-    "correctAnswer": "Я регулярно практикую тему «деньги и финансы».",
+    "prompt": "Choose the best translation: A bear market is characterised by sustained price declines.",
+    "correctAnswer": "Медвежий рынок характеризуется устойчивым снижением цен.",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "'Медвежий рынок' = bear market; 'устойчивый' = sustained."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "options": [
+      "Медвежий рынок характеризуется устойчивым снижением цен.",
+      "Бычий рынок отличается высокой волатильностью.",
+      "Рецессия всегда сопровождается ростом инфляции.",
+      "Фондовый рынок не реагирует на монетарную политику."
+    ]
   },
   {
     "id": "ru-mo-b2-16",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in money and finance.",
-    "correctAnswer": "В теме «денег и финансов» системность важнее интенсивности.",
+    "prompt": "Say: Overleveraged firms are particularly vulnerable during periods of rising interest rates.",
+    "correctAnswer": "Компании с высокой долговой нагрузкой особенно уязвимы в периоды роста процентных ставок.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Высокая долговая нагрузка' = overleveraged; 'уязвимы' = vulnerable."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-mo-b2-17",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «денег и финансов».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Грамотное ____ активами позволяет минимизировать налоговые обязательства.",
+    "correctAnswer": "управление",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Instrumental noun meaning 'management' — used in formal financial language."
     ],
     "exerciseType": "cloze_sentence"
   }

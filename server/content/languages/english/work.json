@@ -147,27 +147,6 @@
   {
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I start work at nine.",
-    "correctAnswer": "I start work at nine.",
-    "hints": [
-      "Use present simple for routines."
-    ],
-    "exerciseType": "mc_sentence",
-    "id": "en-wo-a1-45"
-  },
-  {
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Where is the training room?",
-    "correctAnswer": "Where is the training room?",
-    "hints": [
-      "Use this on your first day."
-    ],
-    "id": "en-wo-a1-46"
-  },
-  {
-    "level": "a1",
-    "difficulty": "a1",
     "prompt": "Say: I need a new password.",
     "correctAnswer": "I need a new password.",
     "hints": [
@@ -186,28 +165,6 @@
     ],
     "exerciseType": "flashcard",
     "id": "en-wo-a1-48"
-  },
-  {
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I start work at nine.",
-    "correctAnswer": "I start work at nine.",
-    "hints": [
-      "Use present simple for routines."
-    ],
-    "exerciseType": "pronunciation",
-    "id": "en-wo-a1-49"
-  },
-  {
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Where is the training room?",
-    "correctAnswer": "Where is the training room?",
-    "hints": [
-      "Use this on your first day."
-    ],
-    "exerciseType": "mc_sentence",
-    "id": "en-wo-a1-50"
   },
   {
     "id": "en-wo-3",
@@ -354,71 +311,6 @@
     "id": "en-wo-a2-54"
   },
   {
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I have a meeting with the client this afternoon.",
-    "correctAnswer": "I have a meeting with the client this afternoon.",
-    "hints": [
-      "Use time markers for clarity."
-    ],
-    "exerciseType": "roleplay",
-    "id": "en-wo-a2-55"
-  },
-  {
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: Could you review this report before lunch?",
-    "correctAnswer": "Could you review this report before lunch?",
-    "hints": [
-      "Use 'Could you' for polite requests."
-    ],
-    "id": "en-wo-a2-56"
-  },
-  {
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I am responsible for weekly updates.",
-    "correctAnswer": "I am responsible for weekly updates.",
-    "hints": [
-      "Use this to describe ownership."
-    ],
-    "exerciseType": "build_sentence",
-    "id": "en-wo-a2-57"
-  },
-  {
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We finished the task ahead of schedule.",
-    "correctAnswer": "We finished the task ahead of schedule.",
-    "hints": [
-      "Good phrase for progress updates."
-    ],
-    "exerciseType": "cloze_sentence",
-    "id": "en-wo-a2-58"
-  },
-  {
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I have a meeting with the client this afternoon.",
-    "correctAnswer": "I have a meeting with the client this afternoon.",
-    "hints": [
-      "Use time markers for clarity."
-    ],
-    "exerciseType": "pronunciation",
-    "id": "en-wo-a2-59"
-  },
-  {
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: Could you review this report before lunch?",
-    "correctAnswer": "Could you review this report before lunch?",
-    "hints": [
-      "Use 'Could you' for polite requests."
-    ],
-    "exerciseType": "roleplay",
-    "id": "en-wo-a2-60"
-  },
-  {
     "id": "en-wo-5",
     "level": "b1",
     "difficulty": "b1",
@@ -562,71 +454,6 @@
     "id": "en-wo-b1-64"
   },
   {
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: We should prioritize the customer issue before deployment.",
-    "correctAnswer": "We should prioritize the customer issue before deployment.",
-    "hints": [
-      "Use 'should' for recommendations."
-    ],
-    "exerciseType": "dictation_sentence",
-    "id": "en-wo-b1-65"
-  },
-  {
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I would like to propose a shorter meeting agenda.",
-    "correctAnswer": "I would like to propose a shorter meeting agenda.",
-    "hints": [
-      "Polite formal suggestion structure."
-    ],
-    "id": "en-wo-b1-66"
-  },
-  {
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Ask: Can we move this deadline to next Wednesday?",
-    "correctAnswer": "Can we move this deadline to next Wednesday?",
-    "hints": [
-      "Direct but collaborative phrasing."
-    ],
-    "exerciseType": "build_sentence",
-    "id": "en-wo-b1-67"
-  },
-  {
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I need more context before I can approve this plan.",
-    "correctAnswer": "I need more context before I can approve this plan.",
-    "hints": [
-      "State dependency clearly."
-    ],
-    "exerciseType": "cloze_sentence",
-    "id": "en-wo-b1-68"
-  },
-  {
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: We should prioritize the customer issue before deployment.",
-    "correctAnswer": "We should prioritize the customer issue before deployment.",
-    "hints": [
-      "Use 'should' for recommendations."
-    ],
-    "exerciseType": "dialogue_turn",
-    "id": "en-wo-b1-69"
-  },
-  {
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I would like to propose a shorter meeting agenda.",
-    "correctAnswer": "I would like to propose a shorter meeting agenda.",
-    "hints": [
-      "Polite formal suggestion structure."
-    ],
-    "exerciseType": "dictation_sentence",
-    "id": "en-wo-b1-70"
-  },
-  {
     "id": "en-wo-7",
     "level": "b2",
     "difficulty": "b2",
@@ -768,70 +595,5 @@
     ],
     "exerciseType": "dictation_sentence",
     "id": "en-wo-b2-74"
-  },
-  {
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: We need to align deliverables with stakeholder expectations.",
-    "correctAnswer": "We need to align deliverables with stakeholder expectations.",
-    "hints": [
-      "Use precise business vocabulary."
-    ],
-    "exerciseType": "mc_sentence",
-    "id": "en-wo-b2-75"
-  },
-  {
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I suggest we document risks before final sign-off.",
-    "correctAnswer": "I suggest we document risks before final sign-off.",
-    "hints": [
-      "Strong phrasing for process quality."
-    ],
-    "id": "en-wo-b2-76"
-  },
-  {
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Ask: How should we mitigate potential delays in this rollout?",
-    "correctAnswer": "How should we mitigate potential delays in this rollout?",
-    "hints": [
-      "Use 'mitigate' for formal risk language."
-    ],
-    "exerciseType": "cloze_sentence",
-    "id": "en-wo-b2-77"
-  },
-  {
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: This proposal balances short-term impact with long-term sustainability.",
-    "correctAnswer": "This proposal balances short-term impact with long-term sustainability.",
-    "hints": [
-      "Contrast clauses raise sophistication."
-    ],
-    "exerciseType": "dialogue_turn",
-    "id": "en-wo-b2-78"
-  },
-  {
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: We need to align deliverables with stakeholder expectations.",
-    "correctAnswer": "We need to align deliverables with stakeholder expectations.",
-    "hints": [
-      "Use precise business vocabulary."
-    ],
-    "exerciseType": "dictation_sentence",
-    "id": "en-wo-b2-79"
-  },
-  {
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I suggest we document risks before final sign-off.",
-    "correctAnswer": "I suggest we document risks before final sign-off.",
-    "hints": [
-      "Strong phrasing for process quality."
-    ],
-    "exerciseType": "mc_sentence",
-    "id": "en-wo-b2-80"
   }
 ]
