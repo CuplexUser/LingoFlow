@@ -6,11 +6,6 @@ import {
   type AuthUser,
   type CommunityExercisePayload
 } from "./api";
-import contributeIcon from "./assets/icon-contribute.svg";
-import learnIcon from "./assets/icon-learn.svg";
-import practiceIcon from "./assets/icon-practice.svg";
-import setupIcon from "./assets/icon-setup.svg";
-import statsIcon from "./assets/icon-stats.svg";
 import { AuthPage } from "./components/AuthPage";
 import { BookmarksPage } from "./components/BookmarksPage";
 import { ContributePage } from "./components/ContributePage";
@@ -28,8 +23,7 @@ import { useThemeMode } from "./hooks/useThemeMode";
 import { appVersion } from "./version";
 import {
   AUTH_PATHS,
-  AUTH_TOKEN_STORAGE_KEY,
-  type ThemeMode
+  AUTH_TOKEN_STORAGE_KEY
 } from "./constants";
 import type {
   CourseCategory,
@@ -91,6 +85,49 @@ function ShareIcon({ platform }: { platform: SharePlatformId | "native" }) {
   );
 }
 
+function NavIcon({ id }: { id: string }) {
+  if (id === "learn") return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3.5 5.5C3.5 4.7 4 4.3 4.8 4.5L11 6V19.5L4.8 18C4 17.8 3.5 17.4 3.5 16.6Z"/>
+      <path d="M20.5 5.5C20.5 4.7 20 4.3 19.2 4.5L13 6V19.5L19.2 18C20 17.8 20.5 17.4 20.5 16.6Z"/>
+      <path d="M5.6 8.5L9.2 9.4M5.6 11.2L9.2 12M14.8 9.4L18.4 8.5M14.8 12L18.4 11.2" strokeWidth="1.1" opacity="0.7"/>
+    </svg>
+  );
+  if (id === "practice") return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <circle cx="12" cy="12" r="5.5" opacity="0.6"/>
+      <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+      <path d="M12 3V5.5M12 18.5V21M3 12H5.5M18.5 12H21" strokeWidth="1.2"/>
+    </svg>
+  );
+  if (id === "contribute") return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 8.5C4 7.7 4.7 7 5.5 7H14L19 11.5V16.5C19 17.3 18.3 18 17.5 18H10L6 21V18H5.5C4.7 18 4 17.3 4 16.5Z"/>
+      <path d="M11 12.5H16M13.5 10V15" strokeWidth="1.4"/>
+      <path d="M7 11H9" strokeWidth="1.1" opacity="0.7"/>
+    </svg>
+  );
+  if (id === "setup") return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M5 6.5H19M5 12H19M5 17.5H19"/>
+      <circle cx="9"  cy="6.5"  r="2.4" fill="var(--surface)"/>
+      <circle cx="15" cy="12"   r="2.4" fill="var(--surface)"/>
+      <circle cx="8"  cy="17.5" r="2.4" fill="var(--surface)"/>
+    </svg>
+  );
+  if (id === "stats") return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3.5 18.5L9 12.5L13 15.5L20 7"/>
+      <path d="M14.5 7H20.5V13"/>
+      <circle cx="9" cy="12.5" r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="13" cy="15.5" r="1.4" fill="currentColor" stroke="none"/>
+      <circle cx="20" cy="7" r="1.4" fill="currentColor" stroke="none"/>
+    </svg>
+  );
+  return null;
+}
+
 export default function App() {
   const loginVisitTrackedRef = useRef(false);
   const [resetToken, setResetToken] = useState("");
@@ -106,7 +143,7 @@ export default function App() {
   const [bookmarksLoading, setBookmarksLoading] = useState(false);
   const [bookmarksError, setBookmarksError] = useState("");
   const [loading, setLoading] = useState(true);
-  const { themeMode, setThemeMode, activeTheme } = useThemeMode();
+  const { setThemeMode, activeTheme } = useThemeMode();
   const {
     activeCourseLanguage,
     setActiveCourseLanguage,
@@ -773,11 +810,6 @@ export default function App() {
     }
   }
 
-  const dailyProgressPercent = useMemo(() => {
-    if (!settings || !progress) return 0;
-    return Math.min(100, Math.round(((progress.todayXp || 0) / settings.dailyGoal) * 100));
-  }, [settings, progress]);
-
   const topbarIdentity =
     authUser?.authProvider === "local"
       ? (authUser?.email || authUser?.displayName || "Learner")
@@ -810,48 +842,64 @@ export default function App() {
   }
 
   const tabs = [
-    { id: "learn", label: "Learn", icon: learnIcon },
-    { id: "practice", label: "Practice", icon: practiceIcon },
-    { id: "contribute", label: "Contribute", icon: contributeIcon },
-    { id: "setup", label: "Setup", icon: setupIcon },
-    { id: "stats", label: "Stats", icon: statsIcon }
+    { id: "learn",      label: "Learn"      },
+    { id: "practice",   label: "Practice"   },
+    { id: "contribute", label: "Contribute" },
+    { id: "setup",      label: "Setup"      },
+    { id: "stats",      label: "Stats"      }
   ] as const;
 
   return (
     <main className="app-shell">
       <header className="topbar">
-        <div>
-          <h1>LingoFlow</h1>
-          <p className="topbar-subtitle">Focused daily language practice with adaptive challenges.</p>
+        <div className="brand">
+          <div className="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="32" height="32">
+              <circle cx="16" cy="16" r="15" className="brand-ring"/>
+              <path d="M9 19C11 14 13 14 16 16S21 18 23 13" className="brand-curve"/>
+              <circle cx="23" cy="13" r="1.6" className="brand-dot"/>
+            </svg>
+          </div>
+          <div>
+            <h1>LingoFlow</h1>
+            <p className="topbar-subtitle">Focused daily language practice with adaptive challenges.</p>
+          </div>
         </div>
+
         <div className="topbar-meta">
-          <div className="stats">
-            <span>{topbarIdentity}</span>
-            <span>Course: {activeLanguageLabel}</span>
-            <span>Level: {progress?.learnerLevel ?? 1}</span>
-            <span>XP: {progress?.totalXp ?? 0}</span>
-            <span className={`streak-badge${progress && !progress.todayXp ? " streak-at-risk" : ""}`}>
-              {progress?.streak ?? 0} day streak
+          <div className="topbar-chips">
+            <span className="chip">{topbarIdentity}</span>
+            <span className="chip">Course · <strong>{activeLanguageLabel}</strong></span>
+            <span className="chip">Level · <strong>{progress?.learnerLevel ?? 1}</strong></span>
+            <span className="chip">XP · <strong className="mono">{(progress?.totalXp ?? 0).toLocaleString()}</strong></span>
+            <span className={`chip chip-streak${progress && !progress.todayXp ? " streak-at-risk" : ""}`}>
+              <svg viewBox="0 0 16 16" width="12" height="14" fill="none" aria-hidden="true">
+                <path d="M8 1.5C9.6 4.2 12 5.4 12 8.6a4 4 0 1 1-8 0C4 6.4 5.6 5.6 6.4 4 6.9 5.2 7.4 5.6 8 5.6 8 4.4 7.8 3 8 1.5z" fill="currentColor"/>
+                <path d="M8 9C8.7 10 9.6 10.4 9.6 11.6a1.6 1.6 0 1 1-3.2 0C6.4 10.6 7.2 10.4 7.6 9.4z" fill="var(--surface)" opacity="0.85"/>
+              </svg>
+              <span className="mono">{progress?.streak ?? 0}</span> day streak
               {progress && !progress.todayXp ? " · practice today!" : ""}
             </span>
           </div>
+
           <div className="topbar-actions">
             <button
-              className={`bookmark-topbar-button${activePage === "bookmarks" ? " active" : ""}`}
+              className={`icon-btn${activePage === "bookmarks" ? " active" : ""}`}
               type="button"
               title="Bookmarks"
               aria-label="Bookmarks"
               onClick={() => navigateToPage("bookmarks")}
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 3h12a1 1 0 0 1 1 1v17l-7-3-7 3V4a1 1 0 0 1 1-1Z" />
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3.5 2.5h9v12L8 11l-4.5 3.5z"/>
               </svg>
               {bookmarks.length ? (
-                <span className="bookmark-topbar-badge">{bookmarkCountLabel}</span>
+                <span className="badge">{bookmarkCountLabel}</span>
               ) : null}
             </button>
-            <label className="theme-switcher">
-              Course
+
+            <div className="course-select">
+              <span className="seg-label">Course</span>
               <select
                 value={activeCourseLanguage}
                 onChange={(event) => switchCourseLanguage(event.target.value)}
@@ -861,48 +909,57 @@ export default function App() {
                   <option key={language.id} value={language.id}>{language.label}</option>
                 ))}
               </select>
-            </label>
-            <label className="theme-switcher">
-              Theme
-              <select
-                value={themeMode}
-                onChange={(event) => setThemeMode(event.target.value as ThemeMode)}
-                aria-label="Theme mode"
-              >
-                <option value="auto">Auto</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-              </select>
-            </label>
-            <button className="ghost-button" type="button" onClick={signOut}>
+            </div>
+
+            <div className="seg-group">
+              <span className="seg-label">Theme</span>
+              <div className="seg" role="group" aria-label="Theme">
+                <button
+                  className={"seg-btn" + (activeTheme === "light" ? " on" : "")}
+                  type="button"
+                  onClick={() => setThemeMode("light")}
+                  aria-pressed={activeTheme === "light"}
+                >
+                  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+                    <circle cx="8" cy="8" r="3"/>
+                    <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.5 1.5M11.5 11.5L13 13M3 13l1.5-1.5M11.5 4.5L13 3"/>
+                  </svg>
+                  Light
+                </button>
+                <button
+                  className={"seg-btn" + (activeTheme === "dark" ? " on" : "")}
+                  type="button"
+                  onClick={() => setThemeMode("dark")}
+                  aria-pressed={activeTheme === "dark"}
+                >
+                  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M13 9.5A5.5 5.5 0 0 1 6.5 3a5.5 5.5 0 1 0 6.5 6.5z"/>
+                  </svg>
+                  Dark
+                </button>
+              </div>
+            </div>
+
+            <button className="topbar-signout" type="button" onClick={signOut}>
               Sign out
             </button>
           </div>
         </div>
       </header>
 
-      <section className="nav-strip panel">
+      <nav className="nav-strip">
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            className={`nav-tile ${activePage === tab.id ? "active" : ""}`}
+            className={`nav-tile${activePage === tab.id ? " active" : ""}`}
             onClick={() => navigateToPage(tab.id)}
           >
-            <img src={tab.icon} alt="" />
+            <span className="nav-glyph"><NavIcon id={tab.id} /></span>
             <span>{tab.label}</span>
+            {activePage === tab.id && <span className="nav-dot" aria-hidden="true"/>}
           </button>
         ))}
-      </section>
-
-      <section className="panel daily-panel">
-        <div className="daily-headline">
-          <h2>Daily Goal</h2>
-          <strong>{dailyProgressPercent}% complete</strong>
-        </div>
-        <div className="daily-goal-bar">
-          <div style={{ width: `${dailyProgressPercent}%` }} />
-        </div>
-      </section>
+      </nav>
 
       {statusMessage ? <div className="status">{statusMessage}</div> : null}
 
@@ -1024,13 +1081,13 @@ export default function App() {
 
       {activePage === "stats" ? (
         <StatsPage
-          activeTheme={activeTheme}
           settings={settings}
           progress={progress}
           courseCategories={courseCategories}
           statsData={statsData}
           progressOverview={progressOverview}
           languages={languages}
+          onNavigateToPractice={() => navigateToPage("practice")}
         />
       ) : null}
 

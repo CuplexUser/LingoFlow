@@ -204,12 +204,10 @@ test("stats page renders fixture insights", async () => {
   await screen.findByText("LingoFlow");
   await user.click(screen.getByRole("button", { name: "Stats" }));
 
-  expect(await screen.findByText("Focus Next")).toBeInTheDocument();
-  expect(screen.getByText("Improve these categories next: Essentials.")).toBeInTheDocument();
+  expect(await screen.findByText("Focus next")).toBeInTheDocument();
   expect(screen.getByText("Grammar A1")).toBeInTheDocument();
-  expect(screen.getByText("55% acc")).toBeInTheDocument();
+  expect(screen.getByText("55%")).toBeInTheDocument();
   expect(screen.getByText("Word Order")).toBeInTheDocument();
-  expect(screen.getByText("4")).toBeInTheDocument();
 });
 
 test("setup page allows local users to delete account with password + confirmation", async () => {
@@ -284,13 +282,13 @@ test("loads and resumes an active session from local storage", async () => {
   expect(screen.getByRole("button", { name: "Exit Session" })).toBeInTheDocument();
 });
 
-test("learn page highlights the recommended focus and catalog toggle", async () => {
+test("learn page shows recommended section and category cards", async () => {
   setupApiFixtures();
   render(<App />);
 
-  await screen.findByText("Recommended Next");
-  expect(screen.getByRole("button", { name: "Start Recommended Session" })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: "Show Catalog" })).toBeInTheDocument();
+  await screen.findByText("Recommended next");
+  expect(screen.getByRole("button", { name: /Start recommended session/i })).toBeInTheDocument();
+  expect(screen.getAllByRole("button", { name: /Start|Continue/i }).length).toBeGreaterThan(0);
 });
 
 test("shows updated level-up style session status after completion", async () => {

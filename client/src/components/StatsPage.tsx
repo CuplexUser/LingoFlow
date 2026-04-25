@@ -1,18 +1,4 @@
-import {
-  ArcElement,
-  BarElement,
-  CategoryScale,
-  Chart as ChartJS,
-  Filler,
-  Legend,
-  LineElement,
-  LinearScale,
-  PointElement,
-  RadialLinearScale,
-  Tooltip
-} from "chart.js";
-import { useMemo } from "react";
-import { Bar, Doughnut, Line, Radar } from "react-chartjs-2";
+import { useMemo, useState } from "react";
 import type {
   CourseCategory,
   LanguageOption,
@@ -22,473 +8,516 @@ import type {
   StatsData
 } from "../types/course";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  RadialLinearScale,
-  ArcElement,
-  Tooltip,
-  Legend,
-  Filler
-);
-
 type StatsPageProps = {
-  activeTheme: "light" | "dark";
   settings: LearnerSettings | null;
   progress: LearnerProgress | null;
   courseCategories: CourseCategory[];
   statsData: StatsData | null;
   progressOverview: ProgressOverview | null;
   languages: LanguageOption[];
+  onNavigateToPractice: () => void;
 };
-
-function formatShortDateLabel(isoDate: string): string {
-  const asDate = new Date(`${isoDate}T00:00:00Z`);
-  if (Number.isNaN(asDate.getTime())) return isoDate;
-  return asDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-}
 
 function toTitleFromId(value: string): string {
   return String(value || "")
     .replace(/[_-]+/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .replace(/\b\w/g, (match) => match.toUpperCase());
+    .replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
-function getThemeChartColors(activeTheme: "light" | "dark") {
-  const inDarkMode = activeTheme === "dark";
+function ArrowIcon() {
+  return (
+    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3.5 8H12.5M9 4.5L12.5 8 9 11.5"/>
+    </svg>
+  );
+}
 
-  return {
-    text: inDarkMode ? "#b5b2ad" : "#66635f",
-    line: inDarkMode ? "#4d5564" : "#dfddda",
-    bar: inDarkMode ? "rgba(148, 163, 184, 0.9)" : "rgba(87, 83, 78, 0.85)",
-    lineStroke: inDarkMode ? "#93c5fd" : "#2563eb",
-    fill: inDarkMode ? "rgba(37, 99, 235, 0.16)" : "rgba(37, 99, 235, 0.1)",
-    accentBlue: inDarkMode ? "#93c5fd" : "#2563eb",
-    accentAmber: inDarkMode ? "#fbbf24" : "#d97706",
-    accentGreen: inDarkMode ? "#4ade80" : "#16a34a",
-    accentRed: inDarkMode ? "#f87171" : "#dc2626"
+const GRID_WEEKS = 13;
+
+function ActivityGrid({ history }: { history: Array<{ date: string; xp: number; sessions?: number }> }) {
+  const [hover, setHover] = useState<{ xp: number; sessions: number; date: string } | null>(null);
+
+  // Always show GRID_WEEKS of data — pad the front with zero-XP days so the grid is full-width
+  const paddedHistory = useMemo(() => {
+    const totalDays = GRID_WEEKS * 7;
+    if (!history.length) {
+      const today = new Date();
+      return Array.from({ length: totalDays }, (_, i) => {
+        const d = new Date(today);
+        d.setDate(d.getDate() - (totalDays - 1 - i));
+        return { date: d.toISOString().slice(0, 10), xp: 0 };
+      });
+    }
+    const byDate = new Map(history.map((d) => [d.date, d]));
+    const last = new Date(history[history.length - 1].date + "T00:00:00");
+    return Array.from({ length: totalDays }, (_, i) => {
+      const d = new Date(last);
+      d.setDate(d.getDate() - (totalDays - 1 - i));
+      const iso = d.toISOString().slice(0, 10);
+      return byDate.get(iso) ?? { date: iso, xp: 0 };
+    });
+  }, [history]);
+
+  const weeks = useMemo(() => {
+    const firstDay = new Date(paddedHistory[0].date + "T00:00:00");
+    const startDow = (firstDay.getDay() + 6) % 7;
+    const padded: (typeof paddedHistory[0] | null)[] = [];
+    for (let i = 0; i < startDow; i++) padded.push(null);
+    padded.push(...paddedHistory);
+    const cols: (typeof paddedHistory[0] | null)[][] = [];
+    for (let i = 0; i < padded.length; i += 7) cols.push(padded.slice(i, i + 7));
+    return cols;
+  }, [paddedHistory]);
+
+  const maxXp = Math.max(...paddedHistory.map((d) => d.xp), 1);
+  const tone = (xp: number | null) => {
+    if (xp == null || xp === 0) return 0;
+    if (xp < maxXp * 0.25) return 1;
+    if (xp < maxXp * 0.5)  return 2;
+    if (xp < maxXp * 0.75) return 3;
+    return 4;
   };
+  const days = ["Mon", "", "Wed", "", "Fri", "", ""];
+
+  return (
+    <div className="activity-grid-wrap">
+      <div className="activity-head">
+        <span style={{ fontSize: "11.5px", color: "var(--muted)" }}>Daily practice · {GRID_WEEKS} weeks</span>
+        <div className="activity-legend">
+          <span>Less</span>
+          {[0, 1, 2, 3, 4].map((t) => (
+            <i key={t} className={`act-cell tone-${t}`}/>
+          ))}
+          <span>More</span>
+        </div>
+      </div>
+      <div className="activity-body">
+        <div className="activity-days">{days.map((d, i) => <span key={i}>{d}</span>)}</div>
+        <div className="activity-cols">
+          {weeks.map((col, ci) => (
+            <div key={ci} className="activity-col">
+              {col.map((d, di) => (
+                <i
+                  key={di}
+                  className={`act-cell tone-${d ? tone(d.xp) : 0}${d == null ? " empty" : ""}`}
+                  onMouseEnter={() => d && setHover({ xp: d.xp, sessions: d.sessions ?? 0, date: d.date })}
+                  onMouseLeave={() => setHover(null)}
+                />
+              ))}
+              {Array.from({ length: 7 - col.length }).map((_, i) => (
+                <i key={"e" + i} className="act-cell empty"/>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="activity-tip">
+        {hover ? (
+          <span>
+            <strong className="mono">{hover.xp} XP</strong>
+            {hover.sessions ? ` · ${hover.sessions} session${hover.sessions === 1 ? "" : "s"}` : ""}
+            {" · "}{new Date(hover.date + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}
+          </span>
+        ) : (
+          <span style={{ color: "var(--muted)" }}>Hover a cell for details</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function SparkLine({ data }: { data: number[] }) {
+  const path = useMemo(() => {
+    if (!data.length) return "";
+    const W = 120, H = 32;
+    const min = Math.min(...data), max = Math.max(...data);
+    const range = max - min || 1;
+    return data.map((v, i) => {
+      const x = (i / (data.length - 1)) * W;
+      const y = H - ((v - min) / range) * H;
+      return `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(" ");
+  }, [data]);
+
+  return (
+    <svg viewBox="0 0 120 32" width="120" height="32" className="kpi-spark" preserveAspectRatio="none">
+      <path d={path} fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function XpCurve({ data }: { data: Array<{ date: string; xp: number }> }) {
+  const W = 600, H = 180, P = { l: 36, r: 12, t: 16, b: 28 };
+  const max = Math.max(...data.map((d) => d.xp), 1) * 1.15;
+  const xs = data.map((_, i) => P.l + (i / Math.max(data.length - 1, 1)) * (W - P.l - P.r));
+  const ys = data.map((d) => H - P.b - (d.xp / max) * (H - P.t - P.b));
+  const linePath = xs.map((x, i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)},${ys[i].toFixed(1)}`).join(" ");
+  const areaPath = `${linePath} L${xs[xs.length - 1].toFixed(1)},${H - P.b} L${xs[0].toFixed(1)},${H - P.b} Z`;
+  const yTicks = [0, 0.5, 1].map((t) => Math.round(max * t));
+
+  return (
+    <div className="chart-svg-wrap">
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="lf-xpFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.18"/>
+            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0"/>
+          </linearGradient>
+        </defs>
+        {yTicks.map((v, i) => {
+          const y = H - P.b - (v / max) * (H - P.t - P.b);
+          return (
+            <g key={i}>
+              <line x1={P.l} x2={W - P.r} y1={y} y2={y} stroke="var(--hairline)" strokeDasharray="2 4"/>
+              <text x={P.l - 6} y={y + 3} className="chart-tick" textAnchor="end">{v}</text>
+            </g>
+          );
+        })}
+        {data.map((d, i) => i % Math.max(1, Math.floor(data.length / 5)) === 0 && (
+          <text key={i} x={xs[i]} y={H - 8} className="chart-tick" textAnchor="middle">
+            {new Date(d.date + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}
+          </text>
+        ))}
+        <path d={areaPath} fill="url(#lf-xpFill)"/>
+        <path d={linePath} fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"/>
+        {data.map((d, i) => (
+          <circle key={i} cx={xs[i]} cy={ys[i]} r="3" fill="var(--surface)" stroke="var(--accent)" strokeWidth="1.6"/>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
+function SessionBars({ data }: { data: Array<{ date: string; sessions: number }> }) {
+  const W = 600, H = 160, P = { l: 16, r: 16, t: 16, b: 32 };
+  const max = Math.max(2, ...data.map((d) => d.sessions));
+  const slot = (W - P.l - P.r) / Math.max(data.length, 1);
+
+  return (
+    <div className="chart-svg-wrap">
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} preserveAspectRatio="none">
+        {data.map((d, i) => {
+          const cx = P.l + slot * (i + 0.5);
+          const bw = Math.min(40, slot * 0.55);
+          const bh = (d.sessions / max) * (H - P.t - P.b);
+          const y = H - P.b - bh;
+          const filled = d.sessions > 0;
+          const label = new Date(d.date + "T00:00:00").toLocaleDateString(undefined, { weekday: "short" })[0];
+          return (
+            <g key={i}>
+              <rect x={cx - bw / 2} y={filled ? y : H - P.b - 2} width={bw} height={filled ? bh : 2} rx="3" fill={filled ? "var(--ink)" : "var(--hairline)"}/>
+              <text x={cx} y={H - 10} className="chart-tick" textAnchor="middle">{label}</text>
+              {filled && <text x={cx} y={y - 6} className="chart-num mono" textAnchor="middle">{d.sessions}</text>}
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
+
+function MasteryRail({ categories }: { categories: CourseCategory[] }) {
+  const sorted = [...categories].sort((a, b) => b.mastery - a.mastery);
+  return (
+    <div className="rail-list">
+      {sorted.map((c) => {
+        const tone = c.mastery >= 80 ? "high" : c.mastery >= 60 ? "mid" : c.mastery >= 40 ? "low" : "none";
+        return (
+          <div key={c.id} className="rail-row">
+            <span className="rail-label">{c.label}</span>
+            <div className="rail-track">
+              <div className={`rail-fill rail-${tone}`} style={{ width: `${c.mastery}%` }}/>
+              <span className="rail-mark" style={{ left: "75%" }}/>
+            </div>
+            <span className="rail-num mono">{c.mastery.toFixed(0)}<small>%</small></span>
+          </div>
+        );
+      })}
+      <div className="rail-legend">
+        <span><i className="rail-dot" style={{ background: "var(--good)" }}/> Mastered ≥75%</span>
+        <span><i className="rail-dot" style={{ background: "var(--ink)" }}/> 60–74%</span>
+        <span><i className="rail-dot" style={{ background: "var(--warn)" }}/> 40–59%</span>
+        <span><i className="rail-dot" style={{ background: "var(--accent)" }}/> &lt;40%</span>
+      </div>
+    </div>
+  );
+}
+
+function buildDonutArcs(data: Array<{ errorType: string; count: number }>, total: number, R: number, CX: number, CY: number) {
+  return data.reduce<{ arcs: Array<{ d: string; e: typeof data[0] }>; cumulative: number }>(
+    ({ arcs, cumulative }, e) => {
+      const frac = e.count / total;
+      const a0 = cumulative * Math.PI * 2 - Math.PI / 2;
+      const a1 = (cumulative + frac) * Math.PI * 2 - Math.PI / 2;
+      const large = frac > 0.5 ? 1 : 0;
+      const x0 = CX + R * Math.cos(a0), y0 = CY + R * Math.sin(a0);
+      const x1 = CX + R * Math.cos(a1), y1 = CY + R * Math.sin(a1);
+      return {
+        arcs: [...arcs, { d: `M${x0.toFixed(2)},${y0.toFixed(2)} A${R},${R} 0 ${large} 1 ${x1.toFixed(2)},${y1.toFixed(2)}`, e }],
+        cumulative: cumulative + frac
+      };
+    },
+    { arcs: [], cumulative: 0 }
+  ).arcs;
+}
+
+function ErrorDonut({ data }: { data: Array<{ errorType: string; count: number }> }) {
+  const total = data.reduce((s, e) => s + e.count, 0);
+  if (!total) return null;
+  const R = 56, S = 14, CX = 70, CY = 70;
+  const arcs = buildDonutArcs(data, total, R, CX, CY);
+
+  return (
+    <div className="errors-layout">
+      <div style={{ display: "grid", placeItems: "center" }}>
+        <svg viewBox="0 0 140 140" width="140" height="140">
+          {arcs.map((a, i) => (
+            <path key={i} d={a.d} fill="none" stroke={`var(--err-${i % 5})`} strokeWidth={S}/>
+          ))}
+          <text x="70" y="68" className="donut-num" textAnchor="middle">{total}</text>
+          <text x="70" y="82" className="donut-sub" textAnchor="middle">errors</text>
+        </svg>
+      </div>
+      <ul className="errors-list-new">
+        {data.map((e, i) => (
+          <li key={e.errorType}>
+            <span className="err-dot" style={{ background: `var(--err-${i % 5})` }}/>
+            <span>{toTitleFromId(e.errorType)}</span>
+            <div className="err-bar"><div className="err-bar-fill" style={{ width: `${(e.count / total) * 100}%`, background: `var(--err-${i % 5})` }}/></div>
+            <span className="err-count">{e.count}</span>
+            <span className="err-pct">{Math.round((e.count / total) * 100)}%</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ChartCard({ title, sub, right, children }: { title: string; sub?: string; right?: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <article className="chart-card-new">
+      <header className="chart-card-new-head">
+        <div>
+          <h3 className="chart-card-title">{title}</h3>
+          {sub && <div className="chart-card-sub">{sub}</div>}
+        </div>
+        {right}
+      </header>
+      {children}
+    </article>
+  );
 }
 
 export function StatsPage({
-  activeTheme,
   settings,
   progress,
   courseCategories,
   statsData,
   progressOverview,
-  languages
+  languages,
+  onNavigateToPractice
 }: StatsPageProps) {
-  const totalCategoryCount = courseCategories.length || statsData?.categoryCount || 0;
-  const dailyXpHistory = (statsData?.dailyXpHistory || []).slice(-14);
+  const dailyXpHistory = statsData?.dailyXpHistory || [];
   const sessionsByDay = (statsData?.sessionsByDay || []).slice(-7);
+  const errorTypes = statsData?.errorTypeTrend || [];
+  const weakObjectives = (statsData?.objectiveStats || []).slice(0, 4);
+
   const completionPercent = courseCategories.length
-    ? Math.round(courseCategories.reduce((sum, category) => sum + category.mastery, 0) / courseCategories.length)
+    ? Math.round(courseCategories.reduce((s, c) => s + c.mastery, 0) / courseCategories.length)
     : (statsData?.completionPercent ?? 0);
   const accuracyPercent = courseCategories.length
-    ? Math.round(courseCategories.reduce((sum, category) => sum + category.accuracy, 0) / courseCategories.length)
+    ? Math.round(courseCategories.filter((c) => c.attempts > 0).reduce((s, c) => s + c.accuracy, 0) / Math.max(1, courseCategories.filter((c) => c.attempts > 0).length))
     : (statsData?.accuracyPercent ?? 0);
-  const masteredCount = courseCategories.length
-    ? courseCategories.filter((category) => category.mastery >= 75).length
-    : (statsData?.masteredCount ?? 0);
-  const weeklyGoalProgress = statsData?.weeklyGoalProgress ?? 0;
-  const chartColors = getThemeChartColors(activeTheme);
-  const activeLanguageLabel = languages.find((item) => item.id === settings?.targetLanguage)?.label || "Language";
-
-  const xpChartLabels = useMemo(
-    () => dailyXpHistory.map((entry) => formatShortDateLabel(entry.date)),
-    [dailyXpHistory]
-  );
-
-  const xpLineData = useMemo(() => ({
-    labels: xpChartLabels,
-    datasets: [
-      {
-        label: "XP",
-        data: dailyXpHistory.map((entry) => entry.xp),
-        borderColor: chartColors.lineStroke,
-        borderWidth: 2,
-        fill: true,
-        backgroundColor: chartColors.fill,
-        tension: 0.35,
-        pointRadius: 2.5,
-        pointHoverRadius: 4,
-        pointBackgroundColor: chartColors.lineStroke,
-        pointBorderWidth: 0
-      }
-    ]
-  }), [xpChartLabels, dailyXpHistory, chartColors.lineStroke, chartColors.fill]);
-
-  const weekBarData = useMemo(() => ({
-    labels: sessionsByDay.map((entry) => formatShortDateLabel(entry.date)),
-    datasets: [
-      {
-        label: "Sessions",
-        data: sessionsByDay.map((entry) => entry.sessions),
-        backgroundColor: sessionsByDay.map((entry) =>
-          entry.sessions > 0 ? chartColors.bar : chartColors.line
-        ),
-        borderRadius: 6,
-        borderSkipped: false
-      }
-    ]
-  }), [sessionsByDay, chartColors.bar, chartColors.line]);
-
-  const categoryForCharts = useMemo(() => {
-    const statsByCategory = new Map(
-      (statsData?.categoryStats || []).map((entry) => [entry.category, entry])
-    );
-    return courseCategories
-      .map((category) => {
-        const fromStats = statsByCategory.get(category.id);
-        return {
-          category: category.id,
-          sessions: fromStats?.sessions ?? category.attempts ?? 0,
-          accuracy: Number.isFinite(category.accuracy) ? category.accuracy : (fromStats?.accuracy ?? 0),
-          label: category.label || toTitleFromId(category.id)
-        };
-      })
-      .filter((entry) => Number.isFinite(entry.accuracy))
-      .sort((left, right) => right.accuracy - left.accuracy);
-  }, [statsData, courseCategories]);
-
-  const radarData = useMemo(() => ({
-    labels: categoryForCharts.map((entry) => entry.label),
-    datasets: [
-      {
-        label: "Accuracy",
-        data: categoryForCharts.map((entry) => entry.accuracy),
-        borderColor: chartColors.accentBlue,
-        backgroundColor: `${chartColors.accentBlue}33`,
-        borderWidth: 2,
-        pointBackgroundColor: chartColors.accentBlue,
-        pointRadius: 2.5
-      }
-    ]
-  }), [categoryForCharts, chartColors.accentBlue]);
-
-  const errorTypeColors = [
-    chartColors.accentBlue,
-    chartColors.accentAmber,
-    chartColors.accentRed,
-    chartColors.accentGreen,
-    chartColors.lineStroke,
-    chartColors.bar
-  ];
-
-  const errorData = useMemo(() => ({
-    labels: (statsData?.errorTypeTrend || []).map((entry) => toTitleFromId(entry.errorType)),
-    datasets: [
-      {
-        data: (statsData?.errorTypeTrend || []).map((entry) => entry.count),
-        backgroundColor: (statsData?.errorTypeTrend || []).map((_, index) =>
-          errorTypeColors[index % errorTypeColors.length]
-        ),
-        borderWidth: 0,
-        hoverOffset: 4
-      }
-    ]
-  }), [statsData?.errorTypeTrend, errorTypeColors]);
-
-  const commonOptions = useMemo(() => ({
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: { intersect: false, mode: "index" as const }
-    },
-    scales: {
-      x: {
-        ticks: { color: chartColors.text, maxRotation: 0, autoSkip: true, maxTicksLimit: 7 },
-        grid: { color: chartColors.line }
-      },
-      y: {
-        beginAtZero: true,
-        ticks: { color: chartColors.text, precision: 0 },
-        grid: { color: chartColors.line }
-      }
-    }
-  }), [chartColors.text, chartColors.line]);
-
+  const masteredCount = courseCategories.filter((c) => c.mastery >= 75).length;
+  const streak = statsData?.streak ?? progress?.streak ?? 0;
   const weeklySessions = statsData?.sessionsLast7Days ?? 0;
-  const weeklyTarget = statsData?.weeklyGoalSessions ?? 5;
-  const weakObjectives = (statsData?.objectiveStats || []).slice(0, 4);
+  const weeklyTarget = statsData?.weeklyGoalSessions ?? settings?.weeklyGoalSessions ?? 5;
+  const weeklyGoalProgress = statsData?.weeklyGoalProgress ?? Math.round((weeklySessions / weeklyTarget) * 100);
+
+  const recentXp = dailyXpHistory.slice(-14);
+  const totalXpRecent = recentXp.reduce((s, d) => s + d.xp, 0);
+  const recentSessions = recentXp.reduce((s, d) => s + (("sessions" in d ? (d as any).sessions : 0) || 0), 0);
+
+  const activeLanguageLabel = languages.find((l) => l.id === settings?.targetLanguage)?.label || "Language";
+
   const overviewLanguages = useMemo(() => {
     const overviewByLanguage = new Map(
-      (progressOverview?.languages || [])
-        .map((entry) => [String(entry.language || "").trim().toLowerCase(), entry] as const)
-        .filter(([languageId]) => Boolean(languageId))
+      (progressOverview?.languages || []).map((e) => [String(e.language || "").trim().toLowerCase(), e] as const)
     );
-    const knownLanguageIds = new Set(languages.map((item) => item.id));
-    const selectableLanguages = languages.filter((item) => item.id !== settings?.nativeLanguage);
-    return selectableLanguages
-      .map((language) => {
-        const rawLanguage = String(language.id || "").trim().toLowerCase();
-        if (!rawLanguage) return null;
-        if (/^\d+$/.test(rawLanguage) && !knownLanguageIds.has(rawLanguage)) return null;
-        const fromOverview = overviewByLanguage.get(rawLanguage);
-        return {
-          key: rawLanguage,
-          label: language.label || toTitleFromId(rawLanguage),
-          totalXp: fromOverview?.totalXp ?? 0,
-          streak: fromOverview?.streak ?? 0
-        };
-      })
-      .filter((entry): entry is { key: string; label: string; totalXp: number; streak: number } => Boolean(entry));
-  }, [progressOverview?.languages, languages, settings?.nativeLanguage]);
-  const chartThemeKey = activeTheme;
-  const barOptions = useMemo(() => ({
-    ...commonOptions,
-    scales: {
-      x: {
-        ticks: { color: chartColors.text, maxRotation: 0, autoSkip: false, maxTicksLimit: 7 },
-        grid: { display: false }
-      },
-      y: {
-        beginAtZero: true,
-        ticks: { color: chartColors.text, precision: 0, stepSize: 1 },
-        grid: { color: chartColors.line }
-      }
-    }
-  }), [commonOptions, chartColors.text, chartColors.line]);
+    const selectableLanguages = languages.filter((l) => l.id !== settings?.nativeLanguage);
+    return selectableLanguages.map((language) => {
+      const raw = language.id.trim().toLowerCase();
+      const fromOverview = overviewByLanguage.get(raw);
+      return {
+        key: raw,
+        label: language.label || toTitleFromId(raw),
+        totalXp: fromOverview?.totalXp ?? 0,
+        streak: fromOverview?.streak ?? 0,
+        active: raw === settings?.targetLanguage?.toLowerCase()
+      };
+    });
+  }, [progressOverview?.languages, languages, settings?.nativeLanguage, settings?.targetLanguage]);
+
+  const levelFromXp = (xp: number) => xp > 2000 ? "B2" : xp > 1200 ? "B1" : xp > 500 ? "A2" : "A1";
 
   return (
-    <section className="panel stats-panel stats-root">
-      <div className="stats-header">
-        <h2>Statistics</h2>
-        <p>{activeLanguageLabel} · Track your accuracy, consistency, and progress across all categories.</p>
-      </div>
-
-      <div className="kpi-row">
-        <article className="kpi">
-          <div className="kpi-label">Completion</div>
-          <div className="kpi-value blue">{completionPercent}%</div>
-          <div className="kpi-sub">avg mastery, all categories</div>
-        </article>
-
-        <article className="kpi">
-          <div className="kpi-label">Accuracy</div>
-          <div className="kpi-value green">{accuracyPercent}%</div>
-          <div className="kpi-sub">across practiced categories</div>
-        </article>
-
-        <article className="kpi">
-          <div className="kpi-label">Streak</div>
-          <div className="kpi-value amber">{statsData?.streak ?? progress?.streak ?? 0} days</div>
-          <div className="kpi-sub">{settings?.learnerName || "Learner"}, keep your rhythm strong</div>
-        </article>
-
-        <article className="kpi">
-          <div className="kpi-label">Mastered</div>
-          <div className="kpi-value">{masteredCount}/{totalCategoryCount}</div>
-          <div className="kpi-sub">categories &gt;= 75% mastery</div>
-        </article>
-      </div>
-
-      {dailyXpHistory.length || sessionsByDay.length ? (
-        <div className="charts-grid">
-          <div className="chart-card">
-            <div className="chart-title">XP - last 14 days</div>
-            <div className="chart-wrap">
-              <Line key={`xp-${chartThemeKey}`} data={xpLineData} options={commonOptions} />
-            </div>
+    <div className="stats-redesign">
+      {/* Narrative hero */}
+      <header className="stats-hero">
+        <div>
+          <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 14 }}>
+            Statistics · {activeLanguageLabel}
           </div>
-          <div className="chart-card">
-            <div className="chart-title">Sessions this week</div>
-            <div className="chart-wrap">
-              <Bar key={`sessions-${chartThemeKey}`} data={weekBarData} options={barOptions} />
-            </div>
-          </div>
-        </div>
-      ) : null}
-
-      {courseCategories.length ? (
-        <div className="chart-card chart-card-spacing">
-          <div className="chart-title">Category mastery</div>
-          <div className="mastery-list">
-            {courseCategories
-              .slice()
-              .sort((left, right) => right.mastery - left.mastery)
-              .map((category) => (
-                <div key={category.id} className="mastery-row">
-                  <span className="mastery-label">{category.label}</span>
-                  <div className="mastery-bar-wrap">
-                    <div
-                      className="mastery-bar"
-                      style={{
-                        width: `${Math.max(2, category.mastery)}%`,
-                        background: category.mastery >= 80
-                          ? chartColors.accentGreen
-                          : category.mastery >= 60
-                            ? chartColors.accentBlue
-                            : category.mastery >= 40
-                              ? chartColors.accentAmber
-                              : chartColors.accentRed
-                      }}
-                    />
-                  </div>
-                  <span className="mastery-pct">{category.mastery.toFixed(0)}%</span>
-                </div>
-              ))}
-          </div>
-        </div>
-      ) : null}
-
-      {(categoryForCharts.length || statsData?.errorTypeTrend?.length) ? (
-        <div className="charts-grid">
-          <div className="chart-card">
-            <div className="chart-title">Accuracy by category</div>
-            <div className="chart-wrap">
-              <Radar
-                key={`radar-${chartThemeKey}`}
-                data={radarData}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  plugins: { legend: { display: false } },
-                  scales: {
-                    r: {
-                      min: 0,
-                      max: 100,
-                      ticks: { color: chartColors.text, stepSize: 25, backdropColor: "transparent" },
-                      grid: { color: chartColors.line },
-                      angleLines: { color: chartColors.line },
-                      pointLabels: { color: chartColors.text }
-                    }
-                  }
-                }}
-              />
-            </div>
-          </div>
-          <div className="chart-card">
-            <div className="chart-title">Error type breakdown</div>
-            <div className="chart-wrap">
-              <Doughnut
-                key={`error-${chartThemeKey}`}
-                data={errorData}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  cutout: "62%",
-                  plugins: {
-                    legend: {
-                      position: "right" as const,
-                      labels: {
-                        color: chartColors.text,
-                        boxWidth: 10,
-                        padding: 8
-                      }
-                    }
-                  }
-                }}
-              />
-            </div>
-            {statsData?.errorTypeTrend?.length ? (
-              <div className="error-pill-list">
-                {statsData.errorTypeTrend.map((entry, index) => (
-                  <div className="error-pill" key={entry.errorType}>
-                    <span
-                      className="error-pill-dot"
-                      style={{ backgroundColor: errorTypeColors[index % errorTypeColors.length] }}
-                    />
-                    <span className="error-pill-label">{toTitleFromId(entry.errorType)}</span>
-                    <span className="error-pill-count">{entry.count}</span>
-                  </div>
-                ))}
-              </div>
-            ) : null}
-          </div>
-        </div>
-      ) : null}
-
-      <div className="bottom-grid">
-        <div className="chart-card">
-          <div className="chart-title">Weak objectives</div>
-          {weakObjectives.length ? (
-            <div className="weak-list">
-              {weakObjectives.map((entry) => (
-                <div className="weak-row" key={entry.objective}>
-                  <span className="weak-row-left">{toTitleFromId(entry.objective)}</span>
-                  <strong className="weak-row-right">{entry.accuracy}% acc</strong>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p>No objective data yet.</p>
-          )}
-        </div>
-
-        <div className="chart-card">
-          <div className="chart-title">Weekly goal</div>
-          <div className="weekly-wrap">
-            <div className="weekly-leading">
-              <strong>{weeklySessions}/{weeklyTarget}</strong>
-              sessions completed this week
-            </div>
-            <div className="weekly-bar-outer" aria-hidden="true">
-              <div className="weekly-bar-inner" style={{ width: `${weeklyGoalProgress}%` }} />
-            </div>
-            <div className="weekly-meta">
-              <span>Goal: {weeklyTarget} sessions</span>
-              <strong>{weeklyGoalProgress >= 100 ? "Goal reached" : `${weeklyGoalProgress}% there`}</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {statsData?.weakestCategories?.length ? (
-        <div className="setup-preview">
-          <h3>Focus Next</h3>
-          <p>
-            Improve these categories next: {
-              statsData.weakestCategories
-                .map((categoryId) => courseCategories.find((entry) => entry.id === categoryId)?.label || toTitleFromId(categoryId))
-                .join(", ")
-            }.
+          <h2 className="stats-hero-title">
+            You&apos;ve practiced{" "}
+            <span className="num-display">{recentSessions || weeklySessions * 2}</span>
+            <span style={{ color: "var(--ink-soft)" }}> sessions recently,</span><br/>
+            earning <span className="ink"><span className="num-display">{totalXpRecent.toLocaleString()}</span> XP</span>.
+          </h2>
+          <p className="stats-hero-sub">
+            Track accuracy, consistency, and mastery across {courseCategories.length} categories.
           </p>
         </div>
-      ) : null}
-
-      {overviewLanguages.length ? (
-        <div className="chart-card chart-card-spacing">
-          <div className="chart-title">All course languages</div>
-          {overviewLanguages.map((entry) => (
-            <div className="lang-row" key={entry.key}>
-              <span className="lang-name">{entry.label}</span>
-              <span className="lang-xp">{entry.totalXp} XP</span>
-              <span className="lang-streak">{entry.streak} day streak</span>
-            </div>
-          ))}
+        <div>
+          {dailyXpHistory.length > 0 && <ActivityGrid history={dailyXpHistory}/>}
         </div>
-      ) : null}
+      </header>
 
-      <div className="category-table-wrap">
-        <table className="category-table">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Mastery</th>
-              <th>Accuracy</th>
-              <th>Level</th>
-            </tr>
-          </thead>
-          <tbody>
-            {courseCategories.map((category) => (
-              <tr key={category.id}>
-                <td>{category.label}</td>
-                <td>{category.mastery.toFixed(1)}%</td>
-                <td>{category.accuracy.toFixed(1)}%</td>
-                <td>{category.levelUnlocked.toUpperCase()}</td>
-              </tr>
+      {/* KPI row */}
+      <section className="kpi-grid">
+        {[
+          { label: "Completion", value: completionPercent, unit: "%", delta: "avg mastery", trend: "flat" as const, spark: dailyXpHistory.slice(-14).map((d) => d.xp) },
+          { label: "Accuracy",   value: accuracyPercent,   unit: "%", delta: "practiced categories", trend: "flat" as const, spark: courseCategories.map((c) => c.accuracy) },
+          { label: "Streak",     value: streak,            unit: " days", delta: "keep going!", trend: "up" as const, spark: Array.from({ length: 14 }, (_, i) => i + 1) },
+          { label: "Mastered",   value: masteredCount,     unit: ` / ${courseCategories.length}`, delta: "categories ≥75%", trend: "flat" as const, spark: courseCategories.map((c) => c.mastery) }
+        ].map((kpi) => (
+          <article key={kpi.label} className="kpi-card">
+            <div className="kpi-card-label">{kpi.label}</div>
+            <div className="kpi-card-value">
+              <span className="kpi-card-num">{kpi.value}</span>
+              <span className="kpi-card-unit">{kpi.unit}</span>
+            </div>
+            <div className="kpi-card-foot">
+              <span className={`kpi-delta delta-${kpi.trend}`}>
+                {kpi.trend === "up" ? "↑ " : ""}{kpi.delta}
+              </span>
+              <span style={{ color: kpi.label === "Accuracy" ? "var(--accent)" : kpi.label === "Streak" ? "var(--streak-fg)" : "var(--ink)" }}>
+                <SparkLine data={kpi.spark}/>
+              </span>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      {/* Charts row */}
+      {(dailyXpHistory.length > 0 || sessionsByDay.length > 0) && (
+        <section className="charts-2col">
+          <ChartCard title="XP earned" sub={`Last ${dailyXpHistory.length} days`} right={<span className="chart-card-meta">{totalXpRecent.toLocaleString()} XP</span>}>
+            {dailyXpHistory.length > 0 ? <XpCurve data={dailyXpHistory}/> : <p style={{ color: "var(--muted)" }}>No data yet.</p>}
+          </ChartCard>
+          <ChartCard title="Sessions" sub="This week" right={<span className="chart-card-meta mono">{weeklySessions} / {weeklyTarget}</span>}>
+            {sessionsByDay.length > 0 ? <SessionBars data={sessionsByDay}/> : <p style={{ color: "var(--muted)" }}>No data yet.</p>}
+            <div className="goal-rail">
+              <div className="goal-fill" style={{ width: `${Math.min(100, weeklyGoalProgress)}%` }}/>
+              {Array.from({ length: weeklyTarget - 1 }).map((_, i) => (
+                <span key={i} className="goal-tick" style={{ left: `${((i + 1) / weeklyTarget) * 100}%` }}/>
+              ))}
+            </div>
+            <div className="goal-meta">
+              <span>Weekly goal · {weeklyTarget} sessions</span>
+              <span className="mono">{Math.min(100, weeklyGoalProgress)}%</span>
+            </div>
+          </ChartCard>
+        </section>
+      )}
+
+      {/* Mastery rail */}
+      {courseCategories.length > 0 && (
+        <ChartCard title="Category mastery" sub={`${courseCategories.length} categories`} right={<span className="chart-card-meta">avg {completionPercent}%</span>}>
+          <MasteryRail categories={courseCategories.filter((c) => c.unlocked)}/>
+        </ChartCard>
+      )}
+
+      {/* Error breakdown + Focus next */}
+      <section className="charts-2col">
+        {errorTypes.length > 0 && (
+          <ChartCard title="Where mistakes happen" sub="Error type breakdown" right={<span className="chart-card-meta mono">{errorTypes.reduce((s, e) => s + e.count, 0)} total</span>}>
+            <ErrorDonut data={errorTypes}/>
+          </ChartCard>
+        )}
+
+        {weakObjectives.length > 0 && (
+          <ChartCard title="Focus next" sub="Lowest accuracy objectives">
+            <ul className="weak-list-new">
+              {weakObjectives.map((o, i) => (
+                <li key={o.objective} className="weak-row-new">
+                  <span className="weak-rank">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="weak-label">{toTitleFromId(o.objective)}</span>
+                  <div className="weak-bar-new"><div className="weak-bar-fill-new" style={{ width: `${o.accuracy}%` }}/></div>
+                  <span className="weak-pct-new">{o.accuracy}%</span>
+                </li>
+              ))}
+            </ul>
+            <button className="btn-primary-lg btn-wide" style={{ marginTop: 12 }} onClick={onNavigateToPractice}>
+              Start focused drill <ArrowIcon/>
+            </button>
+          </ChartCard>
+        )}
+      </section>
+
+      {/* Language table */}
+      {overviewLanguages.length > 0 && (
+        <ChartCard title="All course languages">
+          <div className="lang-table-new">
+            <div className="lang-row-new lang-head-row">
+              <span>Language</span><span>Level</span><span>Total XP</span><span>Streak</span><span></span>
+            </div>
+            {overviewLanguages.map((l) => (
+              <div key={l.key} className={`lang-row-new${l.active ? " active-lang" : ""}`}>
+                <span className="lang-name-new">
+                  {l.label}
+                  {l.active && <em className="lang-pill">Active</em>}
+                </span>
+                <span className="mono">{levelFromXp(l.totalXp)}</span>
+                <span className="mono">{l.totalXp.toLocaleString()}</span>
+                <span className="mono">{l.streak} d</span>
+                <span style={{ fontSize: "12.5px", color: "var(--accent)", fontWeight: 600 }}>
+                  {l.active ? "Current" : "Switch"}
+                </span>
+              </div>
             ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+          </div>
+        </ChartCard>
+      )}
+
+      {/* Category detail table */}
+      {courseCategories.length > 0 && (
+        <ChartCard title="Category detail" sub="Mastery, accuracy, attempts">
+          <table className="cat-detail-table">
+            <thead>
+              <tr><th>Category</th><th>Level</th><th>Mastery</th><th>Accuracy</th><th>Attempts</th></tr>
+            </thead>
+            <tbody>
+              {courseCategories.filter((c) => c.unlocked).map((c) => (
+                <tr key={c.id}>
+                  <td><strong>{c.label}</strong></td>
+                  <td><span className="lvl-pill">{c.levelUnlocked.toUpperCase()}</span></td>
+                  <td>
+                    <div className="cell-bar">
+                      <div className="cell-bar-track"><div className="cell-bar-fill" style={{ width: `${c.mastery}%` }}/></div>
+                      <span className="mono">{c.mastery.toFixed(0)}%</span>
+                    </div>
+                  </td>
+                  <td className="mono">{c.accuracy.toFixed(0)}%</td>
+                  <td className="mono">{c.attempts}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </ChartCard>
+      )}
+    </div>
   );
 }
