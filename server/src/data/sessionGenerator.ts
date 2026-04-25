@@ -29,8 +29,8 @@ function countWords(text) {
 
 function stripWrappingPunctuation(token) {
   return String(token || "")
-    .replace(/^[«»"“”‘’(){}\[\].,!?;:]+/g, "")
-    .replace(/[«»"“”‘’(){}\[\].,!?;:]+$/g, "")
+    .replace(/^[«»"“”‘’(){}.,!?;:]+/g, "")
+    .replace(/[«»"“”‘’(){}.,!?;:]+$/g, "")
     .trim();
 }
 

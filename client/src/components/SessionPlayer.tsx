@@ -52,8 +52,8 @@ type MatchingDragPayload = {
 function normalizeHintToken(token: string): string {
   return String(token || "")
     .toLowerCase()
-    .replace(/^[«»"“”‘’(){}\[\].,!?;:]+/g, "")
-    .replace(/[«»"“”‘’(){}\[\].,!?;:]+$/g, "")
+    .replace(/^[«»"“”‘’(){}.,!?;:]+/g, "")
+    .replace(/[«»"“”‘’(){}.,!?;:]+$/g, "")
     .trim();
 }
 

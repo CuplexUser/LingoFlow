@@ -3,15 +3,15 @@ import type { SessionQuestion } from "../../types/session";
 export function normalizeSentence(text: string | null | undefined): string {
   return String(text || "")
     .toLowerCase()
-    .replace(/[.,!?;:¿¡«»"“”‘’(){}\[\]]/g, "")
+    .replace(/[.,!?;:¿¡«»"“”‘’(){}]/g, "")
     .replace(/\s+/g, " ")
     .trim();
 }
 
 function stripWrappingPunctuation(token: string): string {
   return String(token || "")
-    .replace(/^[«»"“”‘’(){}\[\].,!?;:]+/g, "")
-    .replace(/[«»"“”‘’(){}\[\].,!?;:]+$/g, "")
+    .replace(/^[«»"“”‘’(){}.,!?;:]+/g, "")
+    .replace(/[«»"“”‘’(){}.,!?;:]+$/g, "")
     .trim();
 }
 
