@@ -7,6 +7,7 @@ type SessionQuestionBase = {
   imageUrl?: string;
   culturalNote?: string;
   hints?: string[];
+  answerEnglish?: string;
 };
 
 export type MultipleChoiceQuestion = SessionQuestionBase & {
@@ -19,7 +20,6 @@ export type RoleplayQuestion = SessionQuestionBase & {
   type: "roleplay";
   answer: string;
   options: string[];
-  answerEnglish?: string;
 };
 
 export type PracticeListenQuestion = SessionQuestionBase & {

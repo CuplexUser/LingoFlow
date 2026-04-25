@@ -34,44 +34,51 @@ function ArrowIcon() {
   );
 }
 
-const GRID_WEEKS = 13;
+const GRID_WEEKS = 7;
+const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-function ActivityGrid({ history }: { history: Array<{ date: string; xp: number; sessions?: number }> }) {
+export function ActivityGrid({ history }: { history: Array<{ date: string; xp: number; sessions?: number }> }) {
   const [hover, setHover] = useState<{ xp: number; sessions: number; date: string } | null>(null);
 
-  // Always show GRID_WEEKS of data — pad the front with zero-XP days so the grid is full-width
-  const paddedHistory = useMemo(() => {
-    const totalDays = GRID_WEEKS * 7;
-    if (!history.length) {
-      const today = new Date();
-      return Array.from({ length: totalDays }, (_, i) => {
-        const d = new Date(today);
-        d.setDate(d.getDate() - (totalDays - 1 - i));
-        return { date: d.toISOString().slice(0, 10), xp: 0 };
-      });
-    }
+  // Build a 7×7 calendar grid: each row = one week (Mon–Sun), oldest row first.
+  // Uses local date arithmetic throughout to avoid UTC-offset date shifts.
+  const rows = useMemo(() => {
+    const localIso = (d: Date) =>
+      `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
     const byDate = new Map(history.map((d) => [d.date, d]));
-    const last = new Date(history[history.length - 1].date + "T00:00:00");
-    return Array.from({ length: totalDays }, (_, i) => {
-      const d = new Date(last);
-      d.setDate(d.getDate() - (totalDays - 1 - i));
-      const iso = d.toISOString().slice(0, 10);
-      return byDate.get(iso) ?? { date: iso, xp: 0 };
-    });
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayDow = (today.getDay() + 6) % 7; // 0=Mon … 6=Sun
+    const thisMonday = new Date(today);
+    thisMonday.setDate(today.getDate() - todayDow);
+
+    const gridStart = new Date(thisMonday);
+    gridStart.setDate(thisMonday.getDate() - (GRID_WEEKS - 1) * 7);
+
+    const result: (typeof history[0] | null)[][] = [];
+    for (let w = 0; w < GRID_WEEKS; w++) {
+      const row: (typeof history[0] | null)[] = [];
+      for (let d = 0; d < 7; d++) {
+        const cell = new Date(gridStart);
+        cell.setDate(gridStart.getDate() + w * 7 + d);
+        if (cell > today) {
+          row.push(null); // future — leave empty
+        } else {
+          const iso = localIso(cell);
+          row.push(byDate.get(iso) ?? { date: iso, xp: 0 });
+        }
+      }
+      result.push(row);
+    }
+    return result;
   }, [history]);
 
-  const weeks = useMemo(() => {
-    const firstDay = new Date(paddedHistory[0].date + "T00:00:00");
-    const startDow = (firstDay.getDay() + 6) % 7;
-    const padded: (typeof paddedHistory[0] | null)[] = [];
-    for (let i = 0; i < startDow; i++) padded.push(null);
-    padded.push(...paddedHistory);
-    const cols: (typeof paddedHistory[0] | null)[][] = [];
-    for (let i = 0; i < padded.length; i += 7) cols.push(padded.slice(i, i + 7));
-    return cols;
-  }, [paddedHistory]);
+  const maxXp = useMemo(
+    () => Math.max(...rows.flat().map((d) => d?.xp ?? 0), 1),
+    [rows]
+  );
 
-  const maxXp = Math.max(...paddedHistory.map((d) => d.xp), 1);
   const tone = (xp: number | null) => {
     if (xp == null || xp === 0) return 0;
     if (xp < maxXp * 0.25) return 1;
@@ -79,7 +86,6 @@ function ActivityGrid({ history }: { history: Array<{ date: string; xp: number; 
     if (xp < maxXp * 0.75) return 3;
     return 4;
   };
-  const days = ["Mon", "", "Wed", "", "Fri", "", ""];
 
   return (
     <div className="activity-grid-wrap">
@@ -93,32 +99,29 @@ function ActivityGrid({ history }: { history: Array<{ date: string; xp: number; 
           <span>More</span>
         </div>
       </div>
-      <div className="activity-body">
-        <div className="activity-days">{days.map((d, i) => <span key={i}>{d}</span>)}</div>
-        <div className="activity-cols">
-          {weeks.map((col, ci) => (
-            <div key={ci} className="activity-col">
-              {col.map((d, di) => (
-                <i
-                  key={di}
-                  className={`act-cell tone-${d ? tone(d.xp) : 0}${d == null ? " empty" : ""}`}
-                  onMouseEnter={() => d && setHover({ xp: d.xp, sessions: d.sessions ?? 0, date: d.date })}
-                  onMouseLeave={() => setHover(null)}
-                />
-              ))}
-              {Array.from({ length: 7 - col.length }).map((_, i) => (
-                <i key={"e" + i} className="act-cell empty"/>
-              ))}
-            </div>
-          ))}
+      <div className="activity-calendar">
+        <div className="activity-day-headers">
+          {DAY_LABELS.map((d) => <span key={d}>{d}</span>)}
         </div>
+        {rows.map((row, wi) => (
+          <div key={wi} className="activity-week-row">
+            {row.map((d, di) => (
+              <i
+                key={di}
+                className={`act-cell tone-${d ? tone(d.xp) : 0}${d == null ? " empty" : ""}`}
+                onMouseEnter={() => d && setHover({ xp: d.xp, sessions: d.sessions ?? 0, date: d.date })}
+                onMouseLeave={() => setHover(null)}
+              />
+            ))}
+          </div>
+        ))}
       </div>
       <div className="activity-tip">
         {hover ? (
           <span>
             <strong className="mono">{hover.xp} XP</strong>
             {hover.sessions ? ` · ${hover.sessions} session${hover.sessions === 1 ? "" : "s"}` : ""}
-            {" · "}{new Date(hover.date + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}
+            {" · "}{new Date(hover.date + "T00:00:00").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}
           </span>
         ) : (
           <span style={{ color: "var(--muted)" }}>Hover a cell for details</span>
