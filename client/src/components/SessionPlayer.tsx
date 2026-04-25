@@ -154,19 +154,12 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       normalizeHintToken(t) === normalizeHintToken(nextWord) && !usedIndexes.has(i)
     );
   })();
-  const promptText = String(question.prompt || "");
   const primaryHint = Array.isArray(question.hints) ? question.hints[0] : "";
-  const roleplayHintText = question.answerEnglish || question.hints?.[1] || question.answer || "";
-  const showEssentialHint = Boolean(primaryHint) && (
-    (
-      (question.type === "mc_sentence" ||
-        question.type === "dialogue_turn" ||
-        question.type === "practice_listen" ||
-        question.type === "cloze_sentence") &&
-      promptText.includes("/")
-    ) ||
-    question.type === "practice_listen"
-  );
+  const roleplayHintText = question.answerEnglish || question.hints?.[1] || "";
+  const showEssentialHint = Boolean(primaryHint) &&
+    question.type !== "build_sentence" &&
+    question.type !== "dictation_sentence" &&
+    question.type !== "roleplay";
   const snapshot: SessionSnapshot = {
     questionsQueue,
     fixedQuestionCount,
@@ -270,6 +263,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
 
   useEffect(() => {
     setBuildHintCount(0);
+    setSpeechError("");
   }, [question?.id]);
 
   useEffect(() => {

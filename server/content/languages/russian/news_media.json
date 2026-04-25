@@ -189,7 +189,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Choose the best translation: I regularly practice news and media.",
-    "correctAnswer": "Я каждый день повторяю тему «новости и медиа».",
+    "correctAnswer": "Я каждый день повторяю тему новости и медиа.",
     "hints": [
       "Pick the most natural Russian sentence."
     ],
@@ -210,7 +210,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: This lesson on news and media is useful.",
-    "correctAnswer": "Этот урок по теме «новостей и медиа» полезный.",
+    "correctAnswer": "Этот урок по теме новостей и медиа полезный.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -243,7 +243,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Choose the best translation: I regularly practice news and media.",
-    "correctAnswer": "Я каждый день повторяю тему «новости и медиа».",
+    "correctAnswer": "Я каждый день повторяю тему новости и медиа.",
     "hints": [
       "Pick the most natural Russian sentence."
     ],
@@ -254,7 +254,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: This lesson on news and media is useful.",
-    "correctAnswer": "Этот урок по теме «новостей и медиа» полезный.",
+    "correctAnswer": "Этот урок по теме новостей и медиа полезный.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -297,7 +297,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Choose the best translation: I regularly practice news and media.",
-    "correctAnswer": "Я каждый день повторяю тему «новости и медиа».",
+    "correctAnswer": "Я каждый день повторяю тему новости и медиа.",
     "hints": [
       "Pick the most natural Russian sentence."
     ],
@@ -339,7 +339,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How can I improve in news and media?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «новостей и медиа»?",
+    "correctAnswer": "Как я могу улучшить навыки в теме новостей и медиа?",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -349,19 +349,20 @@
     "id": "ru-ne-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «новости и медиа».",
+    "prompt": "Cloze: Я регулярно ____ темой новости и медиа.",
     "correctAnswer": "занимаюсь",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["занимаюсь", "интересуюсь", "увлекаюсь", "занимался"]
   },
   {
     "id": "ru-ne-a2-4",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I understand news and media better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «новости и медиа».",
+    "correctAnswer": "Теперь я лучше понимаю тему новости и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -372,7 +373,8 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «новостей и медиа»?",
+    "correctAnswer": "Можете дать мне больше упражнений по теме новостей и медиа?",
+    "answerEnglish": "Could you give me more exercises on the topic of news and media?",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -383,7 +385,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How can I improve in news and media?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «новостей и медиа»?",
+    "correctAnswer": "Как я могу улучшить навыки в теме новостей и медиа?",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -393,7 +395,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: This exercise on news and media was difficult.",
-    "correctAnswer": "Это упражнение по теме «новостей и медиа» было трудным.",
+    "correctAnswer": "Это упражнение по теме новостей и медиа было трудным.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -403,12 +405,13 @@
     "id": "ru-ne-a2-8",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «новости и медиа».",
+    "prompt": "Cloze: Я регулярно ____ темой новости и медиа.",
     "correctAnswer": "занимаюсь",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["занимаюсь", "интересуюсь", "увлекаюсь", "занимался"]
   },
   {
     "id": "ru-ne-a2-9",
@@ -426,7 +429,8 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «новостей и медиа»?",
+    "correctAnswer": "Можете дать мне больше упражнений по теме новостей и медиа?",
+    "answerEnglish": "Could you give me more exercises on the topic of news and media?",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -437,7 +441,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: This exercise on news and media was difficult.",
-    "correctAnswer": "Это упражнение по теме «новостей и медиа» было трудным.",
+    "correctAnswer": "Это упражнение по теме новостей и медиа было трудным.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -447,7 +451,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I understand news and media better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «новости и медиа».",
+    "correctAnswer": "Теперь я лучше понимаю тему новости и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -457,19 +461,20 @@
     "id": "ru-ne-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «новости и медиа».",
+    "prompt": "Cloze: Я регулярно ____ темой новости и медиа.",
     "correctAnswer": "занимаюсь",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["занимаюсь", "интересуюсь", "увлекаюсь", "занимался"]
   },
   {
     "id": "ru-ne-a2-14",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How can I improve in news and media?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «новостей и медиа»?",
+    "correctAnswer": "Как я могу улучшить навыки в теме новостей и медиа?",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -480,7 +485,8 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «новостей и медиа»?",
+    "correctAnswer": "Можете дать мне больше упражнений по теме новостей и медиа?",
+    "answerEnglish": "Could you give me more exercises on the topic of news and media?",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -491,7 +497,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I understand news and media better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «новости и медиа».",
+    "correctAnswer": "Теперь я лучше понимаю тему новости и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -512,7 +518,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Regular practice helps me improve in news and media.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «новостей и медиа».",
+    "correctAnswer": "Регулярная практика помогает мне развиваться в теме новостей и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -522,7 +528,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Which strategy works best for news and media?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «новостей и медиа»?",
+    "correctAnswer": "Какая стратегия лучше всего работает для темы новостей и медиа?",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -532,19 +538,20 @@
     "id": "ru-ne-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «новости и медиа».",
+    "prompt": "Cloze: Я постепенно ____ навыки в теме новости и медиа.",
     "correctAnswer": "развиваю",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["развиваю", "улучшаю", "повышаю", "совершенствую"]
   },
   {
     "id": "ru-ne-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «новости и медиа».",
+    "correctAnswer": "Я стараюсь регулярно практиковать тему новости и медиа.",
     "hints": [
       "Listen for key noun endings and word order."
     ],
@@ -555,7 +562,8 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Мне бы хотелось больше практики по теме «новостей и медиа», чтобы говорить увереннее.",
+    "correctAnswer": "Мне бы хотелось больше практики по теме новостей и медиа, чтобы говорить увереннее.",
+    "answerEnglish": "I'd like more practice on news and media so I can speak more confidently.",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -566,7 +574,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Which strategy works best for news and media?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «новостей и медиа»?",
+    "correctAnswer": "Какая стратегия лучше всего работает для темы новостей и медиа?",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -576,7 +584,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I make fewer mistakes when I review news and media.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «новости и медиа».",
+    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему новости и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -586,19 +594,20 @@
     "id": "ru-ne-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «новости и медиа».",
+    "prompt": "Cloze: Я постепенно ____ навыки в теме новости и медиа.",
     "correctAnswer": "развиваю",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["развиваю", "улучшаю", "повышаю", "совершенствую"]
   },
   {
     "id": "ru-ne-b1-9",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «новости и медиа».",
+    "correctAnswer": "Я стараюсь регулярно практиковать тему новости и медиа.",
     "hints": [
       "Listen for key noun endings and word order."
     ],
@@ -609,7 +618,8 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Мне бы хотелось больше практики по теме «новостей и медиа», чтобы говорить увереннее.",
+    "correctAnswer": "Мне бы хотелось больше практики по теме новостей и медиа, чтобы говорить увереннее.",
+    "answerEnglish": "I'd like more practice on news and media so I can speak more confidently.",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -620,7 +630,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I make fewer mistakes when I review news and media.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «новости и медиа».",
+    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему новости и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -630,7 +640,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I want to sound more natural in news and media.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «новостей и медиа».",
+    "correctAnswer": "Я хочу звучать более естественно в теме новостей и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -640,19 +650,20 @@
     "id": "ru-ne-b1-13",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «новости и медиа».",
+    "prompt": "Cloze: Я постепенно ____ навыки в теме новости и медиа.",
     "correctAnswer": "развиваю",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["развиваю", "улучшаю", "повышаю", "совершенствую"]
   },
   {
     "id": "ru-ne-b1-14",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «новости и медиа».",
+    "correctAnswer": "Я стараюсь регулярно практиковать тему новости и медиа.",
     "hints": [
       "Listen for key noun endings and word order."
     ],
@@ -663,7 +674,8 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Мне бы хотелось больше практики по теме «новостей и медиа», чтобы говорить увереннее.",
+    "correctAnswer": "Мне бы хотелось больше практики по теме новостей и медиа, чтобы говорить увереннее.",
+    "answerEnglish": "I'd like more practice on news and media so I can speak more confidently.",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -674,7 +686,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I want to sound more natural in news and media.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «новостей и медиа».",
+    "correctAnswer": "Я хочу звучать более естественно в теме новостей и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -684,7 +696,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Regular practice helps me improve in news and media.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «новостей и медиа».",
+    "correctAnswer": "Регулярная практика помогает мне развиваться в теме новостей и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ],
@@ -695,7 +707,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Systematic practice has deepened my understanding of news and media.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «новостей и медиа».",
+    "correctAnswer": "Системная практика углубила моё понимание темы новостей и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -704,19 +716,20 @@
     "id": "ru-ne-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «новостей и медиа».",
+    "prompt": "Cloze: Я системно ____ знания в теме новостей и медиа.",
     "correctAnswer": "углубляю",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["углубляю", "развиваю", "расширяю", "совершенствую"]
   },
   {
     "id": "ru-ne-b2-3",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Системная практика темы «новостей и медиа» помогает говорить увереннее.",
+    "correctAnswer": "Системная практика темы новостей и медиа помогает говорить увереннее.",
     "hints": [
       "Listen for key noun endings and word order."
     ],
@@ -727,7 +740,8 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «новостей и медиа».",
+    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме новостей и медиа.",
+    "answerEnglish": "I'd appreciate detailed feedback on the news and media topic.",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -738,7 +752,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Choose the best translation: I regularly practice news and media.",
-    "correctAnswer": "Я регулярно практикую тему «новости и медиа».",
+    "correctAnswer": "Я регулярно практикую тему новости и медиа.",
     "hints": [
       "Pick the most natural Russian sentence."
     ],
@@ -749,7 +763,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Could you clarify a nuance in news and media?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «новостей и медиа»?",
+    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме новостей и медиа?",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -758,19 +772,20 @@
     "id": "ru-ne-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «новостей и медиа».",
+    "prompt": "Cloze: Я системно ____ знания в теме новостей и медиа.",
     "correctAnswer": "углубляю",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["углубляю", "развиваю", "расширяю", "совершенствую"]
   },
   {
     "id": "ru-ne-b2-8",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Системная практика темы «новостей и медиа» помогает говорить увереннее.",
+    "correctAnswer": "Системная практика темы новостей и медиа помогает говорить увереннее.",
     "hints": [
       "Listen for key noun endings and word order."
     ],
@@ -781,7 +796,8 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «новостей и медиа».",
+    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме новостей и медиа.",
+    "answerEnglish": "I'd appreciate detailed feedback on the news and media topic.",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -792,7 +808,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Choose the best translation: I regularly practice news and media.",
-    "correctAnswer": "Я регулярно практикую тему «новости и медиа».",
+    "correctAnswer": "Я регулярно практикую тему новости и медиа.",
     "hints": [
       "Pick the most natural Russian sentence."
     ],
@@ -803,7 +819,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I value detailed feedback on news and media.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «новостей и медиа».",
+    "correctAnswer": "Я ценю подробную обратную связь по теме новостей и медиа.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -812,19 +828,20 @@
     "id": "ru-ne-b2-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «новостей и медиа».",
+    "prompt": "Cloze: Я системно ____ знания в теме новостей и медиа.",
     "correctAnswer": "углубляю",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["углубляю", "развиваю", "расширяю", "совершенствую"]
   },
   {
     "id": "ru-ne-b2-13",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Системная практика темы «новостей и медиа» помогает говорить увереннее.",
+    "correctAnswer": "Системная практика темы новостей и медиа помогает говорить увереннее.",
     "hints": [
       "Listen for key noun endings and word order."
     ],
@@ -835,7 +852,8 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме «новостей и медиа».",
+    "correctAnswer": "Буду признателен за развёрнутую обратную связь по теме новостей и медиа.",
+    "answerEnglish": "I'd appreciate detailed feedback on the news and media topic.",
     "hints": [
       "Use a polite, natural request."
     ],
@@ -846,7 +864,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Choose the best translation: I regularly practice news and media.",
-    "correctAnswer": "Я регулярно практикую тему «новости и медиа».",
+    "correctAnswer": "Я регулярно практикую тему новости и медиа.",
     "hints": [
       "Pick the most natural Russian sentence."
     ],
@@ -857,7 +875,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Consistency matters more than intensity in news and media.",
-    "correctAnswer": "В теме «новостей и медиа» системность важнее интенсивности.",
+    "correctAnswer": "В теме новостей и медиа системность важнее интенсивности.",
     "hints": [
       "Focus on natural Russian phrasing and word order."
     ]
@@ -866,11 +884,12 @@
     "id": "ru-ne-b2-17",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «новостей и медиа».",
+    "prompt": "Cloze: Я системно ____ знания в теме новостей и медиа.",
     "correctAnswer": "углубляю",
     "hints": [
       "Use a verb that matches the context and style."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": ["углубляю", "развиваю", "расширяю", "совершенствую"]
   }
 ]

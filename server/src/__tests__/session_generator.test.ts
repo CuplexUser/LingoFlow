@@ -187,10 +187,17 @@ test("build sentence tokens strip wrapping guillemets and punctuation", () => {
   assert.ok(buildQuestion, "expected a build sentence question");
   assert.equal(buildQuestion.type, "build_sentence");
   assert.ok(Array.isArray(buildQuestion.tokens));
+  // Guillemets must be stripped from all tokens
   assert.equal(
-    buildQuestion.tokens.some((token) => token.startsWith("«") || token.endsWith("»") || token.endsWith(".")),
+    buildQuestion.tokens.some((token) => token.startsWith("«") || token.endsWith("»")),
     false,
-    "build tokens should not keep wrapping quote/punctuation markers"
+    "build tokens should not keep wrapping guillemet markers"
+  );
+  // Sentence-ending punctuation is preserved on the last answer word only (one token max)
+  const trailingPunctTokens = buildQuestion.tokens.filter((token) => /[.?!]$/.test(token));
+  assert.ok(
+    trailingPunctTokens.length <= 1,
+    "at most one token may carry trailing sentence punctuation"
   );
   assert.ok(
     buildQuestion.tokens.includes("науки"),

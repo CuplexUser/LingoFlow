@@ -41,6 +41,15 @@ function tokenizeBuildWords(text) {
     .filter(Boolean);
 }
 
+function restoreTrailingPunct(tokens, rawText) {
+  if (!tokens.length) return tokens;
+  const trailing = String(rawText || "").trimEnd().match(/[.?!]+$/)?.[0];
+  if (!trailing) return tokens;
+  const result = [...tokens];
+  result[result.length - 1] = result[result.length - 1] + trailing;
+  return result;
+}
+
 function normalizeComparableText(text) {
   return String(text || "")
     .trim()
@@ -337,7 +346,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   const answerEnglish = resolvedType === "roleplay"
     ? (language === "english"
       ? answer
-      : String(englishRoleplayAnswerByPrompt?.get(String(item.prompt || "")) || "").trim())
+      : String(englishRoleplayAnswerByPrompt?.get(String(item.prompt || "")) || item.answerEnglish || "").trim())
     : "";
 
   // Speaking long sentences is frustrating; fall back to a non-speaking exercise.
@@ -429,13 +438,20 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     const maskIndex = answerTokens.findIndex((token) => token.length > 3);
     const selectedMaskIndex = maskIndex >= 0 ? maskIndex : 0;
     const clozeAnswer = answerTokens[selectedMaskIndex];
-    const fallbackDistractors = pool
-      .flatMap((entry) => resolveAnswer(entry).split(" "))
-      .filter((token) => token.length > 2 && token !== clozeAnswer);
-    const clozeOptions = shuffle(
-      [clozeAnswer, ...shuffle(fallbackDistractors, randomFn).slice(0, 3)],
-      randomFn
-    ).slice(0, 4);
+    const authoredClozeOptions = Array.isArray(item.clozeOptions) && item.clozeOptions.length >= 2
+      ? item.clozeOptions.map((o) => String(o || "")).filter(Boolean)
+      : null;
+    const clozeOptions = authoredClozeOptions
+      ? shuffle(authoredClozeOptions, randomFn).slice(0, 4)
+      : (() => {
+          const fallbackDistractors = pool
+            .flatMap((entry) => resolveAnswer(entry).split(" "))
+            .filter((token) => token.length > 2 && token !== clozeAnswer);
+          return shuffle(
+            [clozeAnswer, ...shuffle(fallbackDistractors, randomFn).slice(0, 3)],
+            randomFn
+          ).slice(0, 4);
+        })();
     const clozeTokens = [...answerTokens];
     clozeTokens[selectedMaskIndex] = "____";
     return {
@@ -447,7 +463,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "dictation_sentence") {
-    const answerTokens = tokenizeBuildWords(answer);
+    const answerTokens = restoreTrailingPunct(tokenizeBuildWords(answer), answer);
     const tokenPool = pool
       .flatMap((entry) => tokenizeBuildWords(resolveAnswer(entry)))
       .filter((token) => token.length > 2 && !answerTokens.includes(token));
@@ -460,8 +476,8 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     };
   }
 
-  const answerTokens = tokenizeBuildWords(answer);
-  const answerSet = new Set(answerTokens.map((t) => t.toLowerCase()));
+  const answerTokens = restoreTrailingPunct(tokenizeBuildWords(answer), answer);
+  const answerSet = new Set(answerTokens.map((t) => t.toLowerCase().replace(/[.?!]+$/, "")));
   const avgAnswerLen = answerTokens.reduce((sum, t) => sum + t.length, 0) / Math.max(1, answerTokens.length);
   const tokenPool = pool
     .flatMap((entry) => tokenizeBuildWords(resolveAnswer(entry)))
