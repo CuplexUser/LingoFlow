@@ -318,3 +318,43 @@ test("revealed answers complete with zero score for that item", async () => {
     })
   ), { timeout: 2000 });
 });
+
+test("roleplay hint button falls back to untranslated hint text when English hint is missing", async () => {
+  const user = userEvent.setup();
+  render(
+    <SessionPlayer
+      session={{
+        language: "russian",
+        categoryLabel: "Science & technology",
+        recommendedLevel: "a2",
+        questions: [
+          {
+            id: "roleplay-fallback",
+            type: "roleplay",
+            prompt: "Choose the best response. My screen is frozen.",
+            answer: "Перезагрузите устройство и попробуйте снова.",
+            hints: [
+              "Use an imperative troubleshooting step.",
+              "Перезагрузите устройство и попробуйте снова."
+            ],
+            options: [
+              "Это очень интересно.",
+              "Перезагрузите устройство и попробуйте снова.",
+              "У меня сегодня выходной.",
+              "Я люблю научные статьи."
+            ]
+          }
+        ]
+      }}
+      onBack={() => {}}
+      onFinish={() => {}}
+      onSnapshot={() => {}}
+    />
+  );
+
+  await user.click(screen.getByRole("button", { name: "Hint: English Response" }));
+  expect(
+    screen.getByText("Перезагрузите устройство и попробуйте снова.", { selector: ".hint-chip" })
+  ).toBeInTheDocument();
+  expect(screen.queryByText("No English hint available.")).not.toBeInTheDocument();
+});

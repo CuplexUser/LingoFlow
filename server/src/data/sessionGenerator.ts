@@ -27,6 +27,20 @@ function countWords(text) {
   return trimmed.split(/\s+/g).filter(Boolean).length;
 }
 
+function stripWrappingPunctuation(token) {
+  return String(token || "")
+    .replace(/^[«»"“”‘’(){}\[\].,!?;:]+/g, "")
+    .replace(/[«»"“”‘’(){}\[\].,!?;:]+$/g, "")
+    .trim();
+}
+
+function tokenizeBuildWords(text) {
+  return String(text || "")
+    .split(/\s+/g)
+    .map((token) => stripWrappingPunctuation(token))
+    .filter(Boolean);
+}
+
 function normalizeComparableText(text) {
   return String(text || "")
     .trim()
@@ -433,9 +447,9 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "dictation_sentence") {
-    const answerTokens = answer.split(" ");
+    const answerTokens = tokenizeBuildWords(answer);
     const tokenPool = pool
-      .flatMap((entry) => resolveAnswer(entry).split(" "))
+      .flatMap((entry) => tokenizeBuildWords(resolveAnswer(entry)))
       .filter((token) => token.length > 2 && !answerTokens.includes(token));
     const noise = shuffle(tokenPool, randomFn).slice(0, 2);
     return {
@@ -446,11 +460,11 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     };
   }
 
-  const answerTokens = answer.split(" ");
+  const answerTokens = tokenizeBuildWords(answer);
   const answerSet = new Set(answerTokens.map((t) => t.toLowerCase()));
   const avgAnswerLen = answerTokens.reduce((sum, t) => sum + t.length, 0) / Math.max(1, answerTokens.length);
   const tokenPool = pool
-    .flatMap((entry) => resolveAnswer(entry).split(" "))
+    .flatMap((entry) => tokenizeBuildWords(resolveAnswer(entry)))
     .filter((token) => token.length > 2 && !answerSet.has(token.toLowerCase()));
   // Prefer noise tokens whose length is close to the average answer-token length (plausible distractors)
   const scored = tokenPool.map((token) => ({

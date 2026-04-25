@@ -3,9 +3,23 @@ import type { SessionQuestion } from "../../types/session";
 export function normalizeSentence(text: string | null | undefined): string {
   return String(text || "")
     .toLowerCase()
-    .replace(/[.,!?;:¿¡]/g, "")
+    .replace(/[.,!?;:¿¡«»"“”‘’(){}\[\]]/g, "")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function stripWrappingPunctuation(token: string): string {
+  return String(token || "")
+    .replace(/^[«»"“”‘’(){}\[\].,!?;:]+/g, "")
+    .replace(/[«»"“”‘’(){}\[\].,!?;:]+$/g, "")
+    .trim();
+}
+
+export function splitSentenceWords(text: string | null | undefined): string[] {
+  return String(text || "")
+    .split(/\s+/g)
+    .map((token) => stripWrappingPunctuation(token))
+    .filter(Boolean);
 }
 
 function levenshteinDistance(left: string | null | undefined, right: string | null | undefined): number {

@@ -146,3 +146,54 @@ test("multiple choice sentence options avoid single-word distractors", () => {
     "sentence-style prompts should not receive single-word distractors"
   );
 });
+
+test("build sentence tokens strip wrapping guillemets and punctuation", () => {
+  const course = {
+    russian: {
+      science_technology: [
+        {
+          id: "ru-build-main",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "Build the sentence.",
+          correctAnswer: "Я изучаю «науки и технологии».",
+          exerciseType: "build_sentence"
+        },
+        {
+          id: "ru-build-noise",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "Say: Это интересный курс.",
+          correctAnswer: "Это интересный курс.",
+          exerciseType: "build_sentence"
+        }
+      ]
+    }
+  };
+
+  const selectors = createCourseSelectors(course);
+  const generateSession = createSessionGenerator(
+    selectors.getCategoryItems,
+    selectors.getAllItems
+  );
+  const session = generateSession({
+    language: "russian",
+    category: "science_technology",
+    count: 2,
+    random: () => 0
+  });
+
+  const buildQuestion = session.questions.find((question) => question.id === "ru-build-main");
+  assert.ok(buildQuestion, "expected a build sentence question");
+  assert.equal(buildQuestion.type, "build_sentence");
+  assert.ok(Array.isArray(buildQuestion.tokens));
+  assert.equal(
+    buildQuestion.tokens.some((token) => token.startsWith("«") || token.endsWith("»") || token.endsWith(".")),
+    false,
+    "build tokens should not keep wrapping quote/punctuation markers"
+  );
+  assert.ok(
+    buildQuestion.tokens.includes("науки"),
+    "expected cleaned core token for quoted word"
+  );
+});

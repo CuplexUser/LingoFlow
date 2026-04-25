@@ -12,6 +12,7 @@ import {
 } from "./session/SessionPanels";
 import {
   joinBuiltWords,
+  splitSentenceWords,
   shuffleArray
 } from "./session/sessionHelpers";
 import { useSessionEngine } from "./session/useSessionEngine";
@@ -47,6 +48,14 @@ type MatchingDragPayload = {
   answer: string;
   fromPrompt: string;
 };
+
+function normalizeHintToken(token: string): string {
+  return String(token || "")
+    .toLowerCase()
+    .replace(/^[«»"“”‘’(){}\[\].,!?;:]+/g, "")
+    .replace(/[«»"“”‘’(){}\[\].,!?;:]+$/g, "")
+    .trim();
+}
 
 export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: SessionPlayerProps) {
   const resumeState = session.resumeState || {};
@@ -134,17 +143,20 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     : "";
   const buildNextHintWordIndex = (() => {
     if (buildHintCount < 2 || !buildAnswerText) return undefined;
-    const answerWords = buildAnswerText.split(/\s+/).filter(Boolean);
+    const answerWords = splitSentenceWords(buildAnswerText);
     const nextWord = answerWords[selectedTokenIndexes.length];
     if (!nextWord) return undefined;
     const tokens = (question.type === "build_sentence" || question.type === "dictation_sentence")
       ? question.tokens
       : [];
     const usedIndexes = new Set(selectedTokenIndexes);
-    return tokens.findIndex((t, i) => t === nextWord && !usedIndexes.has(i));
+    return tokens.findIndex((t, i) =>
+      normalizeHintToken(t) === normalizeHintToken(nextWord) && !usedIndexes.has(i)
+    );
   })();
   const promptText = String(question.prompt || "");
   const primaryHint = Array.isArray(question.hints) ? question.hints[0] : "";
+  const roleplayHintText = question.answerEnglish || question.hints?.[1] || question.answer || "";
   const showEssentialHint = Boolean(primaryHint) && (
     (
       (question.type === "mc_sentence" ||
@@ -528,7 +540,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
             Hint: English Response
           </button>
           {roleplayHintVisible ? (
-            <span className="hint-chip">{question.answerEnglish || "No English hint available."}</span>
+            <span className="hint-chip">{roleplayHintText}</span>
           ) : null}
         </div>
       ) : null}

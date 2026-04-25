@@ -1,7 +1,8 @@
 import { useEffect, useRef, type Dispatch, type SetStateAction } from "react";
 import {
   isPronunciationCloseEnough,
-  normalizeSentence
+  normalizeSentence,
+  splitSentenceWords
 } from "./sessionHelpers";
 import type {
   BuildSentenceQuestion,
@@ -312,7 +313,7 @@ export function useSessionEngine({
           setHintsUsed((value) => value + 1);
         }
 
-        const answerWords = "answer" in question ? String(question.answer || "").split(" ").filter(Boolean) : [];
+        const answerWords = "answer" in question ? splitSentenceWords(question.answer) : [];
         const showReveal = question.type !== "roleplay" && nextMistakes >= 2;
 
         setFeedback({
@@ -369,7 +370,7 @@ export function useSessionEngine({
 
   function revealAnswer() {
     if (question.type === "roleplay") return;
-    const answerWords = "answer" in question ? String(question.answer || "").split(" ").filter(Boolean) : [];
+    const answerWords = "answer" in question ? splitSentenceWords(question.answer) : [];
     if (question.type === "mc_sentence" || question.type === "dialogue_turn") {
       setSelectedOption(String(question.answer || ""));
     } else if (question.type === "cloze_sentence") {
@@ -389,7 +390,7 @@ export function useSessionEngine({
       const orderedIndexes = answerWords
         .map((word) => {
           const tokenIndex = (isBuildSentenceQuestion(question) ? question.tokens : []).findIndex(
-            (token, idx) => token === word && !usedIndexes.has(idx)
+            (token, idx) => normalizeSentence(token) === normalizeSentence(word) && !usedIndexes.has(idx)
           );
           if (tokenIndex >= 0) usedIndexes.add(tokenIndex);
           return tokenIndex;
