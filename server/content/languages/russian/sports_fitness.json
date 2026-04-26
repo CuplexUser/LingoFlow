@@ -6,7 +6,7 @@
     "prompt": "Say: I like to play football with my friends.",
     "correctAnswer": "Мне нравится играть в футбол с друзьями.",
     "hints": [
-      "Use 'I like + infinitive' for preferences."
+      "Use 'мне нравится + infinitive' for preferences."
     ],
     "exerciseType": "build_sentence"
   },
@@ -91,7 +91,7 @@
     "prompt": "Say: Regular exercise improves both physical and mental health.",
     "correctAnswer": "Регулярные упражнения улучшают как физическое, так и психическое здоровье.",
     "hints": [
-      "Use the third-person singular."
+      "Use the 'как ... так и ...' construction for 'both ... and ...'."
     ]
   },
   {
@@ -118,7 +118,7 @@
     "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
     "correctAnswer": "Элитные спортсмены должны сочетать интенсивные тренировки с достаточным временем для восстановления.",
     "hints": [
-      "Use the modal 'must' for obligation."
+      "Use 'должны + infinitive' for obligation."
     ]
   },
   {
@@ -128,7 +128,7 @@
     "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
     "correctAnswer": "Физиотерапевт посоветовал ему временно снизить нагрузку.",
     "hints": [
-      "Use 'advise + infinitive' construction."
+      "'Посоветовать + dative + infinitive' = to advise someone to do something."
     ]
   },
   {
@@ -145,31 +145,32 @@
     "id": "ru-sp-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study sports and fitness every day.",
-    "correctAnswer": "Я каждый день изучаю спорт и фитнес.",
+    "prompt": "Vocabulary: endurance",
+    "correctAnswer": "выносливость",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Feminine noun. The ability to sustain effort over a long time."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sp-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice sports and fitness now?",
-    "correctAnswer": "Мы можем сейчас практиковать спорт и фитнес?",
+    "prompt": "Vocabulary: coach",
+    "correctAnswer": "тренер",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Masculine noun. Both 'coach' and 'trainer' translate as тренер."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sp-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: endurance",
-    "correctAnswer": "выносливость",
+    "prompt": "Vocabulary: training / workout",
+    "correctAnswer": "тренировка",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Feminine noun. Plural: тренировки. Used for a single session of training."
     ],
     "exerciseType": "flashcard"
   },
@@ -177,54 +178,70 @@
     "id": "ru-sp-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for sports and fitness.",
-    "correctAnswer": "Мне нужно больше времени на спорт и фитнес.",
+    "prompt": "Say: I like swimming.",
+    "correctAnswer": "Мне нравится плавать.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "pronunciation"
+      "'Мне нравится + infinitive'. 'Плавать' = to swim (general/regular)."
+    ]
   },
   {
     "id": "ru-sp-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice sports and fitness.",
-    "correctAnswer": "Я каждый день повторяю тему спорт и фитнес.",
+    "prompt": "Which word means 'ball'?",
+    "correctAnswer": "мяч",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "Used in football, basketball, volleyball and more."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "ракетка",
+      "мяч",
+      "шайба",
+      "кольцо"
+    ]
+  },
+  {
+    "id": "ru-sp-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say aloud: Я играю в баскетбол.",
+    "correctAnswer": "Я играю в баскетбол.",
+    "hints": [
+      "Stress: игрАю, баскетбОл. Note 'играть в + accusative' for ball sports."
+    ],
+    "exerciseType": "pronunciation"
   },
   {
     "id": "ru-sp-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on sports and fitness is useful.",
-    "correctAnswer": "Этот урок по теме «спорта и фитнеса» полезный.",
+    "prompt": "Vocabulary: team",
+    "correctAnswer": "команда",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Feminine noun. 'В команде' = on the team (prepositional)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sp-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: coach",
-    "correctAnswer": "тренер",
+    "prompt": "Say: I am tired after training.",
+    "correctAnswer": "Я устал после тренировки.",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "'Устал' = tired (short-form adjective/past, masculine). 'После тренировки' = after training (genitive)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-sp-a1-13",
+    "id": "ru-sp-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: training",
-    "correctAnswer": "тренировка",
+    "prompt": "Vocabulary: stadium",
+    "correctAnswer": "стадион",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Masculine noun. 'На стадионе' = at the stadium (prepositional)."
     ],
     "exerciseType": "flashcard"
   },
@@ -232,20 +249,20 @@
     "id": "ru-sp-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced sports and fitness yesterday.",
-    "correctAnswer": "Я вчера практиковал спорт и фитнес.",
+    "prompt": "Say: I stretched for ten minutes after my run.",
+    "correctAnswer": "Я растягивался десять минут после пробежки.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Растягиваться' = to stretch (imperfective). 'После пробежки' = after a run (genitive)."
     ]
   },
   {
     "id": "ru-sp-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in sports and fitness?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «спорта и фитнеса»?",
+    "prompt": "Ask: What time does the match start?",
+    "correctAnswer": "В какое время начинается матч?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Начинаться' = to start/begin (intransitive). 'В какое время' = at what time."
     ],
     "exerciseType": "build_sentence"
   },
@@ -253,21 +270,27 @@
     "id": "ru-sp-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой спорт и фитнес.",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Вчера наша команда ___ со счётом 3:1.",
+    "correctAnswer": "победила",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Победить' = to win (perfective). Feminine past tense agrees with 'команда'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "победила",
+      "проиграла",
+      "сыграла",
+      "вышла"
+    ]
   },
   {
     "id": "ru-sp-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand sports and fitness better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему спорт и фитнес.",
+    "prompt": "Say aloud: Он бежит быстрее всех в команде.",
+    "correctAnswer": "Он бежит быстрее всех в команде.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: бежИт, быстрЕе. 'Быстрее всех' = faster than everyone (superlative comparison)."
     ],
     "exerciseType": "pronunciation"
   },
@@ -275,21 +298,33 @@
     "id": "ru-sp-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with sports and fitness.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «спорта и фитнеса»?",
+    "prompt": "Roleplay: A friend asks if you want to go to the gym together.",
+    "correctAnswer": "Да, с удовольствием! В какое время ты идёшь?",
+    "answerEnglish": "Yes, I'd love to! What time are you going?",
     "hints": [
-      "Use a polite, natural request."
+      "'С удовольствием' = with pleasure. Follow up with a practical question."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-sp-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: to win / to lose / to draw",
+    "correctAnswer": "победить / проиграть / сыграть вничью",
+    "hints": [
+      "All three are perfective. 'Вничью' is an adverb meaning 'in a draw'."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sp-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on sports and fitness was difficult.",
-    "correctAnswer": "Это упражнение по теме «спорта и фитнеса» было трудным.",
+    "prompt": "Say: I hurt my knee during the game.",
+    "correctAnswer": "Я повредил колено во время игры.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Повредить' = to injure/damage (perfective). 'Во время игры' = during the game (genitive)."
     ],
     "exerciseType": "build_sentence"
   },
@@ -297,20 +332,20 @@
     "id": "ru-sp-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in sports and fitness.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «спорта и фитнеса».",
+    "prompt": "Say: I have not been to the pool since I pulled a muscle.",
+    "correctAnswer": "Я не ходил в бассейн с тех пор, как потянул мышцу.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'С тех пор, как' = since (the time that). 'Потянул мышцу' = pulled a muscle (perfective past)."
     ]
   },
   {
     "id": "ru-sp-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for sports and fitness?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «спорта и фитнеса»?",
+    "prompt": "Say: He trains twice a day during the competition season.",
+    "correctAnswer": "В соревновательный сезон он тренируется дважды в день.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Дважды в день' = twice a day. 'В соревновательный сезон' = during the competition season (accusative after 'в')."
     ],
     "exerciseType": "build_sentence"
   },
@@ -318,95 +353,152 @@
     "id": "ru-sp-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме спорт и фитнес.",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: После тяжёлой тренировки важно дать мышцам время на ___.",
+    "correctAnswer": "восстановление",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Восстановление' = recovery. Accusative after 'на' (for the purpose of)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "восстановление",
+      "разминку",
+      "нагрузку",
+      "растяжку"
+    ]
   },
   {
     "id": "ru-sp-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему спорт и фитнес.",
+    "correctAnswer": "Спортсмены высокого уровня уделяют сну не меньше внимания, чем тренировкам.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for 'уделять внимание' (to pay attention to) and the comparative 'не меньше ... чем'."
     ],
     "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-sp-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: referee / umpire",
+    "correctAnswer": "судья",
+    "hints": [
+      "Masculine noun despite the -я ending. 'Главный судья' = head referee."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-sp-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The crowd went silent when the goalkeeper saved the penalty.",
+    "correctAnswer": "Толпа замолчала, когда вратарь отбил пенальти.",
+    "hints": [
+      "'Замолчать' = to go/fall silent (perfective). 'Отбить пенальти' = to save a penalty."
+    ]
   },
   {
     "id": "ru-sp-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review sports and fitness.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему спорт и фитнес.",
+    "prompt": "Ask: Have you ever run a half-marathon?",
+    "correctAnswer": "Ты когда-нибудь бегал полумарафон?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Когда-нибудь' = ever (in questions). 'Бегал' = imperfective past, for general experience."
     ],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-sp-b1-12",
+    "id": "ru-sp-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in sports and fitness.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «спорта и фитнеса».",
+    "prompt": "Vocabulary: calories / nutrition / hydration",
+    "correctAnswer": "калории / питание / гидратация",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Питание' is the broader word for nutrition/diet. 'Гидратация' is a modern borrowing; 'водный баланс' is also used."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sp-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of sports and fitness.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «спорта и фитнеса».",
+    "prompt": "Say: Doping scandals have repeatedly damaged the reputation of professional cycling.",
+    "correctAnswer": "Допинговые скандалы неоднократно подрывали репутацию профессионального велоспорта.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Подрывать' = to undermine (imperfective, repeated). 'Неоднократно' = repeatedly."
     ]
   },
   {
     "id": "ru-sp-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «спорта и фитнеса».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Высокоинтенсивные тренировки стимулируют выработку ___ — гормона, улучшающего настроение.",
+    "correctAnswer": "эндорфинов",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Эндорфины' = endorphins. Genitive plural after 'выработку' (production of)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "эндорфинов",
+      "адреналина",
+      "кортизола",
+      "мелатонина"
+    ]
+  },
+  {
+    "id": "ru-sp-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The commercialisation of sport has widened the gap between top clubs and the rest.",
+    "correctAnswer": "Коммерциализация спорта увеличила разрыв между топовыми клубами и остальными.",
+    "hints": [
+      "'Увеличить разрыв' = to widen the gap (perfective). 'Между' + instrumental for 'between'."
+    ]
+  },
+  {
+    "id": "ru-sp-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Психологическая устойчивость нередко отличает чемпионов от просто талантливых спортсменов.",
+    "hints": [
+      "Listen for 'психологическая устойчивость' (mental resilience) and the verb 'отличать' (to distinguish)."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-sp-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: injury prevention",
+    "correctAnswer": "профилактика травм",
+    "hints": [
+      "'Профилактика' = prevention (medical/health context). 'Травма' = injury. Genitive plural: травм."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sp-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in sports and fitness?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «спорта и фитнеса»?",
+    "prompt": "Roleplay: A journalist asks an athlete how they prepare mentally before a big race.",
+    "correctAnswer": "Я стараюсь не думать о результате, а сосредоточиться на процессе и своём дыхании.",
+    "answerEnglish": "I try not to think about the result, but to focus on the process and my breathing.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Сосредоточиться на' + prepositional = to focus on. 'Стараюсь не + infinitive' = I try not to."
+    ],
+    "exerciseType": "roleplay"
   },
   {
-    "id": "ru-sp-b2-11",
+    "id": "ru-sp-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on sports and fitness.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «спорта и фитнеса».",
+    "prompt": "Say: Wearable technology now allows athletes to monitor their biometric data in real time.",
+    "correctAnswer": "Носимые технологии теперь позволяют спортсменам отслеживать биометрические данные в режиме реального времени.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-sp-b2-16",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in sports and fitness.",
-    "correctAnswer": "В теме «спорта и фитнеса» системность важнее интенсивности.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Позволять + dative + infinitive' = to allow someone to do something. 'В режиме реального времени' = in real time."
     ]
   }
 ]

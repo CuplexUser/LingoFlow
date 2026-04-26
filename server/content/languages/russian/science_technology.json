@@ -130,31 +130,32 @@
     "id": "ru-sc-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study science and technology every day.",
-    "correctAnswer": "Я каждый день изучаю науку и технологии.",
+    "prompt": "Vocabulary: data",
+    "correctAnswer": "данные",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Always used in the plural in Russian. Genitive: данных."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sc-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice science and technology now?",
-    "correctAnswer": "Мы можем сейчас практиковать науку и технологии?",
+    "prompt": "Vocabulary: device",
+    "correctAnswer": "устройство",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Neuter noun. Plural: устройства. Covers phones, tablets, laptops, etc."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sc-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: data",
-    "correctAnswer": "данные",
+    "prompt": "Vocabulary: research",
+    "correctAnswer": "исследование",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Neuter noun. The verb form is 'исследовать' (to research/investigate)."
     ],
     "exerciseType": "flashcard"
   },
@@ -162,75 +163,69 @@
     "id": "ru-sc-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for science and technology.",
-    "correctAnswer": "Мне нужно больше времени на науку и технологии.",
+    "prompt": "Say: I charge my phone every night.",
+    "correctAnswer": "Я заряжаю телефон каждую ночь.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Заряжать' = to charge (imperfective). 'Каждую ночь' = every night (accusative with 'каждый')."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-sc-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice science and technology.",
-    "correctAnswer": "Я каждый день повторяю тему «науку и технологии».",
+    "prompt": "Which word means 'the internet'?",
+    "correctAnswer": "интернет",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "In Russian, 'в интернете' (in the internet) uses the prepositional case."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "options": [
+      "компьютер",
+      "экран",
+      "интернет",
+      "сеть"
+    ]
+  },
+  {
+    "id": "ru-sc-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say aloud: Мой телефон не работает.",
+    "correctAnswer": "Мой телефон не работает.",
+    "hints": [
+      "Stress: телефОн, рабОтает. A high-frequency complaint phrase."
+    ],
+    "exerciseType": "pronunciation"
   },
   {
     "id": "ru-sc-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on science and technology is useful.",
-    "correctAnswer": "Этот урок по теме «науки и технологий» полезный.",
+    "prompt": "Ask: Where is the charger?",
+    "correctAnswer": "Где зарядка?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-sc-a1-8",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Vocabulary: device",
-    "correctAnswer": "устройство",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-sc-a1-13",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Vocabulary: research",
-    "correctAnswer": "исследование",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
+      "'Зарядка' is the everyday informal word for a charger. The formal term is 'зарядное устройство'."
+    ]
   },
   {
     "id": "ru-sc-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced science and technology yesterday.",
-    "correctAnswer": "Я вчера практиковал науку и технологии.",
+    "prompt": "Say: I search for information online every day.",
+    "correctAnswer": "Я каждый день ищу информацию в интернете.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Искать' = to search (imperfective). 'В интернете' = online (prepositional case)."
     ]
   },
   {
     "id": "ru-sc-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in science and technology?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «науки и технологий»?",
+    "prompt": "Say: My computer crashed and I lost all my files.",
+    "correctAnswer": "Мой компьютер завис, и я потерял все файлы.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Зависнуть' = to crash/freeze (perfective). 'Потерял' = lost (perfective past, masculine)."
     ],
     "exerciseType": "build_sentence"
   },
@@ -238,21 +233,27 @@
     "id": "ru-sc-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «науку и технологии».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Не забудь сохранить документ, прежде чем ___  компьютер.",
+    "correctAnswer": "выключить",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Выключить' = to turn off (perfective). Used for switching off devices."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "выключить",
+      "включить",
+      "перезагрузить",
+      "открыть"
+    ]
   },
   {
     "id": "ru-sc-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand science and technology better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «науку и технологии».",
+    "prompt": "Say aloud: Скачай приложение и войди в свой аккаунт.",
+    "correctAnswer": "Скачай приложение и войди в свой аккаунт.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: скачАй, приложЕние, аккАунт. Two imperative verbs in sequence."
     ],
     "exerciseType": "pronunciation"
   },
@@ -260,21 +261,33 @@
     "id": "ru-sc-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with science and technology.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «науки и технологий»?",
+    "prompt": "Roleplay: A friend asks how to take a screenshot on a phone.",
+    "correctAnswer": "Нажми одновременно кнопку питания и кнопку уменьшения громкости.",
+    "answerEnglish": "Press the power button and the volume-down button at the same time.",
     "hints": [
-      "Use a polite, natural request."
+      "'Одновременно' = simultaneously/at the same time. 'Кнопку' = button (accusative)."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-sc-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: to download / to upload",
+    "correctAnswer": "скачать / загрузить",
+    "hints": [
+      "Both are perfective. 'Скачать' = download; 'загрузить' = upload (or to load in general)."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sc-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on science and technology was difficult.",
-    "correctAnswer": "Это упражнение по теме «науки и технологий» было трудным.",
+    "prompt": "Ask: Does this programme work on Mac?",
+    "correctAnswer": "Эта программа работает на Маке?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Работать на' + prepositional = to work on (a platform). 'Маке' is prepositional of 'Мак'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -282,20 +295,20 @@
     "id": "ru-sc-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in science and technology.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «науки и технологий».",
+    "prompt": "Say: Smartphones have changed the way we communicate.",
+    "correctAnswer": "Смартфоны изменили то, как мы общаемся.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Perfective past 'изменили' for a completed change. 'То, как' = the way (how)."
     ]
   },
   {
     "id": "ru-sc-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for science and technology?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «науки и технологий»?",
+    "prompt": "Say: I use cloud storage to keep my documents safe.",
+    "correctAnswer": "Я использую облачное хранилище, чтобы хранить документы в безопасности.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Чтобы + infinitive' = in order to. 'В безопасности' = safely/in safety (prepositional)."
     ],
     "exerciseType": "build_sentence"
   },
@@ -303,95 +316,161 @@
     "id": "ru-sc-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «науку и технологии».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Нейросеть обучается на большом ___ данных.",
+    "correctAnswer": "массиве",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Массив данных' = a dataset/data array. 'Массиве' is prepositional after 'на'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "массиве",
+      "объёме",
+      "потоке",
+      "архиве"
+    ]
   },
   {
     "id": "ru-sc-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «науку и технологии».",
+    "correctAnswer": "Без надёжного антивируса ваши личные данные могут оказаться под угрозой.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for 'под угрозой' (under threat/at risk) at the end."
     ],
     "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-sc-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: artificial intelligence",
+    "correctAnswer": "искусственный интеллект (ИИ)",
+    "hints": [
+      "Often abbreviated as ИИ in Russian, equivalent to AI. 'Искусственный' = artificial."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-sc-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Electric vehicles are becoming more affordable every year.",
+    "correctAnswer": "Электромобили с каждым годом становятся всё более доступными.",
+    "hints": [
+      "'С каждым годом' = with every passing year. 'Всё более' = increasingly (ever more)."
+    ]
   },
   {
     "id": "ru-sc-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review science and technology.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «науку и технологии».",
+    "prompt": "Ask: How does GPS determine your location?",
+    "correctAnswer": "Как GPS определяет твоё местоположение?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Определять' = to determine (imperfective). 'Местоположение' = location/position."
     ],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-sc-b1-12",
+    "id": "ru-sc-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in science and technology.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «науки и технологий».",
+    "prompt": "Say: The developer fixed the bug in the latest version.",
+    "correctAnswer": "Разработчик исправил ошибку в последней версии.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
+      "'Исправить ошибку' = to fix a bug (perfective). 'В последней версии' = prepositional case."
+    ]
   },
   {
     "id": "ru-sc-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of science and technology.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «науки и технологий».",
+    "prompt": "Say: The proliferation of disinformation has been accelerated by algorithmic recommendation systems.",
+    "correctAnswer": "Распространение дезинформации ускорилось благодаря алгоритмическим системам рекомендаций.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Благодаря' + dative = thanks to / as a result of (here used neutrally for cause). 'Ускорилось' = has accelerated (reflexive perfective)."
     ]
   },
   {
     "id": "ru-sc-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «науки и технологий».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Квантовые вычисления могут сделать большинство современных методов ___ устаревшими.",
+    "correctAnswer": "шифрования",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Шифрование' = encryption. Genitive 'шифрования' after 'методов' (methods of encryption)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "шифрования",
+      "хранения",
+      "передачи",
+      "сжатия"
+    ]
+  },
+  {
+    "id": "ru-sc-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The ethical implications of autonomous weapons systems remain deeply contested.",
+    "correctAnswer": "Этические последствия автономных систем вооружения по-прежнему вызывают острые споры.",
+    "hints": [
+      "'По-прежнему' = still/as before. 'Вызывать споры' = to provoke/generate debate."
+    ]
+  },
+  {
+    "id": "ru-sc-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Цифровой разрыв между развитыми и развивающимися странами остаётся одной из ключевых проблем современности.",
+    "hints": [
+      "Listen for 'цифровой разрыв' (digital divide) and the superlative construction at the end."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-sc-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: open-source software",
+    "correctAnswer": "программное обеспечение с открытым исходным кодом",
+    "hints": [
+      "Often shortened to 'открытый исходный код' or simply 'опенсорс' in informal tech contexts."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-sc-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in science and technology?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «науки и технологий»?",
+    "prompt": "Say: Biometric authentication raises serious questions about the storage and potential misuse of personal data.",
+    "correctAnswer": "Биометрическая аутентификация поднимает серьёзные вопросы о хранении и возможном злоупотреблении персональными данными.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Поднимать вопросы' = to raise questions. 'Злоупотребление' + instrumental = misuse of."
     ]
   },
   {
-    "id": "ru-sc-b2-11",
+    "id": "ru-sc-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on science and technology.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «науки и технологий».",
+    "prompt": "Roleplay: A colleague asks your opinion on whether AI will replace programmers.",
+    "correctAnswer": "На мой взгляд, ИИ скорее изменит характер работы программистов, чем полностью их заменит.",
+    "answerEnglish": "In my view, AI is more likely to change the nature of programmers' work than to replace them entirely.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Скорее … чем' = more likely … than. 'Характер работы' = the nature of the work."
+    ],
+    "exerciseType": "roleplay"
   },
   {
-    "id": "ru-sc-b2-16",
+    "id": "ru-sc-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in science and technology.",
-    "correctAnswer": "В теме «науки и технологий» системность важнее интенсивности.",
+    "prompt": "Say: The pace of technological change increasingly outstrips society's capacity to regulate it.",
+    "correctAnswer": "Темп технологических изменений всё больше опережает способность общества их регулировать.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Опережать' = to outpace/outstrip (imperfective). 'Способность + infinitive' = capacity to do something."
     ]
   }
 ]

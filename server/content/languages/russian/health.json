@@ -123,31 +123,32 @@
     "id": "ru-he-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study health every day.",
-    "correctAnswer": "Я каждый день изучаю здоровье.",
+    "prompt": "Vocabulary: medicine / tablet",
+    "correctAnswer": "лекарство / таблетка",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Лекарство' = medicine in general. 'Таблетка' = a specific tablet or pill."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-he-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice health now?",
-    "correctAnswer": "Мы можем сейчас практиковать здоровье?",
+    "prompt": "Vocabulary: rest",
+    "correctAnswer": "отдых",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Masculine noun. 'Отдыхать' = to rest (verb)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-he-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: medicine",
-    "correctAnswer": "лекарство",
+    "prompt": "Vocabulary: doctor / nurse",
+    "correctAnswer": "врач / медсестра",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "'Врач' is used for any doctor regardless of gender. 'Медсестра' = female nurse; 'медбрат' = male nurse."
     ],
     "exerciseType": "flashcard"
   },
@@ -155,32 +156,48 @@
     "id": "ru-he-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for health.",
-    "correctAnswer": "Мне нужно больше времени на здоровье.",
+    "prompt": "Say: I have a temperature.",
+    "correctAnswer": "У меня температура.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "pronunciation"
+      "'У меня температура' is the natural way to say you have a fever in Russian."
+    ]
   },
   {
     "id": "ru-he-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice health.",
-    "correctAnswer": "Я каждый день повторяю тему здоровье.",
+    "prompt": "Which word means 'hospital'?",
+    "correctAnswer": "больница",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "Not to be confused with 'поликлиника' (outpatient clinic) or 'аптека' (pharmacy)."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "аптека",
+      "поликлиника",
+      "больница",
+      "скорая"
+    ]
+  },
+  {
+    "id": "ru-he-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say aloud: У меня болит голова.",
+    "correctAnswer": "У меня болит голова.",
+    "hints": [
+      "Stress: болИт, голова. The most common way to describe pain: 'У меня болит + body part (nominative)'."
+    ],
+    "exerciseType": "pronunciation"
   },
   {
     "id": "ru-he-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on health is useful.",
-    "correctAnswer": "Этот урок по теме «здоровья» полезный.",
+    "prompt": "Say: I have a cold.",
+    "correctAnswer": "Я простудился.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Простудиться' = to catch a cold (perfective, reflexive). Feminine: 'простудилась'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -188,42 +205,41 @@
     "id": "ru-he-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: rest",
-    "correctAnswer": "отдых",
+    "prompt": "Vocabulary: exercise / physical activity",
+    "correctAnswer": "упражнение / физическая активность",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "'Упражнение' = a single exercise. 'Физическая активность' = physical activity in general."
     ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "ru-he-a1-13",
+    "id": "ru-he-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: exercise",
-    "correctAnswer": "упражнение",
+    "prompt": "Say: Call an ambulance!",
+    "correctAnswer": "Вызовите скорую!",
     "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
+      "'Вызвать скорую' = to call an ambulance. 'Скорая' is short for 'скорая помощь' (emergency help)."
+    ]
   },
   {
     "id": "ru-he-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced health yesterday.",
-    "correctAnswer": "Я вчера практиковал здоровье.",
+    "prompt": "Say: I have been coughing for three days.",
+    "correctAnswer": "Я кашляю уже три дня.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Кашлять' = to cough (imperfective). Present tense + 'уже' for ongoing duration."
     ]
   },
   {
     "id": "ru-he-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in health?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «здоровья»?",
+    "prompt": "Say: I need a prescription for this medication.",
+    "correctAnswer": "Мне нужен рецепт на это лекарство.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Рецепт' = prescription (also recipe). 'На это лекарство' = for this medication (accusative)."
     ],
     "exerciseType": "build_sentence"
   },
@@ -231,21 +247,27 @@
     "id": "ru-he-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой здоровье.",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Врач сказал мне ___ больше воды и отдыхать.",
+    "correctAnswer": "пить",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Сказать + dative + infinitive' = to tell someone to do something. Choose the fitting verb."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "пить",
+      "есть",
+      "спать",
+      "принимать"
+    ]
   },
   {
     "id": "ru-he-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand health better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему здоровье.",
+    "prompt": "Say aloud: Я принимаю это лекарство три раза в день.",
+    "correctAnswer": "Я принимаю это лекарство три раза в день.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: принимАю, лекАрство. 'Принимать лекарство' = to take medicine (not 'пить' in formal contexts)."
     ],
     "exerciseType": "pronunciation"
   },
@@ -253,21 +275,33 @@
     "id": "ru-he-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with health.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «здоровья»?",
+    "prompt": "Roleplay: You are at a pharmacy asking for something for a sore throat.",
+    "correctAnswer": "Здравствуйте. Что вы посоветуете от боли в горле?",
+    "answerEnglish": "Hello. What would you recommend for a sore throat?",
     "hints": [
-      "Use a polite, natural request."
+      "'Что вы посоветуете от + genitive' = what do you recommend for. 'Боли в горле' = sore throat (genitive)."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-he-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: symptom / diagnosis",
+    "correctAnswer": "симптом / диагноз",
+    "hints": [
+      "Both are borrowed words. Plural: симптомы, диагнозы."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-he-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on health was difficult.",
-    "correctAnswer": "Это упражнение по теме «здоровья» было трудным.",
+    "prompt": "Say: My back has been hurting since yesterday.",
+    "correctAnswer": "У меня болит спина со вчерашнего дня.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Со вчерашнего дня' = since yesterday (genitive). Compare with 'с самого утра' for 'since this morning'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -275,20 +309,20 @@
     "id": "ru-he-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in health.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «здоровья».",
+    "prompt": "Say: The doctor told me to rest for a week and avoid stress.",
+    "correctAnswer": "Врач велел мне отдыхать неделю и избегать стресса.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Велеть + dative + infinitive' = to order/tell someone to do something. 'Избегать' + genitive = to avoid."
     ]
   },
   {
     "id": "ru-he-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for health?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «здоровья»?",
+    "prompt": "Say: My blood pressure is slightly elevated.",
+    "correctAnswer": "У меня немного повышенное давление.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Повышенное давление' = elevated/high blood pressure. 'Немного' = slightly."
     ],
     "exerciseType": "build_sentence"
   },
@@ -296,43 +330,71 @@
     "id": "ru-he-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме здоровье.",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: После операции пациенту назначили курс ___ терапии.",
+    "correctAnswer": "восстановительной",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Восстановительная терапия' = rehabilitation therapy. Genitive feminine to agree with 'терапии'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "восстановительной",
+      "профилактической",
+      "интенсивной",
+      "поддерживающей"
+    ]
   },
   {
     "id": "ru-he-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему здоровье.",
+    "correctAnswer": "Хронический стресс может негативно влиять на иммунную систему.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for 'хронический стресс' and 'иммунную систему' (accusative)."
     ],
     "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-he-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: chronic / acute",
+    "correctAnswer": "хронический / острый",
+    "hints": [
+      "'Острый' also means sharp or spicy — context determines the meaning."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-he-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: She was discharged from hospital after five days.",
+    "correctAnswer": "Её выписали из больницы через пять дней.",
+    "hints": [
+      "'Выписать из больницы' = to discharge from hospital (perfective). 'Через пять дней' = after five days."
+    ]
   },
   {
     "id": "ru-he-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review health.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему здоровье.",
+    "prompt": "Roleplay: You call a clinic to book an appointment with a GP.",
+    "correctAnswer": "Здравствуйте, я хотел бы записаться к терапевту на ближайшее время.",
+    "answerEnglish": "Hello, I'd like to make an appointment with a GP as soon as possible.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Записаться к + dative' = to make an appointment with. 'Терапевт' = GP/general practitioner."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "roleplay"
   },
   {
-    "id": "ru-he-b1-12",
+    "id": "ru-he-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in health.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «здоровья».",
+    "prompt": "Say: He has been on a waiting list for surgery for six months.",
+    "correctAnswer": "Он стоит в очереди на операцию уже шесть месяцев.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Стоять в очереди на' + accusative = to be on a waiting list for. Present tense + 'уже' for ongoing duration."
     ],
     "exerciseType": "build_sentence"
   },
@@ -340,51 +402,81 @@
     "id": "ru-he-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of health.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «здоровья».",
+    "prompt": "Say: Preventive healthcare reduces long-term pressure on the public health system.",
+    "correctAnswer": "Профилактическая медицина снижает долгосрочную нагрузку на систему здравоохранения.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Снижать нагрузку на' + accusative = to reduce the burden on. 'Здравоохранение' = public healthcare."
     ]
   },
   {
     "id": "ru-he-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «здоровья».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Врачи предупреждают о рисках ___ антибиотиков без назначения.",
+    "correctAnswer": "бесконтрольного приёма",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Бесконтрольный приём' = uncontrolled/unsupervised use. Genitive after 'рисках' (risks of)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "бесконтрольного приёма",
+      "редкого применения",
+      "внезапной отмены",
+      "длительного курса"
+    ]
+  },
+  {
+    "id": "ru-he-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Mental health is now increasingly recognised as equally important as physical health.",
+    "correctAnswer": "Психическое здоровье всё больше признаётся столь же важным, как и физическое.",
+    "hints": [
+      "'Признаваться' = to be recognised (imperfective passive). 'Столь же … как и' = just as … as."
+    ]
+  },
+  {
+    "id": "ru-he-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Уровень медицинской грамотности населения напрямую влияет на исходы лечения.",
+    "hints": [
+      "Listen for 'медицинская грамотность' (health literacy) and 'исходы лечения' (treatment outcomes)."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-he-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: side effect / contraindication",
+    "correctAnswer": "побочный эффект / противопоказание",
+    "hints": [
+      "'Противопоказание' = contraindication. Plural: противопоказания. Common in medical instructions."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-he-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in health?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «здоровья»?",
+    "prompt": "Say: The study found a significant correlation between sleep deprivation and cardiovascular disease.",
+    "correctAnswer": "Исследование выявило значимую корреляцию между недосыпанием и сердечно-сосудистыми заболеваниями.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Выявить' = to identify/reveal (perfective). 'Между' + instrumental for 'between'."
     ]
   },
   {
-    "id": "ru-he-b2-11",
+    "id": "ru-he-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on health.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «здоровья».",
+    "prompt": "Roleplay: You are describing your symptoms to a doctor at a Russian clinic.",
+    "correctAnswer": "Доктор, у меня уже три дня держится высокая температура, болит горло и нет аппетита.",
+    "answerEnglish": "Doctor, I've had a high temperature for three days, my throat hurts, and I have no appetite.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-he-b2-16",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in health.",
-    "correctAnswer": "В теме «здоровья» системность важнее интенсивности.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Держаться' = to persist/stay (of temperature). 'Нет аппетита' = no appetite (genitive after 'нет')."
+    ],
+    "exerciseType": "roleplay"
   }
 ]
