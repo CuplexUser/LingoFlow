@@ -34,49 +34,67 @@ function ArrowIcon() {
   );
 }
 
-const GRID_WEEKS = 7;
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export function ActivityGrid({ history }: { history: Array<{ date: string; xp: number; sessions?: number }> }) {
   const [hover, setHover] = useState<{ xp: number; sessions: number; date: string } | null>(null);
 
-  // Build a 7×7 calendar grid: each row = one week (Mon–Sun), oldest row first.
-  // Uses local date arithmetic throughout to avoid UTC-offset date shifts.
-  const rows = useMemo(() => {
+  // weeks[w][d]: w = week index (oldest first), d = day-of-week (0=Mon … 6=Sun)
+  // Covers from the Monday of the week containing 6 months ago through today's week.
+  const { weeks, gridWeeks } = useMemo(() => {
     const localIso = (d: Date) =>
       `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
     const byDate = new Map(history.map((d) => [d.date, d]));
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const todayDow = (today.getDay() + 6) % 7; // 0=Mon … 6=Sun
+    const todayDow = (today.getDay() + 6) % 7;
     const thisMonday = new Date(today);
     thisMonday.setDate(today.getDate() - todayDow);
 
-    const gridStart = new Date(thisMonday);
-    gridStart.setDate(thisMonday.getDate() - (GRID_WEEKS - 1) * 7);
+    const sixMonthsAgo = new Date(today);
+    sixMonthsAgo.setMonth(today.getMonth() - 6);
+    const startDow = (sixMonthsAgo.getDay() + 6) % 7;
+    const gridStart = new Date(sixMonthsAgo);
+    gridStart.setDate(sixMonthsAgo.getDate() - startDow);
+
+    const gw = Math.round((thisMonday.getTime() - gridStart.getTime()) / (7 * 864e5)) + 1;
 
     const result: (typeof history[0] | null)[][] = [];
-    for (let w = 0; w < GRID_WEEKS; w++) {
-      const row: (typeof history[0] | null)[] = [];
+    for (let w = 0; w < gw; w++) {
+      const week: (typeof history[0] | null)[] = [];
       for (let d = 0; d < 7; d++) {
         const cell = new Date(gridStart);
         cell.setDate(gridStart.getDate() + w * 7 + d);
         if (cell > today) {
-          row.push(null); // future — leave empty
+          week.push(null);
         } else {
           const iso = localIso(cell);
-          row.push(byDate.get(iso) ?? { date: iso, xp: 0 });
+          week.push(byDate.get(iso) ?? { date: iso, xp: 0 });
         }
       }
-      result.push(row);
+      result.push(week);
     }
-    return result;
+    return { weeks: result, gridWeeks: gw };
   }, [history]);
 
+  const monthLabels = useMemo(() =>
+    weeks.map((week, wi) => {
+      const first = week.find((d) => d !== null);
+      if (!first) return null;
+      const m = new Date(first.date + "T00:00:00").getMonth();
+      if (wi === 0) return MONTHS[m];
+      const prevFirst = weeks[wi - 1].find((d) => d !== null);
+      const prevM = prevFirst ? new Date(prevFirst.date + "T00:00:00").getMonth() : -1;
+      return m !== prevM ? MONTHS[m] : null;
+    }),
+    [weeks]
+  );
+
   const maxXp = useMemo(
-    () => Math.max(...rows.flat().map((d) => d?.xp ?? 0), 1),
-    [rows]
+    () => Math.max(...weeks.flat().map((d) => d?.xp ?? 0), 1),
+    [weeks]
   );
 
   const tone = (xp: number | null) => {
@@ -90,7 +108,46 @@ export function ActivityGrid({ history }: { history: Array<{ date: string; xp: n
   return (
     <div className="activity-grid-wrap">
       <div className="activity-head">
-        <span style={{ fontSize: "11.5px", color: "var(--muted)" }}>Daily practice · {GRID_WEEKS} weeks</span>
+        <span style={{ fontSize: "11.5px", color: "var(--muted)" }}>Daily practice · {gridWeeks} weeks</span>
+      </div>
+      <div className="activity-outer">
+        {/* Month label row */}
+        <div className="activity-month-row">
+          <div className="activity-dow-spacer"/>
+          {monthLabels.map((label, wi) => (
+            <div key={wi} className="activity-month-cell">{label ?? ""}</div>
+          ))}
+        </div>
+        {/* One row per day-of-week */}
+        {DAY_LABELS.map((dayLabel, di) => (
+          <div key={di} className="activity-day-row">
+            <span className="activity-dow-label">{di % 2 === 0 ? dayLabel : ""}</span>
+            {weeks.map((week, wi) => {
+              const cell = week[di];
+              return (
+                <i
+                  key={wi}
+                  className={`act-cell tone-${cell ? tone(cell.xp) : 0}${cell == null ? " empty" : ""}`}
+                  onMouseEnter={() => cell && setHover({ xp: cell.xp, sessions: cell.sessions ?? 0, date: cell.date })}
+                  onMouseLeave={() => setHover(null)}
+                />
+              );
+            })}
+          </div>
+        ))}
+      </div>
+      <div className="activity-footer">
+        <div className="activity-tip">
+          {hover ? (
+            <span>
+              <strong className="mono">{hover.xp} XP</strong>
+              {hover.sessions ? ` · ${hover.sessions} session${hover.sessions === 1 ? "" : "s"}` : ""}
+              {" · "}{new Date(hover.date + "T00:00:00").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}
+            </span>
+          ) : (
+            <span style={{ color: "var(--muted)" }}>Hover a cell for details</span>
+          )}
+        </div>
         <div className="activity-legend">
           <span>Less</span>
           {[0, 1, 2, 3, 4].map((t) => (
@@ -98,34 +155,6 @@ export function ActivityGrid({ history }: { history: Array<{ date: string; xp: n
           ))}
           <span>More</span>
         </div>
-      </div>
-      <div className="activity-calendar">
-        <div className="activity-day-headers">
-          {DAY_LABELS.map((d) => <span key={d}>{d}</span>)}
-        </div>
-        {rows.map((row, wi) => (
-          <div key={wi} className="activity-week-row">
-            {row.map((d, di) => (
-              <i
-                key={di}
-                className={`act-cell tone-${d ? tone(d.xp) : 0}${d == null ? " empty" : ""}`}
-                onMouseEnter={() => d && setHover({ xp: d.xp, sessions: d.sessions ?? 0, date: d.date })}
-                onMouseLeave={() => setHover(null)}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
-      <div className="activity-tip">
-        {hover ? (
-          <span>
-            <strong className="mono">{hover.xp} XP</strong>
-            {hover.sessions ? ` · ${hover.sessions} session${hover.sessions === 1 ? "" : "s"}` : ""}
-            {" · "}{new Date(hover.date + "T00:00:00").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })}
-          </span>
-        ) : (
-          <span style={{ color: "var(--muted)" }}>Hover a cell for details</span>
-        )}
       </div>
     </div>
   );

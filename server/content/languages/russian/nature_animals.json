@@ -38,7 +38,7 @@
     "prompt": "Say: The horse is running across the field.",
     "correctAnswer": "Лошадь бежит по полю.",
     "hints": [
-      "Use present continuous for an action happening now."
+      "Use present tense for an action happening now."
     ]
   },
   {
@@ -46,9 +46,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the name of that bird?",
-    "correctAnswer": "Как зовут ту птицу?",
+    "correctAnswer": "Как называется та птица?",
     "hints": [
-      "Ask for the name of something you see."
+      "'Называться' = to be called/named. Used for things, not people."
     ]
   },
   {
@@ -58,7 +58,7 @@
     "prompt": "Say: I saw a fox near the forest last night.",
     "correctAnswer": "Вчера вечером я видел лису около леса.",
     "hints": [
-      "Use past simple to describe what you saw."
+      "Use past tense to describe what you saw."
     ]
   },
   {
@@ -68,7 +68,7 @@
     "prompt": "Say: Wolves usually travel in packs and hunt together.",
     "correctAnswer": "Волки обычно передвигаются стаей и охотятся вместе.",
     "hints": [
-      "Use 'usually' to describe typical animal behavior."
+      "Use 'usually' to describe typical animal behaviour."
     ],
     "exerciseType": "build_sentence"
   },
@@ -124,7 +124,7 @@
     "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
     "correctAnswer": "Некоторые виды замечательно хорошо приспособились к жизни рядом с людьми.",
     "hints": [
-      "Use present perfect with an adverb for emphasis."
+      "Use past tense with an adverb for emphasis."
     ],
     "exerciseType": "pronunciation"
   },
@@ -132,31 +132,32 @@
     "id": "ru-na-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study nature and animals every day.",
-    "correctAnswer": "Я каждый день изучаю природу и животных.",
+    "prompt": "Vocabulary: species",
+    "correctAnswer": "вид",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Also means 'view' or 'type' in other contexts. Plural: виды."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-na-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice nature and animals now?",
-    "correctAnswer": "Мы можем сейчас практиковать природу и животных?",
+    "prompt": "Vocabulary: forest",
+    "correctAnswer": "лес",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Masculine noun. 'В лесу' = in the forest (prepositional, irregular form)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-na-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: species",
-    "correctAnswer": "вид",
+    "prompt": "Vocabulary: habitat",
+    "correctAnswer": "среда обитания",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Literally 'living environment'. 'Обитания' is genitive of 'обитание' (dwelling)."
     ],
     "exerciseType": "flashcard"
   },
@@ -164,75 +165,80 @@
     "id": "ru-na-a1-6",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for nature and animals.",
-    "correctAnswer": "Мне нужно больше времени на природу и животных.",
+    "prompt": "Say: I have a pet rabbit.",
+    "correctAnswer": "У меня есть домашний кролик.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "pronunciation"
+      "'Домашний' = domestic/pet (literally 'home'). 'У меня есть' = I have."
+    ]
   },
   {
     "id": "ru-na-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice nature and animals.",
-    "correctAnswer": "Я каждый день повторяю тему «природу и животных».",
+    "prompt": "Which word means 'mountain'?",
+    "correctAnswer": "гора",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "Feminine noun. Plural: горы. 'В горах' = in the mountains."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "multiple_choice",
+    "options": [
+      "река",
+      "море",
+      "гора",
+      "поле"
+    ]
+  },
+  {
+    "id": "ru-na-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say aloud: В лесу живут волки и медведи.",
+    "correctAnswer": "В лесу живут волки и медведи.",
+    "hints": [
+      "Stress: лесУ, вОлки, медвЕди. 'В лесу' uses the irregular prepositional form."
+    ],
+    "exerciseType": "pronunciation"
   },
   {
     "id": "ru-na-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on nature and animals is useful.",
-    "correctAnswer": "Этот урок по теме природы и животных полезный.",
+    "prompt": "Vocabulary: sky / cloud / rain",
+    "correctAnswer": "небо / облако / дождь",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Небо' = sky. 'Облако' = cloud (neuter). 'Дождь' = rain (masculine, soft-sign ending)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-na-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: habitat",
-    "correctAnswer": "среда обитания",
+    "prompt": "Say: It is snowing outside.",
+    "correctAnswer": "На улице идёт снег.",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "'Идёт снег' = it is snowing (literally 'snow is going'). Same pattern for rain: 'идёт дождь'."
     ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-na-a1-15",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Vocabulary: forest",
-    "correctAnswer": "лес",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-na-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced nature and animals yesterday.",
-    "correctAnswer": "Я вчера практиковал природу и животных.",
+    "prompt": "Say: Bears hibernate in winter.",
+    "correctAnswer": "Медведи впадают в спячку зимой.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Впадать в спячку' = to hibernate (literally 'to fall into hibernation'). An important fixed phrase."
     ]
   },
   {
     "id": "ru-na-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in nature and animals?",
-    "correctAnswer": "Как я могу улучшить навыки в теме природы и животных?",
+    "prompt": "Say: The lake is very deep and cold.",
+    "correctAnswer": "Озеро очень глубокое и холодное.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Neuter adjective agreement: 'глубокое', 'холодное' agree with 'озеро'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -240,21 +246,27 @@
     "id": "ru-na-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «природу и животных».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Осенью листья на деревьях ___ жёлтыми и красными.",
+    "correctAnswer": "становятся",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Становиться + instrumental' = to become. Imperfective for a recurring seasonal process."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "становятся",
+      "остаются",
+      "кажутся",
+      "бывают"
+    ]
   },
   {
     "id": "ru-na-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand nature and animals better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «природу и животных».",
+    "prompt": "Say aloud: Весной природа просыпается после долгой зимы.",
+    "correctAnswer": "Весной природа просыпается после долгой зимы.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: веснОй, прирОда, просыпАется. 'Просыпаться' = to wake up."
     ],
     "exerciseType": "pronunciation"
   },
@@ -262,42 +274,56 @@
     "id": "ru-na-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with nature and animals.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме природы и животных?",
+    "prompt": "Vocabulary: whale / dolphin / seal",
+    "correctAnswer": "кит / дельфин / тюлень",
     "hints": [
-      "Use a polite, natural request."
+      "All marine mammals. 'Тюлень' is a seal — masculine, soft ending."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Are there any wild animals in this area?",
+    "correctAnswer": "Здесь есть дикие животные?",
+    "hints": [
+      "'Дикие животные' = wild animals. 'Здесь' = here/in this area."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-na-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on nature and animals was difficult.",
-    "correctAnswer": "Это упражнение по теме природы и животных было трудным.",
+    "prompt": "Roleplay: A friend asks what the weather is like in Siberia in January.",
+    "correctAnswer": "В январе в Сибири очень холодно — температура может опускаться до минус сорока.",
+    "answerEnglish": "In January in Siberia it is very cold — temperatures can drop to minus forty.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Опускаться до' + genitive = to drop to. 'Минус сорока' — genitive after 'до'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "roleplay",
+    "culturalNote": "Сибирь занимает около трёх четвертей территории России и известна экстремальным климатом и нетронутой природой."
   },
   {
     "id": "ru-na-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in nature and animals.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме природы и животных.",
+    "prompt": "Say: The brown bear is a symbol of Russia and is found across much of Siberia.",
+    "correctAnswer": "Бурый медведь — символ России и встречается на большей части Сибири.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Встречаться' = to be found/encountered (imperfective). 'На большей части' = across most of."
+    ],
+    "culturalNote": "Бурый медведь — один из самых узнаваемых символов России в мировой культуре."
   },
   {
     "id": "ru-na-b1-4",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for nature and animals?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы природы и животных?",
+    "prompt": "Say: The river flooded after several days of heavy rain.",
+    "correctAnswer": "Река вышла из берегов после нескольких дней сильных дождей.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Выйти из берегов' = to flood its banks (literally 'to leave its banks'). A fixed idiom."
     ],
     "exerciseType": "build_sentence"
   },
@@ -305,95 +331,134 @@
     "id": "ru-na-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «природу и животных».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Амурский тигр — редкий вид, занесённый в Красную ___ России.",
+    "correctAnswer": "книгу",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Красная книга' = the Red Book (Russia's endangered species register). Accusative: 'книгу'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "книгу",
+      "зону",
+      "карту",
+      "область"
+    ],
+    "culturalNote": "Амурский тигр занесён в Красную книгу России. Сегодня в дикой природе насчитывается около 500 особей."
   },
   {
     "id": "ru-na-b1-6",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «природу и животных».",
+    "correctAnswer": "Байкал — самое глубокое озеро в мире и содержит около двадцати процентов мировых запасов пресной воды.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for 'самое глубокое' (the deepest) and 'запасов пресной воды' (freshwater reserves)."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "culturalNote": "Озеро Байкал в Сибири — объект Всемирного наследия ЮНЕСКО и крупнейший резервуар пресной воды на Земле."
+  },
+  {
+    "id": "ru-na-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: endangered / extinct",
+    "correctAnswer": "находящийся под угрозой исчезновения / вымерший",
+    "hints": [
+      "'Под угрозой исчезновения' is the standard conservation phrase. 'Вымерший' = already extinct."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Migratory birds follow the same routes year after year.",
+    "correctAnswer": "Перелётные птицы следуют одними и теми же маршрутами из года в год.",
+    "hints": [
+      "'Одними и теми же' = the very same (instrumental). 'Из года в год' = year after year (fixed phrase)."
+    ]
   },
   {
     "id": "ru-na-b1-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review nature and animals.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «природу и животных».",
+    "prompt": "Say: The taiga covers more than half of Russia's territory.",
+    "correctAnswer": "Тайга занимает более половины территории России.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Занимать' = to occupy/cover (imperfective). 'Более половины' + genitive = more than half of."
     ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-na-b1-14",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in nature and animals.",
-    "correctAnswer": "Я хочу звучать более естественно в теме природы и животных.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "culturalNote": "Тайга — крупнейший биом суши на Земле, занимающий большую часть Сибири и севера России."
   },
   {
     "id": "ru-na-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of nature and animals.",
-    "correctAnswer": "Системная практика углубила моё понимание темы природы и животных.",
+    "prompt": "Say: Deforestation disrupts ecosystems and accelerates soil erosion.",
+    "correctAnswer": "Вырубка лесов нарушает экосистемы и ускоряет эрозию почв.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Нарушать' = to disrupt (imperfective). 'Ускорять' = to accelerate. Both take the accusative."
     ]
   },
   {
     "id": "ru-na-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме природы и животных.",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Потепление климата ведёт к таянию ___ и подъёму уровня моря.",
+    "correctAnswer": "ледников",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Ледник' = glacier. Genitive plural 'ледников' after 'таяния' (melting of)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "ледников",
+      "снегов",
+      "озёр",
+      "болот"
+    ]
+  },
+  {
+    "id": "ru-na-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The biodiversity of the Amazon basin has no parallel anywhere on Earth.",
+    "correctAnswer": "Биоразнообразие бассейна Амазонки не имеет аналогов нигде на Земле.",
+    "hints": [
+      "'Не иметь аналогов' = to have no parallel/equal. 'Нигде' = nowhere."
+    ]
+  },
+  {
+    "id": "ru-na-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: biodiversity / ecosystem / carbon footprint",
+    "correctAnswer": "биоразнообразие / экосистема / углеродный след",
+    "hints": [
+      "'Углеродный след' = carbon footprint (literally 'carbon trace'). All three are common in Russian environmental discourse."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-na-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in nature and animals?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме природы и животных?",
+    "prompt": "Say: Rewilding programmes aim to restore natural processes by reintroducing keystone species.",
+    "correctAnswer": "Программы ревайлдинга направлены на восстановление природных процессов путём реинтродукции ключевых видов.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Направлены на + accusative' = aimed at. 'Путём' + genitive = by means of."
     ]
   },
   {
-    "id": "ru-na-b2-13",
+    "id": "ru-na-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on nature and animals.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме природы и животных.",
+    "prompt": "Roleplay: A journalist asks you about the biggest threat to Russia's natural environment.",
+    "correctAnswer": "На мой взгляд, главная угроза — это промышленное загрязнение рек и озёр, особенно в регионах с добывающей промышленностью.",
+    "answerEnglish": "In my view, the main threat is industrial pollution of rivers and lakes, especially in regions with extractive industries.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-na-b2-18",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in nature and animals.",
-    "correctAnswer": "В теме природы и животных системность важнее интенсивности.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Добывающая промышленность' = extractive industry. 'На мой взгляд' = in my view."
+    ],
+    "exerciseType": "roleplay",
+    "culturalNote": "Загрязнение Байкала промышленными стоками остаётся одной из наиболее острых экологических проблем России."
   }
 ]
