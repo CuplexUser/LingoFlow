@@ -123,20 +123,21 @@
     "id": "ru-fo-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study food and cooking every day.",
-    "correctAnswer": "Я каждый день изучаю еду и кулинарию.",
+    "prompt": "Vocabulary: kitchen",
+    "correctAnswer": "кухня",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Also means 'cuisine' — 'русская кухня' = Russian cuisine."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-fo-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice food and cooking now?",
-    "correctAnswer": "Мы можем сейчас практиковать еду и кулинарию?",
+    "prompt": "Say: I am hungry.",
+    "correctAnswer": "Я хочу есть.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Literally 'I want to eat' — the most natural way to say you are hungry in Russian."
     ],
     "exerciseType": "build_sentence"
   },
@@ -144,10 +145,10 @@
     "id": "ru-fo-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: kitchen",
-    "correctAnswer": "кухня",
+    "prompt": "Vocabulary: ingredient",
+    "correctAnswer": "ингредиент",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "A near-identical borrowing from French. Plural: ингредиенты."
     ],
     "exerciseType": "flashcard"
   },
@@ -155,10 +156,10 @@
     "id": "ru-fo-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for food and cooking.",
-    "correctAnswer": "Мне нужно больше времени на еду и кулинарию.",
+    "prompt": "Say aloud: Мне нравится готовить дома.",
+    "correctAnswer": "Мне нравится готовить дома.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: нрАвится, готОвить. 'Мне нравится + infinitive' = I like to..."
     ],
     "exerciseType": "pronunciation"
   },
@@ -166,21 +167,38 @@
     "id": "ru-fo-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice food and cooking.",
-    "correctAnswer": "Я каждый день повторяю тему «еду и кулинарию».",
+    "prompt": "Which word means 'delicious'?",
+    "correctAnswer": "вкусный",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "The most common everyday word for tasty food."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "options": [
+      "острый",
+      "солёный",
+      "вкусный",
+      "горький"
+    ]
+  },
+  {
+    "id": "ru-fo-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: recipe",
+    "correctAnswer": "рецепт",
+    "hints": [
+      "Masculine noun. Plural: рецепты. Also used for medical prescriptions."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-fo-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on food and cooking is useful.",
-    "correctAnswer": "Этот урок по теме «еды и кулинарии» полезный.",
+    "prompt": "Say: The bread is fresh.",
+    "correctAnswer": "Хлеб свежий.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "No verb 'to be' in Russian present tense. 'Свежий' = fresh, agrees with masculine noun 'хлеб'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -188,42 +206,41 @@
     "id": "ru-fo-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: ingredient",
-    "correctAnswer": "ингредиент",
+    "prompt": "Vocabulary: meat / fish / vegetables",
+    "correctAnswer": "мясо / рыба / овощи",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Three core food categories. 'Овощи' is always plural in everyday use."
     ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "ru-fo-a1-13",
+    "id": "ru-fo-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: recipe",
-    "correctAnswer": "рецепт",
+    "prompt": "Ask: Can I see the menu?",
+    "correctAnswer": "Можно посмотреть меню?",
     "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
+      "'Меню' is indeclinable — it never changes form, regardless of case."
+    ]
   },
   {
     "id": "ru-fo-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced food and cooking yesterday.",
-    "correctAnswer": "Я вчера практиковал еду и кулинарию.",
+    "prompt": "Say: I usually have breakfast at seven in the morning.",
+    "correctAnswer": "Обычно я завтракаю в семь утра.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Завтракать' = to have breakfast (imperfective verb). 'В семь утра' = at seven in the morning."
     ]
   },
   {
     "id": "ru-fo-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in food and cooking?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «еды и кулинарии»?",
+    "prompt": "Say: I need to buy eggs, flour, and butter.",
+    "correctAnswer": "Мне нужно купить яйца, муку и масло.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Нужно + infinitive' = I need to. 'Муку' and 'масло' are accusative singular."
     ],
     "exerciseType": "build_sentence"
   },
@@ -231,21 +248,27 @@
     "id": "ru-fo-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «еду и кулинарию».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Этот суп слишком ___ — добавь немного воды.",
+    "correctAnswer": "солёный",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Choose the adjective that means 'salty' and explains why water should be added."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "солёный",
+      "сладкий",
+      "острый",
+      "горячий"
+    ]
   },
   {
     "id": "ru-fo-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand food and cooking better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «еду и кулинарию».",
+    "prompt": "Say aloud: Я предпочитаю жареное мясо варёному.",
+    "correctAnswer": "Я предпочитаю жареное мясо варёному.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: предпочитАю, жАреное, варЁному. 'Варёному' is dative — used after 'предпочитать'."
     ],
     "exerciseType": "pronunciation"
   },
@@ -253,21 +276,33 @@
     "id": "ru-fo-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with food and cooking.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «еды и кулинарии»?",
+    "prompt": "Roleplay: You are ordering at a café and the waiter asks what you'd like.",
+    "correctAnswer": "Мне, пожалуйста, борщ и стакан чая с лимоном.",
+    "answerEnglish": "I'd like borsch and a glass of tea with lemon, please.",
     "hints": [
-      "Use a polite, natural request."
+      "'Мне, пожалуйста, …' is the standard way to order in Russian — no verb needed."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-fo-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: to fry / to boil / to bake",
+    "correctAnswer": "жарить / варить / печь",
+    "hints": [
+      "Three core cooking verbs. 'Печь' is also the word for a traditional Russian stove/oven."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-fo-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on food and cooking was difficult.",
-    "correctAnswer": "Это упражнение по теме «еды и кулинарии» было трудным.",
+    "prompt": "Say: This is my grandmother's recipe for blini.",
+    "correctAnswer": "Это рецепт блинов моей бабушки.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Рецепт блинов' = recipe for blini (genitive). 'Моей бабушки' = genitive possession."
     ],
     "exerciseType": "build_sentence"
   },
@@ -275,20 +310,20 @@
     "id": "ru-fo-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in food and cooking.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «еды и кулинарии».",
+    "prompt": "Say: I marinated the chicken overnight before grilling it.",
+    "correctAnswer": "Я мариновал курицу всю ночь перед тем, как жарить её на гриле.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Imperfective past 'мариновал' for the extended process. 'Перед тем, как + infinitive' = before doing."
     ]
   },
   {
     "id": "ru-fo-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for food and cooking?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «еды и кулинарии»?",
+    "prompt": "Say: You need to let the dough rest for at least thirty minutes.",
+    "correctAnswer": "Тесту нужно дать отдохнуть не менее тридцати минут.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Дать + dative + infinitive' = to let something do something. 'Не менее' = no less than / at least."
     ],
     "exerciseType": "build_sentence"
   },
@@ -296,95 +331,164 @@
     "id": "ru-fo-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «еду и кулинарию».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Чтобы соус загустел, нужно добавить немного ___ и хорошо перемешать.",
+    "correctAnswer": "муки",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Муки' is the genitive of 'мука' (flour) — used after 'немного' (a little of)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "муки",
+      "соли",
+      "воды",
+      "масла"
+    ]
   },
   {
     "id": "ru-fo-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «еду и кулинарию».",
+    "correctAnswer": "Настоящий борщ варится на говяжьем бульоне с добавлением квашеной капусты.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for 'говяжьем бульоне' (beef broth) and 'квашеной капусты' (sauerkraut)."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "culturalNote": "Борщ — одно из самых знаковых блюд восточноевропейской кухни. Споры о «правильном» рецепте до сих пор не утихают."
+  },
+  {
+    "id": "ru-fo-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: to simmer / to stew",
+    "correctAnswer": "томить(ся) / тушить",
+    "hints": [
+      "'Томить' is slow cooking on low heat; 'тушить' usually means braising with liquid in a covered pan."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-fo-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I always taste the dish before adding more seasoning.",
+    "correctAnswer": "Я всегда пробую блюдо, прежде чем добавить ещё специй.",
+    "hints": [
+      "'Прежде чем + infinitive' = before doing. 'Специй' is genitive plural of 'специи' (spices)."
+    ]
   },
   {
     "id": "ru-fo-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review food and cooking.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «еду и кулинарию».",
+    "prompt": "Ask: Do you know how to make kvass at home?",
+    "correctAnswer": "Ты знаешь, как приготовить квас дома?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Знаешь, как + infinitive' = do you know how to. 'Приготовить' is perfective here — to make (a complete batch)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "culturalNote": "Квас — традиционный русский ферментированный напиток из хлеба, широко употребляемый летом."
   },
   {
-    "id": "ru-fo-b1-12",
+    "id": "ru-fo-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in food and cooking.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «еды и кулинарии».",
+    "prompt": "Say: The pelmeni were overcooked and fell apart in the broth.",
+    "correctAnswer": "Пельмени переварились и развалились в бульоне.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
+      "'Перевариться' = to overcook (perfective, reflexive). 'Развалиться' = to fall apart (perfective)."
+    ]
   },
   {
     "id": "ru-fo-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of food and cooking.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «еды и кулинарии».",
+    "prompt": "Say: Fermentation was one of the oldest methods of food preservation long before refrigeration existed.",
+    "correctAnswer": "Ферментация была одним из древнейших способов сохранения продуктов задолго до появления холодильников.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Задолго до' + genitive = long before. 'Одним из' + genitive superlative = one of the oldest."
     ]
   },
   {
     "id": "ru-fo-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «еды и кулинарии».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Чрезмерное употребление соли может привести к ___ давления.",
+    "correctAnswer": "повышению",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Привести к' + dative = to lead to. 'Повышению' is the dative of 'повышение' (rise/elevation)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "повышению",
+      "снижению",
+      "нормализации",
+      "изменению"
+    ]
+  },
+  {
+    "id": "ru-fo-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The Maillard reaction is responsible for the browning and complex aromas that develop when meat is seared.",
+    "correctAnswer": "Реакция Майяра отвечает за золотистую корочку и сложные ароматы, которые появляются при обжарке мяса.",
+    "hints": [
+      "'Отвечать за' + accusative = to be responsible for. 'При обжарке' = during the searing (prepositional gerund noun)."
+    ]
+  },
+  {
+    "id": "ru-fo-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Региональные кухни России существенно отличаются друг от друга как по составу, так и по способу приготовления.",
+    "hints": [
+      "Listen for 'как по … так и по …' (both in terms of … and in terms of …)."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-fo-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: umami",
+    "correctAnswer": "умами",
+    "hints": [
+      "The fifth basic taste alongside sweet, sour, salty, and bitter. Borrowed directly from Japanese into Russian."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-fo-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in food and cooking?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «еды и кулинарии»?",
+    "prompt": "Say: Slow cooking at low temperatures allows collagen in tougher cuts to break down into gelatin.",
+    "correctAnswer": "Медленное приготовление при низких температурах позволяет коллагену в жёстких кусках мяса превращаться в желатин.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Позволять + dative + infinitive' = to allow something to do something. 'Превращаться в' + accusative = to turn into."
     ]
   },
   {
-    "id": "ru-fo-b2-11",
+    "id": "ru-fo-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on food and cooking.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «еды и кулинарии».",
+    "prompt": "Roleplay: A guest at your dinner table asks about a dish you have made. Describe it.",
+    "correctAnswer": "Это пирог с капустой и яйцом — традиционный русский рецепт. Тесто дрожжевое, начинка тушёная.",
+    "answerEnglish": "This is a cabbage and egg pie — a traditional Russian recipe. The dough is yeasted, the filling is braised.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Use short descriptive sentences with dashes (replacing 'is'). 'Дрожжевое' = yeasted/leavened."
+    ],
+    "exerciseType": "roleplay",
+    "culturalNote": "Пирог с капустой — классическое домашнее блюдо русской кухни, особенно популярное в праздники."
   },
   {
-    "id": "ru-fo-b2-16",
+    "id": "ru-fo-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in food and cooking.",
-    "correctAnswer": "В теме «еды и кулинарии» системность важнее интенсивности.",
+    "prompt": "Say: The growing interest in local and seasonal produce has reshaped how restaurants approach their menus.",
+    "correctAnswer": "Растущий интерес к местным и сезонным продуктам изменил подход ресторанов к составлению меню.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Изменил подход к' + dative gerund noun = reshaped the approach to. 'Составление меню' = menu planning."
     ]
   }
 ]

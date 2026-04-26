@@ -37,13 +37,99 @@
     ]
   },
   {
+    "id": "ru-nm-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: journalist",
+    "correctAnswer": "журналист",
+    "hints": [
+      "The person who writes or reports the news."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I watch the news on TV.",
+    "correctAnswer": "Я смотрю новости по телевизору.",
+    "hints": [
+      "Use 'по телевизору' for 'on TV'."
+    ]
+  },
+  {
+    "id": "ru-nm-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Which word means 'newspaper'?",
+    "correctAnswer": "газета",
+    "hints": [
+      "A printed daily publication."
+    ],
+    "exerciseType": "multiple_choice",
+    "options": [
+      "журнал",
+      "газета",
+      "канал",
+      "сайт"
+    ]
+  },
+  {
+    "id": "ru-nm-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The news is on at seven o'clock.",
+    "correctAnswer": "Новости идут в семь часов.",
+    "hints": [
+      "Use 'идут' (are on/playing) for TV programmes."
+    ]
+  },
+  {
+    "id": "ru-nm-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: channel",
+    "correctAnswer": "канал",
+    "hints": [
+      "Think of a TV or YouTube channel."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: He is a reporter.",
+    "correctAnswer": "Он репортёр.",
+    "hints": [
+      "No verb 'to be' needed in Russian present tense."
+    ]
+  },
+  {
+    "id": "ru-nm-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Which word means 'magazine'?",
+    "correctAnswer": "журнал",
+    "hints": [
+      "A glossy periodical, not a daily paper."
+    ],
+    "exerciseType": "multiple_choice",
+    "options": [
+      "газета",
+      "радио",
+      "журнал",
+      "новость"
+    ]
+  },
+  {
     "id": "ru-nm-a2-1",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I prefer reading news online to watching it on TV.",
     "correctAnswer": "Я предпочитаю читать новости онлайн, а не смотреть их по телевизору.",
     "hints": [
-      "Use 'prefer + infinitive + rather than + infinitive'."
+      "Use 'предпочитаю + infinitive + а не + infinitive'."
     ]
   },
   {
@@ -74,13 +160,88 @@
     ]
   },
   {
+    "id": "ru-nm-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Я каждый день ____ новости в интернете.",
+    "correctAnswer": "читаю",
+    "hints": [
+      "Use the first-person singular present tense of 'читать'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "читаю",
+      "слушаю",
+      "смотрю",
+      "пишу"
+    ]
+  },
+  {
+    "id": "ru-nm-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This programme airs every evening.",
+    "correctAnswer": "Эта программа выходит каждый вечер.",
+    "hints": [
+      "'Выходит' means 'airs' or 'comes out' for media."
+    ]
+  },
+  {
+    "id": "ru-nm-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "What does 'редактор' mean?",
+    "correctAnswer": "editor",
+    "hints": [
+      "The person who checks and publishes articles."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: She writes for a popular newspaper.",
+    "correctAnswer": "Она пишет для популярной газеты.",
+    "hints": [
+      "Use the genitive case after 'для'."
+    ]
+  },
+  {
+    "id": "ru-nm-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Which word means 'broadcast'?",
+    "correctAnswer": "трансляция",
+    "hints": [
+      "Think of a live sports or news broadcast."
+    ],
+    "exerciseType": "multiple_choice",
+    "options": [
+      "статья",
+      "трансляция",
+      "репортаж",
+      "выпуск"
+    ]
+  },
+  {
+    "id": "ru-nm-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Did you hear about the accident on the radio?",
+    "correctAnswer": "Ты слышал о происшествии по радио?",
+    "hints": [
+      "Use 'по радио' for 'on the radio'."
+    ]
+  },
+  {
     "id": "ru-nm-b1-1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: It is important to verify information before sharing it.",
     "correctAnswer": "Важно проверять информацию перед тем, как ею делиться.",
     "hints": [
-      "Use 'it is important + infinitive'."
+      "Use 'важно + infinitive'."
     ]
   },
   {
@@ -107,8 +268,94 @@
     "prompt": "Say: The documentary raised serious questions about media bias.",
     "correctAnswer": "Документальный фильм поднял серьёзные вопросы о предвзятости СМИ.",
     "hints": [
-      "'Raise questions' is a fixed collocation; use past tense."
+      "'Поднять вопросы' is a fixed collocation; use past tense."
     ]
+  },
+  {
+    "id": "ru-nm-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: fake news / disinformation",
+    "correctAnswer": "фейк / дезинформация",
+    "hints": [
+      "Both are widely used in Russian media discourse."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The press conference was attended by fifty journalists.",
+    "correctAnswer": "На пресс-конференции присутствовало пятьдесят журналистов.",
+    "hints": [
+      "Use the genitive plural after numerals from 5 upwards."
+    ]
+  },
+  {
+    "id": "ru-nm-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Журналист ____ статью о коррупции в городской администрации.",
+    "correctAnswer": "опубликовал",
+    "hints": [
+      "Choose the perfective past tense meaning 'published'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "опубликовал",
+      "написал",
+      "прочитал",
+      "удалил"
+    ]
+  },
+  {
+    "id": "ru-nm-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Social media has changed the way people consume news.",
+    "correctAnswer": "Социальные сети изменили то, как люди потребляют новости.",
+    "hints": [
+      "Use the perfective past 'изменили' for a completed change."
+    ]
+  },
+  {
+    "id": "ru-nm-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "What does 'СМИ' stand for?",
+    "correctAnswer": "средства массовой информации (mass media)",
+    "hints": [
+      "A very common acronym in Russian journalism."
+    ],
+    "exerciseType": "multiple_choice",
+    "options": [
+      "современные методы информирования",
+      "средства массовой информации",
+      "система медиаинтеграции",
+      "служба мониторинга изданий"
+    ]
+  },
+  {
+    "id": "ru-nm-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The editor rejected the article because it lacked sources.",
+    "correctAnswer": "Редактор отклонил статью, потому что в ней не было источников.",
+    "hints": [
+      "Use 'потому что' for a causal clause."
+    ]
+  },
+  {
+    "id": "ru-nm-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Свобода прессы — важная составляющая демократии.",
+    "hints": [
+      "Listen for the noun in the instrumental case at the end."
+    ],
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "ru-nm-b2-1",
@@ -117,7 +364,7 @@
     "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
     "correctAnswer": "Журналистика расследований играет ключевую роль в привлечении власти к ответственности.",
     "hints": [
-      "Use the noun phrase 'play a role in'."
+      "Use the noun phrase 'играть роль в'."
     ]
   },
   {
@@ -127,7 +374,7 @@
     "prompt": "Say: The editorial board decided to retract the story after new evidence emerged.",
     "correctAnswer": "Редакционная коллегия решила отозвать материал после появления новых доказательств.",
     "hints": [
-      "'Retract' means to officially withdraw a published statement."
+      "'Отозвать' means to officially withdraw a published statement."
     ]
   },
   {
@@ -137,295 +384,330 @@
     "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
     "correctAnswer": "Алгоритмическая фильтрация всё больше определяет, какую информацию потребляет аудитория.",
     "hints": [
-      "Use the third-person singular."
+      "Use the third-person singular present."
     ],
     "culturalNote": "Это предложение отражает современные дискуссии об информационных пузырях."
   },
   {
-    "id": "ru-ne-a1-1",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I study news and media every day.",
-    "correctAnswer": "Я каждый день изучаю новости и медиа.",
+    "id": "ru-nm-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Независимые издания часто испытывают давление со стороны ____ структур.",
+    "correctAnswer": "властных",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "An adjective from 'власть' (power/authority), genitive plural."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "властных",
+      "коммерческих",
+      "зарубежных",
+      "государственных"
     ]
   },
   {
-    "id": "ru-ne-a1-2",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Can we practice news and media now?",
-    "correctAnswer": "Мы можем сейчас практиковать новости и медиа?",
+    "id": "ru-nm-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The media landscape has become increasingly fragmented due to the rise of digital platforms.",
+    "correctAnswer": "Медиапространство всё больше фрагментируется из-за роста цифровых платформ.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
+      "Use 'из-за' + genitive to express cause."
+    ]
   },
   {
-    "id": "ru-ne-a1-3",
+    "id": "ru-nm-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "What is meant by 'жёлтая пресса'?",
+    "correctAnswer": "таблоидная / сенсационная пресса",
+    "hints": [
+      "Literally 'yellow press' — a term borrowed from the American press wars of the 1890s."
+    ],
+    "exerciseType": "multiple_choice",
+    "options": [
+      "государственные СМИ",
+      "таблоидная / сенсационная пресса",
+      "экологические издания",
+      "иностранная пресса"
+    ],
+    "culturalNote": "Термин 'жёлтая пресса' используется в русском языке так же, как 'tabloid press' в английском."
+  },
+  {
+    "id": "ru-nm-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Citizen journalism blurs the line between reporter and audience.",
+    "correctAnswer": "Гражданская журналистика стирает границу между репортёром и аудиторией.",
+    "hints": [
+      "'Стирать границу' is the natural collocation for 'blur the line'."
+    ]
+  },
+  {
+    "id": "ru-nm-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: You are a journalist asking a press officer for clarification on a statement.",
+    "correctAnswer": "Не могли бы вы уточнить официальную позицию ведомства по данному вопросу?",
+    "answerEnglish": "Could you clarify the official position of the agency on this matter?",
+    "hints": [
+      "Use a formal conditional request with 'не могли бы вы'."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-nm-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The outlet's editorial line has shifted noticeably since the change of ownership.",
+    "correctAnswer": "Редакционная политика издания заметно изменилась после смены владельца.",
+    "hints": [
+      "Use the perfective past 'изменилась' for a noticeable completed shift."
+    ],
+    "culturalNote": "Смена собственника СМИ — актуальная тема в российском медиаконтексте."
+  },
+  {
+    "id": "ru-nm-vocab-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: source",
-    "correctAnswer": "источник",
+    "prompt": "Vocabulary: news",
+    "correctAnswer": "новости (pl.) / новость (sing.)",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Usually used in the plural in Russian."
     ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "ru-ne-a1-4",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I need more time for news and media.",
-    "correctAnswer": "Мне нужно больше времени на новости и медиа.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "ru-ne-a1-5",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice news and media.",
-    "correctAnswer": "Я каждый день повторяю тему новости и медиа.",
-    "hints": [
-      "Pick the most natural Russian sentence."
-    ],
-    "exerciseType": "mc_sentence"
-  },
-  {
-    "id": "ru-ne-a1-7",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: This lesson on news and media is useful.",
-    "correctAnswer": "Этот урок по теме новостей и медиа полезный.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ne-a1-8",
+    "id": "ru-nm-vocab-a1-2",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: article",
     "correctAnswer": "статья",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "A piece of writing published in a newspaper or online."
     ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "ru-ne-a1-13",
+    "id": "ru-nm-vocab-a1-3",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: headline",
     "correctAnswer": "заголовок",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "The bold title at the top of a news story."
     ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "ru-ne-a2-1",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I practiced news and media yesterday.",
-    "correctAnswer": "Я вчера практиковал новости и медиа.",
+    "id": "ru-nm-vocab-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: source",
+    "correctAnswer": "источник",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Where information originates from."
+    ],
+    "exerciseType": "flashcard"
   },
   {
-    "id": "ru-ne-a2-2",
+    "id": "ru-nm-vocab-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in news and media?",
-    "correctAnswer": "Как я могу улучшить навыки в теме новостей и медиа?",
+    "prompt": "Vocabulary: correspondent",
+    "correctAnswer": "корреспондент",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "A journalist reporting from a specific location."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-vocab-a2-2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: interview",
+    "correctAnswer": "интервью",
+    "hints": [
+      "An almost identical borrowing from English — neuter, indeclinable."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-vocab-b1-1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: press freedom",
+    "correctAnswer": "свобода прессы",
+    "hints": [
+      "'Пресса' is a feminine noun; 'свобода' takes genitive after it."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-vocab-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: censorship",
+    "correctAnswer": "цензура",
+    "hints": [
+      "Control or suppression of published material."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-vocab-b2-1",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: echo chamber",
+    "correctAnswer": "информационный пузырь / эхо-камера",
+    "hints": [
+      "Both terms are used; 'информационный пузырь' is more common in Russian."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-vocab-b2-2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: media literacy",
+    "correctAnswer": "медиаграмотность",
+    "hints": [
+      "The ability to critically evaluate media content."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-sent-a1-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Build a sentence: I / listen to / the radio / in the car.",
+    "correctAnswer": "Я слушаю радио в машине.",
+    "hints": [
+      "'Радио' is indeclinable — it doesn't change form."
     ],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ne-a2-3",
+    "id": "ru-nm-sent-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой новости и медиа.",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Build a sentence: The journalist / asked / the minister / a difficult question.",
+    "correctAnswer": "Журналист задал министру сложный вопрос.",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Задать вопрос' is the natural collocation for 'ask a question'."
     ],
-    "exerciseType": "cloze_sentence",
-    "clozeOptions": [
-      "занимаюсь",
-      "интересуюсь",
-      "увлекаюсь",
-      "занимался"
-    ]
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ne-a2-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I understand news and media better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему новости и медиа.",
+    "id": "ru-nm-sent-b1-1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Build a sentence: It is difficult / to distinguish / reliable sources / from fake ones.",
+    "correctAnswer": "Сложно отличить надёжные источники от фейковых.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Use 'отличить ... от ...' for 'distinguish ... from ...'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-nm-pron-a1-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say aloud: Я читаю газету каждое утро.",
+    "correctAnswer": "Я читаю газету каждое утро.",
+    "hints": [
+      "Stress: чи-ТА-ю, га-ЗЕ-ту."
     ],
     "exerciseType": "pronunciation"
   },
   {
-    "id": "ru-ne-a2-5",
+    "id": "ru-nm-pron-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with news and media.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме новостей и медиа?",
-    "answerEnglish": "Could you give me more exercises on the topic of news and media?",
+    "prompt": "Say aloud: Репортёр брал интервью у очевидцев.",
+    "correctAnswer": "Репортёр брал интервью у очевидцев.",
     "hints": [
-      "Use a polite, natural request."
+      "Stress: ре-пор-ТЁР, ин-тер-ВЬЮ, о-чевИ-дцев."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-nm-pron-b1-1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say aloud: Журналист опубликовал расследование о коррупции.",
+    "correctAnswer": "Журналист опубликовал расследование о коррупции.",
+    "hints": [
+      "Stress: жур-на-ЛИСТ, о-пуб-ли-КО-вал, рас-слЕ-до-ва-ние."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-nm-mc-a2-1",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best translation: 'Breaking news'.",
+    "correctAnswer": "Срочные новости",
+    "hints": [
+      "The phrase used for urgent, just-in news."
+    ],
+    "exerciseType": "mc_sentence",
+    "options": [
+      "Свежие новости",
+      "Срочные новости",
+      "Последние новости",
+      "Важные события"
+    ]
+  },
+  {
+    "id": "ru-nm-mc-b1-1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best translation: 'The story was picked up by international outlets.'",
+    "correctAnswer": "Материал подхватили международные издания.",
+    "hints": [
+      "'Подхватить' captures the idiomatic sense of 'pick up' a story."
+    ],
+    "exerciseType": "mc_sentence",
+    "options": [
+      "История была взята международными новостями.",
+      "Материал подхватили международные издания.",
+      "Публикацию взяли зарубежные порталы.",
+      "Новость получила международный охват."
+    ]
+  },
+  {
+    "id": "ru-nm-role-a2-1",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Roleplay: You are calling a radio station to comment on a news story.",
+    "correctAnswer": "Здравствуйте, я хотел бы прокомментировать сегодняшний репортаж.",
+    "answerEnglish": "Hello, I'd like to comment on today's report.",
+    "hints": [
+      "Use a polite opening and the conditional 'хотел бы'."
     ],
     "exerciseType": "roleplay"
   },
   {
-    "id": "ru-ne-a2-7",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: This exercise on news and media was difficult.",
-    "correctAnswer": "Это упражнение по теме новостей и медиа было трудным.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ne-b1-1",
+    "id": "ru-nm-culture-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in news and media.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме новостей и медиа.",
+    "prompt": "Say: In Russia, the term 'Первый канал' refers to the main state television channel.",
+    "correctAnswer": "В России «Первый канал» — это главный государственный телеканал.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-ne-b1-2",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for news and media?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы новостей и медиа?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Use dashes instead of 'это' at the start of a definition sentence."
     ],
-    "exerciseType": "build_sentence"
+    "culturalNote": "Первый канал (Channel One) is the most-watched TV channel in Russia and a significant part of the media landscape learners encounter in authentic Russian content."
   },
   {
-    "id": "ru-ne-b1-3",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме новости и медиа.",
-    "correctAnswer": "развиваю",
-    "hints": [
-      "Use a verb that matches the context and style."
-    ],
-    "exerciseType": "cloze_sentence",
-    "clozeOptions": [
-      "развиваю",
-      "улучшаю",
-      "повышаю",
-      "совершенствую"
-    ]
-  },
-  {
-    "id": "ru-ne-b1-4",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему новости и медиа.",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
-    "exerciseType": "dictation_sentence"
-  },
-  {
-    "id": "ru-ne-b1-7",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review news and media.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему новости и медиа.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ne-b1-12",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in news and media.",
-    "correctAnswer": "Я хочу звучать более естественно в теме новостей и медиа.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ne-b2-1",
+    "id": "ru-nm-culture-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of news and media.",
-    "correctAnswer": "Системная практика углубила моё понимание темы новостей и медиа.",
+    "prompt": "Say: Independent online media outlets have played a growing role in shaping public debate.",
+    "correctAnswer": "Независимые интернет-издания играют всё большую роль в формировании общественной дискуссии.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-ne-b2-2",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме новостей и медиа.",
-    "correctAnswer": "углубляю",
-    "hints": [
-      "Use a verb that matches the context and style."
+      "Use 'играть роль в' + prepositional gerund."
     ],
-    "exerciseType": "cloze_sentence",
-    "clozeOptions": [
-      "углубляю",
-      "развиваю",
-      "расширяю",
-      "совершенствую"
-    ]
-  },
-  {
-    "id": "ru-ne-b2-6",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in news and media?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме новостей и медиа?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-ne-b2-11",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on news and media.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме новостей и медиа.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-ne-b2-16",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in news and media.",
-    "correctAnswer": "В теме новостей и медиа системность важнее интенсивности.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "culturalNote": "Платформы вроде Медузы, iStories и «Новой газеты» стали важными точками отсчёта для понимания современного русскоязычного медиапространства."
   }
 ]

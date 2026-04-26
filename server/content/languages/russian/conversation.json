@@ -522,20 +522,21 @@
     "id": "ru-co-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study conversation every day.",
-    "correctAnswer": "Я каждый день изучаю разговорную речь.",
+    "prompt": "Vocabulary: word",
+    "correctAnswer": "слово",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "The basic unit of spoken or written language."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-co-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice conversation now?",
-    "correctAnswer": "Мы можем сейчас практиковать разговорную речь?",
+    "prompt": "Say: Can you repeat that, please?",
+    "correctAnswer": "Вы можете повторить, пожалуйста?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "A key phrase for keeping a conversation going when you miss something."
     ],
     "exerciseType": "build_sentence"
   },
@@ -543,10 +544,10 @@
     "id": "ru-co-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Vocabulary: topic",
-    "correctAnswer": "тема",
+    "prompt": "Vocabulary: question",
+    "correctAnswer": "вопрос",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "What you ask when you need information."
     ],
     "exerciseType": "flashcard"
   },
@@ -554,10 +555,10 @@
     "id": "ru-co-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for conversation.",
-    "correctAnswer": "Мне нужно больше времени на разговорную речь.",
+    "prompt": "Say: What does this word mean?",
+    "correctAnswer": "Что означает это слово?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Use 'что означает' to ask about meaning."
     ],
     "exerciseType": "pronunciation"
   },
@@ -565,21 +566,38 @@
     "id": "ru-co-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice conversation.",
-    "correctAnswer": "Я каждый день повторяю тему «разговорную речь».",
+    "prompt": "Which phrase do you use to say goodbye formally?",
+    "correctAnswer": "До свидания",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "Literally 'until the meeting'."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "options": [
+      "Пока",
+      "До свидания",
+      "Привет",
+      "Спасибо"
+    ]
+  },
+  {
+    "id": "ru-co-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: answer",
+    "correctAnswer": "ответ",
+    "hints": [
+      "What you give in response to a question."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-co-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This lesson on conversation is useful.",
-    "correctAnswer": "Этот урок по теме «разговорной речи» полезный.",
+    "prompt": "Say: I speak a little Russian.",
+    "correctAnswer": "Я немного говорю по-русски.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Немного' = a little. Language adverbs use 'по-' prefix."
     ],
     "exerciseType": "build_sentence"
   },
@@ -587,20 +605,20 @@
     "id": "ru-co-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced conversation yesterday.",
-    "correctAnswer": "Я вчера практиковал разговорную речь.",
+    "prompt": "Say: Can I ask you something?",
+    "correctAnswer": "Можно задать тебе вопрос?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Задать вопрос' is the natural collocation for 'to ask a question'."
     ]
   },
   {
     "id": "ru-co-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in conversation?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «разговорной речи»?",
+    "prompt": "Say: Let me think about that for a moment.",
+    "correctAnswer": "Дайте мне подумать секунду.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "A useful filler phrase to buy thinking time. 'Секунду' is accusative for a brief moment."
     ],
     "exerciseType": "build_sentence"
   },
@@ -608,21 +626,27 @@
     "id": "ru-co-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «разговорную речь».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: Извини, я тебя не ___. Можешь повторить?",
+    "correctAnswer": "понял",
     "hints": [
-      "Use a verb that matches the context and style."
+      "Perfective past tense of 'понять' (to understand), masculine singular."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "понял",
+      "слышал",
+      "видел",
+      "знал"
+    ]
   },
   {
     "id": "ru-co-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand conversation better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «разговорную речь».",
+    "prompt": "Say: How do you say 'train station' in Russian?",
+    "correctAnswer": "Как по-русски «train station»?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Use 'как по-русски' to ask for a translation into Russian."
     ],
     "exerciseType": "pronunciation"
   },
@@ -630,21 +654,33 @@
     "id": "ru-co-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with conversation.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «разговорной речи»?",
+    "prompt": "Roleplay: You meet a new colleague for the first time at the office.",
+    "correctAnswer": "Здравствуйте! Меня зовут Андрей. Рад познакомиться.",
+    "answerEnglish": "Hello! My name is Andrei. Nice to meet you.",
     "hints": [
-      "Use a polite, natural request."
+      "Use a formal greeting, introduce yourself, and add a polite phrase."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-co-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: to chat / to have a chat",
+    "correctAnswer": "болтать / поболтать",
+    "hints": [
+      "Informal verbs for casual talk. 'Поболтать' is the perfective (to have a chat)."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-co-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on conversation was difficult.",
-    "correctAnswer": "Это упражнение по теме «разговорной речи» было трудным.",
+    "prompt": "Say: By the way, where did you buy that jacket?",
+    "correctAnswer": "Кстати, где ты купил эту куртку?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Кстати' = by the way. A natural way to shift topic in casual speech."
     ],
     "exerciseType": "build_sentence"
   },
@@ -652,20 +688,20 @@
     "id": "ru-co-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in conversation.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «разговорной речи».",
+    "prompt": "Say: I did not mean to interrupt you.",
+    "correctAnswer": "Я не хотел тебя перебивать.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Перебивать' = to interrupt (imperfective). Use past tense of 'хотеть' with negation."
     ]
   },
   {
     "id": "ru-co-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for conversation?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «разговорной речи»?",
+    "prompt": "Say: Could you give me an example?",
+    "correctAnswer": "Не могли бы вы привести пример?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Привести пример' = to give/cite an example. Use the polite conditional."
     ],
     "exerciseType": "build_sentence"
   },
@@ -673,64 +709,153 @@
     "id": "ru-co-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «разговорную речь».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Если я правильно тебя понял, ты имеешь в виду, что проект ___?",
+    "correctAnswer": "задерживается",
     "hints": [
-      "Use a verb that matches the context and style."
+      "A clarifying follow-up. Choose the verb that means 'is being delayed'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "задерживается",
+      "отменяется",
+      "начинается",
+      "завершается"
+    ]
   },
   {
     "id": "ru-co-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «разговорную речь».",
+    "correctAnswer": "Прежде чем ответить, мне нужно немного подумать.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for 'прежде чем' (before) and the infinitive phrase."
     ],
     "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-co-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: to get to the point",
+    "correctAnswer": "перейти к делу / говорить по существу",
+    "hints": [
+      "Both are common; 'перейти к делу' is idiomatic in business contexts."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-co-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am not sure I expressed myself clearly.",
+    "correctAnswer": "Я не уверен, что ясно выразил свою мысль.",
+    "hints": [
+      "'Выразить мысль' = to express a thought. 'Не уверен, что' introduces doubt."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-co-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review conversation.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «разговорную речь».",
+    "prompt": "Say: To be honest, I find it hard to disagree with people face to face.",
+    "correctAnswer": "Честно говоря, мне трудно возражать людям в лицо.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Честно говоря' = to be honest (a discourse marker). 'В лицо' = face to face, to someone's face."
+    ]
+  },
+  {
+    "id": "ru-co-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Roleplay: A friend is telling a long story. Politely signal you are following along.",
+    "correctAnswer": "Да, понимаю. И что было дальше?",
+    "answerEnglish": "Yes, I understand. And what happened next?",
+    "hints": [
+      "Use a short acknowledgement and a question to keep the speaker going."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "roleplay"
   },
   {
     "id": "ru-co-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of conversation.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «разговорной речи».",
+    "prompt": "Say: I have the impression that we are talking past each other.",
+    "correctAnswer": "У меня ощущение, что мы говорим о разном.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Говорить о разном' literally means 'to talk about different things' — the natural Russian idiom for talking past each other."
     ]
   },
   {
     "id": "ru-co-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «разговорной речи».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: Позвольте уточнить: вы имеете в виду ___ или долгосрочную перспективу?",
+    "correctAnswer": "краткосрочную",
     "hints": [
-      "Use a verb that matches the context and style."
+      "The contrasting pair is 'краткосрочный / долгосрочный' (short-term / long-term)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "краткосрочную",
+      "ближайшую",
+      "срочную",
+      "конкретную"
+    ]
+  },
+  {
+    "id": "ru-co-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: What I mean is not that I disagree, but that I need more information.",
+    "correctAnswer": "Я имею в виду не то, что не согласен, а то, что мне нужно больше информации.",
+    "hints": [
+      "Use 'иметь в виду не то, что … а то, что …' for a precise clarification."
+    ]
+  },
+  {
+    "id": "ru-co-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Умение слушать так же важно, как умение говорить.",
+    "hints": [
+      "Listen for the parallel structure: 'умение ... так же важно, как умение ...'."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-co-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: subtext / implication",
+    "correctAnswer": "подтекст",
+    "hints": [
+      "What is said between the lines in a conversation."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-co-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in conversation?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «разговорной речи»?",
+    "prompt": "Roleplay: In a formal meeting, you want to push back on a colleague's claim without being confrontational.",
+    "correctAnswer": "Я понимаю вашу позицию, однако позвольте предложить альтернативную точку зрения.",
+    "answerEnglish": "I understand your position, however allow me to offer an alternative perspective.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Однако' is more formal than 'но'. 'Позвольте + infinitive' softens the challenge."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-co-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The silence in the room spoke louder than any words.",
+    "correctAnswer": "Тишина в комнате говорила громче любых слов.",
+    "hints": [
+      "A figurative use of 'говорить' (to speak). 'Громче' is the comparative of 'громко'."
     ]
   }
 ]

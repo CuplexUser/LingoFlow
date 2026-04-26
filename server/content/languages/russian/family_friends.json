@@ -392,20 +392,21 @@
     "id": "ru-fa-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I study family and friends every day.",
-    "correctAnswer": "Я каждый день изучаю семью и друзей.",
+    "prompt": "Vocabulary: family",
+    "correctAnswer": "семья",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "Feminine noun, second declension. Genitive singular: семьи."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-fa-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Can we practice family and friends now?",
-    "correctAnswer": "Мы можем сейчас практиковать семью и друзей?",
+    "prompt": "Say: This is my father.",
+    "correctAnswer": "Это мой папа.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Папа' is informal. The formal word is 'отец'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -416,7 +417,7 @@
     "prompt": "Vocabulary: support",
     "correctAnswer": "поддержка",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Feminine noun. The verb form is 'поддерживать' (to support)."
     ],
     "exerciseType": "flashcard"
   },
@@ -424,10 +425,10 @@
     "id": "ru-fa-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need more time for family and friends.",
-    "correctAnswer": "Мне нужно больше времени на семью и друзей.",
+    "prompt": "Say aloud: У меня есть старший брат и младшая сестра.",
+    "correctAnswer": "У меня есть старший брат и младшая сестра.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: стАрший, млАдшая. Practice the adjective agreement with each noun."
     ],
     "exerciseType": "pronunciation"
   },
@@ -435,53 +436,59 @@
     "id": "ru-fa-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice family and friends.",
-    "correctAnswer": "Я каждый день повторяю тему «семью и друзей».",
+    "prompt": "Which word means 'uncle'?",
+    "correctAnswer": "дядя",
     "hints": [
-      "Pick the most natural Russian sentence."
+      "A masculine noun with a feminine-type ending — declines like 'дядя'."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "options": [
+      "тётя",
+      "дядя",
+      "племянник",
+      "зять"
+    ]
   },
   {
-    "id": "ru-fa-a1-7",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: This lesson on family and friends is useful.",
-    "correctAnswer": "Этот урок по теме «семьи и друзей» полезный.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-fa-a1-8",
+    "id": "ru-fa-a1-6",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: friendship",
     "correctAnswer": "дружба",
     "hints": [
-      "Recall the most common Russian equivalent."
+      "Feminine noun. Related verb: 'дружить' (to be friends with someone)."
     ],
     "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-fa-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I live with my parents.",
+    "correctAnswer": "Я живу с родителями.",
+    "hints": [
+      "'С' + instrumental = with. 'Родителями' is the instrumental plural of 'родители'."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-fa-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I practiced family and friends yesterday.",
-    "correctAnswer": "Я вчера практиковал семью и друзей.",
+    "prompt": "Say: My aunt and uncle live in a different city.",
+    "correctAnswer": "Моя тётя и дядя живут в другом городе.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Тётя' and 'дядя' are both informal. 'В другом городе' = prepositional case."
     ]
   },
   {
     "id": "ru-fa-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can I improve in family and friends?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «семьи и друзей»?",
+    "prompt": "Ask: Do you get along well with your siblings?",
+    "correctAnswer": "Ты хорошо ладишь с братьями и сёстрами?",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Ладить с' + instrumental = to get along with. 'Братьями и сёстрами' = instrumental plural."
     ],
     "exerciseType": "build_sentence"
   },
@@ -489,21 +496,27 @@
     "id": "ru-fa-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «семью и друзей».",
-    "correctAnswer": "занимаюсь",
+    "prompt": "Cloze: На Новый год мы всегда собираемся всей ___.",
+    "correctAnswer": "семьёй",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Семьёй' is the instrumental case of 'семья'. 'Всей семьёй' = as a whole family."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "семьёй",
+      "семьи",
+      "семью",
+      "семье"
+    ]
   },
   {
     "id": "ru-fa-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I understand family and friends better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «семью и друзей».",
+    "prompt": "Say aloud: Мои дедушка и бабушка живут в деревне.",
+    "correctAnswer": "Мои дедушка и бабушка живут в деревне.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "Stress: дЕдушка, бАбушка, дерЕвне. Note 'мои' used with a mixed pair."
     ],
     "exerciseType": "pronunciation"
   },
@@ -511,21 +524,33 @@
     "id": "ru-fa-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with family and friends.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «семьи и друзей»?",
+    "prompt": "Roleplay: You run into an old schoolfriend you haven't seen in years.",
+    "correctAnswer": "Сколько лет, сколько зим! Как ты? Как дела?",
+    "answerEnglish": "Long time no see! How are you? How's everything?",
     "hints": [
-      "Use a polite, natural request."
+      "'Сколько лет, сколько зим!' is the idiomatic Russian equivalent of 'Long time no see!'."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-fa-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: nephew / niece",
+    "correctAnswer": "племянник / племянница",
+    "hints": [
+      "The feminine form adds '-ица'. Both are common in family conversations."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-fa-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This exercise on family and friends was difficult.",
-    "correctAnswer": "Это упражнение по теме «семьи и друзей» было трудным.",
+    "prompt": "Say: We are going to visit my grandmother next month.",
+    "correctAnswer": "В следующем месяце мы поедем к бабушке.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Поехать к' + dative = to go to (someone's place). 'К бабушке' = dative of 'бабушка'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -533,20 +558,20 @@
     "id": "ru-fa-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in family and friends.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «семьи и друзей».",
+    "prompt": "Say: My parents have very different personalities but complement each other well.",
+    "correctAnswer": "У моих родителей очень разные характеры, но они хорошо дополняют друг друга.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Дополнять друг друга' = to complement each other. 'У моих родителей' = genitive after 'у'."
     ]
   },
   {
     "id": "ru-fa-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for family and friends?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «семьи и друзей»?",
+    "prompt": "Say: We fell out over something trivial but made up the next day.",
+    "correctAnswer": "Мы поссорились из-за какой-то мелочи, но на следующий день помирились.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Поссориться' = to fall out (perfective). 'Помириться' = to make up (perfective)."
     ],
     "exerciseType": "build_sentence"
   },
@@ -554,74 +579,141 @@
     "id": "ru-fa-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «семью и друзей».",
-    "correctAnswer": "развиваю",
+    "prompt": "Cloze: Она для меня не просто коллега — мы стали настоящими ___.",
+    "correctAnswer": "подругами",
     "hints": [
-      "Use a verb that matches the context and style."
+      "'Подруга' = close female friend. 'Подругами' is instrumental plural — used after 'стать' (to become)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "подругами",
+      "подруги",
+      "подруг",
+      "подругу"
+    ]
   },
   {
     "id": "ru-fa-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «семью и друзей».",
+    "correctAnswer": "Родители не всегда понимают своих детей, но всегда любят их.",
     "hints": [
-      "Listen for key noun endings and word order."
+      "Listen for the contrasting 'не всегда … но всегда' structure."
     ],
     "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-fa-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: to bring up / raise (a child)",
+    "correctAnswer": "воспитывать / вырастить",
+    "hints": [
+      "'Воспитывать' (imperfective) focuses on the ongoing process; 'вырастить' (perfective) on the completed result."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-fa-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My grandmother used to tell us stories about the war every evening.",
+    "correctAnswer": "Бабушка каждый вечер рассказывала нам истории о войне.",
+    "hints": [
+      "Imperfective past 'рассказывала' captures the repeated, habitual nature of the action."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "ru-fa-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review family and friends.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «семью и друзей».",
+    "prompt": "Say: True friends tell you things you don't always want to hear.",
+    "correctAnswer": "Настоящие друзья говорят тебе то, что не всегда хочется слышать.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
+      "'Настоящий' = true/real. 'Не всегда хочется' = one doesn't always want to (impersonal)."
+    ]
   },
   {
     "id": "ru-fa-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of family and friends.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «семьи и друзей».",
+    "prompt": "Say: The bond between siblings can be one of the most complex human relationships.",
+    "correctAnswer": "Связь между братьями и сёстрами может быть одной из самых сложных человеческих отношений.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Одной из самых' + genitive superlative = one of the most. 'Человеческих отношений' = genitive plural."
     ]
   },
   {
     "id": "ru-fa-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «семьи и друзей».",
-    "correctAnswer": "углубляю",
+    "prompt": "Cloze: С возрастом начинаешь ценить не количество друзей, а их ___.",
+    "correctAnswer": "качество",
     "hints": [
-      "Use a verb that matches the context and style."
+      "The contrast is 'количество' (quantity) vs 'качество' (quality) — a classic opposition."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "качество",
+      "верность",
+      "близость",
+      "число"
+    ]
+  },
+  {
+    "id": "ru-fa-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Parenting styles are often unconsciously inherited from one's own parents.",
+    "correctAnswer": "Стиль воспитания часто неосознанно перенимается от собственных родителей.",
+    "hints": [
+      "'Перениматься' = to be adopted/inherited. 'Неосознанно' = unconsciously (adverb)."
+    ]
+  },
+  {
+    "id": "ru-fa-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Дружба, пережившая трудные времена, становится только крепче.",
+    "hints": [
+      "Listen for the participial phrase 'пережившая трудные времена' (having survived hard times)."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-fa-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: estrangement (within a family)",
+    "correctAnswer": "отчуждение",
+    "hints": [
+      "From 'отчуждать' (to alienate). Used for emotional distance or a formal break in relations."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "ru-fa-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in family and friends?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «семьи и друзей»?",
+    "prompt": "Roleplay: A close friend tells you they are moving abroad. Respond warmly but honestly.",
+    "correctAnswer": "Я очень рад за тебя, хотя буду скучать. Мы обязательно будем на связи.",
+    "answerEnglish": "I'm so happy for you, though I'll miss you. We'll definitely stay in touch.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+      "'Быть на связи' = to stay in touch (literally: to be on/in contact). 'Хотя' introduces the concession."
+    ],
+    "exerciseType": "roleplay"
   },
   {
-    "id": "ru-fa-b2-11",
+    "id": "ru-fa-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on family and friends.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «семьи и друзей».",
+    "prompt": "Say: Not all family relationships are straightforward — some require real work to maintain.",
+    "correctAnswer": "Не все семейные отношения просты — некоторые требуют настоящих усилий для поддержания.",
     "hints": [
-      "Focus on natural Russian phrasing and word order."
+      "'Требовать усилий' = to require effort (genitive after 'требовать'). 'Поддержание' = maintenance/upkeep."
     ]
   }
 ]
