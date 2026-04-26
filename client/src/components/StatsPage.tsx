@@ -413,7 +413,7 @@ export function StatsPage({
           </p>
         </div>
         <div>
-          {dailyXpHistory.length > 0 && <ActivityGrid history={dailyXpHistory}/>}
+          <ActivityGrid history={dailyXpHistory}/>
         </div>
       </header>
 

@@ -594,8 +594,15 @@ function ensureLanguageProgress(userId = 1, language = "spanish") {
 
 function computeStreakFromDatesDesc(datesDesc) {
   if (!Array.isArray(datesDesc) || !datesDesc.length) return 0;
+  // If the most recent date is more than 1 day old the streak is already broken.
+  const todayUtc = new Date();
+  todayUtc.setUTCHours(0, 0, 0, 0);
+  const mostRecent = new Date(`${datesDesc[0]}T00:00:00Z`);
+  const diffFromToday = Math.floor((todayUtc.getTime() - mostRecent.getTime()) / 86400000);
+  if (diffFromToday > 1) return 0;
+
   let streak = 1;
-  let previous = new Date(`${datesDesc[0]}T00:00:00Z`);
+  let previous = mostRecent;
   for (let i = 1; i < datesDesc.length; i += 1) {
     const current = new Date(`${datesDesc[i]}T00:00:00Z`);
     const diffDays = Math.floor((previous.getTime() - current.getTime()) / (24 * 60 * 60 * 1000));
@@ -604,6 +611,17 @@ function computeStreakFromDatesDesc(datesDesc) {
     previous = current;
   }
   return streak;
+}
+
+// Returns the stored streak only if last_completed_date is today or yesterday.
+// Prevents stale streaks from persisting when the user hasn't played in days.
+function liveStreak(stored: number, lastCompletedDate: string | null): number {
+  if (!lastCompletedDate || !stored) return 0;
+  const todayUtc = new Date();
+  todayUtc.setUTCHours(0, 0, 0, 0);
+  const last = new Date(lastCompletedDate + "T00:00:00Z");
+  const diffDays = Math.floor((todayUtc.getTime() - last.getTime()) / 86400000);
+  return diffDays <= 1 ? stored : 0;
 }
 
 function refreshAggregateProgressFromLanguageProgress(userId = 1) {
@@ -1206,7 +1224,7 @@ function getProgress(userId = 1, language) {
       language: safeLanguage,
       totalXp: languageRow.total_xp,
       todayXp: getTodayXp(userId, safeLanguage),
-      streak: languageRow.streak,
+      streak: liveStreak(languageRow.streak, languageRow.last_completed_date),
       learnerLevel: languageRow.learner_level,
       lastCompletedDate: languageRow.last_completed_date,
       categories
@@ -1223,7 +1241,7 @@ function getProgress(userId = 1, language) {
     language: null,
     totalXp: row.total_xp,
     todayXp: getTotalTodayXpAllLanguages(userId),
-    streak: row.streak,
+    streak: liveStreak(row.streak, row.last_completed_date),
     learnerLevel: row.learner_level,
     lastCompletedDate: row.last_completed_date,
     categories
@@ -1246,7 +1264,7 @@ function getProgressOverview(userId = 1) {
       language: row.language,
       totalXp: row.total_xp,
       todayXp: getTodayXp(userId, row.language),
-      streak: row.streak,
+      streak: liveStreak(row.streak, row.last_completed_date),
       learnerLevel: row.learner_level,
       lastCompletedDate: row.last_completed_date
     }))
@@ -1939,7 +1957,7 @@ function getStats(userId = 1, language) {
   const dailyXpHistory = db.prepare(`
     SELECT date, xp
     FROM daily_xp
-    WHERE user_id = ? AND language = ? AND date >= DATE('now', '-13 days')
+    WHERE user_id = ? AND language = ? AND date >= DATE('now', '-186 days')
     ORDER BY date ASC
   `).all(userId, safeLanguage).map((row) => ({
     date: row.date,
