@@ -78,6 +78,9 @@ const database = require("./db.ts");
 const logger = require("./logger.ts");
 const {
   LANGUAGES,
+  CATEGORIES,
+  LEVEL_ORDER,
+  COURSE,
   getCourseOverview,
   getContentMetrics,
   generateSession,
@@ -343,7 +346,7 @@ function createApp(): any {
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
-  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, getCourseOverview, getContentMetrics });
+  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics });
   registerSessionRoutes(app, {
     requireAuth,
     database,

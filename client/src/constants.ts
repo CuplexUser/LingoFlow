@@ -4,7 +4,8 @@ export const PAGE_PATHS = {
   practice: "/practice",
   contribute: "/contribute",
   setup: "/setup",
-  stats: "/stats"
+  stats: "/stats",
+  admin: "/admin"
 } as const;
 
 export const AUTH_PATHS = {

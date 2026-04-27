@@ -5,9 +5,7 @@
     "difficulty": "a1",
     "prompt": "Say: I need to go to the bank.",
     "correctAnswer": "Necesito ir al banco.",
-    "hints": [
-      "Use 'need to + infinitive' for necessity."
-    ]
+    "hints": ["Use 'need to + infinitive' for necessity."]
   },
   {
     "id": "sp-mf-a1-2",
@@ -15,16 +13,9 @@
     "difficulty": "a1",
     "prompt": "banco / tienda / hospital / biblioteca",
     "correctAnswer": "banco",
-    "hints": [
-      "Where do you manage money?"
-    ],
+    "hints": ["Where do you manage money?"],
     "exerciseType": "multiple_choice",
-    "options": [
-      "banco",
-      "tienda",
-      "hospital",
-      "biblioteca"
-    ]
+    "options": ["banco", "tienda", "hospital", "biblioteca"]
   },
   {
     "id": "sp-mf-a1-3",
@@ -32,9 +23,70 @@
     "difficulty": "a1",
     "prompt": "Say: Can I pay by card?",
     "correctAnswer": "¿Puedo pagar con tarjeta?",
-    "hints": [
-      "Use 'Can I + verb?' to ask for permission."
-    ]
+    "hints": ["Use 'Can I + verb?' to ask for permission."]
+  },
+  {
+    "id": "sp-mf-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "cash",
+    "correctAnswer": "efectivo",
+    "hints": ["Physical money — coins and notes."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-mf-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This costs ten euros.",
+    "correctAnswer": "Esto cuesta diez euros.",
+    "hints": ["'Costar' = to cost; use third person singular."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not have enough money.",
+    "correctAnswer": "No tengo suficiente dinero.",
+    "hints": ["'Suficiente' = enough; 'tener' = to have."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How much does this cost?",
+    "correctAnswer": "¿Cuánto cuesta esto?",
+    "hints": ["'¿Cuánto cuesta?' is the standard price question."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a receipt",
+    "correctAnswer": "un recibo",
+    "hints": ["The paper you get after paying."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-mf-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I want to change money.",
+    "correctAnswer": "Quiero cambiar dinero.",
+    "hints": ["'Querer + infinitive' for a wish or need."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best response. The cashier asks: Cash or card?",
+    "correctAnswer": "Con tarjeta, por favor.",
+    "hints": ["A simple, polite reply."],
+    "exerciseType": "roleplay"
   },
   {
     "id": "sp-mf-a2-1",
@@ -42,9 +94,7 @@
     "difficulty": "a2",
     "prompt": "Say: I am saving money to buy a new laptop.",
     "correctAnswer": "Estoy ahorrando dinero para comprar un nuevo ordenador.",
-    "hints": [
-      "Use present continuous + infinitive of purpose."
-    ]
+    "hints": ["Use present continuous + infinitive of purpose."]
   },
   {
     "id": "sp-mf-a2-2",
@@ -52,16 +102,9 @@
     "difficulty": "a2",
     "prompt": "What is an 'ATM'?",
     "correctAnswer": "una máquina que dispensa efectivo",
-    "hints": [
-      "It dispenses cash."
-    ],
+    "hints": ["It dispenses cash."],
     "exerciseType": "multiple_choice",
-    "options": [
-      "una máquina que dispensa efectivo",
-      "un método de transacción avanzado",
-      "un modo de transferencia automática",
-      "un terminal autorizado"
-    ]
+    "options": ["una máquina que dispensa efectivo", "un método de transacción avanzado", "un modo de transferencia automática", "un terminal autorizado"]
   },
   {
     "id": "sp-mf-a2-3",
@@ -69,9 +112,71 @@
     "difficulty": "a2",
     "prompt": "Say: I spend too much money on coffee every week.",
     "correctAnswer": "Gasto demasiado dinero en café cada semana.",
-    "hints": [
-      "Use 'spend money on' for expenses."
-    ]
+    "hints": ["Use 'spend money on' for expenses."]
+  },
+  {
+    "id": "sp-mf-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "a current account",
+    "correctAnswer": "una cuenta corriente",
+    "hints": ["The everyday bank account you use for spending."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-mf-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I transferred the money yesterday.",
+    "correctAnswer": "Transferí el dinero ayer.",
+    "hints": ["Past tense: 'transferir' → 'transferí'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am looking for a cheaper option.",
+    "correctAnswer": "Estoy buscando una opción más barata.",
+    "hints": ["Present continuous; comparative 'más barata'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could I have the bill, please?",
+    "correctAnswer": "¿Me puede traer la cuenta, por favor?",
+    "hints": ["Polite request in a restaurant context."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "What does 'descuento' mean?",
+    "correctAnswer": "discount",
+    "hints": ["A reduction in price."],
+    "exerciseType": "multiple_choice",
+    "options": ["discount", "surcharge", "tax", "tip"]
+  },
+  {
+    "id": "sp-mf-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I paid in instalments.",
+    "correctAnswer": "Pagué a plazos.",
+    "hints": ["'A plazos' = in instalments."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. The bank asks: Why are you opening this account?",
+    "correctAnswer": "Para recibir mi sueldo y pagar las facturas mensualmente.",
+    "hints": ["Give a practical reason with 'para'."],
+    "exerciseType": "roleplay"
   },
   {
     "id": "sp-mf-b1-1",
@@ -79,9 +184,7 @@
     "difficulty": "b1",
     "prompt": "Say: I have set up a monthly budget to track my expenses.",
     "correctAnswer": "He establecido un presupuesto mensual para controlar mis gastos.",
-    "hints": [
-      "Use present perfect for a recent action with present relevance."
-    ]
+    "hints": ["Use present perfect for a recent action with present relevance."]
   },
   {
     "id": "sp-mf-b1-2",
@@ -89,16 +192,9 @@
     "difficulty": "b1",
     "prompt": "What is an 'interest rate'?",
     "correctAnswer": "el porcentaje cobrado por un préstamo o ganado en ahorros",
-    "hints": [
-      "It affects how much you pay or earn over time."
-    ],
+    "hints": ["It affects how much you pay or earn over time."],
     "exerciseType": "multiple_choice",
-    "options": [
-      "una comisión por abrir una cuenta",
-      "el porcentaje cobrado por un préstamo o ganado en ahorros",
-      "el tipo de cambio diario",
-      "un impuesto sobre la renta"
-    ]
+    "options": ["una comisión por abrir una cuenta", "el porcentaje cobrado por un préstamo o ganado en ahorros", "el tipo de cambio diario", "un impuesto sobre la renta"]
   },
   {
     "id": "sp-mf-b1-3",
@@ -106,9 +202,72 @@
     "difficulty": "b1",
     "prompt": "Say: If I had saved more last year, I could afford this holiday.",
     "correctAnswer": "Si hubiera ahorrado más el año pasado, podría permitirme estas vacaciones.",
-    "hints": [
-      "Use third conditional for past regret."
-    ]
+    "hints": ["Use third conditional for past regret."]
+  },
+  {
+    "id": "sp-mf-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "mortgage",
+    "correctAnswer": "hipoteca",
+    "hints": ["A long-term loan used to buy property."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-mf-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I need to pay off my credit card debt this month.",
+    "correctAnswer": "Necesito saldar mi deuda de la tarjeta de crédito este mes.",
+    "hints": ["'Saldar la deuda' = to pay off the debt."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: We should compare prices before making a decision.",
+    "correctAnswer": "Deberíamos comparar precios antes de tomar una decisión.",
+    "hints": ["Modal 'deberíamos'; 'antes de + infinitive'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My expenses exceeded my income last quarter.",
+    "correctAnswer": "Mis gastos superaron mis ingresos el último trimestre.",
+    "hints": ["Past tense; 'superar' = to exceed."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A financial advisor asks: What are your savings goals?",
+    "correctAnswer": "Quiero ahorrar para el enganche de una vivienda en los próximos tres años.",
+    "hints": ["State a specific goal with a timeframe."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-mf-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The exchange rate has fallen significantly this week.",
+    "correctAnswer": "El tipo de cambio ha caído considerablemente esta semana.",
+    "hints": ["Present perfect; 'considerablemente' = significantly."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "What does 'declaración de la renta' refer to?",
+    "correctAnswer": "the annual income tax return",
+    "hints": ["Something many Spanish workers file every spring."],
+    "exerciseType": "multiple_choice",
+    "options": ["the annual income tax return", "a bank statement", "a rental contract", "a pension plan"],
+    "culturalNote": "En España, muchos trabajadores presentan la declaración de la renta en primavera, aunque para algunos es opcional."
   },
   {
     "id": "sp-mf-b2-1",
@@ -116,9 +275,7 @@
     "difficulty": "b2",
     "prompt": "Say: Inflation erodes purchasing power if wages fail to keep pace.",
     "correctAnswer": "La inflación erosiona el poder adquisitivo si los salarios no siguen el ritmo.",
-    "hints": [
-      "Use zero conditional for general economic truths."
-    ]
+    "hints": ["Use zero conditional for general economic truths."]
   },
   {
     "id": "sp-mf-b2-2",
@@ -126,9 +283,7 @@
     "difficulty": "b2",
     "prompt": "Say: The central bank is expected to raise interest rates next quarter.",
     "correctAnswer": "Se espera que el banco central suba los tipos de interés el próximo trimestre.",
-    "hints": [
-      "Use passive 'is expected to' for reported predictions."
-    ]
+    "hints": ["Use passive 'is expected to' for reported predictions."]
   },
   {
     "id": "sp-mf-b2-3",
@@ -136,8 +291,70 @@
     "difficulty": "b2",
     "prompt": "Say: Diversifying your portfolio mitigates exposure to market volatility.",
     "correctAnswer": "Diversificar la cartera mitiga la exposición a la volatilidad del mercado.",
-    "hints": [
-      "Gerund subject; formal register."
-    ]
+    "hints": ["Gerund subject; formal register."]
+  },
+  {
+    "id": "sp-mf-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "quantitative easing",
+    "correctAnswer": "expansión cuantitativa",
+    "hints": ["A central bank policy of creating money to stimulate the economy."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-mf-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Fiscal austerity measures were widely debated during the debt crisis.",
+    "correctAnswer": "Las medidas de austeridad fiscal fueron ampliamente debatidas durante la crisis de deuda.",
+    "hints": ["Passive past; 'ampliamente' = widely."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-mf-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: A diversified investment strategy reduces the risk of significant losses.",
+    "correctAnswer": "Una estrategia de inversión diversificada reduce el riesgo de pérdidas significativas.",
+    "hints": ["Present tense for a general financial principle."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The company filed for bankruptcy after failing to secure refinancing.",
+    "correctAnswer": "La empresa se declaró en quiebra después de no poder asegurar la refinanciación.",
+    "hints": ["'Declararse en quiebra' = to file for bankruptcy; past tense."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-mf-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "What does 'riesgo sistémico' refer to?",
+    "correctAnswer": "the risk that the failure of one institution could trigger a wider financial collapse",
+    "hints": ["This concept became prominent during the 2008 financial crisis."],
+    "exerciseType": "multiple_choice",
+    "options": ["the risk that the failure of one institution could trigger a wider financial collapse", "the danger of investing in stocks", "the probability of a company defaulting on a loan", "the effect of inflation on savings"]
+  },
+  {
+    "id": "sp-mf-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. An interviewer asks: What is your view on cryptocurrency as an investment?",
+    "correctAnswer": "Ofrece un alto potencial de rentabilidad, pero la volatilidad extrema supone un riesgo considerable.",
+    "hints": ["Present a balanced view: opportunity and risk."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-mf-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Pension reforms are needed to ensure the long-term viability of the social security system.",
+    "correctAnswer": "Las reformas de pensiones son necesarias para garantizar la viabilidad a largo plazo del sistema de seguridad social.",
+    "hints": ["Passive-like impersonal structure; 'garantizar' = to ensure."],
+    "exerciseType": "build_sentence"
   }
 ]

@@ -13,8 +13,10 @@ import { LearnPage } from "./components/LearnPage";
 import { PracticePage } from "./components/PracticePage";
 import { SetupPage } from "./components/SetupPage";
 import { StatsPage } from "./components/StatsPage";
+import { AdminPage } from "./components/AdminPage";
 import {
   useAppNavigation,
+  type AppPage,
   type AuthMode
 } from "./hooks/useAppNavigation";
 import { useAuthenticatedAppData } from "./hooks/useAuthenticatedAppData";
@@ -841,13 +843,13 @@ export default function App() {
     );
   }
 
-  const tabs = [
+  const tabs: Array<{ id: AppPage; label: string }> = [
     { id: "learn",      label: "Learn"      },
     { id: "practice",   label: "Practice"   },
     { id: "contribute", label: "Contribute" },
     { id: "setup",      label: "Setup"      },
     { id: "stats",      label: "Stats"      }
-  ] as const;
+  ];
 
   return (
     <main className="app-shell">
@@ -897,6 +899,21 @@ export default function App() {
                 <span className="badge">{bookmarkCountLabel}</span>
               ) : null}
             </button>
+
+            {authUser?.canModerateCommunityExercises ? (
+              <button
+                className={`icon-btn${activePage === "admin" ? " active" : ""}`}
+                type="button"
+                title="Admin"
+                aria-label="Admin"
+                onClick={() => navigateToPage("admin")}
+              >
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="1.5" y="1.5" width="13" height="13" rx="1.5"/>
+                  <path d="M1.5 5.5h13M5.5 5.5v9"/>
+                </svg>
+              </button>
+            ) : null}
 
             <div className="course-select">
               <span className="seg-label">Course</span>
@@ -1089,6 +1106,10 @@ export default function App() {
           languages={languages}
           onNavigateToPractice={() => navigateToPage("practice")}
         />
+      ) : null}
+
+      {activePage === "admin" ? (
+        <AdminPage canModerate={Boolean(authUser?.canModerateCommunityExercises)} />
       ) : null}
 
       <footer className="app-footer">Version {appVersion}</footer>

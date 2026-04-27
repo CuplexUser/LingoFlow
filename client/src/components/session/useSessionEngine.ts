@@ -273,6 +273,24 @@ export function useSessionEngine({
     setIndex((value) => value + 1);
   }
 
+  function submitFlashcard(option: "known" | "review") {
+    const attemptEntry: SessionAttempt = {
+      questionId: question.id,
+      type: question.type,
+      selectedOption: option,
+      builtSentence: "",
+      textAnswer: "",
+      revealed: revealedCurrentQuestion,
+      matchingPairs: [],
+      practicePairs: []
+    };
+    const nextAttemptLog = [...attemptLog, attemptEntry];
+    setAttemptLog(nextAttemptLog);
+    const nextScore = option === "known" ? score + 1 : score;
+    if (option === "known") setScore(nextScore);
+    goNext(nextAttemptLog, nextScore);
+  }
+
   function submitAnswer() {
     if (!canSubmit()) return;
 
@@ -286,14 +304,7 @@ export function useSessionEngine({
     }
 
     if (question.type === "flashcard") {
-      const attemptEntry = buildAttemptEntry();
-      const nextAttemptLog = [...attemptLog, attemptEntry];
-      setAttemptLog(nextAttemptLog);
-
-      const knewIt = selectedOption === "known";
-      const nextScore = knewIt ? score + 1 : score;
-      if (knewIt) setScore(nextScore);
-      goNext(nextAttemptLog, nextScore);
+      submitFlashcard(selectedOption === "known" ? "known" : "review");
       return;
     }
 
@@ -492,6 +503,7 @@ export function useSessionEngine({
   return {
     canSubmit,
     submitAnswer,
+    submitFlashcard,
     skipPronunciationExercise,
     revealAnswer,
     handlePracticeWordPick,

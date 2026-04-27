@@ -1,5 +1,19 @@
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, getCourseOverview, getContentMetrics } = deps;
+  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics } = deps;
+
+  const contentReviewerEmails = new Set(
+    String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
+      .split(",")
+      .map((e: string) => e.trim().toLowerCase())
+      .filter(Boolean)
+  );
+
+  function canAccessAdminRoutes(userId: number): boolean {
+    const user = database.getUserById(userId);
+    if (!user) return false;
+    if (user.id === 1) return true;
+    return contentReviewerEmails.has(String(user.email || "").trim().toLowerCase());
+  }
   app.set("trust proxy", true);
 
   function normalizeIpAddress(value: unknown): string {
@@ -84,6 +98,43 @@ function registerCourseRoutes(app: any, deps: any): void {
   app.get("/api/content/metrics", requireAuth, (req: any, res: any) => {
     const language = String(req.query.language || "").trim().toLowerCase();
     res.json(getContentMetrics({ language }));
+  });
+
+  app.get("/api/admin/content-stats", requireAuth, (req: any, res: any) => {
+    if (!canAccessAdminRoutes(req.authUserId)) {
+      return res.status(403).json({ error: "Admin access required" });
+    }
+
+    const coverage: Record<string, Record<string, any>> = {};
+    for (const lang of LANGUAGES) {
+      coverage[lang.id] = {};
+      for (const cat of CATEGORIES) {
+        const items: any[] = COURSE[lang.id]?.[cat.id] || [];
+        const levelCounts: Record<string, number> = {};
+        const typeCounts: Record<string, number> = {};
+        for (const item of items) {
+          const lvl = String(item.level || "").toLowerCase();
+          levelCounts[lvl] = (levelCounts[lvl] || 0) + 1;
+          const t = String(item.exerciseType || "auto").toLowerCase();
+          typeCounts[t] = (typeCounts[t] || 0) + 1;
+        }
+        coverage[lang.id][cat.id] = {
+          a1: levelCounts["a1"] || 0,
+          a2: levelCounts["a2"] || 0,
+          b1: levelCounts["b1"] || 0,
+          b2: levelCounts["b2"] || 0,
+          total: items.length,
+          types: typeCounts
+        };
+      }
+    }
+
+    res.json({
+      languages: LANGUAGES.map((l: any) => ({ id: l.id, label: l.label, flag: l.flag })),
+      categories: CATEGORIES.map((c: any) => ({ id: c.id, label: c.label })),
+      levels: LEVEL_ORDER,
+      coverage
+    });
   });
 }
 

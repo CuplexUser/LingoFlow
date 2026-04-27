@@ -5,9 +5,7 @@
     "difficulty": "a1",
     "prompt": "Say: I am reading a short story now.",
     "correctAnswer": "Estoy leyendo un cuento corto ahora.",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
+    "hints": ["Practise this phrase out loud."]
   },
   {
     "id": "sp-gr-2",
@@ -15,69 +13,7 @@
     "difficulty": "a1",
     "prompt": "Say: Yesterday I studied for two hours.",
     "correctAnswer": "Ayer estudié durante dos horas.",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "sp-gr-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: Tomorrow I will practice with my friend.",
-    "correctAnswer": "Mañana practicaré con mi amigo.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "sp-gr-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: If I have time, I will review the lesson.",
-    "correctAnswer": "Si tengo tiempo, repasaré la lección.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "sp-gr-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I have been studying Spanish for six months.",
-    "correctAnswer": "He estado estudiando español durante seis meses.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "sp-gr-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I would travel more if flights were cheaper.",
-    "correctAnswer": "Viajaría más si los vuelos fueran más baratos.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "sp-gr-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: By the time we arrive, they will have finished dinner.",
-    "correctAnswer": "Para cuando lleguemos, ellos habrán terminado de cenar.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "sp-gr-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Had I known earlier, I would have changed the plan.",
-    "correctAnswer": "Si lo hubiera sabido antes, habría cambiado el plan.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
+    "hints": ["Practise this phrase out loud."]
   },
   {
     "id": "sp-gr-9",
@@ -85,9 +21,87 @@
     "difficulty": "a1",
     "prompt": "Say: Every morning I write three new words.",
     "correctAnswer": "Cada mañana escribo tres palabras nuevas.",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
+    "hints": ["Practise this phrase out loud."]
+  },
+  {
+    "id": "sp-gr-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "to be (permanent qualities)",
+    "correctAnswer": "ser",
+    "hints": ["Use 'ser' for nationality, profession, and permanent characteristics."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-gr-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: She is a teacher.",
+    "correctAnswer": "Ella es profesora.",
+    "hints": ["No article before profession with 'ser'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Which verb means 'to have'?",
+    "correctAnswer": "tener",
+    "hints": ["Not 'ser' or 'estar'."],
+    "exerciseType": "multiple_choice",
+    "options": ["ser", "tener", "estar", "ir"]
+  },
+  {
+    "id": "sp-gr-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The books are on the table.",
+    "correctAnswer": "Los libros están sobre la mesa.",
+    "hints": ["Use 'estar' for location."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "to be (location / temporary state)",
+    "correctAnswer": "estar",
+    "hints": ["Use 'estar' for where something is and how someone feels right now."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-gr-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: They are from Argentina.",
+    "correctAnswer": "Son de Argentina.",
+    "hints": ["'Ser + de' expresses origin."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I play football on Sundays.",
+    "correctAnswer": "Juego al fútbol los domingos.",
+    "hints": ["'Jugar a + sport'; present tense yo = -o ending."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Tomorrow I will practice with my friend.",
+    "correctAnswer": "Mañana practicaré con mi amigo.",
+    "hints": ["Pay attention to the sentence structure."]
+  },
+  {
+    "id": "sp-gr-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: If I have time, I will review the lesson.",
+    "correctAnswer": "Si tengo tiempo, repasaré la lección.",
+    "hints": ["Pay attention to the sentence structure."]
   },
   {
     "id": "sp-gr-10",
@@ -95,9 +109,87 @@
     "difficulty": "a2",
     "prompt": "Say: We were cooking when the guests arrived.",
     "correctAnswer": "Estábamos cocinando cuando llegaron los invitados.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
+    "hints": ["Pay attention to the sentence structure."]
+  },
+  {
+    "id": "sp-gr-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "imperfect tense",
+    "correctAnswer": "pretérito imperfecto",
+    "hints": ["Used for past habits, descriptions, and interrupted actions."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-gr-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I used to play the piano when I was young.",
+    "correctAnswer": "Tocaba el piano cuando era joven.",
+    "hints": ["Imperfect for past habits: tocaba, era."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the correct form for a past habit: 'She ___ early every day.'",
+    "correctAnswer": "se despertaba",
+    "hints": ["Imperfect for repeated past actions."],
+    "exerciseType": "multiple_choice",
+    "options": ["se despertaba", "se despertó", "se despertará", "se despierta"]
+  },
+  {
+    "id": "sp-gr-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Spanish is easier than I expected.",
+    "correctAnswer": "El español es más fácil de lo que esperaba.",
+    "hints": ["Comparative: 'más + adjective + de lo que'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in: ___ (I was eating) cuando sonó el teléfono.",
+    "correctAnswer": "Comía",
+    "hints": ["Imperfect for a background action interrupted by another event."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-gr-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I get up at seven every morning.",
+    "correctAnswer": "Me levanto a las siete cada mañana.",
+    "hints": ["Reflexive verb: 'levantarse'; yo form = me levanto."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: He arrived before we left.",
+    "correctAnswer": "Él llegó antes de que nos fuéramos.",
+    "hints": ["'Antes de que' triggers subjunctive."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been studying Spanish for six months.",
+    "correctAnswer": "He estado estudiando español durante seis meses.",
+    "hints": ["Notice the tense or modal used."]
+  },
+  {
+    "id": "sp-gr-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would travel more if flights were cheaper.",
+    "correctAnswer": "Viajaría más si los vuelos fueran más baratos.",
+    "hints": ["Notice the tense or modal used."]
   },
   {
     "id": "sp-gr-11",
@@ -105,9 +197,87 @@
     "difficulty": "b1",
     "prompt": "Say: I had already left when the message arrived.",
     "correctAnswer": "Ya me había ido cuando llegó el mensaje.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
+    "hints": ["Notice the tense or modal used."]
+  },
+  {
+    "id": "sp-gr-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "subjunctive mood",
+    "correctAnswer": "modo subjuntivo",
+    "hints": ["Used after expressions of wish, doubt, emotion, or impersonal phrases."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-gr-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: It is necessary that you arrive on time.",
+    "correctAnswer": "Es necesario que llegues a tiempo.",
+    "hints": ["Impersonal expression + que + subjunctive."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the correct form: 'I hope she ___ (come).'",
+    "correctAnswer": "venga",
+    "hints": ["'Esperar que' triggers subjunctive."],
+    "exerciseType": "multiple_choice",
+    "options": ["viene", "vendrá", "venga", "vino"]
+  },
+  {
+    "id": "sp-gr-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The book was written by a famous author.",
+    "correctAnswer": "El libro fue escrito por un autor famoso.",
+    "hints": ["Passive: 'ser + past participle + por'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in: Dudo que él ___ (know) la respuesta.",
+    "correctAnswer": "sepa",
+    "hints": ["'Dudar que' + present subjunctive."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-gr-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: She has never been to South America.",
+    "correctAnswer": "Ella nunca ha estado en Sudamérica.",
+    "hints": ["Present perfect with 'nunca'; 'nunca' goes before the verb."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-gr-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: They asked me to help them move.",
+    "correctAnswer": "Me pidieron que les ayudara a mudarse.",
+    "hints": ["'Pedir que' + imperfect subjunctive."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: By the time we arrive, they will have finished dinner.",
+    "correctAnswer": "Para cuando lleguemos, ellos habrán terminado de cenar.",
+    "hints": ["Focus on natural phrasing and word order."]
+  },
+  {
+    "id": "sp-gr-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I known earlier, I would have changed the plan.",
+    "correctAnswer": "Si lo hubiera sabido antes, habría cambiado el plan.",
+    "hints": ["Focus on natural phrasing and word order."]
   },
   {
     "id": "sp-gr-12",
@@ -115,8 +285,70 @@
     "difficulty": "b2",
     "prompt": "Say: If I had practiced more, I would be more confident now.",
     "correctAnswer": "Si hubiera practicado más, ahora tendría más confianza.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
+    "hints": ["Focus on natural phrasing and word order."]
+  },
+  {
+    "id": "sp-gr-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "nominalization",
+    "correctAnswer": "nominalización",
+    "hints": ["Using an infinitive or adjective as a noun: 'el hablar', 'lo importante'."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-gr-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Whatever you decide, I will support you.",
+    "correctAnswer": "Sea lo que sea que decidas, te apoyaré.",
+    "hints": ["Concessive with double subjunctive: 'sea lo que sea'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Which sentence is a contrary-to-fact present condition?",
+    "correctAnswer": "Si tuviera tiempo, estudiaría más.",
+    "hints": ["Second conditional uses imperfect subjunctive + conditional."],
+    "exerciseType": "multiple_choice",
+    "options": ["Si tengo tiempo, estudiaré más.", "Si tuviera tiempo, estudiaría más.", "Si tuve tiempo, habría estudiado más.", "Cuando tenga tiempo, estudiaré más."]
+  },
+  {
+    "id": "sp-gr-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Speaking fluently requires consistent practice.",
+    "correctAnswer": "Hablar con fluidez requiere práctica constante.",
+    "hints": ["Infinitive as subject of the sentence."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-gr-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in: Buscaban a alguien que ___ (speak) tres idiomas.",
+    "correctAnswer": "hablara",
+    "hints": ["Subjunctive in relative clause after an indefinite antecedent."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sp-gr-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The phenomenon we observed cannot be explained by current theory.",
+    "correctAnswer": "El fenómeno que observamos no puede explicarse con la teoría actual.",
+    "hints": ["Passive 'se' construction with modal."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-gr-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is as if he had never left.",
+    "correctAnswer": "Es como si nunca se hubiera ido.",
+    "hints": ["'Como si' + past perfect subjunctive for a contrary-to-fact comparison."],
+    "exerciseType": "build_sentence"
   }
 ]

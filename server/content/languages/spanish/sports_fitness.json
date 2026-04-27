@@ -5,9 +5,7 @@
     "difficulty": "a1",
     "prompt": "Say: I like to play football with my friends.",
     "correctAnswer": "Me gusta jugar al fútbol con mis amigos.",
-    "hints": [
-      "Use 'I like + infinitive' for preferences."
-    ],
+    "hints": ["Use 'I like + infinitive' for preferences."],
     "exerciseType": "build_sentence"
   },
   {
@@ -16,16 +14,9 @@
     "difficulty": "a1",
     "prompt": "football / swimming / running / cycling",
     "correctAnswer": "natación",
-    "hints": [
-      "Which sport is done in water?"
-    ],
+    "hints": ["Which sport is done in water?"],
     "exerciseType": "multiple_choice",
-    "options": [
-      "fútbol",
-      "natación",
-      "correr",
-      "ciclismo"
-    ]
+    "options": ["fútbol", "natación", "correr", "ciclismo"]
   },
   {
     "id": "sp-sf-a1-3",
@@ -33,9 +24,71 @@
     "difficulty": "a1",
     "prompt": "Say: I go running every morning.",
     "correctAnswer": "Salgo a correr cada mañana.",
-    "hints": [
-      "Use 'go + verb-ing' for sport activities."
-    ]
+    "hints": ["Use 'go + verb-ing' for sport activities."]
+  },
+  {
+    "id": "sp-sf-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a swimming pool",
+    "correctAnswer": "una piscina",
+    "hints": ["Where you swim indoors or outdoors."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-sf-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I play basketball at school.",
+    "correctAnswer": "Juego al baloncesto en el colegio.",
+    "hints": ["'Jugar a + sport'; use 'al' before a masculine sport noun."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: She rides a bicycle every day.",
+    "correctAnswer": "Ella monta en bicicleta todos los días.",
+    "hints": ["'Montar en bicicleta' = to ride a bike."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a gym",
+    "correctAnswer": "un gimnasio",
+    "hints": ["A place with weights and exercise machines."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-sf-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not like to run.",
+    "correctAnswer": "No me gusta correr.",
+    "hints": ["'No me gusta + infinitive' for dislikes."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Which is a team sport?",
+    "correctAnswer": "voleibol",
+    "hints": ["It needs two teams of six players."],
+    "exerciseType": "multiple_choice",
+    "options": ["voleibol", "natación", "ciclismo", "atletismo"]
+  },
+  {
+    "id": "sp-sf-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: We play tennis on Saturdays.",
+    "correctAnswer": "Jugamos al tenis los sábados.",
+    "hints": ["'Nosotros jugamos'; 'al' before masculine sport."],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "sp-sf-a2-1",
@@ -43,9 +96,7 @@
     "difficulty": "a2",
     "prompt": "Say: I train at the gym three times a week.",
     "correctAnswer": "Me entreno en el gimnasio tres veces a la semana.",
-    "hints": [
-      "Include a frequency expression."
-    ]
+    "hints": ["Include a frequency expression."]
   },
   {
     "id": "sp-sf-a2-2",
@@ -53,16 +104,9 @@
     "difficulty": "a2",
     "prompt": "What does 'to warm up' mean?",
     "correctAnswer": "preparar el cuerpo antes del ejercicio",
-    "hints": [
-      "Think about what you do before exercising."
-    ],
+    "hints": ["Think about what you do before exercising."],
     "exerciseType": "multiple_choice",
-    "options": [
-      "enfriarse",
-      "preparar el cuerpo antes del ejercicio",
-      "estirarse después de correr",
-      "levantar pesas"
-    ]
+    "options": ["enfriarse", "preparar el cuerpo antes del ejercicio", "estirarse después de correr", "levantar pesas"]
   },
   {
     "id": "sp-sf-a2-3",
@@ -70,9 +114,70 @@
     "difficulty": "a2",
     "prompt": "Say: My favourite sport is tennis and I play it on weekends.",
     "correctAnswer": "Mi deporte favorito es el tenis y lo practico los fines de semana.",
-    "hints": [
-      "Combine a preference with a habit."
-    ]
+    "hints": ["Combine a preference with a habit."]
+  },
+  {
+    "id": "sp-sf-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "to cool down (after exercise)",
+    "correctAnswer": "enfriarse",
+    "hints": ["The slow phase after intense exercise to bring your heart rate down."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-sf-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I started going to the gym last month.",
+    "correctAnswer": "Empecé a ir al gimnasio el mes pasado.",
+    "hints": ["Past tense: 'empecé a + infinitive'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: He plays in a local football team.",
+    "correctAnswer": "Juega en un equipo de fútbol local.",
+    "hints": ["Third person singular: 'juega'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Swimming is good for your back.",
+    "correctAnswer": "La natación es buena para la espalda.",
+    "hints": ["Use 'la + sport' when referring to it in general."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer cycling to running.",
+    "correctAnswer": "Prefiero el ciclismo a correr.",
+    "hints": ["'Prefiero + noun/infinitive + a + noun/infinitive'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. Your friend asks: Do you play any sport?",
+    "correctAnswer": "Sí, nado dos veces a la semana.",
+    "hints": ["State the sport and how often."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-sf-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We won the match three to one.",
+    "correctAnswer": "Ganamos el partido tres a uno.",
+    "hints": ["'Ganar el partido + score'."],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "sp-sf-b1-1",
@@ -80,9 +185,7 @@
     "difficulty": "b1",
     "prompt": "Say: She has been training for the marathon for six months.",
     "correctAnswer": "Lleva seis meses entrenando para el maratón.",
-    "hints": [
-      "Use present tense with duration for an ongoing action."
-    ]
+    "hints": ["Use present tense with duration for an ongoing action."]
   },
   {
     "id": "sp-sf-b1-2",
@@ -90,9 +193,7 @@
     "difficulty": "b1",
     "prompt": "Say: Regular exercise improves both physical and mental health.",
     "correctAnswer": "El ejercicio regular mejora tanto la salud física como la mental.",
-    "hints": [
-      "Use the third-person singular."
-    ]
+    "hints": ["Use the third-person singular."]
   },
   {
     "id": "sp-sf-b1-3",
@@ -100,16 +201,72 @@
     "difficulty": "b1",
     "prompt": "What does 'to set a personal best' mean?",
     "correctAnswer": "lograr tu mejor resultado de siempre",
-    "hints": [
-      "Think about competitive sport records."
-    ],
+    "hints": ["Think about competitive sport records."],
     "exerciseType": "multiple_choice",
-    "options": [
-      "preparar el equipo",
-      "lograr tu mejor resultado de siempre",
-      "entrenar con un entrenador",
-      "unirse a un nuevo equipo"
-    ]
+    "options": ["preparar el equipo", "lograr tu mejor resultado de siempre", "entrenar con un entrenador", "unirse a un nuevo equipo"]
+  },
+  {
+    "id": "sp-sf-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "stamina",
+    "correctAnswer": "resistencia",
+    "hints": ["The ability to keep exercising for a long time without tiring."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-sf-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Stretching after exercise helps prevent muscle soreness.",
+    "correctAnswer": "Estirar después del ejercicio ayuda a prevenir el dolor muscular.",
+    "hints": ["Infinitive as subject; 'ayuda a + infinitive'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The coach told us to increase our training intensity.",
+    "correctAnswer": "El entrenador nos dijo que aumentáramos la intensidad del entrenamiento.",
+    "hints": ["'Decir que' + imperfect subjunctive for reported command."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I had to withdraw from the competition due to an injury.",
+    "correctAnswer": "Tuve que retirarme de la competición por una lesión.",
+    "hints": ["'Tuve que + infinitive' = had to; 'retirarme' = withdraw."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Running a marathon requires months of dedicated preparation.",
+    "correctAnswer": "Correr un maratón requiere meses de preparación dedicada.",
+    "hints": ["Infinitive as subject; formal tone."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-sf-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Your teammate says: I pulled a muscle.",
+    "correctAnswer": "Tienes que descansar y aplicarte hielo.",
+    "hints": ["Give two pieces of practical advice."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-sf-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I prefer team sports because they keep me motivated.",
+    "correctAnswer": "Prefiero los deportes de equipo porque me mantienen motivado.",
+    "hints": ["Give your preference + reason with 'porque'."],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "sp-sf-b2-1",
@@ -117,9 +274,7 @@
     "difficulty": "b2",
     "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
     "correctAnswer": "Los atletas de élite deben equilibrar el entrenamiento intenso con un tiempo de recuperación adecuado.",
-    "hints": [
-      "Use the modal 'must' for obligation."
-    ]
+    "hints": ["Use the modal 'must' for obligation."]
   },
   {
     "id": "sp-sf-b2-2",
@@ -127,9 +282,7 @@
     "difficulty": "b2",
     "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
     "correctAnswer": "El fisioterapeuta le aconsejó reducir temporalmente su carga de entrenamiento.",
-    "hints": [
-      "Use 'advise someone to + infinitive'."
-    ]
+    "hints": ["Use 'advise someone to + infinitive'."]
   },
   {
     "id": "sp-sf-b2-3",
@@ -137,8 +290,71 @@
     "difficulty": "b2",
     "prompt": "Say: The sponsorship deal transformed the club's financial prospects.",
     "correctAnswer": "El acuerdo de patrocinio transformó las perspectivas financieras del club.",
-    "hints": [
-      "Use past tense for a completed event."
-    ]
+    "hints": ["Use past tense for a completed event."]
+  },
+  {
+    "id": "sp-sf-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "overtraining syndrome",
+    "correctAnswer": "síndrome de sobreentrenamiento",
+    "hints": ["What happens when an athlete trains too much without enough rest."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-sf-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Performance-enhancing drugs undermine the integrity of sport.",
+    "correctAnswer": "Las sustancias para mejorar el rendimiento socavan la integridad del deporte.",
+    "hints": ["Formal register; 'socavar' = to undermine."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-sf-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The athlete's mental resilience was as important as her physical conditioning.",
+    "correctAnswer": "La resiliencia mental de la atleta era tan importante como su estado físico.",
+    "hints": ["'tan + adjective + como' for equal comparisons."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The federation announced stricter doping controls ahead of the championship.",
+    "correctAnswer": "La federación anunció controles antidopaje más estrictos antes del campeonato.",
+    "hints": ["Past tense announcement; 'más estrictos' = stricter."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-sf-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "What does 'periodización' refer to in sports training?",
+    "correctAnswer": "the systematic planning of training cycles to peak performance at the right time",
+    "hints": ["Athletes and coaches use it to avoid fatigue before key competitions."],
+    "exerciseType": "multiple_choice",
+    "options": ["the systematic planning of training cycles to peak performance at the right time", "a type of warm-up routine", "a nutritional supplement schedule", "a recovery massage technique"]
+  },
+  {
+    "id": "sp-sf-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. An interviewer asks: How do you cope with the pressure of major tournaments?",
+    "correctAnswer": "Trabajo con un psicólogo deportivo para gestionar la ansiedad antes de competir.",
+    "hints": ["Mention a professional support strategy."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-sf-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Investment in grassroots sport creates long-term societal benefits.",
+    "correctAnswer": "La inversión en el deporte de base genera beneficios sociales a largo plazo.",
+    "hints": ["Gerund subject; formal register."],
+    "exerciseType": "build_sentence",
+    "culturalNote": "España ha producido atletas olímpicos de élite en deportes como el tenis, el ciclismo y la natación."
   }
 ]

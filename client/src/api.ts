@@ -133,6 +133,22 @@ export type MessageResponse = {
   message?: string;
 };
 
+export type ContentLevelStats = {
+  a1: number;
+  a2: number;
+  b1: number;
+  b2: number;
+  total: number;
+  types: Record<string, number>;
+};
+
+export type ContentStatsData = {
+  languages: { id: string; label: string; flag: string }[];
+  categories: { id: string; label: string }[];
+  levels: string[];
+  coverage: Record<string, Record<string, ContentLevelStats>>;
+};
+
 export type CompleteSessionResponse = {
   evaluated: {
     score: number;
@@ -444,5 +460,6 @@ export const api = {
   addBookmark: (payload: { questionId: string; prompt: string; answer: string; language: string; category: string }) =>
     request<BookmarkToggleResponse>("/bookmarks", { method: "POST", body: JSON.stringify(payload) }),
   removeBookmark: (questionId: string) =>
-    request<BookmarkToggleResponse>(`/bookmarks/${encodeURIComponent(questionId)}`, { method: "DELETE" })
+    request<BookmarkToggleResponse>(`/bookmarks/${encodeURIComponent(questionId)}`, { method: "DELETE" }),
+  getContentStats: () => request<ContentStatsData>("/admin/content-stats")
 };

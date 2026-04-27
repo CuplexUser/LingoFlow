@@ -204,6 +204,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   const {
     canSubmit,
     submitAnswer,
+    submitFlashcard,
     skipPronunciationExercise,
     revealAnswer,
     handlePracticeWordPick,
@@ -619,14 +620,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           question={question}
           flashcardRevealed={flashcardRevealed}
           onToggleReveal={() => setFlashcardRevealed((value: boolean) => !value)}
-          onNeedReview={() => {
-            setFlashcardRevealed(true);
-            setSelectedOption("review");
-          }}
-          onKnown={() => {
-            setFlashcardRevealed(true);
-            setSelectedOption("known");
-          }}
+          onNeedReview={() => submitFlashcard("review")}
+          onKnown={() => submitFlashcard("known")}
         />
       ) : null}
 
@@ -701,7 +696,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         onReveal={revealAnswer}
       />
 
-      {question.type !== "practice_words" ? (
+      {question.type !== "practice_words" && question.type !== "flashcard" ? (
         <button
           className="primary-button"
           onClick={submitAnswer}

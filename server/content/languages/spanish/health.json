@@ -5,9 +5,7 @@
     "difficulty": "a1",
     "prompt": "Say: I do not feel well today.",
     "correctAnswer": "No me siento bien hoy.",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
+    "hints": ["Practise this phrase out loud."]
   },
   {
     "id": "sp-he-2",
@@ -15,69 +13,7 @@
     "difficulty": "a1",
     "prompt": "Ask: Where is the nearest pharmacy?",
     "correctAnswer": "¿Dónde está la farmacia más cercana?",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "sp-he-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I have had a headache since this morning.",
-    "correctAnswer": "Tengo dolor de cabeza desde esta mañana.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "sp-he-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I am allergic to peanuts.",
-    "correctAnswer": "Soy alérgico a los cacahuetes.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "sp-he-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Ask: Should I take this medicine before or after meals?",
-    "correctAnswer": "¿Debo tomar este medicamento antes o después de comer?",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "sp-he-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: The pain gets worse when I walk quickly.",
-    "correctAnswer": "El dolor empeora cuando camino rápido.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "sp-he-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I need a full checkup because these symptoms persist.",
-    "correctAnswer": "Necesito un chequeo completo porque estos síntomas persisten.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "sp-he-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Ask: Could you explain the treatment options in detail?",
-    "correctAnswer": "¿Podría explicar en detalle las opciones de tratamiento?",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
+    "hints": ["Practise this phrase out loud."]
   },
   {
     "id": "sp-he-9",
@@ -85,9 +21,87 @@
     "difficulty": "a1",
     "prompt": "Say: My throat hurts when I swallow.",
     "correctAnswer": "Me duele la garganta al tragar.",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
+    "hints": ["Practise this phrase out loud."]
+  },
+  {
+    "id": "sp-he-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a headache",
+    "correctAnswer": "un dolor de cabeza",
+    "hints": ["Pain located in your head."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-he-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I have a cold.",
+    "correctAnswer": "Tengo un resfriado.",
+    "hints": ["'Tener' + illness."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "fever / cold / cough / sneeze",
+    "correctAnswer": "fiebre",
+    "hints": ["High body temperature is the clue."],
+    "exerciseType": "multiple_choice",
+    "options": ["fiebre", "resfriado", "tos", "estornudo"]
+  },
+  {
+    "id": "sp-he-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My back hurts.",
+    "correctAnswer": "Me duele la espalda.",
+    "hints": ["'Me duele' + body part for pain."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a pharmacy",
+    "correctAnswer": "una farmacia",
+    "hints": ["Where you buy medicine."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-he-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you have any aspirin?",
+    "correctAnswer": "¿Tiene aspirina?",
+    "hints": ["Use 'tener' in the question; address formally with 'usted'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need to see a doctor.",
+    "correctAnswer": "Necesito ver a un médico.",
+    "hints": ["'Necesitar + infinitive' for necessity."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have had a headache since this morning.",
+    "correctAnswer": "Tengo dolor de cabeza desde esta mañana.",
+    "hints": ["Pay attention to the sentence structure."]
+  },
+  {
+    "id": "sp-he-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am allergic to peanuts.",
+    "correctAnswer": "Soy alérgico a los cacahuetes.",
+    "hints": ["Pay attention to the sentence structure."]
   },
   {
     "id": "sp-he-10",
@@ -95,9 +109,87 @@
     "difficulty": "a2",
     "prompt": "Ask: Do I need an appointment for this checkup?",
     "correctAnswer": "¿Necesito una cita para este chequeo?",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
+    "hints": ["Pay attention to the sentence structure."]
+  },
+  {
+    "id": "sp-he-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "blood pressure",
+    "correctAnswer": "presión arterial",
+    "hints": ["The force of blood against artery walls."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-he-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have been taking this medication for three days.",
+    "correctAnswer": "Llevo tres días tomando este medicamento.",
+    "hints": ["'Llevar + time + gerund' for an ongoing action."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "What does 'recetar' mean?",
+    "correctAnswer": "to prescribe",
+    "hints": ["What a doctor does when writing a prescription."],
+    "exerciseType": "multiple_choice",
+    "options": ["to prescribe", "to diagnose", "to inject", "to operate"]
+  },
+  {
+    "id": "sp-he-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The dentist found two cavities.",
+    "correctAnswer": "El dentista encontró dos caries.",
+    "hints": ["Use past tense; 'caries' is the same in singular and plural."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need to make a doctor's appointment.",
+    "correctAnswer": "Necesito pedir cita con el médico.",
+    "hints": ["'Pedir cita' = to book an appointment."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. The pharmacist asks: What are your symptoms?",
+    "correctAnswer": "Tengo fiebre y tos desde ayer.",
+    "hints": ["List two symptoms and say how long you have had them."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-he-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I feel dizzy when I stand up quickly.",
+    "correctAnswer": "Me siento mareado cuando me levanto rápido.",
+    "hints": ["'Mareado' = dizzy; reflexive 'levantarse'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Should I take this medicine before or after meals?",
+    "correctAnswer": "¿Debo tomar este medicamento antes o después de comer?",
+    "hints": ["Notice the tense or modal used."]
+  },
+  {
+    "id": "sp-he-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The pain gets worse when I walk quickly.",
+    "correctAnswer": "El dolor empeora cuando camino rápido.",
+    "hints": ["Notice the tense or modal used."]
   },
   {
     "id": "sp-he-11",
@@ -105,9 +197,87 @@
     "difficulty": "b1",
     "prompt": "Say: I have been feeling tired for several days.",
     "correctAnswer": "Me he sentido cansado durante varios días.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
+    "hints": ["Notice the tense or modal used."]
+  },
+  {
+    "id": "sp-he-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "high blood pressure",
+    "correctAnswer": "hipertensión",
+    "hints": ["The medical term for chronically elevated blood pressure."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sp-he-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I was advised to rest for at least a week.",
+    "correctAnswer": "Me aconsejaron descansar al menos una semana.",
+    "hints": ["Passive advice: 'me aconsejaron + infinitive'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My doctor referred me to a specialist.",
+    "correctAnswer": "Mi médico me derivó a un especialista.",
+    "hints": ["'Derivar' means to refer a patient to another doctor."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "What does 'en ayunas' mean?",
+    "correctAnswer": "on an empty stomach",
+    "hints": ["A common instruction on medicine labels."],
+    "exerciseType": "multiple_choice",
+    "options": ["on an empty stomach", "after eating", "with plenty of water", "before bedtime"]
+  },
+  {
+    "id": "sp-he-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I need to schedule a follow-up appointment.",
+    "correctAnswer": "Necesito programar una cita de seguimiento.",
+    "hints": ["'Cita de seguimiento' = follow-up appointment."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-he-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. The nurse asks about your current medications.",
+    "correctAnswer": "Tomo metformina por las mañanas y vitamina D por las noches.",
+    "hints": ["List medication name + when you take it."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-he-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The scan showed nothing unusual.",
+    "correctAnswer": "La exploración no mostró nada inusual.",
+    "hints": ["Use past tense; 'exploración' covers scan/imaging."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I need a full checkup because these symptoms persist.",
+    "correctAnswer": "Necesito un chequeo completo porque estos síntomas persisten.",
+    "hints": ["Focus on natural phrasing and word order."]
+  },
+  {
+    "id": "sp-he-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you explain the treatment options in detail?",
+    "correctAnswer": "¿Podría explicar en detalle las opciones de tratamiento?",
+    "hints": ["Focus on natural phrasing and word order."]
   },
   {
     "id": "sp-he-12",
@@ -115,8 +285,71 @@
     "difficulty": "b2",
     "prompt": "Say: I would like a second opinion before starting treatment.",
     "correctAnswer": "Me gustaría una segunda opinión antes de empezar el tratamiento.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
+    "hints": ["Focus on natural phrasing and word order."]
+  },
+  {
+    "id": "sp-he-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The surgeon performed a minimally invasive procedure.",
+    "correctAnswer": "El cirujano realizó un procedimiento mínimamente invasivo.",
+    "hints": ["Past tense; medical register."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Preventive care reduces long-term healthcare costs.",
+    "correctAnswer": "La atención preventiva reduce los costes sanitarios a largo plazo.",
+    "hints": ["Present tense for a general truth; 'a largo plazo' = long-term."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-he-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "What does 'en remisión' mean in a medical context?",
+    "correctAnswer": "the illness is under control with no active symptoms",
+    "hints": ["Good news from a doctor — the disease is not progressing."],
+    "exerciseType": "multiple_choice",
+    "options": ["the illness is under control with no active symptoms", "the patient has fully recovered", "the treatment has failed", "the disease has spread"]
+  },
+  {
+    "id": "sp-he-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The clinical trial results were inconclusive.",
+    "correctAnswer": "Los resultados del ensayo clínico no fueron concluyentes.",
+    "hints": ["'No concluyentes' = inconclusive; past tense."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "sp-he-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Recovery depends on the patient's compliance with treatment.",
+    "correctAnswer": "La recuperación depende del cumplimiento del tratamiento por parte del paciente.",
+    "hints": ["Formal register; 'cumplimiento' = compliance."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sp-he-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. Explain to a doctor why you stopped a previous medication.",
+    "correctAnswer": "Lo dejé porque me causaba mareos y fatiga crónica.",
+    "hints": ["Give two side effects and use past tense."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sp-he-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The healthcare system faces increasing pressure from an ageing population.",
+    "correctAnswer": "El sistema sanitario enfrenta una presión creciente por el envejecimiento de la población.",
+    "hints": ["'Envejecimiento' = ageing; present tense for ongoing facts."],
+    "exerciseType": "build_sentence",
+    "culturalNote": "España tiene una de las esperanzas de vida más altas del mundo, lo que genera debate sobre la sostenibilidad del sistema sanitario."
   }
 ]

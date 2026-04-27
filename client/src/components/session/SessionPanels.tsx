@@ -175,10 +175,10 @@ export function FlashcardPanel({
         <span>{flashcardRevealed ? "Back" : "Front"} side</span>
       </button>
       <div className="hero-actions">
-        <button className="ghost-button" type="button" onClick={onNeedReview}>
+        <button className="ghost-button" type="button" onClick={onNeedReview} disabled={!flashcardRevealed}>
           Need Review
         </button>
-        <button className="primary-button" type="button" onClick={onKnown}>
+        <button className="primary-button" type="button" onClick={onKnown} disabled={!flashcardRevealed}>
           I Knew This
         </button>
       </div>
