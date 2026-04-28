@@ -90,6 +90,18 @@ test("session progress stays anchored to the original session length", async () 
 test("pronunciation accepts close transcripts", async () => {
   const user = userEvent.setup();
   const onFinish = vi.fn();
+
+  window.SpeechRecognition = class {
+    onresult = null;
+    onerror = null;
+    lang = "";
+    interimResults = false;
+    maxAlternatives = 1;
+    start() {
+      this.onresult?.({ results: [[{ transcript: "I relax by reading bokks" }]] });
+    }
+  };
+
   render(
     <SessionPlayer
       session={{
@@ -112,7 +124,7 @@ test("pronunciation accepts close transcripts", async () => {
     />
   );
 
-  await user.type(screen.getByLabelText("Transcript"), "I relax by reading bokks");
+  await user.click(screen.getByRole("button", { name: "Start Pronunciation Check" }));
   await user.click(screen.getByRole("button", { name: "Check" }));
 
   await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
@@ -123,6 +135,18 @@ test("pronunciation accepts close transcripts", async () => {
 test("practice speak accepts close transcripts", async () => {
   const user = userEvent.setup();
   const onFinish = vi.fn();
+
+  window.SpeechRecognition = class {
+    onresult = null;
+    onerror = null;
+    lang = "";
+    interimResults = false;
+    maxAlternatives = 1;
+    start() {
+      this.onresult?.({ results: [[{ transcript: "I read bokks" }]] });
+    }
+  };
+
   render(
     <SessionPlayer
       session={{
@@ -145,7 +169,7 @@ test("practice speak accepts close transcripts", async () => {
     />
   );
 
-  await user.type(screen.getByLabelText("Transcript"), "I read bokks");
+  await user.click(screen.getByRole("button", { name: "Start Pronunciation Check" }));
   await user.click(screen.getByRole("button", { name: "Check" }));
 
   await waitFor(() => expect(onFinish).toHaveBeenCalledWith(

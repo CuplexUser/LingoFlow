@@ -455,12 +455,6 @@ export function useSessionEngine({
     setFeedback(null);
   }
 
-  function handleTranscriptChange(value: string) {
-    setPronunciationTranscript(value);
-    setSelectedOption(value);
-    setFeedback(null);
-  }
-
   function handleRoleplayHint() {
     setHintsUsed((value) => value + 1);
     setRoleplayHintVisible(true);
@@ -508,7 +502,6 @@ export function useSessionEngine({
     revealAnswer,
     handlePracticeWordPick,
     handleOptionSelect,
-    handleTranscriptChange,
     handleRoleplayHint
   };
 }

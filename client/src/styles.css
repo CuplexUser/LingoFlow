@@ -2548,6 +2548,25 @@ textarea {
 .chart-tick { fill: var(--muted); font-size: 9.5px; font-family: var(--font-mono); }
 .chart-num  { fill: var(--ink-soft); font-size: 10px; font-family: var(--font-mono); }
 
+.xp-tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 10px));
+  background: var(--surface-raised, var(--surface));
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 5px 9px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+.xp-tooltip-xp   { font-size: 12px; font-weight: 600; color: var(--accent); font-family: var(--font-mono); }
+.xp-tooltip-date { font-size: 10px; color: var(--muted); }
+
 /* weekly goal rail */
 .goal-rail { position: relative; margin-top: 8px; height: 6px; background: var(--hairline); border-radius: 3px; }
 .goal-fill { height: 100%; background: var(--ink); border-radius: 3px; }

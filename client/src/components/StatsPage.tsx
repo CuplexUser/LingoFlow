@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type {
   CourseCategory,
   LanguageOption,
@@ -189,9 +189,49 @@ function XpCurve({ data }: { data: Array<{ date: string; xp: number }> }) {
   const areaPath = `${linePath} L${xs[xs.length - 1].toFixed(1)},${H - P.b} L${xs[0].toFixed(1)},${H - P.b} Z`;
   const yTicks = [0, 0.5, 1].map((t) => Math.round(max * t));
 
+  const [hovered, setHovered] = useState<{ index: number; px: number; py: number } | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  function handleMouseMove(e: React.MouseEvent<SVGSVGElement>) {
+    const rect = svgRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const svgX = ((e.clientX - rect.left) / rect.width) * W;
+    let closest = 0;
+    let minDist = Infinity;
+    xs.forEach((x, i) => {
+      const d = Math.abs(x - svgX);
+      if (d < minDist) { minDist = d; closest = i; }
+    });
+    setHovered({ index: closest, px: e.clientX - rect.left, py: e.clientY - rect.top });
+  }
+
+  const tip = hovered !== null ? data[hovered.index] : null;
+
   return (
-    <div className="chart-svg-wrap">
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} preserveAspectRatio="none">
+    <div className="chart-svg-wrap" style={{ position: "relative" }}>
+      {tip && (
+        <div
+          className="xp-tooltip"
+          style={{
+            left: hovered!.px,
+            top: hovered!.py,
+          }}
+        >
+          <span className="xp-tooltip-xp">{tip.xp} XP</span>
+          <span className="xp-tooltip-date">
+            {new Date(tip.date + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}
+          </span>
+        </div>
+      )}
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${W} ${H}`}
+        width="100%"
+        height={H}
+        preserveAspectRatio="none"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setHovered(null)}
+      >
         <defs>
           <linearGradient id="lf-xpFill" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.18"/>
@@ -215,7 +255,16 @@ function XpCurve({ data }: { data: Array<{ date: string; xp: number }> }) {
         <path d={areaPath} fill="url(#lf-xpFill)"/>
         <path d={linePath} fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"/>
         {data.map((d, i) => (
-          <circle key={i} cx={xs[i]} cy={ys[i]} r="3" fill="var(--surface)" stroke="var(--accent)" strokeWidth="1.6"/>
+          <circle
+            key={i}
+            cx={xs[i]}
+            cy={ys[i]}
+            r={hovered?.index === i ? 5 : 3}
+            fill="var(--surface)"
+            stroke="var(--accent)"
+            strokeWidth={hovered?.index === i ? 2.5 : 1.6}
+            style={{ transition: "r 0.1s, stroke-width 0.1s" }}
+          />
         ))}
       </svg>
     </div>

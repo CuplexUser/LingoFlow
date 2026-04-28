@@ -209,7 +209,6 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     revealAnswer,
     handlePracticeWordPick,
     handleOptionSelect,
-    handleTranscriptChange,
     handleRoleplayHint
   } = useSessionEngine({
     question,
@@ -641,7 +640,6 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       {question.type === "pronunciation" ? (
         <TranscriptExercisePanel
           transcript={pronunciationTranscript}
-          onTranscriptChange={handleTranscriptChange}
           actionButtons={[
             <button key="play" className="speak-button" type="button" onClick={speakBuildTranslationHint}>
               Play Prompt
@@ -659,7 +657,6 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       {question.type === "practice_speak" ? (
         <TranscriptExercisePanel
           transcript={pronunciationTranscript}
-          onTranscriptChange={handleTranscriptChange}
           actionButtons={[
             <button key="listen" className="speak-button" type="button" onClick={() => speakPronunciationTarget()}>
               Listen

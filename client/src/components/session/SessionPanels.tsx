@@ -303,13 +303,11 @@ export function MatchingPanel({
 type TranscriptExercisePanelProps = {
   actionButtons: ReactNode[];
   transcript: string;
-  onTranscriptChange: (value: string) => void;
 };
 
 export function TranscriptExercisePanel({
   actionButtons,
   transcript,
-  onTranscriptChange
 }: TranscriptExercisePanelProps) {
   return (
     <div className="pronunciation-shell">
@@ -318,8 +316,8 @@ export function TranscriptExercisePanel({
         Transcript
         <input
           value={transcript}
-          onChange={(event) => onTranscriptChange(event.target.value)}
-          placeholder="Speech transcript or typed fallback"
+          readOnly
+          placeholder="Your speech will appear here"
         />
       </label>
     </div>
