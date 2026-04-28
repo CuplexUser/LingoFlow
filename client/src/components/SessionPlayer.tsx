@@ -8,7 +8,9 @@ import {
   MatchingPanel,
   MultipleChoicePanel,
   PracticeWordsPanel,
-  TranscriptExercisePanel
+  SpeedPicker,
+  TranscriptExercisePanel,
+  type ListenSpeed
 } from "./session/SessionPanels";
 import {
   joinBuiltWords,
@@ -116,6 +118,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   const [matchingPromptOrder, setMatchingPromptOrder] = useState<string[]>(() => resumeState.matchingPromptOrder || []);
   const [matchingAnswerOrder, setMatchingAnswerOrder] = useState<string[]>(() => resumeState.matchingAnswerOrder || []);
   const [buildHintCount, setBuildHintCount] = useState(0);
+  const [listenSpeed, setListenSpeed] = useState<ListenSpeed>(1);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
   const draggedWordIndexRef = useRef<number | null>(null);
   const builtWordDropHandledRef = useRef(false);
@@ -142,7 +145,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     ? String(question.answer || "").trim()
     : "";
   const buildNextHintWordIndex = (() => {
-    if (buildHintCount < 2 || !buildAnswerText) return undefined;
+    if (buildHintCount < 3 || !buildAnswerText) return undefined;
     const answerWords = splitSentenceWords(buildAnswerText);
     const nextWord = answerWords[selectedTokenIndexes.length];
     if (!nextWord) return undefined;
@@ -347,20 +350,20 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     setHintsUsed((value) => value + 1);
     setBuildHintCount((c) => c + 1);
     if (question.audioUrl) {
-      playAudioUrl(question.audioUrl);
+      playAudioUrl(question.audioUrl, listenSpeed);
       return;
     }
-    speakText(translatedSentence);
+    speakText(translatedSentence, listenSpeed);
   }
 
-  function speakPronunciationTarget(playbackRate = 1) {
+  function speakPronunciationTarget() {
     const targetSentence = "answer" in question ? String(question.answer || "").trim() : "";
     if (!targetSentence) return;
     if (question.audioUrl) {
-      playAudioUrl(question.audioUrl, playbackRate);
+      playAudioUrl(question.audioUrl, listenSpeed);
       return;
     }
-    speakText(targetSentence, Math.max(0.1, playbackRate));
+    speakText(targetSentence, Math.max(0.1, listenSpeed));
   }
 
   function toggleToken(tokenIndex: number) {
@@ -484,10 +487,10 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
 
   function handlePracticeListenAudio() {
     if (question.audioUrl) {
-      playAudioUrl(question.audioUrl);
+      playAudioUrl(question.audioUrl, listenSpeed);
       return;
     }
-    speakText("answer" in question ? String(question.answer || "") : "");
+    speakText("answer" in question ? String(question.answer || "") : "", listenSpeed);
   }
 
   return (
@@ -509,6 +512,13 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         {question.type === "roleplay" ? <span>Roleplay</span> : null}
         <span>{currentStep}/{fixedQuestionCount}</span>
         <span className="session-xp-tally">~{estimatedXp} XP</span>
+        {(question.type === "build_sentence" ||
+          question.type === "dictation_sentence" ||
+          question.type === "pronunciation" ||
+          question.type === "practice_speak" ||
+          question.type === "practice_listen") ? (
+          <SpeedPicker rate={listenSpeed} onChange={setListenSpeed} />
+        ) : null}
         <button
           type="button"
           className={`bookmark-btn${bookmarkedIds.has(question.id) ? " bookmarked" : ""}`}
@@ -658,11 +668,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         <TranscriptExercisePanel
           transcript={pronunciationTranscript}
           actionButtons={[
-            <button key="listen" className="speak-button" type="button" onClick={() => speakPronunciationTarget()}>
+            <button key="listen" className="speak-button" type="button" onClick={speakPronunciationTarget}>
               Listen
-            </button>,
-            <button key="slow" className="speak-button" type="button" onClick={() => speakPronunciationTarget(0.70)}>
-              Listen (slow)
             </button>,
             <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
               Start Pronunciation Check

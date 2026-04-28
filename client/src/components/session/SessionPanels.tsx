@@ -70,6 +70,31 @@ export function ClozeSentencePanel({ question, selectedOption, onSelect }: Cloze
   );
 }
 
+const SPEED_OPTIONS = [0.5, 0.75, 1] as const;
+export type ListenSpeed = typeof SPEED_OPTIONS[number];
+
+type SpeedPickerProps = {
+  rate: ListenSpeed;
+  onChange: (rate: ListenSpeed) => void;
+};
+
+export function SpeedPicker({ rate, onChange }: SpeedPickerProps) {
+  return (
+    <div className="speed-picker">
+      {SPEED_OPTIONS.map((s) => (
+        <button
+          key={s}
+          type="button"
+          className={`speed-btn${rate === s ? " active" : ""}`}
+          onClick={() => onChange(s)}
+        >
+          {s === 1 ? "1×" : `${s}×`}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 type BuildSentencePanelProps = {
   dictation: boolean;
   question: BuildSentenceQuestion;

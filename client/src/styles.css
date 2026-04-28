@@ -1598,6 +1598,32 @@ textarea {
   background: #1c1209 !important;
 }
 
+.speed-picker {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 2px;
+}
+.speed-btn {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  padding: 2px 6px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1.4;
+  transition: background 0.1s, color 0.1s;
+}
+.speed-btn:hover { background: var(--hairline); color: var(--ink); }
+.speed-btn.active { background: var(--ink); color: var(--bg); }
+:root[data-theme="dark"] .speed-btn.active { background: var(--ink); color: var(--bg); }
+
 .meter {
   flex: 1;
   background: #dfddd9;

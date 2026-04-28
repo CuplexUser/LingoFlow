@@ -316,10 +316,17 @@ export function useSessionEngine({
     if (!correct) {
       setQuestionMistakes((currentMistakes) => {
         const nextMistakes = currentMistakes + 1;
-        setTotalMistakes((value) => value + 1);
-        setMistakeQuestionIds((value) =>
-          value.includes(question.id) ? value : [...value, question.id]
-        );
+        const isFirstMistakeOnQuestion = currentMistakes === 0;
+
+        // Only penalise once per question so repeated retries don't compound the XP penalty
+        setMistakeQuestionIds((value) => {
+          if (!value.includes(question.id)) {
+            setTotalMistakes((v) => v + 1);
+            return [...value, question.id];
+          }
+          return value;
+        });
+
         if (question.type !== "roleplay") {
           setHintsUsed((value) => value + 1);
         }
@@ -327,28 +334,32 @@ export function useSessionEngine({
         const answerWords = "answer" in question ? splitSentenceWords(question.answer) : [];
         const showReveal = question.type !== "roleplay" && nextMistakes >= 2;
 
-        setFeedback({
-          type: "error",
-          message: "Incorrect. Try again before moving on.",
-          hint: showReveal
-            ? "Use reveal to inspect the correct answer and self-correct."
-            : "Check the meaning and try again.",
-          showReveal,
-          answerWords:
-            question.type === "build_sentence" || question.type === "dictation_sentence"
-              ? answerWords
-              : null,
-          correctOption:
-            question.type === "roleplay"
-              ? null
-              : question.type === "mc_sentence" ||
-            question.type === "dialogue_turn" ||
-            question.type === "cloze_sentence" ||
-            question.type === "pronunciation" ||
-            isFlashcardQuestion(question)
-              ? (question.type === "cloze_sentence" ? question.clozeAnswer : question.answer)
-              : null
-        });
+        // In roleplay, show error feedback only on the first wrong attempt; subsequent
+        // wrong attempts are silently recorded so the message doesn't repeat on every try.
+        if (question.type !== "roleplay" || isFirstMistakeOnQuestion) {
+          setFeedback({
+            type: "error",
+            message: "Incorrect. Try again before moving on.",
+            hint: showReveal
+              ? "Use reveal to inspect the correct answer and self-correct."
+              : "Check the meaning and try again.",
+            showReveal,
+            answerWords:
+              question.type === "build_sentence" || question.type === "dictation_sentence"
+                ? answerWords
+                : null,
+            correctOption:
+              question.type === "roleplay"
+                ? null
+                : question.type === "mc_sentence" ||
+              question.type === "dialogue_turn" ||
+              question.type === "cloze_sentence" ||
+              question.type === "pronunciation" ||
+              isFlashcardQuestion(question)
+                ? (question.type === "cloze_sentence" ? question.clozeAnswer : question.answer)
+                : null
+          });
+        }
 
         return nextMistakes;
       });
