@@ -2481,7 +2481,7 @@ textarea {
   font-weight: 500; color: var(--ink-soft);
 }
 .stats-hero-title .ink { color: var(--ink); font-weight: 600; }
-.num-display { display: inline-block; font-family: var(--font-mono); font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+.num-display { display: inline-block; font-family: var(--font-mono); font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin-left: 6px; margin-right: 6px; }
 .stats-hero-sub { margin: 16px 0 0; color: var(--muted); font-size: 13.5px; }
 
 /* activity grid */

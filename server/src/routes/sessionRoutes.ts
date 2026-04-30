@@ -334,6 +334,11 @@ function registerSessionRoutes(
         ? database.recordPracticeXp({
           userId,
           language,
+          category,
+          score,
+          maxScore: effectiveMaxScore,
+          accuracy: xp.accuracy,
+          difficultyLevel: session.difficultyLevel,
           xpGained: xp.xpGained,
           today
         })

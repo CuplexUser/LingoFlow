@@ -1215,14 +1215,20 @@ function getProgress(userId = 1, language) {
   if (safeLanguage) {
     ensureLanguageProgress(userId, safeLanguage);
     const languageRow = db.prepare(`
-      SELECT total_xp, streak, learner_level, last_completed_date
+      SELECT streak, learner_level, last_completed_date
       FROM language_progress
+      WHERE user_id = ? AND language = ?
+    `).get(userId, safeLanguage);
+
+    const historyTotals = db.prepare(`
+      SELECT COALESCE(SUM(xp_gained), 0) AS total_xp
+      FROM session_history
       WHERE user_id = ? AND language = ?
     `).get(userId, safeLanguage);
 
     return {
       language: safeLanguage,
-      totalXp: languageRow.total_xp,
+      totalXp: Number(historyTotals.total_xp),
       todayXp: getTodayXp(userId, safeLanguage),
       streak: liveStreak(languageRow.streak, languageRow.last_completed_date),
       learnerLevel: languageRow.learner_level,
@@ -2116,6 +2122,11 @@ function recordSession({
 function recordPracticeXp({
   userId = 1,
   language,
+  category,
+  score,
+  maxScore,
+  accuracy,
+  difficultyLevel,
   xpGained,
   today
 }) {
@@ -2146,6 +2157,11 @@ function recordPracticeXp({
   const totalXp = progress.total_xp + xpGained;
   const learnerLevel = levelFromXp(totalXp);
   addDailyXp(userId, safeLanguage, today, xpGained);
+
+  db.prepare(`
+    INSERT INTO session_history (user_id, language, category, score, max_score, accuracy, xp_gained, difficulty_level)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(userId, safeLanguage, category, score, maxScore, accuracy, xpGained, difficultyLevel);
 
   db.prepare(`
     UPDATE language_progress
