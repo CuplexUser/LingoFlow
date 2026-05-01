@@ -37,7 +37,10 @@ export function BookmarksPage({
 }: BookmarksPageProps) {
   const [speakingQuestionId, setSpeakingQuestionId] = useState("");
   const [speechError, setSpeechError] = useState("");
-  const [speechRate, setSpeechRate] = useState("1");
+  const [speechRate, setSpeechRate] = useState(() => {
+    const saved = localStorage.getItem("lingoflow_bookmark_speed");
+    return saved && ["0.85", "1", "1.15"].includes(saved) ? saved : "1";
+  });
   const activeUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const speechSupported = useMemo(
     () =>
@@ -118,7 +121,7 @@ export function BookmarksPage({
             Speed
             <select
               value={speechRate}
-              onChange={(event) => setSpeechRate(event.target.value)}
+              onChange={(event) => { localStorage.setItem("lingoflow_bookmark_speed", event.target.value); setSpeechRate(event.target.value); }}
               aria-label="Bookmark playback speed"
             >
               <option value="0.85">0.85x</option>

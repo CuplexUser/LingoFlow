@@ -1,223 +1,366 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import type { CommunityExercisePayload } from "../api";
-import type { CourseCategory } from "../types/course";
-import type { ContributionExerciseType, ContributionForm, ContributionIdeaType } from "../types/contribution";
+import type { CourseCategory, LanguageOption } from "../types/course";
+import type {
+  ContributionExerciseType,
+  ContributionForm,
+  ContributionMode
+} from "../types/contribution";
 
-const INITIAL_FORM: ContributionForm = {
-  category: "",
-  ideaType: "content",
-  title: "",
-  learnerNeed: "",
-  proposal: "",
-  exampleContent: "",
-  implementationNotes: "",
-  difficulty: "a1",
-  audioUrl: "",
-  imageUrl: "",
-  culturalNote: "",
-  exerciseType: "build_sentence"
+type FieldSpec = { field: "prompt" | "correctAnswer"; label: string; placeholder: string };
+type HintSpec  = { label: string; placeholder: string };
+type ExerciseConfig = {
+  description: string;
+  fields: [FieldSpec, FieldSpec];
+  hints: HintSpec[];
 };
+
+const EXERCISE_CONFIGS: Record<ContributionExerciseType, ExerciseConfig> = {
+  build_sentence: {
+    description: "Learner rearranges scrambled words to form the correct sentence.",
+    fields: [
+      { field: "correctAnswer", label: "Sentence", placeholder: "The sentence in the target language." },
+      { field: "prompt",        label: "English translation", placeholder: "The English meaning shown as a prompt." }
+    ],
+    hints: [
+      { label: "Word hint 1", placeholder: "e.g. word = its English meaning" },
+      { label: "Word hint 2", placeholder: "Optional — another word = its meaning" },
+      { label: "Word hint 3", placeholder: "Optional — another word = its meaning" }
+    ]
+  },
+  flashcard: {
+    description: "Learner flips a card to reveal the translation.",
+    fields: [
+      { field: "prompt",        label: "Front of card (English)", placeholder: "English word or phrase." },
+      { field: "correctAnswer", label: "Back of card (translation)", placeholder: "Target language translation." }
+    ],
+    hints: [
+      { label: "Usage note", placeholder: "Context, register, or memory tip." }
+    ]
+  },
+  pronunciation: {
+    description: "Learner reads and records the target phrase aloud.",
+    fields: [
+      { field: "correctAnswer", label: "Phrase to pronounce", placeholder: "Phrase in the target language." },
+      { field: "prompt",        label: "English instruction", placeholder: "e.g. Say: Nice to meet you." }
+    ],
+    hints: [
+      { label: "Pronunciation tip", placeholder: "How to pronounce a tricky sound." }
+    ]
+  },
+  dialogue_turn: {
+    description: "Learner picks the correct reply in a short conversation.",
+    fields: [
+      { field: "prompt",        label: "Conversation context", placeholder: "What was said (target language + gloss)." },
+      { field: "correctAnswer", label: "Correct reply", placeholder: "The response the learner should produce." }
+    ],
+    hints: [
+      { label: "Grammar hint",    placeholder: "Relevant grammar rule or form." },
+      { label: "Vocabulary hint", placeholder: "Key vocabulary gloss." }
+    ]
+  },
+  matching: {
+    description: "Learner matches a word or phrase to its translation.",
+    fields: [
+      { field: "prompt",        label: "Term (English)", placeholder: "English word or phrase." },
+      { field: "correctAnswer", label: "Match (target language)", placeholder: "Target language equivalent." }
+    ],
+    hints: [
+      { label: "Context note", placeholder: "Usage context or grammatical note." }
+    ]
+  }
+};
+
+const EXERCISE_TYPE_LABELS: Record<ContributionExerciseType, string> = {
+  build_sentence: "Build Sentence",
+  flashcard:      "Flashcard",
+  pronunciation:  "Pronunciation",
+  dialogue_turn:  "Dialogue",
+  matching:       "Matching"
+};
+
+function makeInitialForm(language: string): ContributionForm {
+  return {
+    mode: "idea",
+    ideaTitle: "",
+    ideaBody: "",
+    exerciseLanguage: language,
+    category: "",
+    exerciseType: "build_sentence",
+    difficulty: "a1",
+    prompt: "",
+    correctAnswer: "",
+    hint1: "",
+    hint2: "",
+    hint3: "",
+    culturalNote: "",
+    audioUrl: "",
+    imageUrl: ""
+  };
+}
 
 type ContributionPanelProps = {
   language: string;
+  languages: LanguageOption[];
   categories: CourseCategory[];
   onSubmit: (payload: CommunityExercisePayload) => Promise<{ message?: string }>;
 };
 
-export function ContributionPanel({ language, categories, onSubmit }: ContributionPanelProps) {
-  const [form, setForm] = useState<ContributionForm>(INITIAL_FORM);
+export function ContributionPanel({ language, languages, categories, onSubmit }: ContributionPanelProps) {
+  const [form, setForm] = useState<ContributionForm>(() => makeInitialForm(language));
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
-  const availableCategories = useMemo(
-    () => categories.filter((category) => category.unlocked || category.recommended),
-    [categories]
-  );
 
-  function updateForm(patch: Partial<ContributionForm>) {
+  function update(patch: Partial<ContributionForm>) {
     setForm((prev) => ({ ...prev, ...patch }));
+  }
+
+  function switchMode(mode: ContributionMode) {
+    setForm((prev) => ({ ...prev, mode }));
+    setMessage("");
+  }
+
+  function switchExerciseType(exerciseType: ContributionExerciseType) {
+    setForm((prev) => ({
+      ...prev,
+      exerciseType,
+      prompt: "",
+      correctAnswer: "",
+      hint1: "",
+      hint2: "",
+      hint3: ""
+    }));
+    setMessage("");
   }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!language || !form.category || !form.title.trim() || !form.proposal.trim()) {
-      setMessage("Choose a category and fill in the idea title and proposal.");
-      return;
-    }
-
     setBusy(true);
     setMessage("");
-    try {
-      const notes = [
-        `Idea type: ${form.ideaType}`,
-        form.learnerNeed.trim() ? `Learner need: ${form.learnerNeed.trim()}` : "",
-        form.implementationNotes.trim() ? `Implementation notes: ${form.implementationNotes.trim()}` : ""
-      ].filter(Boolean);
 
-      const result = await onSubmit({
-        language,
-        category: form.category,
-        prompt: form.title.trim(),
-        correctAnswer: form.proposal.trim(),
-        hints: notes,
-        difficulty: form.difficulty,
-        audioUrl: form.audioUrl.trim(),
-        imageUrl: form.imageUrl.trim(),
-        culturalNote: [
-          form.culturalNote.trim(),
-          form.exampleContent.trim() ? `Example content: ${form.exampleContent.trim()}` : ""
-        ].filter(Boolean).join("\n\n"),
-        exerciseType: form.exerciseType
-      });
-      setMessage(result?.message || "Idea submitted for moderation.");
-      setForm((prev) => ({ ...INITIAL_FORM, category: prev.category }));
+    try {
+      let payload: CommunityExercisePayload;
+
+      if (form.mode === "idea") {
+        if (!form.ideaTitle.trim() || !form.ideaBody.trim()) {
+          setMessage("Please fill in the title and describe your idea.");
+          return;
+        }
+        payload = {
+          language,
+          category: "general",
+          prompt: form.ideaTitle.trim(),
+          correctAnswer: form.ideaBody.trim(),
+          hints: [],
+          difficulty: "a1",
+          audioUrl: "",
+          imageUrl: "",
+          culturalNote: "",
+          exerciseType: "general_idea"
+        };
+      } else {
+        if (!form.category) {
+          setMessage("Choose a category.");
+          return;
+        }
+        if (!form.prompt.trim() || !form.correctAnswer.trim()) {
+          setMessage("Both exercise fields are required.");
+          return;
+        }
+        payload = {
+          language: form.exerciseLanguage || language,
+          category: form.category,
+          prompt: form.prompt.trim(),
+          correctAnswer: form.correctAnswer.trim(),
+          hints: [form.hint1, form.hint2, form.hint3].map((h) => h.trim()).filter(Boolean),
+          difficulty: form.difficulty,
+          audioUrl: form.audioUrl.trim(),
+          imageUrl: form.imageUrl.trim(),
+          culturalNote: form.culturalNote.trim(),
+          exerciseType: form.exerciseType
+        };
+      }
+
+      const result = await onSubmit(payload);
+      setMessage(result?.message || "Submitted for moderation — thank you!");
+      setForm((prev) => ({
+        ...makeInitialForm(language),
+        mode: prev.mode,
+        exerciseLanguage: prev.exerciseLanguage,
+        category: prev.category,
+        exerciseType: prev.exerciseType,
+        difficulty: prev.difficulty
+      }));
     } catch (error: unknown) {
-      setMessage(error instanceof Error ? error.message : "Could not submit this idea.");
+      setMessage(error instanceof Error ? error.message : "Could not submit. Try again.");
     } finally {
       setBusy(false);
     }
   }
 
+  const config = EXERCISE_CONFIGS[form.exerciseType];
+
   return (
     <section className="panel contribution-panel">
       <div className="section-heading">
         <div>
-          <h2>Contribute Idea</h2>
-          <p className="subtitle">Share content, lesson-flow, media, or culture ideas for moderation.</p>
+          <h2>Contribute</h2>
+          <p className="subtitle">Share an idea or submit an exercise for moderation.</p>
         </div>
       </div>
-      <form className="settings-grid" onSubmit={submit}>
-        <label>
-          Category
-          <select
-            value={form.category}
-            onChange={(event) => updateForm({ category: event.target.value })}
-          >
-            <option value="">Select category</option>
-            {availableCategories.map((category) => (
-              <option key={category.id} value={category.id}>{category.label}</option>
+
+      {/* Mode selector */}
+      <div className="contribute-mode-selector">
+        <button
+          type="button"
+          className={`contribute-mode-btn${form.mode === "idea" ? " active" : ""}`}
+          onClick={() => switchMode("idea")}
+        >
+          General Idea
+        </button>
+        <button
+          type="button"
+          className={`contribute-mode-btn${form.mode === "exercise" ? " active" : ""}`}
+          onClick={() => switchMode("exercise")}
+        >
+          Exercise
+        </button>
+      </div>
+
+      <form className="settings-grid contribute-form" onSubmit={submit}>
+
+        {form.mode === "idea" ? (
+          <>
+            <label className="wide-label">
+              Title
+              <input
+                type="text"
+                value={form.ideaTitle}
+                onChange={(e) => update({ ideaTitle: e.target.value })}
+                placeholder="What's the idea in one line?"
+                required
+              />
+            </label>
+            <label className="wide-label">
+              Idea
+              <textarea
+                value={form.ideaBody}
+                onChange={(e) => update({ ideaBody: e.target.value })}
+                placeholder="Describe the idea. What should change or be added? Why would it help learners?"
+                rows={5}
+                required
+              />
+            </label>
+          </>
+        ) : (
+          <>
+            {/* Exercise type picker */}
+            <div className="wide-label">
+              <span className="field-label">Exercise type</span>
+              <div className="exercise-type-picker">
+                {(Object.keys(EXERCISE_CONFIGS) as ContributionExerciseType[]).map((type) => (
+                  <button
+                    key={type}
+                    type="button"
+                    className={`exercise-type-btn${form.exerciseType === type ? " active" : ""}`}
+                    onClick={() => switchExerciseType(type)}
+                  >
+                    {EXERCISE_TYPE_LABELS[type]}
+                  </button>
+                ))}
+              </div>
+              <p className="subtitle">{config.description}</p>
+            </div>
+
+            {/* Language + Category + Difficulty row */}
+            <label>
+              Language
+              <select
+                value={form.exerciseLanguage}
+                onChange={(e) => update({ exerciseLanguage: e.target.value })}
+              >
+                {languages.map((lang) => (
+                  <option key={lang.id} value={lang.id}>{lang.label}</option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              Category
+              <select
+                value={form.category}
+                onChange={(e) => update({ category: e.target.value })}
+              >
+                <option value="">Select category</option>
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>{cat.label}</option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              Difficulty
+              <select
+                value={form.difficulty}
+                onChange={(e) => update({ difficulty: e.target.value })}
+              >
+                <option value="a1">A1 — Beginner</option>
+                <option value="a2">A2 — Elementary</option>
+                <option value="b1">B1 — Intermediate</option>
+                <option value="b2">B2 — Upper Intermediate</option>
+              </select>
+            </label>
+
+            {/* Dynamic content fields */}
+            {config.fields.map((spec) => (
+              <label key={spec.field} className="wide-label">
+                {spec.label}
+                <input
+                  type="text"
+                  value={form[spec.field]}
+                  onChange={(e) => update({ [spec.field]: e.target.value })}
+                  placeholder={spec.placeholder}
+                  required
+                />
+              </label>
             ))}
-          </select>
-        </label>
 
-        <label>
-          Idea Type
-          <select
-            value={form.ideaType}
-            onChange={(event) => updateForm({ ideaType: event.target.value as ContributionIdeaType })}
-          >
-            <option value="content">Content Idea</option>
-            <option value="exercise">Exercise Format</option>
-            <option value="media">Media Addition</option>
-            <option value="culture">Cultural Note</option>
-            <option value="product">Product Suggestion</option>
-          </select>
-        </label>
+            {/* Hints */}
+            {config.hints.map((hint, i) => {
+              const key = `hint${i + 1}` as "hint1" | "hint2" | "hint3";
+              return (
+                <label key={key}>
+                  {hint.label}
+                  <input
+                    type="text"
+                    value={form[key]}
+                    onChange={(e) => update({ [key]: e.target.value })}
+                    placeholder={hint.placeholder}
+                  />
+                </label>
+              );
+            })}
 
-        <label>
-          Difficulty
-          <select
-            value={form.difficulty}
-            onChange={(event) => updateForm({ difficulty: event.target.value })}
-          >
-            <option value="a1">A1</option>
-            <option value="a2">A2</option>
-            <option value="b1">B1</option>
-            <option value="b2">B2</option>
-          </select>
-        </label>
+            {/* Optional extras */}
+            <label className="wide-label">
+              Cultural note <span className="field-optional">(optional)</span>
+              <input
+                type="text"
+                value={form.culturalNote}
+                onChange={(e) => update({ culturalNote: e.target.value })}
+                placeholder="Context, etiquette, regional usage, or history."
+              />
+            </label>
+          </>
+        )}
 
-        <label>
-          Exercise Type
-          <select
-            value={form.exerciseType}
-            onChange={(event) => updateForm({ exerciseType: event.target.value as ContributionExerciseType })}
-          >
-            <option value="build_sentence">Build Sentence</option>
-            <option value="dialogue_turn">Dialogue</option>
-            <option value="flashcard">Flashcard</option>
-            <option value="matching">Matching</option>
-            <option value="pronunciation">Pronunciation</option>
-          </select>
-        </label>
-
-        <label className="wide-label">
-          Idea Title
-          <textarea
-            value={form.title}
-            onChange={(event) => updateForm({ title: event.target.value })}
-            placeholder="Example: Add a fika small-talk lesson with audio and etiquette notes."
-          />
-        </label>
-
-        <label className="wide-label">
-          Proposal
-          <textarea
-            value={form.proposal}
-            onChange={(event) => updateForm({ proposal: event.target.value })}
-            placeholder="Describe what should be added or changed, and what the learner would see."
-          />
-        </label>
-
-        <label className="wide-label">
-          Learner Need
-          <textarea
-            value={form.learnerNeed}
-            onChange={(event) => updateForm({ learnerNeed: event.target.value })}
-            placeholder="What problem would this idea solve for learners?"
-          />
-        </label>
-
-        <label className="wide-label">
-          Example Content
-          <textarea
-            value={form.exampleContent}
-            onChange={(event) => updateForm({ exampleContent: event.target.value })}
-            placeholder="Optional sample prompt, dialogue line, vocabulary list, or scenario."
-          />
-        </label>
-
-        <label className="wide-label">
-          Implementation Notes
-          <textarea
-            value={form.implementationNotes}
-            onChange={(event) => updateForm({ implementationNotes: event.target.value })}
-            placeholder="Optional notes about UI, flow, moderation, or rollout."
-          />
-        </label>
-
-        <label>
-          Audio URL
-          <input
-            value={form.audioUrl}
-            onChange={(event) => updateForm({ audioUrl: event.target.value })}
-            placeholder="Optional external or local audio URL"
-          />
-        </label>
-
-        <label>
-          Image URL
-          <input
-            value={form.imageUrl}
-            onChange={(event) => updateForm({ imageUrl: event.target.value })}
-            placeholder="Optional image URL"
-          />
-        </label>
-
-        <label className="wide-label">
-          Cultural Note
-          <textarea
-            value={form.culturalNote}
-            onChange={(event) => updateForm({ culturalNote: event.target.value })}
-            placeholder="Optional context like etiquette, customs, history, or regional nuance."
-          />
-        </label>
-
-        <div className="hero-actions">
+        <div className="wide-label contribute-submit-row">
           <button className="primary-button" type="submit" disabled={busy}>
-            {busy ? "Submitting..." : "Submit Idea"}
+            {busy ? "Submitting…" : form.mode === "idea" ? "Submit Idea" : "Submit Exercise"}
           </button>
         </div>
       </form>
+
       {message ? <div className="status">{message}</div> : null}
     </section>
   );

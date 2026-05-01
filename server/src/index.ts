@@ -84,8 +84,12 @@ const {
   getCourseOverview,
   getContentMetrics,
   generateSession,
-  LEVEL_XP_MULTIPLIER
+  LEVEL_XP_MULTIPLIER,
+  injectCommunityItem
 } = require("./data.ts");
+
+// Inject already-approved community exercises into the live content pool at startup
+database.getApprovedCommunityExercises().forEach(injectCommunityItem);
 
 const { registerCourseRoutes } = require("./routes/courseRoutes.ts");
 const { registerSessionRoutes } = require("./routes/sessionRoutes.ts");
@@ -356,7 +360,7 @@ function createApp(): any {
     calculateXp,
     crypto
   });
-  registerUserRoutes(app, { requireAuth, database });
+  registerUserRoutes(app, { requireAuth, database, injectCommunityItem });
   registerAuthRoutes(app, {
     database,
     logger,

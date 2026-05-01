@@ -1,5 +1,5 @@
 function registerUserRoutes(app: any, deps: any): void {
-  const { requireAuth, database } = deps;
+  const { requireAuth, database, injectCommunityItem } = deps;
   const contributionReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
       .split(",")
@@ -177,16 +177,35 @@ function registerUserRoutes(app: any, deps: any): void {
 
     const id = Number.parseInt(String(req.params.id || ""), 10);
     const moderationStatus = String(req.body?.moderationStatus || "").trim().toLowerCase();
+    const reviewerComment = String(req.body?.reviewerComment || "").trim().slice(0, 1000);
     if (!Number.isInteger(id) || id <= 0) {
       return res.status(400).json({ error: "A valid contribution id is required" });
     }
-    if (!["pending", "approved", "rejected"].includes(moderationStatus)) {
-      return res.status(400).json({ error: "moderationStatus must be pending, approved, or rejected" });
+    if (!["pending", "approved", "rejected", "changes_requested"].includes(moderationStatus)) {
+      return res.status(400).json({ error: "moderationStatus must be pending, approved, rejected, or changes_requested" });
     }
 
-    const submission = database.updateCommunityExerciseModerationStatus({ id, moderationStatus });
+    const submission = database.updateCommunityExerciseModerationStatus({
+      id,
+      moderationStatus,
+      reviewerComment,
+      reviewedBy: userId
+    });
     if (!submission) {
       return res.status(404).json({ error: "Contribution not found" });
+    }
+
+    if (moderationStatus === "approved" && injectCommunityItem) {
+      injectCommunityItem({
+        id: submission.id,
+        language: submission.language,
+        category: submission.category,
+        difficulty: submission.difficulty,
+        prompt: submission.prompt,
+        correctAnswer: submission.correctAnswer,
+        hints: submission.hints,
+        exerciseType: submission.exerciseType
+      });
     }
 
     return res.json({
@@ -194,6 +213,14 @@ function registerUserRoutes(app: any, deps: any): void {
       message: `Contribution marked ${moderationStatus}.`,
       submission
     });
+  });
+
+  app.get("/api/community/contributions/pending-count", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    if (!canModerateCommunityExercises(userId)) {
+      return res.json({ count: 0 });
+    }
+    return res.json({ count: database.getPendingCommunityExerciseCount() });
   });
 
   app.get("/api/bookmarks", requireAuth, (req: any, res: any) => {

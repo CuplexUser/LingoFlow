@@ -18,6 +18,9 @@ function makeSubmission(overrides = {}) {
     exerciseType: "flashcard",
     moderationStatus: "pending",
     createdAt: "2026-03-24T10:00:00.000Z",
+    reviewerComment: "",
+    reviewedAt: null,
+    reviewedBy: null,
     submitter: {
       id: 2,
       email: "learner@example.com",
@@ -134,11 +137,15 @@ test("moderator inbox loads all submissions, reacts to filters, and updates stat
     })
   );
 
+  // Expand the review panel first, then approve
+  await user.click(screen.getByRole("button", { name: "Review" }));
   await user.click(screen.getByRole("button", { name: "Approve" }));
-  await waitFor(() => expect(onUpdateStatus).toHaveBeenCalledWith(1, { moderationStatus: "approved" }));
+  await waitFor(() =>
+    expect(onUpdateStatus).toHaveBeenCalledWith(1, { moderationStatus: "approved", reviewerComment: "" })
+  );
 
   expect(await screen.findByText("Contribution marked approved.")).toBeInTheDocument();
-  expect(screen.getByText("approved")).toBeInTheDocument();
+  expect(screen.getByText("Approved", { selector: "strong" })).toBeInTheDocument();
 });
 
 test("moderator inbox shows load errors", async () => {

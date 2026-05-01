@@ -553,6 +553,23 @@ function ensureSettingsColumns() {
 
 ensureSettingsColumns();
 
+function ensureCommunityExercisesColumns() {
+  const columns = db.prepare("PRAGMA table_info(community_exercises)").all();
+  const names = new Set(columns.map((column: any) => column.name));
+
+  if (!names.has("reviewer_comment")) {
+    db.exec("ALTER TABLE community_exercises ADD COLUMN reviewer_comment TEXT NOT NULL DEFAULT ''");
+  }
+  if (!names.has("reviewed_by")) {
+    db.exec("ALTER TABLE community_exercises ADD COLUMN reviewed_by INTEGER REFERENCES users(id)");
+  }
+  if (!names.has("reviewed_at")) {
+    db.exec("ALTER TABLE community_exercises ADD COLUMN reviewed_at TEXT");
+  }
+}
+
+ensureCommunityExercisesColumns();
+
 db.prepare(`
   INSERT OR IGNORE INTO users (id, email, password_hash, display_name, email_verified, auth_provider)
   VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner', 1, 'local')
@@ -1625,6 +1642,11 @@ function parseCommunityExerciseRow(row) {
     exerciseType: row.exercise_type,
     moderationStatus: row.moderation_status,
     createdAt: row.created_at,
+    reviewerComment: row.reviewer_comment || "",
+    reviewedAt: row.reviewed_at || null,
+    reviewedBy: row.reviewer_id
+      ? { id: row.reviewer_id, displayName: row.reviewer_name }
+      : null,
     submitter: row.submitter_id
       ? {
           id: row.submitter_id,
@@ -1680,11 +1702,17 @@ function listCommunityExercises({
       ce.exercise_type,
       ce.moderation_status,
       ce.created_at,
+      ce.reviewer_comment,
+      ce.reviewed_by,
+      ce.reviewed_at,
       u.id AS submitter_id,
       u.email AS submitter_email,
-      u.display_name AS submitter_name
+      u.display_name AS submitter_name,
+      r.id AS reviewer_id,
+      r.display_name AS reviewer_name
     FROM community_exercises ce
     JOIN users u ON u.id = ce.user_id
+    LEFT JOIN users r ON r.id = ce.reviewed_by
     ${whereClause}
     ORDER BY
       CASE ce.moderation_status
@@ -1702,13 +1730,25 @@ function listCommunityExercises({
 
 function updateCommunityExerciseModerationStatus({
   id,
-  moderationStatus
+  moderationStatus,
+  reviewerComment = "",
+  reviewedBy = null
+}: {
+  id: number;
+  moderationStatus: string;
+  reviewerComment?: string;
+  reviewedBy?: number | null;
 }) {
+  const safeStatus = String(moderationStatus || "pending").trim().toLowerCase();
+  const safeComment = String(reviewerComment || "").trim();
   db.prepare(`
     UPDATE community_exercises
-    SET moderation_status = ?
+    SET moderation_status = ?,
+        reviewer_comment = ?,
+        reviewed_by = ?,
+        reviewed_at = CURRENT_TIMESTAMP
     WHERE id = ?
-  `).run(String(moderationStatus || "pending").trim().toLowerCase(), Number(id));
+  `).run(safeStatus, safeComment, reviewedBy ?? null, Number(id));
 
   const row = db.prepare(`
     SELECT
@@ -1725,15 +1765,54 @@ function updateCommunityExerciseModerationStatus({
       ce.exercise_type,
       ce.moderation_status,
       ce.created_at,
+      ce.reviewer_comment,
+      ce.reviewed_by,
+      ce.reviewed_at,
       u.id AS submitter_id,
       u.email AS submitter_email,
-      u.display_name AS submitter_name
+      u.display_name AS submitter_name,
+      r.id AS reviewer_id,
+      r.display_name AS reviewer_name
     FROM community_exercises ce
     JOIN users u ON u.id = ce.user_id
+    LEFT JOIN users r ON r.id = ce.reviewed_by
     WHERE ce.id = ?
   `).get(Number(id));
 
   return parseCommunityExerciseRow(row);
+}
+
+function getPendingCommunityExerciseCount(): number {
+  const row: any = db.prepare(`
+    SELECT COUNT(1) AS cnt FROM community_exercises WHERE moderation_status = 'pending'
+  `).get();
+  return row?.cnt ?? 0;
+}
+
+function getApprovedCommunityExercises() {
+  const rows: any[] = db.prepare(`
+    SELECT id, language, category, prompt, correct_answer, hints_json,
+           difficulty, audio_url, image_url, cultural_note, exercise_type
+    FROM community_exercises
+    WHERE moderation_status = 'approved'
+  `).all();
+  return rows.map((row) => {
+    let hints: string[] = [];
+    try { hints = JSON.parse(row.hints_json || "[]"); } catch (_) { hints = []; }
+    return {
+      id: row.id as number,
+      language: row.language as string,
+      category: row.category as string,
+      prompt: row.prompt as string,
+      correctAnswer: row.correct_answer as string,
+      hints: Array.isArray(hints) ? hints : [],
+      difficulty: row.difficulty as string,
+      audioUrl: row.audio_url as string,
+      imageUrl: row.image_url as string,
+      culturalNote: row.cultural_note as string,
+      exerciseType: row.exercise_type as string
+    };
+  });
 }
 
 function hashVisitorIp(ipAddress) {
@@ -2216,6 +2295,8 @@ module.exports = {
   createCommunityExercise,
   listCommunityExercises,
   updateCommunityExerciseModerationStatus,
+  getPendingCommunityExerciseCount,
+  getApprovedCommunityExercises,
   recordLoginPageVisit,
   getVisitorStats,
   addBookmark,

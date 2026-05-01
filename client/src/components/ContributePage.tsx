@@ -3,18 +3,19 @@ import type {
   CommunityContributionUpdatePayload,
   CommunityExercisePayload
 } from "../api";
-import type { CourseCategory } from "../types/course";
+import type { CourseCategory, LanguageOption } from "../types/course";
+import type { ContributionModerationStatus } from "../types/contribution";
 import { ContributionInbox } from "./ContributionInbox";
 import { ContributionPanel } from "./ContributionPanel";
 
 type ContributePageProps = {
-  canModerateCommunityExercises: boolean;
   activeCourseLanguage: string;
+  courseLanguages: LanguageOption[];
   courseCategories: CourseCategory[];
   onSubmitContribution: (payload: CommunityExercisePayload) => Promise<{ message?: string }>;
   onLoadContributions: (params: {
     scope?: "mine" | "all";
-    status?: "pending" | "approved" | "rejected" | "";
+    status?: ContributionModerationStatus | "";
     language?: string;
     category?: string;
     limit?: number;
@@ -23,8 +24,8 @@ type ContributePageProps = {
 };
 
 export function ContributePage({
-  canModerateCommunityExercises,
   activeCourseLanguage,
+  courseLanguages,
   courseCategories,
   onSubmitContribution,
   onLoadContributions,
@@ -32,27 +33,17 @@ export function ContributePage({
 }: ContributePageProps) {
   return (
     <>
-      <section className="panel hero-card">
-        <div className="hero-copy">
-          <p className="eyebrow">Community Content</p>
-          <h2>Share a contribution idea</h2>
-          <p>
-            Submit ideas for lessons, media, cultural context, learner flows, or content improvements.
-            This keeps the Learn page focused while still making community input easy to capture.
-          </p>
-        </div>
-      </section>
-
       <ContributionPanel
         language={activeCourseLanguage}
+        languages={courseLanguages}
         categories={courseCategories}
         onSubmit={onSubmitContribution}
       />
 
       <ContributionInbox
         language={activeCourseLanguage}
-        categoryOptions={courseCategories.map((category) => ({ id: category.id, label: category.label }))}
-        canModerate={canModerateCommunityExercises}
+        categoryOptions={courseCategories.map((c) => ({ id: c.id, label: c.label }))}
+        canModerate={false}
         onLoad={onLoadContributions}
         onUpdateStatus={onUpdateContributionStatus}
       />

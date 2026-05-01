@@ -9,6 +9,7 @@ import {
   MultipleChoicePanel,
   PracticeWordsPanel,
   SpeedPicker,
+  SPEED_OPTIONS,
   TranscriptExercisePanel,
   type ListenSpeed
 } from "./session/SessionPanels";
@@ -118,7 +119,10 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   const [matchingPromptOrder, setMatchingPromptOrder] = useState<string[]>(() => resumeState.matchingPromptOrder || []);
   const [matchingAnswerOrder, setMatchingAnswerOrder] = useState<string[]>(() => resumeState.matchingAnswerOrder || []);
   const [buildHintCount, setBuildHintCount] = useState(0);
-  const [listenSpeed, setListenSpeed] = useState<ListenSpeed>(1);
+  const [listenSpeed, setListenSpeed] = useState<ListenSpeed>(() => {
+    const saved = Number(localStorage.getItem("lingoflow_tts_speed"));
+    return (SPEED_OPTIONS as readonly number[]).includes(saved) ? (saved as ListenSpeed) : 1;
+  });
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
   const draggedWordIndexRef = useRef<number | null>(null);
   const builtWordDropHandledRef = useRef(false);
@@ -517,7 +521,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           question.type === "pronunciation" ||
           question.type === "practice_speak" ||
           question.type === "practice_listen") ? (
-          <SpeedPicker rate={listenSpeed} onChange={setListenSpeed} />
+          <SpeedPicker rate={listenSpeed} onChange={(s) => { localStorage.setItem("lingoflow_tts_speed", String(s)); setListenSpeed(s); }} />
         ) : null}
         <button
           type="button"

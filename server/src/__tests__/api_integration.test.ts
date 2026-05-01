@@ -1103,6 +1103,237 @@ test("non-reviewers cannot update community contribution moderation status", asy
   assert.equal(target.moderationStatus, "pending");
 });
 
+test("reviewer comment is stored and returned after moderation update", async (t) => {
+  const reviewerEmail = `reviewer-${Date.now()}-comment@example.com`;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
+  t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
+
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const reviewer = await createAuthHeadersForEmail(base, reviewerEmail, "Reviewer");
+  const contributor = await createAuthHeaders(base, "comment-contrib");
+
+  const createRes = await fetch(`${base}/api/community/contribute`, {
+    method: "POST",
+    headers: contributor,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "essentials",
+      prompt: "How do you say please?",
+      correctAnswer: "Por favor",
+      difficulty: "a1",
+      exerciseType: "flashcard"
+    })
+  });
+  assert.equal(createRes.status, 201);
+  const created = await createRes.json();
+
+  const updateRes = await fetch(`${base}/api/community/contributions/${created.submission.id}`, {
+    method: "PATCH",
+    headers: reviewer,
+    body: JSON.stringify({ moderationStatus: "approved", reviewerComment: "Great addition!" })
+  });
+  assert.equal(updateRes.status, 200);
+  const updated = await updateRes.json();
+  assert.equal(updated.submission.moderationStatus, "approved");
+  assert.equal(updated.submission.reviewerComment, "Great addition!");
+  assert.ok(updated.submission.reviewedAt);
+  assert.ok(updated.submission.reviewedBy);
+  assert.equal(updated.submission.reviewedBy.displayName, "Reviewer");
+
+  // Contributor can see the reviewer comment when listing their own submissions
+  const myListRes = await fetch(`${base}/api/community/contributions`, { headers: contributor });
+  assert.equal(myListRes.status, 200);
+  const myList = await myListRes.json();
+  const mine = myList.submissions.find((s) => s.id === created.submission.id);
+  assert.ok(mine);
+  assert.equal(mine.reviewerComment, "Great addition!");
+});
+
+test("changes_requested is a valid moderation status and appears in filtered list", async (t) => {
+  const reviewerEmail = `reviewer-${Date.now()}-cr@example.com`;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
+  t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
+
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const reviewer = await createAuthHeadersForEmail(base, reviewerEmail, "Reviewer");
+  const contributor = await createAuthHeaders(base, "cr-contrib");
+
+  const createRes = await fetch(`${base}/api/community/contribute`, {
+    method: "POST",
+    headers: contributor,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "travel",
+      prompt: "How do you ask where the hotel is?",
+      correctAnswer: "Donde esta el hotel?",
+      difficulty: "a2",
+      exerciseType: "build_sentence"
+    })
+  });
+  assert.equal(createRes.status, 201);
+  const created = await createRes.json();
+
+  const updateRes = await fetch(`${base}/api/community/contributions/${created.submission.id}`, {
+    method: "PATCH",
+    headers: reviewer,
+    body: JSON.stringify({
+      moderationStatus: "changes_requested",
+      reviewerComment: "Please add more hints."
+    })
+  });
+  assert.equal(updateRes.status, 200);
+  const updated = await updateRes.json();
+  assert.equal(updated.submission.moderationStatus, "changes_requested");
+  assert.equal(updated.submission.reviewerComment, "Please add more hints.");
+
+  const filteredRes = await fetch(
+    `${base}/api/community/contributions?scope=all&status=changes_requested`,
+    { headers: reviewer }
+  );
+  assert.equal(filteredRes.status, 200);
+  const filtered = await filteredRes.json();
+  assert.ok(filtered.submissions.some((s) => s.id === created.submission.id));
+});
+
+test("invalid moderation status is rejected with 400", async (t) => {
+  const reviewerEmail = `reviewer-${Date.now()}-invalid@example.com`;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
+  t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
+
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const reviewer = await createAuthHeadersForEmail(base, reviewerEmail, "Reviewer");
+  const contributor = await createAuthHeaders(base, "invalid-status-contrib");
+
+  const createRes = await fetch(`${base}/api/community/contribute`, {
+    method: "POST",
+    headers: contributor,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "essentials",
+      prompt: "How do you say yes?",
+      correctAnswer: "Si",
+      difficulty: "a1",
+      exerciseType: "flashcard"
+    })
+  });
+  assert.equal(createRes.status, 201);
+  const created = await createRes.json();
+
+  const badRes = await fetch(`${base}/api/community/contributions/${created.submission.id}`, {
+    method: "PATCH",
+    headers: reviewer,
+    body: JSON.stringify({ moderationStatus: "maybe" })
+  });
+  assert.equal(badRes.status, 400);
+});
+
+test("pending-count endpoint returns count for moderators and zero for regular users", async (t) => {
+  const reviewerEmail = `reviewer-${Date.now()}-count@example.com`;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
+  t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
+
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const reviewer = await createAuthHeadersForEmail(base, reviewerEmail, "Reviewer");
+  const contributor = await createAuthHeaders(base, "count-contrib");
+
+  // Submit two contributions
+  for (const prompt of ["Submission one", "Submission two"]) {
+    const r = await fetch(`${base}/api/community/contribute`, {
+      method: "POST",
+      headers: contributor,
+      body: JSON.stringify({
+        language: "spanish",
+        category: "essentials",
+        prompt,
+        correctAnswer: "Answer",
+        difficulty: "a1",
+        exerciseType: "flashcard"
+      })
+    });
+    assert.equal(r.status, 201);
+  }
+
+  const modCountRes = await fetch(`${base}/api/community/contributions/pending-count`, {
+    headers: reviewer
+  });
+  assert.equal(modCountRes.status, 200);
+  const modCount = await modCountRes.json();
+  assert.ok(modCount.count >= 2);
+
+  const userCountRes = await fetch(`${base}/api/community/contributions/pending-count`, {
+    headers: contributor
+  });
+  assert.equal(userCountRes.status, 200);
+  const userCount = await userCountRes.json();
+  assert.equal(userCount.count, 0);
+});
+
+test("reviewer comment is updated when status is changed again", async (t) => {
+  const reviewerEmail = `reviewer-${Date.now()}-reupdate@example.com`;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
+  t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
+
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+
+  const reviewer = await createAuthHeadersForEmail(base, reviewerEmail, "Reviewer");
+  const contributor = await createAuthHeaders(base, "reupdate-contrib");
+
+  const createRes = await fetch(`${base}/api/community/contribute`, {
+    method: "POST",
+    headers: contributor,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "grammar",
+      prompt: "How do you form the past tense?",
+      correctAnswer: "Use preterite forms",
+      difficulty: "b1",
+      exerciseType: "flashcard"
+    })
+  });
+  assert.equal(createRes.status, 201);
+  const created = await createRes.json();
+
+  await fetch(`${base}/api/community/contributions/${created.submission.id}`, {
+    method: "PATCH",
+    headers: reviewer,
+    body: JSON.stringify({ moderationStatus: "changes_requested", reviewerComment: "First comment" })
+  });
+
+  const secondRes = await fetch(`${base}/api/community/contributions/${created.submission.id}`, {
+    method: "PATCH",
+    headers: reviewer,
+    body: JSON.stringify({ moderationStatus: "approved", reviewerComment: "Looks good now" })
+  });
+  assert.equal(secondRes.status, 200);
+  const second = await secondRes.json();
+  assert.equal(second.submission.moderationStatus, "approved");
+  assert.equal(second.submission.reviewerComment, "Looks good now");
+});
+
 test("visitor stats include only login page aggregate metrics", async (t) => {
   const reviewerEmail = `reviewer-${Date.now()}-visitor-stats@example.com`;
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;

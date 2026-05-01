@@ -1,10 +1,3 @@
-export type ContributionIdeaType =
-  | "content"
-  | "exercise"
-  | "media"
-  | "culture"
-  | "product";
-
 export type ContributionExerciseType =
   | "build_sentence"
   | "dialogue_turn"
@@ -12,22 +5,29 @@ export type ContributionExerciseType =
   | "matching"
   | "pronunciation";
 
+export type ContributionMode = "idea" | "exercise";
+
 export type ContributionForm = {
+  mode: ContributionMode;
+  // General idea
+  ideaTitle: string;
+  ideaBody: string;
+  // Exercise
+  exerciseLanguage: string;
   category: string;
-  ideaType: ContributionIdeaType;
-  title: string;
-  learnerNeed: string;
-  proposal: string;
-  exampleContent: string;
-  implementationNotes: string;
+  exerciseType: ContributionExerciseType;
   difficulty: string;
+  prompt: string;
+  correctAnswer: string;
+  hint1: string;
+  hint2: string;
+  hint3: string;
+  culturalNote: string;
   audioUrl: string;
   imageUrl: string;
-  culturalNote: string;
-  exerciseType: ContributionExerciseType;
 };
 
-export type ContributionModerationStatus = "pending" | "approved" | "rejected";
+export type ContributionModerationStatus = "pending" | "approved" | "rejected" | "changes_requested";
 
 export type ContributionSubmission = {
   id: number;
@@ -43,6 +43,9 @@ export type ContributionSubmission = {
   exerciseType: string;
   moderationStatus: ContributionModerationStatus;
   createdAt: string;
+  reviewerComment: string;
+  reviewedAt: string | null;
+  reviewedBy: { id: number; displayName: string } | null;
   submitter: {
     id: number;
     email: string;

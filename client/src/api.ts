@@ -98,6 +98,7 @@ export type CommunityContributionListResponse = {
 
 export type CommunityContributionUpdatePayload = {
   moderationStatus: ContributionModerationStatus;
+  reviewerComment?: string;
 };
 
 export type SessionStartPayload = {
@@ -453,6 +454,8 @@ export const api = {
       `/community/contributions/${id}`,
       { method: "PATCH", body: JSON.stringify(payload) }
     ),
+  getPendingContributionCount: () =>
+    request<{ count: number }>("/community/contributions/pending-count"),
   contributeExercise: (payload: CommunityExercisePayload) =>
     request<MessageResponse>("/community/contribute", { method: "POST", body: JSON.stringify(payload) }),
   getBookmarks: (language?: string) =>

@@ -144,6 +144,7 @@ export default function App() {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
   const [bookmarksLoading, setBookmarksLoading] = useState(false);
   const [bookmarksError, setBookmarksError] = useState("");
+  const [pendingContributionCount, setPendingContributionCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const { setThemeMode, activeTheme } = useThemeMode();
   const {
@@ -346,6 +347,18 @@ export default function App() {
     };
   }, [authUser, activeCourseLanguage, activePage]);
 
+  useEffect(() => {
+    if (!authUser?.canModerateCommunityExercises) {
+      setPendingContributionCount(0);
+      return;
+    }
+    let cancelled = false;
+    api.getPendingContributionCount()
+      .then((data) => { if (!cancelled) setPendingContributionCount(data.count); })
+      .catch(() => { /* silently ignore */ });
+    return () => { cancelled = true; };
+  }, [authUser]);
+
   function handleNavigateAuthMode(nextMode: AuthMode) {
     navigateAuthMode(nextMode);
     if (nextMode !== "login") {
@@ -497,6 +510,7 @@ export default function App() {
     setBookmarks([]);
     setBookmarksError("");
     setBookmarksLoading(false);
+    setPendingContributionCount(0);
   }
 
   async function deleteAccount(form: { password: string; confirmDelete: boolean }) {
@@ -788,7 +802,7 @@ export default function App() {
 
   async function loadContributions(params: {
     scope?: "mine" | "all";
-    status?: "pending" | "approved" | "rejected" | "";
+    status?: "pending" | "approved" | "rejected" | "changes_requested" | "";
     language?: string;
     category?: string;
     limit?: number;
@@ -796,9 +810,14 @@ export default function App() {
     return api.getCommunityContributions(params);
   }
 
-  async function updateContributionStatus(id: number, payload: { moderationStatus: "pending" | "approved" | "rejected" }) {
+  async function updateContributionStatus(id: number, payload: { moderationStatus: "pending" | "approved" | "rejected" | "changes_requested"; reviewerComment?: string }) {
     const result = await api.updateCommunityContributionStatus(id, payload);
     setStatusMessage(result?.message || "Contribution updated.");
+    if (authUser?.canModerateCommunityExercises) {
+      api.getPendingContributionCount()
+        .then((data) => setPendingContributionCount(data.count))
+        .catch(() => { /* ignore */ });
+    }
     return result;
   }
 
@@ -904,7 +923,7 @@ export default function App() {
               <button
                 className={`icon-btn${activePage === "admin" ? " active" : ""}`}
                 type="button"
-                title="Admin"
+                title={`Admin${pendingContributionCount > 0 ? ` (${pendingContributionCount} pending)` : ""}`}
                 aria-label="Admin"
                 onClick={() => navigateToPage("admin")}
               >
@@ -912,6 +931,9 @@ export default function App() {
                   <rect x="1.5" y="1.5" width="13" height="13" rx="1.5"/>
                   <path d="M1.5 5.5h13M5.5 5.5v9"/>
                 </svg>
+                {pendingContributionCount > 0 ? (
+                  <span className="badge">{pendingContributionCount > 99 ? "99+" : pendingContributionCount}</span>
+                ) : null}
               </button>
             ) : null}
 
@@ -1072,8 +1094,8 @@ export default function App() {
 
       {activePage === "contribute" ? (
         <ContributePage
-          canModerateCommunityExercises={Boolean(authUser?.canModerateCommunityExercises)}
           activeCourseLanguage={activeCourseLanguage}
+          courseLanguages={courseLanguages}
           courseCategories={courseCategories}
           onSubmitContribution={submitContribution}
           onLoadContributions={loadContributions}
@@ -1109,7 +1131,13 @@ export default function App() {
       ) : null}
 
       {activePage === "admin" ? (
-        <AdminPage canModerate={Boolean(authUser?.canModerateCommunityExercises)} />
+        <AdminPage
+          canModerate={Boolean(authUser?.canModerateCommunityExercises)}
+          activeCourseLanguage={activeCourseLanguage}
+          courseCategories={courseCategories}
+          onLoadContributions={loadContributions}
+          onUpdateContributionStatus={updateContributionStatus}
+        />
       ) : null}
 
       <footer className="app-footer">Version {appVersion}</footer>

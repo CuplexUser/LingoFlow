@@ -70,7 +70,7 @@ export function ClozeSentencePanel({ question, selectedOption, onSelect }: Cloze
   );
 }
 
-const SPEED_OPTIONS = [0.5, 0.75, 1] as const;
+export const SPEED_OPTIONS = [0.5, 0.75, 1] as const;
 export type ListenSpeed = typeof SPEED_OPTIONS[number];
 
 type SpeedPickerProps = {

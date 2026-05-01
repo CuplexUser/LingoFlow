@@ -95,31 +95,31 @@ Quality checklist per batch:
 
 ---
 
-### Phase 14: Moderation UI for community contributions
+### Phase 14: Moderation UI for community contributions ✓ COMPLETE
 
 API endpoints exist (`/api/community/contributions`, PATCH `/api/community/contributions/:id`)
 but the frontend has no review workflow. Moderators currently cannot approve or reject submissions.
 
 **Step 1 — Moderation inbox page**
 
-- [ ] Build a `ModerationPage` (or extend `ContributionInbox`) with:
+- [x] Build a `ModerationPage` (or extend `ContributionInbox`) with:
   - filterable list by status (`pending`, `approved`, `rejected`), language, and category
   - exercise preview card showing prompt, answer, hints, and metadata
   - approve / reject / request-changes actions with optional reviewer comment
   - batch selection for bulk approve/reject
-- [ ] Gate the page behind a moderator role check (use existing `CONTRIBUTION_REVIEWER_EMAILS`).
+- [x] Gate the page behind a moderator role check (use existing `CONTRIBUTION_REVIEWER_EMAILS`).
 
 **Step 2 — Review workflow**
 
-- [ ] Add `reviewer_comment` and `reviewed_by` columns to `contributions` table if missing.
-- [ ] On approve: optionally inject the exercise into the content pool (or flag for next content release).
-- [ ] On reject: send feedback to the contributor (visible on their ContributePage).
-- [ ] Add notification badge on nav when pending contributions exist (moderators only).
+- [x] Add `reviewer_comment` and `reviewed_by` columns to `contributions` table if missing.
+- [x] On approve: inject the exercise into the in-memory content pool immediately; approved exercises also loaded at server startup.
+- [x] On reject: send feedback to the contributor (visible on their ContributePage).
+- [x] Add notification badge on nav when pending contributions exist (moderators only).
 
 **Step 3 — Contributor feedback loop**
 
-- [ ] Show submission status (pending / approved / rejected / changes requested) on ContributePage.
-- [ ] Display reviewer comments inline so contributors can iterate.
+- [x] Show submission status (pending / approved / rejected / changes requested) on ContributePage.
+- [x] Display reviewer comments inline so contributors can iterate.
 
 ---
 
@@ -300,7 +300,7 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [x] Add a community exercise contribution route and frontend submission form.
 - [x] Track per-exercise usage/completion data in the DB for iteration.
 - [x] Surface recommendation data based on learner strengths and weak spots.
-- [ ] Add moderation review tooling for community exercises.
+- [x] Add moderation review tooling for community exercises.
 - [ ] Add sourced language-specific audio batches from providers such as Forvo or LibriVox.
 
 ### Phase 11: Content quality and learning depth plan
