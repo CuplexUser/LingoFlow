@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { api } from "../api";
 import { DEFAULT_DRAFT } from "../constants";
 import type {
@@ -27,7 +27,7 @@ export function useAuthenticatedAppData({
   const [statsData, setStatsData] = useState<StatsData | null>(null);
   const [courseCategories, setCourseCategories] = useState<CourseCategory[]>([]);
 
-  async function refreshCourseAndProgress(targetLanguage: string) {
+  const refreshCourseAndProgress = useCallback(async (targetLanguage: string) => {
     const [course, nextProgress, stats, overview] = await Promise.all([
       api.getCourse(targetLanguage),
       api.getProgress(targetLanguage),
@@ -38,9 +38,9 @@ export function useAuthenticatedAppData({
     setProgress(nextProgress);
     setStatsData(stats);
     setProgressOverview(overview);
-  }
+  }, []);
 
-  async function hydrateAuthenticatedApp() {
+  const hydrateAuthenticatedApp = useCallback(async () => {
     const [langs, conf] = await Promise.all([api.getLanguages(), api.getSettings()]);
     setLanguages(langs);
     setSettings(conf);
@@ -58,9 +58,9 @@ export function useAuthenticatedAppData({
       : (availableLanguageIds.has(targetLanguage) ? targetLanguage : fallbackLanguage);
     setActiveCourseLanguage(initialCourseLanguage);
     await refreshCourseAndProgress(initialCourseLanguage);
-  }
+  }, [activeCourseLanguage, refreshCourseAndProgress]);
 
-  function resetAuthenticatedAppData() {
+  const resetAuthenticatedAppData = useCallback(() => {
     setLanguages([]);
     setSettings(null);
     setDraftSettings(DEFAULT_DRAFT);
@@ -68,7 +68,7 @@ export function useAuthenticatedAppData({
     setProgressOverview(null);
     setStatsData(null);
     setCourseCategories([]);
-  }
+  }, []);
 
   return {
     languages,

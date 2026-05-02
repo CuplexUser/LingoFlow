@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { normalizeActiveSession } from "../api";
 import type { ActiveSession, SessionSnapshot } from "../types/session";
 
@@ -51,19 +51,19 @@ export function useCourseSessionState() {
     window.localStorage.removeItem("lingoflow_active_session");
   }, [activeSessionsByLanguage]);
 
-  function clearActiveSession(language: string) {
+  const clearActiveSession = useCallback((language: string) => {
     setActiveSessionsByLanguage((prev) => {
       const next = { ...prev };
       delete next[language];
       return next;
     });
-  }
+  }, []);
 
-  function clearAllActiveSessions() {
+  const clearAllActiveSessions = useCallback(() => {
     setActiveSessionsByLanguage({});
-  }
+  }, []);
 
-  function saveSessionSnapshot(language: string, snapshot: SessionSnapshot) {
+  const saveSessionSnapshot = useCallback((language: string, snapshot: SessionSnapshot) => {
     setActiveSessionsByLanguage((prev) => {
       if (!language || !prev[language]) return prev;
       return {
@@ -74,7 +74,7 @@ export function useCourseSessionState() {
         }
       };
     });
-  }
+  }, []);
 
   return {
     activeCourseLanguage,

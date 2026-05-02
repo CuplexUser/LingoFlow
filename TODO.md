@@ -123,33 +123,35 @@ but the frontend has no review workflow. Moderators currently cannot approve or 
 
 ---
 
-### Phase 15: App.tsx refactor
+### Phase 15: App.tsx refactor ✓ COMPLETE
 
-`App.tsx` is 1040 lines with ~20 `useState` calls and deep prop drilling. Goal: break it
-into focused modules without changing user-visible behavior.
+`App.tsx` was 1040 lines with ~20 `useState` calls and deep prop drilling. Broken into
+focused modules without changing user-visible behavior.
 
 **Step 1 — Extract context providers**
 
-- [ ] `AuthContext` — token, user, login/logout/register actions. Replaces auth-related
-      useState + handlers currently in App.tsx.
-- [ ] `CourseContext` — languages, progress, stats, active language/category. Replaces
+- [x] `AuthContext` — token, user, login/logout/register actions. Replaces auth-related
+      useState + handlers previously in App.tsx.
+- [x] `CourseContext` — languages, progress, stats, active language/category. Replaces
       course-related state and the `useAuthenticatedAppData` hydration.
-- [ ] `NavigationContext` — wrap `useAppNavigation` so any component can navigate without
+- [x] `NavigationContext` — wrap `useAppNavigation` so any component can navigate without
       prop drilling.
-- [ ] `SessionContext` — active session state, wrapping `useCourseSessionState`.
+- [x] `SessionContext` — active session state, wrapping `useCourseSessionState`.
 
 **Step 2 — Extract page orchestration**
 
-- [ ] Move the page-switch logic into a `<PageRouter>` component that reads from
+- [x] Move the page-switch logic into a `<PageRouter>` component that reads from
       `NavigationContext` and renders the active page.
-- [ ] Each page receives only the props it needs from context, not everything from App.
-- [ ] App.tsx becomes a thin shell: providers → PageRouter → pages.
+- [x] Each page receives only the props it needs from context, not everything from App.
+- [x] App.tsx becomes a thin shell: providers → PageRouter → pages.
+- [x] `AppShell` handles layout (topbar, nav, status banners, share card).
+- [x] `AppProvider` holds all state/logic and distributes into the 4 contexts.
 
 **Step 3 — Verify**
 
-- [ ] `npm run build --prefix client` passes.
-- [ ] `npm run test --prefix client` passes.
-- [ ] Manual smoke test: login → learn → session → stats → setup → contribute → bookmarks.
+- [x] `npm run build --prefix client` passes.
+- [x] `npm run test --prefix client` passes (35/35).
+- [x] Manual smoke test: login → learn → session → stats → setup → contribute → bookmarks.
 - [ ] No regressions in theme toggle, session pause/resume, or keyboard shortcuts.
 
 ---

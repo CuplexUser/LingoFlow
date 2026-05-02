@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AUTH_PATHS, PAGE_PATHS } from "../constants";
 import { getPageFromPathname } from "../utils/theme";
 
@@ -53,7 +53,7 @@ export function useAppNavigation({ authenticated }: UseAppNavigationParams) {
     }
   }, [authenticated]);
 
-  function navigateToPage(nextPage: AppPage) {
+  const navigateToPage = useCallback((nextPage: AppPage) => {
     const pagePathMap: Record<AppPage, string> = {
       learn: PAGE_PATHS.learn,
       practice: PAGE_PATHS.practice,
@@ -68,15 +68,15 @@ export function useAppNavigation({ authenticated }: UseAppNavigationParams) {
       window.history.pushState({}, "", path);
     }
     setActivePage(nextPage);
-  }
+  }, []);
 
-  function navigateAuthMode(nextMode: AuthMode) {
+  const navigateAuthMode = useCallback((nextMode: AuthMode) => {
     const path = AUTH_PATHS[nextMode];
     if (window.location.pathname !== path) {
       window.history.pushState({}, "", path);
     }
     setAuthMode(nextMode);
-  }
+  }, []);
 
   return {
     authMode,
