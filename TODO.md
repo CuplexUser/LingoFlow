@@ -192,10 +192,10 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 
 ### Phase 17: Engagement features
 
-**Step 1 — Achievement system**
+**Step 1 — Achievement system** ✓ COMPLETE
 
-- [ ] `achievements` table: `id`, `user_id`, `achievement_type`, `earned_at`, `metadata`.
-- [ ] Define achievement types:
+- [x] `achievements` table: `id`, `user_id`, `achievement_id`, `earned_at`, `metadata_json`.
+- [x] Define achievement types:
   - Streak milestones (3-day, 7-day, 30-day, 100-day)
   - XP milestones (100, 500, 1000, 5000 XP)
   - Category mastery (complete a category at 80%+)
@@ -203,8 +203,8 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
   - Polyglot (practice 2+ languages)
   - Speed demon (10 correct in a row with no hints)
   - Night owl / early bird (practice at unusual hours)
-- [ ] Achievement check runs at session completion; newly earned ones show as a toast/modal.
-- [ ] Achievements page or section in StatsPage displaying earned badges with dates.
+- [x] Achievement check runs at session completion; newly earned ones show as a toast/modal.
+- [x] Achievements page or section in StatsPage displaying earned badges with dates.
 
 **Step 2 — Leaderboards**
 

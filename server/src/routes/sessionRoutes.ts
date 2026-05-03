@@ -395,6 +395,19 @@ function registerSessionRoutes(
       return { saved, categoryProgress };
     });
 
+    const unlockedAchievements = database.checkAndGrantAchievements(userId, {
+      streak: completion.saved.streak,
+      totalXp: completion.saved.totalXp ?? 0,
+      language,
+      category,
+      mastery: isPracticeSession ? (completion.categoryProgress?.mastery ?? 0) : completion.saved.mastery,
+      hintsUsed: safeHintsUsed,
+      revealedAnswers: safeRevealedAnswers,
+      score,
+      maxScore: effectiveMaxScore,
+      isPracticeSession
+    });
+
     return res.json({
       ok: true,
       evaluated: {
@@ -407,7 +420,8 @@ function registerSessionRoutes(
       streak: completion.saved.streak,
       learnerLevel: completion.saved.learnerLevel,
       mastery: isPracticeSession ? completion.categoryProgress?.mastery ?? 0 : completion.saved.mastery,
-      levelUnlocked: isPracticeSession ? completion.categoryProgress?.levelUnlocked ?? "a1" : completion.saved.levelUnlocked
+      levelUnlocked: isPracticeSession ? completion.categoryProgress?.levelUnlocked ?? "a1" : completion.saved.levelUnlocked,
+      unlockedAchievements
     });
   });
 }

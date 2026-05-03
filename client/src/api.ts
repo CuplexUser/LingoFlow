@@ -150,6 +150,14 @@ export type ContentStatsData = {
   coverage: Record<string, Record<string, ContentLevelStats>>;
 };
 
+export type Achievement = {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  earnedAt: string;
+};
+
 export type CompleteSessionResponse = {
   evaluated: {
     score: number;
@@ -161,6 +169,7 @@ export type CompleteSessionResponse = {
   learnerLevel?: number;
   mastery: number;
   levelUnlocked: string;
+  unlockedAchievements?: Achievement[];
 };
 
 type RawSessionQuestion = Record<string, unknown>;
@@ -433,6 +442,7 @@ export const api = {
     request<StatsData>(`/stats${language ? `?language=${encodeURIComponent(language)}` : ""}`),
   completeSession: (payload: SessionCompletePayload) =>
     request<CompleteSessionResponse>("/session/complete", { method: "POST", body: JSON.stringify(payload) }),
+  getAchievements: () => request<Achievement[]>("/user/achievements"),
   getCommunityContributions: (params: {
     scope?: "mine" | "all";
     status?: ContributionModerationStatus | "";

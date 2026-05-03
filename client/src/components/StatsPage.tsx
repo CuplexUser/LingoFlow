@@ -1,4 +1,5 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { api, type Achievement } from "../api";
 import type {
   CourseCategory,
   LanguageOption,
@@ -391,6 +392,19 @@ function ChartCard({ title, sub, right, children }: { title: string; sub?: strin
   );
 }
 
+function AchievementBadgeIcon({ icon }: { icon: string }) {
+  if (icon === "flame") return <svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 1c0 0-4 3-4 7a4 4 0 0 0 8 0c0-1.5-.8-2.8-1.5-3.5.1 1-.3 2-1 2.5C9 5.5 8 1 8 1Z"/></svg>;
+  if (icon === "star") return <svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 1l1.8 4H14l-3.4 2.5 1.3 4L8 9 4.1 11.5l1.3-4L2 5h4.2z"/></svg>;
+  if (icon === "trophy") return <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M4 2h8v5a4 4 0 0 1-8 0V2Zm-2 1h2m10 0h-2M8 11v2m-2 1h4"/></svg>;
+  if (icon === "lightning") return <svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M9 1L4 9h4l-1 6 6-8H9z"/></svg>;
+  if (icon === "globe") return <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c-2 2-2 8 0 12M8 2c2 2 2 8 0 12"/></svg>;
+  if (icon === "graduate") return <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><path d="M8 2L1 6l7 4 7-4-7-4Zm-4 5v4c0 1.7 1.8 3 4 3s4-1.3 4-3v-4"/></svg>;
+  if (icon === "medal") return <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><circle cx="8" cy="10" r="5"/><path d="M5 5 8 1l3 4"/></svg>;
+  if (icon === "moon") return <svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 1a7 7 0 1 0 7 7A5 5 0 0 1 8 1Z"/></svg>;
+  if (icon === "sun") return <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.2 3.2l1.4 1.4M11.4 11.4l1.4 1.4M11.4 4.6l-1.4 1.4M4.6 11.4l-1.4 1.4"/></svg>;
+  return <svg viewBox="0 0 16 16" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 1l1.8 4H14l-3.4 2.5 1.3 4L8 9 4.1 11.5l1.3-4L2 5h4.2z"/></svg>;
+}
+
 export function StatsPage({
   settings,
   progress,
@@ -400,6 +414,11 @@ export function StatsPage({
   languages,
   onNavigateToPractice
 }: StatsPageProps) {
+  const [achievements, setAchievements] = useState<Achievement[]>([]);
+  useEffect(() => {
+    api.getAchievements().then(setAchievements).catch(() => {});
+  }, []);
+
   const dailyXpHistory = statsData?.dailyXpHistory || [];
   const sessionsByDay = (statsData?.sessionsByDay || []).slice(-7);
   const errorTypes = statsData?.errorTypeTrend || [];
@@ -597,6 +616,24 @@ export function StatsPage({
               ))}
             </tbody>
           </table>
+        </ChartCard>
+      )}
+
+      {/* Achievements */}
+      {achievements.length > 0 && (
+        <ChartCard title="Achievements" sub={`${achievements.length} earned`}>
+          <div className="achievements-grid">
+            {achievements.map((a) => (
+              <div key={a.id} className="achievement-badge">
+                <div className="achievement-badge-icon"><AchievementBadgeIcon icon={a.icon} /></div>
+                <div className="achievement-badge-body">
+                  <span className="achievement-badge-name">{a.name}</span>
+                  <span className="achievement-badge-desc">{a.description}</span>
+                  <span className="achievement-badge-date mono">{a.earnedAt.slice(0, 10)}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </ChartCard>
       )}
     </div>

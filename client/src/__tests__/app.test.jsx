@@ -25,7 +25,8 @@ const apiMock = vi.hoisted(() => ({
   getStats: vi.fn(),
   saveSettings: vi.fn(),
   startSession: vi.fn(),
-  completeSession: vi.fn()
+  completeSession: vi.fn(),
+  getAchievements: vi.fn().mockResolvedValue([])
 }));
 
 vi.mock("../api", () => ({
@@ -367,4 +368,75 @@ test("mistake review session completes locally without calling completeSession A
 
   expect(apiMock.completeSession).not.toHaveBeenCalled();
   expect(await screen.findByText("Mistake drill complete: 1/1.")).toBeInTheDocument();
+});
+
+test("achievement toast appears after session completion when achievements are unlocked", async () => {
+  setupApiFixtures();
+  const user = userEvent.setup();
+  apiMock.completeSession.mockResolvedValue({
+    evaluated: { score: 1, maxScore: 1, mistakes: 0 },
+    xpGained: 50,
+    mastery: 30,
+    levelUnlocked: "a1",
+    learnerLevel: 1,
+    streak: 1,
+    unlockedAchievements: [
+      { id: "xp_100", name: "Getting Started", description: "Earned 100 XP", icon: "star", earnedAt: "2026-05-03T10:00:00Z" }
+    ]
+  });
+  window.localStorage.setItem("lingoflow_active_session", JSON.stringify({
+    sessionId: "s-ach",
+    language: "spanish",
+    category: "essentials",
+    categoryLabel: "Essentials",
+    recommendedLevel: "a1",
+    questions: [{ id: "q1", type: "mc_sentence", prompt: "Pick yes", answer: "Sí", options: ["Sí", "No"] }]
+  }));
+
+  render(<App />);
+  await screen.findByText("Pick yes");
+  await user.click(screen.getByRole("button", { name: "Sí" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(await screen.findByText("Achievement unlocked!")).toBeInTheDocument();
+  expect(screen.getByText("Getting Started")).toBeInTheDocument();
+  expect(screen.getByText("Earned 100 XP")).toBeInTheDocument();
+});
+
+test("achievement toast is dismissed when the close button is clicked", async () => {
+  setupApiFixtures();
+  const user = userEvent.setup();
+  apiMock.completeSession.mockResolvedValue({
+    evaluated: { score: 1, maxScore: 1, mistakes: 0 },
+    xpGained: 50,
+    mastery: 30,
+    levelUnlocked: "a1",
+    learnerLevel: 1,
+    streak: 1,
+    unlockedAchievements: [
+      { id: "streak_3", name: "On a Roll", description: "Maintained a 3-day practice streak", icon: "flame", earnedAt: "2026-05-03T10:00:00Z" }
+    ]
+  });
+  window.localStorage.setItem("lingoflow_active_session", JSON.stringify({
+    sessionId: "s-ach2",
+    language: "spanish",
+    category: "essentials",
+    categoryLabel: "Essentials",
+    recommendedLevel: "a1",
+    questions: [{ id: "q1", type: "mc_sentence", prompt: "Pick no", answer: "No", options: ["No", "Sí"] }]
+  }));
+
+  render(<App />);
+  await screen.findByText("Pick no");
+  await user.click(screen.getByRole("button", { name: "No" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  await screen.findByText("Achievement unlocked!");
+  expect(screen.getByText("On a Roll")).toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "Dismiss" }));
+
+  await waitFor(() => {
+    expect(screen.queryByText("Achievement unlocked!")).not.toBeInTheDocument();
+  });
 });

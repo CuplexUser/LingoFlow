@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   api,
+  type Achievement,
   type Bookmark,
   type AuthSuccessPayload,
   type AuthUser,
@@ -46,6 +47,7 @@ export function AppProvider({ children }: AppProviderProps) {
   const [loading, setLoading] = useState(true);
 
   // ===== Session state =====
+  const [achievementUnlocks, setAchievementUnlocks] = useState<Achievement[]>([]);
   const [statusMessage, setStatusMessage] = useState("");
   const [sessionShareLine, setSessionShareLine] = useState("");
   const [mistakeReviewOffer, setMistakeReviewOffer] = useState<MistakeReviewOffer | null>(null);
@@ -618,6 +620,9 @@ export function AppProvider({ children }: AppProviderProps) {
         `(mistakes: ${result.evaluated.mistakes}). +${result.xpGained} XP. ` +
         `Mastery ${result.mastery.toFixed(1)}% (${result.levelUnlocked.toUpperCase()})`
       );
+      if (result.unlockedAchievements && result.unlockedAchievements.length > 0) {
+        setAchievementUnlocks(result.unlockedAchievements);
+      }
       setActiveSessionsByLanguage((prev) => {
         const next = { ...prev };
         delete next[completedSession.language];
@@ -778,12 +783,16 @@ export function AppProvider({ children }: AppProviderProps) {
     switchCourseLanguage, saveSetup, submitContribution, loadContributions,
     updateContributionStatus, removeBookmark]);
 
+  const clearAchievementUnlocks = useCallback(() => setAchievementUnlocks([]), []);
+
   const sessionValue = useMemo<SessionContextValue>(() => ({
     activeCourseLanguage,
     activeSession,
     mistakeReviewOffer,
     sessionShareLine,
     statusMessage,
+    achievementUnlocks,
+    clearAchievementUnlocks,
     startCategory,
     startPractice,
     startDailyChallenge,
@@ -795,6 +804,7 @@ export function AppProvider({ children }: AppProviderProps) {
     clearActiveSession,
     saveSessionSnapshot
   }), [activeCourseLanguage, activeSession, mistakeReviewOffer, sessionShareLine, statusMessage,
+    achievementUnlocks, clearAchievementUnlocks,
     startCategory, startPractice, startDailyChallenge, finishSession, startMistakeReview,
     copySessionSummary, shareToPlatform, shareWithNative, clearActiveSession, saveSessionSnapshot]);
 

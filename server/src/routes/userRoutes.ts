@@ -53,6 +53,11 @@ function registerUserRoutes(app: any, deps: any): void {
     res.json(row);
   });
 
+  app.get("/api/user/achievements", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    res.json(database.getUserAchievements(userId));
+  });
+
   app.get("/api/progress", requireAuth, (req: any, res: any) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "").toLowerCase();

@@ -1,4 +1,5 @@
 import { createContext, useContext } from "react";
+import type { Achievement } from "../api";
 import type { CourseCategory } from "../types/course";
 import type { ActiveSession, PracticeMode, SessionReport, SessionSnapshot } from "../types/session";
 
@@ -15,6 +16,8 @@ export type SessionContextValue = {
   mistakeReviewOffer: MistakeReviewOffer | null;
   sessionShareLine: string;
   statusMessage: string;
+  achievementUnlocks: Achievement[];
+  clearAchievementUnlocks: () => void;
   startCategory: (category: CourseCategory) => Promise<void>;
   startPractice: (mode: PracticeMode, category: CourseCategory) => Promise<void>;
   startDailyChallenge: () => Promise<void>;

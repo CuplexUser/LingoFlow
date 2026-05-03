@@ -483,6 +483,15 @@ db.exec(`
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(user_id, question_id)
   );
+
+  CREATE TABLE IF NOT EXISTS achievements (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    achievement_id TEXT NOT NULL,
+    earned_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    metadata_json TEXT NOT NULL DEFAULT '{}',
+    UNIQUE(user_id, achievement_id)
+  );
 `);
 
 db.exec(`
@@ -516,6 +525,8 @@ db.exec(`
   ON progress(user_id);
   CREATE INDEX IF NOT EXISTS idx_bookmarks_user
   ON bookmarks(user_id, created_at DESC);
+  CREATE INDEX IF NOT EXISTS idx_achievements_user
+  ON achievements(user_id, earned_at DESC);
 `);
 
 function ensureSettingsColumns() {
@@ -2191,6 +2202,7 @@ function recordSession({
 
   return {
     xpGained,
+    totalXp,
     streak: nextStreak,
     learnerLevel,
     mastery: Number(newMastery.toFixed(1)),
@@ -2261,6 +2273,114 @@ function recordPracticeXp({
   };
 }
 
+const ACHIEVEMENT_DEFS: Record<string, { name: string; description: string; icon: string }> = {
+  streak_3:   { name: "On a Roll",         description: "Maintained a 3-day practice streak",       icon: "flame" },
+  streak_7:   { name: "Weekly Warrior",    description: "Maintained a 7-day practice streak",       icon: "flame" },
+  streak_30:  { name: "Monthly Master",    description: "Maintained a 30-day practice streak",      icon: "flame" },
+  streak_100: { name: "Century Champion",  description: "Maintained a 100-day practice streak",     icon: "trophy" },
+  xp_100:     { name: "Getting Started",   description: "Earned 100 XP",                            icon: "star" },
+  xp_500:     { name: "Committed Learner", description: "Earned 500 XP",                            icon: "star" },
+  xp_1000:    { name: "XP Milestone",      description: "Earned 1,000 XP",                          icon: "star" },
+  xp_5000:    { name: "Elite Learner",     description: "Earned 5,000 XP",                          icon: "trophy" },
+  polyglot:   { name: "Polyglot",          description: "Practiced 2 or more languages",            icon: "globe" },
+  speed_demon:{ name: "Speed Demon",       description: "Perfect session (10+ questions, no hints)", icon: "lightning" },
+  night_owl:  { name: "Night Owl",         description: "Practiced between midnight and 4 AM",      icon: "moon" },
+  early_bird: { name: "Early Bird",        description: "Practiced between 5 AM and 7 AM",          icon: "sun" }
+};
+
+function resolveAchievementDef(achievementId: string) {
+  if (ACHIEVEMENT_DEFS[achievementId]) return ACHIEVEMENT_DEFS[achievementId];
+  if (achievementId.startsWith("mastery_")) {
+    const parts = achievementId.split("_");
+    const category = parts.slice(2).join("_");
+    return { name: "Category Master", description: `Reached 80%+ mastery in ${category.replace(/_/g, " ")}`, icon: "graduate" };
+  }
+  if (achievementId.startsWith("completionist_")) {
+    const lang = achievementId.replace("completionist_", "");
+    return { name: "Completionist", description: `Mastered 10+ categories in ${lang}`, icon: "medal" };
+  }
+  return { name: achievementId, description: "", icon: "star" };
+}
+
+function checkAndGrantAchievements(userId: number, params: {
+  streak: number;
+  totalXp: number;
+  language: string;
+  category: string;
+  mastery: number;
+  hintsUsed: number;
+  revealedAnswers: number;
+  score: number;
+  maxScore: number;
+  isPracticeSession?: boolean;
+}) {
+  const { streak, totalXp, language, category, mastery, hintsUsed, revealedAnswers, score, maxScore, isPracticeSession = false } = params;
+  const newlyUnlocked: Array<{ id: string; name: string; description: string; icon: string; earnedAt: string }> = [];
+
+  const existingIds = new Set<string>(
+    (db.prepare("SELECT achievement_id FROM achievements WHERE user_id = ?").all(userId) as any[])
+      .map((r: any) => String(r.achievement_id))
+  );
+
+  function tryGrant(achievementId: string) {
+    if (existingIds.has(achievementId)) return;
+    try {
+      const info = db.prepare("INSERT OR IGNORE INTO achievements (user_id, achievement_id) VALUES (?, ?)").run(userId, achievementId);
+      if ((info as any).changes > 0) {
+        const row: any = db.prepare("SELECT earned_at FROM achievements WHERE user_id = ? AND achievement_id = ?").get(userId, achievementId);
+        newlyUnlocked.push({ id: achievementId, ...resolveAchievementDef(achievementId), earnedAt: row?.earned_at || new Date().toISOString() });
+      }
+    } catch (_err) {
+      // ignore constraint errors
+    }
+  }
+
+  for (const days of [3, 7, 30, 100]) {
+    if (streak >= days) tryGrant(`streak_${days}`);
+  }
+
+  for (const xp of [100, 500, 1000, 5000]) {
+    if (totalXp >= xp) tryGrant(`xp_${xp}`);
+  }
+
+  if (!isPracticeSession && mastery >= 80) {
+    tryGrant(`mastery_${language}_${category}`);
+  }
+
+  if (!isPracticeSession) {
+    const row: any = db.prepare(
+      "SELECT COUNT(*) as cnt FROM category_progress WHERE user_id = ? AND language = ? AND mastery >= 50"
+    ).get(userId, language);
+    if ((row?.cnt || 0) >= 10) tryGrant(`completionist_${language}`);
+  }
+
+  const langRow: any = db.prepare(
+    "SELECT COUNT(DISTINCT language) as cnt FROM language_progress WHERE user_id = ? AND total_xp > 0"
+  ).get(userId);
+  if ((langRow?.cnt || 0) >= 2) tryGrant("polyglot");
+
+  if (!isPracticeSession && score >= 10 && score === maxScore && hintsUsed === 0 && revealedAnswers === 0) {
+    tryGrant("speed_demon");
+  }
+
+  const hour = new Date().getHours();
+  if (hour >= 0 && hour < 4) tryGrant("night_owl");
+  if (hour >= 5 && hour <= 7) tryGrant("early_bird");
+
+  return newlyUnlocked;
+}
+
+function getUserAchievements(userId: number) {
+  const rows: any[] = db.prepare(
+    "SELECT achievement_id, earned_at, metadata_json FROM achievements WHERE user_id = ? ORDER BY earned_at DESC"
+  ).all(userId) as any[];
+  return rows.map((row: any) => ({
+    id: row.achievement_id,
+    ...resolveAchievementDef(row.achievement_id),
+    earnedAt: row.earned_at
+  }));
+}
+
 function runInTransaction(operation) {
   const tx = db.transaction(operation);
   return tx();
@@ -2309,6 +2429,8 @@ module.exports = {
   getStats,
   recordSession,
   recordPracticeXp,
+  checkAndGrantAchievements,
+  getUserAchievements,
   runInTransaction,
   addDailyXp,
   toIsoDate,
