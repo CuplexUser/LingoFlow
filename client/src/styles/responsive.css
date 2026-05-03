@@ -1,0 +1,14 @@
+/* responsive overrides for redesigned sections */
+@media (max-width: 900px) {
+  .learn-hero              { grid-template-columns: 1fr; }
+  .learn-hero-meta         { grid-template-columns: 1fr 1fr; }
+  .recommended-card        { grid-template-columns: 1fr; }
+  .recommended-stats       { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stats-hero              { grid-template-columns: 1fr; gap: 22px; }
+  .kpi-grid                { grid-template-columns: 1fr 1fr; }
+  .charts-2col             { grid-template-columns: 1fr; }
+  .errors-layout           { grid-template-columns: 1fr; }
+  .rail-row                { grid-template-columns: 1fr minmax(0, 1fr) 56px; }
+  .lang-row-new            { grid-template-columns: 1fr 60px 80px 60px; }
+  .lang-row-new > *:nth-child(5) { display: none; }
+}

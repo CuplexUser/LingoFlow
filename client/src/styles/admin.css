@@ -1,0 +1,120 @@
+.admin-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.admin-tab-btn {
+  padding: 8px 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px 6px 0 0;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-bottom: none;
+  opacity: 0.65;
+}
+
+.admin-tab-btn.active {
+  background: var(--bg, #fff);
+  opacity: 1;
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+}
+
+.contribution-list {
+  display: grid;
+  gap: 12px;
+}
+
+.contribution-card {
+  display: grid;
+  gap: 10px;
+}
+
+.contribution-status {
+  text-transform: capitalize;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  background: var(--surface);
+}
+
+.contribution-status.status-pending {
+  color: #8a5a00;
+}
+
+.contribution-status.status-approved {
+  color: #1d6d35;
+}
+
+.contribution-status.status-rejected {
+  color: #9a3030;
+}
+
+.contribution-status.status-changes_requested {
+  color: #5a3d8a;
+}
+
+.reviewer-feedback {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.reviewer-comment-form {
+  display: grid;
+  gap: 10px;
+}
+
+.reviewer-comment-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.batch-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+
+.batch-select-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.batch-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.batch-comment-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+}
