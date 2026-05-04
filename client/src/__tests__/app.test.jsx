@@ -118,7 +118,8 @@ function setupApiFixtures() {
     weeklyGoalSessions: 5,
     weakestCategories: ["essentials"],
     objectiveStats: [{ objective: "grammar-a1", accuracy: 55 }],
-    errorTypeTrend: [{ errorType: "word_order", count: 4 }]
+    errorTypeTrend: [{ errorType: "word_order", count: 4 }],
+    mistakeReviewCount: 6
   });
   apiMock.getProgressOverview.mockResolvedValue({
     totalXp: 20,
@@ -290,6 +291,46 @@ test("learn page shows recommended section and category cards", async () => {
   await screen.findByText("Recommended next");
   expect(screen.getByRole("button", { name: /Start recommended session/i })).toBeInTheDocument();
   expect(screen.getAllByRole("button", { name: /Start|Continue/i }).length).toBeGreaterThan(0);
+});
+
+test("practice page starts previous mistakes practice from the new card", async () => {
+  setupApiFixtures();
+  const user = userEvent.setup();
+  apiMock.startSession.mockResolvedValue({
+    sessionId: "mistakes-1",
+    language: "spanish",
+    category: "__mistakes__",
+    categoryLabel: "Previous Mistakes",
+    recommendedLevel: "a1",
+    practiceMode: "mistakes",
+    questions: [
+      {
+        id: "q-missed",
+        type: "mc_sentence",
+        prompt: "Pick hello",
+        answer: "Hola",
+        options: ["Hola", "Adios"]
+      }
+    ]
+  });
+
+  render(<App />);
+
+  await screen.findByText("LingoFlow");
+  await user.click(screen.getByRole("button", { name: "Practice" }));
+
+  expect(await screen.findByText("Previous Mistakes")).toBeInTheDocument();
+  expect(screen.getByText("6 items ready for review.")).toBeInTheDocument();
+
+  await user.click(screen.getByRole("button", { name: "Review Mistakes" }));
+
+  await waitFor(() => expect(apiMock.startSession).toHaveBeenCalledWith({
+    language: "spanish",
+    category: "__mistakes__",
+    count: 10,
+    mode: "mistakes"
+  }));
+  expect(await screen.findByText("Pick hello")).toBeInTheDocument();
 });
 
 test("shows updated level-up style session status after completion", async () => {

@@ -274,6 +274,73 @@ test("practice sessions award fixed XP and update progress", async (t) => {
   assert.equal(progress.todayXp, expectedTotal);
 });
 
+test("mistake practice starts from previous mistakes across categories", async (t) => {
+  const app = createApp();
+  const server = app.listen(0);
+  t.after(() => server.close());
+  const { port } = server.address();
+  const base = `http://127.0.0.1:${port}`;
+  const authHeaders = await createAuthHeaders(base, "mistakes-practice");
+
+  async function startLesson(category) {
+    const response = await fetch(`${base}/api/session/start`, {
+      method: "POST",
+      headers: authHeaders,
+      body: JSON.stringify({
+        language: "spanish",
+        category,
+        count: 6
+      })
+    });
+    assert.equal(response.status, 200);
+    return response.json();
+  }
+
+  async function completeLesson(session, attempts) {
+    const response = await fetch(`${base}/api/session/complete`, {
+      method: "POST",
+      headers: authHeaders,
+      body: JSON.stringify({
+        sessionId: session.sessionId,
+        language: "spanish",
+        category: session.category,
+        attempts,
+        hintsUsed: 0,
+        revealedAnswers: 0
+      })
+    });
+    assert.equal(response.status, 200);
+    return response.json();
+  }
+
+  const essentials = await startLesson("essentials");
+  const travel = await startLesson("travel");
+  await completeLesson(essentials, essentials.questions.map((question, index) =>
+    index === 0 ? makeWrongAttempt(question) : makeAttempt(question)
+  ));
+  await completeLesson(travel, travel.questions.map((question, index) =>
+    index === 0 ? makeWrongAttempt(question) : makeAttempt(question)
+  ));
+
+  const mistakesRes = await fetch(`${base}/api/session/start`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({
+      language: "spanish",
+      category: "__mistakes__",
+      count: 6,
+      mode: "mistakes"
+    })
+  });
+  assert.equal(mistakesRes.status, 200);
+  const mistakes = await mistakesRes.json();
+  assert.equal(mistakes.practiceMode, "mistakes");
+  assert.equal(mistakes.category, "__mistakes__");
+  assert.ok(mistakes.questions.length >= 2);
+  assert.ok(mistakes.questions.some((question) => question.sourceCategory === "essentials"));
+  assert.ok(mistakes.questions.some((question) => question.sourceCategory === "travel"));
+});
+
 test("settings and progress overview normalize invalid language ids", async (t) => {
   const app = createApp();
   const server = app.listen(0);

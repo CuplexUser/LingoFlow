@@ -37,6 +37,7 @@ export function PageRouter() {
   const {
     activeCourseLanguage,
     activeSession,
+    mistakeReviewCount,
     startCategory,
     startDailyChallenge,
     finishSession,
@@ -83,6 +84,7 @@ export function PageRouter() {
       <PracticePage
         courseCategories={courseCategories}
         activeSession={activeSession}
+        mistakeReviewCount={mistakeReviewCount}
         onStartPractice={startPractice}
         onFinishSession={finishSession}
         onExitSession={() => {

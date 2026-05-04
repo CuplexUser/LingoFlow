@@ -1,4 +1,4 @@
-export type PracticeMode = "speak" | "listen" | "words";
+export type PracticeMode = "speak" | "listen" | "words" | "mistakes";
 
 type SessionQuestionBase = {
   id: string;

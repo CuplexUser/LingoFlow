@@ -78,6 +78,7 @@ export type StatsData = {
   }>;
   sessionsByDay?: Array<{ date: string; sessions: number }>;
   dailyXpHistory?: Array<{ date: string; xp: number }>;
+  mistakeReviewCount?: number;
 };
 
 export type LanguageProgressOverview = {

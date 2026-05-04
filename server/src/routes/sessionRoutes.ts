@@ -98,10 +98,17 @@ function registerSessionRoutes(
     }
 
     database.pruneExpiredActiveSessions(userId, database.toIsoDate());
-    const mastery = database.getCategoryMastery(userId, language, category);
+    const safeCount = Number.isInteger(count) ? Math.max(6, Math.min(15, count)) : 10;
+    const isMistakesMode = String(mode || "") === "mistakes";
+    const mastery = isMistakesMode ? 0 : database.getCategoryMastery(userId, language, category);
     const settings = database.getSettings(userId);
-    const recentAccuracy = database.getRecentCategoryAccuracy(userId, language, category, 5);
-    const hints = database.getItemSelectionHints(userId, language, category, database.toIsoDate());
+    const recentAccuracy = isMistakesMode ? null : database.getRecentCategoryAccuracy(userId, language, category, 5);
+    const hints = isMistakesMode
+      ? { dueItemIds: [], weakItemIds: [] }
+      : database.getItemSelectionHints(userId, language, category, database.toIsoDate());
+    const mistakeSelection = isMistakesMode
+      ? database.getMistakeReviewSelection(userId, language, safeCount)
+      : { itemIds: [], count: 0, categories: [] };
     const session = generateSession({
       language,
       category,
@@ -110,11 +117,15 @@ function registerSessionRoutes(
       selfRatedLevel: settings.selfRatedLevel,
       dueItemIds: hints.dueItemIds,
       weakItemIds: hints.weakItemIds,
-      count: Number.isInteger(count) ? Math.max(6, Math.min(15, count)) : 10,
+      focusItemIds: mistakeSelection.itemIds,
+      count: safeCount,
       mode
     });
 
     if (!session.questions.length) {
+      if (isMistakesMode) {
+        return res.status(404).json({ error: "No previous mistakes are ready for review" });
+      }
       return res.status(404).json({ error: "No exercises found for this category" });
     }
 
@@ -137,7 +148,9 @@ function registerSessionRoutes(
       recommendedLevel: session.recommendedLevel,
       difficultyMultiplier: session.difficultyMultiplier,
       questions: session.questions,
-      practiceMode: mode || ""
+      practiceMode: mode || "",
+      mistakeReviewCount: mistakeSelection.count,
+      mistakeReviewCategories: mistakeSelection.categories
     });
   });
 
@@ -246,8 +259,11 @@ function registerSessionRoutes(
     const questionMap = new Map<string, SessionQuestion>(
       session.questions.map((question: SessionQuestion) => [question.id, question])
     );
-    const isPracticeSession = session.questions.length > 0 &&
-      session.questions.every((question: SessionQuestion) => String(question.type || "").startsWith("practice_"));
+    const isMistakePracticeSession = session.category === "__mistakes__";
+    const isPracticeSession = isMistakePracticeSession || (
+      session.questions.length > 0 &&
+      session.questions.every((question: SessionQuestion) => String(question.type || "").startsWith("practice_"))
+    );
     let score = 0;
     let mistakes = 0;
     const practiceQuestionStats = isPracticeSession
@@ -313,8 +329,17 @@ function registerSessionRoutes(
     const safeRevealedAnswers = Number.isFinite(revealedAnswers)
       ? Math.max(0, Math.floor(revealedAnswers))
       : 0;
-    const practiceXp = isPracticeSession ? getPracticeXp(session.questions, score) : 0;
-    const xp = isPracticeSession
+    const practiceXp = isPracticeSession && !isMistakePracticeSession ? getPracticeXp(session.questions, score) : 0;
+    const xp = isMistakePracticeSession
+      ? calculateXp({
+        score,
+        maxScore: effectiveMaxScore,
+        mistakes,
+        hintsUsed: safeHintsUsed,
+        revealedAnswers: safeRevealedAnswers,
+        difficultyLevel: session.difficultyLevel
+      })
+      : isPracticeSession
       ? { xpGained: practiceXp, accuracy: effectiveMaxScore > 0 ? score / effectiveMaxScore : 0 }
       : calculateXp({
         score,
@@ -354,12 +379,13 @@ function registerSessionRoutes(
           today
         });
 
-      if (!isPracticeSession) {
+      if (!isPracticeSession || isMistakePracticeSession) {
         evaluatedAttempts.forEach((entry) => {
+          const entryCategory = String((entry.question as any).sourceCategory || session.category);
           database.upsertItemProgressAttempt({
             userId,
             language,
-            category,
+            category: entryCategory,
             itemId: entry.question.id,
             objective: entry.question.objective || "",
             correct: entry.correct,
@@ -370,7 +396,7 @@ function registerSessionRoutes(
             userId,
             sessionId,
             language,
-            category,
+            category: entryCategory,
             itemId: entry.question.id,
             objective: entry.question.objective || "",
             questionType: entry.question.type || "",
@@ -380,7 +406,7 @@ function registerSessionRoutes(
           database.recordExerciseUsage({
             userId,
             language,
-            category,
+            category: entryCategory,
             itemId: entry.question.id,
             correct: entry.correct
           });

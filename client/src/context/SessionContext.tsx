@@ -14,6 +14,7 @@ export type SessionContextValue = {
   activeCourseLanguage: string;
   activeSession: ActiveSession | null;
   mistakeReviewOffer: MistakeReviewOffer | null;
+  mistakeReviewCount: number;
   sessionShareLine: string;
   statusMessage: string;
   achievementUnlocks: Achievement[];

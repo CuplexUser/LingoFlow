@@ -88,6 +88,7 @@ export function AppProvider({ children }: AppProviderProps) {
     activeCourseLanguage,
     setActiveCourseLanguage
   });
+  const mistakeReviewCount = statsData?.mistakeReviewCount ?? 0;
 
   // ===== Bookmarks & contributions =====
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
@@ -789,6 +790,7 @@ export function AppProvider({ children }: AppProviderProps) {
     activeCourseLanguage,
     activeSession,
     mistakeReviewOffer,
+    mistakeReviewCount,
     sessionShareLine,
     statusMessage,
     achievementUnlocks,
@@ -803,7 +805,7 @@ export function AppProvider({ children }: AppProviderProps) {
     shareWithNative,
     clearActiveSession,
     saveSessionSnapshot
-  }), [activeCourseLanguage, activeSession, mistakeReviewOffer, sessionShareLine, statusMessage,
+  }), [activeCourseLanguage, activeSession, mistakeReviewOffer, mistakeReviewCount, sessionShareLine, statusMessage,
     achievementUnlocks, clearAchievementUnlocks,
     startCategory, startPractice, startDailyChallenge, finishSession, startMistakeReview,
     copySessionSummary, shareToPlatform, shareWithNative, clearActiveSession, saveSessionSnapshot]);

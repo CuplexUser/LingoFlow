@@ -132,7 +132,12 @@ function createCourseSelectors(course) {
 
   function getAllItems(language) {
     const catalog = course[language] || {};
-    return CATEGORIES.flatMap((category) => catalog[category.id] || []);
+    return CATEGORIES.flatMap((category) =>
+      (catalog[category.id] || []).map((item) => ({
+        ...item,
+        category: item.category || category.id
+      }))
+    );
   }
 
   function getCourseOverview(language) {
@@ -365,6 +370,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     answerEnglish: answerEnglish || undefined,
     acceptedAnswers: buildAcceptedAnswers(answer),
     objective: deriveObjective(category, item.level),
+    sourceCategory: item.category || category,
     expectedMistakeTypes: getMistakeProfile(category),
     ...buildMediaFields(item)
   };
@@ -588,6 +594,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     selfRatedLevel = "a1",
     dueItemIds = [],
     weakItemIds = [],
+    focusItemIds = [],
     mode,
     random,
     dailyMode = false
@@ -602,6 +609,32 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       return {
         recommendedLevel: "a1",
         questions: []
+      };
+    }
+
+    if (mode === "mistakes") {
+      const focusSet = new Set(focusItemIds);
+      const focusRank = new Map(focusItemIds.map((id, index) => [id, index]));
+      const selected = all
+        .filter((item) => focusSet.has(item.id))
+        .sort((left, right) => (focusRank.get(left.id) ?? 9999) - (focusRank.get(right.id) ?? 9999))
+        .slice(0, count);
+
+      if (!selected.length) {
+        return { recommendedLevel: selfRatedLevel, questions: [] };
+      }
+
+      const sourcePool = all;
+      const plannedTypes = buildQuestionTypePlan(selected);
+      const questions = selected.map((item, idx) => {
+        const itemCategory = item.category || category;
+        return createQuestion(item, sourcePool, plannedTypes[idx], itemCategory, language, new Map(), randomFn);
+      });
+
+      return {
+        recommendedLevel: selfRatedLevel,
+        difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
+        questions
       };
     }
 

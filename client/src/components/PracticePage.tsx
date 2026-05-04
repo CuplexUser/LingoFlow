@@ -6,6 +6,7 @@ import type { ActiveSession, PracticeMode, SessionReport, SessionSnapshot } from
 type PracticePageProps = {
   courseCategories: CourseCategory[];
   activeSession: ActiveSession | null;
+  mistakeReviewCount?: number;
   onStartPractice: (mode: PracticeMode, category: CourseCategory) => void | Promise<void>;
   onFinishSession: (sessionReport: SessionReport) => void | Promise<void>;
   onExitSession: () => void;
@@ -31,6 +32,11 @@ const PRACTICE_MODES: Array<{
     id: "words",
     title: "Words",
     description: "Quick tap-to-match 8 words. No dragging."
+  },
+  {
+    id: "mistakes",
+    title: "Previous Mistakes",
+    description: "Review weak items from across every category."
   }
 ];
 
@@ -43,6 +49,7 @@ function pickPracticeCategory(courseCategories: CourseCategory[]): CourseCategor
 export function PracticePage({
   courseCategories,
   activeSession,
+  mistakeReviewCount = 0,
   onStartPractice,
   onFinishSession,
   onExitSession,
@@ -50,6 +57,19 @@ export function PracticePage({
 }: PracticePageProps) {
   const practiceCategory = pickPracticeCategory(courseCategories);
   const preferredLabel = practiceCategory?.label || "your course";
+  const mistakesCategory: CourseCategory = {
+    id: "__mistakes__",
+    label: "Previous Mistakes",
+    description: "Weak items from across your course history.",
+    totalPhrases: mistakeReviewCount,
+    levels: [],
+    mastery: 0,
+    attempts: 0,
+    accuracy: 0,
+    levelUnlocked: "a1",
+    unlocked: mistakeReviewCount > 0,
+    lockReason: "Mistakes will appear here after you miss items in lessons."
+  };
 
   if (activeSession) {
     return (
@@ -86,12 +106,25 @@ export function PracticePage({
         </div>
 
         <div className="category-grid compact-grid">
-          {PRACTICE_MODES.map((mode) => (
-            <article key={mode.id} className="category-card">
+          {PRACTICE_MODES.map((mode) => {
+            const isMistakesMode = mode.id === "mistakes";
+            const targetCategory = isMistakesMode ? mistakesCategory : practiceCategory;
+            const disabled = isMistakesMode ? mistakeReviewCount < 6 : !practiceCategory;
+            return (
+              <article
+                key={mode.id}
+                className={`category-card${isMistakesMode ? " mistakes-card" : ""}${disabled ? " locked" : ""}`}
+              >
               <div>
                 <h3>{mode.title}</h3>
                 <p>{mode.description}</p>
-                {practiceCategory ? (
+                {isMistakesMode ? (
+                  <p className="lock-note">
+                    {mistakeReviewCount > 0
+                      ? `${mistakeReviewCount} item${mistakeReviewCount === 1 ? "" : "s"} ready for review.`
+                      : "No saved mistakes yet."}
+                  </p>
+                ) : practiceCategory ? (
                   <p className="lock-note">Using {preferredLabel} as a base.</p>
                 ) : (
                   <p className="lock-note">No practice category available.</p>
@@ -100,15 +133,16 @@ export function PracticePage({
               <button
                 className="primary-button"
                 onClick={() => {
-                  if (!practiceCategory) return;
-                  onStartPractice(mode.id, practiceCategory);
+                  if (!targetCategory) return;
+                  onStartPractice(mode.id, targetCategory);
                 }}
-                disabled={!practiceCategory}
+                disabled={disabled}
               >
-                Start Practice
+                {isMistakesMode ? "Review Mistakes" : "Start Practice"}
               </button>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
     </>

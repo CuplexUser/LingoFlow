@@ -24,7 +24,7 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 - **Matching** — pair prompts to answers
 - **Pronunciation** — Web Speech API recognition, accepts ≥ 90% similarity
 - **Roleplay** — guided dialogue completion
-- **Practice modes** — dedicated speaking, listening, and word-matching drill sessions
+- **Practice modes** — dedicated speaking, listening, word-matching, and previous-mistakes drill sessions; the mistakes mode pulls the worst-performing items across all categories, ranked by error count then accuracy
 
 ### Session Experience
 
@@ -230,7 +230,7 @@ npm run verify          # Lint + client tests
 | `POST` | `/api/auth/delete-account` | Delete account (local auth only) |
 | `GET` | `/api/course?language=<id>` | Course catalog with progress |
 | `GET` | `/api/content/metrics?language=<id>` | Level coverage metrics |
-| `POST` | `/api/session/start` | Start a new session |
+| `POST` | `/api/session/start` | Start a new session; pass `mode: "mistakes"` and `category: "__mistakes__"` for a cross-category mistake review |
 | `POST` | `/api/session/daily` | Start the daily challenge |
 | `POST` | `/api/session/complete` | Submit session results |
 | `GET` | `/api/settings` | Get learner settings |

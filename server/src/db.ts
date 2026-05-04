@@ -1537,6 +1537,36 @@ function getItemSelectionHints(userId = 1, language, category, today = toIsoDate
   };
 }
 
+function getMistakeReviewSelection(userId = 1, language, limit = 10) {
+  const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(20, limit)) : 10;
+  const rows = db.prepare(`
+    SELECT
+      item_id,
+      category,
+      attempts,
+      correct,
+      error_count,
+      last_error_type,
+      last_seen_date
+    FROM item_progress
+    WHERE user_id = ?
+      AND language = ?
+      AND attempts > 0
+      AND (error_count > 0 OR correct < attempts)
+    ORDER BY
+      error_count DESC,
+      CASE WHEN attempts > 0 THEN CAST(correct AS REAL) / attempts ELSE 0 END ASC,
+      COALESCE(last_seen_date, '') DESC
+    LIMIT ?
+  `).all(userId, language, safeLimit);
+
+  return {
+    itemIds: rows.map((row) => row.item_id),
+    count: rows.length,
+    categories: Array.from(new Set(rows.map((row) => row.category).filter(Boolean)))
+  };
+}
+
 function recordExerciseUsage({
   userId = 1,
   language,
@@ -2060,6 +2090,15 @@ function getStats(userId = 1, language) {
     xp: row.xp
   }));
 
+  const mistakeReviewCount = (db.prepare(`
+    SELECT COUNT(*) as count
+    FROM item_progress
+    WHERE user_id = ?
+      AND language = ?
+      AND attempts > 0
+      AND (error_count > 0 OR correct < attempts)
+  `).get(userId, safeLanguage) as { count: number }).count;
+
   const masteredCount = categoryProgress.filter((item) => item.mastery >= 75).length;
   const completionPercent = categoryProgress.length
     ? Math.round(categoryProgress.reduce((sum, item) => sum + item.mastery, 0) / categoryProgress.length)
@@ -2097,7 +2136,8 @@ function getStats(userId = 1, language) {
     errorTypeTrend,
     objectiveStats,
     usageStats,
-    dailyXpHistory
+    dailyXpHistory,
+    mistakeReviewCount
   };
 }
 
@@ -2411,6 +2451,7 @@ module.exports = {
   recordAttemptHistory,
   recordExerciseUsage,
   getItemSelectionHints,
+  getMistakeReviewSelection,
   getCategoryRecommendations,
   createCommunityExercise,
   listCommunityExercises,
