@@ -341,9 +341,17 @@ function registerAuthRoutes(app, deps) {
 
     const token = tokenService.createAuthToken(user.id);
     database.syncLearnerNameFromProfile(user.id, user.displayName);
+    const freshUser = database.getUserById(user.id);
     return res.json({
       token,
-      user: database.getUserById(user.id)
+      user: {
+        id: freshUser.id,
+        email: freshUser.email,
+        displayName: freshUser.displayName,
+        emailVerified: freshUser.emailVerified,
+        authProvider: freshUser.authProvider,
+        canModerateCommunityExercises: canModerateCommunityExercises(freshUser)
+      }
     });
   });
 
