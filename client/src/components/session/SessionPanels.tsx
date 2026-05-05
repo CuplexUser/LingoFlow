@@ -184,6 +184,7 @@ type FlashcardPanelProps = {
   onToggleReveal: () => void;
   onNeedReview: () => void;
   onKnown: () => void;
+  onSpeak?: () => void;
 };
 
 export function FlashcardPanel({
@@ -191,7 +192,8 @@ export function FlashcardPanel({
   flashcardRevealed,
   onToggleReveal,
   onNeedReview,
-  onKnown
+  onKnown,
+  onSpeak
 }: FlashcardPanelProps) {
   return (
     <div className="flashcard-shell">
@@ -206,6 +208,17 @@ export function FlashcardPanel({
         <button className="primary-button" type="button" onClick={onKnown} disabled={!flashcardRevealed}>
           I Knew This
         </button>
+        {onSpeak ? (
+          <button
+            className="speak-button"
+            type="button"
+            onClick={onSpeak}
+            disabled={!flashcardRevealed}
+            title="Listen to answer"
+          >
+            Listen
+          </button>
+        ) : null}
       </div>
     </div>
   );

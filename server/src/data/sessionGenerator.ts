@@ -625,7 +625,9 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       }
 
       const sourcePool = all;
-      const plannedTypes = buildQuestionTypePlan(selected);
+      const plannedTypes = buildQuestionTypePlan(selected).map((type) =>
+        type === "flashcard" ? "mc_sentence" : type
+      );
       const questions = selected.map((item, idx) => {
         const itemCategory = item.category || category;
         return createQuestion(item, sourcePool, plannedTypes[idx], itemCategory, language, new Map(), randomFn);

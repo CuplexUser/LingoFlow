@@ -339,10 +339,15 @@
   color: var(--text);
 }
 
-.ghost-button:hover {
+.ghost-button:hover:not(:disabled) {
   border-color: #646464;
   background: #262e39;
   color: #ffffff;
+}
+
+.ghost-button:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
 }
 
 .lesson-player {
@@ -487,12 +492,17 @@
   color: var(--text);
 }
 
-.speak-button:hover {
+.speak-button:hover:not(:disabled) {
   /* border-color: #292524; */
   /* background: var(--surface-muted); */
   border-color: #646464;
   background: #262e39;
   color: #ffffff;
+}
+
+.speak-button:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
 }
 
 .speech-error {
@@ -557,6 +567,12 @@
 
 .flashcard span {
   color: var(--text-muted);
+}
+
+.flashcard-listen-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .matching-grid {

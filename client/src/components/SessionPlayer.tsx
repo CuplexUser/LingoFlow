@@ -520,7 +520,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           question.type === "dictation_sentence" ||
           question.type === "pronunciation" ||
           question.type === "practice_speak" ||
-          question.type === "practice_listen") ? (
+          question.type === "practice_listen" ||
+          question.type === "flashcard") ? (
           <SpeedPicker rate={listenSpeed} onChange={(s) => { localStorage.setItem("lingoflow_tts_speed", String(s)); setListenSpeed(s); }} />
         ) : null}
         <button
@@ -635,6 +636,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           onToggleReveal={() => setFlashcardRevealed((value: boolean) => !value)}
           onNeedReview={() => submitFlashcard("review")}
           onKnown={() => submitFlashcard("known")}
+          onSpeak={handlePracticeListenAudio}
         />
       ) : null}
 
