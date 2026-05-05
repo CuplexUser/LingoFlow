@@ -629,8 +629,9 @@ export function AppProvider({ children }: AppProviderProps) {
         delete next[completedSession.language];
         return next;
       });
+      const isMistakesSession = completedSession.category === "__mistakes__" || completedSession.practiceMode === "mistakes";
       const mistakeIds = Array.from(new Set(sessionReport.mistakeQuestionIds || []));
-      const wrongQuestions = completedSession.questions.filter((question) => mistakeIds.includes(question.id));
+      const wrongQuestions = isMistakesSession ? [] : completedSession.questions.filter((question) => mistakeIds.includes(question.id));
       if (wrongQuestions.length) {
         setMistakeReviewOffer({
           language: completedSession.language,

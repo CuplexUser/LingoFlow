@@ -1539,6 +1539,8 @@ function getItemSelectionHints(userId = 1, language, category, today = toIsoDate
 
 function getMistakeReviewSelection(userId = 1, language, limit = 10) {
   const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(20, limit)) : 10;
+  // Fetch a larger pool so we can randomise without losing the worst items
+  const fetchLimit = Math.min(safeLimit * 3, 60);
   const rows = db.prepare(`
     SELECT
       item_id,
@@ -1552,18 +1554,25 @@ function getMistakeReviewSelection(userId = 1, language, limit = 10) {
     WHERE user_id = ?
       AND language = ?
       AND attempts > 0
-      AND (error_count > 0 OR correct < attempts)
+      AND error_count > 0
+      AND streak = 0
     ORDER BY
       error_count DESC,
-      CASE WHEN attempts > 0 THEN CAST(correct AS REAL) / attempts ELSE 0 END ASC,
-      COALESCE(last_seen_date, '') DESC
+      CASE WHEN attempts > 0 THEN CAST(correct AS REAL) / attempts ELSE 0 END ASC
     LIMIT ?
-  `).all(userId, language, safeLimit);
+  `).all(userId, language, fetchLimit);
+
+  // Shuffle the candidate pool so the same items don't always appear
+  for (let i = rows.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [rows[i], rows[j]] = [rows[j], rows[i]];
+  }
+  const selected = rows.slice(0, safeLimit);
 
   return {
-    itemIds: rows.map((row) => row.item_id),
+    itemIds: selected.map((row) => row.item_id),
     count: rows.length,
-    categories: Array.from(new Set(rows.map((row) => row.category).filter(Boolean)))
+    categories: Array.from(new Set(selected.map((row) => row.category).filter(Boolean)))
   };
 }
 
@@ -2096,7 +2105,8 @@ function getStats(userId = 1, language) {
     WHERE user_id = ?
       AND language = ?
       AND attempts > 0
-      AND (error_count > 0 OR correct < attempts)
+      AND error_count > 0
+      AND streak = 0
   `).get(userId, safeLanguage) as { count: number }).count;
 
   const masteredCount = categoryProgress.filter((item) => item.mastery >= 75).length;
