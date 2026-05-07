@@ -162,14 +162,14 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 
 **Step 1 — Server test gaps**
 
-- [ ] Auth routes: register (validation, duplicate email), login (wrong password, unverified),
+- [x] Auth routes: register (validation, duplicate email), login (wrong password, unverified),
       Google OAuth callback, email verification, password reset flow.
-- [ ] User routes: GET/PUT settings, GET progress, GET progress-overview, GET stats.
-- [ ] Bookmark routes: POST bookmark, GET bookmarks, DELETE bookmark.
-- [ ] Community routes: POST contribution, GET contributions (contributor vs moderator view),
+- [x] User routes: GET/PUT settings, GET progress, GET progress-overview, GET stats.
+- [x] Bookmark routes: POST bookmark, GET bookmarks, DELETE bookmark.
+- [x] Community routes: POST contribution, GET contributions (contributor vs moderator view),
       PATCH contribution status.
-- [ ] Course routes: GET /api/course, GET /api/languages.
-- [ ] Edge cases: expired JWT, malformed tokens, rate limit enforcement.
+- [x] Course routes: GET /api/course, GET /api/languages.
+- [x] Edge cases: expired JWT, malformed tokens, rate limit enforcement.
 
 **Step 2 — Client test gaps**
 
