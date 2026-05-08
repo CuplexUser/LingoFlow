@@ -33,6 +33,36 @@
   gap: 10px;
 }
 
+.contribution-type-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.contribution-type-badge.type-idea {
+  background: #e8f0fe;
+  color: #1a56a8;
+}
+
+.contribution-type-badge.type-exercise {
+  background: #e6f4ea;
+  color: #1d6d35;
+}
+
+[data-theme="dark"] .contribution-type-badge.type-idea {
+  background: #1a2d4a;
+  color: #7eb4f5;
+}
+
+[data-theme="dark"] .contribution-type-badge.type-exercise {
+  background: #162a1e;
+  color: #5db87a;
+}
+
 .contribution-status {
   text-transform: capitalize;
   border-radius: 999px;

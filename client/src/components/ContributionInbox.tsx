@@ -29,6 +29,12 @@ const STATUS_LABELS: Record<ContributionModerationStatus, string> = {
   changes_requested: "Changes Requested"
 };
 
+const GENERAL_IDEA_TYPE = "general_idea";
+
+function isGeneralIdea(submission: ContributionSubmission) {
+  return submission.exerciseType === GENERAL_IDEA_TYPE;
+}
+
 export function ContributionInbox({
   language,
   categoryOptions,
@@ -39,6 +45,7 @@ export function ContributionInbox({
   const [scope, setScope] = useState<"mine" | "all">(canModerate ? "all" : "mine");
   const [statusFilter, setStatusFilter] = useState<ContributionModerationStatus | "">("pending");
   const [categoryFilter, setCategoryFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState<"" | "idea" | "exercise">("");
   const [submissions, setSubmissions] = useState<ContributionSubmission[]>([]);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
@@ -70,7 +77,10 @@ export function ContributionInbox({
           limit: 100
         });
         if (!cancelled) {
-          setSubmissions(result.submissions || []);
+          let loaded = result.submissions || [];
+          if (typeFilter === "idea") loaded = loaded.filter(isGeneralIdea);
+          else if (typeFilter === "exercise") loaded = loaded.filter((s) => !isGeneralIdea(s));
+          setSubmissions(loaded);
           setMessage("");
         }
       } catch (error: unknown) {
@@ -85,7 +95,7 @@ export function ContributionInbox({
 
     load();
     return () => { cancelled = true; };
-  }, [canModerate, scope, statusFilter, language, categoryFilter, onLoad]);
+  }, [canModerate, scope, statusFilter, language, categoryFilter, typeFilter, onLoad]);
 
   async function updateStatus(id: number, moderationStatus: ContributionModerationStatus) {
     const reviewerComment = commentDraft[id] || "";
@@ -187,6 +197,15 @@ export function ContributionInbox({
         </label>
 
         <label>
+          Type
+          <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as "" | "idea" | "exercise")}>
+            <option value="">All types</option>
+            <option value="idea">General Ideas</option>
+            <option value="exercise">Exercises</option>
+          </select>
+        </label>
+
+        <label>
           Category
           <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
             <option value="">All categories</option>
@@ -262,6 +281,7 @@ export function ContributionInbox({
         {submissions.map((submission) => {
           const isExpanded = expandedId === submission.id;
           const draft = commentDraft[submission.id] || "";
+          const isIdea = isGeneralIdea(submission);
 
           return (
             <article key={submission.id} className="setup-preview contribution-card">
@@ -276,9 +296,16 @@ export function ContributionInbox({
                     />
                   ) : null}
                   <div>
-                    <h3>{submission.prompt}</h3>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "2px" }}>
+                      <h3 style={{ margin: 0 }}>{submission.prompt}</h3>
+                      <span className={`contribution-type-badge ${isIdea ? "type-idea" : "type-exercise"}`}>
+                        {isIdea ? "General Idea" : "Exercise"}
+                      </span>
+                    </div>
                     <p className="subtitle">
-                      {submission.language} · {submission.category} · {submission.difficulty.toUpperCase()} · {submission.exerciseType}
+                      {isIdea
+                        ? `${submission.language} · general idea`
+                        : `${submission.language} · ${submission.category} · ${submission.difficulty.toUpperCase()} · ${submission.exerciseType.replace(/_/g, " ")}`}
                     </p>
                   </div>
                 </div>
@@ -287,8 +314,14 @@ export function ContributionInbox({
                 </strong>
               </div>
 
-              <p><strong>Proposal:</strong> {submission.correctAnswer}</p>
-              {submission.hints.length ? <p><strong>Hints:</strong> {submission.hints.join(" | ")}</p> : null}
+              {isIdea ? (
+                <p><strong>Description:</strong> {submission.correctAnswer}</p>
+              ) : (
+                <>
+                  <p><strong>Proposal:</strong> {submission.correctAnswer}</p>
+                  {submission.hints.length ? <p><strong>Hints:</strong> {submission.hints.join(" | ")}</p> : null}
+                </>
+              )}
               {submission.culturalNote ? <p><strong>Context:</strong> {submission.culturalNote}</p> : null}
 
               {submission.submitter ? (

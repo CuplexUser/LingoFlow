@@ -133,7 +133,9 @@ export function BuildSentencePanel({
         >
           {dictation ? "Play Audio" : "Hint: Listen Translation"}
         </button>
-        {question.hints?.length ? <span className="hint-chip">{question.hints[0]}</span> : null}
+        {question.hints?.map((hint, i) => (
+          <span key={i} className="hint-chip">{hint}</span>
+        ))}
       </div>
 
       <div className="build-target">
