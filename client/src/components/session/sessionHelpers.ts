@@ -61,7 +61,7 @@ function similarityRatio(left: string | null | undefined, right: string | null |
 export function isPronunciationCloseEnough(
   expected: string | null | undefined,
   submitted: string | null | undefined,
-  threshold = 0.9
+  threshold = 0.7
 ): boolean {
   const normalizedExpected = normalizeSentence(expected);
   const normalizedSubmitted = normalizeSentence(submitted);
@@ -91,4 +91,13 @@ export function getSpeechLanguage(language: string): string {
   if (language === "italian") return "it-IT";
   if (language === "swedish") return "sv-SE";
   return "en-US";
+}
+
+// ISO 639-1 codes for Whisper (different from BCP-47 used by Web Speech API)
+export function getWhisperLanguage(language: string): string {
+  if (language === "spanish") return "es";
+  if (language === "russian") return "ru";
+  if (language === "italian") return "it";
+  if (language === "swedish") return "sv";
+  return "en";
 }

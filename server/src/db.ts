@@ -2363,8 +2363,9 @@ function checkAndGrantAchievements(userId: number, params: {
   score: number;
   maxScore: number;
   isPracticeSession?: boolean;
+  now?: Date;
 }) {
-  const { streak, totalXp, language, category, mastery, hintsUsed, revealedAnswers, score, maxScore, isPracticeSession = false } = params;
+  const { streak, totalXp, language, category, mastery, hintsUsed, revealedAnswers, score, maxScore, isPracticeSession = false, now = new Date() } = params;
   const newlyUnlocked: Array<{ id: string; name: string; description: string; icon: string; earnedAt: string }> = [];
 
   const existingIds = new Set<string>(
@@ -2413,7 +2414,7 @@ function checkAndGrantAchievements(userId: number, params: {
     tryGrant("speed_demon");
   }
 
-  const hour = new Date().getHours();
+  const hour = now.getHours();
   if (hour >= 0 && hour < 4) tryGrant("night_owl");
   if (hour >= 5 && hour <= 7) tryGrant("early_bird");
 

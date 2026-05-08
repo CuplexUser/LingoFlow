@@ -350,6 +350,19 @@
   cursor: not-allowed;
 }
 
+.ghost-button.recording-active {
+  color: #c0392b;
+  border-color: #c0392b;
+  opacity: 1;
+  cursor: default;
+  animation: recording-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes recording-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
 .lesson-player {
   box-shadow: var(--shadow-md);
 }

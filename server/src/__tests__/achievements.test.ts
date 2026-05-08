@@ -35,6 +35,7 @@ interface AchievementCheckInput {
   score: number;
   maxScore: number;
   isPracticeSession?: boolean;
+  now?: Date;
 }
 
 interface RecordSessionArgs {
@@ -134,7 +135,8 @@ test("checkAndGrantAchievements grants streak milestones at correct thresholds",
   const userId = createTestUser("streak-milestones");
   const base: AchievementCheckInput = {
     totalXp: 0, language: "spanish", category: "essentials",
-    mastery: 0, hintsUsed: 0, revealedAnswers: 0, score: 5, maxScore: 10
+    mastery: 0, hintsUsed: 0, revealedAnswers: 0, score: 5, maxScore: 10,
+    now: new Date("2026-01-01T12:00:00")
   };
 
   // Streak of 2 — no milestone yet
@@ -165,7 +167,8 @@ test("checkAndGrantAchievements grants XP milestones", () => {
   const userId = createTestUser("xp-milestones");
   const base: AchievementCheckInput = {
     streak: 0, language: "spanish", category: "essentials",
-    mastery: 0, hintsUsed: 0, revealedAnswers: 0, score: 5, maxScore: 10
+    mastery: 0, hintsUsed: 0, revealedAnswers: 0, score: 5, maxScore: 10,
+    now: new Date("2026-01-01T12:00:00")
   };
 
   const below = database.checkAndGrantAchievements(userId, { ...base, totalXp: 50 }) as Achievement[];

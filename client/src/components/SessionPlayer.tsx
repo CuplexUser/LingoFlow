@@ -197,9 +197,14 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   const {
     speechError,
     setSpeechError,
+    isRecording,
+    isTranscribing,
+    modelLoading,
+    modelLoadProgress,
     playAudioUrl,
     speakText,
-    startPronunciationCheck
+    startPronunciationCheck,
+    stopRecording
   } = useSessionSpeech({
     language: session.language,
     onTranscriptCaptured: (transcript) => {
@@ -657,13 +662,27 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         <TranscriptExercisePanel
           transcript={pronunciationTranscript}
           actionButtons={[
-            <button key="play" className="speak-button" type="button" onClick={speakBuildTranslationHint}>
+            <button key="play" className="speak-button" type="button" onClick={speakBuildTranslationHint} disabled={isRecording || isTranscribing}>
               Play Prompt
             </button>,
-            <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
-              Start Pronunciation Check
-            </button>,
-            <button key="skip" className="ghost-button" type="button" onClick={skipPronunciationExercise}>
+            isRecording ? (
+              <button key="stop" className="ghost-button recording-active" type="button" onClick={stopRecording}>
+                Stop Recording
+              </button>
+            ) : isTranscribing ? (
+              <button key="analyzing" className="ghost-button" type="button" disabled>
+                Analyzing…
+              </button>
+            ) : modelLoading ? (
+              <button key="loading" className="ghost-button" type="button" disabled>
+                {modelLoadProgress > 0 ? `Downloading model… ${modelLoadProgress}%` : "Preparing…"}
+              </button>
+            ) : (
+              <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
+                Start Pronunciation Check
+              </button>
+            ),
+            <button key="skip" className="ghost-button" type="button" onClick={skipPronunciationExercise} disabled={isRecording || isTranscribing}>
               Can&apos;t speak now
             </button>
           ]}
@@ -674,12 +693,26 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         <TranscriptExercisePanel
           transcript={pronunciationTranscript}
           actionButtons={[
-            <button key="listen" className="speak-button" type="button" onClick={speakPronunciationTarget}>
+            <button key="listen" className="speak-button" type="button" onClick={speakPronunciationTarget} disabled={isRecording || isTranscribing}>
               Listen
             </button>,
-            <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
-              Start Pronunciation Check
-            </button>
+            isRecording ? (
+              <button key="stop" className="ghost-button recording-active" type="button" onClick={stopRecording}>
+                Stop Recording
+              </button>
+            ) : isTranscribing ? (
+              <button key="analyzing" className="ghost-button" type="button" disabled>
+                Analyzing…
+              </button>
+            ) : modelLoading ? (
+              <button key="loading" className="ghost-button" type="button" disabled>
+                {modelLoadProgress > 0 ? `Downloading model… ${modelLoadProgress}%` : "Preparing…"}
+              </button>
+            ) : (
+              <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
+                Start Pronunciation Check
+              </button>
+            )
           ]}
         />
       ) : null}

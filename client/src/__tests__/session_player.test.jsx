@@ -3,6 +3,26 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { SessionPlayer } from "../components/SessionPlayer";
 
+vi.mock("../components/session/useSessionSpeech", () => ({
+  useSessionSpeech: ({ onTranscriptCaptured }) => ({
+    speechError: "",
+    setSpeechError: () => {},
+    supportsSpeech: true,
+    supportsRecognition: true,
+    isRecording: false,
+    isTranscribing: false,
+    modelLoading: false,
+    modelLoadProgress: 0,
+    modelReady: true,
+    playAudioUrl: () => {},
+    speakText: () => {},
+    startPronunciationCheck: () => {
+      onTranscriptCaptured(window.MockWorker._nextTranscript);
+    },
+    stopRecording: () => {},
+  }),
+}));
+
 test("session player supports retry and reveal flow after repeated mistakes", async () => {
   const user = userEvent.setup();
   render(
@@ -91,16 +111,7 @@ test("pronunciation accepts close transcripts", async () => {
   const user = userEvent.setup();
   const onFinish = vi.fn();
 
-  window.SpeechRecognition = class {
-    onresult = null;
-    onerror = null;
-    lang = "";
-    interimResults = false;
-    maxAlternatives = 1;
-    start() {
-      this.onresult?.({ results: [[{ transcript: "I relax by reading bokks" }]] });
-    }
-  };
+  window.MockWorker._nextTranscript = "I relax by reading bokks";
 
   render(
     <SessionPlayer
@@ -125,6 +136,13 @@ test("pronunciation accepts close transcripts", async () => {
   );
 
   await user.click(screen.getByRole("button", { name: "Start Pronunciation Check" }));
+
+  // Wait for the mock worker to deliver the transcript and enable the Check button
+  await waitFor(() =>
+    expect(screen.getByRole("button", { name: "Check" })).not.toBeDisabled(),
+    { timeout: 2000 }
+  );
+
   await user.click(screen.getByRole("button", { name: "Check" }));
 
   await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
@@ -136,16 +154,7 @@ test("practice speak accepts close transcripts", async () => {
   const user = userEvent.setup();
   const onFinish = vi.fn();
 
-  window.SpeechRecognition = class {
-    onresult = null;
-    onerror = null;
-    lang = "";
-    interimResults = false;
-    maxAlternatives = 1;
-    start() {
-      this.onresult?.({ results: [[{ transcript: "I read bokks" }]] });
-    }
-  };
+  window.MockWorker._nextTranscript = "I read bokks";
 
   render(
     <SessionPlayer
@@ -170,6 +179,13 @@ test("practice speak accepts close transcripts", async () => {
   );
 
   await user.click(screen.getByRole("button", { name: "Start Pronunciation Check" }));
+
+  // Wait for the mock worker to deliver the transcript and enable the Check button
+  await waitFor(() =>
+    expect(screen.getByRole("button", { name: "Check" })).not.toBeDisabled(),
+    { timeout: 2000 }
+  );
+
   await user.click(screen.getByRole("button", { name: "Check" }));
 
   await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
