@@ -1,403 +1,745 @@
 [
   {
-    "id": "ru-ho-a1",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "To read books",
-    "correctAnswer": "читать книги",
-    "hints": [
-      "Think about a quiet hobby."
-    ],
-    "exerciseType": "flashcard",
-    "imageUrl": "/images/bookshelf.svg"
-  },
-  {
-    "id": "ru-ho-a1-2",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "To go hiking",
-    "correctAnswer": "ходить в поход",
-    "hints": [
-      "An outdoor hobby."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-ho-a1-3",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "To play chess",
-    "correctAnswer": "играть в шахматы",
-    "hints": [
-      "A strategy board game."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-ho-a2",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I play tennis on Saturday mornings.",
-    "correctAnswer": "Я играю в теннис по субботам утром.",
-    "hints": [
-      "Use the present tense."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ho-a2-2",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I watch movies at home.",
-    "correctAnswer": "Я смотрю фильмы дома.",
-    "hints": [
-      "A simple leisure routine."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ho-a2-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I swim at the pool.",
-    "correctAnswer": "Я плаваю в бассейне.",
-    "hints": [
-      "A short activity sentence."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ho-b1",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Choose the best response. What do you like to do after work?",
-    "correctAnswer": "Обычно я рисую или иду бегать.",
-    "hints": [
-      "Mention two leisure activities."
-    ],
-    "exerciseType": "roleplay"
-  },
-  {
-    "id": "ru-ho-b1-2",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Choose the best response. What do you do on weekends?",
-    "correctAnswer": "Я встречаюсь с друзьями и играю.",
-    "hints": [
-      "A friendly, natural answer."
-    ],
-    "exerciseType": "roleplay"
-  },
-  {
-    "id": "ru-ho-b1-3",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Choose the best response. Do you like sports?",
-    "correctAnswer": "Да, я иногда играю в футбол.",
-    "hints": [
-      "Answer with a frequency word."
-    ],
-    "exerciseType": "roleplay"
-  },
-  {
-    "id": "ru-ho-b2",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I relax by reading books.",
-    "correctAnswer": "Я расслабляюсь, читая книги.",
-    "hints": [
-      "Use a reflective tone."
-    ],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "ru-ho-b2-2",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I practice guitar every day.",
-    "correctAnswer": "Я играю на гитаре каждый день.",
-    "hints": [
-      "A clear daily habit."
-    ],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "ru-ho-b2-3",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I enjoy painting in my free time.",
-    "correctAnswer": "Мне нравится рисовать в свободное время.",
-    "hints": [
-      "A common hobby phrase."
-    ],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "ru-ho-a1-1",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I study hobbies and leisure every day.",
-    "correctAnswer": "Я каждый день изучаю хобби и досуг.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-ho-a1-4",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Can we practice hobbies and leisure now?",
-    "correctAnswer": "Мы можем сейчас практиковать хобби и досуг?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ho-a1-5",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Vocabulary: painting",
-    "correctAnswer": "рисование",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-ho-a1-6",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I need more time for hobbies and leisure.",
-    "correctAnswer": "Мне нужно больше времени на хобби и досуг.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "ru-ho-a1-7",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice hobbies and leisure.",
-    "correctAnswer": "Я каждый день повторяю тему «хобби и досуг».",
-    "hints": [
-      "Pick the most natural Russian sentence."
-    ],
-    "exerciseType": "mc_sentence"
-  },
-  {
-    "id": "ru-ho-a1-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: This lesson on hobbies and leisure is useful.",
-    "correctAnswer": "Этот урок по теме хобби и досуга полезный.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-ho-a1-10",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Vocabulary: board game",
-    "correctAnswer": "настольная игра",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-ho-a1-15",
+    "id": "ru-ho-a1-f01",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: hobby",
     "correctAnswer": "хобби",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
+    "hints": ["This word is borrowed from English."],
     "exerciseType": "flashcard"
   },
   {
-    "id": "ru-ho-a2-1",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I practiced hobbies and leisure yesterday.",
-    "correctAnswer": "Я вчера практиковал хобби и досуг.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "id": "ru-ho-a1-f02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: to read",
+    "correctAnswer": "читать",
+    "hints": ["A quiet indoor activity."],
+    "exerciseType": "flashcard"
   },
   {
-    "id": "ru-ho-a2-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: How can I improve in hobbies and leisure?",
-    "correctAnswer": "Как я могу улучшить навыки в теме хобби и досуга?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-ho-a1-f03",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: to draw / to paint",
+    "correctAnswer": "рисовать",
+    "hints": ["You use a pencil or brush."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a1-f04",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: to swim",
+    "correctAnswer": "плавать",
+    "hints": ["Done in a pool or lake."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a1-f05",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: free time",
+    "correctAnswer": "свободное время",
+    "hints": ["Time when you are not working or studying."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a1-f06",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: board game",
+    "correctAnswer": "настольная игра",
+    "hints": ["Played on a table, often with cards or pieces."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a1-f07",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: to cook",
+    "correctAnswer": "готовить",
+    "hints": ["Done in the kitchen."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a1-f08",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: to go for a walk",
+    "correctAnswer": "гулять",
+    "hints": ["A relaxed outdoor activity."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a1-s01",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I like to read.",
+    "correctAnswer": "Я люблю читать.",
+    "hints": ["Use 'люблю' + infinitive."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ho-a2-5",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой «хобби и досуг».",
-    "correctAnswer": "занимаюсь",
-    "hints": [
-      "Use a verb that matches the context and style."
-    ],
-    "exerciseType": "cloze_sentence"
+    "id": "ru-ho-a1-s02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I have a hobby.",
+    "correctAnswer": "У меня есть хобби.",
+    "hints": ["Use 'у меня есть' to express having something."],
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ho-a2-6",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I understand hobbies and leisure better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему «хобби и досуг».",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-ho-a1-s03",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I swim in the pool.",
+    "correctAnswer": "Я плаваю в бассейне.",
+    "hints": ["Use prepositional case after 'в'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a1-s04",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I play chess.",
+    "correctAnswer": "Я играю в шахматы.",
+    "hints": ["Sports and games use 'играть в' + accusative."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a1-s05",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I watch films at home.",
+    "correctAnswer": "Я смотрю фильмы дома.",
+    "hints": ["'Дома' means 'at home' and does not change form."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a1-s06",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My favourite hobby is cooking.",
+    "correctAnswer": "Моё любимое хобби — готовить.",
+    "hints": ["Use a dash before an infinitive predicate."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a1-s07",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you have a hobby?",
+    "correctAnswer": "У тебя есть хобби?",
+    "hints": ["Mirror 'у меня есть' but with 'тебя'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a1-p01",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I go for a walk every evening.",
+    "correctAnswer": "Я гуляю каждый вечер.",
+    "hints": ["'Каждый вечер' means 'every evening'."],
     "exerciseType": "pronunciation"
   },
   {
-    "id": "ru-ho-a2-7",
+    "id": "ru-ho-a1-p02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I play guitar.",
+    "correctAnswer": "Я играю на гитаре.",
+    "hints": ["Instruments use 'играть на' + prepositional."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ho-a1-mc01",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best translation: I like to draw.",
+    "correctAnswer": "Мне нравится рисовать.",
+    "options": [
+      "Мне нравится рисовать.",
+      "Я рисую хорошо.",
+      "Я не люблю рисовать.",
+      "Рисование трудное."
+    ],
+    "hints": ["'Мне нравится' + infinitive = I like to..."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-a1-mc02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best translation: I have free time.",
+    "correctAnswer": "У меня есть свободное время.",
+    "options": [
+      "У меня есть свободное время.",
+      "Мне нужно время.",
+      "У меня нет времени.",
+      "Время идёт быстро."
+    ],
+    "hints": ["Use 'у меня есть' for possession."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-a2-f01",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with hobbies and leisure.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме хобби и досуга?",
-    "hints": [
-      "Use a polite, natural request."
+    "prompt": "Vocabulary: to go hiking",
+    "correctAnswer": "ходить в поход",
+    "hints": ["An outdoor activity in the mountains or forest."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a2-f02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: to knit",
+    "correctAnswer": "вязать",
+    "hints": ["Done with needles and yarn."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a2-f03",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: to take photographs",
+    "correctAnswer": "фотографировать",
+    "hints": ["Done with a camera."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-a2-s01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I play tennis on Saturday mornings.",
+    "correctAnswer": "Я играю в теннис по субботам утром.",
+    "hints": ["'По субботам' means 'on Saturdays' (repeated action)."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a2-s02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Yesterday I went for a walk in the park.",
+    "correctAnswer": "Вчера я гулял в парке.",
+    "hints": ["Put the time word first for emphasis."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a2-s03",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually cook dinner at home.",
+    "correctAnswer": "Я обычно готовлю ужин дома.",
+    "hints": ["'Обычно' means 'usually' and sits before the verb."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a2-s04",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How often do you go to the gym?",
+    "correctAnswer": "Как часто ты ходишь в спортзал?",
+    "hints": ["'Как часто' means 'how often'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a2-s05",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I sometimes go to the cinema with friends.",
+    "correctAnswer": "Я иногда хожу в кино с друзьями.",
+    "hints": ["'Иногда' means 'sometimes'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a2-s06",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: He reads a lot in his spare time.",
+    "correctAnswer": "В свободное время он много читает.",
+    "hints": ["Lead with the time phrase for a natural flow."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-a2-p01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I practice guitar every day.",
+    "correctAnswer": "Я играю на гитаре каждый день.",
+    "hints": ["'Каждый день' = every day."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ho-a2-p02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I enjoy cooking more now than before.",
+    "correctAnswer": "Теперь мне нравится готовить больше, чем раньше.",
+    "hints": ["'Теперь' sets up a contrast with 'раньше' (before)."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ho-a2-c01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: По выходным я обычно ____ с друзьями.",
+    "correctAnswer": "встречаюсь",
+    "hints": ["Use a verb meaning 'meet up'."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-ho-a2-c02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Летом мы часто ____ на велосипеде.",
+    "correctAnswer": "катаемся",
+    "hints": ["The verb means 'ride' and is used for cycling."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-ho-a2-mc01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best translation: I like to spend time outdoors.",
+    "correctAnswer": "Мне нравится проводить время на улице.",
+    "options": [
+      "Мне нравится проводить время на улице.",
+      "Я всегда дома.",
+      "На улице холодно.",
+      "Я люблю спорт."
     ],
+    "hints": ["'На улице' means 'outdoors'."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-a2-mc02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best translation: She goes running in the morning.",
+    "correctAnswer": "Она бегает по утрам.",
+    "options": [
+      "Она бегает по утрам.",
+      "Она любит спать утром.",
+      "Утром она едет на работу.",
+      "Она гуляет вечером."
+    ],
+    "hints": ["'По утрам' = in the mornings (repeated habit)."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-a2-r01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Roleplay: Ask a friend what they do in their spare time.",
+    "correctAnswer": "Чем ты занимаешься в свободное время?",
+    "hints": ["'Чем' is used when asking about an ongoing activity."],
     "exerciseType": "roleplay"
   },
   {
-    "id": "ru-ho-a2-9",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: This exercise on hobbies and leisure was difficult.",
-    "correctAnswer": "Это упражнение по теме хобби и досуга было трудным.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-ho-b1-f01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: to go cycling",
+    "correctAnswer": "кататься на велосипеде",
+    "hints": ["Uses the verb 'кататься' + на + prepositional."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-b1-f02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: to unwind / to relax",
+    "correctAnswer": "расслабляться",
+    "hints": ["A reflexive verb — note the -ся ending."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-b1-f03",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: to improve (a skill)",
+    "correctAnswer": "совершенствовать",
+    "hints": ["A long word — break it into syllables to pronounce it."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-b1-s01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I relax by reading books.",
+    "correctAnswer": "Я расслабляюсь, читая книги.",
+    "hints": ["Use the present active participle 'читая' (by reading)."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ho-b1-1",
+    "id": "ru-ho-b1-s02",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in hobbies and leisure.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме хобби и досуга.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-ho-b1-4",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for hobbies and leisure?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы хобби и досуга?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "prompt": "Say: I want to find a hobby that helps me unwind.",
+    "correctAnswer": "Я хочу найти хобби, которое помогает мне расслабляться.",
+    "hints": ["Use a relative clause with 'которое' for neuter nouns."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ho-b1-5",
+    "id": "ru-ho-b1-s03",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме «хобби и досуг».",
-    "correctAnswer": "развиваю",
-    "hints": [
-      "Use a verb that matches the context and style."
-    ],
+    "prompt": "Say: I have been playing the piano since childhood.",
+    "correctAnswer": "Я играю на пианино с детства.",
+    "hints": ["Russian uses present tense for actions that started in the past and continue now."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b1-s04",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I recently started going to a pottery class.",
+    "correctAnswer": "Я недавно начал ходить на занятия по керамике.",
+    "acceptedAnswers": ["Я недавно начала ходить на занятия по керамике."],
+    "hints": ["'Недавно' = recently; 'начал/начала' changes by gender."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b1-s05",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Regular exercise helps me feel more energetic.",
+    "correctAnswer": "Регулярные тренировки помогают мне чувствовать себя бодрее.",
+    "hints": ["Use the comparative 'бодрее' (more energetic)."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b1-s06",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What is the best way to get into a new hobby?",
+    "correctAnswer": "Как лучше всего начать заниматься новым хобби?",
+    "hints": ["'Как лучше всего' = what is the best way to."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b1-s07",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I prefer outdoor activities to watching TV.",
+    "correctAnswer": "Я предпочитаю активный отдых просмотру телевизора.",
+    "hints": ["'Предпочитать' takes accusative for the preferred option, dative for the alternative."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b1-p01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I make fewer mistakes when I slow down and focus.",
+    "correctAnswer": "Я делаю меньше ошибок, когда не спешу и концентрируюсь.",
+    "hints": ["'Не спешу' = I don't rush."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ho-b1-p02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I enjoy painting in my free time.",
+    "correctAnswer": "Мне нравится рисовать в свободное время.",
+    "hints": ["'Мне нравится' + infinitive is a natural way to express enjoyment."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ho-b1-c01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Я постепенно ____ технику игры на пианино.",
+    "correctAnswer": "осваиваю",
+    "hints": ["Use a verb meaning 'master' or 'get the hang of'."],
     "exerciseType": "cloze_sentence"
   },
   {
-    "id": "ru-ho-b1-6",
+    "id": "ru-ho-b1-c02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Чтение помогает мне ____ от повседневных забот.",
+    "correctAnswer": "отвлечься",
+    "hints": ["The verb means 'to switch off' or 'take your mind off something'."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-ho-b1-c03",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Мне ____ заниматься спортом на свежем воздухе.",
+    "correctAnswer": "нравится",
+    "hints": ["Impersonal construction — the subject is in dative."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-ho-b1-d01",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему «хобби и досуг».",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
+    "correctAnswer": "Я стараюсь проводить выходные активно и с пользой.",
+    "hints": ["Listen for the two adverbs at the end."],
     "exerciseType": "dictation_sentence"
   },
   {
-    "id": "ru-ho-b1-9",
+    "id": "ru-ho-b1-mc01",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review hobbies and leisure.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему «хобби и досуг».",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
+    "prompt": "Choose the best translation: I find it hard to sit still for long.",
+    "correctAnswer": "Мне трудно долго сидеть на месте.",
+    "options": [
+      "Мне трудно долго сидеть на месте.",
+      "Я устаю на работе.",
+      "Мне скучно дома.",
+      "Я не люблю спорт."
     ],
+    "hints": ["'Мне трудно' = I find it hard (impersonal construction)."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-b1-mc02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best translation: He has been cycling for several years.",
+    "correctAnswer": "Он катается на велосипеде уже несколько лет.",
+    "options": [
+      "Он катается на велосипеде уже несколько лет.",
+      "Он купил велосипед на прошлой неделе.",
+      "Он иногда ездит на велосипеде на работу.",
+      "Велосипед стоит дорого."
+    ],
+    "hints": ["'Уже несколько лет' = for several years already."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-b1-r01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Roleplay: Recommend a hobby to a friend who wants to reduce stress.",
+    "correctAnswer": "Попробуй йогу — это отлично помогает снять стресс.",
+    "hints": ["Use 'попробуй' (try) for an informal suggestion."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-ho-b2-f01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: to broaden one's horizons",
+    "correctAnswer": "расширять кругозор",
+    "hints": ["'Кругозор' literally means 'field of view'."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-b2-f02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: to devote time to something",
+    "correctAnswer": "уделять время чему-либо",
+    "hints": ["Takes dative for the thing you devote time to."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-ho-b2-s01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Taking up a creative hobby has improved my focus and patience.",
+    "correctAnswer": "Занятие творческим хобби улучшило мою концентрацию и терпение.",
+    "hints": ["Use the verbal noun 'занятие' as the subject."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ho-b1-14",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in hobbies and leisure.",
-    "correctAnswer": "Я хочу звучать более естественно в теме хобби и досуга.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-ho-b2-s02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I find it valuable to step away from screens and do something with my hands.",
+    "correctAnswer": "Я считаю полезным отвлечься от экранов и заняться чем-то руками.",
+    "hints": ["'Считаю полезным' + infinitive = I find it valuable to."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ho-b2-1",
+    "id": "ru-ho-b2-s03",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of hobbies and leisure.",
-    "correctAnswer": "Системная практика углубила моё понимание темы хобби и досуга.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "prompt": "Say: Consistency matters more than intensity when developing a new skill.",
+    "correctAnswer": "При освоении нового навыка системность важнее интенсивности.",
+    "hints": ["'При + verbal noun' sets up the context clause."],
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-ho-b2-4",
+    "id": "ru-ho-b2-s04",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме хобби и досуга.",
-    "correctAnswer": "углубляю",
-    "hints": [
-      "Use a verb that matches the context and style."
-    ],
+    "prompt": "Say: She devotes most of her evenings to photography.",
+    "correctAnswer": "Она посвящает большую часть вечеров фотографии.",
+    "hints": ["'Посвящать' takes dative for the activity."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b2-s05",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Leisure that challenges you mentally is more rewarding than passive entertainment.",
+    "correctAnswer": "Досуг, который умственно нагружает, приносит больше удовлетворения, чем пассивное развлечение.",
+    "hints": ["Use a relative clause with 'который' and a comparative 'больше... чем'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b2-s06",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you recommend a good book for someone who enjoys history?",
+    "correctAnswer": "Не могли бы вы порекомендовать хорошую книгу для любителя истории?",
+    "hints": ["Use the formal conditional request 'не могли бы вы'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-ho-b2-p01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I gradually broaden my horizons through reading and travel.",
+    "correctAnswer": "Я постепенно расширяю кругозор через чтение и путешествия.",
+    "hints": ["'Через' + accusative = through / by means of."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ho-b2-p02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Systematic practice has deepened my understanding of music theory.",
+    "correctAnswer": "Системная практика углубила моё понимание теории музыки.",
+    "hints": ["Use perfective past for a completed, lasting change."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-ho-b2-c01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Я постепенно ____ свой кругозор через чтение и путешествия.",
+    "correctAnswer": "расширяю",
+    "hints": ["Use a verb meaning 'broaden' or 'expand'."],
     "exerciseType": "cloze_sentence"
   },
   {
-    "id": "ru-ho-b2-8",
+    "id": "ru-ho-b2-c02",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in hobbies and leisure?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме хобби и досуга?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "prompt": "Cloze: Я системно ____ знания в области теории музыки.",
+    "correctAnswer": "углубляю",
+    "hints": ["A verb meaning 'deepen' — imperfective for ongoing action."],
+    "exerciseType": "cloze_sentence"
   },
   {
-    "id": "ru-ho-b2-13",
+    "id": "ru-ho-b2-c03",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on hobbies and leisure.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме хобби и досуга.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "prompt": "Cloze: Чем больше времени я уделяю рисованию, тем ____ я становлюсь.",
+    "correctAnswer": "лучше",
+    "hints": ["'Чем больше... тем...' = the more... the..."],
+    "exerciseType": "cloze_sentence"
   },
   {
-    "id": "ru-ho-b2-18",
+    "id": "ru-ho-b2-d01",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in hobbies and leisure.",
-    "correctAnswer": "В теме хобби и досуга системность важнее интенсивности.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Увлечение фотографией научило меня замечать красоту в обычных вещах.",
+    "hints": ["Listen for the verbal noun at the start and the infinitive 'замечать'."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-ho-b2-d02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Я ценю подробную обратную связь по моим творческим работам.",
+    "hints": ["Listen for 'обратную связь' — a set phrase meaning 'feedback'."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-ho-b2-mc01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best translation: The more I paint, the more I notice details.",
+    "correctAnswer": "Чем больше я рисую, тем больше замечаю детали.",
+    "options": [
+      "Чем больше я рисую, тем больше замечаю детали.",
+      "Рисование занимает много времени.",
+      "Я замечаю детали только на работе.",
+      "Мне нравится рисовать иногда."
+    ],
+    "hints": ["'Чем больше... тем больше...' = the more... the more..."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-b2-mc02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best translation: Having a creative outlet reduces stress significantly.",
+    "correctAnswer": "Творческое занятие значительно снижает уровень стресса.",
+    "options": [
+      "Творческое занятие значительно снижает уровень стресса.",
+      "Стресс вреден для здоровья.",
+      "Я стараюсь не думать о работе.",
+      "Творчество требует много времени."
+    ],
+    "hints": ["'Снижать' = to reduce; 'значительно' = significantly."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-ho-b2-r01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: Explain to someone why you chose your main hobby.",
+    "correctAnswer": "Я начал заниматься фотографией, потому что хотел научиться видеть мир по-другому.",
+    "acceptedAnswers": ["Я начала заниматься фотографией, потому что хотела научиться видеть мир по-другому."],
+    "hints": ["Use 'потому что' to give your reason."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-ho-b2-r02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: Ask a classmate for clarification about a technique they demonstrated.",
+    "correctAnswer": "Не могли бы вы уточнить разницу между этими двумя приёмами?",
+    "hints": ["Use a formal polite question form with 'не могли бы вы'."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-ho-a1-d01",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Я люблю слушать музыку.",
+    "hints": ["Listen for 'люблю' and the infinitive that follows."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-ho-a2-d01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "По вечерам я читаю или рисую.",
+    "hints": ["Listen for the time phrase and the two verbs joined by 'или'."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-ho-b1-d02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Я всегда нахожу время для любимого занятия.",
+    "hints": ["Listen for 'нахожу время' — a common phrase meaning 'I find time'."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-ho-b2-s07",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I value detailed feedback on my creative work.",
+    "correctAnswer": "Я ценю подробную обратную связь по моим творческим работам.",
+    "hints": ["'Обратная связь' is the standard phrase for 'feedback'."],
+    "exerciseType": "build_sentence"
   }
 ]
