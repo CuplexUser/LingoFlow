@@ -186,7 +186,7 @@ export function useSessionEngine({
       return isPronunciationCloseEnough(
         question.answer,
         pronunciationTranscript || selectedOption,
-        0.7
+        0.75
       );
     }
     if (isPracticeWordsQuestion(question)) {

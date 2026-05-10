@@ -61,7 +61,7 @@ function similarityRatio(left: string | null | undefined, right: string | null |
 export function isPronunciationCloseEnough(
   expected: string | null | undefined,
   submitted: string | null | undefined,
-  threshold = 0.7
+  threshold = 0.75
 ): boolean {
   const normalizedExpected = normalizeSentence(expected);
   const normalizedSubmitted = normalizeSentence(submitted);
