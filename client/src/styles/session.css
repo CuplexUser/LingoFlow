@@ -747,6 +747,13 @@
   margin: 10px 0 6px;
 }
 
+.cloze-translation {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin: 4px 0 8px;
+  font-style: italic;
+}
+
 .build-target {
   min-height: 56px;
   border: 1px dashed var(--line-strong);

@@ -452,6 +452,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
       : (() => {
           const fallbackDistractors = pool
             .flatMap((entry) => resolveAnswer(entry).split(" "))
+            .map((token: string) => token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, ""))
             .filter((token) => token.length > 2 && token !== clozeAnswer);
           return shuffle(
             [clozeAnswer, ...shuffle(fallbackDistractors, randomFn).slice(0, 3)],
@@ -464,7 +465,8 @@ function createQuestion(item, pool, questionType, category, language, englishRol
       ...base,
       clozeAnswer,
       clozeText: clozeTokens.join(" "),
-      clozeOptions
+      clozeOptions,
+      ...(item.translation ? { translation: String(item.translation) } : {})
     };
   }
 

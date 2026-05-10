@@ -34,6 +34,7 @@ export type ClozeSentenceQuestion = SessionQuestionBase & {
   clozeAnswer: string;
   clozeText: string;
   clozeOptions: string[];
+  translation?: string;
 };
 
 export type BuildSentenceQuestion = SessionQuestionBase & {
