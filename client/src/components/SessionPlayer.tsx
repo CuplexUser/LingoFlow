@@ -8,6 +8,7 @@ import {
   MatchingPanel,
   MultipleChoicePanel,
   PracticeWordsPanel,
+  SourceTextWithHints,
   SpeedPicker,
   SPEED_OPTIONS,
   TranscriptExercisePanel,
@@ -129,6 +130,15 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
 
   const question = questionsQueue[index];
   const currentStep = Math.min(index + 1, fixedQuestionCount);
+
+  // Detect reversed exercises from either the structured field (new) or the prompt text (legacy).
+  const isReversed = question.direction === "reverse" ||
+    /^translate to english/i.test(String(question.prompt || ""));
+  // Extract the target-language source text from either the structured field or embedded in the old prompt format.
+  const reversedSourceText = question.sourceText || (() => {
+    const after = String(question.prompt || "").replace(/^translate to english[^:]*:\s*/i, "");
+    return after.replace(/^[""“”]+|[""“”]+$/g, "").trim();
+  })();
 
   // Mirror server-side XP formula for a live estimate (shown during the session)
   const estimatedXp = (() => {
@@ -354,10 +364,16 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   }
 
   function speakBuildTranslationHint() {
-    const translatedSentence = "answer" in question ? String(question.answer || "").trim() : "";
-    if (!translatedSentence) return;
     setHintsUsed((value) => value + 1);
     setBuildHintCount((c) => c + 1);
+    if (isReversed) {
+      // Play the source-language sentence (the text the user needs to translate).
+      // The session language voice is correct here — it IS the target language audio.
+      if (reversedSourceText) speakText(reversedSourceText, listenSpeed);
+      return;
+    }
+    const translatedSentence = "answer" in question ? String(question.answer || "").trim() : "";
+    if (!translatedSentence) return;
     if (question.audioUrl) {
       playAudioUrl(question.audioUrl, listenSpeed);
       return;
@@ -543,7 +559,13 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       </div>
 
       <div key={question.id} className="question-body">
-      <h2>{question.prompt}</h2>
+      <h2>{isReversed ? "Translate to English" : question.prompt}</h2>
+      {isReversed && reversedSourceText ? (
+        <SourceTextWithHints
+          sourceText={reversedSourceText}
+          hints={Array.isArray(question.hints) ? question.hints : []}
+        />
+      ) : null}
       {question.type === "roleplay" ? (
         <div className="build-hints">
           <button
@@ -582,8 +604,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           options={question.options || []}
           selectedOption={selectedOption}
           onSelect={handleOptionSelect}
-          onSpeakOption={speakAlternative}
-          withSpeakButton
+          onSpeakOption={isReversed ? undefined : speakAlternative}
+          withSpeakButton={!isReversed}
         />
       ) : null}
 
@@ -606,6 +628,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       {question.type === "build_sentence" ? (
         <BuildSentencePanel
           dictation={false}
+          reversed={isReversed}
           question={question}
           builtSentence={builtSentence}
           builtWords={builtWords}

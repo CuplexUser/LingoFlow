@@ -1,4 +1,4 @@
-import type { DragEvent, ReactNode } from "react";
+import { useMemo, useRef, useState, type DragEvent, type ReactNode } from "react";
 import type {
   BuildSentenceQuestion,
   ClozeSentenceQuestion,
@@ -100,6 +100,7 @@ export function SpeedPicker({ rate, onChange }: SpeedPickerProps) {
 
 type BuildSentencePanelProps = {
   dictation: boolean;
+  reversed?: boolean;
   question: BuildSentenceQuestion;
   builtSentence: string;
   builtWords: string[];
@@ -114,6 +115,7 @@ type BuildSentencePanelProps = {
 
 export function BuildSentencePanel({
   dictation,
+  reversed,
   question,
   builtSentence,
   builtWords,
@@ -125,6 +127,8 @@ export function BuildSentencePanel({
   onBuiltWordDrop,
   onBuiltWordDragEnd
 }: BuildSentencePanelProps) {
+  const hintLabel = dictation ? "Play Audio" : reversed ? "Listen" : "Hint: Listen Translation";
+  const hintAriaLabel = dictation ? "Listen to sentence audio" : reversed ? "Listen to sentence" : "Listen to the prompt translation";
   return (
     <>
       <div className="build-hints">
@@ -132,9 +136,9 @@ export function BuildSentencePanel({
           type="button"
           className="speak-button"
           onClick={onHint}
-          aria-label={dictation ? "Listen to sentence audio" : "Listen to the prompt translation"}
+          aria-label={hintAriaLabel}
         >
-          {dictation ? "Play Audio" : "Hint: Listen Translation"}
+          {hintLabel}
         </button>
         {question.hints?.map((hint, i) => (
           <span key={i} className="hint-chip">{hint}</span>
@@ -462,6 +466,73 @@ export function PracticeWordsPanel({
       </div>
       {practiceFeedback ? <p className="lock-note">{practiceFeedback}</p> : null}
     </div>
+  );
+}
+
+function parseWordHints(hints: string[]): Map<string, string> {
+  const map = new Map<string, string>();
+  const re = /'([^']+)'\s*=\s*([^;.']+)/g;
+  for (const hint of hints) {
+    re.lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = re.exec(hint)) !== null) {
+      const key = match[1].trim().toLowerCase();
+      const value = match[2].trim();
+      if (!key.includes(" ")) {
+        map.set(key, value);
+      }
+    }
+  }
+  return map;
+}
+
+function normalizeWord(word: string): string {
+  return word.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, "").toLowerCase();
+}
+
+function HoverWordTip({ word, hint }: { word: string; hint?: string }) {
+  const [visible, setVisible] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function onEnter() {
+    if (!hint) return;
+    timer.current = setTimeout(() => setVisible(true), 700);
+  }
+  function onLeave() {
+    if (timer.current) clearTimeout(timer.current);
+    setVisible(false);
+  }
+
+  return (
+    <span
+      className={`hover-word${hint ? " hover-word--has-hint" : ""}`}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
+      {word}
+      {visible && hint ? <span className="hover-word-tip">{hint}</span> : null}
+    </span>
+  );
+}
+
+type SourceTextWithHintsProps = {
+  sourceText: string;
+  hints: string[];
+};
+
+export function SourceTextWithHints({ sourceText, hints }: SourceTextWithHintsProps) {
+  const wordHints = useMemo(() => parseWordHints(hints), [hints]);
+  const sourceWords = sourceText.trim().split(/\s+/);
+  const hasAnyHint = sourceWords.some((w) => wordHints.has(normalizeWord(w)));
+  return (
+    <>
+      <div className="source-text-hints">
+        {sourceWords.map((word, i) => (
+          <HoverWordTip key={i} word={word} hint={wordHints.get(normalizeWord(word))} />
+        ))}
+      </div>
+      {hasAnyHint ? <span className="source-text-hint-label">Hover a word for a hint</span> : null}
+    </>
   );
 }
 

@@ -232,7 +232,9 @@ function mapSessionQuestion(rawQuestion: RawSessionQuestion): SessionQuestion {
     audioUrl: asOptionalString(rawQuestion.audioUrl),
     imageUrl: asOptionalString(rawQuestion.imageUrl),
     culturalNote: asOptionalString(rawQuestion.culturalNote),
-    hints: asStringArray(rawQuestion.hints)
+    hints: asStringArray(rawQuestion.hints),
+    direction: rawQuestion.direction === "reverse" ? "reverse" as const : undefined,
+    sourceText: asOptionalString(rawQuestion.sourceText)
   };
   const type = asString(rawQuestion.type);
 

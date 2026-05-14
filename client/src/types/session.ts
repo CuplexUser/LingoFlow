@@ -8,6 +8,8 @@ type SessionQuestionBase = {
   culturalNote?: string;
   hints?: string[];
   answerEnglish?: string;
+  direction?: "reverse";
+  sourceText?: string;
 };
 
 export type MultipleChoiceQuestion = SessionQuestionBase & {

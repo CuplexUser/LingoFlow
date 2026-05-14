@@ -57,12 +57,60 @@ function normalizeComparableText(text) {
     .replace(/[.,!?;:()"']/g, "");
 }
 
+// Matches an instruction prefix like "Say:", "Choose the best response. Someone asks:", etc.
+// Only strips if the prefix is all-ASCII (no target-language text before the colon).
+const EXERCISE_PREFIX_RE = /^[a-zA-Z][a-zA-Z\s.,?!()]{1,60}:\s*/;
+
 function stripExercisePrefix(text) {
   return String(text || "")
-    .replace(/^say:\s*/i, "")
-    .replace(/^flashcard:\s*/i, "")
-    .replace(/^choose the best response\.\s*/i, "")
+    .replace(EXERCISE_PREFIX_RE, "")
+    .replace(/^["'«»]|["'«»]$/g, "")
     .trim();
+}
+
+function resolveEnglishFromPrompt(item) {
+  return stripExercisePrefix(String(item?.prompt || "").trim());
+}
+
+function isCleanEnglishText(text) {
+  if (!text || text.includes("____") || text.includes("___")) return false;
+  // Reject if it contains characters from non-Latin scripts (Cyrillic, Arabic, CJK, etc.)
+  return !/[^\p{Script=Latin}\p{Script=Common}\p{Script=Inherited}]/u.test(text);
+}
+
+
+function pickEnglishDistractors(pool, item, count, randomFn) {
+  const englishAnswer = resolveEnglishFromPrompt(item);
+  const normalizedAnswer = normalizeComparableText(englishAnswer);
+  const seen = new Set([normalizedAnswer]);
+  const unique: string[] = [];
+  shuffle(pool, randomFn).forEach((candidate) => {
+    if (unique.length >= count) return;
+    if (isRoleplayLikeItem(candidate)) return;
+    const eng = resolveEnglishFromPrompt(candidate);
+    if (countWords(eng) < 2) return;
+    if (!isCleanEnglishText(eng)) return;
+    const norm = normalizeComparableText(eng);
+    if (!norm || seen.has(norm)) return;
+    seen.add(norm);
+    unique.push(eng);
+  });
+  return unique.slice(0, count);
+}
+
+function isEligibleForReversal(item, resolvedType, language) {
+  if (language === "english") return false;
+  if (isRoleplayLikeItem(item)) return false;
+  if (!["mc_sentence", "build_sentence"].includes(resolvedType)) return false;
+  const fixedType = normalizeExerciseType(item?.exerciseType);
+  const nonReversibleTypes = ["pronunciation", "flashcard", "cloze_sentence", "dictation_sentence", "matching", "roleplay", "dialogue_turn"];
+  if (fixedType && nonReversibleTypes.includes(fixedType)) return false;
+  const englishText = resolveEnglishFromPrompt(item);
+  if (countWords(englishText) < 2) return false;
+  if (!isCleanEnglishText(englishText)) return false;
+  // Skip if English prompt text is the same as the target answer (would be a no-op)
+  if (normalizeComparableText(englishText) === normalizeComparableText(resolveAnswer(item))) return false;
+  return true;
 }
 
 function normalizeExerciseType(value) {
@@ -344,7 +392,7 @@ function buildQuestionTypePlan(items) {
   });
 }
 
-function createQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn) {
+function createQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn, reversed = false) {
   const requestedType = normalizeExerciseType(item.exerciseType);
   let resolvedType = normalizeExerciseType(questionType) || requestedType || "mc_sentence";
   const answer = resolveAnswer(item);
@@ -413,6 +461,21 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "mc_sentence") {
+    if (reversed && isEligibleForReversal(item, resolvedType, language)) {
+      const englishAnswer = resolveEnglishFromPrompt(item);
+      const distractors = pickEnglishDistractors(pool, item, 3, randomFn);
+      const rawOptions = shuffle([englishAnswer, ...distractors], randomFn);
+      return {
+        ...base,
+        prompt: "Translate to English",
+        direction: "reverse",
+        sourceText: answer,
+        answer: englishAnswer,
+        correctAnswer: englishAnswer,
+        acceptedAnswers: buildAcceptedAnswers(englishAnswer),
+        options: rawOptions
+      };
+    }
     //const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
     const authoredOptions = Array.isArray(item.options) && item.options.length >= 2
       ? item.options.map((o) => String(o || "")).filter(Boolean)
@@ -481,6 +544,27 @@ function createQuestion(item, pool, questionType, category, language, englishRol
       prompt: buildDictationPrompt(item.prompt, answer),
       audioText: answer,
       tokens: shuffle([...answerTokens, ...noise], randomFn)
+    };
+  }
+
+  if (reversed && isEligibleForReversal(item, "build_sentence", language)) {
+    const englishAnswer = resolveEnglishFromPrompt(item);
+    const engTokens = restoreTrailingPunct(tokenizeBuildWords(englishAnswer), englishAnswer);
+    const engTokenSet = new Set(engTokens.map((t) => t.toLowerCase().replace(/[.?!]+$/, "")));
+    const engTokenPool = pool
+      .flatMap((entry) => tokenizeBuildWords(resolveEnglishFromPrompt(entry)))
+      .filter((token) => token.length > 2 && !engTokenSet.has(token.toLowerCase()));
+    const engNoise = shuffle(engTokenPool, randomFn).slice(0, 3);
+    return {
+      ...base,
+      type: "build_sentence",
+      prompt: "Translate to English",
+      direction: "reverse",
+      sourceText: answer,
+      answer: englishAnswer,
+      correctAnswer: englishAnswer,
+      acceptedAnswers: buildAcceptedAnswers(englishAnswer),
+      tokens: shuffle([...engTokens, ...engNoise], randomFn)
     };
   }
 
@@ -632,7 +716,8 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       );
       const questions = selected.map((item, idx) => {
         const itemCategory = item.category || category;
-        return createQuestion(item, sourcePool, plannedTypes[idx], itemCategory, language, new Map(), randomFn);
+        const reversed = randomFn() < 0.35 && isEligibleForReversal(item, plannedTypes[idx], language);
+        return createQuestion(item, sourcePool, plannedTypes[idx], itemCategory, language, new Map(), randomFn, reversed);
       });
 
       return {
@@ -748,9 +833,10 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       selected = applyDailyCuration(selected, sourcePool, recommendedRank, randomFn).slice(0, targetCount);
     }
     const plannedTypes = buildQuestionTypePlan(selected);
-    const questions = selected.map((item, idx) =>
-      createQuestion(item, sourcePool, plannedTypes[idx], category, language, englishRoleplayAnswerByPrompt, randomFn)
-    );
+    const questions = selected.map((item, idx) => {
+      const reversed = randomFn() < 0.35 && isEligibleForReversal(item, plannedTypes[idx], language);
+      return createQuestion(item, sourcePool, plannedTypes[idx], category, language, englishRoleplayAnswerByPrompt, randomFn, reversed);
+    });
 
     return {
       recommendedLevel,
