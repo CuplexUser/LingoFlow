@@ -7,6 +7,7 @@ type SessionQuestionBase = {
   imageUrl?: string;
   culturalNote?: string;
   hints?: string[];
+  wordGlossary?: Record<string, string>;
   answerEnglish?: string;
   direction?: "reverse";
   sourceText?: string;

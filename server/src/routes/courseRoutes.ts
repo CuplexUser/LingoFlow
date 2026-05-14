@@ -136,6 +136,116 @@ function registerCourseRoutes(app: any, deps: any): void {
       coverage
     });
   });
+
+  const LANG_CODES: Record<string, string> = {
+    russian: "ru",
+    spanish: "es",
+    swedish: "sv",
+    italian: "it",
+    english: "en"
+  };
+
+  // Loose Cyrillic → Latin romanization used to detect when MyMemory returns
+  // a transliteration ("menya") instead of a real translation ("me").
+  const CYR_TO_LAT: Record<string, string> = {
+    а: "a", б: "b", в: "v", г: "g", д: "d", е: "ye", ё: "yo", ж: "zh",
+    з: "z", и: "i", й: "y", к: "k", л: "l", м: "m", н: "n", о: "o",
+    п: "p", р: "r", с: "s", т: "t", у: "u", ф: "f", х: "kh", ц: "ts",
+    ч: "ch", ш: "sh", щ: "shch", ъ: "", ы: "y", ь: "", э: "e", ю: "yu", я: "ya"
+  };
+
+  function romanizeCyrillic(word: string): string {
+    return word.toLowerCase().split("").map((c) => CYR_TO_LAT[c] ?? c).join("");
+  }
+
+  function levenshtein(a: string, b: string): number {
+    const m = a.length, n = b.length;
+    const dp: number[] = Array.from({ length: n + 1 }, (_, i) => i);
+    for (let i = 1; i <= m; i++) {
+      let prev = dp[0];
+      dp[0] = i;
+      for (let j = 1; j <= n; j++) {
+        const temp = dp[j];
+        dp[j] = a[i - 1] === b[j - 1] ? prev : 1 + Math.min(prev, dp[j], dp[j - 1]);
+        prev = temp;
+      }
+    }
+    return dp[n];
+  }
+
+  function normalizeTranslation(raw: string): string {
+    // Strip trailing punctuation, collapse ALL-CAPS, lowercase the first character
+    // (MyMemory often capitalizes single-word translations like "Morning").
+    let t = raw.replace(/[.,…]+$/, "").trim();
+    if (t === t.toUpperCase() && t.length > 1) t = t.toLowerCase();
+    t = t.charAt(0).toLowerCase() + t.slice(1);
+    return t;
+  }
+
+  function isUsableTranslation(word: string, translation: string): boolean {
+    // Must contain at least one letter
+    if (!/[a-zA-Z]/.test(translation)) return false;
+    // Must not be identical to the source
+    if (translation.toLowerCase() === word.toLowerCase()) return false;
+    // Detect Cyrillic transliterations: if the romanized source is very close
+    // to the translation, MyMemory just phoneticized it instead of translating
+    if (/[Ѐ-ӿ]/.test(word) && !/\s/.test(translation)) {
+      const romanized = romanizeCyrillic(word);
+      const dist = levenshtein(romanized, translation.toLowerCase());
+      const similarity = 1 - dist / Math.max(romanized.length, translation.length);
+      if (similarity >= 0.75) return false;
+    }
+    return true;
+  }
+
+  app.get("/api/dictionary/batch", requireAuth, async (req: any, res: any) => {
+    const lang = String(req.query.lang || "").trim().toLowerCase();
+    const wordsParam = String(req.query.words || "").trim();
+
+    if (!lang || !wordsParam) {
+      return res.status(400).json({ error: "lang and words are required" });
+    }
+    const langCode = LANG_CODES[lang];
+    if (!langCode) {
+      return res.status(400).json({ error: "unsupported language" });
+    }
+
+    const words = [
+      ...new Set(
+        wordsParam
+          .split(",")
+          .map((w: string) => w.trim().toLowerCase())
+          .filter((w: string) => w.length >= 2 && w.length <= 60)
+      )
+    ].slice(0, 50);
+
+    if (!words.length) return res.json({ translations: {} });
+
+    const cached = database.getCachedWordTranslations(lang, words);
+    const uncached = words.filter((w: string) => !(w in cached));
+    const translations: Record<string, string> = { ...cached };
+
+    for (const word of uncached) {
+      try {
+        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=${langCode}|en`;
+        const response = await fetch(url, { signal: AbortSignal.timeout(4000) });
+        if (!response.ok) continue;
+        const data = await response.json() as {
+          responseStatus: number;
+          responseData: { translatedText: string };
+        };
+        if (data.responseStatus !== 200) continue;
+        const translation = normalizeTranslation(String(data.responseData?.translatedText || ""));
+        if (!isUsableTranslation(word, translation)) continue;
+        database.upsertWordTranslation(lang, word, translation);
+        translations[word] = translation;
+      } catch {
+        // skip failed lookups silently
+      }
+    }
+
+    return res.json({ translations });
+  });
 }
 
 module.exports = {

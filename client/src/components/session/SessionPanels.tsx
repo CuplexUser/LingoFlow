@@ -1,4 +1,5 @@
-import { useMemo, useRef, useState, type DragEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type DragEvent, type ReactNode } from "react";
+import { api } from "../../api";
 import type {
   BuildSentenceQuestion,
   ClozeSentenceQuestion,
@@ -469,8 +470,11 @@ export function PracticeWordsPanel({
   );
 }
 
-function parseWordHints(hints: string[]): Map<string, string> {
-  const map = new Map<string, string>();
+type HintKind = "grammar" | "glossary";
+type WordHintEntry = { text: string; kind: HintKind };
+
+function parseWordHints(hints: string[]): Map<string, WordHintEntry> {
+  const map = new Map<string, WordHintEntry>();
   const re = /'([^']+)'\s*=\s*([^;.']+)/g;
   for (const hint of hints) {
     re.lastIndex = 0;
@@ -480,9 +484,25 @@ function parseWordHints(hints: string[]): Map<string, string> {
       // Strip grammatical notes after em-dash (e.g., "would prefer — conditional")
       const value = match[2].trim().replace(/\s*[—–-]\s*.+$/, "").trim();
       for (const word of phrase.toLowerCase().split(/\s+/)) {
-        if (!map.has(word)) map.set(word, value);
+        if (!map.has(word)) map.set(word, { text: value, kind: "grammar" });
       }
     }
+  }
+  return map;
+}
+
+function buildWordHintMap(
+  hints: string[],
+  wordGlossary: Record<string, string> | undefined
+): Map<string, WordHintEntry> {
+  const map = new Map<string, WordHintEntry>();
+  if (wordGlossary) {
+    for (const [word, gloss] of Object.entries(wordGlossary)) {
+      map.set(word.toLowerCase(), { text: gloss, kind: "glossary" });
+    }
+  }
+  for (const [word, entry] of parseWordHints(hints)) {
+    map.set(word, entry);
   }
   return map;
 }
@@ -491,7 +511,7 @@ function normalizeWord(word: string): string {
   return word.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, "").toLowerCase();
 }
 
-function HoverWordTip({ word, hint }: { word: string; hint?: string }) {
+function HoverWordTip({ word, hint, kind }: { word: string; hint?: string; kind?: HintKind }) {
   const [visible, setVisible] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -504,14 +524,18 @@ function HoverWordTip({ word, hint }: { word: string; hint?: string }) {
     setVisible(false);
   }
 
+  const kindClass = hint ? (kind === "grammar" ? " hover-word--grammar-hint" : " hover-word--glossary-hint") : "";
+
   return (
     <span
-      className={`hover-word${hint ? " hover-word--has-hint" : ""}`}
+      className={`hover-word${hint ? " hover-word--has-hint" : ""}${kindClass}`}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
     >
       {word}
-      {visible && hint ? <span className="hover-word-tip">{hint}</span> : null}
+      {visible && hint ? (
+        <span className={`hover-word-tip hover-word-tip--${kind ?? "glossary"}`}>{hint}</span>
+      ) : null}
     </span>
   );
 }
@@ -519,18 +543,45 @@ function HoverWordTip({ word, hint }: { word: string; hint?: string }) {
 type SourceTextWithHintsProps = {
   sourceText: string;
   hints: string[];
+  wordGlossary?: Record<string, string>;
+  language?: string;
 };
 
-export function SourceTextWithHints({ sourceText, hints }: SourceTextWithHintsProps) {
-  const wordHints = useMemo(() => parseWordHints(hints), [hints]);
+export function SourceTextWithHints({ sourceText, hints, wordGlossary, language }: SourceTextWithHintsProps) {
+  const [apiTranslations, setApiTranslations] = useState<Record<string, string>>({});
+  const baseHints = useMemo(() => buildWordHintMap(hints, wordGlossary), [hints, wordGlossary]);
+
+  useEffect(() => {
+    if (!language) return;
+    setApiTranslations({});
+    const words = [...new Set(
+      sourceText.trim().split(/\s+/).map(normalizeWord).filter((w) => w.length >= 2 && !baseHints.has(w))
+    )];
+    if (!words.length) return;
+    let cancelled = false;
+    api.fetchWordTranslations(language, words).then((result) => {
+      if (!cancelled) setApiTranslations(result);
+    });
+    return () => { cancelled = true; };
+  }, [sourceText, language, baseHints]);
+
+  const wordHints = useMemo(() => {
+    const merged = new Map(baseHints);
+    for (const [word, text] of Object.entries(apiTranslations)) {
+      if (!merged.has(word)) merged.set(word, { text, kind: "glossary" });
+    }
+    return merged;
+  }, [baseHints, apiTranslations]);
+
   const sourceWords = sourceText.trim().split(/\s+/);
   const hasAnyHint = sourceWords.some((w) => wordHints.has(normalizeWord(w)));
   return (
     <>
       <div className="source-text-hints">
-        {sourceWords.map((word, i) => (
-          <HoverWordTip key={i} word={word} hint={wordHints.get(normalizeWord(word))} />
-        ))}
+        {sourceWords.map((word, i) => {
+          const entry = wordHints.get(normalizeWord(word));
+          return <HoverWordTip key={i} word={word} hint={entry?.text} kind={entry?.kind} />;
+        })}
       </div>
       {hasAnyHint ? <span className="source-text-hint-label">Hover a word for a hint</span> : null}
     </>

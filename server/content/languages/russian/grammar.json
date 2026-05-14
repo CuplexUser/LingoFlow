@@ -69,7 +69,14 @@
     "prompt": "Say: I am reading a short story now.",
     "correctAnswer": "Сейчас я читаю короткий рассказ.",
     "hints": ["'Сейчас' = now; it usually opens the sentence."],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "wordGlossary": {
+      "сейчас": "now",
+      "я": "I",
+      "читаю": "I am reading",
+      "короткий": "short",
+      "рассказ": "story"
+    }
   },
   {
     "id": "ru-gr-a1-s02",
@@ -78,7 +85,14 @@
     "prompt": "Say: Yesterday I studied for two hours.",
     "correctAnswer": "Вчера я занимался два часа.",
     "hints": ["'Вчера' = yesterday; leads the sentence naturally."],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "wordGlossary": {
+      "вчера": "yesterday",
+      "я": "I",
+      "занимался": "studied / was studying",
+      "два": "two",
+      "часа": "hours (gen. sg.)"
+    }
   },
   {
     "id": "ru-gr-a1-s03",
@@ -87,7 +101,16 @@
     "prompt": "Say: Every morning I write three new words.",
     "correctAnswer": "Каждое утро я записываю три новых слова.",
     "hints": ["'Каждое утро' = every morning."],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "wordGlossary": {
+      "каждое": "every",
+      "утро": "morning",
+      "я": "I",
+      "записываю": "I write / I note down",
+      "три": "three",
+      "новых": "new (gen. pl.)",
+      "слова": "words (gen. sg.)"
+    }
   },
   {
     "id": "ru-gr-a1-s04",
@@ -114,7 +137,12 @@
     "prompt": "Say: I do not understand.",
     "correctAnswer": "Я не понимаю.",
     "hints": ["Negation in Russian: put 'не' directly before the verb."],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "wordGlossary": {
+      "я": "I",
+      "не": "not",
+      "понимаю": "I understand"
+    }
   },
   {
     "id": "ru-gr-a1-s07",
@@ -123,7 +151,13 @@
     "prompt": "Say: This is not my book.",
     "correctAnswer": "Это не моя книга.",
     "hints": ["'Не' goes before the word it negates."],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "wordGlossary": {
+      "это": "this",
+      "не": "not",
+      "моя": "my (fem.)",
+      "книга": "book"
+    }
   },
   {
     "id": "ru-gr-a1-s08",
@@ -132,7 +166,12 @@
     "prompt": "Ask: What is your name?",
     "correctAnswer": "Как тебя зовут?",
     "hints": ["Literally: 'How do they call you?' — a fixed phrase."],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "wordGlossary": {
+      "как": "how",
+      "тебя": "you (gen./acc.)",
+      "зовут": "they call"
+    }
   },
   {
     "id": "ru-gr-a1-p01",

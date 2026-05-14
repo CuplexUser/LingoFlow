@@ -588,6 +588,7 @@ function ensureCommunityExercisesColumns() {
 }
 
 ensureCommunityExercisesColumns();
+createWordTranslationsTable();
 
 db.prepare(`
   INSERT OR IGNORE INTO users (id, email, password_hash, display_name, email_verified, auth_provider)
@@ -2469,6 +2470,42 @@ function resetCategoryProgress(language: string, category: string): void {
   })();
 }
 
+function createWordTranslationsTable(): void {
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS word_translations (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      language TEXT NOT NULL,
+      word TEXT NOT NULL,
+      translation TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(language, word)
+    )
+  `);
+}
+
+function getCachedWordTranslations(language: string, words: string[]): Record<string, string> {
+  if (!words.length) return {};
+  const placeholders = words.map(() => "?").join(", ");
+  const rows = db
+    .prepare(
+      `SELECT word, translation FROM word_translations WHERE language = ? AND word IN (${placeholders})`
+    )
+    .all(language, ...words) as { word: string; translation: string }[];
+  const result: Record<string, string> = {};
+  for (const row of rows) result[row.word] = row.translation;
+  return result;
+}
+
+function upsertWordTranslation(language: string, word: string, translation: string): void {
+  db.prepare(`
+    INSERT INTO word_translations (language, word, translation)
+    VALUES (?, ?, ?)
+    ON CONFLICT(language, word) DO UPDATE SET
+      translation = excluded.translation,
+      created_at = CURRENT_TIMESTAMP
+  `).run(language, word, translation);
+}
+
 module.exports = {
   getUserByEmail,
   getUserById,
@@ -2521,5 +2558,8 @@ module.exports = {
   toIsoDateTime,
   getContentFingerprints,
   upsertContentFingerprint,
-  resetCategoryProgress
+  resetCategoryProgress,
+  createWordTranslationsTable,
+  getCachedWordTranslations,
+  upsertWordTranslation
 };

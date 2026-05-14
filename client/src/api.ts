@@ -219,6 +219,15 @@ function asStringArray(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
 }
 
+function asStringRecord(value: unknown): Record<string, string> | undefined {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return undefined;
+  const result: Record<string, string> = {};
+  for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
+    if (typeof k === "string" && typeof v === "string") result[k] = v;
+  }
+  return Object.keys(result).length > 0 ? result : undefined;
+}
+
 function asStringRecordArray(value: unknown): Array<Record<string, unknown>> {
   return Array.isArray(value)
     ? value.filter((item): item is Record<string, unknown> => Boolean(item) && typeof item === "object")
@@ -233,6 +242,7 @@ function mapSessionQuestion(rawQuestion: RawSessionQuestion): SessionQuestion {
     imageUrl: asOptionalString(rawQuestion.imageUrl),
     culturalNote: asOptionalString(rawQuestion.culturalNote),
     hints: asStringArray(rawQuestion.hints),
+    wordGlossary: asStringRecord(rawQuestion.wordGlossary),
     direction: rawQuestion.direction === "reverse" ? "reverse" as const : undefined,
     sourceText: asOptionalString(rawQuestion.sourceText)
   };
@@ -476,5 +486,12 @@ export const api = {
     request<BookmarkToggleResponse>("/bookmarks", { method: "POST", body: JSON.stringify(payload) }),
   removeBookmark: (questionId: string) =>
     request<BookmarkToggleResponse>(`/bookmarks/${encodeURIComponent(questionId)}`, { method: "DELETE" }),
-  getContentStats: () => request<ContentStatsData>("/admin/content-stats")
+  getContentStats: () => request<ContentStatsData>("/admin/content-stats"),
+  fetchWordTranslations: (lang: string, words: string[]): Promise<Record<string, string>> => {
+    if (!words.length) return Promise.resolve({});
+    const params = new URLSearchParams({ lang, words: words.join(",") });
+    return request<{ translations: Record<string, string> }>(`/dictionary/batch?${params}`)
+      .then((r) => r.translations ?? {})
+      .catch(() => ({}));
+  }
 };

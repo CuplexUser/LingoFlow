@@ -64,6 +64,21 @@ function validateCourseItem(item: unknown, languageId: string, categoryId: strin
   if (exerciseType && !SUPPORTED_EXERCISE_TYPES.includes(exerciseType)) {
     throw new Error(`${prefix}.exerciseType is not supported`);
   }
+  if (item.wordGlossary !== undefined) {
+    if (
+      typeof item.wordGlossary !== "object" ||
+      item.wordGlossary === null ||
+      Array.isArray(item.wordGlossary)
+    ) {
+      throw new Error(`${prefix}.wordGlossary must be a plain object`);
+    }
+    for (const [k, v] of Object.entries(item.wordGlossary as Record<string, unknown>)) {
+      if (typeof k !== "string" || !k.trim())
+        throw new Error(`${prefix}.wordGlossary keys must be non-empty strings`);
+      if (typeof v !== "string")
+        throw new Error(`${prefix}.wordGlossary["${k}"] must be a string`);
+    }
+  }
 }
 
 function validateLanguagePayload(payload: unknown, fileName: string): void {

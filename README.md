@@ -26,6 +26,35 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 - **Roleplay** — guided dialogue completion
 - **Practice modes** — dedicated speaking, listening, word-matching, and previous-mistakes drill sessions; the mistakes mode pulls the worst-performing items across all categories, ranked by error count then accuracy
 
+### Word Hints & Tooltips
+
+Hover over any word in a reverse-translation exercise (translating to English) to see a tooltip. Three sources are checked in priority order:
+
+1. **Grammar hints** (dotted underline, dark tooltip) — words matched by the `'word' = meaning` pattern in the exercise `hints` array.
+2. **Glossary translations** (solid accent underline, accent tooltip) — words covered by the optional `wordGlossary` field on the exercise.
+3. **Auto-fetched translations** (same accent style) — for any word not covered by the above, the client pre-fetches a translation from the server when the exercise loads. The server calls the [MyMemory API](https://mymemory.translated.net/) and caches results in the `word_translations` SQLite table, so each word is only looked up once across all users.
+
+Responses from the translation API are validated before caching: transliterations (e.g. "menya" for "меня"), punctuation-only responses, and strings identical to the source word are discarded. Translations are also normalised — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
+
+**Content authors** can add curated per-word translations to any exercise via a `wordGlossary` object:
+
+```json
+{
+  "id": "ru-gr-a1-s02",
+  "correctAnswer": "Вчера я занимался два часа.",
+  "hints": ["'Вчера' = yesterday; leads the sentence naturally."],
+  "wordGlossary": {
+    "вчера": "yesterday",
+    "я": "I",
+    "занимался": "studied / was studying",
+    "два": "two",
+    "часа": "hours (gen. sg.)"
+  }
+}
+```
+
+Keys are lowercased word forms exactly as they appear in `correctAnswer`; values are short English glosses. The field is optional and validated at server startup.
+
 ### Session Experience
 
 - Live XP tally updates per correct answer during a session
@@ -244,6 +273,7 @@ npm run verify          # Lint + client tests
 | `POST` | `/api/community/contribute` | Submit a community exercise |
 | `GET` | `/api/community/contributions` | List contributions (own or all) |
 | `PATCH` | `/api/community/contributions/:id` | Update moderation status |
+| `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Batch word translations (SQLite-cached, MyMemory fallback) |
 
 ### Admin only
 

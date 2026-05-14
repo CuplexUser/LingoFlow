@@ -564,6 +564,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         <SourceTextWithHints
           sourceText={reversedSourceText}
           hints={Array.isArray(question.hints) ? question.hints : []}
+          wordGlossary={question.wordGlossary}
+          language={session.language}
         />
       ) : null}
       {question.type === "roleplay" ? (

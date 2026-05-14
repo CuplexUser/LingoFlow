@@ -158,7 +158,13 @@ function buildMediaFields(item) {
     hints: Array.isArray(item?.hints) ? item.hints : [],
     audioUrl: String(item?.audioUrl || ""),
     imageUrl: String(item?.imageUrl || ""),
-    culturalNote: String(item?.culturalNote || "")
+    culturalNote: String(item?.culturalNote || ""),
+    wordGlossary:
+      item?.wordGlossary !== null &&
+      typeof item?.wordGlossary === "object" &&
+      !Array.isArray(item?.wordGlossary)
+        ? (item.wordGlossary as Record<string, string>)
+        : undefined
   };
 }
 

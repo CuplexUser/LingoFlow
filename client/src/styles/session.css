@@ -774,9 +774,19 @@
 
 .hover-word--has-hint {
   cursor: help;
+}
+
+.hover-word--has-hint.hover-word--grammar-hint {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-decoration-color: var(--text-muted);
+  text-underline-offset: 4px;
+}
+
+.hover-word--has-hint.hover-word--glossary-hint {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: var(--accent, #7c6af5);
   text-underline-offset: 4px;
 }
 
@@ -789,12 +799,10 @@
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  background: var(--ink);
   border-radius: 6px;
   padding: 5px 11px;
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--surface);
   white-space: normal;
   width: max-content;
   max-width: 260px;
@@ -805,6 +813,16 @@
   animation: tooltip-in 0.12s ease;
 }
 
+.hover-word-tip--grammar {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.hover-word-tip--glossary {
+  background: var(--accent, #7c6af5);
+  color: #fff;
+}
+
 .hover-word-tip::after {
   content: "";
   position: absolute;
@@ -812,7 +830,14 @@
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
+}
+
+.hover-word-tip--grammar::after {
   border-top-color: var(--ink);
+}
+
+.hover-word-tip--glossary::after {
+  border-top-color: var(--accent, #7c6af5);
 }
 
 @keyframes tooltip-in {
