@@ -1,390 +1,752 @@
 [
   {
-    "id": "ru-tr-1",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Where is the train station?",
-    "correctAnswer": "Где находится железнодорожный вокзал?",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "ru-tr-2",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: How much does this ticket cost?",
-    "correctAnswer": "Сколько стоит этот билет?",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "ru-tr-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I need a room for two nights.",
-    "correctAnswer": "Мне нужен номер на две ночи.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "ru-tr-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: Does this bus go to the city center?",
-    "correctAnswer": "Этот автобус едет в центр города?",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "ru-tr-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: My flight was delayed because of bad weather.",
-    "correctAnswer": "Мой рейс задержали из-за плохой погоды.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "ru-tr-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I lost my passport and need help immediately.",
-    "correctAnswer": "Я потерял паспорт и мне срочно нужна помощь.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "ru-tr-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
-    "correctAnswer": "Не могли бы вы порекомендовать безопасный район рядом с центром?",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-tr-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
-    "correctAnswer": "Я предпочёл бы более спокойный маршрут, даже если он займет больше времени.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-tr-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Which platform does the train leave from?",
-    "correctAnswer": "С какой платформы отправляется поезд?",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "ru-tr-10",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I would like to check in for my reservation.",
-    "correctAnswer": "Я хочу зарегистрироваться по своему бронированию.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "ru-tr-11",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: The museum is within walking distance from the hotel.",
-    "correctAnswer": "Музей находится в пешей доступности от отеля.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "ru-tr-12",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Ask: Is there a faster connection if I change lines once?",
-    "correctAnswer": "Есть ли более быстрое сообщение, если я один раз пересяду?",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-tr-a1-1",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I study travel every day.",
-    "correctAnswer": "Я каждый день изучаю путешествия.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-tr-a1-2",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Can we practice travel now?",
-    "correctAnswer": "Мы можем сейчас практиковать путешествия?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-tr-a1-3",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Vocabulary: route",
-    "correctAnswer": "маршрут",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-tr-a1-4",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I need more time for travel.",
-    "correctAnswer": "Мне нужно больше времени на путешествия.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "ru-tr-a1-5",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Choose the best translation: I regularly practice travel.",
-    "correctAnswer": "Я каждый день повторяю тему путешествия.",
-    "hints": [
-      "Pick the most natural Russian sentence."
-    ],
-    "exerciseType": "mc_sentence"
-  },
-  {
-    "id": "ru-tr-a1-7",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: This lesson on travel is useful.",
-    "correctAnswer": "Этот урок по теме «путешествий» полезный.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-tr-a1-8",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Vocabulary: station",
-    "correctAnswer": "вокзал",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "ru-tr-a1-13",
+    "id": "ru-tr-a1-f01",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: ticket",
     "correctAnswer": "билет",
-    "hints": [
-      "Recall the most common Russian equivalent."
-    ],
+    "hints": ["You need this to board a train or plane."],
     "exerciseType": "flashcard"
   },
   {
-    "id": "ru-tr-a2-1",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I practiced travel yesterday.",
-    "correctAnswer": "Я вчера практиковал путешествия.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "id": "ru-tr-a1-f02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: station (train/bus)",
+    "correctAnswer": "вокзал",
+    "hints": ["The large terminal building where trains arrive and depart."],
+    "exerciseType": "flashcard"
   },
   {
-    "id": "ru-tr-a2-2",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: How can I improve in travel?",
-    "correctAnswer": "Как я могу улучшить навыки в теме «путешествий»?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-tr-a1-f03",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: airport",
+    "correctAnswer": "аэропорт",
+    "hints": ["Where planes take off and land."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a1-f04",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: hotel",
+    "correctAnswer": "отель",
+    "hints": ["Where you stay when you travel."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a1-f05",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: passport",
+    "correctAnswer": "паспорт",
+    "hints": ["The document you need to cross a border."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a1-f06",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: map",
+    "correctAnswer": "карта",
+    "hints": ["Also means 'card' in Russian — context tells you which."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a1-f07",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: route",
+    "correctAnswer": "маршрут",
+    "hints": ["The path you take from A to B."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a1-f08",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: suitcase",
+    "correctAnswer": "чемодан",
+    "hints": ["The large bag you check in at the airport."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a1-s01",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the train station?",
+    "correctAnswer": "Где находится железнодорожный вокзал?",
+    "hints": ["'Где находится' = where is (located)."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-tr-a2-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Cloze: Я регулярно ____ темой путешествия.",
-    "correctAnswer": "занимаюсь",
-    "hints": [
-      "Use a verb that matches the context and style."
-    ],
-    "exerciseType": "cloze_sentence"
+    "id": "ru-tr-a1-s02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How much does this ticket cost?",
+    "correctAnswer": "Сколько стоит этот билет?",
+    "hints": ["'Сколько стоит' = how much does it cost."],
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-tr-a2-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I understand travel better now.",
-    "correctAnswer": "Теперь я лучше понимаю тему путешествия.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-tr-a1-s03",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Which platform does the train leave from?",
+    "correctAnswer": "С какой платформы отправляется поезд?",
+    "hints": ["'С какой платформы' = from which platform — genitive after 'с'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a1-s04",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the toilet?",
+    "correctAnswer": "Где туалет?",
+    "hints": ["A very short question — no verb needed in Russian."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a1-s05",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need a taxi.",
+    "correctAnswer": "Мне нужно такси.",
+    "hints": ["'Мне нужно' = I need — impersonal construction."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a1-s06",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is there a metro nearby?",
+    "correctAnswer": "Здесь есть метро?",
+    "hints": ["'Здесь есть' = is there here — simple existence question."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a1-s07",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not understand.",
+    "correctAnswer": "Я не понимаю.",
+    "hints": ["A very useful phrase when you get lost in conversation."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a1-p01",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am going to Moscow.",
+    "correctAnswer": "Я еду в Москву.",
+    "hints": ["'Ехать' = to go by vehicle; 'в Москву' is accusative."],
     "exerciseType": "pronunciation"
   },
   {
-    "id": "ru-tr-a2-5",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Roleplay: Ask your tutor for support with travel.",
-    "correctAnswer": "Можете дать мне больше упражнений по теме «путешествий»?",
-    "hints": [
-      "Use a polite, natural request."
+    "id": "ru-tr-a1-p02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My bag is heavy.",
+    "correctAnswer": "Моя сумка тяжёлая.",
+    "hints": ["'Тяжёлая' agrees with feminine noun 'сумка'."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-tr-a1-mc01",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best translation: Where is the exit?",
+    "correctAnswer": "Где выход?",
+    "options": [
+      "Где выход?",
+      "Где вход?",
+      "Где туалет?",
+      "Где билет?"
     ],
-    "exerciseType": "roleplay"
+    "hints": ["'Выход' = exit; 'вход' = entrance."],
+    "exerciseType": "mc_sentence"
   },
   {
-    "id": "ru-tr-a2-7",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: This exercise on travel was difficult.",
-    "correctAnswer": "Это упражнение по теме «путешествий» было трудным.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
+    "id": "ru-tr-a1-mc02",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best translation: One ticket, please.",
+    "correctAnswer": "Один билет, пожалуйста.",
+    "options": [
+      "Один билет, пожалуйста.",
+      "Два билета, пожалуйста.",
+      "Билет дорогой.",
+      "Где билет?"
     ],
-    "exerciseType": "build_sentence"
+    "hints": ["'Один' = one; 'пожалуйста' = please."],
+    "exerciseType": "mc_sentence"
   },
   {
-    "id": "ru-tr-b1-1",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: Regular practice helps me improve in travel.",
-    "correctAnswer": "Регулярная практика помогает мне развиваться в теме «путешествий».",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
-  },
-  {
-    "id": "ru-tr-b1-2",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Ask: Which strategy works best for travel?",
-    "correctAnswer": "Какая стратегия лучше всего работает для темы «путешествий»?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "ru-tr-b1-3",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Cloze: Я постепенно ____ навыки в теме путешествия.",
-    "correctAnswer": "развиваю",
-    "hints": [
-      "Use a verb that matches the context and style."
-    ],
-    "exerciseType": "cloze_sentence"
-  },
-  {
-    "id": "ru-tr-b1-4",
-    "level": "b1",
-    "difficulty": "b1",
+    "id": "ru-tr-a1-d01",
+    "level": "a1",
+    "difficulty": "a1",
     "prompt": "Listen and type the sentence you hear.",
-    "correctAnswer": "Я стараюсь регулярно практиковать тему путешествия.",
-    "hints": [
-      "Listen for key noun endings and word order."
-    ],
+    "correctAnswer": "Где находится ближайшая остановка?",
+    "hints": ["Listen for 'ближайшая' — nearest — and 'остановка' — stop."],
     "exerciseType": "dictation_sentence"
   },
   {
-    "id": "ru-tr-b1-7",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I make fewer mistakes when I review travel.",
-    "correctAnswer": "Я делаю меньше ошибок, когда повторяю тему путешествия.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-tr-a2-f01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: reservation / booking",
+    "correctAnswer": "бронирование",
+    "hints": ["What you make before you arrive at the hotel."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a2-f02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: flight",
+    "correctAnswer": "рейс",
+    "hints": ["A scheduled journey by plane."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a2-f03",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: customs",
+    "correctAnswer": "таможня",
+    "hints": ["The checkpoint at the border where your bags may be checked."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-a2-s01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need a room for two nights.",
+    "correctAnswer": "Мне нужен номер на две ночи.",
+    "hints": ["'Номер' = hotel room; 'на две ночи' = for two nights."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-tr-b1-12",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I want to sound more natural in travel.",
-    "correctAnswer": "Я хочу звучать более естественно в теме «путешествий».",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ],
+    "id": "ru-tr-a2-s02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Does this bus go to the city centre?",
+    "correctAnswer": "Этот автобус едет в центр города?",
+    "hints": ["Simple present-tense question — no inversion needed in Russian."],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-tr-b2-1",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Systematic practice has deepened my understanding of travel.",
-    "correctAnswer": "Системная практика углубила моё понимание темы «путешествий».",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "id": "ru-tr-a2-s03",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I would like to check in for my reservation.",
+    "correctAnswer": "Я хочу зарегистрироваться по своему бронированию.",
+    "hints": ["'Зарегистрироваться' = to check in (at a hotel or for a flight)."],
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "ru-tr-b2-2",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Cloze: Я системно ____ знания в теме «путешествий».",
-    "correctAnswer": "углубляю",
-    "hints": [
-      "Use a verb that matches the context and style."
-    ],
+    "id": "ru-tr-a2-s04",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What time does the train arrive?",
+    "correctAnswer": "Во сколько прибывает поезд?",
+    "hints": ["'Во сколько' = at what time; 'прибывает' = arrives."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a2-s05",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have two bags.",
+    "correctAnswer": "У меня два чемодана.",
+    "hints": ["After 2, 3, 4 — use genitive singular: 'чемодана'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a2-s06",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Is breakfast included?",
+    "correctAnswer": "Завтрак включён?",
+    "hints": ["'Включён' is the short-form passive participle of 'включить'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-a2-p01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: My flight leaves at seven in the morning.",
+    "correctAnswer": "Мой рейс вылетает в семь утра.",
+    "hints": ["'Вылетать' = to depart (for a plane); 'утра' is genitive of 'утро'."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-tr-a2-p02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need to be at the airport two hours before departure.",
+    "correctAnswer": "Мне нужно быть в аэропорту за два часа до вылета.",
+    "hints": ["'За два часа до' = two hours before; 'вылета' is genitive of 'вылет'."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-tr-a2-c01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Я хочу ____ номер на три ночи.",
+    "correctAnswer": "забронировать",
+    "hints": ["Use the perfective infinitive meaning 'to book' or 'to reserve'."],
     "exerciseType": "cloze_sentence"
   },
   {
-    "id": "ru-tr-b2-6",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Ask: Could you clarify a nuance in travel?",
-    "correctAnswer": "Не могли бы вы уточнить один смысловой оттенок в теме «путешествий»?",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "id": "ru-tr-a2-c02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Поезд ____ через десять минут.",
+    "correctAnswer": "отправляется",
+    "hints": ["Use a verb meaning 'departs' or 'leaves'."],
+    "exerciseType": "cloze_sentence"
   },
   {
-    "id": "ru-tr-b2-11",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I value detailed feedback on travel.",
-    "correctAnswer": "Я ценю подробную обратную связь по теме «путешествий».",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "id": "ru-tr-a2-mc01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the correct translation: I would like a window seat.",
+    "correctAnswer": "Я хотел бы место у окна.",
+    "options": [
+      "Я хотел бы место у окна.",
+      "Я хочу окно в номере.",
+      "Мне нужно окно.",
+      "Я хотел бы посмотреть в окно."
+    ],
+    "hints": ["'Место у окна' = seat by the window — genitive after 'у'."],
+    "exerciseType": "mc_sentence"
   },
   {
-    "id": "ru-tr-b2-16",
+    "id": "ru-tr-a2-mc02",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the correct translation: How long is the journey?",
+    "correctAnswer": "Сколько времени займёт поездка?",
+    "options": [
+      "Сколько времени займёт поездка?",
+      "Когда приедет поезд?",
+      "Где остановка?",
+      "Сколько стоит поездка?"
+    ],
+    "hints": ["'Сколько времени займёт' = how long will it take."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-tr-a2-d01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Мне нужен номер на одну ночь.",
+    "hints": ["Listen for 'номер на одну ночь' — a room for one night."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-tr-a2-r01",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Roleplay: Ask at the hotel reception whether Wi-Fi is available.",
+    "correctAnswer": "У вас есть Wi-Fi в номерах?",
+    "hints": ["'У вас есть' = do you have; 'в номерах' = in the rooms."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-tr-b1-f01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: delay",
+    "correctAnswer": "задержка",
+    "hints": ["What happens when a flight or train is late."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-b1-f02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: to transfer / to change (trains)",
+    "correctAnswer": "пересесть",
+    "hints": ["Perfective verb — what you do when you switch from one train to another."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-b1-f03",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: luggage storage",
+    "correctAnswer": "камера хранения",
+    "hints": ["Where you leave your bags at a station while you explore the city."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-b1-s01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My flight was delayed because of bad weather.",
+    "correctAnswer": "Мой рейс задержали из-за плохой погоды.",
+    "hints": ["'Из-за' + genitive = because of; impersonal past passive here."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b1-s02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I lost my passport and need help immediately.",
+    "correctAnswer": "Я потерял паспорт и мне срочно нужна помощь.",
+    "hints": ["'Срочно' = urgently; 'нужна' agrees with feminine noun 'помощь'."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b1-s03",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The museum is within walking distance from the hotel.",
+    "correctAnswer": "Музей находится в пешей доступности от отеля.",
+    "hints": ["'В пешей доступности' = within walking distance — a fixed phrase."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b1-s04",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Where can I store my luggage until the evening?",
+    "correctAnswer": "Где я могу оставить багаж до вечера?",
+    "hints": ["'Оставить' = to leave/store; 'до вечера' = until the evening."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b1-s05",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I need to change trains at the next station.",
+    "correctAnswer": "Мне нужно пересесть на следующей станции.",
+    "hints": ["'Пересесть' = to change (trains); 'на следующей станции' = at the next station."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b1-s06",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I booked the tickets online in advance.",
+    "correctAnswer": "Я заранее купил билеты онлайн.",
+    "hints": ["'Заранее' = in advance; 'купил' = bought (perfective past)."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b1-s07",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Is it possible to upgrade to a higher class?",
+    "correctAnswer": "Можно ли перейти в более высокий класс?",
+    "hints": ["'Можно ли' = is it possible; 'перейти' = to move to."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b1-p01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I arrived at the hotel late and the reception was closed.",
+    "correctAnswer": "Я приехал в отель поздно, и стойка регистрации была закрыта.",
+    "hints": ["'Стойка регистрации' = reception desk; 'закрыта' is a short-form adjective."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-tr-b1-p02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Unfortunately, there are no seats left on the evening train.",
+    "correctAnswer": "К сожалению, на вечерний поезд билетов уже нет.",
+    "hints": ["'К сожалению' = unfortunately; 'уже нет' = there are no longer any."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-tr-b1-c01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Рейс ____ на два часа из-за тумана.",
+    "correctAnswer": "задержали",
+    "hints": ["Use past tense of 'задержать' — to delay (perfective, impersonal use)."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-tr-b1-c02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Нам пришлось ____ в соседнем городе, потому что не было мест.",
+    "correctAnswer": "остановиться",
+    "hints": ["Use the perfective of 'останавливаться' — to stay overnight."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-tr-b1-c03",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Я взял с собой только ручную ____.",
+    "correctAnswer": "кладь",
+    "hints": ["'Ручная кладь' = hand luggage — a set phrase."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-tr-b1-mc01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the correct translation: We need to hurry or we will miss the train.",
+    "correctAnswer": "Нам нужно торопиться, иначе мы опоздаем на поезд.",
+    "options": [
+      "Нам нужно торопиться, иначе мы опоздаем на поезд.",
+      "Нам нужно подождать следующего поезда.",
+      "Поезд уже опоздал.",
+      "Мы успели на поезд вовремя."
+    ],
+    "hints": ["'Иначе' = otherwise; 'опоздать на поезд' = to miss the train."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-tr-b1-mc02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best phrase: to check out of a hotel",
+    "correctAnswer": "выписаться из отеля",
+    "options": [
+      "выписаться из отеля",
+      "зарегистрироваться в отеле",
+      "остановиться в отеле",
+      "забронировать номер"
+    ],
+    "hints": ["'Выписаться' = to check out; 'зарегистрироваться' = to check in."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-tr-b1-d01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Мой поезд отправляется через полчаса с третьей платформы.",
+    "hints": ["Listen for 'через полчаса' — in half an hour — and the platform number."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-tr-b1-d02",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Я заранее забронировал номер в центре города.",
+    "hints": ["Listen for 'заранее' — in advance — and 'в центре города'."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-tr-b1-r01",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Roleplay: Tell the hotel reception your room key does not work.",
+    "correctAnswer": "Извините, ключ от моего номера не работает.",
+    "hints": ["'Ключ от номера' = room key — genitive after 'от'."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-tr-b2-f01",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Consistency matters more than intensity in travel.",
-    "correctAnswer": "В теме «путешествий» системность важнее интенсивности.",
-    "hints": [
-      "Focus on natural Russian phrasing and word order."
-    ]
+    "prompt": "Vocabulary: itinerary",
+    "correctAnswer": "маршрут поездки",
+    "hints": ["The planned sequence of stops on a trip."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-b2-f02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: to get around (a city)",
+    "correctAnswer": "передвигаться по городу",
+    "hints": ["How you move from place to place while exploring."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-b2-f03",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: travel insurance",
+    "correctAnswer": "туристическая страховка",
+    "hints": ["Protects you if something goes wrong on your trip."],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-tr-b2-s01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you recommend a safe neighbourhood near the centre?",
+    "correctAnswer": "Не могли бы вы порекомендовать безопасный район рядом с центром?",
+    "hints": ["'Не могли бы вы' = could you (polite); 'рядом с' + instrumental."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b2-s02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
+    "correctAnswer": "Я предпочёл бы более спокойный маршрут, даже если он займёт больше времени.",
+    "hints": ["'Предпочёл бы' = would prefer — conditional; 'даже если' = even if."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b2-s03",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Is there a faster connection if I change lines once?",
+    "correctAnswer": "Есть ли более быстрое сообщение, если я один раз пересяду?",
+    "hints": ["'Сообщение' here means a transport connection; 'пересяду' = if I transfer."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b2-s04",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I prefer travelling light and using public transport.",
+    "correctAnswer": "Я предпочитаю путешествовать налегке и пользоваться общественным транспортом.",
+    "hints": ["'Налегке' = with little luggage; 'пользоваться' + instrumental."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b2-s05",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I checked the schedule, I would not have missed the train.",
+    "correctAnswer": "Если бы я проверил расписание, я бы не опоздал на поезд.",
+    "hints": ["Counterfactual past: 'если бы' + past + 'бы' in the result clause."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b2-s06",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you print my boarding pass, please?",
+    "correctAnswer": "Не могли бы вы распечатать мой посадочный талон?",
+    "hints": ["'Посадочный талон' = boarding pass — a fixed phrase."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b2-s07",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The best way to get around the city is by metro.",
+    "correctAnswer": "Лучший способ передвигаться по городу — это метро.",
+    "hints": ["'Лучший способ' = the best way; dash before the predicate noun."],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-tr-b2-p01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I always take out travel insurance before a long trip.",
+    "correctAnswer": "Я всегда оформляю туристическую страховку перед долгой поездкой.",
+    "hints": ["'Оформлять' = to take out / arrange (a document or policy)."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-tr-b2-p02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: We planned the whole itinerary before we arrived.",
+    "correctAnswer": "Мы составили весь маршрут поездки до того, как приехали.",
+    "hints": ["'До того, как' = before (something happened) — links two past actions."],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-tr-b2-c01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Я предпочитаю путешествовать ____, без лишнего багажа.",
+    "correctAnswer": "налегке",
+    "hints": ["An adverb meaning 'light' or 'with little luggage'."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-tr-b2-c02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Чем раньше покупаешь билеты, тем ____ они стоят.",
+    "correctAnswer": "дешевле",
+    "hints": ["'Чем раньше... тем...' = the earlier..., the...; use a comparative."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-tr-b2-c03",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Несмотря на задержку, мы успели ____ на стыковочный рейс.",
+    "correctAnswer": "сесть",
+    "hints": ["'Успеть' + infinitive = to manage to do something in time; 'сесть на рейс' = to catch a flight."],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "ru-tr-b2-mc01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the correct translation: The earlier you book, the cheaper the tickets.",
+    "correctAnswer": "Чем раньше бронируешь, тем дешевле билеты.",
+    "options": [
+      "Чем раньше бронируешь, тем дешевле билеты.",
+      "Билеты всегда стоят одинаково.",
+      "Если брони рано, билеты бесплатны.",
+      "Чем позже едешь, тем лучше."
+    ],
+    "hints": ["'Чем раньше... тем дешевле' = the earlier..., the cheaper."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-tr-b2-mc02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the most natural way to say: I am running late for my flight.",
+    "correctAnswer": "Я опаздываю на рейс.",
+    "options": [
+      "Я опаздываю на рейс.",
+      "Я не успею на рейс никогда.",
+      "Рейс меня ждёт.",
+      "Я быстро иду в аэропорт."
+    ],
+    "hints": ["'Опаздывать на' + accusative = to be late for something."],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "ru-tr-b2-d01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Несмотря на задержку, мы успели пересесть на нужный поезд.",
+    "hints": ["Listen for 'несмотря на' — despite — and 'успели пересесть'."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-tr-b2-d02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Я предпочитаю останавливаться в небольших гостиницах в центре города.",
+    "hints": ["Listen for 'останавливаться' — to stay — and the location phrase at the end."],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "ru-tr-b2-r01",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: At check-in, explain that your surname is spelled differently on your ticket and ask if it is a problem.",
+    "correctAnswer": "Моя фамилия на билете написана немного иначе. Это проблема?",
+    "hints": ["'Написана иначе' = spelled differently; keep the question short and direct."],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-tr-b2-r02",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Roleplay: Ask a local for advice on the quickest way to get to the old town.",
+    "correctAnswer": "Подскажите, пожалуйста, как быстрее всего добраться до старого города?",
+    "hints": ["'Подскажите' = could you tell me; 'добраться до' + genitive = to get to."],
+    "exerciseType": "roleplay"
   }
 ]

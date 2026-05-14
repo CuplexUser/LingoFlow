@@ -492,6 +492,14 @@ db.exec(`
     metadata_json TEXT NOT NULL DEFAULT '{}',
     UNIQUE(user_id, achievement_id)
   );
+
+  CREATE TABLE IF NOT EXISTS content_versions (
+    language TEXT NOT NULL,
+    category TEXT NOT NULL,
+    fingerprint TEXT NOT NULL,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(language, category)
+  );
 `);
 
 db.exec(`
@@ -2437,6 +2445,30 @@ function runInTransaction(operation) {
   return tx();
 }
 
+function getContentFingerprints(): Record<string, string> {
+  const rows = db.prepare("SELECT language, category, fingerprint FROM content_versions").all() as any[];
+  const result: Record<string, string> = {};
+  for (const row of rows) {
+    result[`${row.language}:${row.category}`] = row.fingerprint;
+  }
+  return result;
+}
+
+function upsertContentFingerprint(language: string, category: string, fingerprint: string): void {
+  db.prepare(`
+    INSERT INTO content_versions (language, category, fingerprint, updated_at)
+    VALUES (?, ?, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT(language, category) DO UPDATE SET fingerprint = excluded.fingerprint, updated_at = CURRENT_TIMESTAMP
+  `).run(language, category, fingerprint);
+}
+
+function resetCategoryProgress(language: string, category: string): void {
+  db.transaction(() => {
+    db.prepare("DELETE FROM item_progress WHERE language = ? AND category = ?").run(language, category);
+    db.prepare("DELETE FROM category_progress WHERE language = ? AND category = ?").run(language, category);
+  })();
+}
+
 module.exports = {
   getUserByEmail,
   getUserById,
@@ -2486,5 +2518,8 @@ module.exports = {
   runInTransaction,
   addDailyXp,
   toIsoDate,
-  toIsoDateTime
+  toIsoDateTime,
+  getContentFingerprints,
+  upsertContentFingerprint,
+  resetCategoryProgress
 };

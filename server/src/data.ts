@@ -1,10 +1,33 @@
+const { createHash } = require("crypto");
 const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER } = require("./data/constants.ts");
 const { loadLanguageContent } = require("./data/contentLoader.ts");
 const { createCourseSelectors, createSessionGenerator, recommendedLevelFromMastery } = require("./data/sessionGenerator.ts");
 const { getPracticePool } = require("./data/practicePool.ts");
 const { createContentMetrics } = require("./data/contentMetrics.ts");
+const { getContentFingerprints, upsertContentFingerprint, resetCategoryProgress } = require("./db.ts");
 
 const { languages: LANGUAGES, course: COURSE, contentMeta: LANGUAGE_CONTENT_META } = loadLanguageContent();
+
+function computeCategoryFingerprint(items: any[]): string {
+  const entries = items
+    .map((item: any) => `${item.id}|${String(item.correctAnswer ?? item.target ?? "")}`)
+    .sort()
+    .join("\n");
+  return createHash("sha256").update(entries).digest("hex").slice(0, 16);
+}
+
+const storedFingerprints = getContentFingerprints();
+for (const langId of Object.keys(COURSE)) {
+  for (const catId of Object.keys(COURSE[langId])) {
+    const fingerprint = computeCategoryFingerprint(COURSE[langId][catId]);
+    const key = `${langId}:${catId}`;
+    if (storedFingerprints[key] !== undefined && storedFingerprints[key] !== fingerprint) {
+      resetCategoryProgress(langId, catId);
+      console.log(`[content] Progress reset for ${langId}/${catId} — content changed`);
+    }
+    upsertContentFingerprint(langId, catId, fingerprint);
+  }
+}
 const { getCategoryItems, getAllItems, getCourseOverview } = createCourseSelectors(COURSE);
 const generateSession = createSessionGenerator(getCategoryItems, getAllItems, getPracticePool);
 const getContentMetrics = createContentMetrics(COURSE, CATEGORIES);
