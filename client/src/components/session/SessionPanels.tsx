@@ -476,10 +476,11 @@ function parseWordHints(hints: string[]): Map<string, string> {
     re.lastIndex = 0;
     let match: RegExpExecArray | null;
     while ((match = re.exec(hint)) !== null) {
-      const key = match[1].trim().toLowerCase();
-      const value = match[2].trim();
-      if (!key.includes(" ")) {
-        map.set(key, value);
+      const phrase = match[1].trim();
+      // Strip grammatical notes after em-dash (e.g., "would prefer — conditional")
+      const value = match[2].trim().replace(/\s*[—–-]\s*.+$/, "").trim();
+      for (const word of phrase.toLowerCase().split(/\s+/)) {
+        if (!map.has(word)) map.set(word, value);
       }
     }
   }

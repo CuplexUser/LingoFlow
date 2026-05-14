@@ -552,7 +552,11 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     const engTokens = restoreTrailingPunct(tokenizeBuildWords(englishAnswer), englishAnswer);
     const engTokenSet = new Set(engTokens.map((t) => t.toLowerCase().replace(/[.?!]+$/, "")));
     const engTokenPool = pool
-      .flatMap((entry) => tokenizeBuildWords(resolveEnglishFromPrompt(entry)))
+      .flatMap((entry) => {
+        const eng = resolveEnglishFromPrompt(entry);
+        if (!isCleanEnglishText(eng)) return [];
+        return tokenizeBuildWords(eng);
+      })
       .filter((token) => token.length > 2 && !engTokenSet.has(token.toLowerCase()));
     const engNoise = shuffle(engTokenPool, randomFn).slice(0, 3);
     return {
