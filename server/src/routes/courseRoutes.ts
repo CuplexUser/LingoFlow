@@ -137,7 +137,15 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
   });
 
-  const LANG_CODES: Record<string, string> = {
+  // Language-pair specific MarianMT models — available on HuggingFace serverless Inference API
+  const HF_TRANSLATION_MODELS: Record<string, string> = {
+    russian: "Helsinki-NLP/opus-mt-ru-en",
+    spanish: "Helsinki-NLP/opus-mt-es-en",
+    swedish: "Helsinki-NLP/opus-mt-sv-en",
+    italian: "Helsinki-NLP/opus-mt-it-en"
+  };
+
+  const LIBRE_LANG_CODES: Record<string, string> = {
     russian: "ru",
     spanish: "es",
     swedish: "sv",
@@ -145,37 +153,11 @@ function registerCourseRoutes(app: any, deps: any): void {
     english: "en"
   };
 
-  // Loose Cyrillic → Latin romanization used to detect when MyMemory returns
-  // a transliteration ("menya") instead of a real translation ("me").
-  const CYR_TO_LAT: Record<string, string> = {
-    а: "a", б: "b", в: "v", г: "g", д: "d", е: "ye", ё: "yo", ж: "zh",
-    з: "z", и: "i", й: "y", к: "k", л: "l", м: "m", н: "n", о: "o",
-    п: "p", р: "r", с: "s", т: "t", у: "u", ф: "f", х: "kh", ц: "ts",
-    ч: "ch", ш: "sh", щ: "shch", ъ: "", ы: "y", ь: "", э: "e", ю: "yu", я: "ya"
-  };
-
-  function romanizeCyrillic(word: string): string {
-    return word.toLowerCase().split("").map((c) => CYR_TO_LAT[c] ?? c).join("");
-  }
-
-  function levenshtein(a: string, b: string): number {
-    const m = a.length, n = b.length;
-    const dp: number[] = Array.from({ length: n + 1 }, (_, i) => i);
-    for (let i = 1; i <= m; i++) {
-      let prev = dp[0];
-      dp[0] = i;
-      for (let j = 1; j <= n; j++) {
-        const temp = dp[j];
-        dp[j] = a[i - 1] === b[j - 1] ? prev : 1 + Math.min(prev, dp[j], dp[j - 1]);
-        prev = temp;
-      }
-    }
-    return dp[n];
-  }
+  const HF_API_TOKEN = String(process.env.HUGGINGFACE_API_TOKEN || "").trim();
+  // Only used if explicitly configured — no reliable free public instance exists
+  const LIBRE_TRANSLATE_URL = String(process.env.LIBRETRANSLATE_URL || "").replace(/\/$/, "");
 
   function normalizeTranslation(raw: string): string {
-    // Strip trailing punctuation, collapse ALL-CAPS, lowercase the first character
-    // (MyMemory often capitalizes single-word translations like "Morning").
     let t = raw.replace(/[.,…]+$/, "").trim();
     if (t === t.toUpperCase() && t.length > 1) t = t.toLowerCase();
     t = t.charAt(0).toLowerCase() + t.slice(1);
@@ -183,19 +165,59 @@ function registerCourseRoutes(app: any, deps: any): void {
   }
 
   function isUsableTranslation(word: string, translation: string): boolean {
-    // Must contain at least one letter
     if (!/[a-zA-Z]/.test(translation)) return false;
-    // Must not be identical to the source
     if (translation.toLowerCase() === word.toLowerCase()) return false;
-    // Detect Cyrillic transliterations: if the romanized source is very close
-    // to the translation, MyMemory just phoneticized it instead of translating
-    if (/[Ѐ-ӿ]/.test(word) && !/\s/.test(translation)) {
-      const romanized = romanizeCyrillic(word);
-      const dist = levenshtein(romanized, translation.toLowerCase());
-      const similarity = 1 - dist / Math.max(romanized.length, translation.length);
-      if (similarity >= 0.75) return false;
-    }
     return true;
+  }
+
+  async function translateBatchWithHF(words: string[], srcLang: string): Promise<Record<string, string>> {
+    if (!HF_API_TOKEN || !words.length) return {};
+    const model = HF_TRANSLATION_MODELS[srcLang];
+    if (!model) return {};
+    try {
+      const response = await fetch(
+        `https://router.huggingface.co/hf-inference/models/${model}`,
+        {
+          method: "POST",
+          headers: { "Authorization": `Bearer ${HF_API_TOKEN}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ inputs: words }),
+          signal: AbortSignal.timeout(15000)
+        }
+      );
+      if (!response.ok) return {};
+      const data = await response.json() as Array<{ translation_text: string }>;
+      if (!Array.isArray(data)) return {};
+      const result: Record<string, string> = {};
+      for (let i = 0; i < words.length; i++) {
+        const raw = data[i]?.translation_text;
+        if (!raw) continue;
+        const translation = normalizeTranslation(String(raw));
+        if (isUsableTranslation(words[i], translation)) result[words[i]] = translation;
+      }
+      return result;
+    } catch {
+      return {};
+    }
+  }
+
+  async function translateWithLibreTranslate(word: string, srcLang: string): Promise<string | null> {
+    if (!LIBRE_TRANSLATE_URL) return null;
+    const libreCode = LIBRE_LANG_CODES[srcLang];
+    if (!libreCode) return null;
+    try {
+      const response = await fetch(`${LIBRE_TRANSLATE_URL}/translate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ q: word, source: libreCode, target: "en", format: "text" }),
+        signal: AbortSignal.timeout(6000)
+      });
+      if (!response.ok) return null;
+      const data = await response.json() as { translatedText?: string };
+      const translation = normalizeTranslation(String(data.translatedText || ""));
+      return isUsableTranslation(word, translation) ? translation : null;
+    } catch {
+      return null;
+    }
   }
 
   app.get("/api/dictionary/batch", requireAuth, async (req: any, res: any) => {
@@ -205,8 +227,7 @@ function registerCourseRoutes(app: any, deps: any): void {
     if (!lang || !wordsParam) {
       return res.status(400).json({ error: "lang and words are required" });
     }
-    const langCode = LANG_CODES[lang];
-    if (!langCode) {
+    if (!HF_TRANSLATION_MODELS[lang] && !LIBRE_LANG_CODES[lang]) {
       return res.status(400).json({ error: "unsupported language" });
     }
 
@@ -225,22 +246,19 @@ function registerCourseRoutes(app: any, deps: any): void {
     const uncached = words.filter((w: string) => !(w in cached));
     const translations: Record<string, string> = { ...cached };
 
-    for (const word of uncached) {
-      try {
-        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=${langCode}|en`;
-        const response = await fetch(url, { signal: AbortSignal.timeout(4000) });
-        if (!response.ok) continue;
-        const data = await response.json() as {
-          responseStatus: number;
-          responseData: { translatedText: string };
-        };
-        if (data.responseStatus !== 200) continue;
-        const translation = normalizeTranslation(String(data.responseData?.translatedText || ""));
-        if (!isUsableTranslation(word, translation)) continue;
-        database.upsertWordTranslation(lang, word, translation);
-        translations[word] = translation;
-      } catch {
-        // skip failed lookups silently
+    if (uncached.length) {
+      const nllbResults = await translateBatchWithHF(uncached, lang);
+      for (const word of uncached) {
+        if (nllbResults[word]) {
+          database.upsertWordTranslation(lang, word, nllbResults[word]);
+          translations[word] = nllbResults[word];
+        } else {
+          const libreResult = await translateWithLibreTranslate(word, lang);
+          if (libreResult) {
+            database.upsertWordTranslation(lang, word, libreResult);
+            translations[word] = libreResult;
+          }
+        }
       }
     }
 

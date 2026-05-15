@@ -32,9 +32,13 @@ Hover over any word in a reverse-translation exercise (translating to English) t
 
 1. **Grammar hints** (dotted underline, dark tooltip) — words matched by the `'word' = meaning` pattern in the exercise `hints` array.
 2. **Glossary translations** (solid accent underline, accent tooltip) — words covered by the optional `wordGlossary` field on the exercise.
-3. **Auto-fetched translations** (same accent style) — for any word not covered by the above, the client pre-fetches a translation from the server when the exercise loads. The server calls the [MyMemory API](https://mymemory.translated.net/) and caches results in the `word_translations` SQLite table, so each word is only looked up once across all users.
+3. **Auto-fetched translations** (same accent style) — for any word not covered by the above, the client pre-fetches a translation from the server when the exercise loads. The server checks the `word_translations` SQLite cache first (populated at startup from the content files), then falls back to language-pair [Helsinki-NLP MarianMT models](https://huggingface.co/Helsinki-NLP) via the HuggingFace Inference API. A LibreTranslate instance can optionally be configured as a secondary fallback. Each unique word is looked up at most once and cached permanently.
 
-Responses from the translation API are validated before caching: transliterations (e.g. "menya" for "меня"), punctuation-only responses, and strings identical to the source word are discarded. Translations are also normalised — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
+At server startup, the `word_translations` table is wiped and rebuilt from authoritative content sources: `wordGlossary` fields, `"Vocabulary: X"` flashcard pairs, and single-word hint patterns. This ensures known exercise vocabulary is always translated correctly without any API call.
+
+Requires `HUGGINGFACE_API_TOKEN` in `server/.env` (free token from [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)). `LIBRETRANSLATE_URL` is optional — only used if set, pointing to a self-hosted LibreTranslate instance.
+
+Fetched translations are validated before caching: punctuation-only responses and strings identical to the source word are discarded. Translations are normalised — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
 
 **Content authors** can add curated per-word translations to any exercise via a `wordGlossary` object:
 
@@ -273,7 +277,7 @@ npm run verify          # Lint + client tests
 | `POST` | `/api/community/contribute` | Submit a community exercise |
 | `GET` | `/api/community/contributions` | List contributions (own or all) |
 | `PATCH` | `/api/community/contributions/:id` | Update moderation status |
-| `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Batch word translations (SQLite-cached, MyMemory fallback) |
+| `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Batch word translations (SQLite-cached, NLLB-200 / LibreTranslate fallback) |
 
 ### Admin only
 

@@ -2506,6 +2506,10 @@ function upsertWordTranslation(language: string, word: string, translation: stri
   `).run(language, word, translation);
 }
 
+function clearWordTranslations(): void {
+  db.exec("DELETE FROM word_translations");
+}
+
 module.exports = {
   getUserByEmail,
   getUserById,
@@ -2561,5 +2565,6 @@ module.exports = {
   resetCategoryProgress,
   createWordTranslationsTable,
   getCachedWordTranslations,
-  upsertWordTranslation
+  upsertWordTranslation,
+  clearWordTranslations
 };

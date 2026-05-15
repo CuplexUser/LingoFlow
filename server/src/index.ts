@@ -91,6 +91,53 @@ const {
 // Inject already-approved community exercises into the live content pool at startup
 database.getApprovedCommunityExercises().forEach(injectCommunityItem);
 
+// Wipe and rebuild the word_translations cache from authoritative content at startup
+{
+  database.clearWordTranslations();
+  const VOCAB_FLASHCARD_RE = /^vocabulary:\s*(.+)$/i;
+  const HINT_WORD_RE = /'([^']+)'\s*=\s*([^;.']+)/g;
+  let count = 0;
+  for (const [lang, categories] of Object.entries(COURSE as Record<string, Record<string, any[]>>)) {
+    for (const items of Object.values(categories as Record<string, any[]>)) {
+      for (const item of items) {
+        if (item.wordGlossary && typeof item.wordGlossary === "object" && !Array.isArray(item.wordGlossary)) {
+          for (const [word, translation] of Object.entries(item.wordGlossary as Record<string, string>)) {
+            if (word.trim() && String(translation).trim()) {
+              database.upsertWordTranslation(lang, word.toLowerCase().trim(), String(translation).trim());
+              count++;
+            }
+          }
+        }
+        if (item.exerciseType === "flashcard" && item.correctAnswer) {
+          const m = VOCAB_FLASHCARD_RE.exec(String(item.prompt || ""));
+          if (m) {
+            const englishWord = m[1].trim();
+            const foreignWord = String(item.correctAnswer).trim().toLowerCase();
+            if (foreignWord && !foreignWord.includes(" ") && englishWord) {
+              database.upsertWordTranslation(lang, foreignWord, englishWord);
+              count++;
+            }
+          }
+        }
+        const hints: string[] = Array.isArray(item.hints) ? item.hints : [];
+        for (const hint of hints) {
+          HINT_WORD_RE.lastIndex = 0;
+          let match: RegExpExecArray | null;
+          while ((match = HINT_WORD_RE.exec(hint)) !== null) {
+            const phrase = match[1].trim().toLowerCase();
+            const value = match[2].trim().replace(/\s*[—–-]\s*.+$/, "").trim();
+            if (phrase && value && !phrase.includes(" ")) {
+              database.upsertWordTranslation(lang, phrase, value);
+              count++;
+            }
+          }
+        }
+      }
+    }
+  }
+  console.log(`[startup] Seeded ${count} word translations from content`);
+}
+
 const { registerCourseRoutes } = require("./routes/courseRoutes.ts");
 const { registerSessionRoutes } = require("./routes/sessionRoutes.ts");
 const { registerUserRoutes } = require("./routes/userRoutes.ts");
