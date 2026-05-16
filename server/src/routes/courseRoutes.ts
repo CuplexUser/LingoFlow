@@ -154,8 +154,8 @@ function registerCourseRoutes(app: any, deps: any): void {
   };
 
   const HF_API_TOKEN = String(process.env.HUGGINGFACE_API_TOKEN || "").trim();
-  // Only used if explicitly configured — no reliable free public instance exists
   const LIBRE_TRANSLATE_URL = String(process.env.LIBRETRANSLATE_URL || "").replace(/\/$/, "");
+  const LIBRE_TRANSLATE_API_KEY = String(process.env.LIBRETRANSLATE_API_KEY || "").trim();
 
   function normalizeTranslation(raw: string): string {
     let t = raw.replace(/[.,…]+$/, "").trim();
@@ -208,7 +208,10 @@ function registerCourseRoutes(app: any, deps: any): void {
       const response = await fetch(`${LIBRE_TRANSLATE_URL}/translate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ q: word, source: libreCode, target: "en", format: "text" }),
+        body: JSON.stringify({
+          q: word, source: libreCode, target: "en", format: "text",
+          ...(LIBRE_TRANSLATE_API_KEY ? { api_key: LIBRE_TRANSLATE_API_KEY } : {})
+        }),
         signal: AbortSignal.timeout(6000)
       });
       if (!response.ok) return null;

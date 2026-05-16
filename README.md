@@ -36,7 +36,14 @@ Hover over any word in a reverse-translation exercise (translating to English) t
 
 At server startup, the `word_translations` table is wiped and rebuilt from authoritative content sources: `wordGlossary` fields, `"Vocabulary: X"` flashcard pairs, and single-word hint patterns. This ensures known exercise vocabulary is always translated correctly without any API call.
 
-Requires `HUGGINGFACE_API_TOKEN` in `server/.env` (free token from [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)). `LIBRETRANSLATE_URL` is optional — only used if set, pointing to a self-hosted LibreTranslate instance.
+Requires `HUGGINGFACE_API_TOKEN` in `server/.env` (free token from [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)). A self-hosted LibreTranslate instance can be added as a secondary fallback by setting `LIBRETRANSLATE_URL` and `LIBRETRANSLATE_API_KEY`:
+
+```bash
+# Start a local LibreTranslate instance with API key support
+docker run -it -p 5000:5000 libretranslate/libretranslate --api-keys
+# Generate a key (in a second terminal)
+docker exec <container-id> ltmanage keys add
+```
 
 Fetched translations are validated before caching: punctuation-only responses and strings identical to the source word are discarded. Translations are normalised — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
 
