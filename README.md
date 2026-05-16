@@ -32,14 +32,14 @@ Hover over any word in a reverse-translation exercise (translating to English) t
 
 1. **Grammar hints** (dotted underline, dark tooltip) — words matched by the `'word' = meaning` pattern in the exercise `hints` array.
 2. **Glossary translations** (solid accent underline, accent tooltip) — words covered by the optional `wordGlossary` field on the exercise.
-3. **Auto-fetched translations** (same accent style) — for any word not covered by the above, the client pre-fetches a translation from the server when the exercise loads. The server checks the `word_translations` SQLite cache first (populated at startup from the content files), then falls back to language-pair [Helsinki-NLP MarianMT models](https://huggingface.co/Helsinki-NLP) via the HuggingFace Inference API. A LibreTranslate instance can optionally be configured as a secondary fallback. Each unique word is looked up at most once and cached permanently.
+3. **Auto-fetched translations** (same accent style) — for any word not covered by the above, the client pre-fetches a translation from the server when the exercise loads. The server checks the `word_translations` SQLite cache first (populated at startup from the content files), then calls a self-hosted [LibreTranslate](https://libretranslate.com) instance. Each unique word is looked up at most once and cached permanently.
 
 At server startup, the `word_translations` table is wiped and rebuilt from authoritative content sources: `wordGlossary` fields, `"Vocabulary: X"` flashcard pairs, and single-word hint patterns. This ensures known exercise vocabulary is always translated correctly without any API call.
 
-Requires `HUGGINGFACE_API_TOKEN` in `server/.env` (free token from [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)). A self-hosted LibreTranslate instance can be added as a secondary fallback by setting `LIBRETRANSLATE_URL` and `LIBRETRANSLATE_API_KEY`:
+Set `LIBRETRANSLATE_URL` and `LIBRETRANSLATE_API_KEY` in `server/.env` to enable the API fallback. Self-hosting with Docker:
 
 ```bash
-# Start a local LibreTranslate instance with API key support
+# Start a LibreTranslate instance with API key support
 docker run -it -p 5000:5000 libretranslate/libretranslate --api-keys
 # Generate a key (in a second terminal)
 docker exec <container-id> ltmanage keys add

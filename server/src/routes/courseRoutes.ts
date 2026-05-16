@@ -137,14 +137,6 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
   });
 
-  // Language-pair specific MarianMT models — available on HuggingFace serverless Inference API
-  const HF_TRANSLATION_MODELS: Record<string, string> = {
-    russian: "Helsinki-NLP/opus-mt-ru-en",
-    spanish: "Helsinki-NLP/opus-mt-es-en",
-    swedish: "Helsinki-NLP/opus-mt-sv-en",
-    italian: "Helsinki-NLP/opus-mt-it-en"
-  };
-
   const LIBRE_LANG_CODES: Record<string, string> = {
     russian: "ru",
     spanish: "es",
@@ -153,7 +145,6 @@ function registerCourseRoutes(app: any, deps: any): void {
     english: "en"
   };
 
-  const HF_API_TOKEN = String(process.env.HUGGINGFACE_API_TOKEN || "").trim();
   const LIBRE_TRANSLATE_URL = String(process.env.LIBRETRANSLATE_URL || "").replace(/\/$/, "");
   const LIBRE_TRANSLATE_API_KEY = String(process.env.LIBRETRANSLATE_API_KEY || "").trim();
 
@@ -168,36 +159,6 @@ function registerCourseRoutes(app: any, deps: any): void {
     if (!/[a-zA-Z]/.test(translation)) return false;
     if (translation.toLowerCase() === word.toLowerCase()) return false;
     return true;
-  }
-
-  async function translateBatchWithHF(words: string[], srcLang: string): Promise<Record<string, string>> {
-    if (!HF_API_TOKEN || !words.length) return {};
-    const model = HF_TRANSLATION_MODELS[srcLang];
-    if (!model) return {};
-    try {
-      const response = await fetch(
-        `https://router.huggingface.co/hf-inference/models/${model}`,
-        {
-          method: "POST",
-          headers: { "Authorization": `Bearer ${HF_API_TOKEN}`, "Content-Type": "application/json" },
-          body: JSON.stringify({ inputs: words }),
-          signal: AbortSignal.timeout(15000)
-        }
-      );
-      if (!response.ok) return {};
-      const data = await response.json() as Array<{ translation_text: string }>;
-      if (!Array.isArray(data)) return {};
-      const result: Record<string, string> = {};
-      for (let i = 0; i < words.length; i++) {
-        const raw = data[i]?.translation_text;
-        if (!raw) continue;
-        const translation = normalizeTranslation(String(raw));
-        if (isUsableTranslation(words[i], translation)) result[words[i]] = translation;
-      }
-      return result;
-    } catch {
-      return {};
-    }
   }
 
   async function translateWithLibreTranslate(word: string, srcLang: string): Promise<string | null> {
@@ -230,7 +191,7 @@ function registerCourseRoutes(app: any, deps: any): void {
     if (!lang || !wordsParam) {
       return res.status(400).json({ error: "lang and words are required" });
     }
-    if (!HF_TRANSLATION_MODELS[lang] && !LIBRE_LANG_CODES[lang]) {
+    if (!LIBRE_LANG_CODES[lang]) {
       return res.status(400).json({ error: "unsupported language" });
     }
 
@@ -249,19 +210,11 @@ function registerCourseRoutes(app: any, deps: any): void {
     const uncached = words.filter((w: string) => !(w in cached));
     const translations: Record<string, string> = { ...cached };
 
-    if (uncached.length) {
-      const nllbResults = await translateBatchWithHF(uncached, lang);
-      for (const word of uncached) {
-        if (nllbResults[word]) {
-          database.upsertWordTranslation(lang, word, nllbResults[word]);
-          translations[word] = nllbResults[word];
-        } else {
-          const libreResult = await translateWithLibreTranslate(word, lang);
-          if (libreResult) {
-            database.upsertWordTranslation(lang, word, libreResult);
-            translations[word] = libreResult;
-          }
-        }
+    for (const word of uncached) {
+      const result = await translateWithLibreTranslate(word, lang);
+      if (result) {
+        database.upsertWordTranslation(lang, word, result);
+        translations[word] = result;
       }
     }
 
