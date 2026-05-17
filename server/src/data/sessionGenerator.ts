@@ -702,6 +702,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     selfRatedLevel = "a1",
     dueItemIds = [],
     weakItemIds = [],
+    notDueItemIds = [],
     focusItemIds = [],
     mode,
     random,
@@ -837,6 +838,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     const sourcePool = candidatePool.length >= count ? candidatePool : all;
     const dueSet = new Set(dueItemIds);
     const weakSet = new Set(weakItemIds);
+    const notDueSet = new Set(notDueItemIds);
     const targetCount = Math.min(count, sourcePool.length);
     const dueTarget = Math.max(0, Math.min(targetCount, Math.round(targetCount * 0.6)));
     const weakTarget = Math.max(0, Math.min(targetCount - dueTarget, Math.round(targetCount * 0.25)));
@@ -844,11 +846,11 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     const dueItems = shuffle(sourcePool.filter((item) => dueSet.has(item.id)), randomFn).slice(0, dueTarget);
     const selectedIds = new Set(dueItems.map((item) => item.id));
     const weakItems = shuffle(
-      sourcePool.filter((item) => weakSet.has(item.id) && !selectedIds.has(item.id))
+      sourcePool.filter((item) => weakSet.has(item.id) && !selectedIds.has(item.id) && !notDueSet.has(item.id))
       , randomFn).slice(0, weakTarget);
     weakItems.forEach((item) => selectedIds.add(item.id));
 
-    const remaining = sourcePool.filter((item) => !selectedIds.has(item.id));
+    const remaining = sourcePool.filter((item) => !selectedIds.has(item.id) && !notDueSet.has(item.id));
     const levelSmoothed = selectByLevelWindow(remaining, recommendedRank, Math.max(0, targetCount - dueItems.length - weakItems.length), randomFn);
     let selected = [...dueItems, ...weakItems, ...levelSmoothed].slice(0, targetCount);
     if (dailyMode) {

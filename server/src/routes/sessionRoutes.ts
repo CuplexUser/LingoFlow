@@ -104,7 +104,7 @@ function registerSessionRoutes(
     const settings = database.getSettings(userId);
     const recentAccuracy = isMistakesMode ? null : database.getRecentCategoryAccuracy(userId, language, category, 5);
     const hints = isMistakesMode
-      ? { dueItemIds: [], weakItemIds: [] }
+      ? { dueItemIds: [], weakItemIds: [], notDueItemIds: [] }
       : database.getItemSelectionHints(userId, language, category, database.toIsoDate());
     const mistakeSelection = isMistakesMode
       ? database.getMistakeReviewSelection(userId, language, safeCount)
@@ -117,6 +117,7 @@ function registerSessionRoutes(
       selfRatedLevel: settings.selfRatedLevel,
       dueItemIds: hints.dueItemIds,
       weakItemIds: hints.weakItemIds,
+      notDueItemIds: hints.notDueItemIds,
       focusItemIds: mistakeSelection.itemIds,
       count: safeCount,
       mode
@@ -390,7 +391,8 @@ function registerSessionRoutes(
             objective: entry.question.objective || "",
             correct: entry.correct,
             errorType: entry.errorType,
-            today
+            today,
+            flashcardKnown: entry.question.type === "flashcard" && entry.correct
           });
           database.recordAttemptHistory({
             userId,

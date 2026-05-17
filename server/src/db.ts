@@ -1400,7 +1400,8 @@ function upsertItemProgressAttempt({
   objective,
   correct,
   errorType,
-  today
+  today,
+  flashcardKnown = false
 }) {
   const existing = db.prepare(`
     SELECT ease, streak, attempts, correct, error_count
@@ -1413,12 +1414,15 @@ function upsertItemProgressAttempt({
   const nextEase = correct
     ? Math.min(2.5, Number((previousEase + 0.05).toFixed(2)))
     : Math.max(1.3, Number((previousEase - 0.2).toFixed(2)));
-  const nextStreak = correct ? previousStreak + 1 : 0;
-  const intervalDays = correct
-  ? nextStreak === 1 ? 1
-  : nextStreak === 2 ? 6
-  : Math.round((nextStreak - 1) * nextEase)
-  : 1;
+  // Flashcards marked "known" jump to streak 4 so future reviews keep growing naturally
+  const nextStreak = flashcardKnown && correct ? Math.max(4, previousStreak + 1) : correct ? previousStreak + 1 : 0;
+  const intervalDays = flashcardKnown && correct
+    ? Math.max(30, Math.round((nextStreak - 1) * nextEase))
+    : correct
+    ? nextStreak === 1 ? 1
+    : nextStreak === 2 ? 6
+    : Math.round((nextStreak - 1) * nextEase)
+    : 1;
   const nextDueDate = addDaysIso(today, intervalDays);
 
   if (!existing) {
@@ -1540,9 +1544,16 @@ function getItemSelectionHints(userId = 1, language, category, today = toIsoDate
     LIMIT 20
   `).all(userId, language, category);
 
+  const notDueRows = db.prepare(`
+    SELECT item_id
+    FROM item_progress
+    WHERE user_id = ? AND language = ? AND category = ? AND next_due_date > ?
+  `).all(userId, language, category, today);
+
   return {
     dueItemIds: dueRows.map((row) => row.item_id),
-    weakItemIds: weakRows.map((row) => row.item_id)
+    weakItemIds: weakRows.map((row) => row.item_id),
+    notDueItemIds: notDueRows.map((row) => row.item_id)
   };
 }
 
