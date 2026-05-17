@@ -559,10 +559,18 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       </div>
 
       <div key={question.id} className="question-body">
-      <h2>{isReversed ? "Translate to English" : question.prompt}</h2>
+      <h2>{isReversed ? "Translate to English" : question.type === "cloze_sentence" ? "Fill in the blank" : question.prompt}</h2>
       {isReversed && reversedSourceText ? (
         <SourceTextWithHints
           sourceText={reversedSourceText}
+          hints={Array.isArray(question.hints) ? question.hints : []}
+          wordGlossary={question.wordGlossary}
+          language={session.language}
+        />
+      ) : null}
+      {!isReversed && question.type === "cloze_sentence" ? (
+        <SourceTextWithHints
+          sourceText={question.prompt}
           hints={Array.isArray(question.hints) ? question.hints : []}
           wordGlossary={question.wordGlossary}
           language={session.language}

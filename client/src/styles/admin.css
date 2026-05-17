@@ -148,3 +148,50 @@
   color: var(--text);
   font-size: 0.9rem;
 }
+
+.word-cache-panel {
+  max-width: 640px;
+}
+
+.word-cache-panel ul {
+  margin: 8px 0 16px;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.rebuild-confirm {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--surface);
+  max-width: 480px;
+}
+
+.rebuild-confirm p {
+  margin: 0 0 12px;
+}
+
+.rebuild-confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.rebuild-success {
+  color: #1d6d35;
+  font-weight: 600;
+  margin: 12px 0;
+}
+
+.rebuild-error {
+  color: #9a3030;
+  font-weight: 600;
+  margin: 12px 0;
+}
+
+[data-theme="dark"] .rebuild-success {
+  color: #5db87a;
+}
+
+[data-theme="dark"] .rebuild-error {
+  color: #e08080;
+}

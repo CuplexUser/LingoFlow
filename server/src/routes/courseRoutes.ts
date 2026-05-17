@@ -1,5 +1,5 @@
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics } = deps;
+  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations } = deps;
 
   const contentReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
@@ -219,6 +219,14 @@ function registerCourseRoutes(app: any, deps: any): void {
     }
 
     return res.json({ translations });
+  });
+
+  app.post("/api/admin/word-translations/rebuild", requireAuth, (req: any, res: any) => {
+    if (!canAccessAdminRoutes(req.authUserId)) {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+    const count = rebuildAllWordTranslations(database);
+    return res.json({ rebuilt: count });
   });
 }
 

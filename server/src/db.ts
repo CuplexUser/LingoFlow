@@ -2477,10 +2477,16 @@ function createWordTranslationsTable(): void {
       language TEXT NOT NULL,
       word TEXT NOT NULL,
       translation TEXT NOT NULL,
+      source TEXT NOT NULL DEFAULT 'libretranslate',
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       UNIQUE(language, word)
     )
   `);
+  // Add source column to existing databases that predate this field
+  const cols = db.prepare("PRAGMA table_info(word_translations)").all() as { name: string }[];
+  if (!cols.some((c) => c.name === "source")) {
+    db.exec("ALTER TABLE word_translations ADD COLUMN source TEXT NOT NULL DEFAULT 'libretranslate'");
+  }
 }
 
 function getCachedWordTranslations(language: string, words: string[]): Record<string, string> {
@@ -2496,14 +2502,19 @@ function getCachedWordTranslations(language: string, words: string[]): Record<st
   return result;
 }
 
-function upsertWordTranslation(language: string, word: string, translation: string): void {
+function upsertWordTranslation(language: string, word: string, translation: string, source = "libretranslate"): void {
   db.prepare(`
-    INSERT INTO word_translations (language, word, translation)
-    VALUES (?, ?, ?)
+    INSERT INTO word_translations (language, word, translation, source)
+    VALUES (?, ?, ?, ?)
     ON CONFLICT(language, word) DO UPDATE SET
       translation = excluded.translation,
+      source = excluded.source,
       created_at = CURRENT_TIMESTAMP
-  `).run(language, word, translation);
+  `).run(language, word, translation, source);
+}
+
+function clearContentWordTranslations(): void {
+  db.exec("DELETE FROM word_translations WHERE source = 'content'");
 }
 
 function clearWordTranslations(): void {
@@ -2566,5 +2577,6 @@ module.exports = {
   createWordTranslationsTable,
   getCachedWordTranslations,
   upsertWordTranslation,
+  clearContentWordTranslations,
   clearWordTranslations
 };

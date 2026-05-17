@@ -493,5 +493,7 @@ export const api = {
     return request<{ translations: Record<string, string> }>(`/dictionary/batch?${params}`)
       .then((r) => r.translations ?? {})
       .catch(() => ({}));
-  }
+  },
+  rebuildWordTranslations: (): Promise<{ rebuilt: number }> =>
+    request<{ rebuilt: number }>("/admin/word-translations/rebuild", { method: "POST" })
 };
