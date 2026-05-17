@@ -852,6 +852,13 @@
   font-style: italic;
 }
 
+.cloze-prompt {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 6px 0 10px;
+  line-height: 1.5;
+}
+
 .build-target {
   min-height: 56px;
   border: 1px dashed var(--line-strong);

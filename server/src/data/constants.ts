@@ -23,6 +23,12 @@ const CATEGORIES = [
     label: "Nature & Animals",
     description: "Animals, plants, weather, and outdoor activities",
     experimental: true
+  },
+  {
+    id: "numbers_math",
+    label: "Numbers & Math",
+    description: "Count, calculate, and conquer. Learn numbers, operators, fractions, and the sneaky ways English uses numbers in everyday speech.",
+    experimental: true
   }
 ];
 

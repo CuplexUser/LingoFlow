@@ -105,6 +105,8 @@ function isEligibleForReversal(item, resolvedType, language) {
   const fixedType = normalizeExerciseType(item?.exerciseType);
   const nonReversibleTypes = ["pronunciation", "flashcard", "cloze_sentence", "dictation_sentence", "matching", "roleplay", "dialogue_turn"];
   if (fixedType && nonReversibleTypes.includes(fixedType)) return false;
+  // multiple_choice items have question-style prompts ("Which word means X?"), not translatable phrases
+  if (String(item?.exerciseType || "").trim().toLowerCase() === "multiple_choice") return false;
   const englishText = resolveEnglishFromPrompt(item);
   if (countWords(englishText) < 2) return false;
   if (!isCleanEnglishText(englishText)) return false;

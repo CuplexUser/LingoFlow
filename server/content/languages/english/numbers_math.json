@@ -1,0 +1,709 @@
+[
+  {
+    "id": "en-num-a1-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 0",
+    "correctAnswer": "zero",
+    "hints": ["What do you score if you miss every shot?"]
+  },
+  {
+    "id": "en-num-a1-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 1",
+    "correctAnswer": "one",
+    "hints": ["There is only ___ sun in our solar system."]
+  },
+  {
+    "id": "en-num-a1-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "multiple_choice",
+    "prompt": "Which word means the number 2?",
+    "correctAnswer": "two",
+    "options": ["tow", "two", "too", "to"],
+    "hints": ["Watch out — English has three words that sound alike: 'to', 'too', and ___!"]
+  },
+  {
+    "id": "en-num-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 3",
+    "correctAnswer": "three",
+    "hints": ["Good things come in ___s — so they say."]
+  },
+  {
+    "id": "en-num-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 4",
+    "correctAnswer": "four",
+    "hints": ["A table has ___ legs."]
+  },
+  {
+    "id": "en-num-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "multiple_choice",
+    "prompt": "Which is the correct spelling of 5?",
+    "correctAnswer": "five",
+    "options": ["fife", "five", "fiv", "fiver"],
+    "hints": ["You have ___ fingers on one hand."]
+  },
+  {
+    "id": "en-num-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 6",
+    "correctAnswer": "six",
+    "hints": ["A standard die has ___ sides."]
+  },
+  {
+    "id": "en-num-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 7",
+    "correctAnswer": "seven",
+    "hints": ["There are ___ days in a week."]
+  },
+  {
+    "id": "en-num-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "multiple_choice",
+    "prompt": "A spider has how many legs? Spell the number.",
+    "correctAnswer": "eight",
+    "options": ["six", "seven", "eight", "nine"],
+    "hints": ["More than an insect (6), fewer than ten."]
+  },
+  {
+    "id": "en-num-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 9",
+    "correctAnswer": "nine",
+    "hints": ["A cat has ___ lives — at least according to the saying."]
+  },
+  {
+    "id": "en-num-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 10",
+    "correctAnswer": "ten",
+    "hints": ["You have ___ fingers in total."]
+  },
+  {
+    "id": "en-num-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: A week has ___ days.",
+    "correctAnswer": "seven",
+    "hints": ["Monday through Sunday."]
+  },
+  {
+    "id": "en-num-a1-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "multiple_choice",
+    "prompt": "What does '+' mean in English?",
+    "correctAnswer": "plus",
+    "options": ["minus", "plus", "times", "equals"],
+    "hints": ["It means to add two numbers together."]
+  },
+  {
+    "id": "en-num-a1-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Math symbol: −",
+    "correctAnswer": "minus",
+    "hints": ["If you take something away, you use this symbol."]
+  },
+  {
+    "id": "en-num-a1-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Math symbol: =",
+    "correctAnswer": "equals",
+    "hints": ["Both sides of the equation have the same value."]
+  },
+  {
+    "id": "en-num-a1-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Read this calculation aloud: 2 + 3 = 5",
+    "correctAnswer": "Two plus three equals five.",
+    "hints": ["Use: plus, equals."]
+  },
+  {
+    "id": "en-num-a1-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: 4 − 1 = ___",
+    "correctAnswer": "three",
+    "hints": ["Spell out the number word, not the digit."]
+  },
+  {
+    "id": "en-num-a1-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "multiple_choice",
+    "prompt": "How do you read '5 + 5'?",
+    "correctAnswer": "five plus five",
+    "options": ["five and five", "five plus five", "five times five", "five minus five"],
+    "hints": ["The + symbol is the key."]
+  },
+  {
+    "id": "en-num-a1-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 11",
+    "correctAnswer": "eleven",
+    "hints": ["A football team has ___ players on the pitch."]
+  },
+  {
+    "id": "en-num-a1-20",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 12",
+    "correctAnswer": "twelve",
+    "hints": ["A year has ___ months."]
+  },
+  {
+    "id": "en-num-a1-21",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "multiple_choice",
+    "prompt": "Which number is 'thirteen'?",
+    "correctAnswer": "13",
+    "options": ["12", "13", "14", "30"],
+    "hints": ["Watch out — 'thirteen' (13) and 'thirty' (30) sound similar!"]
+  },
+  {
+    "id": "en-num-a1-22",
+    "level": "a1",
+    "difficulty": "a1",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: I have ___ fingers on each hand.",
+    "correctAnswer": "five",
+    "hints": ["Count them!"]
+  },
+  {
+    "id": "en-num-a2-1",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: the number 20",
+    "correctAnswer": "twenty",
+    "hints": ["Two groups of ten."]
+  },
+  {
+    "id": "en-num-a2-2",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "multiple_choice",
+    "prompt": "How do you spell 50?",
+    "correctAnswer": "fifty",
+    "options": ["fivety", "fifty", "fiftey", "fifthy"],
+    "hints": ["It's not 'fivety' — the 'v' disappears when you make the ten!"]
+  },
+  {
+    "id": "en-num-a2-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: 100",
+    "correctAnswer": "one hundred",
+    "hints": ["A century is also ___ years."]
+  },
+  {
+    "id": "en-num-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: 1,000",
+    "correctAnswer": "one thousand",
+    "hints": ["A millennium is a ___ years. A kilogram is a ___ grams."]
+  },
+  {
+    "id": "en-num-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "multiple_choice",
+    "prompt": "What does '×' mean in math?",
+    "correctAnswer": "times",
+    "options": ["plus", "minus", "times", "divided by"],
+    "hints": ["It means multiplication."]
+  },
+  {
+    "id": "en-num-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "flashcard",
+    "prompt": "Math symbol: ÷",
+    "correctAnswer": "divided by",
+    "hints": ["You use this to split something into equal parts."]
+  },
+  {
+    "id": "en-num-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Read this calculation aloud: 3 × 4 = 12",
+    "correctAnswer": "Three times four equals twelve.",
+    "hints": ["Use: times, equals."]
+  },
+  {
+    "id": "en-num-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: 10 ÷ 2 = ___",
+    "correctAnswer": "five",
+    "hints": ["Split ten into two equal groups."]
+  },
+  {
+    "id": "en-num-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "multiple_choice",
+    "prompt": "How do you spell the age 25?",
+    "correctAnswer": "twenty-five",
+    "options": ["twenty-five", "two five", "twentyfive", "five-and-twenty"],
+    "hints": ["Compound numbers between 21 and 99 use a hyphen."]
+  },
+  {
+    "id": "en-num-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: There are ___ hours in a day.",
+    "correctAnswer": "twenty-four",
+    "hints": ["Not twenty-five, not twenty-three — exactly in between."]
+  },
+  {
+    "id": "en-num-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: 1,000,000",
+    "correctAnswer": "one million",
+    "hints": ["A lottery jackpot is often worth several ___."]
+  },
+  {
+    "id": "en-num-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "multiple_choice",
+    "prompt": "Which of these means twelve?",
+    "correctAnswer": "a dozen",
+    "options": ["a couple", "a dozen", "a score", "a gross"],
+    "hints": ["Eggs are typically sold in this quantity."]
+  },
+  {
+    "id": "en-num-a2-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "How do you say the year '1999' in English?",
+    "correctAnswer": "nineteen ninety-nine",
+    "hints": ["Years before 2000 are read as two pairs: 19 + 99."]
+  },
+  {
+    "id": "en-num-a2-14",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: A ___ of eggs means twelve eggs.",
+    "correctAnswer": "dozen",
+    "hints": ["Bakers and recipe writers love this word."]
+  },
+  {
+    "id": "en-num-a2-15",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "multiple_choice",
+    "prompt": "How do you write 37 in words?",
+    "correctAnswer": "thirty-seven",
+    "options": ["three-seven", "thirty seven", "thirty-seven", "thirtseven"],
+    "hints": ["Compound numbers 21–99 use a hyphen in formal English."]
+  },
+  {
+    "id": "en-num-a2-16",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "flashcard",
+    "prompt": "Ordinal number: 1st",
+    "correctAnswer": "first",
+    "hints": ["The winner of a race finishes in this place."]
+  },
+  {
+    "id": "en-num-a2-17",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "flashcard",
+    "prompt": "Ordinal number: 2nd",
+    "correctAnswer": "second",
+    "hints": ["The runner-up. Also means 'a unit of time'."]
+  },
+  {
+    "id": "en-num-a2-18",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "multiple_choice",
+    "prompt": "What is the ordinal form of 3?",
+    "correctAnswer": "third",
+    "options": ["three", "third", "threeth", "thirdly"],
+    "hints": ["The first three ordinals are irregular: first, second, ___"]
+  },
+  {
+    "id": "en-num-a2-19",
+    "level": "a2",
+    "difficulty": "a2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: She finished in ___ place — just one step off the podium.",
+    "correctAnswer": "fourth",
+    "hints": ["One step after the third-place bronze medal."]
+  },
+  {
+    "id": "en-num-a2-20",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "How do you read the phone number 555-0199 in English?",
+    "correctAnswer": "five five five, zero one nine nine",
+    "hints": ["Phone numbers are said digit by digit. 0 is 'zero' or 'oh'."]
+  },
+  {
+    "id": "en-num-b1-1",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "flashcard",
+    "prompt": "Fraction vocabulary: 1/2",
+    "correctAnswer": "a half",
+    "hints": ["Cut a pizza into two equal slices — each is ___."]
+  },
+  {
+    "id": "en-num-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "flashcard",
+    "prompt": "Fraction vocabulary: 1/4",
+    "correctAnswer": "a quarter",
+    "hints": ["Four equal parts. Also what 25 cents is called in the US."]
+  },
+  {
+    "id": "en-num-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "multiple_choice",
+    "prompt": "How do you say the fraction 2/3?",
+    "correctAnswer": "two thirds",
+    "options": ["two three", "second third", "two thirds", "two over three"],
+    "hints": ["For fractions, the bottom number uses an ordinal form."]
+  },
+  {
+    "id": "en-num-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: ___ of the class passed the test — thirty out of forty students.",
+    "correctAnswer": "three quarters",
+    "hints": ["30 out of 40 = 75%. That's three ___."]
+  },
+  {
+    "id": "en-num-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "flashcard",
+    "prompt": "Math vocabulary: the symbol '%'",
+    "correctAnswer": "per cent",
+    "hints": ["From Latin 'per centum': out of a hundred."]
+  },
+  {
+    "id": "en-num-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say '20% off' as a full sentence.",
+    "correctAnswer": "There is twenty per cent off.",
+    "hints": ["Say the number first, then 'per cent'."]
+  },
+  {
+    "id": "en-num-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "multiple_choice",
+    "prompt": "Which phrase means 'around 100 people'?",
+    "correctAnswer": "about a hundred people",
+    "options": ["exactly a hundred people", "about a hundred people", "barely a hundred people", "over a hundred people"],
+    "hints": ["'About' signals an approximation, not an exact count."]
+  },
+  {
+    "id": "en-num-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "flashcard",
+    "prompt": "Math vocabulary: the result of an addition",
+    "correctAnswer": "sum",
+    "hints": ["What do you get when you add two numbers together?"]
+  },
+  {
+    "id": "en-num-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "flashcard",
+    "prompt": "Math vocabulary: the result of subtraction",
+    "correctAnswer": "difference",
+    "hints": ["The ___ between 10 and 6 is 4."]
+  },
+  {
+    "id": "en-num-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "multiple_choice",
+    "prompt": "What is the 'product' of 4 and 5?",
+    "correctAnswer": "20",
+    "options": ["9", "1", "20", "45"],
+    "hints": ["'Product' is the result of multiplication."]
+  },
+  {
+    "id": "en-num-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: We need to ___ the bill three ways — about twenty euros each.",
+    "correctAnswer": "split",
+    "hints": ["Divide equally between friends at a restaurant."]
+  },
+  {
+    "id": "en-num-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "flashcard",
+    "prompt": "Vocabulary: a more formal word for 'about' or 'roughly'",
+    "correctAnswer": "approximately",
+    "hints": ["'The project costs ___ ten thousand euros.'"]
+  },
+  {
+    "id": "en-num-b1-13",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "How do you say the decimal 3.5 out loud?",
+    "correctAnswer": "three point five",
+    "hints": ["Decimals use 'point', then each digit is read individually."]
+  },
+  {
+    "id": "en-num-b1-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "multiple_choice",
+    "prompt": "Which phrase means 'not less than 10'?",
+    "correctAnswer": "at least ten",
+    "options": ["at most ten", "at least ten", "barely ten", "exactly ten"],
+    "hints": ["'At least' sets the minimum; 'at most' sets the maximum."]
+  },
+  {
+    "id": "en-num-b1-15",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: He's ___ — he just turned 35 last week.",
+    "correctAnswer": "in his thirties",
+    "hints": ["Use 'in his/her ___s' to express a decade of someone's age."]
+  },
+  {
+    "id": "en-num-b1-16",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "multiple_choice",
+    "prompt": "What does 'a pair of shoes' mean?",
+    "correctAnswer": "two shoes",
+    "options": ["one shoe", "two shoes", "a few shoes", "many shoes"],
+    "hints": ["Always two — one for each foot."]
+  },
+  {
+    "id": "en-num-b1-17",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "flashcard",
+    "prompt": "Number vocabulary: the opposite of 'odd' numbers",
+    "correctAnswer": "even",
+    "hints": ["2, 4, 6, 8 — these are ___ numbers. They can be divided by 2 exactly."]
+  },
+  {
+    "id": "en-num-b1-18",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: The ticket costs ___ euros, give or take a few cents.",
+    "correctAnswer": "roughly twenty",
+    "hints": ["'Give or take' signals an approximation. Use 'roughly' + number."]
+  },
+  {
+    "id": "en-num-b1-19",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "How do you say 'double the price' using 'twice'?",
+    "correctAnswer": "twice the price",
+    "hints": ["'Double' and 'twice' are often interchangeable."]
+  },
+  {
+    "id": "en-num-b1-20",
+    "level": "b1",
+    "difficulty": "b1",
+    "exerciseType": "multiple_choice",
+    "prompt": "How do you say 2,500,000 in the most natural spoken English?",
+    "correctAnswer": "two and a half million",
+    "options": ["twenty-five hundred thousand", "two point five million", "two and a half million", "two millions five hundred"],
+    "hints": ["'Two and a half million' flows most naturally in speech."]
+  },
+  {
+    "id": "en-num-b2-1",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "flashcard",
+    "prompt": "Idiom: 'to be at sixes and sevens'",
+    "correctAnswer": "to be in a state of confusion or disorder",
+    "hints": ["Nothing to do with actual numbers — it's about total chaos!"]
+  },
+  {
+    "id": "en-num-b2-2",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "multiple_choice",
+    "prompt": "What does the idiom 'on cloud nine' mean?",
+    "correctAnswer": "extremely happy",
+    "options": ["extremely high up", "extremely happy", "extremely confused", "extremely tired"],
+    "hints": ["The nine just emphasizes how far above the ground you feel."]
+  },
+  {
+    "id": "en-num-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: The business plan just doesn't ___ up — the costs are way too high.",
+    "correctAnswer": "add",
+    "hints": ["'The numbers don't ___ up' means something is wrong or suspicious."]
+  },
+  {
+    "id": "en-num-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "flashcard",
+    "prompt": "Idiom: 'to go fifty-fifty'",
+    "correctAnswer": "to split the cost or profit equally between two people",
+    "hints": ["50% each. Used when splitting a bill or sharing a reward."]
+  },
+  {
+    "id": "en-num-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "multiple_choice",
+    "prompt": "What does 'the odds are against us' mean?",
+    "correctAnswer": "it is unlikely that we will succeed",
+    "options": ["we need more people", "the numbers are wrong", "it is unlikely that we will succeed", "the competition is fair"],
+    "hints": ["'Odds' here means probability, not the mathematical odd/even."]
+  },
+  {
+    "id": "en-num-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: She's the ___ suspect — the detective is focused on her.",
+    "correctAnswer": "number one",
+    "hints": ["To be 'number ___' means to be first or most important."]
+  },
+  {
+    "id": "en-num-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "flashcard",
+    "prompt": "Math vocabulary: the result of dividing two numbers",
+    "correctAnswer": "quotient",
+    "hints": ["Sum, difference, product, ___ — the four basic math results."]
+  },
+  {
+    "id": "en-num-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "multiple_choice",
+    "prompt": "What is 'a round number'?",
+    "correctAnswer": "a number ending in zero that is easy to work with",
+    "options": ["a circular number in geometry", "a number ending in zero that is easy to work with", "any even number", "any perfect square"],
+    "hints": ["100, 50, 1000 are 'round'. 47 and 83 are not."]
+  },
+  {
+    "id": "en-num-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say this sentence: Two thirds of the respondents agreed with the proposal.",
+    "correctAnswer": "Two thirds of the respondents agreed with the proposal.",
+    "hints": ["When 'two thirds of' precedes a plural noun, the verb is also plural."]
+  },
+  {
+    "id": "en-num-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: ___ would get me back on a plane after that experience.",
+    "correctAnswer": "No amount of money",
+    "hints": ["'No ___ of money' means nothing can buy or persuade you."]
+  },
+  {
+    "id": "en-num-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "multiple_choice",
+    "prompt": "What does 'to zero in on something' mean?",
+    "correctAnswer": "to focus precisely on something",
+    "options": ["to ignore something", "to reset something to zero", "to focus precisely on something", "to count down to zero"],
+    "hints": ["Think of a camera lens zooming in on one target."]
+  },
+  {
+    "id": "en-num-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "flashcard",
+    "prompt": "Idiom: 'to count on someone'",
+    "correctAnswer": "to rely on or trust someone",
+    "hints": ["'You can always ___ on me.' A phrase of dependability."]
+  },
+  {
+    "id": "en-num-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "cloze_sentence",
+    "prompt": "Complete: After years of budget cuts, the charity runs on a ___ budget.",
+    "correctAnswer": "shoestring",
+    "hints": ["A '___ budget' means operating with almost no money at all."]
+  },
+  {
+    "id": "en-num-b2-14",
+    "level": "b2",
+    "difficulty": "b2",
+    "exerciseType": "multiple_choice",
+    "prompt": "Which of these is a 'factor' of 12?",
+    "correctAnswer": "4",
+    "options": ["5", "4", "7", "9"],
+    "hints": ["A factor divides the number exactly, with no remainder."]
+  },
+  {
+    "id": "en-num-b2-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Use the word 'countless' in a sentence about travel.",
+    "correctAnswer": "I have visited countless cities across Europe.",
+    "hints": ["'Countless' means too many to count — more emphatic than 'many'."]
+  }
+]

@@ -569,12 +569,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         />
       ) : null}
       {!isReversed && question.type === "cloze_sentence" ? (
-        <SourceTextWithHints
-          sourceText={question.prompt}
-          hints={Array.isArray(question.hints) ? question.hints : []}
-          wordGlossary={question.wordGlossary}
-          language={session.language}
-        />
+        <p className="cloze-prompt">{question.prompt}</p>
       ) : null}
       {question.type === "roleplay" ? (
         <div className="build-hints">
