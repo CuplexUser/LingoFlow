@@ -442,9 +442,14 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "matching") {
+    const LONG_ANSWER_TYPES = new Set(["build_sentence", "dictation_sentence", "cloze_sentence", "pronunciation"]);
     const distractors = shuffle(
       pool
-        .filter((candidate) => candidate.id !== item.id && !isRoleplayLikeItem(candidate))
+        .filter((candidate) => {
+          if (candidate.id === item.id || isRoleplayLikeItem(candidate)) return false;
+          if (LONG_ANSWER_TYPES.has(normalizeExerciseType(candidate.exerciseType))) return false;
+          return countWords(resolveAnswer(candidate)) >= 1 && countWords(resolveAnswer(candidate)) <= 3;
+        })
         .map((candidate) => ({
           id: candidate.id,
           prompt: stripExercisePrefix(candidate.prompt),
