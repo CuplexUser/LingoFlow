@@ -110,6 +110,11 @@ function isEligibleForReversal(item, resolvedType, language) {
   const englishText = resolveEnglishFromPrompt(item);
   if (countWords(englishText) < 2) return false;
   if (!isCleanEnglishText(englishText)) return false;
+  // Prompts that are bare meta-questions ("How do you say X?") are instructions, not translatable
+  // phrases. Prompts with an exercise prefix ("Say: Hello?") are legitimate targets — the prefix
+  // was stripped by resolveEnglishFromPrompt, so raw !== stripped means a prefix existed.
+  const rawPrompt = String(item?.prompt || "").trim();
+  if (englishText.trimEnd().endsWith("?") && !EXERCISE_PREFIX_RE.test(rawPrompt)) return false;
   // Skip if English prompt text is the same as the target answer (would be a no-op)
   if (normalizeComparableText(englishText) === normalizeComparableText(resolveAnswer(item))) return false;
   return true;
