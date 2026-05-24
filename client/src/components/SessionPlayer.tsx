@@ -291,8 +291,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
   useEffect(() => {
     if (question?.type !== "matching") return;
     const pairs = Array.isArray(question.pairs) ? question.pairs : [];
-      const prompts = pairs.map((pair) => pair.prompt || "").filter(Boolean);
-      const answers = pairs.map((pair) => pair.answer || "").filter(Boolean);
+    const prompts = pairs.map((pair) => pair.prompt || "").filter(Boolean);
+    const answers = pairs.map((pair) => pair.answer || "").filter(Boolean);
     setMatchingPromptOrder(shuffleArray(prompts));
     setMatchingAnswerOrder(shuffleArray(answers));
   }, [question?.id, question?.type]);
@@ -493,9 +493,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     const prompt = String(question.prompt || "");
     const answer = "answer" in question ? String(question.answer || "") : "";
     if (isCurrentlyBookmarked) {
-      api.removeBookmark(qid).catch(() => {});
+      api.removeBookmark(qid).catch(() => { });
     } else {
-      api.addBookmark({ questionId: qid, prompt, answer, language: session.language, category: session.categoryLabel }).catch(() => {});
+      api.addBookmark({ questionId: qid, prompt, answer, language: session.language, category: session.categoryLabel }).catch(() => { });
     }
   }
 
@@ -559,223 +559,230 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       </div>
 
       <div key={question.id} className="question-body">
-      <h2>{isReversed ? "Translate to English" : question.type === "cloze_sentence" ? "Fill in the blank" : question.prompt}</h2>
-      {isReversed && reversedSourceText ? (
-        <SourceTextWithHints
-          sourceText={reversedSourceText}
-          hints={Array.isArray(question.hints) ? question.hints : []}
-          wordGlossary={question.wordGlossary}
-          language={session.language}
-        />
-      ) : null}
-      {!isReversed && question.type === "cloze_sentence" ? (
-        <p className="cloze-prompt">{question.prompt}</p>
-      ) : null}
-      {question.type === "roleplay" ? (
-        <div className="build-hints">
-          <button
-            type="button"
-            className="speak-button"
-            onClick={handleRoleplayHint}
-          >
-            Hint: English Response
-          </button>
-          {roleplayHintVisible ? (
-            <span className="hint-chip">{roleplayHintText}</span>
-          ) : null}
-        </div>
-      ) : null}
-      {question.type === "roleplay" && question.hints?.length ? (
-        <div className="build-hints">
-          <span className="hint-chip">{question.hints[0]}</span>
-        </div>
-      ) : null}
-      {showEssentialHint ? (
-        <div className="build-hints">
-          <span className="hint-chip">{primaryHint}</span>
-        </div>
-      ) : null}
-      {question.type === "pronunciation" || question.type === "practice_speak" ? (
-        <p className="pronunciation-target">
-          <strong>Say:</strong> {question.answer}
-        </p>
-      ) : null}
-      {question.imageUrl ? <img className="exercise-image" src={question.imageUrl} alt="" /> : null}
-      {question.culturalNote ? <p className="cultural-note">{question.culturalNote}</p> : null}
-      {speechError ? <p className="speech-error">{speechError}</p> : null}
-
-      {question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay" ? (
-        <MultipleChoicePanel
-          options={question.options || []}
-          selectedOption={selectedOption}
-          onSelect={handleOptionSelect}
-          onSpeakOption={isReversed ? undefined : speakAlternative}
-          withSpeakButton={!isReversed}
-        />
-      ) : null}
-
-      {question.type === "practice_listen" ? (
-        <MultipleChoicePanel
-          options={question.options || []}
-          selectedOption={selectedOption}
-          onSelect={handleOptionSelect}
-        />
-      ) : null}
-
-      {question.type === "cloze_sentence" ? (
-        <ClozeSentencePanel
-          question={question}
-          selectedOption={selectedOption}
-          onSelect={handleOptionSelect}
-        />
-      ) : null}
-
-      {question.type === "build_sentence" ? (
-        <BuildSentencePanel
-          dictation={false}
-          reversed={isReversed}
-          question={question}
-          builtSentence={builtSentence}
-          builtWords={builtWords}
-          selectedTokenIndexes={selectedTokenIndexes}
-          nextHintWordIndex={buildNextHintWordIndex}
-          onHint={speakBuildTranslationHint}
-          onTokenSelect={toggleToken}
-          onBuiltWordDragStart={handleBuiltWordDragStart}
-          onBuiltWordDrop={handleBuiltWordDrop}
-          onBuiltWordDragEnd={handleBuiltWordDragEnd}
-        />
-      ) : null}
-      {question.type === "dictation_sentence" ? (
-        <BuildSentencePanel
-          dictation
-          question={question}
-          builtSentence={builtSentence}
-          builtWords={builtWords}
-          selectedTokenIndexes={selectedTokenIndexes}
-          nextHintWordIndex={buildNextHintWordIndex}
-          onHint={speakBuildTranslationHint}
-          onTokenSelect={toggleToken}
-          onBuiltWordDragStart={handleBuiltWordDragStart}
-          onBuiltWordDrop={handleBuiltWordDrop}
-          onBuiltWordDragEnd={handleBuiltWordDragEnd}
-        />
-      ) : null}
-
-      {question.type === "flashcard" ? (
-        <FlashcardPanel
-          question={question}
-          flashcardRevealed={flashcardRevealed}
-          onToggleReveal={() => setFlashcardRevealed((value: boolean) => !value)}
-          onNeedReview={() => submitFlashcard("review")}
-          onKnown={() => submitFlashcard("known")}
-          onSpeak={handlePracticeListenAudio}
-        />
-      ) : null}
-
-      {question.type === "matching" ? (
-        <MatchingPanel
-          question={question}
-          matchingPromptOrder={matchingPromptOrder}
-          matchingAnswerOrder={matchingAnswerOrder}
-          matchingPairs={matchingPairs}
-          onReadDragPayload={readMatchingDragPayload}
-          onApplyAssignment={applyMatchingAssignment}
-          onStartDrag={startMatchingDrag}
-          onClearAssignment={clearMatchingAssignment}
-        />
-      ) : null}
-
-      {question.type === "pronunciation" ? (
-        <TranscriptExercisePanel
-          transcript={pronunciationTranscript}
-          actionButtons={[
-            <button key="play" className="speak-button" type="button" onClick={speakBuildTranslationHint} disabled={isRecording || isTranscribing}>
-              Play Prompt
-            </button>,
-            isRecording ? (
-              <button key="stop" className="ghost-button recording-active" type="button" onClick={stopRecording}>
-                Stop Recording
-              </button>
-            ) : isTranscribing ? (
-              <button key="analyzing" className="ghost-button" type="button" disabled>
-                Analyzing…
-              </button>
-            ) : modelLoading ? (
-              <button key="loading" className="ghost-button" type="button" disabled>
-                {modelLoadProgress > 0 ? `Downloading model… ${modelLoadProgress}%` : "Preparing…"}
-              </button>
-            ) : (
-              <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
-                Start Pronunciation Check
-              </button>
-            ),
-            <button key="skip" className="ghost-button" type="button" onClick={skipPronunciationExercise} disabled={isRecording || isTranscribing}>
-              Can&apos;t speak now
+        <h2>{isReversed ? "Translate to English" : question.type === "cloze_sentence" ? "Fill in the blank" : question.prompt}</h2>
+        {isReversed && reversedSourceText ? (
+          <SourceTextWithHints
+            sourceText={reversedSourceText}
+            hints={Array.isArray(question.hints) ? question.hints : []}
+            wordGlossary={question.wordGlossary}
+            language={session.language}
+          />
+        ) : null}
+        {!isReversed && question.type === "cloze_sentence" ? (
+          <div className="cloze-prompt">
+            <SourceTextWithHints
+              sourceText={question.prompt}
+              hints={Array.isArray(question.hints) ? question.hints : []}
+              wordGlossary={question.wordGlossary}
+              language={session.language}
+            />
+          </div>
+        ) : null}
+        {question.type === "roleplay" ? (
+          <div className="build-hints">
+            <button
+              type="button"
+              className="speak-button"
+              onClick={handleRoleplayHint}
+            >
+              Hint: English Response
             </button>
-          ]}
+            {roleplayHintVisible ? (
+              <span className="hint-chip">{roleplayHintText}</span>
+            ) : null}
+          </div>
+        ) : null}
+        {question.type === "roleplay" && question.hints?.length ? (
+          <div className="build-hints">
+            <span className="hint-chip">{question.hints[0]}</span>
+          </div>
+        ) : null}
+        {showEssentialHint ? (
+          <div className="build-hints">
+            <span className="hint-chip">{primaryHint}</span>
+          </div>
+        ) : null}
+        {question.type === "pronunciation" || question.type === "practice_speak" ? (
+          <p className="pronunciation-target">
+            <strong>Say:</strong> {question.answer}
+          </p>
+        ) : null}
+        {question.imageUrl ? <img className="exercise-image" src={question.imageUrl} alt="" /> : null}
+        {question.culturalNote ? <p className="cultural-note">{question.culturalNote}</p> : null}
+        {speechError ? <p className="speech-error">{speechError}</p> : null}
+
+        {question.type === "mc_sentence" || question.type === "dialogue_turn" || question.type === "roleplay" ? (
+          <MultipleChoicePanel
+            options={question.options || []}
+            selectedOption={selectedOption}
+            onSelect={handleOptionSelect}
+            onSpeakOption={isReversed ? undefined : speakAlternative}
+            withSpeakButton={!isReversed}
+          />
+        ) : null}
+
+        {question.type === "practice_listen" ? (
+          <MultipleChoicePanel
+            options={question.options || []}
+            selectedOption={selectedOption}
+            onSelect={handleOptionSelect}
+          />
+        ) : null}
+
+        {question.type === "cloze_sentence" ? (
+          <ClozeSentencePanel
+            question={question}
+            selectedOption={selectedOption}
+            onSelect={handleOptionSelect}
+          />
+        ) : null}
+
+        {question.type === "build_sentence" ? (
+          <BuildSentencePanel
+            dictation={false}
+            reversed={isReversed}
+            question={question}
+            builtSentence={builtSentence}
+            builtWords={builtWords}
+            selectedTokenIndexes={selectedTokenIndexes}
+            nextHintWordIndex={buildNextHintWordIndex}
+            onHint={speakBuildTranslationHint}
+            onTokenSelect={toggleToken}
+            onBuiltWordDragStart={handleBuiltWordDragStart}
+            onBuiltWordDrop={handleBuiltWordDrop}
+            onBuiltWordDragEnd={handleBuiltWordDragEnd}
+          />
+        ) : null}
+        {question.type === "dictation_sentence" ? (
+          <BuildSentencePanel
+            dictation
+            question={question}
+            builtSentence={builtSentence}
+            builtWords={builtWords}
+            selectedTokenIndexes={selectedTokenIndexes}
+            nextHintWordIndex={buildNextHintWordIndex}
+            onHint={speakBuildTranslationHint}
+            onTokenSelect={toggleToken}
+            onBuiltWordDragStart={handleBuiltWordDragStart}
+            onBuiltWordDrop={handleBuiltWordDrop}
+            onBuiltWordDragEnd={handleBuiltWordDragEnd}
+          />
+        ) : null}
+
+        {question.type === "flashcard" ? (
+          <FlashcardPanel
+            question={question}
+            flashcardRevealed={flashcardRevealed}
+            onToggleReveal={() => setFlashcardRevealed((value: boolean) => !value)}
+            onNeedReview={() => submitFlashcard("review")}
+            onKnown={() => submitFlashcard("known")}
+            onSpeak={handlePracticeListenAudio}
+          />
+        ) : null}
+
+        {question.type === "matching" ? (
+          <MatchingPanel
+            question={question}
+            matchingPromptOrder={matchingPromptOrder}
+            matchingAnswerOrder={matchingAnswerOrder}
+            matchingPairs={matchingPairs}
+            onReadDragPayload={readMatchingDragPayload}
+            onApplyAssignment={applyMatchingAssignment}
+            onStartDrag={startMatchingDrag}
+            onClearAssignment={clearMatchingAssignment}
+          />
+        ) : null}
+
+        {question.type === "pronunciation" ? (
+          <TranscriptExercisePanel
+            transcript={pronunciationTranscript}
+            actionButtons={[
+              <button key="play" className="speak-button" type="button" onClick={speakBuildTranslationHint} disabled={isRecording || isTranscribing}>
+                Play Prompt
+              </button>,
+              isRecording ? (
+                <button key="stop" className="ghost-button recording-active" type="button" onClick={stopRecording}>
+                  Stop Recording
+                </button>
+              ) : isTranscribing ? (
+                <button key="analyzing" className="ghost-button" type="button" disabled>
+                  Analyzing…
+                </button>
+              ) : modelLoading ? (
+                <button key="loading" className="ghost-button" type="button" disabled>
+                  {modelLoadProgress > 0 ? `Downloading model… ${modelLoadProgress}%` : "Preparing…"}
+                </button>
+              ) : (
+                <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
+                  Start Pronunciation Check
+                </button>
+              ),
+              <button key="skip" className="ghost-button" type="button" onClick={skipPronunciationExercise} disabled={isRecording || isTranscribing}>
+                Can&apos;t speak now
+              </button>
+            ]}
+          />
+        ) : null}
+
+        {question.type === "practice_speak" ? (
+          <TranscriptExercisePanel
+            transcript={pronunciationTranscript}
+            actionButtons={[
+              <button key="listen" className="speak-button" type="button" onClick={speakPronunciationTarget} disabled={isRecording || isTranscribing}>
+                Listen
+              </button>,
+              isRecording ? (
+                <button key="stop" className="ghost-button recording-active" type="button" onClick={stopRecording}>
+                  Stop Recording
+                </button>
+              ) : isTranscribing ? (
+                <button key="analyzing" className="ghost-button" type="button" disabled>
+                  Analyzing…
+                </button>
+              ) : modelLoading ? (
+                <button key="loading" className="ghost-button" type="button" disabled>
+                  {modelLoadProgress > 0 ? `Downloading model… ${modelLoadProgress}%` : "Preparing…"}
+                </button>
+              ) : (
+                <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
+                  Start Pronunciation Check
+                </button>
+              )
+            ]}
+          />
+        ) : null}
+
+        {question.type === "practice_listen" ? (
+          <AudioActionPanel onPlay={handlePracticeListenAudio} />
+        ) : null}
+
+        {question.type === "practice_words" ? (
+          <PracticeWordsPanel
+            question={question}
+            practiceLeftOrder={practiceLeftOrder}
+            practiceRightOrder={practiceRightOrder}
+            practiceWordMatches={practiceWordMatches}
+            practiceSelection={practiceSelection}
+            practiceFeedback={practiceFeedback}
+            onPick={handlePracticeWordPick}
+          />
+        ) : null}
+
+        <FeedbackPanel
+          feedback={feedback}
+          builtWords={builtWords}
+          onReveal={revealAnswer}
         />
-      ) : null}
 
-      {question.type === "practice_speak" ? (
-        <TranscriptExercisePanel
-          transcript={pronunciationTranscript}
-          actionButtons={[
-            <button key="listen" className="speak-button" type="button" onClick={speakPronunciationTarget} disabled={isRecording || isTranscribing}>
-              Listen
-            </button>,
-            isRecording ? (
-              <button key="stop" className="ghost-button recording-active" type="button" onClick={stopRecording}>
-                Stop Recording
-              </button>
-            ) : isTranscribing ? (
-              <button key="analyzing" className="ghost-button" type="button" disabled>
-                Analyzing…
-              </button>
-            ) : modelLoading ? (
-              <button key="loading" className="ghost-button" type="button" disabled>
-                {modelLoadProgress > 0 ? `Downloading model… ${modelLoadProgress}%` : "Preparing…"}
-              </button>
-            ) : (
-              <button key="check" className="ghost-button" type="button" onClick={startPronunciationCheck}>
-                Start Pronunciation Check
-              </button>
-            )
-          ]}
-        />
-      ) : null}
-
-      {question.type === "practice_listen" ? (
-        <AudioActionPanel onPlay={handlePracticeListenAudio} />
-      ) : null}
-
-      {question.type === "practice_words" ? (
-        <PracticeWordsPanel
-          question={question}
-          practiceLeftOrder={practiceLeftOrder}
-          practiceRightOrder={practiceRightOrder}
-          practiceWordMatches={practiceWordMatches}
-          practiceSelection={practiceSelection}
-          practiceFeedback={practiceFeedback}
-          onPick={handlePracticeWordPick}
-        />
-      ) : null}
-
-      <FeedbackPanel
-        feedback={feedback}
-        builtWords={builtWords}
-        onReveal={revealAnswer}
-      />
-
-      {question.type !== "practice_words" && question.type !== "flashcard" ? (
-        <button
-          className="primary-button"
-          onClick={submitAnswer}
-          disabled={!canSubmit()}
-        >
-          Check
-        </button>
-      ) : null}
+        {question.type !== "practice_words" && question.type !== "flashcard" ? (
+          <button
+            className="primary-button"
+            onClick={submitAnswer}
+            disabled={!canSubmit()}
+          >
+            Check
+          </button>
+        ) : null}
       </div>
     </section>
   );

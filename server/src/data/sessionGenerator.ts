@@ -74,6 +74,8 @@ function resolveEnglishFromPrompt(item) {
 
 function isCleanEnglishText(text) {
   if (!text || text.includes("____") || text.includes("___")) return false;
+  // Reject phrase-chunked sentences (e.g. "word / word / word")
+  if (text.includes(' / ')) return false;
   // Reject if it contains characters from non-Latin scripts (Cyrillic, Arabic, CJK, etc.)
   return !/[^\p{Script=Latin}\p{Script=Common}\p{Script=Inherited}]/u.test(text);
 }
@@ -101,7 +103,7 @@ function pickEnglishDistractors(pool, item, count, randomFn) {
 function isEligibleForReversal(item, resolvedType, language) {
   if (language === "english") return false;
   if (isRoleplayLikeItem(item)) return false;
-  if (!["mc_sentence", "build_sentence"].includes(resolvedType)) return false;
+  if (!["mc_sentence", "build_sentence"].includes(resolvedType)) return false;  
   const fixedType = normalizeExerciseType(item?.exerciseType);
   const nonReversibleTypes = ["pronunciation", "flashcard", "cloze_sentence", "dictation_sentence", "matching", "roleplay", "dialogue_turn"];
   if (fixedType && nonReversibleTypes.includes(fixedType)) return false;
