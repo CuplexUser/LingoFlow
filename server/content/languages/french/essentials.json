@@ -1,0 +1,731 @@
+[
+  {
+    "id": "fr-es-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Hello, how are you?",
+    "correctAnswer": "Bonjour, ça va ?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "fr-es-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Thank you very much for your help.",
+    "correctAnswer": "Merci beaucoup pour votre aide.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "fr-es-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not understand this sentence.",
+    "correctAnswer": "Je ne comprends pas cette phrase.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "fr-es-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Excuse me, where is the bathroom?",
+    "correctAnswer": "Excusez-moi, où sont les toilettes ?",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "fr-es-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My name is Anna.",
+    "correctAnswer": "Mon nom est Anna.",
+    "hints": [
+      "A basic introduction."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "fr-es-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "please",
+    "correctAnswer": "s'il vous plaît",
+    "hints": [
+      "A polite word you add to requests."
+    ],
+    "exerciseType": "flashcard",
+    "imageUrl": "/images/placeholder.svg"
+  },
+  {
+    "id": "fr-es-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Yes, I am fine.",
+    "correctAnswer": "Oui, ça va.",
+    "hints": [
+      "A short positive reply."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "fr-es-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the best response. Someone says: How are you?",
+    "correctAnswer": "Je vais bien, merci.",
+    "hints": [
+      "Pick a polite reply."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "fr-es-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Good morning!",
+    "correctAnswer": "Bonjour !",
+    "hints": [
+      "A greeting for the start of the day."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "fr-es-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "I ___ from Spain.",
+    "correctAnswer": "je suis",
+    "hints": [
+      "Use the correct form of 'to be'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "fr-es-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Goodbye, see you later!",
+    "correctAnswer": "A tout à l'heure !",
+    "hints": [
+      "A common farewell."
+    ]
+  },
+  {
+    "id": "fr-es-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "sorry / happy / hungry / tired",
+    "correctAnswer": "désolé",
+    "hints": [
+      "Which word do you use to apologise?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "fr-es-a1-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need help, please.",
+    "correctAnswer": "J'ai besoin d'aide, s'il vous plaît.",
+    "hints": [
+      "Ask for assistance politely."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "fr-es-a1-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Nice to meet you.",
+    "correctAnswer": "Ravi de vous rencontrer.",
+    "hints": [
+      "A greeting when meeting someone new."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "fr-es-a1-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am sorry, I do not know.",
+    "correctAnswer": "Je suis désolé, je ne sais pas.",
+    "hints": [
+      "Practise admitting you do not know something."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Could you repeat that, please?",
+    "correctAnswer": "Pourriez-vous répéter ?",
+    "hints": [
+      "A polite clarification request."
+    ],
+    "id": "fr-es-a1-53"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am learning every day.",
+    "correctAnswer": "J'apprends tous les jours.",
+    "hints": [
+      "Present continuous can also work in context."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "fr-es-a1-54"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What does this word mean?",
+    "correctAnswer": "Que signifie ce mot ?",
+    "hints": [
+      "Core classroom question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "fr-es-a1-55"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Thank you for your patience.",
+    "correctAnswer": "Merci de votre patience.",
+    "hints": [
+      "Polite expression for support."
+    ],
+    "exerciseType": "pronunciation",
+    "id": "fr-es-a1-56"
+  },
+  {
+    "id": "fr-es-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you speak more slowly, please?",
+    "correctAnswer": "Pourriez-vous parler plus lentement ?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "fr-es-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am learning English every day.",
+    "correctAnswer": "J'apprends l'anglais tous les jours.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "fr-es-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Could you repeat that one more time?",
+    "correctAnswer": "Pourriez-vous répéter encore une fois ?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "fr-es-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually wake up at seven o'clock.",
+    "correctAnswer": "D'habitude, je me réveille à sept heures.",
+    "hints": [
+      "Describe a daily routine.",
+      "Use the present tense."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "fr-es-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "I ___ to school yesterday.",
+    "correctAnswer": "est parti",
+    "hints": [
+      "Use the past tense of 'go'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "fr-es-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Can you help me find the exit?",
+    "correctAnswer": "Pouvez-vous m'aider à trouver la sortie ?",
+    "hints": [
+      "A polite request for directions."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "fr-es-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. You are lost in a shop.",
+    "correctAnswer": "Excusez-moi, où est la sortie ?",
+    "hints": [
+      "Ask politely for help."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "fr-es-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I bought some bread and milk.",
+    "correctAnswer": "J'ai acheté du pain et du lait.",
+    "hints": [
+      "Use the past tense of 'buy'."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "fr-es-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "appointment / meeting / address / receipt",
+    "correctAnswer": "reçu",
+    "hints": [
+      "Which word means the paper you get after paying?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "fr-es-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "to apologise",
+    "correctAnswer": "pour s'excuser",
+    "hints": [
+      "To say you are sorry for something."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "fr-es-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I left my bag on the bus.",
+    "correctAnswer": "J'ai laissé mon sac dans le bus.",
+    "hints": [
+      "Use the past tense of 'leave'."
+    ]
+  },
+  {
+    "id": "fr-es-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "She ___ English and French.",
+    "correctAnswer": "parle",
+    "hints": [
+      "Use the correct present tense form."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I can explain it in another way.",
+    "correctAnswer": "Je peux l'expliquer autrement.",
+    "hints": [
+      "Use this during misunderstandings."
+    ],
+    "id": "fr-es-a2-61"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Is there a simpler example?",
+    "correctAnswer": "Y a-t-il un exemple plus simple?",
+    "hints": [
+      "Good for checking comprehension."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "fr-es-a2-62"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually review new words at night.",
+    "correctAnswer": "D'habitude, je passe en revue de nouveaux mots la nuit.",
+    "hints": [
+      "Use adverbs with routine verbs."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "fr-es-a2-63"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I almost forgot to send the message.",
+    "correctAnswer": "J'ai presque oublié d'envoyer le message.",
+    "hints": [
+      "Shows near-miss actions."
+    ],
+    "exerciseType": "pronunciation",
+    "id": "fr-es-a2-64"
+  },
+  {
+    "id": "fr-es-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I made a mistake, but I will try again.",
+    "correctAnswer": "J'ai fait une erreur, mais je vais réessayer.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "fr-es-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would like to improve my pronunciation.",
+    "correctAnswer": "Je voudrais améliorer ma prononciation.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "fr-es-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I understand the idea, but I need more practice.",
+    "correctAnswer": "Je comprends l'idée, mais j'ai besoin de plus de pratique.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "fr-es-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Although it was raining, we walked to the park.",
+    "correctAnswer": "Même s'il pleuvait, nous sommes allés au parc.",
+    "hints": [
+      "Connect two ideas with 'although'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "fr-es-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "I have ___ living here for three years.",
+    "correctAnswer": "était",
+    "hints": [
+      "Use present perfect continuous."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "fr-es-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Someone asks: Can you explain this word?",
+    "correctAnswer": "Bien sûr, ça veut dire exprimer quelque chose clairement.",
+    "hints": [
+      "Give a helpful explanation."
+    ],
+    "exerciseType": "dialogue_turn"
+  },
+  {
+    "id": "fr-es-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I should have called you earlier.",
+    "correctAnswer": "J'aurais dû t'appeler plus tôt.",
+    "hints": [
+      "Express regret about a past action."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "fr-es-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Could you tell me where the post office is?",
+    "correctAnswer": "Pouvez-vous me dire où est la poste ?",
+    "hints": [
+      "Use an indirect question for politeness."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "fr-es-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "fluent / confident / nervous / accurate",
+    "correctAnswer": "couramment",
+    "hints": [
+      "Which word means speaking a language smoothly?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "fr-es-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The instructions were not clear enough.",
+    "correctAnswer": "Les instructions n'étaient pas assez claires.",
+    "hints": [
+      "Use 'enough' after the adjective."
+    ]
+  },
+  {
+    "id": "fr-es-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been waiting for twenty minutes.",
+    "correctAnswer": "J'attends depuis vingt minutes.",
+    "hints": [
+      "Use present perfect continuous for duration.",
+      "Connect the two ideas."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "fr-es-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "to complain",
+    "correctAnswer": "de se plaindre",
+    "hints": [
+      "To express dissatisfaction about something."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been practicing this expression for weeks.",
+    "correctAnswer": "Je pratique cette expression depuis des semaines.",
+    "hints": [
+      "Present perfect continuous for duration."
+    ],
+    "id": "fr-es-b1-69"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Could we compare these two options?",
+    "correctAnswer": "Pouvons-nous comparer ces deux options?",
+    "hints": [
+      "Collaborative discussion language."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "fr-es-b1-70"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I understood the idea but missed one detail.",
+    "correctAnswer": "J'ai compris l'idée mais j'ai raté un détail.",
+    "hints": [
+      "Natural reflection sentence."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "fr-es-b1-71"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am trying to sound more natural in conversations.",
+    "correctAnswer": "J'essaie de paraître plus naturel dans les conversations.",
+    "hints": [
+      "Goal-focused phrasing."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "fr-es-b1-72"
+  },
+  {
+    "id": "fr-es-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I can explain my opinion with clear arguments.",
+    "correctAnswer": "Je peux expliquer mon opinion par des arguments clairs.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "fr-es-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I want to speak naturally, not only correctly.",
+    "correctAnswer": "Je veux parler naturellement, pas seulement correctement.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "fr-es-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is essential to adapt your tone to the situation.",
+    "correctAnswer": "Il est essentiel d'adapter votre ton à la situation.",
+    "hints": [
+      "Consider the register.",
+      "Focus on natural phrasing and word order."
+    ]
+  },
+  {
+    "id": "fr-es-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "The more you practise, the ___ confident you become.",
+    "correctAnswer": "plus",
+    "hints": [
+      "Use the comparative structure 'the more... the more...'."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "fr-es-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I known the answer, I would have spoken up.",
+    "correctAnswer": "Si j'avais su la réponse, j'aurais parlé.",
+    "hints": [
+      "Use inverted third conditional."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "fr-es-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best response. Your colleague misunderstood your email.",
+    "correctAnswer": "Je m'excuse pour la confusion; permettez-moi de clarifier ce que je voulais dire.",
+    "hints": [
+      "Respond professionally and politely."
+    ],
+    "exerciseType": "dialogue_turn"
+  },
+  {
+    "id": "fr-es-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "ambiguous / vague / precise / redundant",
+    "correctAnswer": "ambiguë",
+    "hints": [
+      "Which word means open to more than one interpretation?"
+    ],
+    "exerciseType": "mc_sentence"
+  },
+  {
+    "id": "fr-es-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Effective communication requires both clarity and empathy.",
+    "correctAnswer": "Une communication efficace exige à la fois clarté et empathie.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "fr-es-b2-9",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would rather rephrase the question than give a misleading answer.",
+    "correctAnswer": "Je préfère reformuler la question plutôt que de donner une réponse trompeuse.",
+    "hints": [
+      "Use 'would rather... than...' for preferences."
+    ]
+  },
+  {
+    "id": "fr-es-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Despite the language barrier, we managed to communicate effectively.",
+    "correctAnswer": "Malgré la barrière linguistique, nous avons réussi à communiquer efficacement.",
+    "hints": [
+      "Use 'despite' followed by a noun phrase."
+    ],
+    "exerciseType": "dictation_sentence"
+  },
+  {
+    "id": "fr-es-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "to paraphrase",
+    "correctAnswer": "pour paraphraser",
+    "hints": [
+      "To express the same idea using different words."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "fr-es-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Nuance is what separates adequate language from truly fluent speech.",
+    "correctAnswer": "La nuance est ce qui sépare un langage adéquat d'un langage vraiment couramment parlé.",
+    "hints": [
+      "Consider the register."
+    ]
+  },
+  {
+    "id": "fr-es-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Being articulate is not the same as being verbose.",
+    "correctAnswer": "Être articulé n'est pas la même chose qu'être verbeux.",
+    "hints": [
+      "Focus on natural phrasing and word order."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I can infer the meaning from context most of the time.",
+    "correctAnswer": "Je peux déduire le sens du contexte la plupart du temps.",
+    "hints": [
+      "Academic-style phrasing."
+    ],
+    "id": "fr-es-b2-77"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you clarify the nuance of that expression?",
+    "correctAnswer": "Pourriez-vous clarifier la nuance de cette expression ?",
+    "hints": [
+      "Useful for advanced accuracy."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "fr-es-b2-78"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I am confident, although I still make occasional mistakes.",
+    "correctAnswer": "Je suis confiant, même si je fais des erreurs occasionnelles.",
+    "hints": [
+      "Use concession for balanced statements."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "fr-es-b2-79"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would rather reformulate the sentence than translate it directly.",
+    "correctAnswer": "Je préférerais reformuler la phrase plutôt que la traduire directement.",
+    "hints": [
+      "Shows advanced strategy."
+    ],
+    "exerciseType": "dictation_sentence",
+    "id": "fr-es-b2-80"
+  }
+]

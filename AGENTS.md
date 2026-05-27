@@ -31,6 +31,7 @@
 - Use PascalCase for React components (`SessionPlayer`).
 - Keep API payload keys stable and explicit (`difficultyLevel`, `revealedAnswers`).
 - Favor small, focused functions over large inline blocks.
+- Implement new application code and repository scripts in TypeScript by default.
 - Prefer TypeScript-first client changes over adding new JS compatibility layers.
 
 ## Testing Guidelines

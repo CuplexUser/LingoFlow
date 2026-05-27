@@ -54,7 +54,7 @@ server/content/languages/
 
 **Step 2 — Fill content gaps**
 
-Current state: ~936 exercises total, ~188 per language (English lags at 180).
+Current state: six languages are available, including French.
 Target: 20-50 exercises per category × level × language.
 
 Progress snapshot (2026-04-24):
@@ -90,7 +90,9 @@ Quality checklist per batch:
 
 **Step 3 — Add new languages (stretch)**
 
-- [ ] Evaluate adding French, German, Portuguese, or Japanese based on user demand.
+- [x] Add French as a selectable course language with split category content files.
+- [x] Add an interactive TypeScript LibreTranslate script for creating new language category files from English.
+- [ ] Evaluate adding German, Portuguese, or Japanese based on user demand.
 - [ ] Each new language starts with the 5 core categories at A1-A2, minimum 15 exercises per level.
 
 ---

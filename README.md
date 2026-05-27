@@ -1,6 +1,6 @@
 # LingoFlow
 
-A focused language learning app built with React + Express. Adaptive CEFR progression, persistent learner data, and a variety of exercise types across five languages.
+A focused language learning app built with React + Express. Adaptive CEFR progression, persistent learner data, and a variety of exercise types across six languages.
 
 ## Features
 
@@ -8,7 +8,7 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 
 - 15 course categories: Essentials, Conversation, Travel, Work, Health, Family & Friends, Food & Cooking, Grammar, Hobbies & Leisure, Sports & Fitness, News & Media, Money & Finance, Science & Technology, Culture & History, Nature & Animals
 - CEFR-based adaptive progression (A1 → B2) — category levels unlock based on mastery
-- 5 languages: English, Spanish, Russian, Italian, Swedish
+- 6 languages: English, Spanish, Russian, Italian, Swedish, French
 - Daily challenge sessions — one fresh cross-category session per day
 - Post-session mistake review — optional mini-session drilled from session errors
 - Session autosave and resume — in-progress sessions survive page refresh or tab close
@@ -46,6 +46,14 @@ docker exec <container-id> ltmanage keys add
 ```
 
 Fetched translations are validated before caching: punctuation-only responses and strings identical to the source word are discarded. Translations are normalised — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
+
+The repo also includes an interactive TypeScript utility for generating new language content from English via LibreTranslate:
+
+```bash
+npm run translate:language
+```
+
+The tool reads `server/.env`, lets you select a supported target language and category files, rate-limits API calls if needed, and writes only new files under `server/content/languages/<language>/`. It never overwrites existing category files.
 
 **Content authors** can add curated per-word translations to any exercise via a `wordGlossary` object:
 
@@ -223,6 +231,7 @@ server/
       russian/
       italian/
       swedish/
+      french/
 ```
 
 ---
@@ -232,6 +241,7 @@ server/
 ```bash
 npm run install:all     # Install all workspace dependencies
 npm run dev             # Start server (:4000) + client (:5173) concurrently
+npm run translate:language # Interactive LibreTranslate content generator
 npm run build           # Production client bundle
 npm run start           # Serve backend + built frontend
 npm run lint            # ESLint (flat config)
@@ -284,7 +294,7 @@ npm run verify          # Lint + client tests
 | `POST` | `/api/community/contribute` | Submit a community exercise |
 | `GET` | `/api/community/contributions` | List contributions (own or all) |
 | `PATCH` | `/api/community/contributions/:id` | Update moderation status |
-| `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Batch word translations (SQLite-cached, NLLB-200 / LibreTranslate fallback) |
+| `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Batch word translations (SQLite-cached, LibreTranslate fallback) |
 
 ### Admin only
 

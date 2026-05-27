@@ -142,6 +142,7 @@ function registerCourseRoutes(app: any, deps: any): void {
     spanish: "es",
     swedish: "sv",
     italian: "it",
+    french: "fr",
     english: "en"
   };
 

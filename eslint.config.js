@@ -22,6 +22,33 @@ module.exports = [
       }
     }
   },
+  {
+    files: ["scripts/create-language-from-libretranslate.ts"],
+    languageOptions: {
+      parser: tsParser,
+      ecmaVersion: "latest",
+      sourceType: "script",
+      globals: {
+        __dirname: "readonly",
+        console: "readonly",
+        fetch: "readonly",
+        module: "readonly",
+        process: "readonly",
+        require: "readonly",
+        setTimeout: "readonly"
+      }
+    }
+  },
+  {
+    files: ["scripts/write-version.js"],
+    languageOptions: {
+      globals: {
+        console: "readonly",
+        module: "readonly",
+        process: "readonly"
+      }
+    }
+  },
   js.configs.recommended,
   ...tsRecommended.map((config) => ({
     ...config,
