@@ -8,7 +8,7 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 
 - 15 course categories: Essentials, Conversation, Travel, Work, Health, Family & Friends, Food & Cooking, Grammar, Hobbies & Leisure, Sports & Fitness, News & Media, Money & Finance, Science & Technology, Culture & History, Nature & Animals
 - CEFR-based adaptive progression (A1 → B2) — category levels unlock based on mastery
-- 6 languages: English, Spanish, Russian, Italian, Swedish, French
+- 7 languages: English, Spanish, Russian, Italian, Swedish, French, German
 - Daily challenge sessions — one fresh cross-category session per day
 - Post-session mistake review — optional mini-session drilled from session errors
 - Session autosave and resume — in-progress sessions survive page refresh or tab close
@@ -28,7 +28,7 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 
 ### Word Hints & Tooltips
 
-Hover over any word in a reverse-translation exercise (translating to English) to see a tooltip. Three sources are checked in priority order:
+Hover over any word in a reverse-translation exercise (translating to English) or in a cloze sentence to see a tooltip. Three sources are checked in priority order:
 
 1. **Grammar hints** (dotted underline, dark tooltip) — words matched by the `'word' = meaning` pattern in the exercise `hints` array.
 2. **Glossary translations** (solid accent underline, accent tooltip) — words covered by the optional `wordGlossary` field on the exercise.
@@ -232,6 +232,7 @@ server/
       italian/
       swedish/
       french/
+      german/
 ```
 
 ---
