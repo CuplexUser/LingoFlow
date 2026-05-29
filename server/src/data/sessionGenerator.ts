@@ -523,31 +523,53 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "cloze_sentence") {
-    const answerTokens = answer.split(" ").filter(Boolean);
-    const maskIndex = answerTokens.findIndex((token) => token.length > 3);
-    const selectedMaskIndex = maskIndex >= 0 ? maskIndex : 0;
-    const clozeAnswer = answerTokens[selectedMaskIndex];
+    // Preferred authoring style: the sentence with the gap lives in the prompt and
+    // `correctAnswer` is the word(s) that fill it. Mask-a-word out of the answer only as
+    // a fallback for legacy items whose prompt has no authored blank.
+    const promptText = stripExercisePrefix(item.prompt);
+    const hasAuthoredBlank = /_{2,}/.test(promptText);
+
+    const isLatin = (text: string) =>
+      !/[^\p{Script=Latin}\p{Script=Common}\p{Script=Inherited}]/u.test(text);
+    // Distractors must share the answer's script — a handful of pool answers hold English
+    // glosses (e.g. "a world-famous art museum") that would otherwise leak Latin words
+    // like "art" into a Cyrillic exercise.
+    const answerIsLatin = isLatin(answer);
     const authoredClozeOptions = Array.isArray(item.clozeOptions) && item.clozeOptions.length >= 2
       ? item.clozeOptions.map((o) => String(o || "")).filter(Boolean)
       : null;
+    const buildFallbackOptions = (correctToken: string) => {
+      const fallbackDistractors = pool
+        .flatMap((entry) => resolveAnswer(entry).split(" "))
+        .map((token: string) => token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, ""))
+        .filter((token) => token.length > 2 && token !== correctToken && isLatin(token) === answerIsLatin);
+      return shuffle(
+        [correctToken, ...shuffle(fallbackDistractors, randomFn).slice(0, 3)],
+        randomFn
+      ).slice(0, 4);
+    };
+
+    let clozeAnswer: string;
+    let clozeText: string;
+    if (hasAuthoredBlank) {
+      clozeAnswer = answer;
+      clozeText = promptText.replace(/_{2,}/g, "____");
+    } else {
+      const answerTokens = answer.split(" ").filter(Boolean);
+      const maskIndex = answerTokens.findIndex((token) => token.length > 3);
+      const selectedMaskIndex = maskIndex >= 0 ? maskIndex : 0;
+      clozeAnswer = answerTokens[selectedMaskIndex];
+      const clozeTokens = [...answerTokens];
+      clozeTokens[selectedMaskIndex] = "____";
+      clozeText = clozeTokens.join(" ");
+    }
     const clozeOptions = authoredClozeOptions
       ? shuffle(authoredClozeOptions, randomFn).slice(0, 4)
-      : (() => {
-          const fallbackDistractors = pool
-            .flatMap((entry) => resolveAnswer(entry).split(" "))
-            .map((token: string) => token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, ""))
-            .filter((token) => token.length > 2 && token !== clozeAnswer);
-          return shuffle(
-            [clozeAnswer, ...shuffle(fallbackDistractors, randomFn).slice(0, 3)],
-            randomFn
-          ).slice(0, 4);
-        })();
-    const clozeTokens = [...answerTokens];
-    clozeTokens[selectedMaskIndex] = "____";
+      : buildFallbackOptions(clozeAnswer);
     return {
       ...base,
       clozeAnswer,
-      clozeText: clozeTokens.join(" "),
+      clozeText,
       clozeOptions,
       ...(item.translation ? { translation: String(item.translation) } : {})
     };

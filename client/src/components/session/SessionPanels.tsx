@@ -58,7 +58,6 @@ export function ClozeSentencePanel({ question, selectedOption, onSelect }: Cloze
       {question.translation && (
         <div className="cloze-translation">{question.translation}</div>
       )}
-      <div className="build-target">{question.clozeText}</div>
       <div className="tokens">
         {question.clozeOptions.map((token) => (
           <button
