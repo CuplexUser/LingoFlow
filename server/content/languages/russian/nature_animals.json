@@ -331,19 +331,19 @@
     "id": "ru-na-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: Амурский тигр — редкий вид, занесённый в Красную ___ России.",
-    "correctAnswer": "книгу",
+    "prompt": "Cloze: Снежный барс обитает в горах Алтая и ___.",
+    "correctAnswer": "Саян",
     "hints": [
-      "'Красная книга' = the Red Book (Russia's endangered species register). Accusative: 'книгу'."
+      "'Снежный барс' (ирбис) = snow leopard. 'В горах' + genitive: Алтая, Саян (Саяны → Саян)."
     ],
     "exerciseType": "cloze_sentence",
     "clozeOptions": [
-      "книгу",
-      "зону",
-      "карту",
-      "область"
+      "Саян",
+      "Карпат",
+      "Альп",
+      "Гималаев"
     ],
-    "culturalNote": "Амурский тигр занесён в Красную книгу России. Сегодня в дикой природе насчитывается около 500 особей."
+    "culturalNote": "Снежный барс обитает в высокогорьях Алтая, Саян и Тувы — это одни из немногих мест в России, где можно встретить этого редкого хищника."
   },
   {
     "id": "ru-na-b1-6",
@@ -361,12 +361,13 @@
     "id": "ru-na-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Vocabulary: endangered / extinct",
-    "correctAnswer": "находящийся под угрозой исчезновения / вымерший",
+    "prompt": "Vocabulary: pine / birch / cedar",
+    "correctAnswer": "сосна / берёза / кедр",
     "hints": [
-      "'Под угрозой исчезновения' is the standard conservation phrase. 'Вымерший' = already extinct."
+      "'Сосна' (pine, fem), 'берёза' (birch, fem), 'кедр' (Siberian cedar, masc)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "culturalNote": "Берёза — один из самых узнаваемых образов русской природы и часто встречается в народных песнях и поэзии."
   },
   {
     "id": "ru-na-b1-8",
@@ -394,71 +395,551 @@
     "id": "ru-na-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Deforestation disrupts ecosystems and accelerates soil erosion.",
-    "correctAnswer": "Вырубка лесов нарушает экосистемы и ускоряет эрозию почв.",
+    "prompt": "Say: The Ural Mountains stretch for more than two thousand kilometres from north to south.",
+    "correctAnswer": "Уральские горы простираются более чем на две тысячи километров с севера на юг.",
     "hints": [
-      "'Нарушать' = to disrupt (imperfective). 'Ускорять' = to accelerate. Both take the accusative."
-    ]
+      "'Простираться' = to stretch/extend. 'С севера на юг' = from north to south."
+    ],
+    "exerciseType": "build_sentence",
+    "culturalNote": "Уральские горы — естественная граница между Европой и Азией, протянувшаяся от Северного Ледовитого океана почти до Казахстана."
   },
   {
     "id": "ru-na-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Потепление климата ведёт к таянию ___ и подъёму уровня моря.",
-    "correctAnswer": "ледников",
+    "prompt": "Cloze: Камчатка известна своими действующими ___ и горячими источниками.",
+    "correctAnswer": "вулканами",
     "hints": [
-      "'Ледник' = glacier. Genitive plural 'ледников' after 'таяния' (melting of)."
+      "'Известна' + instrumental. 'Действующий вулкан' = active volcano. 'Горячие источники' = hot springs."
     ],
     "exerciseType": "cloze_sentence",
     "clozeOptions": [
-      "ледников",
-      "снегов",
-      "озёр",
-      "болот"
-    ]
+      "вулканами",
+      "пустынями",
+      "ледниками",
+      "болотами"
+    ],
+    "culturalNote": "Вулканы Камчатки внесены в список Всемирного наследия ЮНЕСКО; на полуострове более тридцати действующих вулканов."
   },
   {
     "id": "ru-na-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The biodiversity of the Amazon basin has no parallel anywhere on Earth.",
-    "correctAnswer": "Биоразнообразие бассейна Амазонки не имеет аналогов нигде на Земле.",
+    "prompt": "Say: The snow leopard is perfectly adapted to life in cold, rocky mountains.",
+    "correctAnswer": "Снежный барс прекрасно приспособлен к жизни в холодных скалистых горах.",
     "hints": [
-      "'Не иметь аналогов' = to have no parallel/equal. 'Нигде' = nowhere."
+      "'Приспособлен к' + dative = adapted to. 'Скалистый' = rocky."
     ]
   },
   {
     "id": "ru-na-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Vocabulary: biodiversity / ecosystem / carbon footprint",
-    "correctAnswer": "биоразнообразие / экосистема / углеродный след",
+    "prompt": "Say: In Oymyakon the temperature can drop below minus sixty degrees.",
+    "correctAnswer": "В Оймяконе температура может опускаться ниже минус шестидесяти градусов.",
     "hints": [
-      "'Углеродный след' = carbon footprint (literally 'carbon trace'). All three are common in Russian environmental discourse."
+      "'Ниже' + genitive = below. 'Шестидесяти градусов' — genitive after 'ниже'."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "build_sentence",
+    "culturalNote": "Оймякон в Якутии считается самым холодным постоянно населённым местом на Земле."
   },
   {
     "id": "ru-na-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Rewilding programmes aim to restore natural processes by reintroducing keystone species.",
-    "correctAnswer": "Программы ревайлдинга направлены на восстановление природных процессов путём реинтродукции ключевых видов.",
+    "prompt": "Say: Every summer salmon swim upstream to spawn in the rivers where they were born.",
+    "correctAnswer": "Каждое лето лосось плывёт вверх по течению, чтобы метать икру в реках, где он родился.",
     "hints": [
-      "'Направлены на + accusative' = aimed at. 'Путём' + genitive = by means of."
+      "'Вверх по течению' = upstream. 'Метать икру' = to spawn. 'Лосось' = salmon."
     ]
   },
   {
     "id": "ru-na-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Roleplay: A journalist asks you about the biggest threat to Russia's natural environment.",
-    "correctAnswer": "На мой взгляд, главная угроза — это промышленное загрязнение рек и озёр, особенно в регионах с добывающей промышленностью.",
-    "answerEnglish": "In my view, the main threat is industrial pollution of rivers and lakes, especially in regions with extractive industries.",
+    "prompt": "Roleplay: A traveller asks which Russian mountain range you would most like to visit.",
+    "correctAnswer": "Я бы хотел побывать в Саянах — там нетронутая тайга, чистые реки и редкие животные, например снежный барс.",
+    "answerEnglish": "I would love to visit the Sayan Mountains — there is untouched taiga, clear rivers and rare animals such as the snow leopard.",
     "hints": [
-      "'Добывающая промышленность' = extractive industry. 'На мой взгляд' = in my view."
+      "'Я бы хотел' = I would like. 'Побывать в' + prepositional: 'в Саянах'. 'Например' = for example."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-na-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: tree",
+    "correctAnswer": "дерево",
+    "hints": [
+      "Neuter noun. Irregular plural: деревья. 'На дереве' = on/in the tree."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: flower / grass",
+    "correctAnswer": "цветок / трава",
+    "hints": [
+      "'Цветок' = flower (masculine), plural цветы. 'Трава' = grass (feminine)."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-a1-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The sun is shining.",
+    "correctAnswer": "Светит солнце.",
+    "hints": [
+      "Verb-first word order sounds natural here. 'Солнце' is neuter."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-a1-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I see a bird in the sky.",
+    "correctAnswer": "Я вижу птицу в небе.",
+    "hints": [
+      "'Вижу' takes the accusative: 'птицу'. 'В небе' = in the sky (prepositional)."
+    ]
+  },
+  {
+    "id": "ru-na-a1-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Which word means 'fish'?",
+    "correctAnswer": "рыба",
+    "hints": [
+      "Feminine noun. The other options are a bird, a cow and a horse."
+    ],
+    "exerciseType": "multiple_choice",
+    "options": [
+      "птица",
+      "рыба",
+      "корова",
+      "лошадь"
+    ]
+  },
+  {
+    "id": "ru-na-a1-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: There are many trees in the park.",
+    "correctAnswer": "В парке много деревьев.",
+    "hints": [
+      "'Много' + genitive plural: 'деревьев' (irregular). 'В парке' = in the park."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-a1-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I like cats and dogs.",
+    "correctAnswer": "Я люблю кошек и собак.",
+    "hints": [
+      "Animate accusative plural equals the genitive plural: 'кошек', 'собак'."
+    ]
+  },
+  {
+    "id": "ru-na-a1-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "a cow",
+    "correctAnswer": "корова",
+    "hints": [
+      "A common farm animal that gives milk. Feminine noun."
+    ],
+    "exerciseType": "matching"
+  },
+  {
+    "id": "ru-na-a1-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say aloud: Весной в саду цветут красивые цветы.",
+    "correctAnswer": "Весной в саду цветут красивые цветы.",
+    "hints": [
+      "Stress: веснОй, садУ, цветУт, цветЫ. 'Цвести' = to bloom. 'В саду' is the irregular prepositional form."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-na-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: deer / hare / squirrel",
+    "correctAnswer": "олень / заяц / белка",
+    "hints": [
+      "'Олень' (deer, masc), 'заяц' (hare, masc — fleeting vowel: зайца), 'белка' (squirrel, fem)."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: It often rains in autumn.",
+    "correctAnswer": "Осенью часто идёт дождь.",
+    "hints": [
+      "'Идёт дождь' = it rains (literally 'rain goes'). 'Осенью' = in autumn (instrumental of time)."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We saw a deer in the forest.",
+    "correctAnswer": "Мы видели оленя в лесу.",
+    "hints": [
+      "Past tense 'видели'. Animate accusative: 'оленя'. 'В лесу' = in the forest."
+    ]
+  },
+  {
+    "id": "ru-na-a2-13",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Зимой реки и озёра покрываются ___.",
+    "correctAnswer": "льдом",
+    "hints": [
+      "'Покрываться' + instrumental = to be covered with. 'Лёд' → instrumental 'льдом'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "льдом",
+      "снегом",
+      "водой",
+      "травой"
+    ]
+  },
+  {
+    "id": "ru-na-a2-14",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Vocabulary: sea / island / shore",
+    "correctAnswer": "море / остров / берег",
+    "hints": [
+      "'Море' (sea, neuter), 'остров' (island, masc), 'берег' (shore/bank; 'на берегу' = on the shore)."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-a2-15",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Which word means 'butterfly'?",
+    "correctAnswer": "бабочка",
+    "hints": [
+      "Feminine noun. The other options are a bee, an ant and a mosquito."
+    ],
+    "exerciseType": "multiple_choice",
+    "options": [
+      "пчела",
+      "бабочка",
+      "муравей",
+      "комар"
+    ]
+  },
+  {
+    "id": "ru-na-a2-16",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The weather is getting colder.",
+    "correctAnswer": "Погода становится холоднее.",
+    "hints": [
+      "'Становиться' + comparative = to get/become. 'Холоднее' = colder."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-a2-17",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Bees collect nectar from flowers.",
+    "correctAnswer": "Пчёлы собирают нектар с цветов.",
+    "hints": [
+      "'Собирать с' + genitive = to gather from. 'С цветов' = from flowers."
+    ]
+  },
+  {
+    "id": "ru-na-a2-18",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Roleplay: A friend asks what your favourite animal is.",
+    "correctAnswer": "Мой любимый зверь — лиса, потому что она умная и красивая.",
+    "answerEnglish": "My favourite animal is the fox, because it is clever and beautiful.",
+    "hints": [
+      "'Любимый' = favourite. 'Потому что' = because. The adjectives agree with 'лиса' (feminine)."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "ru-na-a2-19",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say aloud: Летом в лесу можно собирать грибы и ягоды.",
+    "correctAnswer": "Летом в лесу можно собирать грибы и ягоды.",
+    "hints": [
+      "Stress: лЕтом, лесУ, грибЫ, Ягоды. 'Собирать' = to gather/pick."
+    ],
+    "exerciseType": "pronunciation",
+    "culturalNote": "Сбор грибов и ягод — одно из самых любимых летних занятий в России, особенно в сельской местности."
+  },
+  {
+    "id": "ru-na-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The elk is the largest animal in the northern forests.",
+    "correctAnswer": "Лось — самое крупное животное северных лесов.",
+    "hints": [
+      "'Лось' = elk/moose. 'Самое крупное животное' (neuter superlative, agreeing with 'животное'). 'Северных лесов' = genitive plural."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Белый медведь живёт в ___ и охотится на тюленей.",
+    "correctAnswer": "Арктике",
+    "hints": [
+      "'Жить в' + prepositional. The polar bear's home is the Arctic. 'Охотиться на' + accusative."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "Арктике",
+      "тайге",
+      "пустыне",
+      "степи"
+    ]
+  },
+  {
+    "id": "ru-na-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: branch / leaf / root",
+    "correctAnswer": "ветка / лист / корень",
+    "hints": [
+      "'Ветка' (branch, fem), 'лист' (leaf, masc — irregular plural листья), 'корень' (root, masc)."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-b1-13",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: In the Urals the winters are long and very snowy.",
+    "correctAnswer": "На Урале зимы длинные и очень снежные.",
+    "hints": [
+      "'На Урале' = in the Urals. 'Снежные' = snowy (plural adjective agreeing with 'зимы')."
+    ]
+  },
+  {
+    "id": "ru-na-b1-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Roleplay: A guide asks whether you have ever seen a wild animal up close.",
+    "correctAnswer": "Однажды в Карелии я видел лося совсем близко — это было незабываемо.",
+    "answerEnglish": "Once in Karelia I saw an elk up close — it was unforgettable.",
+    "hints": [
+      "'Однажды' = once. 'Совсем близко' = very close. 'Лось' = elk/moose; accusative 'лося'."
     ],
     "exerciseType": "roleplay",
-    "culturalNote": "Загрязнение Байкала промышленными стоками остаётся одной из наиболее острых экологических проблем России."
+    "culturalNote": "Карелия на северо-западе России известна густыми лесами, тысячами озёр и богатой дикой природой."
+  },
+  {
+    "id": "ru-na-b1-15",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Spring comes late in the north of the country.",
+    "correctAnswer": "На севере страны весна приходит поздно.",
+    "hints": [
+      "'На севере' = in the north. 'Приходить' = to come/arrive (used of seasons)."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-b1-16",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "На Камчатке обитает одна из самых больших популяций бурых медведей в мире.",
+    "hints": [
+      "Listen for 'на Камчатке' (in Kamchatka) and 'одна из самых больших' (one of the largest)."
+    ],
+    "exerciseType": "dictation_sentence",
+    "culturalNote": "Камчатка — полуостров на Дальнем Востоке России с вулканами, гейзерами и крупнейшей популяцией бурых медведей."
+  },
+  {
+    "id": "ru-na-b1-17",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "a herd",
+    "correctAnswer": "стадо",
+    "hints": [
+      "'Стадо' = a herd (of cattle, deer). Compare 'стая' (flock/pack) and 'косяк' (school of fish)."
+    ],
+    "exerciseType": "matching"
+  },
+  {
+    "id": "ru-na-b1-18",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say aloud: Перелётные птицы возвращаются на север каждую весну.",
+    "correctAnswer": "Перелётные птицы возвращаются на север каждую весну.",
+    "hints": [
+      "Stress: перелЁтные, птИцы, возвращАются, кАждую. 'Возвращаться' = to return."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-na-b1-19",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Many kinds of fish live in Siberian rivers and lakes.",
+    "correctAnswer": "В сибирских реках и озёрах водится много разных рыб.",
+    "hints": [
+      "'Водиться' = to live/be found (of animals). 'Много разных рыб' = many different fish (genitive plural)."
+    ]
+  },
+  {
+    "id": "ru-na-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: larch / fir / spruce",
+    "correctAnswer": "лиственница / пихта / ель",
+    "hints": [
+      "'Лиственница' (larch — coniferous, but sheds its needles), 'пихта' (fir), 'ель' (spruce, fem)."
+    ],
+    "exerciseType": "flashcard",
+    "culturalNote": "Лиственница — самое распространённое дерево в сибирской тайге, крупнейшем лесном массиве на Земле."
+  },
+  {
+    "id": "ru-na-b2-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Байкальская нерпа — единственный в мире ___, живущий только в пресной воде.",
+    "correctAnswer": "тюлень",
+    "hints": [
+      "'Нерпа' = the Baikal seal. 'Тюлень' = seal. The only seal that lives exclusively in fresh water."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "тюлень",
+      "кит",
+      "дельфин",
+      "морж"
+    ],
+    "culturalNote": "Байкальская нерпа — эндемик озера Байкал и единственный вид тюленя, обитающий исключительно в пресной воде."
+  },
+  {
+    "id": "ru-na-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: paw / claw / fur",
+    "correctAnswer": "лапа / коготь / мех",
+    "hints": [
+      "'Лапа' (paw, fem), 'коготь' (claw, masc — plural когти), 'мех' (fur/pelt, masc)."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Herds of wild reindeer migrate across the tundra in search of food.",
+    "correctAnswer": "Стада диких северных оленей кочуют по тундре в поисках корма.",
+    "hints": [
+      "'Северный олень' = reindeer. 'Кочевать' = to roam/migrate. 'В поисках' + genitive = in search of."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The waters of the Pacific Ocean wash the eastern shores of Russia.",
+    "correctAnswer": "Воды Тихого океана омывают восточные берега России.",
+    "hints": [
+      "'Омывать' = to wash (used of seas and oceans). 'Тихий океан' = the Pacific Ocean."
+    ]
+  },
+  {
+    "id": "ru-na-b2-14",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Зимой в горах часто бывает сильная ___, и дороги заносит снегом.",
+    "correctAnswer": "метель",
+    "hints": [
+      "'Метель' = snowstorm/blizzard. 'Заносить снегом' = to block/cover with snow."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "метель",
+      "жара",
+      "засуха",
+      "оттепель"
+    ]
+  },
+  {
+    "id": "ru-na-b2-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Bees play an important role by pollinating wild plants and trees.",
+    "correctAnswer": "Пчёлы играют важную роль, опыляя дикие растения и деревья.",
+    "hints": [
+      "'Опылять' = to pollinate. 'Играть роль' = to play a role. 'Опыляя' is an imperfective gerund."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-na-b2-16",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "a mountain range",
+    "correctAnswer": "горный хребет",
+    "hints": [
+      "'Хребет' = ridge/range. E.g. the Срединный хребет runs the length of Kamchatka."
+    ],
+    "exerciseType": "matching"
+  },
+  {
+    "id": "ru-na-b2-17",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Listen and type the sentence you hear.",
+    "correctAnswer": "Снежный барс — один из самых скрытных хищников планеты, и увидеть его в дикой природе удаётся крайне редко.",
+    "hints": [
+      "Listen for 'снежный барс' (snow leopard) and 'крайне редко' (extremely rarely)."
+    ],
+    "exerciseType": "dictation_sentence",
+    "culturalNote": "За скрытный образ жизни снежного барса называют 'призраком гор'; в России он встречается в горах Алтая, Саян и Тувы."
+  },
+  {
+    "id": "ru-na-b2-18",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: cliff / cave / waterfall",
+    "correctAnswer": "скала / пещера / водопад",
+    "hints": [
+      "'Скала' (cliff/rock, fem), 'пещера' (cave, fem), 'водопад' (waterfall, masc)."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-na-b2-19",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The deep waters of Lake Baikal stay cold even at the height of summer.",
+    "correctAnswer": "Глубокие воды Байкала остаются холодными даже в разгар лета.",
+    "hints": [
+      "'Оставаться' + instrumental = to remain. 'В разгар лета' = at the height of summer."
+    ],
+    "exerciseType": "build_sentence"
   }
 ]
