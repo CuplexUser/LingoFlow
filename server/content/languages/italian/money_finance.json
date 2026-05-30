@@ -3,141 +3,501 @@
     "id": "it-mf-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need to go to the bank.",
-    "correctAnswer": "Devo andare in banca.",
+    "prompt": "Ask: How much does this cost?",
+    "correctAnswer": "Quanto costa?",
     "hints": [
-      "Use 'need to + infinitive' for necessity."
+      "Practise this phrase out loud."
     ]
   },
   {
     "id": "it-mf-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "banca / negozio / ospedale / biblioteca",
-    "correctAnswer": "banca",
+    "prompt": "Say: I do not have enough money.",
+    "correctAnswer": "Non ho abbastanza soldi.",
     "hints": [
-      "Where do you manage money?"
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "banca",
-      "negozio",
-      "ospedale",
-      "biblioteca"
+      "Practise this phrase out loud."
     ]
   },
   {
     "id": "it-mf-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Can I pay by card?",
-    "correctAnswer": "Posso pagare con la carta?",
+    "prompt": "Ask: Can I pay by card?",
+    "correctAnswer": "Posso pagare con carta?",
     "hints": [
-      "Use 'Can I + verb' to ask for permission."
+      "Practise this phrase out loud."
     ]
+  },
+  {
+    "id": "it-mf-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The price is too high.",
+    "correctAnswer": "Il prezzo è troppo alto.",
+    "hints": [
+      "Use 'too + adjective' for something excessive."
+    ]
+  },
+  {
+    "id": "it-mf-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you accept cash?",
+    "correctAnswer": "Accettate contanti?",
+    "hints": [
+      "A useful question when paying for something."
+    ]
+  },
+  {
+    "id": "it-mf-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a card used to take money directly from your bank account",
+    "correctAnswer": "carta di debito",
+    "hints": [
+      "Different from a credit card."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-mf-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need to go to the ATM.",
+    "correctAnswer": "Devo andare al bancomat.",
+    "hints": [
+      "An ATM is an automatic cash machine."
+    ]
+  },
+  {
+    "id": "it-mf-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My salary is paid every month.",
+    "correctAnswer": "Il mio stipendio viene pagato ogni mese.",
+    "hints": [
+      "State how often you are paid."
+    ]
+  },
+  {
+    "id": "it-mf-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can I have a receipt, please?",
+    "correctAnswer": "Posso avere una ricevuta, per favore?",
+    "hints": [
+      "A receipt is proof that you paid."
+    ]
+  },
+  {
+    "id": "it-mf-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I save a little money each month.",
+    "correctAnswer": "Risparmo un po' di soldi ogni mese.",
+    "hints": [
+      "'A little' is used with uncountable nouns."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need to save money this month.",
+    "correctAnswer": "Devo risparmiare soldi questo mese.",
+    "hints": [
+      "Basic finance phrase."
+    ],
+    "id": "it-mo-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The coffee costs three dollars.",
+    "correctAnswer": "Il caffè costa tre dollari.",
+    "hints": [
+      "Price sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-mo-a1-40"
   },
   {
     "id": "it-mf-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am saving money to buy a new laptop.",
-    "correctAnswer": "Sto risparmiando denaro per comprare un nuovo laptop.",
+    "prompt": "Say: I have a savings account at the bank.",
+    "correctAnswer": "Ho un conto di risparmio in banca.",
     "hints": [
-      "Use present continuous + infinitive of purpose."
+      "A savings account earns interest on deposits."
     ]
   },
   {
     "id": "it-mf-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cosa significa 'bancomat'?",
-    "correctAnswer": "sportello automatico per prelevare contanti",
+    "prompt": "Ask: Is there a charge for using this service?",
+    "correctAnswer": "C'è un costo per l'utilizzo di questo servizio?",
     "hints": [
-      "It dispenses cash."
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "sportello automatico per prelevare contanti",
-      "metodo di transazione avanzato",
-      "modalità di trasferimento automatico",
-      "terminale autorizzato"
+      "'A charge' means a fee or cost."
     ]
   },
   {
     "id": "it-mf-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I spend too much money on coffee every week.",
-    "correctAnswer": "Spendo troppi soldi in caffè ogni settimana.",
+    "prompt": "Say: I spend too much money on eating out.",
+    "correctAnswer": "Ho speso troppi soldi per mangiare.",
     "hints": [
-      "Use 'spend money on' for expenses."
+      "'Spend money on' + noun/gerund."
     ]
+  },
+  {
+    "id": "it-mf-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What is the current exchange rate for euros?",
+    "correctAnswer": "Qual è il tasso di cambio attuale per euro?",
+    "hints": [
+      "The exchange rate is how much one currency is worth in another."
+    ]
+  },
+  {
+    "id": "it-mf-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I transferred the money online this morning.",
+    "correctAnswer": "Ho trasferito i soldi online stamattina.",
+    "hints": [
+      "'Transferred' = moved money from one account to another."
+    ]
+  },
+  {
+    "id": "it-mf-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: My rent comes out of my account on the first of the month.",
+    "correctAnswer": "Il mio affitto esce dal mio conto il primo del mese.",
+    "hints": [
+      "'Comes out of' means is deducted from."
+    ]
+  },
+  {
+    "id": "it-mf-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Can I set up a direct debit for this payment?",
+    "correctAnswer": "Posso impostare un addebito diretto per questo pagamento?",
+    "hints": [
+      "A direct debit is an automatic recurring bank payment."
+    ]
+  },
+  {
+    "id": "it-mf-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am trying to cut back on unnecessary spending.",
+    "correctAnswer": "Sto cercando di ridurre i costi inutili.",
+    "hints": [
+      "'Cut back on' means reduce."
+    ]
+  },
+  {
+    "id": "it-mf-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I took out a loan to buy my first car.",
+    "correctAnswer": "Ho preso un prestito per comprare la mia prima auto.",
+    "hints": [
+      "'Take out a loan' means borrow money from a bank."
+    ]
+  },
+  {
+    "id": "it-mf-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Do I need to pay any tax on this income?",
+    "correctAnswer": "Devo pagare una tassa su questo reddito?",
+    "hints": [
+      "Income tax is paid on money you earn."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I set a budget for groceries every week.",
+    "correctAnswer": "Ho fissato un budget per la spesa ogni settimana.",
+    "hints": [
+      "Budget vocabulary."
+    ],
+    "id": "it-mo-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: My rent increased last year.",
+    "correctAnswer": "Il mio affitto è aumentato l'anno scorso.",
+    "hints": [
+      "Past simple for changes."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-mo-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How much should I save each month?",
+    "correctAnswer": "Quanto devo risparmiare ogni mese?",
+    "hints": [
+      "Planning question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-mo-a2-51"
   },
   {
     "id": "it-mf-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I have set up a monthly budget to track my expenses.",
-    "correctAnswer": "Ho impostato un budget mensile per tenere traccia delle mie spese.",
+    "prompt": "Say: I have been trying to build up an emergency fund covering three months of expenses.",
+    "correctAnswer": "Sto cercando di costruire un fondo di emergenza per tre mesi di spese.",
     "hints": [
-      "Use present perfect for a recent action with present relevance."
+      "'Build up' = accumulate gradually; an emergency fund is money set aside for unexpected costs."
     ]
   },
   {
     "id": "it-mf-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "What is an 'interest rate'?",
-    "correctAnswer": "la percentuale addebitata su un prestito o guadagnata sui risparmi",
+    "prompt": "Ask: Would it be worth overpaying on my mortgage to reduce the term?",
+    "correctAnswer": "Vale la pena pagare troppo sul mio mutuo per ridurre il termine?",
     "hints": [
-      "It affects how much you pay or earn over time."
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "una tassa per aprire un conto",
-      "la percentuale addebitata su un prestito o guadagnata sui risparmi",
-      "il tasso di cambio giornaliero",
-      "un'imposta governativa sul reddito"
+      "'Overpaying' = paying more than the minimum; 'term' = the length of the mortgage."
     ]
   },
   {
     "id": "it-mf-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: If I had saved more last year, I could afford this holiday.",
-    "correctAnswer": "Se avessi risparmiato di più l'anno scorso, potrei permettermi questa vacanza.",
+    "prompt": "Say: I am trying to diversify my income streams rather than relying solely on my salary.",
+    "correctAnswer": "Sto cercando di diversificare i miei flussi di reddito piuttosto che contare solo sul mio stipendio.",
     "hints": [
-      "Use third conditional for past regret."
+      "'Diversify' = spread; 'income streams' = different sources of money."
     ]
+  },
+  {
+    "id": "it-mf-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Compound interest means that your savings grow faster the longer you keep them invested.",
+    "correctAnswer": "Compound interesse significa che i vostri risparmi crescono più velocemente più a lungo li tieni investiti.",
+    "hints": [
+      "'Compound interest' = interest earned on both the original amount and previous interest."
+    ]
+  },
+  {
+    "id": "it-mf-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What is the penalty for early repayment of this loan?",
+    "correctAnswer": "Qual è la penalità per il rimborso anticipato di questo prestito?",
+    "hints": [
+      "'Early repayment' = paying off a loan before the agreed end date."
+    ]
+  },
+  {
+    "id": "it-mf-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I keep a monthly budget to track where my money is going.",
+    "correctAnswer": "Tengo un budget mensile per rintracciare dove stanno andando i miei soldi.",
+    "hints": [
+      "'Keep a budget' = maintain a record; 'track' = monitor."
+    ]
+  },
+  {
+    "id": "it-mf-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My pension contributions are deducted from my salary before tax.",
+    "correctAnswer": "I miei contributi pensionistici sono dedotti dal mio stipendio prima dell'imposta.",
+    "hints": [
+      "'Deducted' = removed; 'before tax' = pre-tax; passive voice here."
+    ]
+  },
+  {
+    "id": "it-mf-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A friend asks how you handled your debt after university.",
+    "correctAnswer": "Ho prioritizzato il pagamento del debito più alto interesse prima mantenendo un piccolo fondo di emergenza.",
+    "hints": [
+      "Give a practical, specific strategy."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-mf-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I reviewed my subscriptions and cancelled the ones I was not using.",
+    "correctAnswer": "Ho esaminato i miei abbonamenti e ho cancellato quelli che non stavo usando.",
+    "hints": [
+      "'Reviewed' = went through carefully; 'subscriptions' = regular paid services."
+    ]
+  },
+  {
+    "id": "it-mf-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What is the difference between a stocks and shares ISA and a cash ISA?",
+    "correctAnswer": "Qual è la differenza tra le azioni e le azioni ISA e un ISA in contanti?",
+    "hints": [
+      "ISA = Individual Savings Account; a key UK financial product."
+    ],
+    "culturalNote": "ISAs (Individual Savings Accounts) are tax-efficient savings wrappers available to UK residents, allowing them to save or invest a fixed amount per year without paying tax on gains or interest."
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I track my spending to avoid unnecessary expenses.",
+    "correctAnswer": "Ho tracciato la mia spesa per evitare spese inutili.",
+    "hints": [
+      "Purpose clause at B1."
+    ],
+    "id": "it-mo-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Interest rates affect how much people borrow.",
+    "correctAnswer": "I tassi di interesse influiscono su quanto le persone prendono in prestito.",
+    "hints": [
+      "Common finance concept."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-mo-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What is the safest way to build an emergency fund?",
+    "correctAnswer": "Qual è il modo più sicuro per costruire un fondo di emergenza?",
+    "hints": [
+      "Practical finance question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-mo-b1-61"
   },
   {
     "id": "it-mf-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Inflation erodes purchasing power if wages fail to keep pace.",
-    "correctAnswer": "L'inflazione erode il potere d'acquisto se i salari non tengono il passo.",
+    "prompt": "Say: The correlation between financial literacy and long-term wealth accumulation is well documented.",
+    "correctAnswer": "La correlazione tra alfabetizzazione finanziaria e accumulo di ricchezza a lungo termine è ben documentata.",
     "hints": [
-      "Use zero conditional for general economic truths."
+      "'Correlation' = a relationship between two things; 'wealth accumulation' = building up assets."
     ]
   },
   {
     "id": "it-mf-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The central bank is expected to raise interest rates next quarter.",
-    "correctAnswer": "Si prevede che la banca centrale aumenti i tassi di interesse nel prossimo trimestre.",
+    "prompt": "Ask: To what extent do you think behavioural economics explains irrational financial decision-making?",
+    "correctAnswer": "In che misura pensi che l'economia comportamentale spieghi il processo decisionale finanziario irrazionale?",
     "hints": [
-      "Use passive 'is expected to' for reported predictions."
+      "'Behavioural economics' studies how psychology affects economic choices."
     ]
   },
   {
     "id": "it-mf-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Diversifying your portfolio mitigates exposure to market volatility.",
-    "correctAnswer": "Diversificare il proprio portafoglio riduce l'esposizione alla volatilità del mercato.",
+    "prompt": "Say: Quantitative easing involves central banks increasing the money supply to stimulate economic activity.",
+    "correctAnswer": "L'allentamento quantitativo comporta che le banche centrali aumentino l'offerta di denaro per stimolare l'attività economica.",
     "hints": [
-      "Gerund subject; formal register."
+      "'Quantitative easing' = QE; a monetary policy tool used in financial crises."
     ]
+  },
+  {
+    "id": "it-mf-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The regulatory framework governing fintech innovation is struggling to keep pace with technological change.",
+    "correctAnswer": "Il quadro normativo che disciplina l'innovazione fintech sta lottando per tenere il passo con il cambiamento tecnologico.",
+    "hints": [
+      "'Fintech' = financial technology; 'regulatory framework' = the rules and laws that govern an area."
+    ]
+  },
+  {
+    "id": "it-mf-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Sovereign debt crises can destabilise entire regional economies if creditors lose confidence.",
+    "correctAnswer": "Le crisi del debito sovrano possono destabilizzare l'intera economia regionale se i creditori perdono fiducia.",
+    "hints": [
+      "'Sovereign debt' = money owed by a government; 'creditors' = those who lend money."
+    ]
+  },
+  {
+    "id": "it-mf-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: What distinguishes value investing from growth investing as portfolio strategies?",
+    "correctAnswer": "Cosa distingue il valore che investe dalla crescita investendo come strategie di portafoglio?",
+    "hints": [
+      "'Value investing' = buying undervalued assets; 'growth investing' = buying high-growth-potential companies."
+    ]
+  },
+  {
+    "id": "it-mf-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Inflationary pressures have eroded real purchasing power, disproportionately affecting lower-income households.",
+    "correctAnswer": "Le pressioni inflazionistiche hanno eroso il potere d'acquisto reale, in modo sproporzionato che colpisce le famiglie a basso reddito.",
+    "hints": [
+      "'Real purchasing power' = what money can actually buy; 'disproportionately' = more than one would expect."
+    ]
+  },
+  {
+    "id": "it-mf-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: ESG criteria are increasingly influencing institutional investment decisions across asset classes.",
+    "correctAnswer": "I criteri ESG influenzano sempre più le decisioni di investimento istituzionali in tutte le classi di asset.",
+    "hints": [
+      "ESG = Environmental, Social, Governance — factors for ethical investing."
+    ],
+    "culturalNote": "ESG investing has grown dramatically as large pension funds and sovereign wealth funds incorporate sustainability into their mandates."
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Long-term financial stability depends on disciplined saving and diversified investments.",
+    "correctAnswer": "La stabilità finanziaria a lungo termine dipende dal risparmio disciplinato e dagli investimenti diversificati.",
+    "hints": [
+      "Formal financial wording."
+    ],
+    "id": "it-mo-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Inflation erodes purchasing power when wages do not keep pace.",
+    "correctAnswer": "L'inflazione erode potere d'acquisto quando i salari non tengono il passo.",
+    "hints": [
+      "Cause-effect sentence."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-mo-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Which policies are most effective in reducing household debt risk?",
+    "correctAnswer": "Quali politiche sono più efficaci nel ridurre il rischio di debito familiare?",
+    "hints": [
+      "Policy-level question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "it-mo-b2-71"
   }
 ]

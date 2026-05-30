@@ -3,126 +3,511 @@
     "id": "it-st-a1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My phone battery is almost empty.",
-    "correctAnswer": "La batteria del mio telefono e quasi scarica.",
+    "prompt": "Vocabulary: a machine that processes data",
+    "correctAnswer": "computer",
     "hints": [
-      "Talk about your device."
-    ]
+      "You are probably using one right now."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "it-st-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: The Wi-Fi is not working.",
-    "correctAnswer": "Il wifi non funziona.",
+    "prompt": "Say: I use my phone every day.",
+    "correctAnswer": "Uso il mio telefono ogni giorno.",
     "hints": [
-      "A common connection problem."
+      "A very common modern habit."
     ]
   },
   {
     "id": "it-st-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My laptop is slow today.",
-    "correctAnswer": "Il mio portatile e lento oggi.",
+    "prompt": "Ask: Is there Wi-Fi here?",
+    "correctAnswer": "C'è la connessione Wi-Fi qui?",
     "hints": [
-      "A simple device complaint."
+      "A very useful modern question."
     ]
+  },
+  {
+    "id": "it-st-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My phone battery is dead.",
+    "correctAnswer": "La mia batteria e' morta.",
+    "hints": [
+      "'Dead' means empty or without power."
+    ]
+  },
+  {
+    "id": "it-st-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can I charge my phone here?",
+    "correctAnswer": "Posso caricare il mio telefono qui?",
+    "hints": [
+      "A practical everyday request."
+    ]
+  },
+  {
+    "id": "it-st-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a small computer you can carry",
+    "correctAnswer": "laptop",
+    "hints": [
+      "It folds open and has a keyboard."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-st-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I send emails for work.",
+    "correctAnswer": "Invio e-mail per lavoro.",
+    "hints": [
+      "A basic digital communication sentence."
+    ]
+  },
+  {
+    "id": "it-st-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What is the password for the Wi-Fi?",
+    "correctAnswer": "Qual è la password per il Wi-Fi?",
+    "hints": [
+      "A very common modern question."
+    ]
+  },
+  {
+    "id": "it-st-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I watch videos online.",
+    "correctAnswer": "Guardo i video online.",
+    "hints": [
+      "A simple statement about digital habits."
+    ]
+  },
+  {
+    "id": "it-st-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My internet connection is very slow.",
+    "correctAnswer": "La mia connessione internet è molto lenta.",
+    "hints": [
+      "A common frustration with technology."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I use my phone to learn new words.",
+    "correctAnswer": "Io uso il mio telefono per imparare nuove parole.",
+    "hints": [
+      "Simple technology usage sentence."
+    ],
+    "id": "it-sc-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The computer is very fast.",
+    "correctAnswer": "Il computer è molto veloce.",
+    "hints": [
+      "Basic descriptive statement."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-sc-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How do you charge this device?",
+    "correctAnswer": "Come si carica questo dispositivo?",
+    "hints": [
+      "Everyday tech question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "it-sc-a1-41"
   },
   {
     "id": "it-st-a2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I need to update the app.",
-    "correctAnswer": "Devo aggiornare l app.",
+    "prompt": "Say: I updated the software on my laptop last night.",
+    "correctAnswer": "Ho aggiornato il software sul mio portatile ieri sera.",
     "hints": [
-      "Think about software updates."
+      "Simple past for a completed action."
     ]
   },
   {
     "id": "it-st-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Can you send me the link?",
-    "correctAnswer": "Puoi mandarmi il link?",
+    "prompt": "Ask: How do I reset my password?",
+    "correctAnswer": "Come resetto la mia password?",
     "hints": [
-      "Ask for a URL."
+      "A common digital question."
     ]
   },
   {
     "id": "it-st-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I forgot my password.",
-    "correctAnswer": "Ho dimenticato la password.",
+    "prompt": "Say: I backed up my files to the cloud.",
+    "correctAnswer": "Ho eseguito il backup dei miei file sul cloud.",
     "hints": [
-      "A very useful sentence."
+      "'Backed up' = saved a copy; 'the cloud' = online storage."
     ]
+  },
+  {
+    "id": "it-st-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I use a video call app to stay in touch with my family abroad.",
+    "correctAnswer": "Uso un'app di videochiamata per rimanere in contatto con la mia famiglia all'estero.",
+    "hints": [
+      "'Stay in touch' = maintain contact."
+    ]
+  },
+  {
+    "id": "it-st-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Does this phone have a good camera?",
+    "correctAnswer": "Questo telefono ha una buona fotocamera?",
+    "hints": [
+      "Yes/no question with 'does it have'."
+    ]
+  },
+  {
+    "id": "it-st-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I deleted the app because it was using too much storage.",
+    "correctAnswer": "Ho cancellato l'applicazione perché stava utilizzando troppo storage.",
+    "hints": [
+      "'Deleted' = removed; 'storage' = space for files."
+    ]
+  },
+  {
+    "id": "it-st-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Scientists have discovered a new species of insect in the rainforest.",
+    "correctAnswer": "Gli scienziati hanno scoperto una nuova specie di insetti nella foresta pluviale.",
+    "hints": [
+      "Present perfect for recent scientific news."
+    ]
+  },
+  {
+    "id": "it-st-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How do I enable two-factor authentication?",
+    "correctAnswer": "Come abilitare l'autenticazione a due fattori?",
+    "hints": [
+      "Two-factor authentication adds an extra security step."
+    ]
+  },
+  {
+    "id": "it-st-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I set up an automatic reminder on my phone.",
+    "correctAnswer": "Ho impostato un promemoria automatico sul mio telefono.",
+    "hints": [
+      "'Set up' = configured; 'automatic reminder' = a scheduled alert."
+    ]
+  },
+  {
+    "id": "it-st-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer reading physical books to e-books.",
+    "correctAnswer": "Preferisco leggere libri fisici agli e-book.",
+    "hints": [
+      "'Prefer X to Y' for comparing two things."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I updated the app this morning.",
+    "correctAnswer": "Ho aggiornato l'app stamattina.",
+    "hints": [
+      "Past simple with tech context."
+    ],
+    "id": "it-sc-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This website is easier to use than the old one.",
+    "correctAnswer": "Questo sito è più facile da usare rispetto al vecchio.",
+    "hints": [
+      "Comparative structure."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-sc-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Which tool do you use for online meetings?",
+    "correctAnswer": "Quale strumento si utilizza per incontri online?",
+    "hints": [
+      "Functional question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-sc-a2-51"
   },
   {
     "id": "it-st-b1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "an update",
-    "correctAnswer": "un aggiornamento",
+    "prompt": "Say: Artificial intelligence is transforming the way we work and communicate.",
+    "correctAnswer": "L'intelligenza artificiale sta trasformando il modo in cui lavoriamo e comunichiamo.",
     "hints": [
-      "Match the tech term."
-    ],
-    "exerciseType": "matching"
+      "Present continuous for ongoing change."
+    ]
   },
   {
     "id": "it-st-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Please restart the computer.",
-    "correctAnswer": "Per favore, riavvia il computer.",
+    "prompt": "Say: I am concerned about the amount of personal data that tech companies collect.",
+    "correctAnswer": "Sono preoccupato per la quantità di dati personali che le aziende tecnologiche raccolgono.",
     "hints": [
-      "A practical instruction."
-    ],
-    "exerciseType": "build_sentence"
+      "'I am concerned about' expresses worry."
+    ]
   },
   {
     "id": "it-st-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. My screen is frozen.",
-    "correctAnswer": "Chiudi l app e riaprila.",
+    "prompt": "Ask: Do you think children should have limited access to social media?",
+    "correctAnswer": "Pensi che i bambini dovrebbero avere accesso limitato ai social media?",
     "hints": [
-      "Offer a quick fix."
+      "'Limited access' = restricted use; invite a discussion."
+    ]
+  },
+  {
+    "id": "it-st-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Automation has displaced many manufacturing jobs, while creating new roles in tech.",
+    "correctAnswer": "L'automazione ha spostato molti lavori di produzione, creando nuovi ruoli in tecnologia.",
+    "hints": [
+      "'Displaced' = replaced or made redundant; contrast with 'while creating'."
+    ]
+  },
+  {
+    "id": "it-st-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The algorithm recommends content based on your previous viewing behaviour.",
+    "correctAnswer": "L'algoritmo raccomanda contenuti in base al comportamento di visualizzazione precedente.",
+    "hints": [
+      "'Algorithm' = a set of rules a computer follows; 'viewing behaviour' = what you watch and when."
+    ]
+  },
+  {
+    "id": "it-st-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Renewable energy technologies have improved dramatically in efficiency and cost over the last decade.",
+    "correctAnswer": "Le tecnologie energetiche rinnovabili sono migliorate notevolmente nell'efficienza e nei costi nell'ultimo decennio.",
+    "hints": [
+      "Present perfect for change over a time period up to now."
+    ]
+  },
+  {
+    "id": "it-st-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How might quantum computing change the landscape of data security?",
+    "correctAnswer": "Come potrebbe il calcolo quantistico cambiare il paesaggio della sicurezza dei dati?",
+    "hints": [
+      "'Landscape' here means the overall situation; 'quantum computing' uses quantum mechanics for computation."
+    ]
+  },
+  {
+    "id": "it-st-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I try to limit my screen time to protect my sleep quality.",
+    "correctAnswer": "Cerco di limitare il mio tempo di schermo per proteggere la mia qualità del sonno.",
+    "hints": [
+      "'Screen time' = time spent looking at devices; 'limit' = set a maximum."
+    ]
+  },
+  {
+    "id": "it-st-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Open-source software has democratised access to powerful digital tools.",
+    "correctAnswer": "Il software open source ha democratizzato l'accesso a potenti strumenti digitali.",
+    "hints": [
+      "'Open-source' = freely available code; 'democratised' = made available to everyone."
+    ]
+  },
+  {
+    "id": "it-st-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Someone asks your opinion on self-driving cars.",
+    "correctAnswer": "Credo che abbiano un potenziale reale, ma le norme di sicurezza devono prima affrontare la tecnologia.",
+    "hints": [
+      "Balance optimism with a practical concern."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: New technology can improve access to education.",
+    "correctAnswer": "La nuova tecnologia può migliorare l'accesso all'istruzione.",
+    "hints": [
+      "General-impact sentence."
+    ],
+    "id": "it-sc-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I backed up my files in case my laptop failed.",
+    "correctAnswer": "Ho eseguito il backup dei miei file nel caso il mio computer non fosse riuscito.",
+    "hints": [
+      "Risk-prevention phrasing."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-sc-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What are the benefits of using open-source software?",
+    "correctAnswer": "Quali sono i vantaggi di utilizzare software open source?",
+    "hints": [
+      "Topic question for discussion."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-sc-b1-61"
   },
   {
     "id": "it-st-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: We should discuss tech ethics.",
-    "correctAnswer": "Dovremmo parlare di etica tecnologica.",
+    "prompt": "Say: The convergence of AI, biotechnology, and materials science is ushering in a new industrial paradigm.",
+    "correctAnswer": "La convergenza dell'AI, della biotecnologia e della scienza dei materiali sta uscendo in un nuovo paradigma industriale.",
     "hints": [
-      "Keep the phrase short."
-    ],
-    "exerciseType": "pronunciation"
+      "'Convergence' = coming together; 'ushering in' = introducing; 'paradigm' = a model or framework."
+    ]
   },
   {
     "id": "it-st-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Data privacy matters to me.",
-    "correctAnswer": "La privacy dei dati mi importa.",
+    "prompt": "Ask: How should governments regulate large language models to prevent misuse while preserving innovation?",
+    "correctAnswer": "Come dovrebbero i governi regolare grandi modelli di lingua per prevenire l'uso improprio preservando l'innovazione?",
     "hints": [
-      "Talk about privacy."
-    ],
-    "exerciseType": "pronunciation"
+      "'Large language models' = advanced AI systems; 'misuse' = harmful applications."
+    ]
   },
   {
     "id": "it-st-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Please back up the files.",
-    "correctAnswer": "Fai un backup dei file.",
+    "prompt": "Say: CRISPR gene editing raises profound ethical questions about the boundaries of human intervention in biology.",
+    "correctAnswer": "L'editing gene CRISPR solleva profonde questioni etiche sui confini dell'intervento umano in biologia.",
     "hints": [
-      "A helpful reminder."
+      "'CRISPR' = a gene-editing technology; 'profound' = deep and serious."
+    ]
+  },
+  {
+    "id": "it-st-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The digital divide exacerbates existing socioeconomic inequalities by limiting access to education and economic opportunity.",
+    "correctAnswer": "La divisione digitale aggrava le disuguaglianze socioeconomiche esistenti limitando l'accesso all'istruzione e all'opportunità economica.",
+    "hints": [
+      "'Exacerbates' = makes worse; 'digital divide' = gap between those with and without internet access."
+    ]
+  },
+  {
+    "id": "it-st-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Epistemic challenges posed by deepfakes and synthetic media demand new frameworks for verifying information.",
+    "correctAnswer": "Le sfide epistemiche poste dai deepfake e dai media sintetici richiedono nuovi quadri per la verifica delle informazioni.",
+    "hints": [
+      "'Epistemic' = relating to knowledge; 'synthetic media' = AI-generated content."
+    ]
+  },
+  {
+    "id": "it-st-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Does the acceleration of technological change outpace society's capacity to adapt its institutions?",
+    "correctAnswer": "L'accelerazione del cambiamento tecnologico supera la capacità della società di adattare le sue istituzioni?",
+    "hints": [
+      "'Outpace' = go faster than; 'adapt its institutions' = change laws, norms, and organisations."
+    ]
+  },
+  {
+    "id": "it-st-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The ethical framework underpinning AI development remains contested across academic, corporate, and governmental spheres.",
+    "correctAnswer": "Il quadro etico che sottolinea lo sviluppo dell'AI rimane contestato in tutte le sfere accademiche, aziendali e governative.",
+    "hints": [
+      "'Underpinning' = supporting from beneath; 'contested' = debated."
+    ]
+  },
+  {
+    "id": "it-st-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Post-quantum cryptography is now a strategic priority for governments concerned about long-term data security.",
+    "correctAnswer": "La crittografia post-quantum è ora una priorità strategica per i governi interessati alla sicurezza dei dati a lungo termine.",
+    "hints": [
+      "'Post-quantum cryptography' = encryption designed to resist quantum computer attacks."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Ethical guidelines should evolve as artificial intelligence systems become more capable.",
+    "correctAnswer": "Le linee guida etiche dovrebbero evolversi in quanto i sistemi di intelligenza artificiale diventano più capaci.",
+    "hints": [
+      "B2 policy-style sentence."
     ],
-    "exerciseType": "pronunciation"
+    "id": "it-sc-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Automation can increase productivity while reshaping labor markets.",
+    "correctAnswer": "L'automazione può aumentare la produttività mentre rimodella i mercati del lavoro.",
+    "hints": [
+      "Balanced argument sentence."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-sc-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How can regulators encourage innovation without compromising public safety?",
+    "correctAnswer": "Come possono i regolatori incoraggiare l'innovazione senza compromettere la sicurezza pubblica?",
+    "hints": [
+      "High-level question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "it-sc-b2-71"
   }
 ]

@@ -1,404 +1,519 @@
 [
   {
-    "id": "sp-ch-a1",
+    "id": "es-ch-a1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a building where you can see art or historical objects",
+    "correctAnswer": "museo",
+    "hints": [
+      "Think of a place that preserves important objects."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "es-ch-a1-2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I love visiting old buildings.",
+    "correctAnswer": "Me encanta visitar edificios antiguos.",
+    "hints": [
+      "'Love' + gerund for a strong preference."
+    ]
+  },
+  {
+    "id": "es-ch-a1-3",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this building very old?",
+    "correctAnswer": "¿Este edificio es muy viejo?",
+    "hints": [
+      "A simple question about age."
+    ]
+  },
+  {
+    "id": "es-ch-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This is a traditional festival.",
+    "correctAnswer": "Este es un festival tradicional.",
+    "hints": [
+      "'Traditional' means part of a long custom."
+    ]
+  },
+  {
+    "id": "es-ch-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: When is the national holiday?",
+    "correctAnswer": "¿Cuándo es la fiesta nacional?",
+    "hints": [
+      "A public day off to celebrate a country's history."
+    ]
+  },
+  {
+    "id": "es-ch-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a piece of art made of stone or metal",
+    "correctAnswer": "escultura",
+    "hints": [
+      "It is a three-dimensional work of art."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "es-ch-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I like classical music.",
+    "correctAnswer": "Me gusta la música clásica.",
+    "hints": [
+      "State a cultural preference."
+    ]
+  },
+  {
+    "id": "es-ch-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the art gallery?",
+    "correctAnswer": "¿Dónde está la galería de arte?",
+    "hints": [
+      "An art gallery shows paintings and sculptures."
+    ]
+  },
+  {
+    "id": "es-ch-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I went to the theatre last weekend.",
+    "correctAnswer": "Fui al teatro el fin de semana pasado.",
+    "hints": [
+      "Simple past for a recent visit."
+    ]
+  },
+  {
+    "id": "es-ch-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This painting is beautiful.",
+    "correctAnswer": "Esta pintura es hermosa.",
+    "hints": [
+      "A simple opinion about a work of art."
+    ]
+  },
+  {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: This museum is very interesting.",
     "correctAnswer": "Este museo es muy interesante.",
     "hints": [
-      "A simple opinion sentence."
+      "Simple cultural sentence."
     ],
-    "imageUrl": "/images/museum-arch.svg"
+    "id": "es-cu-a1-39"
   },
   {
-    "id": "sp-ch-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a museum ticket",
-    "correctAnswer": "una entrada del museo",
+    "prompt": "Say: We visited an old castle.",
+    "correctAnswer": "Visitamos un antiguo castillo.",
     "hints": [
-      "Match the phrase."
+      "Past simple travel-culture link."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "build_sentence",
+    "id": "es-cu-a1-40"
   },
   {
-    "id": "sp-ch-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This statue is famous.",
-    "correctAnswer": "Esta estatua es famosa.",
+    "prompt": "Ask: What is this festival called?",
+    "correctAnswer": "¿Cómo se llama este festival?",
     "hints": [
-      "A simple description."
+      "Basic culture question."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard",
+    "id": "es-cu-a1-41"
   },
   {
-    "id": "sp-ch-a1-4",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "a castle",
-    "correctAnswer": "un castillo",
+    "id": "es-ch-a2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The castle was built in the twelfth century.",
+    "correctAnswer": "El castillo fue construido en el siglo XII.",
     "hints": [
-      "A large historic building with towers."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-ch-a1-5",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: This church is old.",
-    "correctAnswer": "Esta iglesia es antigua.",
-    "hints": [
-      "Use 'ser' for a permanent characteristic."
-    ],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-ch-a1-6",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "a painting",
-    "correctAnswer": "un cuadro",
-    "hints": [
-      "Art hung on a wall."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-ch-a1-7",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I like this city.",
-    "correctAnswer": "Me gusta esta ciudad.",
-    "hints": [
-      "'Me gusta' expresses liking in Spanish."
+      "Passive past simple for a historical fact."
     ]
   },
   {
-    "id": "sp-ch-a1-8",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "a festival",
-    "correctAnswer": "un festival",
+    "id": "es-ch-a2-2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What is the significance of this monument?",
+    "correctAnswer": "¿Cuál es el significado de este monumento?",
     "hints": [
-      "A public celebration or event."
+      "'Significance' means importance or meaning."
+    ]
+  },
+  {
+    "id": "es-ch-a2-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Every year, the town holds a traditional food festival in July.",
+    "correctAnswer": "Cada año, la ciudad celebra un tradicional festival de comida en julio.",
+    "hints": [
+      "Use present simple for regular events."
+    ]
+  },
+  {
+    "id": "es-ch-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I find it fascinating to learn about different customs and traditions.",
+    "correctAnswer": "Me resulta fascinante aprender sobre diferentes costumbres y tradiciones.",
+    "hints": [
+      "'I find it + adjective + to' expresses a reaction."
+    ]
+  },
+  {
+    "id": "es-ch-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Are there any historical sites worth visiting nearby?",
+    "correctAnswer": "¿Hay algún sitio histórico que valga la pena visitar cerca?",
+    "hints": [
+      "'Worth visiting' means deserving a visit."
+    ]
+  },
+  {
+    "id": "es-ch-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The museum has an impressive collection of Roman artefacts.",
+    "correctAnswer": "El museo tiene una impresionante colección de artefactos romanos.",
+    "hints": [
+      "'Artefacts' are objects made or used by people in the past."
+    ]
+  },
+  {
+    "id": "es-ch-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The local folk music here is quite different from what I am used to.",
+    "correctAnswer": "La música popular local aquí es muy diferente de lo que estoy acostumbrado.",
+    "hints": [
+      "'I am used to' means accustomed to."
+    ]
+  },
+  {
+    "id": "es-ch-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What is the story behind this tradition?",
+    "correctAnswer": "¿Cuál es la historia detrás de esta tradición?",
+    "hints": [
+      "Ask about the origin or explanation."
+    ]
+  },
+  {
+    "id": "es-ch-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We attended the opening night of a new exhibition at the gallery.",
+    "correctAnswer": "Asistieron a la noche de apertura de una nueva exposición en la galería.",
+    "hints": [
+      "'Attended' = went to; 'opening night' = the first evening."
+    ]
+  },
+  {
+    "id": "es-ch-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Shakespeare wrote thirty-seven plays during his lifetime.",
+    "correctAnswer": "Shakespeare escribió treinta y siete obras durante su vida.",
+    "hints": [
+      "Past simple for a completed historical fact.",
+      "Shakespeare is considered the greatest writer in the English language."
     ],
-    "exerciseType": "flashcard"
+    "culturalNote": "William Shakespeare (1564–1616) is considered the greatest writer in the English language. His works are still performed in theatres worldwide."
   },
   {
-    "id": "sp-ch-a1-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: The square is very big.",
-    "correctAnswer": "La plaza es muy grande.",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This tradition is important to many families.",
+    "correctAnswer": "Esta tradición es importante para muchas familias.",
     "hints": [
-      "Plazas are central to Spanish city life."
+      "Common culture expression."
     ],
-    "culturalNote": "La plaza mayor es el corazón de muchas ciudades españolas."
+    "id": "es-cu-a2-49"
   },
   {
-    "id": "sp-ch-a1-10",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: This palace is beautiful.",
-    "correctAnswer": "Este palacio es hermoso.",
-    "hints": [
-      "Use 'ser' with an adjective to describe a place."
-    ]
-  },
-  {
-    "id": "sp-ch-a2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: In Sweden, fika is a coffee break.",
-    "correctAnswer": "En Suecia, la fika es una pausa para cafe.",
+    "prompt": "Say: I learned about this country in school.",
+    "correctAnswer": "Aprendí sobre este país en la escuela.",
     "hints": [
-      "Mention the custom by name."
+      "Past learning sentence."
     ],
-    "culturalNote": "La fika se centra en compartir tiempo y conversacion."
+    "exerciseType": "build_sentence",
+    "id": "es-cu-a2-50"
   },
   {
-    "id": "sp-ch-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This building is very old.",
-    "correctAnswer": "Este edificio es muy antiguo.",
+    "prompt": "Ask: Why do people celebrate this holiday?",
+    "correctAnswer": "¿Por qué celebran estas vacaciones?",
     "hints": [
-      "Describe the place."
-    ]
-  },
-  {
-    "id": "sp-ch-a2-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: The guide speaks very clearly.",
-    "correctAnswer": "El guia habla muy claro.",
-    "hints": [
-      "Talk about a guide."
-    ]
-  },
-  {
-    "id": "sp-ch-a2-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I visited the cathedral last weekend.",
-    "correctAnswer": "Visité la catedral el fin de semana pasado.",
-    "hints": [
-      "Use the preterite for a completed past action."
-    ]
-  },
-  {
-    "id": "sp-ch-a2-5",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: The market opens every Saturday.",
-    "correctAnswer": "El mercado abre todos los sábados.",
-    "hints": [
-      "Use the simple present for a regular event."
+      "History/culture curiosity."
     ],
-    "culturalNote": "Los mercados locales son una parte esencial de la cultura española."
+    "exerciseType": "cloze_sentence",
+    "id": "es-cu-a2-51"
   },
   {
-    "id": "sp-ch-a2-6",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Fill in the blank: El Prado es un _____ muy famoso. (museum)",
-    "correctAnswer": "museo",
-    "hints": [
-      "El Prado is Spain's most famous art gallery."
-    ],
-    "exerciseType": "cloze_sentence"
-  },
-  {
-    "id": "sp-ch-a2-7",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: The ruins are located outside the city.",
-    "correctAnswer": "Las ruinas están situadas fuera de la ciudad.",
-    "hints": [
-      "Use 'estar' for location."
-    ]
-  },
-  {
-    "id": "sp-ch-a2-8",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: This tradition is very popular in this region.",
-    "correctAnswer": "Esta tradición es muy popular en esta región.",
-    "hints": [
-      "Use 'ser' for a permanent cultural characteristic."
-    ]
-  },
-  {
-    "id": "sp-ch-a2-9",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We took many photos at the monument.",
-    "correctAnswer": "Sacamos muchas fotos en el monumento.",
-    "hints": [
-      "Use the preterite tense for the past."
-    ]
-  },
-  {
-    "id": "sp-ch-a2-10",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "a monument",
-    "correctAnswer": "un monumento",
-    "hints": [
-      "A structure built to honour an event or person."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-ch-b1",
+    "id": "es-ch-b1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Why is this old town important?",
-    "correctAnswer": "Muestra como vivia la gente aqui hace siglos.",
+    "prompt": "Say: Cultural heritage shapes national identity in ways that are often invisible to those within the culture.",
+    "correctAnswer": "El patrimonio cultural da forma a la identidad nacional de maneras que a menudo son invisibles para los que se encuentran dentro de la cultura.",
     "hints": [
-      "Answer like a guide."
+      "'Shapes' = influences; 'invisible to' = not easily seen by."
+    ]
+  },
+  {
+    "id": "es-ch-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Do you think colonialism has left a lasting impact on contemporary culture?",
+    "correctAnswer": "¿Crees que el colonialismo ha dejado un impacto duradero en la cultura contemporánea?",
+    "hints": [
+      "'Colonialism' = the practice of colonising other countries; 'lasting impact' = long-term effect."
+    ]
+  },
+  {
+    "id": "es-ch-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The industrial revolution fundamentally altered the structure of society and the nature of work.",
+    "correctAnswer": "La revolución industrial alteró fundamentalmente la estructura de la sociedad y la naturaleza del trabajo.",
+    "hints": [
+      "'Fundamentally altered' = changed at a basic level."
+    ]
+  },
+  {
+    "id": "es-ch-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I visited the archaeological site and was struck by the scale of the ancient ruins.",
+    "correctAnswer": "Visité el sitio arqueológico y fui golpeado por la escala de las ruinas antiguas.",
+    "hints": [
+      "'Was struck by' = was impressed by; 'archaeological site' = a place of historical excavation."
+    ]
+  },
+  {
+    "id": "es-ch-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Oral traditions have played a crucial role in preserving history where written records were absent.",
+    "correctAnswer": "Las tradiciones orales han desempeñado un papel crucial en la preservación de la historia donde los registros escritos estaban ausentes.",
+    "hints": [
+      "'Oral traditions' = stories passed down verbally; 'preserving' = keeping alive."
+    ]
+  },
+  {
+    "id": "es-ch-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How does a country reconcile pride in its history with acknowledgement of past wrongs?",
+    "correctAnswer": "¿Cómo un país concilia el orgullo de su historia con el reconocimiento de los errores pasados?",
+    "hints": [
+      "'Reconcile' = bring into harmony; a discussion about national identity and responsibility."
+    ]
+  },
+  {
+    "id": "es-ch-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The Renaissance was characterised by a renewed interest in classical antiquity and humanist philosophy.",
+    "correctAnswer": "El Renacimiento se caracterizó por un renovado interés por la antigüedad clásica y la filosofía humanista.",
+    "hints": [
+      "'Characterised by' = defined or typified by; 'antiquity' = ancient times.",
+      "'Humanist' thought placed humans, not God, at the centre of intellectual life."
+    ],
+    "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought."
+  },
+  {
+    "id": "es-ch-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Globalisation has accelerated cultural exchange but also threatened the survival of minority languages.",
+    "correctAnswer": "La globalización ha acelerado el intercambio cultural, pero también ha amenazado la supervivencia de los idiomas minoritarios.",
+    "hints": [
+      "'Accelerated' = sped up; 'minority languages' = languages spoken by fewer people."
+    ]
+  },
+  {
+    "id": "es-ch-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Someone asks what you found most moving during a museum visit.",
+    "correctAnswer": "Las cartas y diarios personales me dieron un sentido mucho más fuerte de cómo era la vida en ese momento.",
+    "hints": [
+      "Ground your response in specific artefacts; use 'gave me a sense of'."
     ],
     "exerciseType": "roleplay"
   },
   {
-    "id": "sp-ch-b1-2",
+    "id": "es-ch-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Who built this castle?",
-    "correctAnswer": "Lo construyo un rey.",
+    "prompt": "Say: The partition of the subcontinent in 1947 had profound and lasting consequences for millions of families.",
+    "correctAnswer": "La partición del subcontinente en 1947 tuvo consecuencias profundas y duraderas para millones de familias.",
     "hints": [
-      "Answer simply and clearly."
-    ],
-    "exerciseType": "roleplay"
-  },
-  {
-    "id": "sp-ch-b1-3",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "a tradition",
-    "correctAnswer": "una tradicion",
-    "hints": [
-      "Match the tech term."
-    ],
-    "exerciseType": "matching"
-  },
-  {
-    "id": "sp-ch-b1-4",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: The Alhambra was built during the Moorish period in Spain.",
-    "correctAnswer": "La Alhambra fue construida durante el período árabe en España.",
-    "hints": [
-      "Use the passive voice with 'fue construida'."
-    ],
-    "culturalNote": "La Alhambra en Granada es uno de los monumentos más visitados de España."
-  },
-  {
-    "id": "sp-ch-b1-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: This region has a rich cultural heritage.",
-    "correctAnswer": "Esta región tiene un rico patrimonio cultural.",
-    "hints": [
-      "'Patrimonio cultural' means cultural heritage."
+      "'Partition' = division; 'profound' = very significant."
     ]
   },
   {
-    "id": "sp-ch-b1-6",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: Es importante que _____ las tradiciones locales. (preservemos)",
-    "correctAnswer": "preservemos",
+    "prompt": "Say: Historical events continue to influence modern society.",
+    "correctAnswer": "Los acontecimientos históricos siguen influyendo en la sociedad moderna.",
     "hints": [
-      "After 'es importante que', use the present subjunctive."
+      "Cause-impact idea."
     ],
-    "exerciseType": "cloze_sentence"
+    "id": "es-cu-b1-59"
   },
   {
-    "id": "sp-ch-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The festival has taken place every year since 1850.",
-    "correctAnswer": "El festival se celebra cada año desde 1850.",
+    "prompt": "Say: Local traditions help preserve community identity.",
+    "correctAnswer": "Las tradiciones locales ayudan a preservar la identidad comunitaria.",
     "hints": [
-      "Use the present tense with 'desde' for an ongoing situation."
-    ]
+      "Community-focused statement."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-cu-b1-60"
   },
   {
-    "id": "sp-ch-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. What does this symbol mean?",
-    "correctAnswer": "Representa la unidad entre los pueblos de la región.",
+    "prompt": "Ask: Which historical period do you find most fascinating?",
+    "correctAnswer": "¿Qué periodo histórico encuentras más fascinante?",
     "hints": [
-      "Use 'representar' to explain the meaning of a symbol."
+      "Opinion prompt."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "cloze_sentence",
+    "id": "es-cu-b1-61"
   },
   {
-    "id": "sp-ch-b1-9",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: Many artists were inspired by the landscapes of Andalusia.",
-    "correctAnswer": "Muchos artistas se inspiraron en los paisajes de Andalucía.",
-    "hints": [
-      "Use the preterite with reflexive 'inspirarse en'."
-    ]
-  },
-  {
-    "id": "sp-ch-b1-10",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I find colonial architecture very impressive.",
-    "correctAnswer": "Encuentro la arquitectura colonial muy impresionante.",
-    "hints": [
-      "'Encontrar' can mean 'to find' in the sense of opinion."
-    ]
-  },
-  {
-    "id": "sp-ch-b2",
+    "id": "es-ch-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Could you explain this tradition to me?",
-    "correctAnswer": "Puedes explicarme esta tradicion, por favor?",
+    "prompt": "Say: The repatriation of colonial artefacts remains one of the most contentious debates in contemporary museum practice.",
+    "correctAnswer": "La repatriación de los artefactos coloniales sigue siendo uno de los debates más controvertidos en la práctica del museo contemporáneo.",
     "hints": [
-      "A polite question about local culture."
+      "'Repatriation' = returning objects to their country of origin; 'contentious' = causing debate."
     ],
-    "exerciseType": "pronunciation"
+    "culturalNote": "Many museums hold artefacts acquired during the colonial era; debates about returning items like the Elgin Marbles and the Benin Bronzes continue."
   },
   {
-    "id": "sp-ch-b2-2",
+    "id": "es-ch-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I love learning local history.",
-    "correctAnswer": "Me encanta aprender historia local.",
+    "prompt": "Ask: To what extent does national mythology construct a selective and self-serving version of historical events?",
+    "correctAnswer": "¿En qué medida la mitología nacional construye una versión selectiva y autoservadora de acontecimientos históricos?",
     "hints": [
-      "A positive statement."
+      "'National mythology' = the stories a nation tells about itself; 'self-serving' = benefiting those in power."
+    ]
+  },
+  {
+    "id": "es-ch-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The Enlightenment represented a fundamental epistemic shift that placed reason above religious authority.",
+    "correctAnswer": "La Ilustración representaba un cambio epistémico fundamental que situaba la razón por encima de la autoridad religiosa.",
+    "hints": [
+      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritised rationality over faith."
+    ]
+  },
+  {
+    "id": "es-ch-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Cultural appropriation raises difficult questions about ownership, power, and the boundaries of artistic borrowing.",
+    "correctAnswer": "La apropiación cultural plantea preguntas difíciles sobre la propiedad, el poder y los límites de los préstamos artísticos.",
+    "hints": [
+      "'Cultural appropriation' = adopting elements of another culture, often without consent or understanding."
+    ]
+  },
+  {
+    "id": "es-ch-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The concept of a Western canon has been challenged by scholars arguing for a more globally inclusive literary tradition.",
+    "correctAnswer": "El concepto de un canon occidental ha sido desafiado por los eruditos que argumentan por una tradición literaria más globalmente incluyente.",
+    "hints": [
+      "'Canon' = an authoritative list of great works; 'inclusive' = welcoming of diverse perspectives."
+    ]
+  },
+  {
+    "id": "es-ch-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How do commemorative practices shape collective memory and influence political identity?",
+    "correctAnswer": "¿Cómo conforman las prácticas conmemorativas la memoria colectiva e influyen en la identidad política?",
+    "hints": [
+      "'Commemorative practices' = rituals of remembrance; 'collective memory' = shared historical understanding."
+    ]
+  },
+  {
+    "id": "es-ch-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Historiography — the study of how history is written — reveals as much about the historian's era as about the events described.",
+    "correctAnswer": "La historiografía —el estudio de cómo se escribe la historia— revela tanto sobre la era del historiador como sobre los acontecimientos descritos.",
+    "hints": [
+      "'Historiography' = the study of historical writing; 'era' = time period."
+    ]
+  },
+  {
+    "id": "es-ch-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The commodification of cultural heritage through mass tourism can simultaneously preserve and undermine it.",
+    "correctAnswer": "La mercantilización del patrimonio cultural mediante el turismo de masas puede conservarlo y socavarlo simultáneamente.",
+    "hints": [
+      "'Commodification' = turning into a product; 'simultaneously' = at the same time; 'undermine' = weaken."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Interpreting history requires awareness of perspective and bias.",
+    "correctAnswer": "Interpretar la historia requiere conciencia de perspectiva y sesgo.",
+    "hints": [
+      "Analytical framing."
     ],
-    "exerciseType": "pronunciation"
+    "id": "es-cu-b2-69"
   },
   {
-    "id": "sp-ch-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: This legend is popular here.",
-    "correctAnswer": "Esta leyenda es popular aqui.",
+    "prompt": "Say: Cultural heritage can strengthen social cohesion across generations.",
+    "correctAnswer": "El patrimonio cultural puede fortalecer la cohesión social a través de las generaciones.",
     "hints": [
-      "Use a natural tone."
+      "Advanced abstract wording."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "cloze_sentence",
+    "id": "es-cu-b2-70"
   },
   {
-    "id": "sp-ch-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The preservation of intangible heritage is as important as protecting physical monuments.",
-    "correctAnswer": "La preservación del patrimonio inmaterial es tan importante como la protección de los monumentos físicos.",
+    "prompt": "Ask: How should societies balance preservation with modernization?",
+    "correctAnswer": "¿Cómo deben las sociedades equilibrar la preservación con la modernización?",
     "hints": [
-      "Use 'tan... como' for a comparison of equality."
-    ]
-  },
-  {
-    "id": "sp-ch-b2-5",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: It is remarkable that so many pre-Columbian cultures developed independently.",
-    "correctAnswer": "Es sorprendente que tantas culturas precolombinas se hayan desarrollado de forma independiente.",
-    "hints": [
-      "After 'es sorprendente que', use the present perfect subjunctive."
+      "Complex policy-style question."
     ],
-    "culturalNote": "Las civilizaciones azteca, maya e inca son las más conocidas de las culturas precolombinas."
-  },
-  {
-    "id": "sp-ch-b2-6",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Tourism can both benefit and threaten cultural heritage sites.",
-    "correctAnswer": "El turismo puede tanto beneficiar como amenazar los sitios del patrimonio cultural.",
-    "hints": [
-      "Use 'tanto... como' with two infinitives."
-    ]
-  },
-  {
-    "id": "sp-ch-b2-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Had the old quarter been restored sooner, much of its character would have been saved.",
-    "correctAnswer": "Si el casco antiguo hubiera sido restaurado antes, se habría conservado gran parte de su carácter.",
-    "hints": [
-      "Past perfect subjunctive + conditional perfect for a third conditional."
-    ]
-  },
-  {
-    "id": "sp-ch-b2-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: The influence of indigenous languages on modern Spanish is often underestimated.",
-    "correctAnswer": "La influencia de las lenguas indígenas en el español moderno suele subestimarse.",
-    "hints": [
-      "Use 'soler + infinitive' for habitual actions; passive infinitive for 'is underestimated'."
-    ]
+    "exerciseType": "dialogue_turn",
+    "culturalNote": "Cultural references vary by region and period.",
+    "id": "es-cu-b2-71"
   }
 ]

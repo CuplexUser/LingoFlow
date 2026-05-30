@@ -1,367 +1,525 @@
 [
   {
-    "id": "sp-ho-a1",
+    "id": "es-ho-a1",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "To read books",
-    "correctAnswer": "leer libros",
-    "hints": ["A quiet hobby."],
+    "correctAnswer": "para leer libros",
+    "hints": [
+      "Think about a quiet hobby."
+    ],
     "exerciseType": "flashcard",
     "imageUrl": "/images/bookshelf.svg"
   },
   {
-    "id": "sp-ho-a1-2",
+    "id": "es-ho-a1-2",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "To go hiking",
-    "correctAnswer": "ir de excursion",
-    "hints": ["An outdoor hobby."],
+    "correctAnswer": "para ir de excursión",
+    "hints": [
+      "An outdoor hobby."
+    ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "sp-ho-a1-3",
+    "id": "es-ho-a1-3",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "To play chess",
-    "correctAnswer": "jugar al ajedrez",
-    "hints": ["A strategy board game."],
+    "correctAnswer": "para jugar ajedrez",
+    "hints": [
+      "A strategy board game."
+    ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "sp-ho-a1-4",
+    "id": "es-ho-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I like listening to music.",
-    "correctAnswer": "Me gusta escuchar música.",
-    "hints": ["'Me gusta + infinitive' for things you enjoy."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I like to paint in my free time.",
+    "correctAnswer": "Me gusta pintar en mi tiempo libre.",
+    "hints": [
+      "Use 'I like to' to express enjoyment."
+    ]
   },
   {
-    "id": "sp-ho-a1-5",
+    "id": "es-ho-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "to draw / to paint",
-    "correctAnswer": "dibujar / pintar",
-    "hints": ["Both involve creating images — one with pencil, one with paint."],
+    "prompt": "Say: My hobby is cooking.",
+    "correctAnswer": "Mi hobby está cocinando.",
+    "hints": [
+      "State your hobby with 'my hobby is'."
+    ]
+  },
+  {
+    "id": "es-ho-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you have any hobbies?",
+    "correctAnswer": "¿Tienes hobbies?",
+    "hints": [
+      "A common get-to-know-you question."
+    ]
+  },
+  {
+    "id": "es-ho-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a sport played in water",
+    "correctAnswer": "natación",
+    "hints": [
+      "You move through water with your arms and legs."
+    ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "sp-ho-a1-6",
+    "id": "es-ho-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My hobby is playing video games.",
-    "correctAnswer": "Mi pasatiempo es jugar videojuegos.",
-    "hints": ["'Mi pasatiempo es + infinitive'."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I love listening to music.",
+    "correctAnswer": "Me encanta escuchar música.",
+    "hints": [
+      "'Love' + gerund expresses strong enjoyment."
+    ]
   },
   {
-    "id": "sp-ho-a1-7",
+    "id": "es-ho-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Which is an indoor hobby?",
-    "correctAnswer": "cocinar",
-    "hints": ["Something you do in the kitchen."],
-    "exerciseType": "multiple_choice",
-    "options": ["senderismo", "ciclismo", "cocinar", "jardinería"]
+    "prompt": "Say: I play football with my friends.",
+    "correctAnswer": "Juego fútbol con mis amigos.",
+    "hints": [
+      "State an activity and who you do it with."
+    ]
   },
   {
-    "id": "sp-ho-a1-8",
+    "id": "es-ho-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: She likes to dance.",
-    "correctAnswer": "A ella le gusta bailar.",
-    "hints": ["'Le gusta + infinitive' for third person."],
-    "exerciseType": "build_sentence"
+    "prompt": "Ask: What do you like to do at weekends?",
+    "correctAnswer": "¿Qué te gusta hacer los fines de semana?",
+    "hints": [
+      "A friendly question about free time."
+    ]
   },
   {
-    "id": "sp-ho-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "to take photos",
-    "correctAnswer": "hacer fotos",
-    "hints": ["A popular hobby in the smartphone era."],
-    "exerciseType": "flashcard"
+    "prompt": "Say: I like painting on weekends.",
+    "correctAnswer": "Me gusta pintar los fines de semana.",
+    "hints": [
+      "Use 'like' + activity."
+    ],
+    "id": "es-ho-a1-39"
   },
   {
-    "id": "sp-ho-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I play guitar in my free time.",
-    "correctAnswer": "Toco la guitarra en mi tiempo libre.",
-    "hints": ["'Tocar + instrument' in Spanish."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I play chess with my friend.",
+    "correctAnswer": "Yo juego ajedrez con mi amigo.",
+    "hints": [
+      "Simple present for habits."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-ho-a1-40"
   },
   {
-    "id": "sp-ho-a2",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you enjoy reading comics?",
+    "correctAnswer": "¿Te gusta leer cómics?",
+    "hints": [
+      "Use 'Do you enjoy...?' for hobbies."
+    ],
+    "exerciseType": "flashcard",
+    "id": "es-ho-a1-41"
+  },
+  {
+    "id": "es-ho-a2",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I play tennis on Saturday mornings.",
-    "correctAnswer": "Juego al tenis los sabados por la manana.",
-    "hints": ["Use the present tense."],
+    "correctAnswer": "Toco tenis los sábados por la mañana.",
+    "hints": [
+      "Use the present tense."
+    ],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "sp-ho-a2-2",
+    "id": "es-ho-a2-2",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I watch movies at home.",
-    "correctAnswer": "Veo peliculas en casa.",
-    "hints": ["A short activity sentence."],
+    "correctAnswer": "Veo películas en casa.",
+    "hints": [
+      "A simple leisure routine."
+    ],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "sp-ho-a2-3",
+    "id": "es-ho-a2-3",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I swim at the pool.",
-    "correctAnswer": "Nado en la piscina.",
-    "hints": ["Keep the phrase short."],
+    "correctAnswer": "Nadaré en la piscina.",
+    "hints": [
+      "A short activity sentence."
+    ],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "sp-ho-a2-4",
+    "id": "es-ho-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I started learning to cook last year.",
-    "correctAnswer": "Empecé a aprender a cocinar el año pasado.",
-    "hints": ["'Empezar a + infinitive'; past tense for a specific past action."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I have been learning the guitar for six months.",
+    "correctAnswer": "He estado aprendiendo la guitarra durante seis meses.",
+    "hints": [
+      "Present perfect continuous for an ongoing activity."
+    ]
   },
   {
-    "id": "sp-ho-a2-5",
+    "id": "es-ho-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We go to the cinema every Friday.",
-    "correctAnswer": "Vamos al cine todos los viernes.",
-    "hints": ["'Ir al cine' = to go to the cinema; frequency with 'todos los'."],
-    "exerciseType": "build_sentence"
+    "prompt": "Ask: How often do you go cycling?",
+    "correctAnswer": "¿Con qué frecuencia vas a ciclismo?",
+    "hints": [
+      "Use 'how often do you' to ask about frequency."
+    ]
   },
   {
-    "id": "sp-ho-a2-6",
+    "id": "es-ho-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "What does 'afición' mean?",
-    "correctAnswer": "hobby / interest",
-    "hints": ["What you do in your spare time because you love it."],
-    "exerciseType": "multiple_choice",
-    "options": ["hobby / interest", "obligation", "career", "skill"]
+    "prompt": "Say: I joined a book club last year.",
+    "correctAnswer": "Me uní a un club de libros el año pasado.",
+    "hints": [
+      "Simple past for a completed action."
+    ]
   },
   {
-    "id": "sp-ho-a2-7",
+    "id": "es-ho-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I have been playing the piano since I was six.",
-    "correctAnswer": "Toco el piano desde que tenía seis años.",
-    "hints": ["'Desde que' + imperfect for an action that started in the past and continues."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: My favourite hobby is photography.",
+    "correctAnswer": "Mi hobby favorito es la fotografía.",
+    "hints": [
+      "State your preference with 'my favourite'."
+    ]
   },
   {
-    "id": "sp-ho-a2-8",
+    "id": "es-ho-a2-8",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the best response. Your friend asks: What do you do at weekends?",
-    "correctAnswer": "Normalmente salgo a correr o leo un libro.",
-    "hints": ["Use 'normalmente' and list two activities."],
-    "exerciseType": "roleplay"
+    "prompt": "Ask: Have you ever tried rock climbing?",
+    "correctAnswer": "¿Alguna vez has intentado escalar roca?",
+    "hints": [
+      "'Have you ever tried' asks about life experience."
+    ]
   },
   {
-    "id": "sp-ho-a2-9",
+    "id": "es-ho-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: He spends a lot of time gardening.",
-    "correctAnswer": "Pasa mucho tiempo haciendo jardinería.",
-    "hints": ["'Pasar tiempo + gerund'."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I enjoy baking at the weekends.",
+    "correctAnswer": "Me gusta hornear los fines de semana.",
+    "hints": [
+      "'Enjoy' is followed by the gerund (-ing)."
+    ]
   },
   {
-    "id": "sp-ho-a2-10",
+    "id": "es-ho-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I prefer reading to watching television.",
-    "correctAnswer": "Prefiero leer que ver la televisión.",
-    "hints": ["'Prefiero + infinitive + que + infinitive'."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I started jogging to keep fit.",
+    "correctAnswer": "Empecé a correr para seguir en forma.",
+    "hints": [
+      "'To keep fit' expresses purpose."
+    ]
   },
   {
-    "id": "sp-ho-b1",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I started learning photography last year.",
+    "correctAnswer": "Empecé a aprender fotografía el año pasado.",
+    "hints": [
+      "Past simple for finished past actions."
+    ],
+    "id": "es-ho-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually relax by listening to music.",
+    "correctAnswer": "Normalmente me relajo escuchando música.",
+    "hints": [
+      "Use 'by + -ing' for method."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-ho-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Which hobby helps you reduce stress?",
+    "correctAnswer": "¿Qué pasatiempo le ayuda a reducir el estrés?",
+    "hints": [
+      "Useful for conversation practice."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-ho-a2-51"
+  },
+  {
+    "id": "es-ho-b1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. What do you like to do after work?",
-    "correctAnswer": "Normalmente pinto o salgo a correr.",
-    "hints": ["Mention two leisure activities."],
+    "correctAnswer": "Normalmente pinto o voy a correr.",
+    "hints": [
+      "Mention two leisure activities."
+    ],
     "exerciseType": "roleplay"
   },
   {
-    "id": "sp-ho-b1-2",
+    "id": "es-ho-b1-2",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. What do you do on weekends?",
-    "correctAnswer": "Quedo con amigos y juego.",
-    "hints": ["A friendly, natural answer."],
+    "correctAnswer": "Conozco amigos y juego.",
+    "hints": [
+      "A friendly, natural answer."
+    ],
     "exerciseType": "roleplay"
   },
   {
-    "id": "sp-ho-b1-3",
+    "id": "es-ho-b1-3",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Do you like sports?",
-    "correctAnswer": "Si, a veces juego al futbol.",
-    "hints": ["Answer with a frequency word."],
+    "correctAnswer": "Sí, a veces juego fútbol.",
+    "hints": [
+      "Answer with a frequency word."
+    ],
     "exerciseType": "roleplay"
   },
   {
-    "id": "sp-ho-b1-4",
+    "id": "es-ho-b1-4",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "to take up a hobby",
-    "correctAnswer": "empezar a practicar un pasatiempo",
-    "hints": ["To start doing a new activity."],
-    "exerciseType": "flashcard"
+    "prompt": "Say: I find that gardening is a good way to unwind after a stressful day.",
+    "correctAnswer": "Encuentro que la jardinería es una buena manera de relajarse después de un día estresante.",
+    "hints": [
+      "'I find that' introduces a personal observation; 'unwind' means relax."
+    ]
   },
   {
-    "id": "sp-ho-b1-5",
+    "id": "es-ho-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I have taken up knitting to unwind after work.",
-    "correctAnswer": "He empezado a hacer punto para descansar después del trabajo.",
-    "hints": ["'Hacer punto' = to knit; 'para + infinitive' expresses purpose."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I have recently taken up pottery and find it very therapeutic.",
+    "correctAnswer": "Recientemente he tomado cerámica y lo he encontrado muy terapéutico.",
+    "hints": [
+      "'Taken up' means started a new hobby; 'therapeutic' means calming and healing."
+    ]
   },
   {
-    "id": "sp-ho-b1-6",
+    "id": "es-ho-b1-6",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Photography allows me to see the world differently.",
-    "correctAnswer": "La fotografía me permite ver el mundo de otra manera.",
-    "hints": ["Subject + 'permite + infinitive'."],
-    "exerciseType": "build_sentence"
+    "prompt": "Ask: What do you do to switch off when you are feeling overwhelmed?",
+    "correctAnswer": "¿Qué haces para apagarte cuando te sientes abrumado?",
+    "hints": [
+      "'Switch off' means mentally disconnect from stress."
+    ]
   },
   {
-    "id": "sp-ho-b1-7",
+    "id": "es-ho-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I find birdwatching surprisingly relaxing.",
-    "correctAnswer": "Encuentro que la observación de aves es sorprendentemente relajante.",
-    "hints": ["'Encontrar que' + opinion."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: Although I am not very competitive, I enjoy the social side of team sports.",
+    "correctAnswer": "Aunque no soy muy competitivo, disfruto del lado social de los deportes de equipo.",
+    "hints": [
+      "'Although' introduces a contrast."
+    ]
   },
   {
-    "id": "sp-ho-b1-8",
+    "id": "es-ho-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I have been collecting stamps since I was a child.",
-    "correctAnswer": "He coleccionado sellos desde que era niño.",
-    "hints": ["Present perfect + 'desde que' + imperfect."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I have been meaning to get into yoga for years but never quite managed it.",
+    "correctAnswer": "He querido entrar en yoga durante años pero nunca lo he conseguido.",
+    "hints": [
+      "'Been meaning to' = intended to but not done; 'get into' = start doing regularly."
+    ]
   },
   {
-    "id": "sp-ho-b1-9",
+    "id": "es-ho-b1-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "What does 'ocio creativo' refer to?",
-    "correctAnswer": "leisure activities that involve making or creating something",
-    "hints": ["Think of hobbies like painting, writing, or crafting."],
-    "exerciseType": "multiple_choice",
-    "options": ["leisure activities that involve making or creating something", "passive entertainment like watching TV", "extreme outdoor sports", "professional art practice"]
+    "prompt": "Say: Travelling is not just a hobby for me — it is a way of expanding my perspective.",
+    "correctAnswer": "Viajar no es sólo un pasatiempo para mí, es una manera de ampliar mi perspectiva.",
+    "hints": [
+      "'Not just... but' contrasts a simple description with a deeper meaning."
+    ]
   },
   {
-    "id": "sp-ho-b1-10",
+    "id": "es-ho-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Reading fiction is a great way to improve your vocabulary.",
-    "correctAnswer": "Leer ficción es una buena manera de mejorar tu vocabulario.",
-    "hints": ["Infinitive as subject; 'una buena manera de + infinitive'."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I have been training for a half-marathon and find it both challenging and rewarding.",
+    "correctAnswer": "He estado entrenando por medio maratón y lo encuentro desafiante y gratificante.",
+    "hints": [
+      "'Both... and...' links two contrasting qualities."
+    ]
   },
   {
-    "id": "sp-ho-b2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I joined a local book club to meet new people.",
+    "correctAnswer": "Me uní a un club local para conocer gente nueva.",
+    "hints": [
+      "Purpose clause with 'to'."
+    ],
+    "id": "es-ho-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My main hobby changed after I moved to the city.",
+    "correctAnswer": "Mi hobby principal cambió después de mudarme a la ciudad.",
+    "hints": [
+      "Use sequence in storytelling."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-ho-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How do you stay motivated when practicing your hobby?",
+    "correctAnswer": "¿Cómo te mantienes motivado cuando practicas tu pasatiempo?",
+    "hints": [
+      "Open question form."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-ho-b1-61"
+  },
+  {
+    "id": "es-ho-b2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I relax by reading books.",
     "correctAnswer": "Me relajo leyendo libros.",
-    "hints": ["Use a reflective tone."],
+    "hints": [
+      "Use a reflective tone."
+    ],
     "exerciseType": "pronunciation"
   },
   {
-    "id": "sp-ho-b2-2",
+    "id": "es-ho-b2-2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I practice guitar every day.",
-    "correctAnswer": "Practico la guitarra cada dia.",
-    "hints": ["A clear daily habit."],
+    "correctAnswer": "Practico guitarra todos los días.",
+    "hints": [
+      "A clear daily habit."
+    ],
     "exerciseType": "pronunciation"
   },
   {
-    "id": "sp-ho-b2-3",
+    "id": "es-ho-b2-3",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I enjoy painting in my free time.",
-    "correctAnswer": "Disfruto pintar en mi tiempo libre.",
-    "hints": ["A common hobby phrase."],
+    "correctAnswer": "Me gusta pintar en mi tiempo libre.",
+    "hints": [
+      "A common hobby phrase."
+    ],
     "exerciseType": "pronunciation"
   },
   {
-    "id": "sp-ho-b2-4",
+    "id": "es-ho-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "escapism",
-    "correctAnswer": "evasión",
-    "hints": ["Using hobbies or entertainment to forget real-world worries."],
-    "exerciseType": "flashcard"
+    "prompt": "Say: Leisure time has become an increasingly contested concept in the age of constant connectivity.",
+    "correctAnswer": "El tiempo de ocio se ha convertido en un concepto cada vez más cuestionado en la era de la conectividad constante.",
+    "hints": [
+      "'Contested concept' means something whose meaning is debated; 'connectivity' = being always online."
+    ]
   },
   {
-    "id": "sp-ho-b2-5",
+    "id": "es-ho-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Leisure time is essential for cognitive restoration and emotional balance.",
-    "correctAnswer": "El tiempo libre es esencial para la restauración cognitiva y el equilibrio emocional.",
-    "hints": ["Formal register; 'esencial para' + noun."],
-    "exerciseType": "pronunciation"
+    "prompt": "Say: I have always been drawn to solitary pursuits, which is perhaps why I gravitated towards writing.",
+    "correctAnswer": "Siempre he sido atraído a persecuciones solitarias, que es quizás por lo que he gravitado hacia la escritura.",
+    "hints": [
+      "'Drawn to' means attracted to; 'gravitated towards' means naturally moved towards."
+    ]
   },
   {
-    "id": "sp-ho-b2-6",
+    "id": "es-ho-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I have turned my passion for ceramics into a small side business.",
-    "correctAnswer": "He convertido mi pasión por la cerámica en un pequeño negocio secundario.",
-    "hints": ["'Convertir en' = to turn into; present perfect."],
-    "exerciseType": "build_sentence"
+    "prompt": "Ask: Do you think hobbies say something fundamental about a person's character?",
+    "correctAnswer": "¿Crees que los hobbies dicen algo fundamental sobre el carácter de una persona?",
+    "hints": [
+      "'Fundamental' means basic or essential; invite a nuanced discussion."
+    ]
   },
   {
-    "id": "sp-ho-b2-7",
+    "id": "es-ho-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Meaningful hobbies can provide a sense of purpose beyond work.",
-    "correctAnswer": "Los pasatiempos significativos pueden proporcionar un sentido de propósito más allá del trabajo.",
-    "hints": ["'Proporcionar' = to provide; modal 'pueden'."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: Amateur astronomy demands patience, precision, and a willingness to accept that most nights will yield nothing spectacular.",
+    "correctAnswer": "La astronomía amateur exige paciencia, precisión y voluntad de aceptar que la mayoría de las noches no dará nada espectacular.",
+    "hints": [
+      "'Yield' here means produce; 'spectacular' means impressive."
+    ],
+    "culturalNote": "Amateur astronomers have made significant contributions to science, including the discovery of new comets and variable stars."
   },
   {
-    "id": "sp-ho-b2-8",
+    "id": "es-ho-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I joined an amateur theatre group to overcome my fear of public speaking.",
-    "correctAnswer": "Me uní a un grupo de teatro amateur para superar mi miedo a hablar en público.",
-    "hints": ["'Unirse a' = to join; 'para + infinitive' expresses purpose."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: The distinction between a hobby and a passion lies in the degree to which it defines your sense of self.",
+    "correctAnswer": "La distinción entre un hobby y una pasión reside en el grado en que define su sentido de sí mismo.",
+    "hints": [
+      "'Lies in' means is found in or depends on; 'sense of self' is your identity."
+    ]
   },
   {
-    "id": "sp-ho-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the best response. Someone asks: How do you unwind after a stressful week?",
-    "correctAnswer": "Normalmente salgo al campo a caminar; el contacto con la naturaleza me recarga las pilas.",
-    "hints": ["Describe a specific activity and explain its benefit."],
-    "exerciseType": "roleplay"
+    "prompt": "Say: Leisure activities improve my focus and creativity.",
+    "correctAnswer": "Las actividades de ocio mejoran mi enfoque y creatividad.",
+    "hints": [
+      "Abstract nouns are common at B2."
+    ],
+    "id": "es-ho-b2-69"
   },
   {
-    "id": "sp-ho-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The rise of digital hobbies has blurred the boundary between entertainment and creativity.",
-    "correctAnswer": "El auge de los pasatiempos digitales ha difuminado la frontera entre el entretenimiento y la creatividad.",
-    "hints": ["Present perfect; 'difuminar' = to blur."],
-    "exerciseType": "build_sentence",
-    "culturalNote": "Los españoles dedican en promedio más tiempo al ocio que muchos otros europeos, reflejando la importancia cultural del equilibrio entre vida y trabajo."
+    "prompt": "Say: I prefer hobbies that combine social interaction with skill-building.",
+    "correctAnswer": "Prefiero pasatiempos que combinan la interacción social con el desarrollo de habilidades.",
+    "hints": [
+      "Complex noun phrase."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-ho-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: To what extent should hobbies be goal-oriented?",
+    "correctAnswer": "¿En qué medida deben orientarse los hobbies hacia objetivos?",
+    "hints": [
+      "Formal discussion prompt."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "es-ho-b2-71"
   }
 ]

@@ -22,7 +22,7 @@ const SOURCE_LANGUAGE_ID = "english";
 
 // Number of texts sent to LibreTranslate per /translate request. Batching keeps the
 // request count (and the rate-limit budget) low — e.g. ~1000 words become ~20 calls.
-export const TRANSLATE_BATCH_SIZE = 50;
+export const TRANSLATE_BATCH_SIZE = 25;
 
 export interface TargetLanguage extends Choice {
   id: string;
@@ -83,7 +83,10 @@ interface LibreTranslateResponse {
 
 export const TARGET_LANGUAGES: TargetLanguage[] = [
   { id: "french", label: "French", libreCode: "fr", idPrefix: "fr" },
-  { id: "german", label: "German", libreCode: "de", idPrefix: "de" }
+  { id: "german", label: "German", libreCode: "de", idPrefix: "de" },
+  { id: "italian", label: "Italian", libreCode: "it", idPrefix: "it" },
+  { id: "swedish", label: "Swedish", libreCode: "sv", idPrefix: "sv" },
+  { id: "spanish", label: "Spanish", libreCode: "es", idPrefix: "es" }
 ];
 
 export const CATEGORIES: Category[] = [

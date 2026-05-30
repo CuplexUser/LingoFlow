@@ -3,142 +3,511 @@
     "id": "sv-sf-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I like to play football with my friends.",
-    "correctAnswer": "Jag gillar att spela fotboll med mina vänner.",
+    "prompt": "Vocabulary: a sport played with a round ball and two goals",
+    "correctAnswer": "fotboll fotboll",
     "hints": [
-      "Use 'like to + infinitive' for preferences."
+      "It is the most popular sport in the world."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-sf-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "football / swimming / running / cycling",
-    "correctAnswer": "simning",
+    "prompt": "Say: I go running every morning.",
+    "correctAnswer": "Jag springer varje morgon.",
     "hints": [
-      "Which sport is done in water?"
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "fotboll",
-      "simning",
-      "löpning",
-      "cykling"
+      "Practise this phrase out loud."
     ]
   },
   {
     "id": "sv-sf-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I go running every morning.",
-    "correctAnswer": "Jag springer varje morgon.",
+    "prompt": "Ask: Do you play any sports?",
+    "correctAnswer": "Spelar du någon sport?",
     "hints": [
-      "Use simple present for habits."
+      "A common conversation starter."
     ]
+  },
+  {
+    "id": "sv-sf-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I like swimming in the sea.",
+    "correctAnswer": "Jag gillar att simma i havet.",
+    "hints": [
+      "'Like' + gerund for enjoyment."
+    ]
+  },
+  {
+    "id": "sv-sf-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My favourite sport is basketball.",
+    "correctAnswer": "Min favoritsport är basket.",
+    "hints": [
+      "State your preference."
+    ]
+  },
+  {
+    "id": "sv-sf-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the gym?",
+    "correctAnswer": "Var är gymmet?",
+    "hints": [
+      "A useful question when at a hotel or leisure centre."
+    ]
+  },
+  {
+    "id": "sv-sf-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I walk to work every day.",
+    "correctAnswer": "Jag går till jobbet varje dag.",
+    "hints": [
+      "State a daily physical activity."
+    ]
+  },
+  {
+    "id": "sv-sf-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: moving on two wheels",
+    "correctAnswer": "cykling",
+    "hints": [
+      "You use a bicycle."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sv-sf-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am not very sporty.",
+    "correctAnswer": "Jag är inte särskilt sportig.",
+    "hints": [
+      "An honest statement about your fitness habits."
+    ]
+  },
+  {
+    "id": "sv-sf-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How many times a week do you exercise?",
+    "correctAnswer": "Hur många gånger i veckan tränar du?",
+    "hints": [
+      "Use 'how many times' for frequency."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I go running in the morning.",
+    "correctAnswer": "Jag springer på morgonen.",
+    "hints": [
+      "Daily routine sentence."
+    ],
+    "id": "sv-sp-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: We train at the gym twice a week.",
+    "correctAnswer": "Vi tränar på gymmet två gånger i veckan.",
+    "hints": [
+      "Use frequency phrases."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-sp-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you play any team sports?",
+    "correctAnswer": "Spelar du någon lagsport?",
+    "hints": [
+      "Basic sports question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-sp-a1-41"
   },
   {
     "id": "sv-sf-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I train at the gym three times a week.",
-    "correctAnswer": "Jag tränar på gymmet tre gånger i veckan.",
+    "prompt": "Say: I have been going to the gym three times a week.",
+    "correctAnswer": "Jag har gått till gymmet tre gånger i veckan.",
     "hints": [
-      "Include a frequency expression."
+      "Present perfect continuous for an ongoing routine."
     ]
   },
   {
     "id": "sv-sf-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "What does 'to warm up' mean?",
-    "correctAnswer": "att förbereda kroppen inför träning",
+    "prompt": "Ask: Would you like to join me for a run on Sunday?",
+    "correctAnswer": "Vill du gå med mig för en körning på söndag?",
     "hints": [
-      "Think about what you do before exercising."
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "att varva ned",
-      "att förbereda kroppen inför träning",
-      "att stretcha efter löpning",
-      "att lyfta vikter"
+      "'Would you like to' is a polite invitation."
     ]
   },
   {
     "id": "sv-sf-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: My favourite sport is tennis and I play it on weekends.",
-    "correctAnswer": "Min favoritsporten är tennis och jag spelar på helgerna.",
+    "prompt": "Say: I pulled a muscle during my workout yesterday.",
+    "correctAnswer": "Jag drog en muskel under min träning igår.",
     "hints": [
-      "Combine a preference with a habit."
+      "'Pulled a muscle' is the phrase for a mild muscle injury."
     ]
+  },
+  {
+    "id": "sv-sf-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need to warm up before I start training.",
+    "correctAnswer": "Jag behöver värma upp innan jag börjar träna.",
+    "hints": [
+      "'Warm up' means gentle exercise before main activity."
+    ]
+  },
+  {
+    "id": "sv-sf-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What sports facilities does this hotel have?",
+    "correctAnswer": "Vilka sportanläggningar har detta hotell?",
+    "hints": [
+      "'Facilities' means available equipment or rooms."
+    ]
+  },
+  {
+    "id": "sv-sf-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I signed up for a half-marathon next month.",
+    "correctAnswer": "Jag registrerade mig för ett halvmaraton nästa månad.",
+    "hints": [
+      "'Signed up for' means registered for."
+    ]
+  },
+  {
+    "id": "sv-sf-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I try to drink plenty of water after exercise.",
+    "correctAnswer": "Jag försöker dricka mycket vatten efter träning.",
+    "hints": [
+      "'I try to' expresses an intention you sometimes achieve."
+    ]
+  },
+  {
+    "id": "sv-sf-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How long does the yoga class last?",
+    "correctAnswer": "Hur länge håller yogaklassen?",
+    "hints": [
+      "'How long does it last' asks about duration."
+    ]
+  },
+  {
+    "id": "sv-sf-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: She won the gold medal in the hundred metres.",
+    "correctAnswer": "Hon vann guldmedaljen på hundra meter.",
+    "hints": [
+      "Past simple for completed achievement."
+    ]
+  },
+  {
+    "id": "sv-sf-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer outdoor exercise to the gym.",
+    "correctAnswer": "Jag föredrar utomhus träning till gymmet.",
+    "hints": [
+      "'Prefer X to Y' compares two options."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am trying to improve my endurance.",
+    "correctAnswer": "Jag försöker förbättra min uthållighet.",
+    "hints": [
+      "Use present continuous for current goals."
+    ],
+    "id": "sv-sp-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Stretching helps prevent injuries.",
+    "correctAnswer": "Stretching hjälper till att förebygga skador.",
+    "hints": [
+      "General truth form."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-sp-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How long is your usual workout?",
+    "correctAnswer": "Hur länge är din vanliga träning?",
+    "hints": [
+      "Useful gym conversation."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-sp-a2-51"
   },
   {
     "id": "sv-sf-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: She has been training for the marathon for six months.",
-    "correctAnswer": "Hon har tränat för maraton i sex månader.",
+    "prompt": "Say: Consistency is more important than intensity when building a fitness habit.",
+    "correctAnswer": "Konsekvens är viktigare än intensitet när man bygger en fitness vana.",
     "hints": [
-      "Use present perfect for an ongoing action."
+      "'Consistency' means doing something regularly; 'intensity' means how hard you work."
     ]
   },
   {
     "id": "sv-sf-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Regular exercise improves both physical and mental health.",
-    "correctAnswer": "Regelbunden motion förbättrar både den fysiska och mentala hälsan.",
+    "prompt": "Say: I have been training five days a week and can already see improvements in my stamina.",
+    "correctAnswer": "Jag har tränat fem dagar i veckan och kan redan se förbättringar i min uthållighet.",
     "hints": [
-      "Use the third-person singular."
+      "'Stamina' means the ability to sustain effort; present perfect continuous for ongoing."
     ]
   },
   {
     "id": "sv-sf-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "What does 'to set a personal best' mean?",
-    "correctAnswer": "att uppnå sitt bästa resultat någonsin",
+    "prompt": "Ask: Do you think competitive sport teaches important life skills?",
+    "correctAnswer": "Tycker du att konkurrenskraftig sport lär viktiga livsförmågor?",
     "hints": [
-      "Think about competitive sport records."
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "att ställa i ordning utrustning",
-      "att uppnå sitt bästa resultat någonsin",
-      "att träna med en tränare",
-      "att gå med i ett nytt lag"
+      "A discussion question about the value of sport."
     ]
+  },
+  {
+    "id": "sv-sf-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I had to take three weeks off training due to an overuse injury.",
+    "correctAnswer": "Jag var tvungen att ta tre veckor av träning på grund av en överanvändningsskada.",
+    "hints": [
+      "'Overuse injury' comes from too much repetitive activity."
+    ]
+  },
+  {
+    "id": "sv-sf-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My personal trainer recommended incorporating strength work alongside my cardio routine.",
+    "correctAnswer": "Min personliga tränare rekommenderade att införliva styrka arbete tillsammans med min kardio rutin.",
+    "hints": [
+      "'Incorporating' means adding in; 'cardio' = cardiovascular exercise."
+    ]
+  },
+  {
+    "id": "sv-sf-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The mental health benefits of regular exercise are well established.",
+    "correctAnswer": "De mentala hälsofördelarna med regelbunden motion är väl etablerade.",
+    "hints": [
+      "'Well established' = widely accepted based on evidence."
+    ]
+  },
+  {
+    "id": "sv-sf-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A colleague asks why you started running.",
+    "correctAnswer": "Jag började som ett sätt att hantera stress, och det blev något jag verkligen tycker om.",
+    "hints": [
+      "Give a reason and show how it evolved."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sv-sf-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Setting realistic short-term goals makes it easier to stay motivated.",
+    "correctAnswer": "Att sätta realistiska kortsiktiga mål gör det lättare att vara motiverad.",
+    "hints": [
+      "'Realistic' means achievable; 'short-term' means in the near future."
+    ]
+  },
+  {
+    "id": "sv-sf-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Professional athletes often follow highly structured nutrition and recovery plans.",
+    "correctAnswer": "Professionella idrottare följer ofta mycket strukturerade närings- och återhämtningsplaner.",
+    "hints": [
+      "'Structured' = carefully organised; 'nutrition' = what you eat."
+    ]
+  },
+  {
+    "id": "sv-sf-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Have you found that exercising regularly has changed how you feel day to day?",
+    "correctAnswer": "Har du funnit att träning regelbundet har förändrat hur du känner dig dag för dag?",
+    "hints": [
+      "'Day to day' means in daily life; present perfect asks about experience."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Regular exercise has improved my energy levels.",
+    "correctAnswer": "Regelbunden träning har förbättrat min energinivå.",
+    "hints": [
+      "Present perfect for recent impact."
+    ],
+    "id": "sv-sp-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I switched to cycling because it is easier on my knees.",
+    "correctAnswer": "Jag bytte till cykling eftersom det är lättare på knäna.",
+    "hints": [
+      "Explain reason with 'because'."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-sp-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What strategy do you use to stay consistent with training?",
+    "correctAnswer": "Vilken strategi använder du för att hålla dig konsekvent med träning?",
+    "hints": [
+      "Reflective sports question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-sp-b1-61"
   },
   {
     "id": "sv-sf-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
-    "correctAnswer": "Elitidrottare måste balansera intensiv träning med tillräcklig återhämtningstid.",
+    "prompt": "Say: The commercialisation of elite sport raises questions about its relationship with grassroots participation.",
+    "correctAnswer": "Kommersialiseringen av elitsport väcker frågor om dess förhållande till gräsrotsdeltagande.",
     "hints": [
-      "Use the modal 'must' for obligation."
+      "'Commercialisation' = the process of making something about money; 'grassroots' = community level."
     ]
   },
   {
     "id": "sv-sf-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
-    "correctAnswer": "Sjukgymnasten rådde honom att tillfälligt minska träningsbelastningen.",
+    "prompt": "Say: Periodisation — the systematic planning of training cycles — is central to peak athletic performance.",
+    "correctAnswer": "Periodisering - systematisk planering av träningscykler - är central för topp idrottsprestanda.",
     "hints": [
-      "Use 'advise someone to + infinitive'."
+      "'Periodisation' = planned variation in training; 'peak performance' = best possible level."
     ]
   },
   {
     "id": "sv-sf-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The sponsorship deal transformed the club's financial prospects.",
-    "correctAnswer": "Sponsoravtalet förändrade klubbens ekonomiska utsikter.",
+    "prompt": "Ask: To what extent does genetics predetermine athletic potential?",
+    "correctAnswer": "I vilken utsträckning förutbestämmer genetik atletisk potential?",
     "hints": [
-      "Use past tense for a completed event."
+      "'To what extent' = how much; 'predetermine' = decide in advance."
     ]
+  },
+  {
+    "id": "sv-sf-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The proliferation of wearable technology has fundamentally altered how athletes monitor performance.",
+    "correctAnswer": "Spridningen av bärbar teknik har i grunden förändrat hur idrottare övervakar prestanda.",
+    "hints": [
+      "'Proliferation' = rapid increase; 'fundamentally altered' = changed at a basic level."
+    ]
+  },
+  {
+    "id": "sv-sf-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Doping scandals have eroded public trust in competitive sport, particularly at the elite level.",
+    "correctAnswer": "Dopingskandaler har eroderat allmänhetens förtroende för konkurrenskraftig sport, särskilt på elitnivå.",
+    "hints": [
+      "'Eroded' = gradually worn away; 'doping' = use of banned performance-enhancing substances."
+    ]
+  },
+  {
+    "id": "sv-sf-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Maintaining work-life-fitness balance in a sedentary profession requires deliberate effort and planning.",
+    "correctAnswer": "Att upprätthålla balans mellan arbete och liv i stillasittande yrke kräver avsiktlig ansträngning och planering.",
+    "hints": [
+      "'Sedentary' = involving a lot of sitting; 'deliberate' = intentional."
+    ]
+  },
+  {
+    "id": "sv-sf-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How do you think technology is reshaping the spectator experience in modern sport?",
+    "correctAnswer": "Hur tror du att tekniken omformar åskådarens upplevelse i modern sport?",
+    "hints": [
+      "'Reshaping' = changing the form of; 'spectator' = someone who watches."
+    ]
+  },
+  {
+    "id": "sv-sf-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The psychological resilience required at elite level is as demanding as the physical conditioning.",
+    "correctAnswer": "Den psykologiska motståndskraft som krävs på elitnivå är lika krävande som den fysiska konditioneringen.",
+    "hints": [
+      "'Resilience' = ability to bounce back from difficulty; 'conditioning' = physical training state."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: A balanced training plan reduces the risk of overtraining.",
+    "correctAnswer": "En balanserad träningsplan minskar risken för överträning.",
+    "hints": [
+      "Formal fitness vocabulary."
+    ],
+    "id": "sv-sp-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Performance improves when recovery is treated as part of training.",
+    "correctAnswer": "Prestanda förbättras när återhämtning behandlas som en del av utbildningen.",
+    "hints": [
+      "Passive form at B2."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-sp-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How can athletes maintain motivation during long off-seasons?",
+    "correctAnswer": "Hur kan idrottare bibehålla motivation under långa lågsäsonger?",
+    "hints": [
+      "Complex question pattern."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-sp-b2-71"
   }
 ]

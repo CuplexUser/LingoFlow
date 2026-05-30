@@ -3,126 +3,511 @@
     "id": "sv-st-a1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My phone battery is almost empty.",
-    "correctAnswer": "Batteriet i min mobil är nästan slut.",
+    "prompt": "Vocabulary: a machine that processes data",
+    "correctAnswer": "dator",
     "hints": [
-      "Talk about your device."
-    ]
+      "You are probably using one right now."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-st-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: The Wi-Fi is not working.",
-    "correctAnswer": "Wifi fungerar inte.",
+    "prompt": "Say: I use my phone every day.",
+    "correctAnswer": "Jag använder min telefon varje dag.",
     "hints": [
-      "A common connection problem."
+      "A very common modern habit."
     ]
   },
   {
     "id": "sv-st-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My laptop is slow today.",
-    "correctAnswer": "Min dator är seg idag.",
+    "prompt": "Ask: Is there Wi-Fi here?",
+    "correctAnswer": "Finns det Wi-Fi här?",
     "hints": [
-      "A simple device complaint."
+      "A very useful modern question."
     ]
+  },
+  {
+    "id": "sv-st-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My phone battery is dead.",
+    "correctAnswer": "Mitt telefonbatteri är dött.",
+    "hints": [
+      "'Dead' means empty or without power."
+    ]
+  },
+  {
+    "id": "sv-st-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can I charge my phone here?",
+    "correctAnswer": "Kan jag ladda min telefon här?",
+    "hints": [
+      "A practical everyday request."
+    ]
+  },
+  {
+    "id": "sv-st-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a small computer you can carry",
+    "correctAnswer": "laptop",
+    "hints": [
+      "It folds open and has a keyboard."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sv-st-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I send emails for work.",
+    "correctAnswer": "Jag skickar e-post för arbete.",
+    "hints": [
+      "A basic digital communication sentence."
+    ]
+  },
+  {
+    "id": "sv-st-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What is the password for the Wi-Fi?",
+    "correctAnswer": "Vad är lösenordet för Wi-Fi?",
+    "hints": [
+      "A very common modern question."
+    ]
+  },
+  {
+    "id": "sv-st-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I watch videos online.",
+    "correctAnswer": "Jag tittar på videor online.",
+    "hints": [
+      "A simple statement about digital habits."
+    ]
+  },
+  {
+    "id": "sv-st-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My internet connection is very slow.",
+    "correctAnswer": "Min internetanslutning är mycket långsam.",
+    "hints": [
+      "A common frustration with technology."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I use my phone to learn new words.",
+    "correctAnswer": "Jag använder min telefon för att lära mig nya ord.",
+    "hints": [
+      "Simple technology usage sentence."
+    ],
+    "id": "sv-sc-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The computer is very fast.",
+    "correctAnswer": "Datorn är väldigt snabb.",
+    "hints": [
+      "Basic descriptive statement."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-sc-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How do you charge this device?",
+    "correctAnswer": "Hur laddar du den här enheten?",
+    "hints": [
+      "Everyday tech question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-sc-a1-41"
   },
   {
     "id": "sv-st-a2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I need to update the app.",
-    "correctAnswer": "Jag måste uppdatera appen.",
+    "prompt": "Say: I updated the software on my laptop last night.",
+    "correctAnswer": "Jag uppdaterade programvaran på min bärbara dator igår kväll.",
     "hints": [
-      "Think about software updates."
+      "Simple past for a completed action."
     ]
   },
   {
     "id": "sv-st-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Can you send me the link?",
-    "correctAnswer": "Kan du skicka mig länken?",
+    "prompt": "Ask: How do I reset my password?",
+    "correctAnswer": "Hur återställer jag mitt lösenord?",
     "hints": [
-      "Ask for a URL."
+      "A common digital question."
     ]
   },
   {
     "id": "sv-st-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I forgot my password.",
-    "correctAnswer": "Jag har glömt mitt lösenord.",
+    "prompt": "Say: I backed up my files to the cloud.",
+    "correctAnswer": "Jag backade upp mina filer till molnet.",
     "hints": [
-      "A very useful sentence."
+      "'Backed up' = saved a copy; 'the cloud' = online storage."
     ]
+  },
+  {
+    "id": "sv-st-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I use a video call app to stay in touch with my family abroad.",
+    "correctAnswer": "Jag använder en videosamtal app för att hålla kontakten med min familj utomlands.",
+    "hints": [
+      "'Stay in touch' = maintain contact."
+    ]
+  },
+  {
+    "id": "sv-st-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Does this phone have a good camera?",
+    "correctAnswer": "Har telefonen en bra kamera?",
+    "hints": [
+      "Yes/no question with 'does it have'."
+    ]
+  },
+  {
+    "id": "sv-st-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I deleted the app because it was using too much storage.",
+    "correctAnswer": "Jag tog bort appen eftersom den använde för mycket lagring.",
+    "hints": [
+      "'Deleted' = removed; 'storage' = space for files."
+    ]
+  },
+  {
+    "id": "sv-st-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Scientists have discovered a new species of insect in the rainforest.",
+    "correctAnswer": "Forskare har upptäckt en ny art av insekt i regnskogen.",
+    "hints": [
+      "Present perfect for recent scientific news."
+    ]
+  },
+  {
+    "id": "sv-st-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How do I enable two-factor authentication?",
+    "correctAnswer": "Hur aktiverar jag tvåfaktorsautentisering?",
+    "hints": [
+      "Two-factor authentication adds an extra security step."
+    ]
+  },
+  {
+    "id": "sv-st-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I set up an automatic reminder on my phone.",
+    "correctAnswer": "Jag ställer in en automatisk påminnelse på min telefon.",
+    "hints": [
+      "'Set up' = configured; 'automatic reminder' = a scheduled alert."
+    ]
+  },
+  {
+    "id": "sv-st-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer reading physical books to e-books.",
+    "correctAnswer": "Jag föredrar att läsa fysiska böcker till e-böcker.",
+    "hints": [
+      "'Prefer X to Y' for comparing two things."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I updated the app this morning.",
+    "correctAnswer": "Jag uppdaterade appen i morse.",
+    "hints": [
+      "Past simple with tech context."
+    ],
+    "id": "sv-sc-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This website is easier to use than the old one.",
+    "correctAnswer": "Denna webbplats är lättare att använda än den gamla.",
+    "hints": [
+      "Comparative structure."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-sc-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Which tool do you use for online meetings?",
+    "correctAnswer": "Vilket verktyg använder du för onlinemöten?",
+    "hints": [
+      "Functional question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-sc-a2-51"
   },
   {
     "id": "sv-st-b1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "an update",
-    "correctAnswer": "en uppdatering",
+    "prompt": "Say: Artificial intelligence is transforming the way we work and communicate.",
+    "correctAnswer": "Artificiell intelligens förändrar vårt sätt att arbeta och kommunicera.",
     "hints": [
-      "Match the tech term."
-    ],
-    "exerciseType": "matching"
+      "Present continuous for ongoing change."
+    ]
   },
   {
     "id": "sv-st-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Please restart the computer.",
-    "correctAnswer": "Starta om datorn, tack.",
+    "prompt": "Say: I am concerned about the amount of personal data that tech companies collect.",
+    "correctAnswer": "Jag är oroad över mängden personuppgifter som teknikföretag samlar in.",
     "hints": [
-      "A practical instruction."
-    ],
-    "exerciseType": "build_sentence"
+      "'I am concerned about' expresses worry."
+    ]
   },
   {
     "id": "sv-st-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. My screen is frozen.",
-    "correctAnswer": "Prova att stänga appen och öppna igen.",
+    "prompt": "Ask: Do you think children should have limited access to social media?",
+    "correctAnswer": "Tycker du att barn ska ha begränsad tillgång till sociala medier?",
     "hints": [
-      "Offer a quick fix."
+      "'Limited access' = restricted use; invite a discussion."
+    ]
+  },
+  {
+    "id": "sv-st-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Automation has displaced many manufacturing jobs, while creating new roles in tech.",
+    "correctAnswer": "Automation har förskjutit många tillverkningsjobb, samtidigt som man skapar nya roller inom teknik.",
+    "hints": [
+      "'Displaced' = replaced or made redundant; contrast with 'while creating'."
+    ]
+  },
+  {
+    "id": "sv-st-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The algorithm recommends content based on your previous viewing behaviour.",
+    "correctAnswer": "Algoritmen rekommenderar innehåll baserat på ditt tidigare beteende.",
+    "hints": [
+      "'Algorithm' = a set of rules a computer follows; 'viewing behaviour' = what you watch and when."
+    ]
+  },
+  {
+    "id": "sv-st-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Renewable energy technologies have improved dramatically in efficiency and cost over the last decade.",
+    "correctAnswer": "Förnybar energiteknik har förbättrats dramatiskt i effektivitet och kostnad under det senaste decenniet.",
+    "hints": [
+      "Present perfect for change over a time period up to now."
+    ]
+  },
+  {
+    "id": "sv-st-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How might quantum computing change the landscape of data security?",
+    "correctAnswer": "Hur kan kvantdatorer förändra landskapet för datasäkerhet?",
+    "hints": [
+      "'Landscape' here means the overall situation; 'quantum computing' uses quantum mechanics for computation."
+    ]
+  },
+  {
+    "id": "sv-st-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I try to limit my screen time to protect my sleep quality.",
+    "correctAnswer": "Jag försöker begränsa min skärmtid för att skydda min sömnkvalitet.",
+    "hints": [
+      "'Screen time' = time spent looking at devices; 'limit' = set a maximum."
+    ]
+  },
+  {
+    "id": "sv-st-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Open-source software has democratised access to powerful digital tools.",
+    "correctAnswer": "Open-source programvara har demokratiserat tillgång till kraftfulla digitala verktyg.",
+    "hints": [
+      "'Open-source' = freely available code; 'democratised' = made available to everyone."
+    ]
+  },
+  {
+    "id": "sv-st-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Someone asks your opinion on self-driving cars.",
+    "correctAnswer": "Jag tror att de har verklig potential, men säkerhetsbestämmelserna måste komma ikapp tekniken först.",
+    "hints": [
+      "Balance optimism with a practical concern."
     ],
     "exerciseType": "roleplay"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: New technology can improve access to education.",
+    "correctAnswer": "Ny teknik kan förbättra tillgången till utbildning.",
+    "hints": [
+      "General-impact sentence."
+    ],
+    "id": "sv-sc-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I backed up my files in case my laptop failed.",
+    "correctAnswer": "Jag backade upp mina filer om min bärbara dator misslyckades.",
+    "hints": [
+      "Risk-prevention phrasing."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-sc-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What are the benefits of using open-source software?",
+    "correctAnswer": "Vilka är fördelarna med att använda open-source programvara?",
+    "hints": [
+      "Topic question for discussion."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-sc-b1-61"
   },
   {
     "id": "sv-st-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: We should discuss tech ethics.",
-    "correctAnswer": "Vi borde prata om tekniketik.",
+    "prompt": "Say: The convergence of AI, biotechnology, and materials science is ushering in a new industrial paradigm.",
+    "correctAnswer": "Konvergensen av AI, bioteknik och materialvetenskap driver i ett nytt industriellt paradigm.",
     "hints": [
-      "A short thoughtful sentence."
-    ],
-    "exerciseType": "pronunciation"
+      "'Convergence' = coming together; 'ushering in' = introducing; 'paradigm' = a model or framework."
+    ]
   },
   {
     "id": "sv-st-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Data privacy matters to me.",
-    "correctAnswer": "Datasekretess är viktigt för mig.",
+    "prompt": "Ask: How should governments regulate large language models to prevent misuse while preserving innovation?",
+    "correctAnswer": "Hur bör regeringar reglera stora språkmodeller för att förhindra missbruk och samtidigt bevara innovation?",
     "hints": [
-      "Talk about privacy."
-    ],
-    "exerciseType": "pronunciation"
+      "'Large language models' = advanced AI systems; 'misuse' = harmful applications."
+    ]
   },
   {
     "id": "sv-st-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Please back up the files.",
-    "correctAnswer": "Gör en backup av filerna.",
+    "prompt": "Say: CRISPR gene editing raises profound ethical questions about the boundaries of human intervention in biology.",
+    "correctAnswer": "CRISPR-genredigering väcker djupa etiska frågor om gränserna för mänsklig intervention i biologi.",
     "hints": [
-      "A helpful reminder."
+      "'CRISPR' = a gene-editing technology; 'profound' = deep and serious."
+    ]
+  },
+  {
+    "id": "sv-st-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The digital divide exacerbates existing socioeconomic inequalities by limiting access to education and economic opportunity.",
+    "correctAnswer": "Den digitala klyftan förvärrar befintliga socioekonomiska ojämlikheter genom att begränsa tillgången till utbildning och ekonomisk möjlighet.",
+    "hints": [
+      "'Exacerbates' = makes worse; 'digital divide' = gap between those with and without internet access."
+    ]
+  },
+  {
+    "id": "sv-st-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Epistemic challenges posed by deepfakes and synthetic media demand new frameworks for verifying information.",
+    "correctAnswer": "Epistemiska utmaningar ställda av deepfakes och syntetiska medier kräver nya ramar för att verifiera information.",
+    "hints": [
+      "'Epistemic' = relating to knowledge; 'synthetic media' = AI-generated content."
+    ]
+  },
+  {
+    "id": "sv-st-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Does the acceleration of technological change outpace society's capacity to adapt its institutions?",
+    "correctAnswer": "Påskyndar accelerationen av den tekniska förändringen samhällets förmåga att anpassa sina institutioner?",
+    "hints": [
+      "'Outpace' = go faster than; 'adapt its institutions' = change laws, norms, and organisations."
+    ]
+  },
+  {
+    "id": "sv-st-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The ethical framework underpinning AI development remains contested across academic, corporate, and governmental spheres.",
+    "correctAnswer": "Den etiska ramen som ligger till grund för AI-utvecklingen är fortfarande ifrågasatt över akademiska, företags- och regeringssfärer.",
+    "hints": [
+      "'Underpinning' = supporting from beneath; 'contested' = debated."
+    ]
+  },
+  {
+    "id": "sv-st-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Post-quantum cryptography is now a strategic priority for governments concerned about long-term data security.",
+    "correctAnswer": "Post-quantum kryptografi är nu en strategisk prioritering för regeringar som är oroade över långsiktig datasäkerhet.",
+    "hints": [
+      "'Post-quantum cryptography' = encryption designed to resist quantum computer attacks."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Ethical guidelines should evolve as artificial intelligence systems become more capable.",
+    "correctAnswer": "Etiska riktlinjer bör utvecklas eftersom artificiella intelligenssystem blir mer kapabla.",
+    "hints": [
+      "B2 policy-style sentence."
     ],
-    "exerciseType": "pronunciation"
+    "id": "sv-sc-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Automation can increase productivity while reshaping labor markets.",
+    "correctAnswer": "Automatisering kan öka produktiviteten samtidigt som arbetsmarknaden omformas.",
+    "hints": [
+      "Balanced argument sentence."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-sc-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How can regulators encourage innovation without compromising public safety?",
+    "correctAnswer": "Hur kan tillsynsmyndigheterna uppmuntra innovation utan att äventyra allmän säkerhet?",
+    "hints": [
+      "High-level question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-sc-b2-71"
   }
 ]

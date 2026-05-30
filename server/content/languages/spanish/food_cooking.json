@@ -1,393 +1,517 @@
 [
   {
-    "id": "sp-fo-1",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I would like a coffee and a sandwich.",
-    "correctAnswer": "Me gustaría un café y un sándwich.",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "sp-fo-2",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Do you have vegetarian options?",
-    "correctAnswer": "¿Tienen opciones vegetarianas?",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "sp-fo-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Can I have water without ice?",
-    "correctAnswer": "¿Me puede traer agua sin hielo?",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "sp-fc-a1-4",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "bread",
-    "correctAnswer": "el pan",
-    "hints": [
-      "A baked staple food."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-fc-a1-5",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: The bill, please.",
-    "correctAnswer": "La cuenta, por favor.",
-    "hints": [
-      "Essential restaurant phrase."
-    ]
-  },
-  {
-    "id": "sp-fc-a1-6",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "an egg",
-    "correctAnswer": "un huevo",
-    "hints": [
-      "A common ingredient in many dishes."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-fc-a1-7",
+    "id": "es-fo-1",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I am hungry.",
     "correctAnswer": "Tengo hambre.",
     "hints": [
-      "In Spanish, 'tener hambre' literally means 'to have hunger'."
+      "Practise this phrase out loud."
     ]
   },
   {
-    "id": "sp-fc-a1-8",
+    "id": "es-fo-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This food is delicious.",
-    "correctAnswer": "Esta comida está deliciosa.",
+    "prompt": "Ask: Can I have a glass of water, please?",
+    "correctAnswer": "¿Puedo tomar un vaso de agua, por favor?",
     "hints": [
-      "Use 'estar' for a temporary condition or taste."
+      "Practise this phrase out loud."
     ]
   },
   {
-    "id": "sp-fc-a1-9",
+    "id": "es-fo-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a fork",
-    "correctAnswer": "un tenedor",
+    "prompt": "Say: I would like a coffee with milk.",
+    "correctAnswer": "Me gustaría un café con leche.",
     "hints": [
-      "Cutlery used to pick up food."
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "es-fo-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this vegetarian?",
+    "correctAnswer": "¿Es vegetariano?",
+    "hints": [
+      "A short, useful restaurant question."
+    ]
+  },
+  {
+    "id": "es-fo-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The food is delicious.",
+    "correctAnswer": "La comida es deliciosa.",
+    "hints": [
+      "A great compliment to give in a restaurant."
+    ]
+  },
+  {
+    "id": "es-fo-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: the main part of a meal, usually meat or fish",
+    "correctAnswer": "curso principal",
+    "hints": [
+      "It comes after the starter."
     ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "sp-fc-a1-10",
+    "id": "es-fo-16",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: What is today's special?",
-    "correctAnswer": "¿Cuál es el plato del día?",
+    "prompt": "Ask: What is the soup of the day?",
+    "correctAnswer": "¿Cuál es la sopa del día?",
     "hints": [
-      "'Plato del día' is the daily special in Spanish restaurants."
-    ],
-    "culturalNote": "En España, el menú del día suele incluir primer plato, segundo y postre."
+      "A common restaurant question."
+    ]
   },
   {
-    "id": "sp-fo-3",
+    "id": "es-fo-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not eat meat.",
+    "correctAnswer": "No como carne.",
+    "hints": [
+      "A simple dietary restriction statement."
+    ]
+  },
+  {
+    "id": "es-fo-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can we see the menu?",
+    "correctAnswer": "¿Podemos ver el menú?",
+    "hints": [
+      "A polite first request in a restaurant."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "es-fo-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I prefer tea to coffee.",
+    "correctAnswer": "Prefiero el té al café.",
+    "hints": [
+      "Use 'prefer X to Y' to compare two things."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I would like a bowl of soup.",
+    "correctAnswer": "Me gustaría un tazón de sopa.",
+    "hints": [
+      "Simple ordering phrase."
+    ],
+    "id": "es-fo-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this dish spicy?",
+    "correctAnswer": "¿Es picante este plato?",
+    "hints": [
+      "Restaurant question."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-fo-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I cook rice for dinner.",
+    "correctAnswer": "Cocinaré arroz para cenar.",
+    "hints": [
+      "Basic cooking routine."
+    ],
+    "exerciseType": "flashcard",
+    "id": "es-fo-a1-41"
+  },
+  {
+    "id": "es-fo-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am cooking rice with vegetables tonight.",
-    "correctAnswer": "Esta noche estoy cocinando arroz con verduras.",
+    "prompt": "Ask: Does this dish contain any nuts?",
+    "correctAnswer": "¿Este plato contiene nueces?",
     "hints": [
       "Pay attention to the sentence structure."
     ]
   },
   {
-    "id": "sp-fo-4",
+    "id": "es-fo-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Can you add less salt, please?",
-    "correctAnswer": "¿Puede poner menos sal, por favor?",
+    "prompt": "Say: I usually cook dinner at home in the evenings.",
+    "correctAnswer": "Normalmente cocino la cena en casa por las noches.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
   },
   {
-    "id": "sp-fo-10",
+    "id": "es-fo-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I baked bread at home for the first time.",
-    "correctAnswer": "Horneé pan en casa por primera vez.",
+    "prompt": "Say: Could we have the bill, please?",
+    "correctAnswer": "¿Podríamos tener la cuenta, por favor?",
     "hints": [
       "Pay attention to the sentence structure."
     ]
   },
   {
-    "id": "sp-fc-a2-4",
+    "id": "es-fo-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I prefer chicken to red meat.",
-    "correctAnswer": "Prefiero el pollo a la carne roja.",
+    "prompt": "Say: I made pasta with tomato sauce for dinner last night.",
+    "correctAnswer": "Hice pasta con salsa de tomate para cenar anoche.",
     "hints": [
-      "'Preferir A a B' means to prefer A over B."
+      "Simple past tense for a completed action."
     ]
   },
   {
-    "id": "sp-fc-a2-5",
+    "id": "es-fo-21",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We ordered paella for the whole table.",
-    "correctAnswer": "Pedimos paella para toda la mesa.",
+    "prompt": "Ask: How long does it take to prepare this recipe?",
+    "correctAnswer": "¿Cuánto se tarda en preparar esta receta?",
     "hints": [
-      "Use the preterite of 'pedir' for a completed order."
+      "Use 'how long does it take to' for time questions."
+    ]
+  },
+  {
+    "id": "es-fo-22",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I would like to try the local speciality.",
+    "correctAnswer": "Me gustaría probar la especialidad local.",
+    "hints": [
+      "'Would like to' for polite wishes."
+    ]
+  },
+  {
+    "id": "es-fo-23",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Can you recommend a good restaurant near here?",
+    "correctAnswer": "¿Puede recomendar un buen restaurante cerca de aquí?",
+    "hints": [
+      "'Can you recommend' is a common way to ask for suggestions."
+    ]
+  },
+  {
+    "id": "es-fo-24",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I always add garlic and olive oil to my cooking.",
+    "correctAnswer": "Siempre agrego ajo y aceite de oliva a mi cocina.",
+    "hints": [
+      "'I always' expresses a regular habit."
+    ]
+  },
+  {
+    "id": "es-fo-25",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The service here is excellent.",
+    "correctAnswer": "El servicio aquí es excelente.",
+    "hints": [
+      "A polite compliment about a restaurant."
+    ]
+  },
+  {
+    "id": "es-fo-26",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Is it possible to substitute the chips for salad?",
+    "correctAnswer": "¿Es posible sustituir los chips de ensalada?",
+    "hints": [
+      "'Substitute X for Y' means replace X with Y."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am trying a new recipe tonight.",
+    "correctAnswer": "Estoy intentando una nueva receta esta noche.",
+    "hints": [
+      "Present continuous plan sentence."
     ],
-    "culturalNote": "La paella es originaria de la región valenciana de España."
+    "id": "es-fo-a2-49"
   },
   {
-    "id": "sp-fc-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: El cocinero añadió más _____ a la sopa. (sal)",
-    "correctAnswer": "sal",
+    "prompt": "Ask: How long should I bake this cake?",
+    "correctAnswer": "¿Cuánto tiempo debo hornear este pastel?",
     "hints": [
-      "'Añadir' means to add; 'sal' is salt."
+      "Cooking-time question."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "build_sentence",
+    "id": "es-fo-a2-50"
   },
   {
-    "id": "sp-fc-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I do not like spicy food very much.",
-    "correctAnswer": "No me gusta mucho la comida picante.",
+    "prompt": "Say: We ate at a small family restaurant.",
+    "correctAnswer": "Comimos en un pequeño restaurante familiar.",
     "hints": [
-      "'Gustar' with 'no' and 'mucho' for mild dislike."
-    ]
-  },
-  {
-    "id": "sp-fc-a2-8",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We usually eat lunch at two in the afternoon.",
-    "correctAnswer": "Normalmente comemos a las dos de la tarde.",
-    "hints": [
-      "In Spain, lunch is typically the main meal of the day."
+      "Past dining sentence."
     ],
-    "culturalNote": "En España, la comida (almuerzo) suele ser a las 2 o 3 de la tarde."
+    "exerciseType": "cloze_sentence",
+    "id": "es-fo-a2-51"
   },
   {
-    "id": "sp-fc-a2-9",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: Is this dish served with bread?",
-    "correctAnswer": "¿Este plato se sirve con pan?",
+    "id": "es-fo-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have recently started following a plant-based diet.",
+    "correctAnswer": "Hace poco empecé a seguir una dieta basada en plantas.",
     "hints": [
-      "Use reflexive 'servirse' for served dishes."
+      "Present perfect with 'recently' for a recent change."
     ]
   },
   {
-    "id": "sp-fc-a2-10",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "a recipe",
-    "correctAnswer": "una receta",
-    "hints": [
-      "Instructions for making a dish."
-    ],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-fo-5",
+    "id": "es-fo-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The soup tastes better after it simmers for an hour.",
-    "correctAnswer": "La sopa sabe mejor después de hervir a fuego lento durante una hora.",
+    "prompt": "Say: The recipe calls for two cloves of garlic and a pinch of salt.",
+    "correctAnswer": "La receta requiere dos coágulos de ajo y una pizca de sal.",
     "hints": [
-      "Notice the tense or modal used."
+      "'Calls for' in a recipe context means 'requires'."
     ]
   },
   {
-    "id": "sp-fo-6",
+    "id": "es-fo-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I forgot one ingredient, so I changed the recipe.",
-    "correctAnswer": "Olvidé un ingrediente, así que cambié la receta.",
+    "prompt": "Ask: Could you tell me what makes this dish different from traditional versions?",
+    "correctAnswer": "¿Podría decirme qué hace que este plato sea diferente de las versiones tradicionales?",
     "hints": [
-      "Notice the tense or modal used."
+      "'Could you tell me what' introduces an indirect question."
     ]
   },
   {
-    "id": "sp-fo-11",
+    "id": "es-fo-27",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What ingredients make this dish so flavorful?",
-    "correctAnswer": "¿Qué ingredientes hacen que este plato tenga tanto sabor?",
+    "prompt": "Say: I tend to experiment with different cuisines when I cook at home.",
+    "correctAnswer": "Tendré a experimentar con diferentes cocinas cuando cocino en casa.",
     "hints": [
-      "Notice the tense or modal used."
+      "'I tend to' softens a personal habit."
     ]
   },
   {
-    "id": "sp-fc-b1-4",
+    "id": "es-fo-28",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I recommend that you try the gazpacho — it is a cold tomato soup.",
-    "correctAnswer": "Te recomiendo que pruebes el gazpacho: es una sopa fría de tomate.",
+    "prompt": "Say: This is slightly overcooked, but the flavour is still very good.",
+    "correctAnswer": "Esto es ligeramente sobrecocido, pero el sabor sigue siendo muy bueno.",
     "hints": [
-      "'Recomendar que' + present subjunctive."
-    ],
-    "culturalNote": "El gazpacho es un plato típico de Andalucía, perfecto para el verano."
-  },
-  {
-    "id": "sp-fc-b1-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: It is essential that the dough rests for at least thirty minutes.",
-    "correctAnswer": "Es esencial que la masa repose al menos treinta minutos.",
-    "hints": [
-      "'Es esencial que' + present subjunctive."
+      "Soften a complaint with 'slightly' and follow up with a positive."
     ]
   },
   {
-    "id": "sp-fc-b1-6",
+    "id": "es-fo-29",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: When I was a child, my grandmother would cook stew every Sunday.",
-    "correctAnswer": "Cuando era niño, mi abuela cocinaba estofado todos los domingos.",
+    "prompt": "Ask: Would you be able to cater for a gluten-free option?",
+    "correctAnswer": "¿Sería capaz de atender una opción sin gluten?",
     "hints": [
-      "Imperfect tense for habitual past actions."
+      "'Would you be able to' is very polite; 'cater for' means provide for."
     ]
   },
   {
-    "id": "sp-fc-b1-7",
+    "id": "es-fo-30",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I have never tried raw fish before.",
-    "correctAnswer": "Nunca he probado el pescado crudo antes.",
+    "prompt": "Say: Slow cooking on a low heat develops the flavour much better.",
+    "correctAnswer": "La cocina lenta a fuego lento desarrolla el sabor mucho mejor.",
     "hints": [
-      "Present perfect with 'nunca' for a life experience."
+      "'Develops the flavour' is a cooking technique description."
     ]
   },
   {
-    "id": "sp-fc-b1-8",
+    "id": "es-fo-31",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Do you have any food allergies?",
-    "correctAnswer": "Sí, soy alérgico a los frutos secos y al marisco.",
+    "prompt": "Say: I am hosting a dinner party next Saturday and need inspiration.",
+    "correctAnswer": "Estoy organizando una cena el próximo sábado y necesito inspiración.",
     "hints": [
-      "Use 'ser alérgico a' for allergies."
+      "Present continuous for a planned future event."
+    ]
+  },
+  {
+    "id": "es-fo-32",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I find that marinating the meat overnight makes a significant difference.",
+    "correctAnswer": "Encuentro que marinar la carne durante la noche hace una diferencia significativa.",
+    "hints": [
+      "'I find that' introduces a personal discovery."
+    ]
+  },
+  {
+    "id": "es-fo-33",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. Your guest asks if you made the bread yourself.",
+    "correctAnswer": "Sí, lo horneé esta mañana — es una receta agridulce que he estado perfeccionando.",
+    "hints": [
+      "Give a positive answer with a detail."
     ],
     "exerciseType": "roleplay"
   },
   {
-    "id": "sp-fc-b1-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: You need to season the meat before grilling it.",
-    "correctAnswer": "Hay que sazonar la carne antes de asarla.",
+    "prompt": "Say: Homemade meals are often cheaper and healthier.",
+    "correctAnswer": "Las comidas caseras son a menudo más baratas y más saludables.",
     "hints": [
-      "'Hay que + infinitive' for impersonal obligation."
-    ]
-  },
-  {
-    "id": "sp-fc-b1-10",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Fill in the blank: Es mejor que _____ los ingredientes frescos. (uses)",
-    "correctAnswer": "uses",
-    "hints": [
-      "'Es mejor que' triggers the present subjunctive of 'usar'."
+      "Comparison sentence."
     ],
-    "exerciseType": "cloze_sentence"
+    "id": "es-fo-b1-59"
   },
   {
-    "id": "sp-fo-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Which ingredients can replace butter in this recipe?",
+    "correctAnswer": "¿Qué ingredientes pueden reemplazar la mantequilla en esta receta?",
+    "hints": [
+      "Substitution question."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-fo-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I started meal-prepping to save time during the week.",
+    "correctAnswer": "Empecé a preparar comidas para ahorrar tiempo durante la semana.",
+    "hints": [
+      "Purpose clause."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-fo-b1-61"
+  },
+  {
+    "id": "es-fo-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: This dish combines sweet, spicy, and smoky flavors.",
-    "correctAnswer": "Este plato combina sabores dulces, picantes y ahumados.",
+    "prompt": "Say: The interplay of spices in this curry creates an exceptionally nuanced flavour profile.",
+    "correctAnswer": "La interacción de especias en este curry crea un perfil de sabor excepcionalmente matizado.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "'Interplay' means the interaction; 'nuanced' means subtle and complex."
     ]
   },
   {
-    "id": "sp-fo-8",
+    "id": "es-fo-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which technique gives the sauce a smoother texture?",
-    "correctAnswer": "¿Qué técnica le da a la salsa una textura más suave?",
+    "prompt": "Say: Fermentation has experienced a remarkable renaissance in contemporary cuisine.",
+    "correctAnswer": "La fermentación ha experimentado un notable renacimiento en la cocina contemporánea.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Focus on natural phrasing and word order.",
+      "'Renaissance' means a revival of interest."
     ]
   },
   {
-    "id": "sp-fo-12",
+    "id": "es-fo-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I prefer recipes that are simple but still balanced.",
-    "correctAnswer": "Prefiero recetas que sean sencillas pero equilibradas.",
+    "prompt": "Ask: How does the provenance of the ingredients affect the finished dish?",
+    "correctAnswer": "¿Cómo afecta la procedencia de los ingredientes al plato terminado?",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "'Provenance' means the origin or source of something."
     ]
   },
   {
-    "id": "sp-fc-b2-4",
+    "id": "es-fo-34",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The fermentation process is what gives sourdough its characteristic tang.",
-    "correctAnswer": "El proceso de fermentación es lo que le da al pan de masa madre su sabor característico.",
+    "prompt": "Say: Sourcing seasonal, locally-grown produce is both an ecological and a culinary choice.",
+    "correctAnswer": "El cultivo de productos estacionales y cultivados localmente es una opción ecológica y culinaria.",
     "hints": [
-      "'Lo que' introduces a relative clause; 'dar' in the present for general truths."
+      "'Sourcing' means finding and obtaining; 'culinary' relates to cooking."
+    ],
+    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients."
+  },
+  {
+    "id": "es-fo-35",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The chef's tasting menu is an exercise in restraint and precision.",
+    "correctAnswer": "El menú degustación del chef es un ejercicio de moderación y precisión.",
+    "hints": [
+      "'Restraint' here means not over-doing it; 'precision' means exactness."
     ]
   },
   {
-    "id": "sp-fc-b2-5",
+    "id": "es-fo-36",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Were I a professional chef, I would focus on regional, seasonal ingredients.",
-    "correctAnswer": "Si fuera cocinero profesional, me centraría en ingredientes regionales y de temporada.",
+    "prompt": "Say: Umami is often described as the fifth taste, alongside sweet, sour, salty, and bitter.",
+    "correctAnswer": "Umami se describe a menudo como el quinto sabor, junto con dulce, amargo, salado y amargo.",
     "hints": [
-      "Imperfect subjunctive + conditional for a hypothetical."
+      "'Alongside' here means in addition to."
+    ],
+    "culturalNote": "The concept of umami was identified by Japanese chemist Kikunae Ikeda in 1908 and is now widely recognised in global culinary science."
+  },
+  {
+    "id": "es-fo-37",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Would you say the rise of fusion cuisine has enriched or diluted culinary traditions?",
+    "correctAnswer": "¿Dirías que el aumento de la cocina fusión ha enriquecido o diluido las tradiciones culinarias?",
+    "hints": [
+      "'Enriched' means made richer; 'diluted' means weakened; it is a debate question."
     ]
   },
   {
-    "id": "sp-fc-b2-6",
+    "id": "es-fo-38",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The growing interest in plant-based diets reflects a broader shift in consumer values.",
-    "correctAnswer": "El creciente interés por las dietas veganas refleja un cambio más amplio en los valores del consumidor.",
+    "prompt": "Say: The Maillard reaction — the browning of proteins under heat — is fundamental to developing depth of flavour.",
+    "correctAnswer": "La reacción de Maillard —el marronamiento de proteínas bajo calor— es fundamental para desarrollar profundidad de sabor.",
     "hints": [
-      "Third-person singular; 'reflejar' = to reflect."
-    ]
+      "'Maillard reaction' = a chemical process that creates flavour compounds; 'fundamental' = essential."
+    ],
+    "culturalNote": "The Maillard reaction, discovered by Louis-Camille Maillard in 1912, explains why seared meat, toasted bread, and roasted coffee share a characteristic richness."
   },
   {
-    "id": "sp-fc-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: It is a pity that so much food is wasted at the production stage.",
-    "correctAnswer": "Es una lástima que se desperdicie tanta comida en la fase de producción.",
+    "prompt": "Say: Food culture reflects history, climate, and migration.",
+    "correctAnswer": "La cultura alimentaria refleja la historia, el clima y la migración.",
     "hints": [
-      "'Es una lástima que' + present subjunctive."
-    ]
+      "Abstract cultural food concept."
+    ],
+    "id": "es-fo-b2-69"
   },
   {
-    "id": "sp-fc-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The Michelin-starred restaurant had redefined the concept of traditional Spanish cuisine.",
-    "correctAnswer": "El restaurante con estrella Michelin había redefinido el concepto de la cocina española tradicional.",
+    "prompt": "Ask: How can cities reduce food waste across supply chains?",
+    "correctAnswer": "¿Cómo pueden las ciudades reducir los desechos alimentarios en cadenas de suministro?",
     "hints": [
-      "Past perfect for an action completed before another past event."
-    ]
+      "Policy-level food question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-fo-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: A balanced diet depends on variety rather than strict restriction.",
+    "correctAnswer": "Una dieta equilibrada depende de la variedad en lugar de restricción estricta.",
+    "hints": [
+      "B2 nutrition phrasing."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "es-fo-b2-71"
   }
 ]

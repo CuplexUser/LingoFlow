@@ -1,360 +1,513 @@
 [
   {
-    "id": "sp-sf-a1-1",
+    "id": "es-sf-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I like to play football with my friends.",
-    "correctAnswer": "Me gusta jugar al fútbol con mis amigos.",
-    "hints": ["Use 'I like + infinitive' for preferences."],
-    "exerciseType": "build_sentence"
+    "prompt": "Vocabulary: a sport played with a round ball and two goals",
+    "correctAnswer": "fútbol",
+    "hints": [
+      "It is the most popular sport in the world."
+    ],
+    "exerciseType": "flashcard"
   },
   {
-    "id": "sp-sf-a1-2",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "football / swimming / running / cycling",
-    "correctAnswer": "natación",
-    "hints": ["Which sport is done in water?"],
-    "exerciseType": "multiple_choice",
-    "options": ["fútbol", "natación", "correr", "ciclismo"]
-  },
-  {
-    "id": "sp-sf-a1-3",
+    "id": "es-sf-a1-2",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I go running every morning.",
-    "correctAnswer": "Salgo a correr cada mañana.",
-    "hints": ["Use 'go + verb-ing' for sport activities."]
+    "correctAnswer": "Voy corriendo cada mañana.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
   },
   {
-    "id": "sp-sf-a1-4",
+    "id": "es-sf-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a swimming pool",
-    "correctAnswer": "una piscina",
-    "hints": ["Where you swim indoors or outdoors."],
+    "prompt": "Ask: Do you play any sports?",
+    "correctAnswer": "¿Juegas algún deporte?",
+    "hints": [
+      "A common conversation starter."
+    ]
+  },
+  {
+    "id": "es-sf-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I like swimming in the sea.",
+    "correctAnswer": "Me gusta nadar en el mar.",
+    "hints": [
+      "'Like' + gerund for enjoyment."
+    ]
+  },
+  {
+    "id": "es-sf-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My favourite sport is basketball.",
+    "correctAnswer": "Mi deporte favorito es el baloncesto.",
+    "hints": [
+      "State your preference."
+    ]
+  },
+  {
+    "id": "es-sf-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the gym?",
+    "correctAnswer": "¿Dónde está el gimnasio?",
+    "hints": [
+      "A useful question when at a hotel or leisure centre."
+    ]
+  },
+  {
+    "id": "es-sf-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I walk to work every day.",
+    "correctAnswer": "Voy a trabajar todos los días.",
+    "hints": [
+      "State a daily physical activity."
+    ]
+  },
+  {
+    "id": "es-sf-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: moving on two wheels",
+    "correctAnswer": "ciclismo",
+    "hints": [
+      "You use a bicycle."
+    ],
     "exerciseType": "flashcard"
   },
   {
-    "id": "sp-sf-a1-5",
+    "id": "es-sf-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I play basketball at school.",
-    "correctAnswer": "Juego al baloncesto en el colegio.",
-    "hints": ["'Jugar a + sport'; use 'al' before a masculine sport noun."],
-    "exerciseType": "build_sentence"
+    "prompt": "Say: I am not very sporty.",
+    "correctAnswer": "No soy muy deportivo.",
+    "hints": [
+      "An honest statement about your fitness habits."
+    ]
   },
   {
-    "id": "sp-sf-a1-6",
+    "id": "es-sf-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: She rides a bicycle every day.",
-    "correctAnswer": "Ella monta en bicicleta todos los días.",
-    "hints": ["'Montar en bicicleta' = to ride a bike."],
-    "exerciseType": "build_sentence"
+    "prompt": "Ask: How many times a week do you exercise?",
+    "correctAnswer": "¿Cuántas veces a la semana haces ejercicio?",
+    "hints": [
+      "Use 'how many times' for frequency."
+    ]
   },
   {
-    "id": "sp-sf-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a gym",
-    "correctAnswer": "un gimnasio",
-    "hints": ["A place with weights and exercise machines."],
-    "exerciseType": "flashcard"
+    "prompt": "Say: I go running in the morning.",
+    "correctAnswer": "Voy corriendo por la mañana.",
+    "hints": [
+      "Daily routine sentence."
+    ],
+    "id": "es-sp-a1-39"
   },
   {
-    "id": "sp-sf-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I do not like to run.",
-    "correctAnswer": "No me gusta correr.",
-    "hints": ["'No me gusta + infinitive' for dislikes."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-a1-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Which is a team sport?",
-    "correctAnswer": "voleibol",
-    "hints": ["It needs two teams of six players."],
-    "exerciseType": "multiple_choice",
-    "options": ["voleibol", "natación", "ciclismo", "atletismo"]
-  },
-  {
-    "id": "sp-sf-a1-10",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: We play tennis on Saturdays.",
-    "correctAnswer": "Jugamos al tenis los sábados.",
-    "hints": ["'Nosotros jugamos'; 'al' before masculine sport."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-a2-1",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I train at the gym three times a week.",
-    "correctAnswer": "Me entreno en el gimnasio tres veces a la semana.",
-    "hints": ["Include a frequency expression."]
-  },
-  {
-    "id": "sp-sf-a2-2",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "What does 'to warm up' mean?",
-    "correctAnswer": "preparar el cuerpo antes del ejercicio",
-    "hints": ["Think about what you do before exercising."],
-    "exerciseType": "multiple_choice",
-    "options": ["enfriarse", "preparar el cuerpo antes del ejercicio", "estirarse después de correr", "levantar pesas"]
-  },
-  {
-    "id": "sp-sf-a2-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: My favourite sport is tennis and I play it on weekends.",
-    "correctAnswer": "Mi deporte favorito es el tenis y lo practico los fines de semana.",
-    "hints": ["Combine a preference with a habit."]
-  },
-  {
-    "id": "sp-sf-a2-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "to cool down (after exercise)",
-    "correctAnswer": "enfriarse",
-    "hints": ["The slow phase after intense exercise to bring your heart rate down."],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-sf-a2-5",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I started going to the gym last month.",
-    "correctAnswer": "Empecé a ir al gimnasio el mes pasado.",
-    "hints": ["Past tense: 'empecé a + infinitive'."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-a2-6",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: He plays in a local football team.",
-    "correctAnswer": "Juega en un equipo de fútbol local.",
-    "hints": ["Third person singular: 'juega'."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-a2-7",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: Swimming is good for your back.",
-    "correctAnswer": "La natación es buena para la espalda.",
-    "hints": ["Use 'la + sport' when referring to it in general."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-a2-8",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I prefer cycling to running.",
-    "correctAnswer": "Prefiero el ciclismo a correr.",
-    "hints": ["'Prefiero + noun/infinitive + a + noun/infinitive'."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-a2-9",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Choose the best response. Your friend asks: Do you play any sport?",
-    "correctAnswer": "Sí, nado dos veces a la semana.",
-    "hints": ["State the sport and how often."],
-    "exerciseType": "roleplay"
-  },
-  {
-    "id": "sp-sf-a2-10",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We won the match three to one.",
-    "correctAnswer": "Ganamos el partido tres a uno.",
-    "hints": ["'Ganar el partido + score'."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-b1-1",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: She has been training for the marathon for six months.",
-    "correctAnswer": "Lleva seis meses entrenando para el maratón.",
-    "hints": ["Use present tense with duration for an ongoing action."]
-  },
-  {
-    "id": "sp-sf-b1-2",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: Regular exercise improves both physical and mental health.",
-    "correctAnswer": "El ejercicio regular mejora tanto la salud física como la mental.",
-    "hints": ["Use the third-person singular."]
-  },
-  {
-    "id": "sp-sf-b1-3",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "What does 'to set a personal best' mean?",
-    "correctAnswer": "lograr tu mejor resultado de siempre",
-    "hints": ["Think about competitive sport records."],
-    "exerciseType": "multiple_choice",
-    "options": ["preparar el equipo", "lograr tu mejor resultado de siempre", "entrenar con un entrenador", "unirse a un nuevo equipo"]
-  },
-  {
-    "id": "sp-sf-b1-4",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "stamina",
-    "correctAnswer": "resistencia",
-    "hints": ["The ability to keep exercising for a long time without tiring."],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-sf-b1-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: Stretching after exercise helps prevent muscle soreness.",
-    "correctAnswer": "Estirar después del ejercicio ayuda a prevenir el dolor muscular.",
-    "hints": ["Infinitive as subject; 'ayuda a + infinitive'."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-b1-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: The coach told us to increase our training intensity.",
-    "correctAnswer": "El entrenador nos dijo que aumentáramos la intensidad del entrenamiento.",
-    "hints": ["'Decir que' + imperfect subjunctive for reported command."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-b1-7",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I had to withdraw from the competition due to an injury.",
-    "correctAnswer": "Tuve que retirarme de la competición por una lesión.",
-    "hints": ["'Tuve que + infinitive' = had to; 'retirarme' = withdraw."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-b1-8",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: Running a marathon requires months of dedicated preparation.",
-    "correctAnswer": "Correr un maratón requiere meses de preparación dedicada.",
-    "hints": ["Infinitive as subject; formal tone."],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "sp-sf-b1-9",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Choose the best response. Your teammate says: I pulled a muscle.",
-    "correctAnswer": "Tienes que descansar y aplicarte hielo.",
-    "hints": ["Give two pieces of practical advice."],
-    "exerciseType": "roleplay"
-  },
-  {
-    "id": "sp-sf-b1-10",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I prefer team sports because they keep me motivated.",
-    "correctAnswer": "Prefiero los deportes de equipo porque me mantienen motivado.",
-    "hints": ["Give your preference + reason with 'porque'."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-b2-1",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
-    "correctAnswer": "Los atletas de élite deben equilibrar el entrenamiento intenso con un tiempo de recuperación adecuado.",
-    "hints": ["Use the modal 'must' for obligation."]
-  },
-  {
-    "id": "sp-sf-b2-2",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: The physiotherapist advised him to reduce his training load temporarily.",
-    "correctAnswer": "El fisioterapeuta le aconsejó reducir temporalmente su carga de entrenamiento.",
-    "hints": ["Use 'advise someone to + infinitive'."]
-  },
-  {
-    "id": "sp-sf-b2-3",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: The sponsorship deal transformed the club's financial prospects.",
-    "correctAnswer": "El acuerdo de patrocinio transformó las perspectivas financieras del club.",
-    "hints": ["Use past tense for a completed event."]
-  },
-  {
-    "id": "sp-sf-b2-4",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "overtraining syndrome",
-    "correctAnswer": "síndrome de sobreentrenamiento",
-    "hints": ["What happens when an athlete trains too much without enough rest."],
-    "exerciseType": "flashcard"
-  },
-  {
-    "id": "sp-sf-b2-5",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Performance-enhancing drugs undermine the integrity of sport.",
-    "correctAnswer": "Las sustancias para mejorar el rendimiento socavan la integridad del deporte.",
-    "hints": ["Formal register; 'socavar' = to undermine."],
-    "exerciseType": "pronunciation"
-  },
-  {
-    "id": "sp-sf-b2-6",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: The athlete's mental resilience was as important as her physical conditioning.",
-    "correctAnswer": "La resiliencia mental de la atleta era tan importante como su estado físico.",
-    "hints": ["'tan + adjective + como' for equal comparisons."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-b2-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: The federation announced stricter doping controls ahead of the championship.",
-    "correctAnswer": "La federación anunció controles antidopaje más estrictos antes del campeonato.",
-    "hints": ["Past tense announcement; 'más estrictos' = stricter."],
-    "exerciseType": "build_sentence"
-  },
-  {
-    "id": "sp-sf-b2-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "What does 'periodización' refer to in sports training?",
-    "correctAnswer": "the systematic planning of training cycles to peak performance at the right time",
-    "hints": ["Athletes and coaches use it to avoid fatigue before key competitions."],
-    "exerciseType": "multiple_choice",
-    "options": ["the systematic planning of training cycles to peak performance at the right time", "a type of warm-up routine", "a nutritional supplement schedule", "a recovery massage technique"]
-  },
-  {
-    "id": "sp-sf-b2-9",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Choose the best response. An interviewer asks: How do you cope with the pressure of major tournaments?",
-    "correctAnswer": "Trabajo con un psicólogo deportivo para gestionar la ansiedad antes de competir.",
-    "hints": ["Mention a professional support strategy."],
-    "exerciseType": "roleplay"
-  },
-  {
-    "id": "sp-sf-b2-10",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Investment in grassroots sport creates long-term societal benefits.",
-    "correctAnswer": "La inversión en el deporte de base genera beneficios sociales a largo plazo.",
-    "hints": ["Gerund subject; formal register."],
+    "prompt": "Say: We train at the gym twice a week.",
+    "correctAnswer": "Entrenamos en el gimnasio dos veces a la semana.",
+    "hints": [
+      "Use frequency phrases."
+    ],
     "exerciseType": "build_sentence",
-    "culturalNote": "España ha producido atletas olímpicos de élite en deportes como el tenis, el ciclismo y la natación."
+    "id": "es-sp-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you play any team sports?",
+    "correctAnswer": "¿Juegas a algún deporte de equipo?",
+    "hints": [
+      "Basic sports question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "es-sp-a1-41"
+  },
+  {
+    "id": "es-sf-a2-1",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have been going to the gym three times a week.",
+    "correctAnswer": "He ido al gimnasio tres veces a la semana.",
+    "hints": [
+      "Present perfect continuous for an ongoing routine."
+    ]
+  },
+  {
+    "id": "es-sf-a2-2",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Would you like to join me for a run on Sunday?",
+    "correctAnswer": "¿Te gustaría acompañarme para una carrera el domingo?",
+    "hints": [
+      "'Would you like to' is a polite invitation."
+    ]
+  },
+  {
+    "id": "es-sf-a2-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I pulled a muscle during my workout yesterday.",
+    "correctAnswer": "He tirado un músculo durante mi entrenamiento ayer.",
+    "hints": [
+      "'Pulled a muscle' is the phrase for a mild muscle injury."
+    ]
+  },
+  {
+    "id": "es-sf-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need to warm up before I start training.",
+    "correctAnswer": "Necesito calentarme antes de empezar a entrenar.",
+    "hints": [
+      "'Warm up' means gentle exercise before main activity."
+    ]
+  },
+  {
+    "id": "es-sf-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What sports facilities does this hotel have?",
+    "correctAnswer": "¿Qué instalaciones deportivas tiene este hotel?",
+    "hints": [
+      "'Facilities' means available equipment or rooms."
+    ]
+  },
+  {
+    "id": "es-sf-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I signed up for a half-marathon next month.",
+    "correctAnswer": "Me inscribí a media maratón el próximo mes.",
+    "hints": [
+      "'Signed up for' means registered for."
+    ]
+  },
+  {
+    "id": "es-sf-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I try to drink plenty of water after exercise.",
+    "correctAnswer": "Trato de beber mucha agua después del ejercicio.",
+    "hints": [
+      "'I try to' expresses an intention you sometimes achieve."
+    ]
+  },
+  {
+    "id": "es-sf-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How long does the yoga class last?",
+    "correctAnswer": "¿Cuánto dura la clase de yoga?",
+    "hints": [
+      "'How long does it last' asks about duration."
+    ]
+  },
+  {
+    "id": "es-sf-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: She won the gold medal in the hundred metres.",
+    "correctAnswer": "Ganó la medalla de oro en cien metros.",
+    "hints": [
+      "Past simple for completed achievement."
+    ]
+  },
+  {
+    "id": "es-sf-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer outdoor exercise to the gym.",
+    "correctAnswer": "Prefiero el ejercicio al aire libre al gimnasio.",
+    "hints": [
+      "'Prefer X to Y' compares two options."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am trying to improve my endurance.",
+    "correctAnswer": "Estoy tratando de mejorar mi resistencia.",
+    "hints": [
+      "Use present continuous for current goals."
+    ],
+    "id": "es-sp-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Stretching helps prevent injuries.",
+    "correctAnswer": "El estiramiento ayuda a prevenir lesiones.",
+    "hints": [
+      "General truth form."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-sp-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How long is your usual workout?",
+    "correctAnswer": "¿Cuánto dura tu entrenamiento habitual?",
+    "hints": [
+      "Useful gym conversation."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-sp-a2-51"
+  },
+  {
+    "id": "es-sf-b1-1",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Consistency is more important than intensity when building a fitness habit.",
+    "correctAnswer": "La consistencia es más importante que la intensidad cuando se construye un hábito de fitness.",
+    "hints": [
+      "'Consistency' means doing something regularly; 'intensity' means how hard you work."
+    ]
+  },
+  {
+    "id": "es-sf-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been training five days a week and can already see improvements in my stamina.",
+    "correctAnswer": "He estado entrenando cinco días a la semana y ya puedo ver mejoras en mi resistencia.",
+    "hints": [
+      "'Stamina' means the ability to sustain effort; present perfect continuous for ongoing."
+    ]
+  },
+  {
+    "id": "es-sf-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Do you think competitive sport teaches important life skills?",
+    "correctAnswer": "¿Crees que el deporte competitivo enseña habilidades vitales importantes?",
+    "hints": [
+      "A discussion question about the value of sport."
+    ]
+  },
+  {
+    "id": "es-sf-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I had to take three weeks off training due to an overuse injury.",
+    "correctAnswer": "Tuve que tomar tres semanas de entrenamiento debido a una lesión por exceso de uso.",
+    "hints": [
+      "'Overuse injury' comes from too much repetitive activity."
+    ]
+  },
+  {
+    "id": "es-sf-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My personal trainer recommended incorporating strength work alongside my cardio routine.",
+    "correctAnswer": "Mi entrenador personal recomendó incorporar el trabajo de fuerza junto a mi rutina cardio.",
+    "hints": [
+      "'Incorporating' means adding in; 'cardio' = cardiovascular exercise."
+    ]
+  },
+  {
+    "id": "es-sf-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The mental health benefits of regular exercise are well established.",
+    "correctAnswer": "Los beneficios para la salud mental del ejercicio regular están bien establecidos.",
+    "hints": [
+      "'Well established' = widely accepted based on evidence."
+    ]
+  },
+  {
+    "id": "es-sf-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A colleague asks why you started running.",
+    "correctAnswer": "Comencé como una manera de manejar el estrés, y se convirtió en algo que realmente disfruto.",
+    "hints": [
+      "Give a reason and show how it evolved."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "es-sf-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Setting realistic short-term goals makes it easier to stay motivated.",
+    "correctAnswer": "Establecer metas realistas a corto plazo hace más fácil mantenerse motivado.",
+    "hints": [
+      "'Realistic' means achievable; 'short-term' means in the near future."
+    ]
+  },
+  {
+    "id": "es-sf-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Professional athletes often follow highly structured nutrition and recovery plans.",
+    "correctAnswer": "Los atletas profesionales suelen seguir planes de nutrición y recuperación altamente estructurados.",
+    "hints": [
+      "'Structured' = carefully organised; 'nutrition' = what you eat."
+    ]
+  },
+  {
+    "id": "es-sf-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Have you found that exercising regularly has changed how you feel day to day?",
+    "correctAnswer": "¿Has encontrado que hacer ejercicio regularmente ha cambiado cómo te sientes día a día?",
+    "hints": [
+      "'Day to day' means in daily life; present perfect asks about experience."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Regular exercise has improved my energy levels.",
+    "correctAnswer": "El ejercicio regular ha mejorado mis niveles de energía.",
+    "hints": [
+      "Present perfect for recent impact."
+    ],
+    "id": "es-sp-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I switched to cycling because it is easier on my knees.",
+    "correctAnswer": "He cambiado al ciclismo porque es más fácil en mis rodillas.",
+    "hints": [
+      "Explain reason with 'because'."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-sp-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What strategy do you use to stay consistent with training?",
+    "correctAnswer": "¿Qué estrategia utiliza para mantenerse coherente con el entrenamiento?",
+    "hints": [
+      "Reflective sports question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-sp-b1-61"
+  },
+  {
+    "id": "es-sf-b2-1",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The commercialisation of elite sport raises questions about its relationship with grassroots participation.",
+    "correctAnswer": "La comercialización del deporte de élite plantea preguntas sobre su relación con la participación popular.",
+    "hints": [
+      "'Commercialisation' = the process of making something about money; 'grassroots' = community level."
+    ]
+  },
+  {
+    "id": "es-sf-b2-2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Periodisation — the systematic planning of training cycles — is central to peak athletic performance.",
+    "correctAnswer": "La duración —la planificación sistemática de los ciclos de formación— es fundamental para el rendimiento atlético máximo.",
+    "hints": [
+      "'Periodisation' = planned variation in training; 'peak performance' = best possible level."
+    ]
+  },
+  {
+    "id": "es-sf-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: To what extent does genetics predetermine athletic potential?",
+    "correctAnswer": "¿En qué medida la genética predetermina el potencial atlético?",
+    "hints": [
+      "'To what extent' = how much; 'predetermine' = decide in advance."
+    ]
+  },
+  {
+    "id": "es-sf-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The proliferation of wearable technology has fundamentally altered how athletes monitor performance.",
+    "correctAnswer": "La proliferación de la tecnología usable ha alterado fundamentalmente cómo los atletas vigilan el rendimiento.",
+    "hints": [
+      "'Proliferation' = rapid increase; 'fundamentally altered' = changed at a basic level."
+    ]
+  },
+  {
+    "id": "es-sf-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Doping scandals have eroded public trust in competitive sport, particularly at the elite level.",
+    "correctAnswer": "Los escándalos de dopaje han erosionado la confianza pública en el deporte competitivo, especialmente a nivel de élite.",
+    "hints": [
+      "'Eroded' = gradually worn away; 'doping' = use of banned performance-enhancing substances."
+    ]
+  },
+  {
+    "id": "es-sf-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Maintaining work-life-fitness balance in a sedentary profession requires deliberate effort and planning.",
+    "correctAnswer": "El mantenimiento del equilibrio entre la vida laboral y la vida en una profesión sedentaria requiere un esfuerzo y una planificación deliberados.",
+    "hints": [
+      "'Sedentary' = involving a lot of sitting; 'deliberate' = intentional."
+    ]
+  },
+  {
+    "id": "es-sf-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How do you think technology is reshaping the spectator experience in modern sport?",
+    "correctAnswer": "¿Cómo crees que la tecnología está remodelando la experiencia del espectador en el deporte moderno?",
+    "hints": [
+      "'Reshaping' = changing the form of; 'spectator' = someone who watches."
+    ]
+  },
+  {
+    "id": "es-sf-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The psychological resilience required at elite level is as demanding as the physical conditioning.",
+    "correctAnswer": "La resiliencia psicológica necesaria a nivel de élite es tan exigente como el condicionamiento físico.",
+    "hints": [
+      "'Resilience' = ability to bounce back from difficulty; 'conditioning' = physical training state."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: A balanced training plan reduces the risk of overtraining.",
+    "correctAnswer": "Un plan de capacitación equilibrado reduce el riesgo de sobreentrenamiento.",
+    "hints": [
+      "Formal fitness vocabulary."
+    ],
+    "id": "es-sp-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Performance improves when recovery is treated as part of training.",
+    "correctAnswer": "El rendimiento mejora cuando la recuperación se trata como parte de la capacitación.",
+    "hints": [
+      "Passive form at B2."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-sp-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How can athletes maintain motivation during long off-seasons?",
+    "correctAnswer": "¿Cómo pueden los atletas mantener la motivación durante largas temporadas?",
+    "hints": [
+      "Complex question pattern."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "es-sp-b2-71"
   }
 ]

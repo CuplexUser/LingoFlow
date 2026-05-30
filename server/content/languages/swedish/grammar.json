@@ -3,120 +3,516 @@
     "id": "sv-gr-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I am reading a short story now.",
-    "correctAnswer": "Jag läser en kort berättelse nu.",
+    "prompt": "Fill in the blank: 'She ___ a teacher.' (to be)",
+    "correctAnswer": "Hon är lärare.",
     "hints": [
-      "Practise this phrase out loud."
+      "Use the correct form of 'to be' for she."
     ]
   },
   {
     "id": "sv-gr-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Yesterday I studied for two hours.",
-    "correctAnswer": "I går studerade jag i två timmar.",
+    "prompt": "Say: They are my friends.",
+    "correctAnswer": "De är mina vänner.",
     "hints": [
       "Practise this phrase out loud."
     ]
   },
   {
     "id": "sv-gr-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: Tomorrow I will practice with my friend.",
-    "correctAnswer": "I morgon ska jag öva med min vän.",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: 'I ___ like coffee.' (not)",
+    "correctAnswer": "Jag gillar inte kaffe.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "For present simple negative, use 'do not'."
     ]
+  },
+  {
+    "id": "sv-gr-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: 'We ___ students.' (to be)",
+    "correctAnswer": "Vi är studenter.",
+    "hints": [
+      "'We' uses 'are'."
+    ]
+  },
+  {
+    "id": "sv-gr-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the correct form: 'He ___ English every day.' (study)",
+    "correctAnswer": "Han studerar engelska varje dag.",
+    "hints": [
+      "Third person singular adds -s or -es to the verb."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sv-gr-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: There is a book on the table.",
+    "correctAnswer": "Det finns en bok på bordet.",
+    "hints": [
+      "Use 'there is' for one thing, 'there are' for more than one."
+    ]
+  },
+  {
+    "id": "sv-gr-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: '___ you like tea?' (to do)",
+    "correctAnswer": "Gillar du te?",
+    "hints": [
+      "Yes/no questions in present simple use 'do'."
+    ]
+  },
+  {
+    "id": "sv-gr-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the article: 'She has ___ umbrella.' (a/an)",
+    "correctAnswer": "Hon har ett paraply.",
+    "hints": [
+      "Use 'an' before a vowel sound."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sv-gr-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am not tired.",
+    "correctAnswer": "Jag är inte trött.",
+    "hints": [
+      "Negative of 'to be': add 'not'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sv-gr-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: 'The cats ___ sleeping.' (to be)",
+    "correctAnswer": "Katterna sover.",
+    "hints": [
+      "Plural subject uses 'are' in the present continuous."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: She goes to school every day.",
+    "correctAnswer": "Hon går till skolan varje dag.",
+    "hints": [
+      "Notice the -s in third person singular."
+    ],
+    "id": "sv-gr-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: They are happy.",
+    "correctAnswer": "De är lyckliga.",
+    "hints": [
+      "Use 'are' with 'they'."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-gr-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this sentence correct?",
+    "correctAnswer": "Är denna dom korrekt?",
+    "hints": [
+      "Grammar-check question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-gr-a1-41"
   },
   {
     "id": "sv-gr-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: If I have time, I will review the lesson.",
-    "correctAnswer": "Om jag har tid ska jag repetera lektionen.",
+    "prompt": "Say: I went to the supermarket yesterday.",
+    "correctAnswer": "Jag gick till stormarknaden igår.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "'Went' is the irregular past tense of 'go'."
     ]
   },
   {
     "id": "sv-gr-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I have been studying Swedish for six months.",
-    "correctAnswer": "Jag har studerat svenska i sex månader.",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: 'She ___ been waiting for an hour.' (have/has)",
+    "correctAnswer": "Hon har väntat en timme.",
     "hints": [
-      "Notice the tense or modal used."
+      "Third person singular uses 'has' in perfect tenses."
     ]
   },
   {
     "id": "sv-gr-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I would travel more if flights were cheaper.",
-    "correctAnswer": "Jag skulle resa mer om flygen var billigare.",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: If it rains, we will stay inside.",
+    "correctAnswer": "Om det regnar kommer vi att stanna inom oss.",
     "hints": [
-      "Notice the tense or modal used."
+      "First conditional: 'if' + present simple, 'will' + infinitive."
     ]
   },
   {
-    "id": "sv-gr-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: By the time we arrive, they will have finished dinner.",
-    "correctAnswer": "När vi kommer fram kommer de att ha avslutat middagen.",
+    "id": "sv-gr-20",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the correct form: 'I ___ to the cinema last Saturday.' (go)",
+    "correctAnswer": "Jag åkte till bio i lördags.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Use the simple past for a completed past event."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sv-gr-21",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: 'He ___ working at seven this morning.' (was/were)",
+    "correctAnswer": "Han arbetade på sju i morse.",
+    "hints": [
+      "He/she/it uses 'was' in past continuous."
+    ]
+  },
+  {
+    "id": "sv-gr-22",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We have lived here for five years.",
+    "correctAnswer": "Vi har bott här i fem år.",
+    "hints": [
+      "Present perfect with 'for' expresses duration up to now."
+    ]
+  },
+  {
+    "id": "sv-gr-23",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the correct comparative: 'This book is ___ than the other one.' (interesting)",
+    "correctAnswer": "Denna bok är mer intressant än den andra.",
+    "hints": [
+      "Long adjectives use 'more' for comparatives."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sv-gr-24",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: '___ you been to Paris?' (have/has)",
+    "correctAnswer": "Har du varit i Paris?",
+    "hints": [
+      "Question form of present perfect with 'you'."
+    ]
+  },
+  {
+    "id": "sv-gr-25",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: She used to play the piano when she was young.",
+    "correctAnswer": "Hon brukade spela piano när hon var ung.",
+    "hints": [
+      "'Used to' expresses a past habit that no longer continues."
+    ]
+  },
+  {
+    "id": "sv-gr-26",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: 'You should ___ more water.' (drink)",
+    "correctAnswer": "Du bör dricka mer vatten.",
+    "hints": [
+      "'Should' is followed by the base infinitive."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have lived here for two years.",
+    "correctAnswer": "Jag har bott här i två år.",
+    "hints": [
+      "Present perfect for duration."
+    ],
+    "id": "sv-gr-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: If it rains, we will stay home.",
+    "correctAnswer": "Om det regnar kommer vi att stanna hemma.",
+    "hints": [
+      "First conditional pattern."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-gr-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Should I use much or many here?",
+    "correctAnswer": "Ska jag använda mycket eller många här?",
+    "hints": [
+      "Countability grammar prompt."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-gr-a2-51"
+  },
+  {
+    "id": "sv-gr-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: If I had more time, I would learn a third language.",
+    "correctAnswer": "Om jag hade mer tid skulle jag lära mig ett tredje språk.",
+    "hints": [
+      "Second conditional: 'if' + past simple, 'would' + infinitive."
     ]
   },
   {
     "id": "sv-gr-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Had I known earlier, I would have changed the plan.",
-    "correctAnswer": "Hade jag vetat det tidigare skulle jag ha ändrat planen.",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: 'By the time she arrives, we ___ finished dinner.' (will have)",
+    "correctAnswer": "När hon anländer har vi avslutat middagen.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Future perfect for an action completed before a future point."
     ]
   },
   {
     "id": "sv-gr-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: Every morning I write three new words.",
-    "correctAnswer": "Varje morgon skriver jag tre nya ord.",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Despite feeling tired, she continued working.",
+    "correctAnswer": "Trots trötthet fortsatte hon att arbeta.",
     "hints": [
-      "Practise this phrase out loud."
+      "'Despite' is followed by a noun or gerund (-ing form)."
     ]
   },
   {
-    "id": "sv-gr-10",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We were cooking when the guests arrived.",
-    "correctAnswer": "Vi lagade mat när gästerna kom.",
+    "id": "sv-gr-27",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the correct passive form: 'The report ___ by the team last week.' (write)",
+    "correctAnswer": "Rapporten skrevs av laget förra veckan.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "Passive past simple: was/were + past participle."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sv-gr-28",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: He told me that he had already sent the email.",
+    "correctAnswer": "Han berättade för mig att han redan hade skickat e-postmeddelandet.",
+    "hints": [
+      "Reported speech shifts tense: 'has sent' → 'had sent'."
+    ]
+  },
+  {
+    "id": "sv-gr-29",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: 'I wish I ___ more time to practise.' (had/have)",
+    "correctAnswer": "Jag önskar att jag hade mer tid att träna.",
+    "hints": [
+      "'I wish' + past simple expresses a present regret."
+    ]
+  },
+  {
+    "id": "sv-gr-30",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Not only did she win the race, but she also broke the record.",
+    "correctAnswer": "Inte bara vann hon loppet, men hon bröt också rekordet.",
+    "hints": [
+      "'Not only... but also' requires inversion after 'not only'."
+    ]
+  },
+  {
+    "id": "sv-gr-31",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: 'She is used to ___ early.' (wake)",
+    "correctAnswer": "Hon används för att vakna tidigt.",
+    "hints": [
+      "'Be used to' is followed by the gerund (-ing)."
+    ]
+  },
+  {
+    "id": "sv-gr-32",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The meeting was cancelled owing to the poor weather conditions.",
+    "correctAnswer": "Mötet avbröts på grund av dåliga väderförhållanden.",
+    "hints": [
+      "'Owing to' is a formal way of saying 'because of'."
+    ]
+  },
+  {
+    "id": "sv-gr-33",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the correct relative pronoun: 'The person ___ called left no message.' (who/which)",
+    "correctAnswer": "Den som ringde lämnade inget meddelande.",
+    "hints": [
+      "Use 'who' for people; 'which' for things."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I wish I had more time to practice.",
+    "correctAnswer": "Jag önskar att jag hade mer tid att träna.",
+    "hints": [
+      "Use past form after 'wish' for present unreal situations."
+    ],
+    "id": "sv-gr-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The report that you sent was very helpful.",
+    "correctAnswer": "Den rapport som du skickade var till stor hjälp.",
+    "hints": [
+      "Relative clause example."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-gr-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: When should I use the passive voice?",
+    "correctAnswer": "När ska jag använda den passiva rösten?",
+    "hints": [
+      "Usage question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-gr-b1-61"
+  },
+  {
+    "id": "sv-gr-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I known about the delay, I would have taken an earlier train.",
+    "correctAnswer": "Hade jag vetat om förseningen hade jag tagit ett tidigare tåg.",
+    "hints": [
+      "Inverted third conditional: 'Had I...' replaces 'If I had...'"
     ]
   },
   {
     "id": "sv-gr-11",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I had already left when the message arrived.",
-    "correctAnswer": "Jag hade redan gått när meddelandet kom.",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: 'Rarely ___ I see such attention to detail.' (have)",
+    "correctAnswer": "Sällan har jag sett en sådan uppmärksamhet på detaljer.",
     "hints": [
-      "Notice the tense or modal used."
+      "Fronted negative adverbs require subject-auxiliary inversion."
     ]
   },
   {
     "id": "sv-gr-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: If I had practiced more, I would be more confident now.",
-    "correctAnswer": "Om jag hade övat mer skulle jag vara säkrare nu.",
+    "prompt": "Say: The proposal, which had been drafted over several months, was ultimately rejected.",
+    "correctAnswer": "Förslaget, som utarbetats under flera månader, avvisades slutligen.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Non-defining relative clause in commas; past perfect passive."
     ]
+  },
+  {
+    "id": "sv-gr-34",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: 'No sooner ___ she arrived than the meeting began.' (had)",
+    "correctAnswer": "Inte förr hade hon kommit än mötet började.",
+    "hints": [
+      "'No sooner' triggers inversion; 'than' follows rather than 'when'."
+    ]
+  },
+  {
+    "id": "sv-gr-35",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is high time we addressed the underlying structural issues.",
+    "correctAnswer": "Det är hög tid att vi behandlar de underliggande strukturella frågorna.",
+    "hints": [
+      "'It is high time' + past subjunctive expresses urgency."
+    ]
+  },
+  {
+    "id": "sv-gr-36",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the correct form: 'The data ___ analysed before any conclusions can be drawn.' (must be)",
+    "correctAnswer": "Uppgifterna ska analyseras innan eventuella slutsatser kan dras.",
+    "hints": [
+      "Modal passive: modal + be + past participle."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "sv-gr-37",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Were she to apply, she would be a strong candidate for the position.",
+    "correctAnswer": "Om hon skulle ansöka, skulle hon vara en stark kandidat för positionen.",
+    "hints": [
+      "Inverted conditional with 'were to' for formal, hypothetical situations."
+    ]
+  },
+  {
+    "id": "sv-gr-38",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: 'The more you practise, ___ you become.' (fluent)",
+    "correctAnswer": "Ju mer du övar, desto mer flytande blir du.",
+    "hints": [
+      "'The more... the more...' is a comparative structure expressing proportional change."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I known earlier, I would have prepared differently.",
+    "correctAnswer": "Hade jag vetat tidigare hade jag förberett mig annorlunda.",
+    "hints": [
+      "Inverted third conditional."
+    ],
+    "id": "sv-gr-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Not only did she finish on time, but she also improved the draft.",
+    "correctAnswer": "Hon avslutade inte bara i tid, men hon förbättrade också utkastet.",
+    "hints": [
+      "Inversion after negative adverbials."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-gr-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How does emphasis change when we front a phrase?",
+    "correctAnswer": "Hur ändras betoning när vi frontar en fras?",
+    "hints": [
+      "Advanced grammar awareness question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-gr-b2-71"
   }
 ]

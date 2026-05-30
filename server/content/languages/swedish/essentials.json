@@ -4,7 +4,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: Hello, how are you?",
-    "correctAnswer": "Hej, hur mår du?",
+    "correctAnswer": "Hej, hur är du?",
     "hints": [
       "Practise this phrase out loud."
     ]
@@ -24,7 +24,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I do not understand this sentence.",
-    "correctAnswer": "Jag förstår inte den här meningen.",
+    "correctAnswer": "Jag förstår inte denna mening.",
     "hints": [
       "Practise this phrase out loud."
     ]
@@ -34,7 +34,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: Excuse me, where is the bathroom?",
-    "correctAnswer": "Ursäkta, var är toaletten?",
+    "correctAnswer": "Ursäkta mig, var är badrummet?",
     "hints": [
       "Practise this phrase out loud."
     ]
@@ -44,95 +44,97 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My name is Anna.",
-    "correctAnswer": "Jag heter Anna.",
+    "correctAnswer": "Mitt namn är Anna.",
     "hints": [
-      "'Heter' means 'am called'."
+      "A basic introduction."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "build_sentence"
   },
   {
     "id": "sv-es-a1-6",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Yes, please.",
-    "correctAnswer": "Ja, tack.",
+    "prompt": "please",
+    "correctAnswer": "snälla snälla",
     "hints": [
-      "'Tack' means both 'thanks' and 'please'."
+      "A polite word you add to requests."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "imageUrl": "/images/placeholder.svg"
   },
   {
     "id": "sv-es-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: No, thank you.",
-    "correctAnswer": "Nej, tack.",
+    "prompt": "Say: Yes, I am fine.",
+    "correctAnswer": "Ja, jag mår bra.",
     "hints": [
-      "A polite way to decline."
+      "A short positive reply."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "pronunciation"
   },
   {
     "id": "sv-es-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Good morning!",
-    "correctAnswer": "God morgon!",
+    "prompt": "Choose the best response. Someone says: How are you?",
+    "correctAnswer": "Jag mår bra, tack.",
     "hints": [
-      "A morning greeting."
+      "Pick a polite reply."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "roleplay"
   },
   {
     "id": "sv-es-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Goodbye, see you later!",
-    "correctAnswer": "Hej då, vi ses!",
+    "prompt": "Say: Good morning!",
+    "correctAnswer": "God morgon!",
     "hints": [
-      "'Vi ses' literally means 'we see each other'."
-    ]
+      "A greeting for the start of the day."
+    ],
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "sv-es-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I am sorry.",
-    "correctAnswer": "Förlåt.",
+    "prompt": "I ___ from Spain.",
+    "correctAnswer": "är jag",
     "hints": [
-      "A single word for apology."
+      "Use the correct form of 'to be'."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "sv-es-a1-11",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I speak a little Swedish.",
-    "correctAnswer": "Jag talar lite svenska.",
+    "prompt": "Say: Goodbye, see you later!",
+    "correctAnswer": "Hej, se dig senare!",
     "hints": [
-      "'Lite' means 'a little'."
-    ],
-    "exerciseType": "build_sentence"
+      "A common farewell."
+    ]
   },
   {
     "id": "sv-es-a1-12",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: What does that mean?",
-    "correctAnswer": "Vad betyder det?",
+    "prompt": "sorry / happy / hungry / tired",
+    "correctAnswer": "förlåt",
     "hints": [
-      "A useful question when learning."
-    ]
+      "Which word do you use to apologise?"
+    ],
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "sv-es-a1-13",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: How do you say this in Swedish?",
-    "correctAnswer": "Hur säger man det på svenska?",
+    "prompt": "Say: I need help, please.",
+    "correctAnswer": "Behöver hjälp, snälla.",
     "hints": [
-      "'Man' is the impersonal pronoun."
+      "Ask for assistance politely."
     ],
     "exerciseType": "build_sentence"
   },
@@ -140,10 +142,10 @@
     "id": "sv-es-a1-14",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I need help.",
-    "correctAnswer": "Jag behöver hjälp.",
+    "prompt": "Say: Nice to meet you.",
+    "correctAnswer": "Trevligt att träffa dig.",
     "hints": [
-      "A basic request phrase."
+      "A greeting when meeting someone new."
     ],
     "exerciseType": "pronunciation"
   },
@@ -151,19 +153,61 @@
     "id": "sv-es-a1-15",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "good night",
-    "correctAnswer": "god natt",
+    "prompt": "Say: I am sorry, I do not know.",
+    "correctAnswer": "Jag är ledsen, jag vet inte.",
     "hints": [
-      "Said before going to sleep."
+      "Practise admitting you do not know something."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Could you repeat that, please?",
+    "correctAnswer": "Kan du upprepa det, snälla?",
+    "hints": [
+      "A polite clarification request."
     ],
-    "exerciseType": "flashcard"
+    "id": "sv-es-a1-53"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am learning every day.",
+    "correctAnswer": "Jag lär mig varje dag.",
+    "hints": [
+      "Present continuous can also work in context."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-es-a1-54"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What does this word mean?",
+    "correctAnswer": "Vad betyder detta ord?",
+    "hints": [
+      "Core classroom question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-es-a1-55"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: Thank you for your patience.",
+    "correctAnswer": "Tack för ditt tålamod.",
+    "hints": [
+      "Polite expression for support."
+    ],
+    "exerciseType": "pronunciation",
+    "id": "sv-es-a1-56"
   },
   {
     "id": "sv-es-4",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Could you speak more slowly, please?",
-    "correctAnswer": "Kan du prata långsammare, tack?",
+    "correctAnswer": "Kan du prata långsammare, snälla?",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -172,8 +216,8 @@
     "id": "sv-es-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am learning Swedish every day.",
-    "correctAnswer": "Jag lär mig svenska varje dag.",
+    "prompt": "Say: I am learning English every day.",
+    "correctAnswer": "Jag lär mig engelska varje dag.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -189,44 +233,47 @@
     ]
   },
   {
-    "id": "sv-es-13",
+    "id": "sv-es-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Could you write that down for me?",
-    "correctAnswer": "Kan du skriva ner det åt mig?",
+    "prompt": "Say: I usually wake up at seven o'clock.",
+    "correctAnswer": "Jag brukar vakna klockan sju.",
     "hints": [
-      "Pay attention to the sentence structure."
-    ]
+      "Describe a daily routine.",
+      "Use the present tense."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "sv-es-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I usually take the bus to work.",
-    "correctAnswer": "Jag brukar ta bussen till jobbet.",
+    "prompt": "I ___ to school yesterday.",
+    "correctAnswer": "gick",
     "hints": [
-      "'Brukar' expresses habitual actions."
+      "Use the past tense of 'go'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "sv-es-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I went to the store yesterday.",
-    "correctAnswer": "Jag gick till affären igår.",
+    "prompt": "Say: Can you help me find the exit?",
+    "correctAnswer": "Kan du hjälpa mig att hitta utgången?",
     "hints": [
-      "'Gick' is the past tense of 'gå'."
-    ]
+      "A polite request for directions."
+    ],
+    "exerciseType": "pronunciation"
   },
   {
     "id": "sv-es-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the best response. Someone says: Tack för hjälpen!",
-    "correctAnswer": "Ingen orsak!",
+    "prompt": "Choose the best response. You are lost in a shop.",
+    "correctAnswer": "Ursäkta mig, var är utgången?",
     "hints": [
-      "How do you say 'you're welcome' in Swedish?"
+      "Ask politely for help."
     ],
     "exerciseType": "roleplay"
   },
@@ -234,87 +281,98 @@
     "id": "sv-es-a2-8",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: Jag ___ inte förstå vad han sa.",
-    "correctAnswer": "kunde",
+    "prompt": "Say: I bought some bread and milk.",
+    "correctAnswer": "Jag köpte lite bröd och mjölk.",
     "hints": [
-      "Past tense of 'kan' (can)."
+      "Use the past tense of 'buy'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "sv-es-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Do you want coffee or tea?",
-    "correctAnswer": "Vill du ha kaffe eller te?",
+    "prompt": "appointment / meeting / address / receipt",
+    "correctAnswer": "kvitto",
     "hints": [
-      "'Vill du ha' means 'do you want'."
+      "Which word means the paper you get after paying?"
     ],
-    "exerciseType": "build_sentence",
-    "culturalNote": "Offering coffee is central to Swedish fika culture."
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "sv-es-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I did not know that.",
-    "correctAnswer": "Det visste jag inte.",
+    "prompt": "to apologise",
+    "correctAnswer": "att be om ursäkt",
     "hints": [
-      "Note the V2 word order: the verb comes second."
-    ]
+      "To say you are sorry for something."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-es-a2-11",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: It was nice talking to you.",
-    "correctAnswer": "Det var trevligt att prata med dig.",
+    "prompt": "Say: I left my bag on the bus.",
+    "correctAnswer": "Jag lämnade min väska på bussen.",
     "hints": [
-      "A polite closing phrase."
-    ],
-    "exerciseType": "pronunciation"
+      "Use the past tense of 'leave'."
+    ]
   },
   {
     "id": "sv-es-a2-12",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Can I ask you a question?",
-    "correctAnswer": "Kan jag ställa en fråga?",
+    "prompt": "She ___ English and French.",
+    "correctAnswer": "talar",
     "hints": [
-      "'Ställa en fråga' means 'to ask a question'."
+      "Use the correct present tense form."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "cloze_sentence"
   },
   {
-    "id": "sv-es-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I have lived here for two years.",
-    "correctAnswer": "Jag har bott här i två år.",
+    "prompt": "Say: I can explain it in another way.",
+    "correctAnswer": "Jag kan förklara det på ett annat sätt.",
     "hints": [
-      "Use 'har' + past participle for present perfect."
-    ]
-  },
-  {
-    "id": "sv-es-a2-14",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: The weather is nice today.",
-    "correctAnswer": "Vädret är fint idag.",
-    "hints": [
-      "'Vädret' is an ett-word with definite article."
-    ]
-  },
-  {
-    "id": "sv-es-a2-15",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I like Sweden very much.",
-    "correctAnswer": "Jag gillar Sverige väldigt mycket.",
-    "hints": [
-      "'Gillar' is informal for 'like'."
+      "Use this during misunderstandings."
     ],
-    "exerciseType": "pronunciation"
+    "id": "sv-es-a2-61"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Is there a simpler example?",
+    "correctAnswer": "Finns det ett enklare exempel?",
+    "hints": [
+      "Good for checking comprehension."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-es-a2-62"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I usually review new words at night.",
+    "correctAnswer": "Jag brukar se nya ord på natten.",
+    "hints": [
+      "Use adverbs with routine verbs."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-es-a2-63"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I almost forgot to send the message.",
+    "correctAnswer": "Jag glömde nästan att skicka meddelandet.",
+    "hints": [
+      "Shows near-miss actions."
+    ],
+    "exerciseType": "pronunciation",
+    "id": "sv-es-a2-64"
   },
   {
     "id": "sv-es-6",
@@ -331,7 +389,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like to improve my pronunciation.",
-    "correctAnswer": "Jag skulle vilja förbättra mitt uttal.",
+    "correctAnswer": "Jag vill förbättra mitt uttal.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -341,137 +399,152 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I understand the idea, but I need more practice.",
-    "correctAnswer": "Jag förstår idén, men jag behöver mer övning.",
+    "correctAnswer": "Jag förstår idén, men jag behöver mer praxis.",
     "hints": [
       "Notice the tense or modal used."
     ]
   },
   {
-    "id": "sv-es-14",
+    "id": "sv-es-b1-4",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I feel more confident when I speak in longer sentences.",
-    "correctAnswer": "Jag känner mig säkrare när jag talar i längre meningar.",
+    "prompt": "Say: Although it was raining, we walked to the park.",
+    "correctAnswer": "Även om det regnade gick vi till parken.",
     "hints": [
-      "Notice the tense or modal used."
-    ]
+      "Connect two ideas with 'although'."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "sv-es-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Even though it is difficult, I keep practising.",
-    "correctAnswer": "Trots att det är svårt fortsätter jag att öva.",
+    "prompt": "I have ___ living here for three years.",
+    "correctAnswer": "varit",
     "hints": [
-      "'Trots att' means 'even though'.",
-      "Note the V2 word order after the subordinate clause."
-    ]
+      "Use present perfect continuous."
+    ],
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "sv-es-b1-6",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: Jag ___ gärna hjälpa dig om du vill.",
-    "correctAnswer": "kan",
+    "prompt": "Choose the best response. Someone asks: Can you explain this word?",
+    "correctAnswer": "Visst betyder det att uttrycka något tydligt.",
     "hints": [
-      "A modal verb expressing ability."
+      "Give a helpful explanation."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "dialogue_turn"
   },
   {
     "id": "sv-es-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: It depends on the situation.",
-    "correctAnswer": "Det beror på situationen.",
+    "prompt": "Say: I should have called you earlier.",
+    "correctAnswer": "Jag borde ha ringt dig tidigare.",
     "hints": [
-      "'Beror på' is a common expression."
+      "Express regret about a past action."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "pronunciation"
   },
   {
     "id": "sv-es-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Someone asks: Behöver du hjälp med något?",
-    "correctAnswer": "Ja, tack! Jag undrar var närmaste apotek ligger.",
+    "prompt": "Say: Could you tell me where the post office is?",
+    "correctAnswer": "Kan du berätta var postkontoret är?",
     "hints": [
-      "Accept the help and ask for directions."
+      "Use an indirect question for politeness."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "build_sentence"
   },
   {
     "id": "sv-es-b1-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I have been thinking about this for a long time.",
-    "correctAnswer": "Jag har tänkt på det här länge.",
+    "prompt": "fluent / confident / nervous / accurate",
+    "correctAnswer": "flytande",
     "hints": [
-      "Use 'har' + past participle."
-    ]
+      "Which word means speaking a language smoothly?"
+    ],
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "sv-es-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Could you explain that in a different way?",
-    "correctAnswer": "Kan du förklara det på ett annat sätt?",
+    "prompt": "Say: The instructions were not clear enough.",
+    "correctAnswer": "Instruktionerna var inte tillräckligt tydliga.",
     "hints": [
-      "A useful phrase when you don't understand."
-    ],
-    "exerciseType": "pronunciation"
+      "Use 'enough' after the adjective."
+    ]
   },
   {
     "id": "sv-es-b1-11",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I agree with you to some extent.",
-    "correctAnswer": "Jag håller med dig till viss del.",
+    "prompt": "Say: I have been waiting for twenty minutes.",
+    "correctAnswer": "Jag har väntat tjugo minuter.",
     "hints": [
-      "'Hålla med' means 'to agree with'."
-    ]
+      "Use present perfect continuous for duration.",
+      "Connect the two ideas."
+    ],
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "sv-es-b1-12",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: On the other hand, there are other perspectives.",
-    "correctAnswer": "Å andra sidan finns det andra perspektiv.",
+    "prompt": "to complain",
+    "correctAnswer": "att klaga",
     "hints": [
-      "'Å andra sidan' is a common connector."
+      "To express dissatisfaction about something."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "flashcard"
   },
   {
-    "id": "sv-es-b1-13",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: As far as I know, the shop closes at five.",
-    "correctAnswer": "Såvitt jag vet stänger butiken klockan fem.",
+    "prompt": "Say: I have been practicing this expression for weeks.",
+    "correctAnswer": "Jag har övat detta uttryck i veckor.",
     "hints": [
-      "'Såvitt jag vet' expresses limited certainty."
-    ]
-  },
-  {
-    "id": "sv-es-b1-14",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: Let me think about it and I will get back to you.",
-    "correctAnswer": "Låt mig tänka på det så återkommer jag.",
-    "hints": [
-      "'Återkommer' means 'get back to'."
+      "Present perfect continuous for duration."
     ],
-    "exerciseType": "build_sentence"
+    "id": "sv-es-b1-69"
   },
   {
-    "id": "sv-es-b1-15",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I would rather stay home tonight.",
-    "correctAnswer": "Jag skulle hellre stanna hemma ikväll.",
+    "prompt": "Ask: Could we compare these two options?",
+    "correctAnswer": "Kan vi jämföra dessa två alternativ?",
     "hints": [
-      "'Hellre' means 'rather' or 'preferably'."
-    ]
+      "Collaborative discussion language."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-es-b1-70"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I understood the idea but missed one detail.",
+    "correctAnswer": "Jag förstod idén men missade en detalj.",
+    "hints": [
+      "Natural reflection sentence."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-es-b1-71"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am trying to sound more natural in conversations.",
+    "correctAnswer": "Jag försöker låta mer naturligt i samtal.",
+    "hints": [
+      "Goal-focused phrasing."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-es-b1-72"
   },
   {
     "id": "sv-es-8",
@@ -494,33 +567,35 @@
     ]
   },
   {
-    "id": "sv-es-15",
+    "id": "sv-es-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Even when I make small mistakes, I can keep the conversation flowing.",
-    "correctAnswer": "Även när jag gör små misstag kan jag hålla samtalet flytande.",
+    "prompt": "Say: It is essential to adapt your tone to the situation.",
+    "correctAnswer": "Det är viktigt att anpassa din ton till situationen.",
     "hints": [
+      "Consider the register.",
       "Focus on natural phrasing and word order."
     ]
   },
   {
-    "id": "sv-es-16",
+    "id": "sv-es-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I try to choose expressions that sound natural in context.",
-    "correctAnswer": "Jag försöker välja uttryck som låter naturliga i sitt sammanhang.",
+    "prompt": "The more you practise, the ___ confident you become.",
+    "correctAnswer": "mer",
     "hints": [
-      "Focus on natural phrasing and word order."
-    ]
+      "Use the comparative structure 'the more... the more...'."
+    ],
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "sv-es-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The more I practise, the more natural it becomes.",
-    "correctAnswer": "Ju mer jag övar, desto naturligare blir det.",
+    "prompt": "Say: Had I known the answer, I would have spoken up.",
+    "correctAnswer": "Hade jag känt svaret hade jag talat.",
     "hints": [
-      "'Ju ... desto' is the Swedish comparative construction."
+      "Use inverted third conditional."
     ],
     "exerciseType": "build_sentence"
   },
@@ -528,106 +603,129 @@
     "id": "sv-es-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I would appreciate it if you could give me some feedback.",
-    "correctAnswer": "Jag skulle uppskatta om du kunde ge mig lite feedback.",
+    "prompt": "Choose the best response. Your colleague misunderstood your email.",
+    "correctAnswer": "Jag ber om ursäkt för förvirringen; låt mig klargöra vad jag menade.",
     "hints": [
-      "Use conditional for politeness."
-    ]
+      "Respond professionally and politely."
+    ],
+    "exerciseType": "dialogue_turn"
   },
   {
     "id": "sv-es-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: It is worth noting that communication is more than just words.",
-    "correctAnswer": "Det är värt att notera att kommunikation är mer än bara ord.",
+    "prompt": "ambiguous / vague / precise / redundant",
+    "correctAnswer": "tvetydig",
     "hints": [
-      "'Värt att notera' is a formal expression."
+      "Which word means open to more than one interpretation?"
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "sv-es-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: Hon ___ inte ha menat det så.",
-    "correctAnswer": "kan",
+    "prompt": "Say: Effective communication requires both clarity and empathy.",
+    "correctAnswer": "Effektiv kommunikation kräver både tydlighet och empati.",
     "hints": [
-      "A modal expressing possibility or doubt."
+      "Focus on natural phrasing and word order."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "pronunciation"
   },
   {
     "id": "sv-es-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Regardless of the outcome, the experience was valuable.",
-    "correctAnswer": "Oavsett utfallet var erfarenheten värdefull.",
+    "prompt": "Say: I would rather rephrase the question than give a misleading answer.",
+    "correctAnswer": "Jag skulle hellre betona frågan än att ge ett vilseledande svar.",
     "hints": [
-      "'Oavsett' means 'regardless of'."
+      "Use 'would rather... than...' for preferences."
     ]
   },
   {
     "id": "sv-es-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I tend to express myself more clearly in writing.",
-    "correctAnswer": "Jag brukar uttrycka mig tydligare i skrift.",
+    "prompt": "Say: Despite the language barrier, we managed to communicate effectively.",
+    "correctAnswer": "Trots språkbarriären lyckades vi kommunicera effektivt.",
     "hints": [
-      "'Brukar' can mean 'tend to' as well as 'usually'."
+      "Use 'despite' followed by a noun phrase."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "sv-es-b2-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Nuance matters when discussing sensitive topics.",
-    "correctAnswer": "Nyanser spelar roll när man diskuterar känsliga ämnen.",
+    "prompt": "to paraphrase",
+    "correctAnswer": "till parafras",
     "hints": [
-      "'Spelar roll' means 'matters'."
-    ]
+      "To express the same idea using different words."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-es-b2-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the best response. Someone says: Jag vet inte riktigt hur jag ska förklara det.",
-    "correctAnswer": "Ta din tid, jag lyssnar gärna.",
+    "prompt": "Say: Nuance is what separates adequate language from truly fluent speech.",
+    "correctAnswer": "Nuance är det som skiljer tillräckligt språk från verkligt flytande tal.",
     "hints": [
-      "Respond supportively and patiently."
-    ],
-    "exerciseType": "roleplay",
-    "culturalNote": "Swedes value 'lagom' — moderation and patience in conversation."
+      "Consider the register."
+    ]
   },
   {
     "id": "sv-es-b2-13",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: In hindsight, I should have been more direct.",
-    "correctAnswer": "I efterhand borde jag ha varit mer direkt.",
+    "prompt": "Say: Being articulate is not the same as being verbose.",
+    "correctAnswer": "Att vara artikulerad är inte samma sak som att vara verbose.",
     "hints": [
-      "'I efterhand' means 'in hindsight'."
-    ]
-  },
-  {
-    "id": "sv-es-b2-14",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Being able to adapt your language to the audience is a key skill.",
-    "correctAnswer": "Att kunna anpassa sitt språk efter publiken är en viktig färdighet.",
-    "hints": [
-      "Use an infinitive phrase as subject."
+      "Focus on natural phrasing and word order."
     ],
     "exerciseType": "build_sentence"
   },
   {
-    "id": "sv-es-b2-15",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I find it fascinating how language shapes our thinking.",
-    "correctAnswer": "Jag tycker det är fascinerande hur språket formar vårt tänkande.",
+    "prompt": "Say: I can infer the meaning from context most of the time.",
+    "correctAnswer": "Jag kan dra slutsatsen från sammanhanget för det mesta.",
     "hints": [
-      "A reflective sentence about language."
-    ]
+      "Academic-style phrasing."
+    ],
+    "id": "sv-es-b2-77"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Could you clarify the nuance of that expression?",
+    "correctAnswer": "Kan du klargöra nyansen av det uttrycket?",
+    "hints": [
+      "Useful for advanced accuracy."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-es-b2-78"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I am confident, although I still make occasional mistakes.",
+    "correctAnswer": "Jag är säker, även om jag fortfarande gör tillfälliga misstag.",
+    "hints": [
+      "Use concession for balanced statements."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-es-b2-79"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would rather reformulate the sentence than translate it directly.",
+    "correctAnswer": "Jag skulle hellre reformera meningen än översätta den direkt.",
+    "hints": [
+      "Shows advanced strategy."
+    ],
+    "exerciseType": "dictation_sentence",
+    "id": "sv-es-b2-80"
   }
 ]

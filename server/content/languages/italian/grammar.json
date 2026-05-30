@@ -3,120 +3,516 @@
     "id": "it-gr-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I am reading a short story now.",
-    "correctAnswer": "Sto leggendo un racconto breve adesso.",
+    "prompt": "Fill in the blank: 'She ___ a teacher.' (to be)",
+    "correctAnswer": "E' un'insegnante.",
     "hints": [
-      "Practise this phrase out loud."
+      "Use the correct form of 'to be' for she."
     ]
   },
   {
     "id": "it-gr-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Yesterday I studied for two hours.",
-    "correctAnswer": "Ieri ho studiato per due ore.",
+    "prompt": "Say: They are my friends.",
+    "correctAnswer": "Sono miei amici.",
     "hints": [
       "Practise this phrase out loud."
     ]
   },
   {
     "id": "it-gr-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: Tomorrow I will practice with my friend.",
-    "correctAnswer": "Domani mi eserciterò con il mio amico.",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: 'I ___ like coffee.' (not)",
+    "correctAnswer": "Non mi piace il caffè.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "For present simple negative, use 'do not'."
     ]
+  },
+  {
+    "id": "it-gr-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: 'We ___ students.' (to be)",
+    "correctAnswer": "Siamo studenti.",
+    "hints": [
+      "'We' uses 'are'."
+    ]
+  },
+  {
+    "id": "it-gr-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the correct form: 'He ___ English every day.' (study)",
+    "correctAnswer": "Studia inglese ogni giorno.",
+    "hints": [
+      "Third person singular adds -s or -es to the verb."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-gr-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: There is a book on the table.",
+    "correctAnswer": "C'è un libro sul tavolo.",
+    "hints": [
+      "Use 'there is' for one thing, 'there are' for more than one."
+    ]
+  },
+  {
+    "id": "it-gr-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: '___ you like tea?' (to do)",
+    "correctAnswer": "Ti piace il tè?",
+    "hints": [
+      "Yes/no questions in present simple use 'do'."
+    ]
+  },
+  {
+    "id": "it-gr-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Choose the article: 'She has ___ umbrella.' (a/an)",
+    "correctAnswer": "Ha un ombrello.",
+    "hints": [
+      "Use 'an' before a vowel sound."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-gr-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am not tired.",
+    "correctAnswer": "Non sono stanca.",
+    "hints": [
+      "Negative of 'to be': add 'not'."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-gr-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Fill in the blank: 'The cats ___ sleeping.' (to be)",
+    "correctAnswer": "I gatti dormono.",
+    "hints": [
+      "Plural subject uses 'are' in the present continuous."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: She goes to school every day.",
+    "correctAnswer": "Va a scuola ogni giorno.",
+    "hints": [
+      "Notice the -s in third person singular."
+    ],
+    "id": "it-gr-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: They are happy.",
+    "correctAnswer": "Sono felici.",
+    "hints": [
+      "Use 'are' with 'they'."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-gr-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this sentence correct?",
+    "correctAnswer": "Questa frase e' corretta?",
+    "hints": [
+      "Grammar-check question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "it-gr-a1-41"
   },
   {
     "id": "it-gr-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: If I have time, I will review the lesson.",
-    "correctAnswer": "Se ho tempo, ripasserò la lezione.",
+    "prompt": "Say: I went to the supermarket yesterday.",
+    "correctAnswer": "Sono andato al supermercato ieri.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "'Went' is the irregular past tense of 'go'."
     ]
   },
   {
     "id": "it-gr-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I have been studying Italian for six months.",
-    "correctAnswer": "Studio l'italiano da sei mesi.",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: 'She ___ been waiting for an hour.' (have/has)",
+    "correctAnswer": "Sta aspettando da un'ora.",
     "hints": [
-      "Notice the tense or modal used."
+      "Third person singular uses 'has' in perfect tenses."
     ]
   },
   {
     "id": "it-gr-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I would travel more if flights were cheaper.",
-    "correctAnswer": "Viaggerei di più se i voli fossero più economici.",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: If it rains, we will stay inside.",
+    "correctAnswer": "Se piove, resteremo dentro.",
     "hints": [
-      "Notice the tense or modal used."
+      "First conditional: 'if' + present simple, 'will' + infinitive."
     ]
   },
   {
-    "id": "it-gr-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: By the time we arrive, they will have finished dinner.",
-    "correctAnswer": "Quando arriveremo, avranno già finito di cenare.",
+    "id": "it-gr-20",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the correct form: 'I ___ to the cinema last Saturday.' (go)",
+    "correctAnswer": "Sono andata al cinema sabato scorso.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Use the simple past for a completed past event."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-gr-21",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: 'He ___ working at seven this morning.' (was/were)",
+    "correctAnswer": "Stamattina lavorava alle sette.",
+    "hints": [
+      "He/she/it uses 'was' in past continuous."
+    ]
+  },
+  {
+    "id": "it-gr-22",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We have lived here for five years.",
+    "correctAnswer": "Abbiamo vissuto qui per cinque anni.",
+    "hints": [
+      "Present perfect with 'for' expresses duration up to now."
+    ]
+  },
+  {
+    "id": "it-gr-23",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the correct comparative: 'This book is ___ than the other one.' (interesting)",
+    "correctAnswer": "Questo libro è più interessante dell'altro.",
+    "hints": [
+      "Long adjectives use 'more' for comparatives."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-gr-24",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: '___ you been to Paris?' (have/has)",
+    "correctAnswer": "Sei stato a Parigi?",
+    "hints": [
+      "Question form of present perfect with 'you'."
+    ]
+  },
+  {
+    "id": "it-gr-25",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: She used to play the piano when she was young.",
+    "correctAnswer": "Suonava il piano quando era giovane.",
+    "hints": [
+      "'Used to' expresses a past habit that no longer continues."
+    ]
+  },
+  {
+    "id": "it-gr-26",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Fill in the blank: 'You should ___ more water.' (drink)",
+    "correctAnswer": "Dovresti bere più acqua.",
+    "hints": [
+      "'Should' is followed by the base infinitive."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have lived here for two years.",
+    "correctAnswer": "Ho vissuto qui per due anni.",
+    "hints": [
+      "Present perfect for duration."
+    ],
+    "id": "it-gr-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: If it rains, we will stay home.",
+    "correctAnswer": "Se piove, resteremo a casa.",
+    "hints": [
+      "First conditional pattern."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-gr-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Should I use much or many here?",
+    "correctAnswer": "Dovrei usare molto o molti qui?",
+    "hints": [
+      "Countability grammar prompt."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-gr-a2-51"
+  },
+  {
+    "id": "it-gr-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: If I had more time, I would learn a third language.",
+    "correctAnswer": "Se avessi più tempo, imparerei una terza lingua.",
+    "hints": [
+      "Second conditional: 'if' + past simple, 'would' + infinitive."
     ]
   },
   {
     "id": "it-gr-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Had I known earlier, I would have changed the plan.",
-    "correctAnswer": "Se lo avessi saputo prima, avrei cambiato il piano.",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: 'By the time she arrives, we ___ finished dinner.' (will have)",
+    "correctAnswer": "Quando arrivera', avremo finito la cena.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Future perfect for an action completed before a future point."
     ]
   },
   {
     "id": "it-gr-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: Every morning I write three new words.",
-    "correctAnswer": "Ogni mattina scrivo tre parole nuove.",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Despite feeling tired, she continued working.",
+    "correctAnswer": "Nonostante la sensazione di stanchezza, ha continuato a lavorare.",
     "hints": [
-      "Practise this phrase out loud."
+      "'Despite' is followed by a noun or gerund (-ing form)."
     ]
   },
   {
-    "id": "it-gr-10",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We were cooking when the guests arrived.",
-    "correctAnswer": "Stavamo cucinando quando sono arrivati gli ospiti.",
+    "id": "it-gr-27",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the correct passive form: 'The report ___ by the team last week.' (write)",
+    "correctAnswer": "Il rapporto è stato scritto dalla squadra la scorsa settimana.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "Passive past simple: was/were + past participle."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-gr-28",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: He told me that he had already sent the email.",
+    "correctAnswer": "Mi ha detto che aveva già mandato l'e-mail.",
+    "hints": [
+      "Reported speech shifts tense: 'has sent' → 'had sent'."
+    ]
+  },
+  {
+    "id": "it-gr-29",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: 'I wish I ___ more time to practise.' (had/have)",
+    "correctAnswer": "Vorrei avere più tempo per praticare.",
+    "hints": [
+      "'I wish' + past simple expresses a present regret."
+    ]
+  },
+  {
+    "id": "it-gr-30",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Not only did she win the race, but she also broke the record.",
+    "correctAnswer": "Non solo ha vinto la gara, ma ha anche rotto il record.",
+    "hints": [
+      "'Not only... but also' requires inversion after 'not only'."
+    ]
+  },
+  {
+    "id": "it-gr-31",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Fill in the blank: 'She is used to ___ early.' (wake)",
+    "correctAnswer": "E' abituata a svegliarsi presto.",
+    "hints": [
+      "'Be used to' is followed by the gerund (-ing)."
+    ]
+  },
+  {
+    "id": "it-gr-32",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The meeting was cancelled owing to the poor weather conditions.",
+    "correctAnswer": "L'incontro è stato annullato a causa delle condizioni meteorologiche povere.",
+    "hints": [
+      "'Owing to' is a formal way of saying 'because of'."
+    ]
+  },
+  {
+    "id": "it-gr-33",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the correct relative pronoun: 'The person ___ called left no message.' (who/which)",
+    "correctAnswer": "La persona che ha chiamato non ha lasciato nessun messaggio.",
+    "hints": [
+      "Use 'who' for people; 'which' for things."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I wish I had more time to practice.",
+    "correctAnswer": "Vorrei avere più tempo per allenarmi.",
+    "hints": [
+      "Use past form after 'wish' for present unreal situations."
+    ],
+    "id": "it-gr-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The report that you sent was very helpful.",
+    "correctAnswer": "Il rapporto che hai inviato è stato molto utile.",
+    "hints": [
+      "Relative clause example."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-gr-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: When should I use the passive voice?",
+    "correctAnswer": "Quando dovrei usare la voce passiva?",
+    "hints": [
+      "Usage question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-gr-b1-61"
+  },
+  {
+    "id": "it-gr-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I known about the delay, I would have taken an earlier train.",
+    "correctAnswer": "Se avessi saputo del ritardo, avrei preso un treno precedente.",
+    "hints": [
+      "Inverted third conditional: 'Had I...' replaces 'If I had...'"
     ]
   },
   {
     "id": "it-gr-11",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I had already left when the message arrived.",
-    "correctAnswer": "Me n'ero già andato quando è arrivato il messaggio.",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: 'Rarely ___ I see such attention to detail.' (have)",
+    "correctAnswer": "Raramente ho visto tanta attenzione ai dettagli.",
     "hints": [
-      "Notice the tense or modal used."
+      "Fronted negative adverbs require subject-auxiliary inversion."
     ]
   },
   {
     "id": "it-gr-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: If I had practiced more, I would be more confident now.",
-    "correctAnswer": "Se avessi praticato di più, adesso sarei più sicuro.",
+    "prompt": "Say: The proposal, which had been drafted over several months, was ultimately rejected.",
+    "correctAnswer": "La proposta, redatta nel corso di diversi mesi, è stata respinta.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Non-defining relative clause in commas; past perfect passive."
     ]
+  },
+  {
+    "id": "it-gr-34",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: 'No sooner ___ she arrived than the meeting began.' (had)",
+    "correctAnswer": "Non prima era arrivata prima dell'incontro.",
+    "hints": [
+      "'No sooner' triggers inversion; 'than' follows rather than 'when'."
+    ]
+  },
+  {
+    "id": "it-gr-35",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: It is high time we addressed the underlying structural issues.",
+    "correctAnswer": "È giunto il momento di affrontare le questioni strutturali sottostanti.",
+    "hints": [
+      "'It is high time' + past subjunctive expresses urgency."
+    ]
+  },
+  {
+    "id": "it-gr-36",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the correct form: 'The data ___ analysed before any conclusions can be drawn.' (must be)",
+    "correctAnswer": "I dati devono essere analizzati prima che si possano trarre conclusioni.",
+    "hints": [
+      "Modal passive: modal + be + past participle."
+    ],
+    "exerciseType": "cloze_sentence"
+  },
+  {
+    "id": "it-gr-37",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Were she to apply, she would be a strong candidate for the position.",
+    "correctAnswer": "Se dovesse candidarsi, sarebbe stata una candidata forte per la posizione.",
+    "hints": [
+      "Inverted conditional with 'were to' for formal, hypothetical situations."
+    ]
+  },
+  {
+    "id": "it-gr-38",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Fill in the blank: 'The more you practise, ___ you become.' (fluent)",
+    "correctAnswer": "Più si pratica, più si diventa fluenti.",
+    "hints": [
+      "'The more... the more...' is a comparative structure expressing proportional change."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Had I known earlier, I would have prepared differently.",
+    "correctAnswer": "Se lo sapessi prima, mi sarei preparato diversamente.",
+    "hints": [
+      "Inverted third conditional."
+    ],
+    "id": "it-gr-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Not only did she finish on time, but she also improved the draft.",
+    "correctAnswer": "Non solo ha finito in tempo, ma ha anche migliorato il progetto.",
+    "hints": [
+      "Inversion after negative adverbials."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-gr-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How does emphasis change when we front a phrase?",
+    "correctAnswer": "Come cambia l'enfasi quando affrontiamo una frase?",
+    "hints": [
+      "Advanced grammar awareness question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "it-gr-b2-71"
   }
 ]

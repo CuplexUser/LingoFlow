@@ -3,8 +3,8 @@
     "id": "it-fa-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This is my brother and that is my cousin.",
-    "correctAnswer": "Questo è mio fratello e quella è mia cugina.",
+    "prompt": "Say: I have two brothers and one sister.",
+    "correctAnswer": "Ho due fratelli e una sorella.",
     "hints": [
       "Practise this phrase out loud."
     ]
@@ -13,110 +13,502 @@
     "id": "it-fa-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My friends are very kind and funny.",
-    "correctAnswer": "I miei amici sono molto gentili e divertenti.",
+    "prompt": "Ask: Do you have any children?",
+    "correctAnswer": "Hai dei figli?",
     "hints": [
       "Practise this phrase out loud."
     ]
   },
   {
     "id": "it-fa-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: Are you visiting your family this weekend?",
-    "correctAnswer": "Vai a trovare la tua famiglia questo fine settimana?",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "it-fa-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We usually have dinner together on Sundays.",
-    "correctAnswer": "Di solito ceniamo insieme la domenica.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "it-fa-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I grew up with my grandparents in a small town.",
-    "correctAnswer": "Sono cresciuto con i miei nonni in una piccola città.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "it-fa-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: My best friend always gives me honest advice.",
-    "correctAnswer": "Il mio migliore amico mi dà sempre consigli sinceri.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "it-fa-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Even when we disagree, we try to listen respectfully.",
-    "correctAnswer": "Anche quando non siamo d'accordo, cerchiamo di ascoltarci con rispetto.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "it-fa-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Family traditions help us stay connected across generations.",
-    "correctAnswer": "Le tradizioni di famiglia ci aiutano a restare uniti tra le generazioni.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "it-fa-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My sister lives near my parents.",
-    "correctAnswer": "Mia sorella vive vicino ai miei genitori.",
+    "prompt": "Say: My parents live in the countryside.",
+    "correctAnswer": "I miei genitori vivono in campagna.",
     "hints": [
       "Practise this phrase out loud."
     ]
   },
   {
-    "id": "it-fa-10",
+    "id": "it-fa-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My grandmother is seventy years old.",
+    "correctAnswer": "Mia nonna ha settanta anni.",
+    "hints": [
+      "State age with 'is ... years old'."
+    ]
+  },
+  {
+    "id": "it-fa-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is she your sister?",
+    "correctAnswer": "E' tua sorella?",
+    "hints": [
+      "Simple yes/no question."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-fa-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I live with my family.",
+    "correctAnswer": "Vivo con la mia famiglia.",
+    "hints": [
+      "A short, common phrase."
+    ]
+  },
+  {
+    "id": "it-fa-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: your mother's mother",
+    "correctAnswer": "nonna",
+    "hints": [
+      "Think of the female relative two generations above you."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-fa-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My best friend's name is Sam.",
+    "correctAnswer": "Il mio migliore amico si chiama Sam.",
+    "hints": [
+      "Use the possessive apostrophe: friend's."
+    ]
+  },
+  {
+    "id": "it-fa-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How old is your brother?",
+    "correctAnswer": "Quanti anni ha tuo fratello?",
+    "hints": [
+      "Use 'how old is' to ask about age."
+    ]
+  },
+  {
+    "id": "it-fa-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I have a dog and a cat at home.",
+    "correctAnswer": "Ho un cane e un gatto a casa.",
+    "hints": [
+      "List two things joined with 'and'."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I visit my grandparents on Sundays.",
+    "correctAnswer": "Vado a trovare i miei nonni la domenica.",
+    "hints": [
+      "Family routine phrase."
+    ],
+    "id": "it-fa-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you have any brothers or sisters?",
+    "correctAnswer": "Hai fratelli o sorelle?",
+    "hints": [
+      "Basic family question."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-fa-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My friend is very kind.",
+    "correctAnswer": "Il mio amico e' molto gentile.",
+    "hints": [
+      "Simple description."
+    ],
+    "exerciseType": "flashcard",
+    "id": "it-fa-a1-41"
+  },
+  {
+    "id": "it-fa-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Would you like to come over for dinner on Friday?",
-    "correctAnswer": "Ti andrebbe di venire a cena venerdì?",
+    "prompt": "Say: My cousin is getting married next spring.",
+    "correctAnswer": "Mio cugino si sposa la prossima primavera.",
+    "hints": [
+      "Present continuous for a planned future event."
+    ]
+  },
+  {
+    "id": "it-fa-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We usually meet up at the weekends.",
+    "correctAnswer": "Di solito ci incontriamo nei fine settimana.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
   },
   {
-    "id": "it-fa-11",
+    "id": "it-fa-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How long have you known each other?",
+    "correctAnswer": "Da quanto vi conoscete?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "it-fa-20",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: My parents got divorced when I was ten.",
+    "correctAnswer": "I miei genitori hanno divorziato quando avevo dieci anni.",
+    "hints": [
+      "'Got divorced' is the past tense phrase."
+    ]
+  },
+  {
+    "id": "it-fa-21",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Are you close to your siblings?",
+    "correctAnswer": "Sei vicino ai tuoi fratelli?",
+    "hints": [
+      "'Close' here means emotionally connected; siblings are brothers or sisters."
+    ]
+  },
+  {
+    "id": "it-fa-22",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We are a big family — there are seven of us.",
+    "correctAnswer": "Siamo una grande famiglia — ci sono sette di noi.",
+    "hints": [
+      "Use 'there are' to state how many people."
+    ]
+  },
+  {
+    "id": "it-fa-23",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: My friend moved abroad for work last year.",
+    "correctAnswer": "Il mio amico si e' trasferito all'estero per lavoro lo scorso anno.",
+    "hints": [
+      "'Moved abroad' means relocated to another country."
+    ]
+  },
+  {
+    "id": "it-fa-24",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Do you get on well with your neighbours?",
+    "correctAnswer": "Vai bene con i tuoi vicini?",
+    "hints": [
+      "'Get on well with' means have a good relationship with."
+    ]
+  },
+  {
+    "id": "it-fa-25",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We celebrated my grandfather's eightieth birthday last weekend.",
+    "correctAnswer": "Abbiamo festeggiato il compleanno di mio nonno lo scorso fine settimana.",
+    "hints": [
+      "Use simple past for a completed past event."
+    ]
+  },
+  {
+    "id": "it-fa-26",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: She is my oldest friend — we have known each other since school.",
+    "correctAnswer": "Lei è la mia più vecchia amica — ci conosciamo da scuola.",
+    "hints": [
+      "'Oldest friend' means the longest friendship, not oldest in age."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We celebrated my sister's birthday yesterday.",
+    "correctAnswer": "Abbiamo festeggiato il compleanno di mia sorella ieri.",
+    "hints": [
+      "Past event sentence."
+    ],
+    "id": "it-fa-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How did you meet your best friend?",
+    "correctAnswer": "Come hai conosciuto il tuo migliore amico?",
+    "hints": [
+      "Conversation starter."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-fa-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I call my parents every evening.",
+    "correctAnswer": "Chiamo i miei genitori ogni sera.",
+    "hints": [
+      "Routine communication phrase."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-fa-a2-51"
+  },
+  {
+    "id": "it-fa-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: We stay close even though we live in different cities.",
-    "correctAnswer": "Restiamo uniti anche se viviamo in città diverse.",
+    "prompt": "Say: My sister and I do not always see eye to eye, but we support each other.",
+    "correctAnswer": "Io e mia sorella non vediamo sempre gli occhi, ma ci sosteniamo a vicenda.",
+    "hints": [
+      "'See eye to eye' means agree."
+    ]
+  },
+  {
+    "id": "it-fa-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: We have a family tradition of spending Christmas together every year.",
+    "correctAnswer": "Abbiamo una tradizione familiare di trascorrere il Natale insieme ogni anno.",
     "hints": [
       "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "it-fa-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What was it like growing up in a large family?",
+    "correctAnswer": "Com'era crescere in una grande famiglia?",
+    "hints": [
+      "'What was it like' asks about the experience."
+    ]
+  },
+  {
+    "id": "it-fa-27",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My relationship with my parents has improved since I moved out.",
+    "correctAnswer": "Il mio rapporto con i miei genitori è migliorato da quando mi sono trasferito.",
+    "hints": [
+      "Present perfect with 'since' for a change that started at a past point."
+    ]
+  },
+  {
+    "id": "it-fa-28",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I try to keep in touch with old friends, even when life gets busy.",
+    "correctAnswer": "Cerco di tenere in contatto con vecchi amici, anche quando la vita si fa occupata.",
+    "hints": [
+      "'Keep in touch' means maintain contact."
+    ]
+  },
+  {
+    "id": "it-fa-29",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My brother and I have very different personalities, but we have the same sense of humour.",
+    "correctAnswer": "Io e mio fratello abbiamo personalità molto diverse, ma abbiamo lo stesso senso dell'umorismo.",
+    "hints": [
+      "Contrast with 'but'; 'sense of humour' is the ability to find things funny."
+    ]
+  },
+  {
+    "id": "it-fa-30",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A friend asks why you do not visit your family more often.",
+    "correctAnswer": "Viviamo abbastanza lontano, e io lotta per trovare il tempo intorno impegni di lavoro.",
+    "hints": [
+      "Give a reason that combines distance and schedule."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-fa-31",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Having grown up in a small town, I appreciate the close-knit community there.",
+    "correctAnswer": "Essendo cresciuto in una piccola città, apprezzo la comunità vicina.",
+    "hints": [
+      "'Close-knit' means a tight, supportive community."
+    ]
+  },
+  {
+    "id": "it-fa-32",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How do you balance time between your family and social life?",
+    "correctAnswer": "Come si bilancia il tempo tra la famiglia e la vita sociale?",
+    "hints": [
+      "'Balance' here means manage both fairly."
+    ]
+  },
+  {
+    "id": "it-fa-33",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: We grew apart after university, but we have recently reconnected.",
+    "correctAnswer": "Siamo cresciuti dopo l'università, ma abbiamo recentemente ricollegato.",
+    "hints": [
+      "'Grew apart' means drifted away from each other over time."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Good friendships require trust and honest communication.",
+    "correctAnswer": "Buone amicizie richiedono fiducia e comunicazione onesta.",
+    "hints": [
+      "B1 relationship statement."
+    ],
+    "id": "it-fa-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What do you do when a friend needs support?",
+    "correctAnswer": "Cosa fai quando un amico ha bisogno di supporto?",
+    "hints": [
+      "Support-oriented question."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-fa-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Family traditions help us stay connected.",
+    "correctAnswer": "Le tradizioni familiari ci aiutano a rimanere connessi.",
+    "hints": [
+      "Community/family link."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-fa-b1-61"
+  },
+  {
+    "id": "it-fa-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The dynamics within a blended family can be complex but deeply rewarding.",
+    "correctAnswer": "Le dinamiche all'interno di una famiglia mescolata possono essere complesse ma profondamente gratificanti.",
+    "hints": [
+      "'Blended family' = step-parents or half-siblings; 'dynamics' = the way relationships work."
+    ]
+  },
+  {
+    "id": "it-fa-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I was raised to value loyalty and honesty above all else.",
+    "correctAnswer": "Sono stato elevato a valorizzare la lealtà e l'onestà soprattutto.",
+    "hints": [
+      "Passive 'was raised' refers to how your parents brought you up."
     ]
   },
   {
     "id": "it-fa-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Good friendships require time, trust, and patience.",
-    "correctAnswer": "Le buone amicizie richiedono tempo, fiducia e pazienza.",
+    "prompt": "Say: Intergenerational relationships within a family can reflect broader societal changes.",
+    "correctAnswer": "Le relazioni intergenerazionali all'interno di una famiglia possono riflettere cambiamenti sociali più ampi.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "'Intergenerational' refers to connections across different generations."
     ]
+  },
+  {
+    "id": "it-fa-34",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The expectation that adult children will look after ageing parents varies considerably across cultures.",
+    "correctAnswer": "L'aspettativa che i bambini adulti si occuperanno dopo l'invecchiamento dei genitori varia notevolmente attraverso le culture.",
+    "hints": [
+      "'Varies considerably' means differs a lot; 'across cultures' means between different societies."
+    ],
+    "culturalNote": "In many Asian and southern European cultures, multi-generational households are the norm, while nuclear families are more common in northern Europe and North America."
+  },
+  {
+    "id": "it-fa-35",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Maintaining long-distance friendships requires consistent effort and mutual commitment.",
+    "correctAnswer": "Mantenere amicizie a lunga distanza richiede uno sforzo costante e un impegno reciproco.",
+    "hints": [
+      "'Mutual commitment' means both people must put in effort."
+    ]
+  },
+  {
+    "id": "it-fa-36",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The influence of one's upbringing on adult behaviour is well-documented in psychology.",
+    "correctAnswer": "L'influenza della propria educazione sul comportamento degli adulti è ben documentata in psicologia.",
+    "hints": [
+      "'One's upbringing' = how you were raised; 'well-documented' = supported by evidence."
+    ]
+  },
+  {
+    "id": "it-fa-37",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: To what extent do you think family shapes individual identity?",
+    "correctAnswer": "In che misura pensi che la famiglia formi l'identità individuale?",
+    "hints": [
+      "'To what extent' asks how much or how strongly."
+    ]
+  },
+  {
+    "id": "it-fa-38",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Chosen family — the network of friends who become like family — is increasingly valued in modern life.",
+    "correctAnswer": "La famiglia scelta — la rete di amici che diventano come la famiglia — è sempre più apprezzata nella vita moderna.",
+    "hints": [
+      "'Chosen family' refers to close friends who fill a family-like role."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Healthy boundaries can strengthen long-term relationships.",
+    "correctAnswer": "I confini sani possono rafforzare le relazioni a lungo termine.",
+    "hints": [
+      "Advanced relationship concept."
+    ],
+    "id": "it-fa-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How do family expectations influence personal choices?",
+    "correctAnswer": "Come influiscono le aspettative familiari sulle scelte personali?",
+    "hints": [
+      "Reflective high-level question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-fa-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Friendships evolve as people's priorities change.",
+    "correctAnswer": "Le amicizie si evolvono mentre le priorità delle persone cambiano.",
+    "hints": [
+      "Nuanced change-over-time sentence."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "it-fa-b2-71"
   }
 ]

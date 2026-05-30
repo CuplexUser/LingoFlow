@@ -3,68 +3,462 @@
     "id": "sv-wo-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I work in a small software company.",
-    "correctAnswer": "Jag arbetar på ett litet mjukvaruföretag.",
+    "prompt": "Say: I work in an office.",
+    "correctAnswer": "Jag jobbar på ett kontor.",
     "hints": [
       "Practise this phrase out loud."
     ]
   },
   {
     "id": "sv-wo-2",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: We have a meeting at nine in the morning.",
-    "correctAnswer": "Vi har ett möte klockan nio på morgonen.",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My shift starts at nine o'clock.",
+    "correctAnswer": "Mitt skift börjar klockan nio.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "Practise this phrase out loud."
     ]
+  },
+  {
+    "id": "sv-wo-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am the new employee.",
+    "correctAnswer": "Jag är ny medarbetare.",
+    "hints": [
+      "Practise this phrase out loud."
+    ]
+  },
+  {
+    "id": "sv-wo-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the meeting room?",
+    "correctAnswer": "Var är mötesrummet?",
+    "hints": [
+      "A useful first-day question."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "sv-wo-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need to print this document.",
+    "correctAnswer": "Jag behöver skriva ut detta dokument.",
+    "hints": [
+      "Use 'I need to' for necessity."
+    ]
+  },
+  {
+    "id": "sv-wo-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a person who works for a company",
+    "correctAnswer": "anställd",
+    "hints": [
+      "The opposite is 'employer'."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sv-wo-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My manager is very helpful.",
+    "correctAnswer": "Min chef är väldigt hjälpsam.",
+    "hints": [
+      "A manager is your direct boss."
+    ]
+  },
+  {
+    "id": "sv-wo-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What time does the office open?",
+    "correctAnswer": "Vilken tid öppnar kontoret?",
+    "hints": [
+      "Use 'what time does' for asking about schedules."
+    ]
+  },
+  {
+    "id": "sv-wo-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I work from home on Fridays.",
+    "correctAnswer": "Jag jobbar hemifrån på fredagar.",
+    "hints": [
+      "'Work from home' means remote working."
+    ]
+  },
+  {
+    "id": "sv-wo-40",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My colleague helps me a lot.",
+    "correctAnswer": "Min kollega hjälper mig mycket.",
+    "hints": [
+      "A colleague is someone you work with."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I start work at nine.",
+    "correctAnswer": "Jag börjar jobba på nio.",
+    "hints": [
+      "Use present simple for routines."
+    ],
+    "id": "sv-wo-a1-41"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the training room?",
+    "correctAnswer": "Var är träningsrummet?",
+    "hints": [
+      "Use this on your first day."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-wo-a1-42"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: the final approval before release",
+    "correctAnswer": "sign-off",
+    "hints": [
+      "Hyphenated compound noun."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-wo-a1-43"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I work with the sales team.",
+    "correctAnswer": "Jag jobbar med säljteamet.",
+    "hints": [
+      "Use 'work with' + team."
+    ],
+    "exerciseType": "pronunciation",
+    "id": "sv-wo-a1-44"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need a new password.",
+    "correctAnswer": "Jag behöver ett nytt lösenord.",
+    "hints": [
+      "Useful when contacting IT."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-wo-a1-47"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: someone you report to",
+    "correctAnswer": "che manager",
+    "hints": [
+      "A core workplace noun."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-wo-a1-48"
   },
   {
     "id": "sv-wo-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Could you send me the updated report?",
-    "correctAnswer": "Kan du skicka mig den uppdaterade rapporten?",
+    "prompt": "Ask: Could you send me the report by Friday?",
+    "correctAnswer": "Kan du skicka mig rapporten till fredag?",
     "hints": [
       "Pay attention to the sentence structure."
     ]
   },
   {
     "id": "sv-wo-4",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: We should prioritize the tasks with the highest impact.",
-    "correctAnswer": "Vi bör prioritera uppgifterna med störst påverkan.",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have a meeting at two o'clock this afternoon.",
+    "correctAnswer": "Jag har ett möte klockan två i eftermiddag.",
     "hints": [
-      "Notice the tense or modal used."
+      "Pay attention to the sentence structure."
     ]
+  },
+  {
+    "id": "sv-wo-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Can we reschedule the meeting to Thursday?",
+    "correctAnswer": "Kan vi omplanera mötet till torsdag?",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "sv-wo-19",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I will send you the updated version by end of day.",
+    "correctAnswer": "Jag skickar den uppdaterade versionen i slutet av dagen.",
+    "hints": [
+      "'By end of day' is a common work deadline phrase."
+    ]
+  },
+  {
+    "id": "sv-wo-20",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Could you copy me in on that email?",
+    "correctAnswer": "Kan du kopiera mig på det e-postmeddelandet?",
+    "hints": [
+      "'Copy me in' means add you to the CC field."
+    ]
+  },
+  {
+    "id": "sv-wo-21",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I would like to take two weeks of annual leave in August.",
+    "correctAnswer": "Jag skulle vilja ta två veckors årlig semester i augusti.",
+    "hints": [
+      "'Annual leave' is the formal term for holiday days."
+    ]
+  },
+  {
+    "id": "sv-wo-22",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Who should I contact about IT issues?",
+    "correctAnswer": "Vem ska jag kontakta om IT-frågor?",
+    "hints": [
+      "Use 'who should I' to ask who is responsible."
+    ]
+  },
+  {
+    "id": "sv-wo-23",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The deadline is next Monday at noon.",
+    "correctAnswer": "Tidsfristen är nästa måndag vid middag.",
+    "hints": [
+      "State the day and time clearly."
+    ]
+  },
+  {
+    "id": "sv-wo-24",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best response. A colleague asks if you can attend a meeting tomorrow.",
+    "correctAnswer": "Jag är fri på morgonen men jag har ett samtal på eftermiddagen.",
+    "hints": [
+      "Give clear availability information."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "sv-wo-41",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have finished my tasks for today.",
+    "correctAnswer": "Jag har avslutat mina uppgifter för idag.",
+    "hints": [
+      "Present perfect for completed actions."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have a meeting with the client this afternoon.",
+    "correctAnswer": "Jag har ett möte med kunden i eftermiddag.",
+    "hints": [
+      "Use time markers for clarity."
+    ],
+    "id": "sv-wo-a2-51"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Could you review this report before lunch?",
+    "correctAnswer": "Kan du granska denna rapport före lunch?",
+    "hints": [
+      "Use 'Could you' for polite requests."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-wo-a2-52"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I am responsible for weekly updates.",
+    "correctAnswer": "Jag är ansvarig för veckouppdateringar.",
+    "hints": [
+      "Use this to describe ownership."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-wo-a2-53"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We finished the task ahead of schedule.",
+    "correctAnswer": "Vi avslutade uppgiften före schemat.",
+    "hints": [
+      "Good phrase for progress updates."
+    ],
+    "exerciseType": "pronunciation",
+    "id": "sv-wo-a2-54"
   },
   {
     "id": "sv-wo-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I finished the draft, but it still needs revision.",
-    "correctAnswer": "Jag blev klar med utkastet, men det behöver fortfarande revideras.",
+    "prompt": "Say: I would like to discuss my progress at our next meeting.",
+    "correctAnswer": "Jag vill diskutera mina framsteg vid vårt nästa möte.",
     "hints": [
       "Notice the tense or modal used."
     ]
   },
   {
     "id": "sv-wo-6",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Our proposal focuses on long-term sustainability.",
-    "correctAnswer": "Vårt förslag fokuserar på långsiktig hållbarhet.",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I was not able to attend the conference call due to a scheduling conflict.",
+    "correctAnswer": "Jag kunde inte delta i konferenssamtalet på grund av en schemaläggningskonflikt.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "Notice the tense or modal used."
     ]
+  },
+  {
+    "id": "sv-wo-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been working on this project for three months.",
+    "correctAnswer": "Jag har jobbat med detta projekt i tre månader.",
+    "hints": [
+      "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "sv-wo-25",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would appreciate some feedback on my presentation.",
+    "correctAnswer": "Jag skulle uppskatta lite feedback på min presentation.",
+    "hints": [
+      "'I would appreciate' is polite and professional."
+    ]
+  },
+  {
+    "id": "sv-wo-26",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Could we arrange a brief call to discuss the next steps?",
+    "correctAnswer": "Kan vi ordna ett kort samtal för att diskutera nästa steg?",
+    "hints": [
+      "'Brief call' means a short telephone or video meeting."
+    ]
+  },
+  {
+    "id": "sv-wo-27",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have identified a bottleneck in the current workflow.",
+    "correctAnswer": "Jag har identifierat en flaskhals i det nuvarande arbetsflödet.",
+    "hints": [
+      "'Bottleneck' means a point that slows things down."
+    ]
+  },
+  {
+    "id": "sv-wo-28",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: My role involves coordinating between the sales and marketing teams.",
+    "correctAnswer": "Min roll innebär samordning mellan sälj- och marknadsföringsteamen.",
+    "hints": [
+      "'My role involves' is a professional way to describe your job."
+    ]
+  },
+  {
+    "id": "sv-wo-29",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Could you give me an update on where things stand with the client?",
+    "correctAnswer": "Kan du ge mig en uppdatering om var saker står med kunden?",
+    "hints": [
+      "'Where things stand' means the current situation."
+    ]
+  },
+  {
+    "id": "sv-wo-30",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would like to flag a potential risk before it becomes a problem.",
+    "correctAnswer": "Jag vill flagga en potentiell risk innan det blir ett problem.",
+    "hints": [
+      "'Flag' in business means to highlight or draw attention to something."
+    ]
+  },
+  {
+    "id": "sv-wo-42",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been given more responsibilities since my promotion.",
+    "correctAnswer": "Jag har fått mer ansvar sedan min kampanj.",
+    "hints": [
+      "Passive present perfect; 'since my promotion' anchors the time."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: We should prioritize the customer issue before deployment.",
+    "correctAnswer": "Vi bör prioritera kundproblemet innan distribution.",
+    "hints": [
+      "Use 'should' for recommendations."
+    ],
+    "id": "sv-wo-b1-61"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would like to propose a shorter meeting agenda.",
+    "correctAnswer": "Jag vill föreslå en kortare mötesagenda.",
+    "hints": [
+      "Polite formal suggestion structure."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-wo-b1-62"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Can we move this deadline to next Wednesday?",
+    "correctAnswer": "Kan vi flytta denna deadline till nästa onsdag?",
+    "hints": [
+      "Direct but collaborative phrasing."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-wo-b1-63"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I need more context before I can approve this plan.",
+    "correctAnswer": "Jag behöver mer sammanhang innan jag kan godkänna denna plan.",
+    "hints": [
+      "State dependency clearly."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-wo-b1-64"
   },
   {
     "id": "sv-wo-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: If we align our goals, we can deliver faster.",
-    "correctAnswer": "Om vi samordnar våra mål kan vi leverera snabbare.",
+    "prompt": "Say: I would like to propose a restructuring of the project timeline.",
+    "correctAnswer": "Jag vill föreslå en omstrukturering av projektets tidslinje.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -73,90 +467,133 @@
     "id": "sv-wo-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: What metrics will define success for this project?",
-    "correctAnswer": "Vilka mätvärden kommer att definiera framgång för det här projektet?",
+    "prompt": "Say: The stakeholders have concerns about the projected return on investment.",
+    "correctAnswer": "De berörda parterna har oro över den förväntade avkastningen på investeringen.",
     "hints": [
       "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "sv-wo-9",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I am still learning the tools for this job.",
-    "correctAnswer": "Jag lär mig fortfarande verktygen för det här jobbet.",
-    "hints": [
-      "Practise this phrase out loud."
-    ]
-  },
-  {
-    "id": "sv-wo-10",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Ask: Can we move the meeting to the afternoon?",
-    "correctAnswer": "Kan vi flytta mötet till eftermiddagen?",
-    "hints": [
-      "Pay attention to the sentence structure."
     ]
   },
   {
     "id": "sv-wo-11",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
-    "correctAnswer": "Jag behöver tydligare prioriteringar innan jag kan uppskatta tidsplanen.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "sv-wo-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: We should document this process so the whole team can reuse it.",
-    "correctAnswer": "Vi borde dokumentera den här processen så att hela teamet kan återanvända den.",
+    "prompt": "Say: Following up on my previous email, I wanted to clarify the deliverables.",
+    "correctAnswer": "Efter min tidigare e-post ville jag klargöra leveranserna.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
   },
   {
-    "id": "sv-wo-13",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Say: I start work at eight o'clock.",
-    "correctAnswer": "Jag börjar arbeta klockan åtta.",
+    "id": "sv-wo-31",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: We need to align on priorities before committing resources to this initiative.",
+    "correctAnswer": "Vi måste anpassa oss till prioriteringar innan vi begår resurser till detta initiativ.",
     "hints": [
-      "Practise this phrase out loud."
+      "'Align on' means agree and coordinate on."
     ]
   },
   {
-    "id": "sv-wo-14",
-    "level": "a1",
-    "difficulty": "a1",
-    "prompt": "Ask: Where is the meeting room?",
-    "correctAnswer": "Var ligger mötesrummet?",
+    "id": "sv-wo-32",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The board is looking for a compelling narrative to accompany the financial projections.",
+    "correctAnswer": "Styrelsen letar efter en övertygande berättelse för att följa de finansiella prognoserna.",
     "hints": [
-      "Practise this phrase out loud."
+      "'Compelling narrative' means a persuasive story; 'projections' are forecasts."
     ]
   },
   {
-    "id": "sv-wo-15",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I am updating the spreadsheet before lunch.",
-    "correctAnswer": "Jag uppdaterar kalkylbladet före lunch.",
+    "id": "sv-wo-33",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Have you factored in the opportunity cost of delaying the launch?",
+    "correctAnswer": "Har du funderat på möjlighetskostnaden för att fördröja lanseringen?",
     "hints": [
-      "Pay attention to the sentence structure."
+      "'Factor in' means take into account; 'opportunity cost' is what you give up."
     ]
   },
   {
-    "id": "sv-wo-16",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: Let's review the client feedback before we finalize the plan.",
-    "correctAnswer": "Låt oss gå igenom kundens feedback innan vi slutför planen.",
+    "id": "sv-wo-34",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I recommend we pilot the solution with a small cohort before scaling.",
+    "correctAnswer": "Jag rekommenderar att vi piloterar lösningen med en liten kohort innan vi skalar.",
     "hints": [
-      "Notice the tense or modal used."
+      "'Pilot' as a verb means to test; 'scaling' means expanding."
     ]
+  },
+  {
+    "id": "sv-wo-35",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The cross-functional collaboration on this project has been exceptional.",
+    "correctAnswer": "Det tvärfunktionella samarbetet kring detta projekt har varit exceptionellt.",
+    "hints": [
+      "'Cross-functional' means involving different departments."
+    ]
+  },
+  {
+    "id": "sv-wo-36",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: What metrics are we using to evaluate the success of this campaign?",
+    "correctAnswer": "Vilka mätvärden använder vi för att utvärdera framgången för denna kampanj?",
+    "hints": [
+      "'Metrics' are measurable indicators of performance."
+    ]
+  },
+  {
+    "id": "sv-wo-37",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The procurement process needs to be streamlined to reduce lead times.",
+    "correctAnswer": "Upphandlingsprocessen måste effektiviseras för att minska ledtiderna.",
+    "hints": [
+      "'Streamlined' means made more efficient; 'lead times' are delays before delivery."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: We need to align deliverables with stakeholder expectations.",
+    "correctAnswer": "Vi måste anpassa leveranser med intressenternas förväntningar.",
+    "hints": [
+      "Use precise business vocabulary."
+    ],
+    "id": "sv-wo-b2-71"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I suggest we document risks before final sign-off.",
+    "correctAnswer": "Jag föreslår att vi dokumenterar risker före slutskylt.",
+    "hints": [
+      "Strong phrasing for process quality."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-wo-b2-72"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How should we mitigate potential delays in this rollout?",
+    "correctAnswer": "Hur ska vi mildra potentiella förseningar i denna utrullning?",
+    "hints": [
+      "Use 'mitigate' for formal risk language."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-wo-b2-73"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: This proposal balances short-term impact with long-term sustainability.",
+    "correctAnswer": "Detta förslag balanserar kortsiktiga effekter med långsiktig hållbarhet.",
+    "hints": [
+      "Contrast clauses raise sophistication."
+    ],
+    "exerciseType": "dictation_sentence",
+    "id": "sv-wo-b2-74"
   }
 ]

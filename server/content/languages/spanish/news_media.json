@@ -1,144 +1,502 @@
 [
   {
-    "id": "sp-nm-a1-1",
+    "id": "es-nm-a1-1",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a person who reports the news",
+    "correctAnswer": "periodista",
+    "hints": [
+      "They write or broadcast the news."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "es-nm-a1-2",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I read the news every morning.",
-    "correctAnswer": "Leo las noticias cada mañana.",
+    "correctAnswer": "Leí las noticias todas las mañanas.",
     "hints": [
-      "Use simple present for daily routines."
+      "A simple daily habit."
     ]
   },
   {
-    "id": "sp-nm-a1-2",
+    "id": "es-nm-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "newspaper / television / radio / podcast",
-    "correctAnswer": "televisión",
+    "prompt": "Ask: Did you hear about the earthquake?",
+    "correctAnswer": "¿Has oído hablar del terremoto?",
     "hints": [
-      "Which medium uses moving images?"
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "periódico",
-      "televisión",
-      "radio",
-      "pódcast"
+      "Simple past to ask about recent news."
     ]
   },
   {
-    "id": "sp-nm-a1-3",
+    "id": "es-nm-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This article is interesting.",
-    "correctAnswer": "Este artículo es interesante.",
+    "prompt": "Say: The news is on television at six.",
+    "correctAnswer": "La noticia está en televisión a las seis.",
     "hints": [
-      "A simple opinion sentence."
+      "State when a TV programme is broadcast."
     ]
   },
   {
-    "id": "sp-nm-a2-1",
+    "id": "es-nm-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What is in the news today?",
+    "correctAnswer": "¿Qué hay hoy en las noticias?",
+    "hints": [
+      "A very natural question about current events."
+    ]
+  },
+  {
+    "id": "es-nm-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a daily printed publication with news and articles",
+    "correctAnswer": "periódico",
+    "hints": [
+      "You can read it in print or online."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "es-nm-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: There was a big storm last night.",
+    "correctAnswer": "Anoche hubo una gran tormenta.",
+    "hints": [
+      "'There was' for something that happened in the past."
+    ]
+  },
+  {
+    "id": "es-nm-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not watch much television.",
+    "correctAnswer": "No veo mucha televisión.",
+    "hints": [
+      "'Much' with uncountable nouns in negatives."
+    ]
+  },
+  {
+    "id": "es-nm-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this on the front page?",
+    "correctAnswer": "¿Está en la portada?",
+    "hints": [
+      "The front page is the most important page of a newspaper."
+    ]
+  },
+  {
+    "id": "es-nm-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I get my news from the internet.",
+    "correctAnswer": "Tengo mis noticias de internet.",
+    "hints": [
+      "State where you access information."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This story is about the weather.",
+    "correctAnswer": "Esta historia es sobre el tiempo.",
+    "hints": [
+      "Topic sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-ne-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where do you get your news?",
+    "correctAnswer": "¿De dónde sacas tus noticias?",
+    "hints": [
+      "Common media question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "es-ne-a1-41"
+  },
+  {
+    "id": "es-nm-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I prefer reading news online to watching it on TV.",
-    "correctAnswer": "Prefiero leer las noticias en línea a verlas en la televisión.",
+    "prompt": "Say: According to the report, the economy grew by two per cent last year.",
+    "correctAnswer": "Según el informe, la economía creció un 2% el año pasado.",
     "hints": [
-      "Use 'prefer + infinitive + rather than + infinitive'."
+      "'According to' introduces a cited source."
     ]
   },
   {
-    "id": "sp-nm-a2-2",
+    "id": "es-nm-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "What is a 'headline'?",
-    "correctAnswer": "el título de un artículo periodístico",
+    "prompt": "Ask: Have you been following the election coverage?",
+    "correctAnswer": "¿Has estado siguiendo la cobertura electoral?",
     "hints": [
-      "It appears at the top of each news story."
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "el nombre del periodista",
-      "el título de un artículo periodístico",
-      "un pie de foto",
-      "la fecha de publicación"
+      "'Coverage' means the reporting of an event by media."
     ]
   },
   {
-    "id": "sp-nm-a2-3",
+    "id": "es-nm-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: The reporter interviewed several witnesses.",
-    "correctAnswer": "El reportero entrevistó a varios testigos.",
+    "prompt": "Say: The prime minister gave a press conference this morning.",
+    "correctAnswer": "El primer ministro dio una conferencia de prensa esta mañana.",
     "hints": [
-      "Use past tense for a completed action."
+      "A press conference is an official meeting with journalists."
     ]
   },
   {
-    "id": "sp-nm-b1-1",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: It is important to verify information before sharing it.",
-    "correctAnswer": "Es importante verificar la información antes de compartirla.",
+    "id": "es-nm-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer listening to podcasts over reading print media.",
+    "correctAnswer": "Prefiero escuchar podcasts sobre la lectura de los medios impresos.",
     "hints": [
-      "Use 'it is + adjective + to + infinitive'."
+      "'Over' here means 'rather than'."
     ]
   },
   {
-    "id": "sp-nm-b1-2",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "What does 'to go viral' mean?",
-    "correctAnswer": "difundirse rápidamente por internet",
+    "id": "es-nm-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Which news outlet do you trust the most?",
+    "correctAnswer": "¿En qué noticias confías más?",
     "hints": [
-      "Think about how content spreads online."
+      "'Outlet' here means a media organisation or website."
+    ]
+  },
+  {
+    "id": "es-nm-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: There was a breaking news story about the floods.",
+    "correctAnswer": "Había una noticia de las inundaciones.",
+    "hints": [
+      "'Breaking news' refers to a developing, urgent story."
+    ]
+  },
+  {
+    "id": "es-nm-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Social media is now the main source of news for many young people.",
+    "correctAnswer": "Los medios sociales son ahora la principal fuente de noticias para muchos jóvenes.",
+    "hints": [
+      "'Source' means where information comes from."
+    ]
+  },
+  {
+    "id": "es-nm-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Did you see the documentary about climate change?",
+    "correctAnswer": "¿Viste el documental sobre el cambio climático?",
+    "hints": [
+      "Simple past yes/no question."
+    ]
+  },
+  {
+    "id": "es-nm-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The article was written by an investigative journalist.",
+    "correctAnswer": "El artículo fue escrito por un periodista de investigación.",
+    "hints": [
+      "Passive past simple: 'was written by'."
+    ]
+  },
+  {
+    "id": "es-nm-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I cancelled my newspaper subscription and switched to an online news app.",
+    "correctAnswer": "Cancelé mi suscripción de periódico y cambié a una aplicación de noticias en línea.",
+    "hints": [
+      "Two completed past actions joined by 'and'."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I follow local news on my phone.",
+    "correctAnswer": "Sigo noticias locales en mi teléfono.",
+    "hints": [
+      "Use 'follow' for ongoing updates."
     ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "infectarse",
-      "difundirse rápidamente por internet",
-      "ser eliminado",
-      "publicarse en papel"
-    ]
+    "id": "es-ne-a2-49"
   },
   {
-    "id": "sp-nm-b1-3",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer short videos to long articles.",
+    "correctAnswer": "Prefiero videos cortos a artículos largos.",
+    "hints": [
+      "Comparison pattern."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-ne-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Did you hear about this event yesterday?",
+    "correctAnswer": "¿Has oído hablar de este evento ayer?",
+    "hints": [
+      "Past simple in context."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-ne-a2-51"
+  },
+  {
+    "id": "es-nm-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The documentary raised serious questions about media bias.",
-    "correctAnswer": "El documental planteó serias preguntas sobre el sesgo de los medios.",
+    "prompt": "Say: It is increasingly difficult to distinguish between credible journalism and misinformation.",
+    "correctAnswer": "Cada vez es más difícil distinguir entre el periodismo creíble y la desinformación errónea.",
     "hints": [
-      "'Raise questions' is a fixed collocation; use past tense."
+      "'Credible' = trustworthy; 'misinformation' = false or misleading information."
     ]
   },
   {
-    "id": "sp-nm-b2-1",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
-    "correctAnswer": "El periodismo de investigación juega un papel crucial para exigir responsabilidades al poder.",
+    "id": "es-nm-b1-2",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How do you evaluate whether a news source is reliable?",
+    "correctAnswer": "¿Cómo evalúa si una fuente de noticias es confiable?",
     "hints": [
-      "Use gerund after 'role in'."
+      "'Evaluate' means judge or assess; 'reliable' means trustworthy."
     ]
   },
   {
-    "id": "sp-nm-b2-2",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: The editorial board decided to retract the story after new evidence emerged.",
-    "correctAnswer": "El consejo editorial decidió retirar la historia tras surgir nuevas pruebas.",
+    "id": "es-nm-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Media bias can affect the way events are framed and interpreted by the public.",
+    "correctAnswer": "Los prejuicios de los medios pueden afectar la forma en que los acontecimientos son enmarcados e interpretados por el público.",
     "hints": [
-      "'Retract' means to officially withdraw a published statement."
+      "'Framed' means presented from a particular angle; 'bias' means favouring one view."
     ]
   },
   {
-    "id": "sp-nm-b2-3",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
-    "correctAnswer": "La curación algorítmica determina cada vez más qué información consumen las audiencias.",
+    "id": "es-nm-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I try to cross-reference stories across several different news sources before forming an opinion.",
+    "correctAnswer": "Intento entrevistar historias en varias diferentes fuentes de noticias antes de formar una opinión.",
     "hints": [
-      "Use third-person singular; note the formal register."
+      "'Cross-reference' means check the same information in multiple places."
+    ]
+  },
+  {
+    "id": "es-nm-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The investigation revealed that the minister had misled the public about the financial figures.",
+    "correctAnswer": "The investigation revealed that the Minister had misled the public about the financial figures.",
+    "hints": [
+      "'Revealed' = discovered and disclosed; past perfect after 'revealed'."
+    ]
+  },
+  {
+    "id": "es-nm-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: To what extent do you think sensationalist headlines distort public perception?",
+    "correctAnswer": "¿En qué medida crees que los titulares sensacionalistas distorsionan la percepción pública?",
+    "hints": [
+      "'Sensationalist' = exaggerated for shock; 'distort' = misrepresent."
+    ]
+  },
+  {
+    "id": "es-nm-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The editorial team decided to hold the story until they had more concrete evidence.",
+    "correctAnswer": "El equipo editorial decidió mantener la historia hasta que tuvieran más pruebas concretas.",
+    "hints": [
+      "'Hold a story' = delay publishing; 'concrete evidence' = solid proof."
+    ]
+  },
+  {
+    "id": "es-nm-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Citizen journalism has grown significantly with the rise of smartphone technology.",
+    "correctAnswer": "El periodismo ciudadano ha crecido significativamente con el aumento de la tecnología de los teléfonos inteligentes.",
+    "hints": [
+      "'Citizen journalism' = non-professional reporting by members of the public."
+    ]
+  },
+  {
+    "id": "es-nm-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I subscribe to two quality newspapers and a weekly political magazine.",
+    "correctAnswer": "Me suscribió a dos periódicos de calidad y una revista política semanal.",
+    "hints": [
+      "'Subscribe' means pay regularly to receive; 'quality' here means serious and in-depth."
+    ]
+  },
+  {
+    "id": "es-nm-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Do you think the press has too much or too little freedom in your country?",
+    "correctAnswer": "¿Crees que la prensa tiene demasiada o muy poca libertad en tu país?",
+    "hints": [
+      "'Press' here means newspapers and journalism; a discussion question."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I compare several sources before I trust a headline.",
+    "correctAnswer": "Compare varias fuentes antes de confiar en un titular.",
+    "hints": [
+      "Cause and sequence in one sentence."
     ],
-    "culturalNote": "Esta frase refleja los debates actuales sobre las burbujas de filtro."
+    "id": "es-ne-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Social media can spread accurate and inaccurate information quickly.",
+    "correctAnswer": "Los medios sociales pueden difundir información precisa e inexacta rápidamente.",
+    "hints": [
+      "Balanced statement practice."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "es-ne-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Why do people share articles without reading them?",
+    "correctAnswer": "¿Por qué la gente comparte artículos sin leerlos?",
+    "hints": [
+      "Discussion question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-ne-b1-61"
+  },
+  {
+    "id": "es-nm-b2-1",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The erosion of local news coverage has significant consequences for civic engagement and democratic accountability.",
+    "correctAnswer": "La erosión de la cobertura de noticias locales tiene consecuencias importantes para el compromiso cívico y la rendición de cuentas democrática.",
+    "hints": [
+      "'Erosion' = gradual loss; 'civic engagement' = participation in public life."
+    ]
+  },
+  {
+    "id": "es-nm-b2-2",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Algorithmic curation of news feeds creates echo chambers that reinforce existing beliefs.",
+    "correctAnswer": "La curación Algorítmica de las noticias alimenta crea cámaras de eco que refuerzan las creencias existentes.",
+    "hints": [
+      "'Algorithmic curation' = automated selection; 'echo chambers' = spaces where views are only confirmed."
+    ]
+  },
+  {
+    "id": "es-nm-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How has the 24-hour news cycle altered journalistic standards and public discourse?",
+    "correctAnswer": "¿Cómo ha alterado el ciclo de noticias las 24 horas los estándares periodísticos y el discurso público?",
+    "hints": [
+      "'Journalistic standards' = quality and ethics of reporting; 'public discourse' = open societal discussion."
+    ]
+  },
+  {
+    "id": "es-nm-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Investigative journalism serves a vital democratic function by holding power to account.",
+    "correctAnswer": "El periodismo investigativo sirve una función democrática vital al tener el poder de rendir cuentas.",
+    "hints": [
+      "'Holding power to account' means making those with authority answerable for their actions."
+    ]
+  },
+  {
+    "id": "es-nm-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The conflation of opinion and fact in commentary pieces has blurred important epistemic boundaries.",
+    "correctAnswer": "La conflación de opinión y hecho en las piezas de comentarios ha borroso importantes límites epistémicos.",
+    "hints": [
+      "'Conflation' = treating two different things as the same; 'epistemic' = relating to knowledge."
+    ]
+  },
+  {
+    "id": "es-nm-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Is state media ever compatible with genuine editorial independence?",
+    "correctAnswer": "¿Los medios estatales son compatibles con una auténtica independencia editorial?",
+    "hints": [
+      "'State media' = media owned or funded by the government; 'editorial independence' = freedom to report without interference."
+    ]
+  },
+  {
+    "id": "es-nm-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Deepfake technology poses an unprecedented challenge to the verification of video evidence.",
+    "correctAnswer": "La tecnología Deepfake plantea un desafío sin precedentes a la verificación de pruebas de vídeo.",
+    "hints": [
+      "'Unprecedented' = never happened before; 'verification' = confirming something is genuine."
+    ]
+  },
+  {
+    "id": "es-nm-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The paywalling of quality journalism raises important questions about information equity.",
+    "correctAnswer": "El recortado del periodismo de calidad plantea importantes preguntas sobre la equidad de la información.",
+    "hints": [
+      "'Paywalling' = requiring payment to access content; 'equity' = fairness of access."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Responsible journalism requires transparent sourcing and context.",
+    "correctAnswer": "El periodismo responsable requiere una fuente transparente y un contexto.",
+    "hints": [
+      "Academic register."
+    ],
+    "id": "es-ne-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Sensational headlines can distort public understanding of complex issues.",
+    "correctAnswer": "Los titulares sensacionales pueden distorsionar la comprensión pública de cuestiones complejas.",
+    "hints": [
+      "High-level media vocabulary."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "es-ne-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How should platforms balance free expression and misinformation control?",
+    "correctAnswer": "¿Cómo deben equilibrar las plataformas el control libre de expresión y desinformación?",
+    "hints": [
+      "Debate-oriented framing."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "es-ne-b2-71"
   }
 ]

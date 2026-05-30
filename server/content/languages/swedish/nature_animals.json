@@ -3,128 +3,513 @@
     "id": "sv-na-a1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: There is a cat on the roof.",
-    "correctAnswer": "Det finns en katt på taket.",
+    "prompt": "Vocabulary: a large wild cat with orange and black stripes",
+    "correctAnswer": "tiger",
     "hints": [
-      "Use 'there is' to describe location."
-    ]
+      "It lives in Asia and is endangered."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-na-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: The dog is big and friendly.",
-    "correctAnswer": "Hunden är stor och vänlig.",
+    "prompt": "Say: It is raining outside.",
+    "correctAnswer": "Det regnar utanför.",
     "hints": [
-      "Describe an animal with two adjectives."
-    ],
-    "exerciseType": "build_sentence"
+      "Use 'it is' for weather descriptions."
+    ]
   },
   {
     "id": "sv-na-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a river",
-    "correctAnswer": "en älv",
+    "prompt": "Ask: What is the weather like today?",
+    "correctAnswer": "Vad är vädret som idag?",
     "hints": [
-      "A place where water flows."
+      "'What is it like' asks for a description."
+    ]
+  },
+  {
+    "id": "sv-na-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I love dogs.",
+    "correctAnswer": "Jag älskar hundar.",
+    "hints": [
+      "A simple statement of preference."
+    ]
+  },
+  {
+    "id": "sv-na-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: There are many birds in the garden.",
+    "correctAnswer": "Det finns många fåglar i trädgården.",
+    "hints": [
+      "'There are' for plural things."
+    ]
+  },
+  {
+    "id": "sv-na-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: the coldest season of the year",
+    "correctAnswer": "vinter",
+    "hints": [
+      "It comes after autumn."
     ],
     "exerciseType": "flashcard"
+  },
+  {
+    "id": "sv-na-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The sun is shining today.",
+    "correctAnswer": "Solen skiner idag.",
+    "hints": [
+      "Present continuous for current weather."
+    ]
+  },
+  {
+    "id": "sv-na-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you have any pets?",
+    "correctAnswer": "Har du några husdjur?",
+    "hints": [
+      "A simple question about animals at home."
+    ]
+  },
+  {
+    "id": "sv-na-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The cat is sleeping on the sofa.",
+    "correctAnswer": "Katten sover på soffan.",
+    "hints": [
+      "Present continuous for an ongoing action."
+    ]
+  },
+  {
+    "id": "sv-na-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I walked in the forest yesterday.",
+    "correctAnswer": "Jag gick i skogen igår.",
+    "hints": [
+      "Simple past for a completed action."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I saw a bird in the park.",
+    "correctAnswer": "Jag såg en fågel i parken.",
+    "hints": [
+      "Simple past observation."
+    ],
+    "id": "sv-na-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The forest is very quiet.",
+    "correctAnswer": "Skogen är mycket tyst.",
+    "hints": [
+      "Basic description."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-na-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What animal is this?",
+    "correctAnswer": "Vilket djur är detta?",
+    "hints": [
+      "Starter question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-na-a1-41"
   },
   {
     "id": "sv-na-a2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: The horse is running across the field.",
-    "correctAnswer": "Hästen springer över fältet.",
+    "prompt": "Say: It has been unusually warm for this time of year.",
+    "correctAnswer": "Det har varit ovanligt varmt för denna tid på året.",
     "hints": [
-      "Use present continuous for an action happening now."
+      "Present perfect for a situation up to now; 'unusually' suggests contrast with normal."
     ]
   },
   {
     "id": "sv-na-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: What is the name of that bird?",
-    "correctAnswer": "Vad heter den där fågeln?",
+    "prompt": "Ask: What is the best time of year to see the northern lights?",
+    "correctAnswer": "Vad är den bästa tiden på året för att se norrskenet?",
     "hints": [
-      "Ask for the name of something you see."
+      "A question about natural phenomena and timing."
     ]
   },
   {
     "id": "sv-na-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I saw a fox near the forest last night.",
-    "correctAnswer": "Igår kväll såg jag en räv nära skogen.",
+    "prompt": "Say: The river has flooded after several days of heavy rain.",
+    "correctAnswer": "Floden har översvämmats efter flera dagar av kraftigt regn.",
     "hints": [
-      "Use past simple to describe what you saw."
+      "Present perfect for a recent event with a visible result."
     ]
+  },
+  {
+    "id": "sv-na-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I saw a family of deer in the park this morning.",
+    "correctAnswer": "Jag såg en hjortfamilj i parken i morse.",
+    "hints": [
+      "'Deer' is both singular and plural."
+    ]
+  },
+  {
+    "id": "sv-na-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Are there any dangerous animals in this area?",
+    "correctAnswer": "Finns det några farliga djur i detta område?",
+    "hints": [
+      "A practical question when in nature."
+    ]
+  },
+  {
+    "id": "sv-na-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The storm caused damage to several trees in the neighbourhood.",
+    "correctAnswer": "Stormen orsakade skador på flera träd i grannskapet.",
+    "hints": [
+      "'Caused damage to' = harmed or destroyed."
+    ]
+  },
+  {
+    "id": "sv-na-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I recycle my rubbish to help protect the environment.",
+    "correctAnswer": "Jag återvinner mitt skräp för att skydda miljön.",
+    "hints": [
+      "State an eco-friendly habit with purpose."
+    ]
+  },
+  {
+    "id": "sv-na-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How often do you go walking in the countryside?",
+    "correctAnswer": "Hur ofta går du på landsbygden?",
+    "hints": [
+      "'How often' asks about frequency."
+    ]
+  },
+  {
+    "id": "sv-na-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Whales are the largest mammals on Earth.",
+    "correctAnswer": "Valar är de största däggdjuren på jorden.",
+    "hints": [
+      "State a scientific fact using the superlative."
+    ]
+  },
+  {
+    "id": "sv-na-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We planted a vegetable garden in the spring.",
+    "correctAnswer": "Vi planterade en grönsaksträdgård på våren.",
+    "hints": [
+      "Simple past for a seasonal activity."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We planted trees near our school.",
+    "correctAnswer": "Vi planterade träd nära vår skola.",
+    "hints": [
+      "Past action with nature theme."
+    ],
+    "id": "sv-na-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This river is cleaner than before.",
+    "correctAnswer": "Denna flod är renare än tidigare.",
+    "hints": [
+      "Comparative sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-na-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How can we protect wild animals?",
+    "correctAnswer": "Hur kan vi skydda vilda djur?",
+    "hints": [
+      "Action-oriented question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-na-a2-51"
   },
   {
     "id": "sv-na-b1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Wolves usually travel in packs and hunt together.",
-    "correctAnswer": "Vargar reser vanligtvis i flock och jagar tillsammans.",
+    "prompt": "Say: Deforestation is one of the leading causes of habitat loss for many endangered species.",
+    "correctAnswer": "Avskogning är en av de ledande orsakerna till livsmiljöförlust för många hotade arter.",
     "hints": [
-      "Use 'usually' to describe typical animal behavior."
-    ],
-    "exerciseType": "build_sentence"
+      "'Deforestation' = clearing forests; 'habitat loss' = destruction of animal living spaces."
+    ]
   },
   {
     "id": "sv-na-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Why do birds migrate?",
-    "correctAnswer": "De flyger till varmare platser för att hitta mat på vintern.",
+    "prompt": "Say: I have recently become more aware of the impact of my diet on carbon emissions.",
+    "correctAnswer": "Jag har nyligen blivit mer medveten om effekten av min kost på koldioxidutsläpp.",
     "hints": [
-      "Give a simple factual reason."
-    ],
-    "exerciseType": "roleplay"
+      "Present perfect with 'recently' for a new awareness."
+    ]
   },
   {
     "id": "sv-na-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "a predator",
-    "correctAnswer": "ett rovdjur",
+    "prompt": "Ask: What measures are being taken locally to protect pollinators such as bees?",
+    "correctAnswer": "Vilka åtgärder vidtas lokalt för att skydda pollinatorer som bin?",
     "hints": [
-      "An animal that hunts other animals."
+      "'Pollinators' = animals that help plants reproduce; 'measures' = actions taken."
+    ]
+  },
+  {
+    "id": "sv-na-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Rewilding projects aim to restore natural ecosystems by reintroducing native species.",
+    "correctAnswer": "Rewilding projekt syftar till att återställa naturliga ekosystem genom att återinföra inhemska arter.",
+    "hints": [
+      "'Rewilding' = allowing nature to recover; 'native species' = animals or plants originally from an area."
+    ]
+  },
+  {
+    "id": "sv-na-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The migration patterns of birds are being disrupted by climate change.",
+    "correctAnswer": "Fåglarnas migrationsmönster störs av klimatförändringarna.",
+    "hints": [
+      "Passive present continuous for an ongoing process."
+    ]
+  },
+  {
+    "id": "sv-na-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Do you think urban green spaces have a measurable effect on mental health?",
+    "correctAnswer": "Tycker du att urbana grönområden har en mätbar effekt på mental hälsa?",
+    "hints": [
+      "'Green spaces' = parks and gardens; 'measurable effect' = a quantifiable impact."
+    ]
+  },
+  {
+    "id": "sv-na-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The ocean absorbs around a quarter of all CO2 emissions, playing a vital role in regulating climate.",
+    "correctAnswer": "Havet absorberar cirka en fjärdedel av alla koldioxidutsläpp och spelar en viktig roll för att reglera klimatet.",
+    "hints": [
+      "'Absorbs' = takes in; 'vital role' = essential function."
+    ]
+  },
+  {
+    "id": "sv-na-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I was fortunate enough to witness a murmuration of starlings at dusk.",
+    "correctAnswer": "Jag hade turen att bevittna en mumlande stjärnbildning i skymningen.",
+    "hints": [
+      "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = at sunset.",
+      "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
     ],
-    "exerciseType": "matching"
+    "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter."
+  },
+  {
+    "id": "sv-na-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Plastic pollution in the ocean poses a severe threat to marine life and food chains.",
+    "correctAnswer": "Plastföroreningar i havet utgör ett allvarligt hot mot marina liv och livsmedelskedjor.",
+    "hints": [
+      "'Poses a threat' = presents a danger; 'marine life' = living organisms in the sea."
+    ]
+  },
+  {
+    "id": "sv-na-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A friend asks what you do to live more sustainably.",
+    "correctAnswer": "Jag försöker minska engångsplast, äta mindre kött och gå eller cykla istället för att köra.",
+    "hints": [
+      "List specific, concrete actions."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Protecting habitats is essential for biodiversity.",
+    "correctAnswer": "Att skydda livsmiljöer är avgörande för den biologiska mångfalden.",
+    "hints": [
+      "Key environmental phrase."
+    ],
+    "id": "sv-na-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I started reducing plastic waste to help marine life.",
+    "correctAnswer": "Jag började minska plastavfall för att hjälpa marint liv.",
+    "hints": [
+      "Personal impact sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-na-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What causes animal populations to decline?",
+    "correctAnswer": "Vad orsakar djurpopulationer att minska?",
+    "hints": [
+      "Scientific reasoning question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-na-b1-61"
   },
   {
     "id": "sv-na-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sharks are often misunderstood and are rarely dangerous to humans.",
-    "correctAnswer": "Hajar missförstås ofta och är sällan farliga för människor.",
+    "prompt": "Say: The sixth mass extinction event, driven primarily by human activity, is already well underway.",
+    "correctAnswer": "Den sjätte massutrotningshändelsen, som främst drivs av mänsklig aktivitet, är redan på gång.",
     "hints": [
-      "Use passive voice and adverbs of frequency."
-    ],
-    "exerciseType": "pronunciation"
+      "'Mass extinction' = widespread species die-off; 'well underway' = already in progress."
+    ]
   },
   {
     "id": "sv-na-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The trail winds through dense woodland before opening onto the lake.",
-    "correctAnswer": "Stigen slingrar sig genom tät skog innan den öppnar sig mot sjön.",
+    "prompt": "Ask: To what extent is technological innovation capable of mitigating the effects of anthropogenic climate change?",
+    "correctAnswer": "I vilken utsträckning kan teknisk innovation mildra effekterna av antropogena klimatförändringar?",
     "hints": [
-      "Describe a natural landscape with precise vocabulary."
-    ],
-    "exerciseType": "pronunciation"
+      "'Anthropogenic' = caused by human activity; 'mitigating' = reducing the severity of."
+    ]
   },
   {
     "id": "sv-na-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
-    "correctAnswer": "Vissa arter har anpassat sig anmärkningsvärt bra till att leva sida vid sida med människor.",
+    "prompt": "Say: Tipping points in the climate system — such as the thawing of permafrost — could trigger irreversible feedback loops.",
+    "correctAnswer": "Tipspunkter i klimatsystemet - som tinaningen av permafrost - kan utlösa irreversibla återkopplingsslingor.",
     "hints": [
-      "Use present perfect with an adverb for emphasis."
+      "'Tipping points' = thresholds beyond which change becomes self-reinforcing; 'permafrost' = permanently frozen ground in Arctic regions."
+    ]
+  },
+  {
+    "id": "sv-na-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Biodiversity loss undermines ecosystem services that underpin agricultural productivity and water security.",
+    "correctAnswer": "Förlust av biologisk mångfald undergräver ekosystemtjänster som ligger till grund för jordbruksproduktivitet och vattensäkerhet.",
+    "hints": [
+      "'Ecosystem services' = benefits humans receive from nature; 'underpin' = support from below."
+    ]
+  },
+  {
+    "id": "sv-na-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The precautionary principle holds that a lack of scientific certainty should not delay protective environmental measures.",
+    "correctAnswer": "Försiktighetsprincipen anser att bristen på vetenskaplig säkerhet inte bör fördröja skyddsåtgärder.",
+    "hints": [
+      "'Precautionary principle' = act to prevent harm even without complete proof."
+    ]
+  },
+  {
+    "id": "sv-na-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Can market mechanisms alone effectively address environmental externalities, or is state intervention necessary?",
+    "correctAnswer": "Kan marknadsmekanismer enbart effektivt hantera miljöexterna, eller är statligt ingripande nödvändigt?",
+    "hints": [
+      "'Externalities' = costs or benefits not reflected in market prices; 'market mechanisms' = price signals and incentives."
+    ]
+  },
+  {
+    "id": "sv-na-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Deep-sea ecosystems remain poorly understood, yet face increasing threats from resource extraction and warming oceans.",
+    "correctAnswer": "Djupa havsekosystem förblir dåligt förstådda, men möter ökande hot från resursutvinning och uppvärmning av oceaner.",
+    "hints": [
+      "'Resource extraction' = mining or drilling; 'yet' here means 'but also'."
+    ]
+  },
+  {
+    "id": "sv-na-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The philosophical tradition of deep ecology argues for an intrinsic value of nature independent of human utility.",
+    "correctAnswer": "Den filosofiska traditionen av djup ekologi argumenterar för ett inneboende värde av naturen oberoende av mänsklig nytta.",
+    "hints": [
+      "'Deep ecology' = a philosophy that values nature for its own sake; 'intrinsic value' = value in itself."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Climate change is accelerating habitat loss in vulnerable ecosystems.",
+    "correctAnswer": "Klimatförändringar accelererar förlust av livsmiljöer i sårbara ekosystem.",
+    "hints": [
+      "Advanced environmental vocabulary."
     ],
-    "exerciseType": "pronunciation"
+    "id": "sv-na-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Conservation strategies must consider both ecology and local livelihoods.",
+    "correctAnswer": "Bevarandestrategier måste överväga både ekologi och lokal försörjning.",
+    "hints": [
+      "Balanced policy sentence."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-na-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Which environmental interventions deliver the greatest long-term impact?",
+    "correctAnswer": "Vilka miljöinsatser ger störst långsiktig effekt?",
+    "hints": [
+      "Analytical question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-na-b2-71"
   }
 ]

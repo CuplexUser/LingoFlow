@@ -24,7 +24,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where are you from?",
-    "correctAnswer": "Di dove sei?",
+    "correctAnswer": "Da dove vieni?",
     "hints": [
       "Practise this phrase out loud."
     ]
@@ -33,113 +33,139 @@
     "id": "it-cv-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Hello, nice to meet you.",
-    "correctAnswer": "Ciao, piacere di conoscerti.",
+    "prompt": "Say: I am happy to meet you.",
+    "correctAnswer": "Sono felice di conoscerti.",
     "hints": [
-      "'Piacere' is the standard greeting when meeting someone new."
-    ]
+      "A friendly greeting."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "it-cv-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: How old are you?",
-    "correctAnswer": "Quanti anni hai?",
+    "prompt": "goodbye",
+    "correctAnswer": "addio",
     "hints": [
-      "Literally: 'How many years do you have?' — Italian uses 'avere' (to have) for age."
-    ]
+      "A word you say when leaving."
+    ],
+    "exerciseType": "flashcard",
+    "imageUrl": "/images/placeholder.svg"
   },
   {
     "id": "it-cv-a1-6",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I am twenty-five years old.",
-    "correctAnswer": "Ho venticinque anni.",
+    "prompt": "Say: How old are you?",
+    "correctAnswer": "Quanti anni hai?",
     "hints": [
-      "Use 'ho' (I have) — not 'sono' — to express age in Italian."
-    ]
+      "Ask about someone's age."
+    ],
+    "exerciseType": "pronunciation"
   },
   {
     "id": "it-cv-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Goodbye / See you later",
-    "correctAnswer": "Arrivederci / A dopo",
+    "prompt": "Choose the best response. Someone says: Hello!",
+    "correctAnswer": "Ciao, come stai?",
     "hints": [
-      "Both are common ways to say farewell."
+      "Reply with a friendly greeting."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "roleplay"
   },
   {
     "id": "it-cv-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Do you speak English?",
-    "correctAnswer": "Parli inglese?",
+    "prompt": "I ___ a student.",
+    "correctAnswer": "io sono",
     "hints": [
-      "Use the informal 'tu' form here — 'parli' is second person singular present."
-    ]
+      "Use the correct form of 'to be'."
+    ],
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "it-cv-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I speak a little Italian.",
-    "correctAnswer": "Parlo un po' di italiano.",
+    "prompt": "Say: I live in a small city.",
+    "correctAnswer": "Vivo in una piccola città.",
     "hints": [
-      "'Un po' di' means 'a little of' — the apostrophe is important."
-    ]
+      "Talk about where you live."
+    ],
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "it-cv-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: ___ mi chiamo Marco. (My name is Marco.)",
-    "correctAnswer": "Mi",
+    "prompt": "Say: I like music and films.",
+    "correctAnswer": "Mi piace la musica e i film.",
     "hints": [
-      "'Mi chiamo' is a reflexive construction — 'I call myself'."
-    ],
-    "exerciseType": "cloze_sentence"
+      "Share your interests simply."
+    ]
   },
   {
     "id": "it-cv-a1-11",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I live in a small town near Naples.",
-    "correctAnswer": "Vivo in un piccolo paese vicino a Napoli.",
+    "prompt": "friend / teacher / doctor / neighbour",
+    "correctAnswer": "vicino",
     "hints": [
-      "'Vivo' = I live (first person of 'vivere'); 'vicino a' = near."
+      "Which word means someone who lives near you?"
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "it-cv-a1-12",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My name is Laura and I am from Italy.",
-    "correctAnswer": "Mi chiamo Laura e vengo dall'Italia.",
+    "prompt": "Say: See you tomorrow!",
+    "correctAnswer": "A domani!",
     "hints": [
-      "'Mi chiamo' = my name is (lit. I call myself); 'vengo da' = I come from."
+      "A casual farewell."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "it-cv-a1-13",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "amico / nemico / vicino / collega",
-    "correctAnswer": "vicino",
+    "prompt": "Say: Nice to meet you.",
+    "correctAnswer": "Piacere di conoscerti.",
     "hints": [
-      "Which word means the person who lives near you?"
+      "Polite first-meeting phrase."
     ],
-    "exerciseType": "mc_sentence"
+    "id": "it-co-a1-49"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: How are you today?",
+    "correctAnswer": "Come stai oggi?",
+    "hints": [
+      "Common opener."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-co-a1-50"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am from Sweden.",
+    "correctAnswer": "Vengo dalla Svezia.",
+    "hints": [
+      "Simple personal information."
+    ],
+    "exerciseType": "flashcard",
+    "id": "it-co-a1-51"
   },
   {
     "id": "it-co-3",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: It is nice to meet you in person.",
-    "correctAnswer": "Piacere di conoscerti di persona.",
+    "correctAnswer": "E' un piacere conoscerti di persona.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -159,7 +185,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I usually spend my evenings reading or walking.",
-    "correctAnswer": "Di solito passo le serate leggendo o camminando.",
+    "correctAnswer": "Di solito passo le mie serate a leggere o a camminare.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -168,113 +194,139 @@
     "id": "it-cv-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I went to Rome last summer and it was amazing.",
-    "correctAnswer": "Sono andato a Roma l'estate scorsa ed è stato fantastico.",
+    "prompt": "Say: I moved here two years ago.",
+    "correctAnswer": "Mi sono trasferita qui due anni fa.",
     "hints": [
-      "'Sono andato' uses essere — motion verbs take essere in the passato prossimo."
-    ]
+      "Use the past tense.",
+      "Talk about when you arrived."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "it-cv-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Do you have any brothers or sisters?",
-    "correctAnswer": "Hai fratelli o sorelle?",
+    "prompt": "She ___ three languages fluently.",
+    "correctAnswer": "parla",
     "hints": [
-      "In Italian you can omit the article before family members in simple questions."
-    ]
+      "Use the correct present tense form."
+    ],
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "it-cv-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I prefer tea to coffee in the morning.",
-    "correctAnswer": "Preferisco il tè al caffè la mattina.",
+    "prompt": "Choose the best response. Someone asks: What do you do for a living?",
+    "correctAnswer": "Lavoro come ingegnere.",
     "hints": [
-      "'Preferire' takes the definite article before nouns when speaking generally."
-    ]
+      "Answer with your job."
+    ],
+    "exerciseType": "roleplay"
   },
   {
     "id": "it-cv-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the best response. Someone says: 'Come stai?' How do you reply?",
-    "correctAnswer": "Sto bene, grazie. E tu?",
+    "prompt": "Say: Do you have any brothers or sisters?",
+    "correctAnswer": "Hai fratelli o sorelle?",
     "hints": [
-      "Always return the question — it is polite to ask back."
+      "Ask about someone's family."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "pronunciation"
   },
   {
     "id": "it-cv-a2-8",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I like Italian food, especially pasta.",
-    "correctAnswer": "Mi piace la cucina italiana, soprattutto la pasta.",
+    "prompt": "Say: I visited my grandparents last summer.",
+    "correctAnswer": "Ho visitato i miei nonni l'estate scorsa.",
     "hints": [
-      "'Mi piace' + singular noun; 'mi piacciono' + plural noun."
-    ]
+      "Use the past tense for a completed event."
+    ],
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "it-cv-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: Sono ___ a Milano da tre anni. (I have lived in Milan for three years.)",
-    "correctAnswer": "vissuto",
+    "prompt": "a hobby",
+    "correctAnswer": "un hobby",
     "hints": [
-      "'Sono vissuto' — 'vivere' takes 'essere' as its auxiliary in passato prossimo."
+      "An activity you enjoy in your free time."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "it-cv-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: What time does the event start?",
-    "correctAnswer": "A che ora inizia l'evento?",
+    "prompt": "interesting / boring / exciting / unusual",
+    "correctAnswer": "insolito",
     "hints": [
-      "'A che ora' = at what time; 'inizia' is third person singular of 'iniziare'."
-    ]
+      "Which word means not common or typical?"
+    ],
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "it-cv-a2-11",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I have been studying Italian for two years.",
-    "correctAnswer": "Studio italiano da due anni.",
+    "prompt": "Say: We met at a party last month.",
+    "correctAnswer": "Ci siamo conosciuti a una festa il mese scorso.",
     "hints": [
-      "Use the present tense + 'da' to describe something ongoing since a point in the past."
-    ],
-    "exerciseType": "build_sentence"
+      "Use the past tense of 'meet'."
+    ]
   },
   {
     "id": "it-cv-a2-12",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Last week I went to the cinema with my sister.",
-    "correctAnswer": "La settimana scorsa sono andato al cinema con mia sorella.",
+    "prompt": "Say: How long have you lived here?",
+    "correctAnswer": "Da quanto vivi qui?",
     "hints": [
-      "Use 'sono andato' — motion verbs take 'essere' in the passato prossimo."
+      "Use present perfect for duration."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "it-cv-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "simpatico / antipatico / timido / allegro",
-    "correctAnswer": "antipatico",
+    "prompt": "Say: I am sorry, I did not catch that.",
+    "correctAnswer": "Mi dispiace, non l'ho preso.",
     "hints": [
-      "Which word describes someone who is unfriendly or unlikeable?"
+      "Polite repair phrase."
     ],
-    "exerciseType": "mc_sentence"
+    "id": "it-co-a2-57"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Could you speak a little slower?",
+    "correctAnswer": "Puoi parlare un po' piu' piano?",
+    "hints": [
+      "Useful listening support."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-co-a2-58"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: What do you usually do after work?",
+    "correctAnswer": "Cosa fai di solito dopo il lavoro?",
+    "hints": [
+      "Routine question pattern."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-co-a2-59"
   },
   {
     "id": "it-co-5",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I enjoy talking about books and current events.",
-    "correctAnswer": "Mi piace parlare di libri e di attualità.",
+    "correctAnswer": "Mi piace parlare di libri ed eventi attuali.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -284,7 +336,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: In my opinion, consistency is more important than intensity.",
-    "correctAnswer": "Secondo me, la costanza è più importante dell'intensità.",
+    "correctAnswer": "A mio parere, la consistenza è più importante dell'intensità.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -303,113 +355,139 @@
     "id": "it-cv-b1-4",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: When I was a child, I used to play outside until dark.",
-    "correctAnswer": "Da bambino, giocavo fuori fino a quando faceva buio.",
+    "prompt": "Say: I used to be very shy, but I have become more outgoing.",
+    "correctAnswer": "Ero molto timida, ma sono diventata piu' in uscita.",
     "hints": [
-      "Use the imperfetto for habitual past actions — 'giocavo' describes a repeated habit."
-    ]
+      "Contrast past and present with 'used to' and present perfect."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "it-cv-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I am not sure I agree with that point of view.",
-    "correctAnswer": "Non sono sicuro di essere d'accordo con quel punto di vista.",
+    "prompt": "I would have joined you if I ___ free.",
+    "correctAnswer": "stato",
     "hints": [
-      "'Non sono sicuro di + infinitivo' expresses polite disagreement."
-    ]
+      "Use the third conditional."
+    ],
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "it-cv-b1-6",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Could you speak more slowly, please? I am still learning.",
-    "correctAnswer": "Potresti parlare più lentamente, per favore? Sto ancora imparando.",
+    "prompt": "Choose the best response. Your friend asks: What do you think about this idea?",
+    "correctAnswer": "Penso che sia interessante, anche se ho alcune preoccupazioni.",
     "hints": [
-      "'Potresti' is the conditional of 'potere' — a polite form of 'can you'."
-    ]
+      "Express a balanced opinion."
+    ],
+    "exerciseType": "dialogue_turn",
+    "culturalNote": "In many English-speaking cultures, softening criticism with a positive remark first is considered polite."
   },
   {
     "id": "it-cv-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. A friend asks: 'Cosa pensi del telelavoro?' (What do you think of remote work?)",
-    "correctAnswer": "Penso che abbia vantaggi e svantaggi: si risparmia tempo, ma a volte ci si sente isolati.",
+    "prompt": "Say: We should catch up more often.",
+    "correctAnswer": "Dovremmo recuperare più spesso.",
     "hints": [
-      "'Penso che' + congiuntivo — 'abbia' is the congiuntivo of 'avere'."
+      "'Catch up' means to talk and share news."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "pronunciation"
   },
   {
     "id": "it-cv-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: It seems to me that people talk less face to face nowadays.",
-    "correctAnswer": "Mi sembra che le persone parlino meno di persona al giorno d'oggi.",
+    "prompt": "Say: I have been meaning to call you all week.",
+    "correctAnswer": "Volevo chiamarti per tutta la settimana.",
     "hints": [
-      "'Mi sembra che' triggers the congiuntivo — 'parlino' is congiuntivo of 'parlare'."
-    ]
+      "Use present perfect continuous for an ongoing intention."
+    ],
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "it-cv-b1-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: Quando ero giovane, ___ molto sport. (When I was young, I used to do a lot of sport.)",
-    "correctAnswer": "facevo",
+    "prompt": "awkward / smooth / tense / casual",
+    "correctAnswer": "imbarazzante",
     "hints": [
-      "'Facevo' is the imperfetto of 'fare' — used for repeated past habits."
+      "Which word describes a situation that feels uncomfortable?"
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "it-cv-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I find it easier to express myself in writing than in speech.",
-    "correctAnswer": "Trovo più facile esprimermi per iscritto che a voce.",
+    "prompt": "to interrupt",
+    "correctAnswer": "per interrompere",
     "hints": [
-      "'Per iscritto' is an idiomatic expression meaning 'in writing'."
-    ]
+      "To stop someone while they are speaking."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "it-cv-b1-11",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I would rather stay in than go out this evening.",
-    "correctAnswer": "Preferisco stare a casa piuttosto che uscire stasera.",
+    "prompt": "Say: However, I see your point and I partially agree.",
+    "correctAnswer": "Tuttavia, vedo il suo punto e sono in parte d'accordo.",
     "hints": [
-      "'Piuttosto che' = rather than; both verbs are in the infinitive."
-    ],
-    "exerciseType": "build_sentence"
+      "Use 'however' to introduce a different perspective."
+    ]
   },
   {
     "id": "it-cv-b1-12",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The more I practise, the more confident I feel.",
-    "correctAnswer": "Più mi esercito, più mi sento sicuro.",
+    "prompt": "Say: Could we change the subject, please?",
+    "correctAnswer": "Possiamo cambiare argomento, per favore?",
     "hints": [
-      "'Più... più...' = the more... the more — a common Italian comparative structure."
+      "A polite way to redirect a conversation."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "build_sentence"
   },
   {
-    "id": "it-cv-b1-13",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "l'interlocutore",
-    "correctAnswer": "l'interlocutore",
+    "prompt": "Say: I see your point, but I have a different opinion.",
+    "correctAnswer": "Capisco il suo punto, ma ho un'opinione diversa.",
     "hints": [
-      "The person you are speaking or negotiating with."
+      "Balanced disagreement."
     ],
-    "exerciseType": "flashcard"
+    "id": "it-co-b1-65"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What made you decide that?",
+    "correctAnswer": "Cosa ti ha fatto decidere?",
+    "hints": [
+      "Follow-up question."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-co-b1-66"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I felt nervous at first, then I relaxed.",
+    "correctAnswer": "All'inizio mi sentivo nervoso, poi mi sono rilassato.",
+    "hints": [
+      "Story transition phrase."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-co-b1-67"
   },
   {
     "id": "it-co-7",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-    "correctAnswer": "Una volta ero timido, ma ora esprimo le mie idee con sicurezza.",
+    "correctAnswer": "Ero timido, ma ora esprimo le mie idee con fiducia.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -419,7 +497,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Although we disagree, I respect your perspective.",
-    "correctAnswer": "Anche se non siamo d'accordo, rispetto il tuo punto di vista.",
+    "correctAnswer": "Anche se non siamo d'accordo, rispetto la tua prospettiva.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -438,83 +516,132 @@
     "id": "it-cv-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I would have called you sooner had I known you were in town.",
-    "correctAnswer": "Ti avrei chiamato prima se avessi saputo che eri in città.",
+    "prompt": "Say: It strikes me that we have more in common than we initially thought.",
+    "correctAnswer": "Mi colpisce che abbiamo più in comune di quanto pensassimo inizialmente.",
     "hints": [
-      "Third conditional: 'avrei + participio passato' + 'se + congiuntivo trapassato'."
-    ]
+      "Use 'it strikes me that' for a reflective observation."
+    ],
+    "exerciseType": "build_sentence"
   },
   {
     "id": "it-cv-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: It is worth reflecting on how our communication style affects others.",
-    "correctAnswer": "Vale la pena riflettere su come il nostro stile comunicativo influenzi gli altri.",
+    "prompt": "Had she ___ more clearly, the misunderstanding would not have occurred.",
+    "correctAnswer": "comunicato",
     "hints": [
-      "'Vale la pena + infinitivo'; 'influenzi' is congiuntivo presente after 'come'."
-    ]
+      "Use the past participle in an inverted conditional."
+    ],
+    "exerciseType": "cloze_sentence"
   },
   {
     "id": "it-cv-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The more I listen, the more I realise how different our experiences are.",
-    "correctAnswer": "Più ascolto, più mi rendo conto di quanto siano diverse le nostre esperienze.",
+    "prompt": "Choose the best response. A colleague says something you strongly disagree with.",
+    "correctAnswer": "Vedo da dove vieni, ma ho un'altra opinione su questo.",
     "hints": [
-      "'Più... più...' = the more... the more...; 'siano' is congiuntivo of 'essere'."
-    ]
+      "Disagree diplomatically.",
+      "Consider the register."
+    ],
+    "exerciseType": "dialogue_turn",
+    "culturalNote": "Acknowledging the other person's viewpoint before disagreeing is valued in professional English."
   },
   {
     "id": "it-cv-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Provided that both sides are willing to compromise, a solution can be found.",
-    "correctAnswer": "A patto che entrambe le parti siano disposte a scendere a compromessi, si può trovare una soluzione.",
+    "prompt": "Say: Meaningful dialogue requires active listening and genuine curiosity.",
+    "correctAnswer": "Il dialogo significativo richiede un ascolto attivo e una vera curiosità.",
     "hints": [
-      "'A patto che' + congiuntivo expresses a condition; 'siano' is the congiuntivo of 'essere'."
-    ]
+      "Focus on natural phrasing and word order."
+    ],
+    "exerciseType": "pronunciation"
   },
   {
     "id": "it-cv-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Whatever you decide, I will support you.",
-    "correctAnswer": "Qualunque cosa tu decida, ti sosterrò.",
+    "prompt": "Say: I would have phrased it differently had I known the context.",
+    "correctAnswer": "L'avrei detto diversamente se avessi saputo il contesto.",
     "hints": [
-      "'Qualunque cosa' + congiuntivo — 'decida' is congiuntivo of 'decidere'."
-    ]
+      "Use inverted third conditional for a formal tone."
+    ],
+    "exerciseType": "dictation_sentence"
   },
   {
     "id": "it-cv-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Not only did he apologise, but he also offered to make amends.",
-    "correctAnswer": "Non solo si è scusato, ma ha anche offerto di rimediare.",
+    "prompt": "nuance / bias / tone / register",
+    "correctAnswer": "nuance",
     "hints": [
-      "'Non solo... ma anche...' = not only... but also; use passato prossimo throughout."
+      "Which word means a subtle difference in meaning?"
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "mc_sentence"
   },
   {
     "id": "it-cv-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: Nonostante le differenze, è importante che ci ___ rispetto reciproco.",
-    "correctAnswer": "sia",
+    "prompt": "to empathise",
+    "correctAnswer": "per empatizzare",
     "hints": [
-      "'È importante che' triggers the congiuntivo; 'sia' is congiuntivo presente of 'essere'."
+      "To understand and share another person's feelings."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "flashcard"
   },
   {
     "id": "it-cv-b2-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I would have expressed myself more clearly had I had more time to reflect.",
-    "correctAnswer": "Mi sarei espresso più chiaramente se avessi avuto più tempo per riflettere.",
+    "prompt": "Say: The crux of the matter is that we need clearer communication.",
+    "correctAnswer": "Il crox della questione è che abbiamo bisogno di una comunicazione più chiara.",
     "hints": [
-      "Third conditional: 'mi sarei espresso' + 'se + congiuntivo trapassato'."
+      "'The crux of the matter' is an idiomatic expression meaning the central point."
+    ]
+  },
+  {
+    "id": "it-cv-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Rather than argue, let us try to find common ground.",
+    "correctAnswer": "Piuttosto che discutere, cerchiamo di trovare un terreno comune.",
+    "hints": [
+      "Use 'rather than' to present an alternative."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "build_sentence"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Let me rephrase that to make my point clearer.",
+    "correctAnswer": "Permettetemi di riformulare questo per rendere il mio punto più chiaro.",
+    "hints": [
+      "Advanced conversation control."
+    ],
+    "id": "it-co-b2-73"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Would you mind elaborating on that argument?",
+    "correctAnswer": "Ti dispiacerebbe elaborare questo argomento?",
+    "hints": [
+      "Formal discussion prompt."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-co-b2-74"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I appreciate the nuance in your explanation.",
+    "correctAnswer": "Apprezzo la sfumatura della sua spiegazione.",
+    "hints": [
+      "High-level feedback phrase."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "it-co-b2-75"
   }
 ]

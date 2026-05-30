@@ -3,142 +3,500 @@
     "id": "sv-nm-a1-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I read the news every morning.",
-    "correctAnswer": "Jag läser nyheterna varje morgon.",
+    "prompt": "Vocabulary: a person who reports the news",
+    "correctAnswer": "journalisten journalist",
     "hints": [
-      "Use simple present for daily routines."
-    ]
+      "They write or broadcast the news."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-nm-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "newspaper / television / radio / podcast",
-    "correctAnswer": "television",
+    "prompt": "Say: I read the news every morning.",
+    "correctAnswer": "Jag läste nyheterna varje morgon.",
     "hints": [
-      "Which medium uses moving images?"
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "tidning",
-      "television",
-      "radio",
-      "podd"
+      "A simple daily habit."
     ]
   },
   {
     "id": "sv-nm-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This article is interesting.",
-    "correctAnswer": "Den här artikeln är intressant.",
+    "prompt": "Ask: Did you hear about the earthquake?",
+    "correctAnswer": "Hörde du om jordbävningen?",
     "hints": [
-      "A simple opinion sentence."
+      "Simple past to ask about recent news."
     ]
+  },
+  {
+    "id": "sv-nm-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The news is on television at six.",
+    "correctAnswer": "Nyheten är på TV vid sex.",
+    "hints": [
+      "State when a TV programme is broadcast."
+    ]
+  },
+  {
+    "id": "sv-nm-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What is in the news today?",
+    "correctAnswer": "Vad är i nyheterna idag?",
+    "hints": [
+      "A very natural question about current events."
+    ]
+  },
+  {
+    "id": "sv-nm-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a daily printed publication with news and articles",
+    "correctAnswer": "tidningstidning",
+    "hints": [
+      "You can read it in print or online."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "sv-nm-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: There was a big storm last night.",
+    "correctAnswer": "Det var en stor storm igår kväll.",
+    "hints": [
+      "'There was' for something that happened in the past."
+    ]
+  },
+  {
+    "id": "sv-nm-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I do not watch much television.",
+    "correctAnswer": "Jag tittar inte på mycket TV.",
+    "hints": [
+      "'Much' with uncountable nouns in negatives."
+    ]
+  },
+  {
+    "id": "sv-nm-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is this on the front page?",
+    "correctAnswer": "Är detta på framsidan?",
+    "hints": [
+      "The front page is the most important page of a newspaper."
+    ]
+  },
+  {
+    "id": "sv-nm-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I get my news from the internet.",
+    "correctAnswer": "Jag får mina nyheter från internet.",
+    "hints": [
+      "State where you access information."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This story is about the weather.",
+    "correctAnswer": "Denna historia handlar om vädret.",
+    "hints": [
+      "Topic sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-ne-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where do you get your news?",
+    "correctAnswer": "Var får du dina nyheter?",
+    "hints": [
+      "Common media question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-ne-a1-41"
   },
   {
     "id": "sv-nm-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I prefer reading news online to watching it on TV.",
-    "correctAnswer": "Jag föredrar att läsa nyheter online framför att titta på dem på TV.",
+    "prompt": "Say: According to the report, the economy grew by two per cent last year.",
+    "correctAnswer": "Enligt rapporten växte ekonomin med två procent förra året.",
     "hints": [
-      "Use 'prefer to + infinitive + rather than + infinitive'."
+      "'According to' introduces a cited source."
     ]
   },
   {
     "id": "sv-nm-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "What is a 'headline'?",
-    "correctAnswer": "titeln på en nyhetsartikel",
+    "prompt": "Ask: Have you been following the election coverage?",
+    "correctAnswer": "Har du följt valtäckningen?",
     "hints": [
-      "It appears at the top of each news story."
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "journalistens namn",
-      "titeln på en nyhetsartikel",
-      "en bildtext",
-      "publiceringsdatumet"
+      "'Coverage' means the reporting of an event by media."
     ]
   },
   {
     "id": "sv-nm-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: The reporter interviewed several witnesses.",
-    "correctAnswer": "Reportern intervjuade flera vittnen.",
+    "prompt": "Say: The prime minister gave a press conference this morning.",
+    "correctAnswer": "Premiärministern gav en presskonferens i morse.",
     "hints": [
-      "Use past tense for a completed action."
+      "A press conference is an official meeting with journalists."
     ]
+  },
+  {
+    "id": "sv-nm-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer listening to podcasts over reading print media.",
+    "correctAnswer": "Jag föredrar att lyssna på podcasts över att läsa tryckta medier.",
+    "hints": [
+      "'Over' here means 'rather than'."
+    ]
+  },
+  {
+    "id": "sv-nm-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Which news outlet do you trust the most?",
+    "correctAnswer": "Vilket nyhetsuttag litar du mest på?",
+    "hints": [
+      "'Outlet' here means a media organisation or website."
+    ]
+  },
+  {
+    "id": "sv-nm-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: There was a breaking news story about the floods.",
+    "correctAnswer": "Det fanns en nyhetshistoria om översvämningarna.",
+    "hints": [
+      "'Breaking news' refers to a developing, urgent story."
+    ]
+  },
+  {
+    "id": "sv-nm-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Social media is now the main source of news for many young people.",
+    "correctAnswer": "Sociala medier är nu huvudkällan till nyheter för många unga.",
+    "hints": [
+      "'Source' means where information comes from."
+    ]
+  },
+  {
+    "id": "sv-nm-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Did you see the documentary about climate change?",
+    "correctAnswer": "Har du sett dokumentären om klimatförändringar?",
+    "hints": [
+      "Simple past yes/no question."
+    ]
+  },
+  {
+    "id": "sv-nm-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The article was written by an investigative journalist.",
+    "correctAnswer": "Artikeln skrevs av en undersökande journalist.",
+    "hints": [
+      "Passive past simple: 'was written by'."
+    ]
+  },
+  {
+    "id": "sv-nm-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I cancelled my newspaper subscription and switched to an online news app.",
+    "correctAnswer": "Jag avbröt min tidningsabonnemang och bytte till en online-nyhetsapp.",
+    "hints": [
+      "Two completed past actions joined by 'and'."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I follow local news on my phone.",
+    "correctAnswer": "Jag följer lokala nyheter på min telefon.",
+    "hints": [
+      "Use 'follow' for ongoing updates."
+    ],
+    "id": "sv-ne-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I prefer short videos to long articles.",
+    "correctAnswer": "Jag föredrar korta videor till långa artiklar.",
+    "hints": [
+      "Comparison pattern."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-ne-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Did you hear about this event yesterday?",
+    "correctAnswer": "Hörde du om denna händelse igår?",
+    "hints": [
+      "Past simple in context."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-ne-a2-51"
   },
   {
     "id": "sv-nm-b1-1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: It is important to verify information before sharing it.",
-    "correctAnswer": "Det är viktigt att verifiera information innan man delar den.",
+    "prompt": "Say: It is increasingly difficult to distinguish between credible journalism and misinformation.",
+    "correctAnswer": "Det är allt svårare att skilja mellan trovärdig journalistik och felaktig information.",
     "hints": [
-      "Use 'it is + adjective + to + infinitive'."
+      "'Credible' = trustworthy; 'misinformation' = false or misleading information."
     ]
   },
   {
     "id": "sv-nm-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "What does 'to go viral' mean?",
-    "correctAnswer": "att spridas snabbt på internet",
+    "prompt": "Ask: How do you evaluate whether a news source is reliable?",
+    "correctAnswer": "Hur utvärderar du om en nyhetskälla är tillförlitlig?",
     "hints": [
-      "Think about how content spreads online."
-    ],
-    "exerciseType": "multiple_choice",
-    "options": [
-      "att bli smittad",
-      "att spridas snabbt på internet",
-      "att tas bort",
-      "att publiceras i tryck"
+      "'Evaluate' means judge or assess; 'reliable' means trustworthy."
     ]
   },
   {
     "id": "sv-nm-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The documentary raised serious questions about media bias.",
-    "correctAnswer": "Dokumentären väckte allvarliga frågor om mediabias.",
+    "prompt": "Say: Media bias can affect the way events are framed and interpreted by the public.",
+    "correctAnswer": "Media bias kan påverka hur händelser inramas och tolkas av allmänheten.",
     "hints": [
-      "'Raise questions' is a fixed collocation; use past tense."
+      "'Framed' means presented from a particular angle; 'bias' means favouring one view."
     ]
+  },
+  {
+    "id": "sv-nm-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I try to cross-reference stories across several different news sources before forming an opinion.",
+    "correctAnswer": "Jag försöker korsreferens historier över flera olika nyhetskällor innan jag bildar en åsikt.",
+    "hints": [
+      "'Cross-reference' means check the same information in multiple places."
+    ]
+  },
+  {
+    "id": "sv-nm-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The investigation revealed that the minister had misled the public about the financial figures.",
+    "correctAnswer": "Undersökningen visade att ministern hade vilselett allmänheten om de finansiella siffrorna.",
+    "hints": [
+      "'Revealed' = discovered and disclosed; past perfect after 'revealed'."
+    ]
+  },
+  {
+    "id": "sv-nm-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: To what extent do you think sensationalist headlines distort public perception?",
+    "correctAnswer": "I vilken utsträckning tror du att sensationalistiska rubriker förvränger allmänhetens uppfattning?",
+    "hints": [
+      "'Sensationalist' = exaggerated for shock; 'distort' = misrepresent."
+    ]
+  },
+  {
+    "id": "sv-nm-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The editorial team decided to hold the story until they had more concrete evidence.",
+    "correctAnswer": "Redaktionsteamet bestämde sig för att hålla historien tills de hade mer konkreta bevis.",
+    "hints": [
+      "'Hold a story' = delay publishing; 'concrete evidence' = solid proof."
+    ]
+  },
+  {
+    "id": "sv-nm-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Citizen journalism has grown significantly with the rise of smartphone technology.",
+    "correctAnswer": "Medborgarjournalistiken har vuxit kraftigt med uppkomsten av smartphone-teknik.",
+    "hints": [
+      "'Citizen journalism' = non-professional reporting by members of the public."
+    ]
+  },
+  {
+    "id": "sv-nm-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I subscribe to two quality newspapers and a weekly political magazine.",
+    "correctAnswer": "Jag prenumererar på två kvalitetstidningar och en veckovis politisk tidskrift.",
+    "hints": [
+      "'Subscribe' means pay regularly to receive; 'quality' here means serious and in-depth."
+    ]
+  },
+  {
+    "id": "sv-nm-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Do you think the press has too much or too little freedom in your country?",
+    "correctAnswer": "Tror du att pressen har för mycket eller för lite frihet i ditt land?",
+    "hints": [
+      "'Press' here means newspapers and journalism; a discussion question."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I compare several sources before I trust a headline.",
+    "correctAnswer": "Jag jämför flera källor innan jag litar på en rubrik.",
+    "hints": [
+      "Cause and sequence in one sentence."
+    ],
+    "id": "sv-ne-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Social media can spread accurate and inaccurate information quickly.",
+    "correctAnswer": "Sociala medier kan sprida korrekt och felaktig information snabbt.",
+    "hints": [
+      "Balanced statement practice."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-ne-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Why do people share articles without reading them?",
+    "correctAnswer": "Varför delar människor artiklar utan att läsa dem?",
+    "hints": [
+      "Discussion question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-ne-b1-61"
   },
   {
     "id": "sv-nm-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
-    "correctAnswer": "Undersökande journalistik spelar en avgörande roll för att hålla makten ansvarig.",
+    "prompt": "Say: The erosion of local news coverage has significant consequences for civic engagement and democratic accountability.",
+    "correctAnswer": "Erosionen av lokal nyhetstäckning har betydande konsekvenser för medborgerligt engagemang och demokratisk ansvarsskyldighet.",
     "hints": [
-      "Use gerund after 'role in'."
+      "'Erosion' = gradual loss; 'civic engagement' = participation in public life."
     ]
   },
   {
     "id": "sv-nm-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The editorial board decided to retract the story after new evidence emerged.",
-    "correctAnswer": "Redaktionen beslutade att dra tillbaka artikeln efter att nya bevis framkom.",
+    "prompt": "Say: Algorithmic curation of news feeds creates echo chambers that reinforce existing beliefs.",
+    "correctAnswer": "Algoritmisk härdning av nyhetsflöden skapar eko-kammare som förstärker befintliga övertygelser.",
     "hints": [
-      "'Retract' means to officially withdraw a published statement."
+      "'Algorithmic curation' = automated selection; 'echo chambers' = spaces where views are only confirmed."
     ]
   },
   {
     "id": "sv-nm-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
-    "correctAnswer": "Algoritmisk kuration formar i allt högre grad vilken information publiken tar del av.",
+    "prompt": "Ask: How has the 24-hour news cycle altered journalistic standards and public discourse?",
+    "correctAnswer": "Hur har den 24-timmars nyhetscykeln förändrat journalistiska standarder och offentlig diskurs?",
     "hints": [
-      "Use third-person singular; note the formal register."
+      "'Journalistic standards' = quality and ethics of reporting; 'public discourse' = open societal discussion."
+    ]
+  },
+  {
+    "id": "sv-nm-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Investigative journalism serves a vital democratic function by holding power to account.",
+    "correctAnswer": "Undersökande journalistik tjänar en viktig demokratisk funktion genom att hålla makten till konto.",
+    "hints": [
+      "'Holding power to account' means making those with authority answerable for their actions."
+    ]
+  },
+  {
+    "id": "sv-nm-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The conflation of opinion and fact in commentary pieces has blurred important epistemic boundaries.",
+    "correctAnswer": "Sammanflationen av åsikter och fakta i kommentarer har suddat ut viktiga epistemiska gränser.",
+    "hints": [
+      "'Conflation' = treating two different things as the same; 'epistemic' = relating to knowledge."
+    ]
+  },
+  {
+    "id": "sv-nm-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Is state media ever compatible with genuine editorial independence?",
+    "correctAnswer": "Är statliga medier någonsin kompatibla med verklig redaktionell självständighet?",
+    "hints": [
+      "'State media' = media owned or funded by the government; 'editorial independence' = freedom to report without interference."
+    ]
+  },
+  {
+    "id": "sv-nm-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Deepfake technology poses an unprecedented challenge to the verification of video evidence.",
+    "correctAnswer": "Deepfake-tekniken utgör en aldrig tidigare skådad utmaning för verifiering av videobevis.",
+    "hints": [
+      "'Unprecedented' = never happened before; 'verification' = confirming something is genuine."
+    ]
+  },
+  {
+    "id": "sv-nm-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The paywalling of quality journalism raises important questions about information equity.",
+    "correctAnswer": "Utbetalningen av kvalitetsjournalistik väcker viktiga frågor om informationsekvitet.",
+    "hints": [
+      "'Paywalling' = requiring payment to access content; 'equity' = fairness of access."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Responsible journalism requires transparent sourcing and context.",
+    "correctAnswer": "Ansvarsfull journalistik kräver transparent inköp och sammanhang.",
+    "hints": [
+      "Academic register."
     ],
-    "culturalNote": "Denna mening speglar moderna debatter om filterbubblor."
+    "id": "sv-ne-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Sensational headlines can distort public understanding of complex issues.",
+    "correctAnswer": "Sensationella rubriker kan förvränga allmänhetens förståelse av komplexa problem.",
+    "hints": [
+      "High-level media vocabulary."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-ne-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How should platforms balance free expression and misinformation control?",
+    "correctAnswer": "Hur ska plattformar balansera yttrandefrihet och felinformationskontroll?",
+    "hints": [
+      "Debate-oriented framing."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "sv-ne-b2-71"
   }
 ]

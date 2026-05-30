@@ -3,398 +3,517 @@
     "id": "sv-ch-a1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This museum is very interesting.",
-    "correctAnswer": "Det här museet är mycket intressant.",
+    "prompt": "Vocabulary: a building where you can see art or historical objects",
+    "correctAnswer": "museet museum",
     "hints": [
-      "A simple opinion sentence."
+      "Think of a place that preserves important objects."
     ],
-    "imageUrl": "/images/museum-arch.svg"
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-ch-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a museum ticket",
-    "correctAnswer": "en biljett till museet",
+    "prompt": "Say: I love visiting old buildings.",
+    "correctAnswer": "Jag älskar att besöka gamla byggnader.",
     "hints": [
-      "Match the phrase."
-    ],
-    "exerciseType": "flashcard"
+      "'Love' + gerund for a strong preference."
+    ]
   },
   {
     "id": "sv-ch-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This statue is famous.",
-    "correctAnswer": "Den här statyn är känd.",
+    "prompt": "Ask: Is this building very old?",
+    "correctAnswer": "Är denna byggnad mycket gammal?",
     "hints": [
-      "A simple description."
-    ],
-    "exerciseType": "build_sentence"
+      "A simple question about age."
+    ]
   },
   {
     "id": "sv-ch-a1-4",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a castle",
-    "correctAnswer": "ett slott",
+    "prompt": "Say: This is a traditional festival.",
+    "correctAnswer": "Detta är en traditionell festival.",
     "hints": [
-      "Note the 'ett' neuter article; Sweden has many famous royal castles."
-    ],
-    "exerciseType": "flashcard",
-    "culturalNote": "Sweden has over 600 castles and manor houses. Drottningholms slott is the residence of the Swedish royal family."
+      "'Traditional' means part of a long custom."
+    ]
   },
   {
     "id": "sv-ch-a1-5",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: This church is very old.",
-    "correctAnswer": "Den här kyrkan är mycket gammal.",
+    "prompt": "Ask: When is the national holiday?",
+    "correctAnswer": "När är den nationella semestern?",
     "hints": [
-      "'Kyrkan' = the church (definite form, adds -an); 'gammal' = old."
+      "A public day off to celebrate a country's history."
     ]
   },
   {
     "id": "sv-ch-a1-6",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Sweden is in Scandinavia.",
-    "correctAnswer": "Sverige ligger i Skandinavien.",
+    "prompt": "Vocabulary: a piece of art made of stone or metal",
+    "correctAnswer": "skulptur",
     "hints": [
-      "'Ligger' = is located; use 'ligga' not 'vara' for geographical location."
-    ]
+      "It is a three-dimensional work of art."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "sv-ch-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Is this the old town?",
-    "correctAnswer": "Är det här gamla stan?",
+    "prompt": "Say: I like classical music.",
+    "correctAnswer": "Jag gillar klassisk musik.",
     "hints": [
-      "'Gamla stan' = the old town; famous area in Stockholm."
-    ],
-    "culturalNote": "Gamla stan in Stockholm is one of the best-preserved medieval city centers in Europe."
+      "State a cultural preference."
+    ]
   },
   {
     "id": "sv-ch-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a flag",
-    "correctAnswer": "en flagga",
+    "prompt": "Ask: Where is the art gallery?",
+    "correctAnswer": "Var är konstgalleriet?",
     "hints": [
-      "The Swedish flag is blue with a yellow cross."
-    ],
-    "exerciseType": "flashcard"
+      "An art gallery shows paintings and sculptures."
+    ]
   },
   {
     "id": "sv-ch-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: Stockholm is the capital of Sweden.",
-    "correctAnswer": "Stockholm är huvudstaden i Sverige.",
+    "prompt": "Say: I went to the theatre last weekend.",
+    "correctAnswer": "Jag gick till teatern förra helgen.",
     "hints": [
-      "'Huvudstaden' = the capital (definite form of 'huvudstad')."
+      "Simple past for a recent visit."
     ]
   },
   {
     "id": "sv-ch-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I want to visit the royal palace.",
-    "correctAnswer": "Jag vill besöka kungliga palatset.",
+    "prompt": "Say: This painting is beautiful.",
+    "correctAnswer": "Denna målning är vacker.",
     "hints": [
-      "'Vill' = want to (modal); 'besöka' = to visit; 'kungliga' = royal."
+      "A simple opinion about a work of art."
     ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: This museum is very interesting.",
+    "correctAnswer": "Detta museum är mycket intressant.",
+    "hints": [
+      "Simple cultural sentence."
+    ],
+    "id": "sv-cu-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: We visited an old castle.",
+    "correctAnswer": "Vi besökte ett gammalt slott.",
+    "hints": [
+      "Past simple travel-culture link."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-cu-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What is this festival called?",
+    "correctAnswer": "Vad kallas denna festival?",
+    "hints": [
+      "Basic culture question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "sv-cu-a1-41"
   },
   {
     "id": "sv-ch-a2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: In Sweden, fika is a coffee break.",
-    "correctAnswer": "I Sverige är fika en kaffepaus.",
+    "prompt": "Say: The castle was built in the twelfth century.",
+    "correctAnswer": "Slottet byggdes på 1200-talet.",
     "hints": [
-      "Mention the custom by name."
-    ],
-    "culturalNote": "Fika handlar om att samlas, prata och ta en paus tillsammans."
+      "Passive past simple for a historical fact."
+    ]
   },
   {
     "id": "sv-ch-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This building is very old.",
-    "correctAnswer": "Den här byggnaden är mycket gammal.",
+    "prompt": "Ask: What is the significance of this monument?",
+    "correctAnswer": "Vad är betydelsen av detta monument?",
     "hints": [
-      "Describe the place."
+      "'Significance' means importance or meaning."
     ]
   },
   {
     "id": "sv-ch-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: The guide speaks very clearly.",
-    "correctAnswer": "Guiden pratar mycket tydligt.",
+    "prompt": "Say: Every year, the town holds a traditional food festival in July.",
+    "correctAnswer": "Varje år har staden en traditionell matfestival i juli.",
     "hints": [
-      "Talk about a guide."
+      "Use present simple for regular events."
     ]
   },
   {
     "id": "sv-ch-a2-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Midsommar is celebrated in June.",
-    "correctAnswer": "Midsommar firas i juni.",
+    "prompt": "Say: I find it fascinating to learn about different customs and traditions.",
+    "correctAnswer": "Jag tycker att det är fascinerande att lära sig om olika seder och traditioner.",
     "hints": [
-      "'Firas' = is celebrated (passive form of 'fira')."
-    ],
-    "culturalNote": "Midsommar is one of Sweden's biggest celebrations, with dancing around the maypole (midsommarstången) and singing."
+      "'I find it + adjective + to' expresses a reaction."
+    ]
   },
   {
     "id": "sv-ch-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: When was this church built?",
-    "correctAnswer": "När byggdes den här kyrkan?",
+    "prompt": "Ask: Are there any historical sites worth visiting nearby?",
+    "correctAnswer": "Finns det några historiska platser värda att besöka i närheten?",
     "hints": [
-      "'Byggdes' = was built (simple past passive); the verb comes second."
+      "'Worth visiting' means deserving a visit."
     ]
   },
   {
     "id": "sv-ch-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I visited the Viking museum yesterday.",
-    "correctAnswer": "Jag besökte Vikingamuseet i går.",
+    "prompt": "Say: The museum has an impressive collection of Roman artefacts.",
+    "correctAnswer": "Museet har en imponerande samling romerska artefakter.",
     "hints": [
-      "'Besökte' = visited (past tense); 'i går' = yesterday."
-    ],
-    "culturalNote": "The Vikings were seafaring Norse people who originated from Scandinavia between 793 and 1066 AD."
+      "'Artefacts' are objects made or used by people in the past."
+    ]
   },
   {
     "id": "sv-ch-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "a tradition",
-    "correctAnswer": "en tradition",
+    "prompt": "Say: The local folk music here is quite different from what I am used to.",
+    "correctAnswer": "Den lokala folkmusiken här är helt annorlunda än vad jag är van vid.",
     "hints": [
-      "Same word in Swedish and English, but with Swedish pronunciation."
-    ],
-    "exerciseType": "flashcard"
+      "'I am used to' means accustomed to."
+    ]
   },
   {
     "id": "sv-ch-a2-8",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: The Nobel Prize ceremony is held in Stockholm.",
-    "correctAnswer": "Nobelprisutdelningen hålls i Stockholm.",
+    "prompt": "Ask: What is the story behind this tradition?",
+    "correctAnswer": "Vad är historien bakom denna tradition?",
     "hints": [
-      "'Hålls' = is held (present passive); a long compound noun is common in Swedish."
-    ],
-    "culturalNote": "The Nobel Prizes are awarded each year on December 10, the anniversary of Alfred Nobel's death."
+      "Ask about the origin or explanation."
+    ]
   },
   {
     "id": "sv-ch-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: Sverige har en lång _____ av vikingar.",
-    "correctAnswer": "historia",
+    "prompt": "Say: We attended the opening night of a new exhibition at the gallery.",
+    "correctAnswer": "Vi deltog i öppningsnatten på en ny utställning på galleriet.",
     "hints": [
-      "'Historia' = history; Swedish and English share this Latin root."
-    ],
-    "exerciseType": "cloze_sentence"
+      "'Attended' = went to; 'opening night' = the first evening."
+    ]
   },
   {
     "id": "sv-ch-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: This painting is from the seventeenth century.",
-    "correctAnswer": "Den här målningen är från sjuttonhundratalet.",
+    "prompt": "Say: Shakespeare wrote thirty-seven plays during his lifetime.",
+    "correctAnswer": "Shakespeare skrev trettiosju pjäser under sin livstid.",
     "hints": [
-      "'Sjuttonhundratalet' = the 1700s / seventeenth century; '-talet' = the decade/century."
-    ]
+      "Past simple for a completed historical fact.",
+      "Shakespeare is considered the greatest writer in the English language."
+    ],
+    "culturalNote": "William Shakespeare (1564–1616) is considered the greatest writer in the English language. His works are still performed in theatres worldwide."
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This tradition is important to many families.",
+    "correctAnswer": "Denna tradition är viktig för många familjer.",
+    "hints": [
+      "Common culture expression."
+    ],
+    "id": "sv-cu-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I learned about this country in school.",
+    "correctAnswer": "Jag lärde mig om detta land i skolan.",
+    "hints": [
+      "Past learning sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-cu-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Why do people celebrate this holiday?",
+    "correctAnswer": "Varför firar folk denna semester?",
+    "hints": [
+      "History/culture curiosity."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-cu-a2-51"
   },
   {
     "id": "sv-ch-b1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Why is this old town important?",
-    "correctAnswer": "Den visar hur människor levde här för flera hundra år sedan.",
+    "prompt": "Say: Cultural heritage shapes national identity in ways that are often invisible to those within the culture.",
+    "correctAnswer": "Kulturarv formar nationell identitet på sätt som ofta är osynliga för dem inom kulturen.",
     "hints": [
-      "Answer like a guide."
-    ],
-    "exerciseType": "roleplay",
-    "culturalNote": "Gamla stan och liknande miljöer visar ofta hantverk, handel och stadsutveckling."
+      "'Shapes' = influences; 'invisible to' = not easily seen by."
+    ]
   },
   {
     "id": "sv-ch-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Who built this castle?",
-    "correctAnswer": "Den byggdes av en kung.",
+    "prompt": "Ask: Do you think colonialism has left a lasting impact on contemporary culture?",
+    "correctAnswer": "Tror du att kolonialismen har lämnat en bestående inverkan på den samtida kulturen?",
     "hints": [
-      "Answer simply and clearly."
-    ],
-    "exerciseType": "roleplay"
+      "'Colonialism' = the practice of colonising other countries; 'lasting impact' = long-term effect."
+    ]
+  },
+  {
+    "id": "sv-ch-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The industrial revolution fundamentally altered the structure of society and the nature of work.",
+    "correctAnswer": "Den industriella revolutionen förändrade i grunden samhällets struktur och arbetets natur.",
+    "hints": [
+      "'Fundamentally altered' = changed at a basic level."
+    ]
   },
   {
     "id": "sv-ch-b1-4",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The concept of lagom is central to Swedish culture.",
-    "correctAnswer": "Begreppet lagom är centralt i den svenska kulturen.",
+    "prompt": "Say: I visited the archaeological site and was struck by the scale of the ancient ruins.",
+    "correctAnswer": "Jag besökte den arkeologiska platsen och slogs av omfattningen av de gamla ruinerna.",
     "hints": [
-      "'Begreppet' = the concept (definite); 'centralt' agrees with the neuter noun 'begreppet'."
-    ],
-    "culturalNote": "Lagom means 'just the right amount' — not too much, not too little. It reflects a Swedish ideal of moderation and balance."
+      "'Was struck by' = was impressed by; 'archaeological site' = a place of historical excavation."
+    ]
   },
   {
     "id": "sv-ch-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Sweden became a constitutional monarchy in the early twentieth century.",
-    "correctAnswer": "Sverige blev en konstitutionell monarki i början av nittonhundratalet.",
+    "prompt": "Say: Oral traditions have played a crucial role in preserving history where written records were absent.",
+    "correctAnswer": "Orala traditioner har spelat en avgörande roll för att bevara historia där skriftliga dokument saknades.",
     "hints": [
-      "'I början av' = at the beginning of; 'nittonhundratalet' = the 1900s."
+      "'Oral traditions' = stories passed down verbally; 'preserving' = keeping alive."
     ]
   },
   {
     "id": "sv-ch-b1-6",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: This artifact was discovered during a restoration project.",
-    "correctAnswer": "Det här föremålet hittades under ett restaureringsprojekt.",
+    "prompt": "Ask: How does a country reconcile pride in its history with acknowledgement of past wrongs?",
+    "correctAnswer": "Hur försonar ett land stolthet i sin historia med erkännande av tidigare fel?",
     "hints": [
-      "'Hittades' = was discovered (past passive); 'föremål' = artifact/object."
+      "'Reconcile' = bring into harmony; a discussion about national identity and responsibility."
     ]
   },
   {
     "id": "sv-ch-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The Swedish welfare state developed significantly after the Second World War.",
-    "correctAnswer": "Den svenska välfärdsstaten utvecklades avsevärt efter andra världskriget.",
+    "prompt": "Say: The Renaissance was characterised by a renewed interest in classical antiquity and humanist philosophy.",
+    "correctAnswer": "Renässansen präglades av ett förnyat intresse för klassisk antiken och humanistisk filosofi.",
     "hints": [
-      "'Utvecklades' = developed (past reflexive/passive); 'avsevärt' = significantly."
+      "'Characterised by' = defined or typified by; 'antiquity' = ancient times.",
+      "'Humanist' thought placed humans, not God, at the centre of intellectual life."
     ],
-    "culturalNote": "Sweden's model for social welfare — the folkhem ('people's home') — was largely built between the 1930s and 1970s."
+    "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought."
   },
   {
     "id": "sv-ch-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Why do Swedes celebrate Lucia in December?",
-    "correctAnswer": "Det är en gammal tradition som symboliserar ljus i mörkret.",
+    "prompt": "Say: Globalisation has accelerated cultural exchange but also threatened the survival of minority languages.",
+    "correctAnswer": "Globaliseringen har påskyndat kulturutbytet men hotade också minoritetsspråkens överlevnad.",
     "hints": [
-      "Mention light and tradition."
-    ],
-    "exerciseType": "roleplay",
-    "culturalNote": "Lucia (December 13) celebrates Saint Lucy. The tradition involves processions with candles to bring light during the darkest time of year."
+      "'Accelerated' = sped up; 'minority languages' = languages spoken by fewer people."
+    ]
   },
   {
     "id": "sv-ch-b1-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: Vikingarna var kända för sina _____ och handelsresor.",
-    "correctAnswer": "sjöresor",
+    "prompt": "Choose the best response. Someone asks what you found most moving during a museum visit.",
+    "correctAnswer": "De personliga bokstäverna och dagböckerna gav mig en mycket starkare känsla av hur livet faktiskt var vid den tiden.",
     "hints": [
-      "'Sjöresor' = sea voyages; 'och' = and; Vikings were famous for both raiding and trading."
+      "Ground your response in specific artefacts; use 'gave me a sense of'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "roleplay"
   },
   {
     "id": "sv-ch-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The Sami people have lived in northern Scandinavia for thousands of years.",
-    "correctAnswer": "Samerna har levt i norra Skandinavien i tusentals år.",
+    "prompt": "Say: The partition of the subcontinent in 1947 had profound and lasting consequences for millions of families.",
+    "correctAnswer": "Partitionen av subkontinenten 1947 hade djupa och varaktiga konsekvenser för miljontals familjer.",
     "hints": [
-      "'Samerna' = the Sami people (definite plural); 'levt' = lived (supine form)."
+      "'Partition' = division; 'profound' = very significant."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Historical events continue to influence modern society.",
+    "correctAnswer": "Historiska händelser fortsätter att påverka det moderna samhället.",
+    "hints": [
+      "Cause-impact idea."
     ],
-    "culturalNote": "The Sami are the indigenous people of the Arctic area of Sápmi, spanning parts of Norway, Sweden, Finland, and Russia."
+    "id": "sv-cu-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Local traditions help preserve community identity.",
+    "correctAnswer": "Lokala traditioner hjälper till att bevara gemenskapsidentitet.",
+    "hints": [
+      "Community-focused statement."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "sv-cu-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Which historical period do you find most fascinating?",
+    "correctAnswer": "Vilken historisk period finner du mest fascinerande?",
+    "hints": [
+      "Opinion prompt."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-cu-b1-61"
   },
   {
     "id": "sv-ch-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Could you explain this tradition to me?",
-    "correctAnswer": "Kan du förklara den här traditionen?",
+    "prompt": "Say: The repatriation of colonial artefacts remains one of the most contentious debates in contemporary museum practice.",
+    "correctAnswer": "Reatrieringen av koloniala artefakter är fortfarande en av de mest omtvistade debatterna i modern museipraxis.",
     "hints": [
-      "A polite question about local culture."
+      "'Repatriation' = returning objects to their country of origin; 'contentious' = causing debate."
     ],
-    "exerciseType": "pronunciation",
-    "audioUrl": "/audio/lesson-chime.wav"
+    "culturalNote": "Many museums hold artefacts acquired during the colonial era; debates about returning items like the Elgin Marbles and the Benin Bronzes continue."
   },
   {
     "id": "sv-ch-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I love learning local history.",
-    "correctAnswer": "Jag älskar att lära mig lokal historia.",
+    "prompt": "Ask: To what extent does national mythology construct a selective and self-serving version of historical events?",
+    "correctAnswer": "I vilken utsträckning bygger den nationella mytologin en selektiv och självbetjänande version av historiska händelser?",
     "hints": [
-      "A positive statement."
-    ],
-    "exerciseType": "pronunciation"
+      "'National mythology' = the stories a nation tells about itself; 'self-serving' = benefiting those in power."
+    ]
   },
   {
     "id": "sv-ch-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: This legend is popular here.",
-    "correctAnswer": "Den här legenden är populär här.",
+    "prompt": "Say: The Enlightenment represented a fundamental epistemic shift that placed reason above religious authority.",
+    "correctAnswer": "Upplysningen representerade ett grundläggande epistemiskt skifte som placerade orsak över religiös auktoritet.",
     "hints": [
-      "Use a natural tone."
-    ],
-    "exerciseType": "pronunciation"
+      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritised rationality over faith."
+    ]
   },
   {
     "id": "sv-ch-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sweden's neutrality during both World Wars shaped its modern identity.",
-    "correctAnswer": "Sveriges neutralitet under båda världskrigen formade dess moderna identitet.",
+    "prompt": "Say: Cultural appropriation raises difficult questions about ownership, power, and the boundaries of artistic borrowing.",
+    "correctAnswer": "Kulturanpassning väcker svåra frågor om ägande, makt och gränserna för konstnärlig upplåning.",
     "hints": [
-      "'Neutralitet' = neutrality; 'formade' = shaped (past tense); 'dess' = its."
+      "'Cultural appropriation' = adopting elements of another culture, often without consent or understanding."
     ]
   },
   {
     "id": "sv-ch-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The concept of allemansrätten grants everyone the right to access nature.",
-    "correctAnswer": "Begreppet allemansrätten ger alla rätten att vistas i naturen.",
+    "prompt": "Say: The concept of a Western canon has been challenged by scholars arguing for a more globally inclusive literary tradition.",
+    "correctAnswer": "Konceptet med en västerländsk kanon har utmanats av forskare som argumenterar för en mer globalt inkluderande litterär tradition.",
     "hints": [
-      "'Allemansrätten' = the right of public access; 'vistas i' = to be/stay in."
-    ],
-    "culturalNote": "Allemansrätten (the right of public access) is a Swedish law allowing anyone to freely roam the countryside, regardless of land ownership."
+      "'Canon' = an authoritative list of great works; 'inclusive' = welcoming of diverse perspectives."
+    ]
   },
   {
     "id": "sv-ch-b2-6",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Cultural preservation requires both funding and community engagement.",
-    "correctAnswer": "Kulturbevarandet kräver både finansiering och samhällsengagemang.",
+    "prompt": "Ask: How do commemorative practices shape collective memory and influence political identity?",
+    "correctAnswer": "Hur formar minnesmetoder kollektivt minne och påverkar politisk identitet?",
     "hints": [
-      "'Kulturbevarandet' = cultural preservation (long compound noun); 'kräver' = requires."
+      "'Commemorative practices' = rituals of remembrance; 'collective memory' = shared historical understanding."
     ]
   },
   {
     "id": "sv-ch-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The runic inscriptions provide invaluable insight into Viking-Age society.",
-    "correctAnswer": "Runinskrifterna ger ovärderliga insikter om vikingatidens samhälle.",
+    "prompt": "Say: Historiography — the study of how history is written — reveals as much about the historian's era as about the events described.",
+    "correctAnswer": "Historieskrivning - studiet av hur historien skrivs - avslöjar lika mycket om historikerns tid som om de händelser som beskrivs.",
     "hints": [
-      "'Runinskrifterna' = the runic inscriptions; 'ovärderliga' = invaluable; 'vikingatidens' = of the Viking Age (genitive)."
+      "'Historiography' = the study of historical writing; 'era' = time period."
     ]
   },
   {
     "id": "sv-ch-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: What distinguishes Swedish design is its emphasis on functionality and simplicity.",
-    "correctAnswer": "Det som kännetecknar svensk design är betoningen på funktionalitet och enkelhet.",
+    "prompt": "Say: The commodification of cultural heritage through mass tourism can simultaneously preserve and undermine it.",
+    "correctAnswer": "Kulturarvets modifiering genom massturism kan samtidigt bevara och undergräva det.",
     "hints": [
-      "'Det som kännetecknar' = what distinguishes (cleft construction); 'betoningen' = the emphasis."
+      "'Commodification' = turning into a product; 'simultaneously' = at the same time; 'undermine' = weaken."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Interpreting history requires awareness of perspective and bias.",
+    "correctAnswer": "Tolkande historia kräver medvetenhet om perspektiv och fördomar.",
+    "hints": [
+      "Analytical framing."
     ],
-    "culturalNote": "Swedish design philosophy, influenced by designers like Bruno Mathsson and IKEA, prioritizes form following function."
+    "id": "sv-cu-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Cultural heritage can strengthen social cohesion across generations.",
+    "correctAnswer": "Kulturarv kan stärka den sociala sammanhållningen över generationer.",
+    "hints": [
+      "Advanced abstract wording."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "sv-cu-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: How should societies balance preservation with modernization?",
+    "correctAnswer": "Hur bör samhällen balansera bevarandet med modernisering?",
+    "hints": [
+      "Complex policy-style question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "culturalNote": "Cultural references vary by region and period.",
+    "id": "sv-cu-b2-71"
   }
 ]

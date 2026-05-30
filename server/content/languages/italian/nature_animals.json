@@ -3,128 +3,513 @@
     "id": "it-na-a1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: There is a cat on the roof.",
-    "correctAnswer": "C'è un gatto sul tetto.",
+    "prompt": "Vocabulary: a large wild cat with orange and black stripes",
+    "correctAnswer": "tigre",
     "hints": [
-      "Use 'there is' to describe location."
-    ]
+      "It lives in Asia and is endangered."
+    ],
+    "exerciseType": "flashcard"
   },
   {
     "id": "it-na-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: The dog is big and friendly.",
-    "correctAnswer": "Il cane è grande e amichevole.",
+    "prompt": "Say: It is raining outside.",
+    "correctAnswer": "Sta piovendo fuori.",
     "hints": [
-      "Describe an animal with two adjectives."
-    ],
-    "exerciseType": "build_sentence"
+      "Use 'it is' for weather descriptions."
+    ]
   },
   {
     "id": "it-na-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "a river",
-    "correctAnswer": "un fiume",
+    "prompt": "Ask: What is the weather like today?",
+    "correctAnswer": "Qual è il tempo come oggi?",
     "hints": [
-      "A place where water flows."
+      "'What is it like' asks for a description."
+    ]
+  },
+  {
+    "id": "it-na-a1-4",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I love dogs.",
+    "correctAnswer": "Adoro i cani.",
+    "hints": [
+      "A simple statement of preference."
+    ]
+  },
+  {
+    "id": "it-na-a1-5",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: There are many birds in the garden.",
+    "correctAnswer": "Ci sono molti uccelli nel giardino.",
+    "hints": [
+      "'There are' for plural things."
+    ]
+  },
+  {
+    "id": "it-na-a1-6",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: the coldest season of the year",
+    "correctAnswer": "inverno",
+    "hints": [
+      "It comes after autumn."
     ],
     "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-na-a1-7",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The sun is shining today.",
+    "correctAnswer": "Il sole splende oggi.",
+    "hints": [
+      "Present continuous for current weather."
+    ]
+  },
+  {
+    "id": "it-na-a1-8",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Do you have any pets?",
+    "correctAnswer": "Hai degli animali domestici?",
+    "hints": [
+      "A simple question about animals at home."
+    ]
+  },
+  {
+    "id": "it-na-a1-9",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The cat is sleeping on the sofa.",
+    "correctAnswer": "Il gatto dorme sul divano.",
+    "hints": [
+      "Present continuous for an ongoing action."
+    ]
+  },
+  {
+    "id": "it-na-a1-10",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I walked in the forest yesterday.",
+    "correctAnswer": "Ieri ho camminato nella foresta.",
+    "hints": [
+      "Simple past for a completed action."
+    ]
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I saw a bird in the park.",
+    "correctAnswer": "Ho visto un uccello nel parco.",
+    "hints": [
+      "Simple past observation."
+    ],
+    "id": "it-na-a1-39"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: The forest is very quiet.",
+    "correctAnswer": "La foresta è molto tranquilla.",
+    "hints": [
+      "Basic description."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-na-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: What animal is this?",
+    "correctAnswer": "Che animale è questo?",
+    "hints": [
+      "Starter question."
+    ],
+    "exerciseType": "flashcard",
+    "id": "it-na-a1-41"
   },
   {
     "id": "it-na-a2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: The horse is running across the field.",
-    "correctAnswer": "Il cavallo sta correndo attraverso il campo.",
+    "prompt": "Say: It has been unusually warm for this time of year.",
+    "correctAnswer": "È stato insolitamente caldo per questo periodo dell'anno.",
     "hints": [
-      "Use present continuous for an action happening now."
+      "Present perfect for a situation up to now; 'unusually' suggests contrast with normal."
     ]
   },
   {
     "id": "it-na-a2-2",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: What is the name of that bird?",
-    "correctAnswer": "Come si chiama quell'uccello?",
+    "prompt": "Ask: What is the best time of year to see the northern lights?",
+    "correctAnswer": "Qual è il periodo migliore dell'anno per vedere le luci del nord?",
     "hints": [
-      "Ask for the name of something you see."
+      "A question about natural phenomena and timing."
     ]
   },
   {
     "id": "it-na-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I saw a fox near the forest last night.",
-    "correctAnswer": "Ieri sera ho visto una volpe vicino al bosco.",
+    "prompt": "Say: The river has flooded after several days of heavy rain.",
+    "correctAnswer": "Il fiume è inondato dopo diversi giorni di pioggia pesante.",
     "hints": [
-      "Use past simple to describe what you saw."
+      "Present perfect for a recent event with a visible result."
     ]
+  },
+  {
+    "id": "it-na-a2-4",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I saw a family of deer in the park this morning.",
+    "correctAnswer": "Ho visto una famiglia di cervi al parco stamattina.",
+    "hints": [
+      "'Deer' is both singular and plural."
+    ]
+  },
+  {
+    "id": "it-na-a2-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Are there any dangerous animals in this area?",
+    "correctAnswer": "Ci sono animali pericolosi in questa zona?",
+    "hints": [
+      "A practical question when in nature."
+    ]
+  },
+  {
+    "id": "it-na-a2-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The storm caused damage to several trees in the neighbourhood.",
+    "correctAnswer": "La tempesta ha causato danni a diversi alberi nel quartiere.",
+    "hints": [
+      "'Caused damage to' = harmed or destroyed."
+    ]
+  },
+  {
+    "id": "it-na-a2-7",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I recycle my rubbish to help protect the environment.",
+    "correctAnswer": "Ricicli la mia spazzatura per proteggere l'ambiente.",
+    "hints": [
+      "State an eco-friendly habit with purpose."
+    ]
+  },
+  {
+    "id": "it-na-a2-8",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How often do you go walking in the countryside?",
+    "correctAnswer": "Quante volte vai a camminare in campagna?",
+    "hints": [
+      "'How often' asks about frequency."
+    ]
+  },
+  {
+    "id": "it-na-a2-9",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: Whales are the largest mammals on Earth.",
+    "correctAnswer": "Le balene sono i più grandi mammiferi della Terra.",
+    "hints": [
+      "State a scientific fact using the superlative."
+    ]
+  },
+  {
+    "id": "it-na-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We planted a vegetable garden in the spring.",
+    "correctAnswer": "Abbiamo piantato un orto in primavera.",
+    "hints": [
+      "Simple past for a seasonal activity."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: We planted trees near our school.",
+    "correctAnswer": "Abbiamo piantato alberi vicino alla nostra scuola.",
+    "hints": [
+      "Past action with nature theme."
+    ],
+    "id": "it-na-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: This river is cleaner than before.",
+    "correctAnswer": "Questo fiume è più pulito di prima.",
+    "hints": [
+      "Comparative sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-na-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How can we protect wild animals?",
+    "correctAnswer": "Come possiamo proteggere gli animali selvatici?",
+    "hints": [
+      "Action-oriented question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-na-a2-51"
   },
   {
     "id": "it-na-b1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Wolves usually travel in packs and hunt together.",
-    "correctAnswer": "I lupi di solito viaggiano in branco e cacciano insieme.",
+    "prompt": "Say: Deforestation is one of the leading causes of habitat loss for many endangered species.",
+    "correctAnswer": "La deforestazione è una delle cause principali della perdita di habitat per molte specie in via di estinzione.",
     "hints": [
-      "Use 'usually' to describe typical animal behavior."
-    ],
-    "exerciseType": "build_sentence"
+      "'Deforestation' = clearing forests; 'habitat loss' = destruction of animal living spaces."
+    ]
   },
   {
     "id": "it-na-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Why do birds migrate?",
-    "correctAnswer": "Volano in posti più caldi per trovare cibo in inverno.",
+    "prompt": "Say: I have recently become more aware of the impact of my diet on carbon emissions.",
+    "correctAnswer": "Recentemente sono diventato più consapevole dell'impatto della mia dieta sulle emissioni di carbonio.",
     "hints": [
-      "Give a simple factual reason."
-    ],
-    "exerciseType": "roleplay"
+      "Present perfect with 'recently' for a new awareness."
+    ]
   },
   {
     "id": "it-na-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "a predator",
-    "correctAnswer": "un predatore",
+    "prompt": "Ask: What measures are being taken locally to protect pollinators such as bees?",
+    "correctAnswer": "Quali misure vengono adottate localmente per proteggere gli impollinatori come le api?",
     "hints": [
-      "An animal that hunts other animals."
+      "'Pollinators' = animals that help plants reproduce; 'measures' = actions taken."
+    ]
+  },
+  {
+    "id": "it-na-b1-4",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Rewilding projects aim to restore natural ecosystems by reintroducing native species.",
+    "correctAnswer": "I progetti di ristrutturazione mirano a ripristinare gli ecosistemi naturali reintroducendo specie autoctone.",
+    "hints": [
+      "'Rewilding' = allowing nature to recover; 'native species' = animals or plants originally from an area."
+    ]
+  },
+  {
+    "id": "it-na-b1-5",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The migration patterns of birds are being disrupted by climate change.",
+    "correctAnswer": "I modelli di migrazione degli uccelli sono stati interrotti dal cambiamento climatico.",
+    "hints": [
+      "Passive present continuous for an ongoing process."
+    ]
+  },
+  {
+    "id": "it-na-b1-6",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Do you think urban green spaces have a measurable effect on mental health?",
+    "correctAnswer": "Pensi che gli spazi verdi urbani abbiano un effetto misurabile sulla salute mentale?",
+    "hints": [
+      "'Green spaces' = parks and gardens; 'measurable effect' = a quantifiable impact."
+    ]
+  },
+  {
+    "id": "it-na-b1-7",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The ocean absorbs around a quarter of all CO2 emissions, playing a vital role in regulating climate.",
+    "correctAnswer": "L'oceano assorbe circa un quarto di tutte le emissioni di CO2, svolgendo un ruolo vitale nella regolazione del clima.",
+    "hints": [
+      "'Absorbs' = takes in; 'vital role' = essential function."
+    ]
+  },
+  {
+    "id": "it-na-b1-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I was fortunate enough to witness a murmuration of starlings at dusk.",
+    "correctAnswer": "Sono stato abbastanza fortunato da testimoniare una murmurazione di starlings al crepuscolo.",
+    "hints": [
+      "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = at sunset.",
+      "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
     ],
-    "exerciseType": "matching"
+    "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter."
+  },
+  {
+    "id": "it-na-b1-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Plastic pollution in the ocean poses a severe threat to marine life and food chains.",
+    "correctAnswer": "L'inquinamento plastico nell'oceano rappresenta una grave minaccia per la vita marina e le catene alimentari.",
+    "hints": [
+      "'Poses a threat' = presents a danger; 'marine life' = living organisms in the sea."
+    ]
+  },
+  {
+    "id": "it-na-b1-10",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. A friend asks what you do to live more sustainably.",
+    "correctAnswer": "Cerco di ridurre le plastiche monouso, mangiare meno carne, e camminare o ciclo piuttosto che guidare.",
+    "hints": [
+      "List specific, concrete actions."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Protecting habitats is essential for biodiversity.",
+    "correctAnswer": "La protezione degli habitat è essenziale per la biodiversità.",
+    "hints": [
+      "Key environmental phrase."
+    ],
+    "id": "it-na-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I started reducing plastic waste to help marine life.",
+    "correctAnswer": "Ho iniziato a ridurre i rifiuti di plastica per aiutare la vita marina.",
+    "hints": [
+      "Personal impact sentence."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-na-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What causes animal populations to decline?",
+    "correctAnswer": "Cosa provoca il declino delle popolazioni animali?",
+    "hints": [
+      "Scientific reasoning question."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-na-b1-61"
   },
   {
     "id": "it-na-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sharks are often misunderstood and are rarely dangerous to humans.",
-    "correctAnswer": "Gli squali sono spesso fraintesi e raramente sono pericolosi per gli umani.",
+    "prompt": "Say: The sixth mass extinction event, driven primarily by human activity, is already well underway.",
+    "correctAnswer": "Il sesto evento di estinzione di massa, guidato principalmente dall'attività umana, è già in corso.",
     "hints": [
-      "Use passive voice and adverbs of frequency."
-    ],
-    "exerciseType": "pronunciation"
+      "'Mass extinction' = widespread species die-off; 'well underway' = already in progress."
+    ]
   },
   {
     "id": "it-na-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The trail winds through dense woodland before opening onto the lake.",
-    "correctAnswer": "Il sentiero si snoda attraverso un bosco fitto prima di aprirsi sul lago.",
+    "prompt": "Ask: To what extent is technological innovation capable of mitigating the effects of anthropogenic climate change?",
+    "correctAnswer": "In che misura è l'innovazione tecnologica capace di mitigare gli effetti del cambiamento climatico antropogenico?",
     "hints": [
-      "Describe a natural landscape with precise vocabulary."
-    ],
-    "exerciseType": "pronunciation"
+      "'Anthropogenic' = caused by human activity; 'mitigating' = reducing the severity of."
+    ]
   },
   {
     "id": "it-na-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
-    "correctAnswer": "Alcune specie si sono adattate in modo straordinario a vivere accanto agli umani.",
+    "prompt": "Say: Tipping points in the climate system — such as the thawing of permafrost — could trigger irreversible feedback loops.",
+    "correctAnswer": "I punti di ribaltamento del sistema climatico — come il permafrost — potrebbero innescare loop di feedback irreversibili.",
     "hints": [
-      "Use present perfect with an adverb for emphasis."
+      "'Tipping points' = thresholds beyond which change becomes self-reinforcing; 'permafrost' = permanently frozen ground in Arctic regions."
+    ]
+  },
+  {
+    "id": "it-na-b2-4",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Biodiversity loss undermines ecosystem services that underpin agricultural productivity and water security.",
+    "correctAnswer": "La perdita di biodiversità mina i servizi ecosistemici che sostengono la produttività agricola e la sicurezza idrica.",
+    "hints": [
+      "'Ecosystem services' = benefits humans receive from nature; 'underpin' = support from below."
+    ]
+  },
+  {
+    "id": "it-na-b2-5",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The precautionary principle holds that a lack of scientific certainty should not delay protective environmental measures.",
+    "correctAnswer": "Il principio precauzionale ritiene che una mancanza di certezza scientifica non debba ritardare le misure ambientali protettive.",
+    "hints": [
+      "'Precautionary principle' = act to prevent harm even without complete proof."
+    ]
+  },
+  {
+    "id": "it-na-b2-6",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Can market mechanisms alone effectively address environmental externalities, or is state intervention necessary?",
+    "correctAnswer": "Possono i meccanismi di mercato affrontare efficacemente le esternalità ambientali, o è necessario l'intervento statale?",
+    "hints": [
+      "'Externalities' = costs or benefits not reflected in market prices; 'market mechanisms' = price signals and incentives."
+    ]
+  },
+  {
+    "id": "it-na-b2-7",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Deep-sea ecosystems remain poorly understood, yet face increasing threats from resource extraction and warming oceans.",
+    "correctAnswer": "Gli ecosistemi di mare profondo rimangono scarsamente compresi, ma affrontano crescenti minacce dall'estrazione delle risorse e dal riscaldamento degli oceani.",
+    "hints": [
+      "'Resource extraction' = mining or drilling; 'yet' here means 'but also'."
+    ]
+  },
+  {
+    "id": "it-na-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The philosophical tradition of deep ecology argues for an intrinsic value of nature independent of human utility.",
+    "correctAnswer": "La tradizione filosofica dell'ecologia profonda sostiene un valore intrinseco della natura indipendente dall'utilità umana.",
+    "hints": [
+      "'Deep ecology' = a philosophy that values nature for its own sake; 'intrinsic value' = value in itself."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Climate change is accelerating habitat loss in vulnerable ecosystems.",
+    "correctAnswer": "Il cambiamento climatico sta accelerando la perdita di habitat negli ecosistemi vulnerabili.",
+    "hints": [
+      "Advanced environmental vocabulary."
     ],
-    "exerciseType": "pronunciation"
+    "id": "it-na-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Conservation strategies must consider both ecology and local livelihoods.",
+    "correctAnswer": "Le strategie di conservazione devono considerare sia l'ecologia che i mezzi di sussistenza locali.",
+    "hints": [
+      "Balanced policy sentence."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-na-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Which environmental interventions deliver the greatest long-term impact?",
+    "correctAnswer": "Quali interventi ambientali danno il massimo impatto a lungo termine?",
+    "hints": [
+      "Analytical question."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "it-na-b2-71"
   }
 ]

@@ -3,8 +3,8 @@
     "id": "it-he-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I do not feel well today.",
-    "correctAnswer": "Oggi non mi sento bene.",
+    "prompt": "Say: I do not feel well.",
+    "correctAnswer": "Non mi sento bene.",
     "hints": [
       "Practise this phrase out loud."
     ]
@@ -13,110 +13,493 @@
     "id": "it-he-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: Where is the nearest pharmacy?",
-    "correctAnswer": "Dov'è la farmacia più vicina?",
+    "prompt": "Ask: Where is the nearest hospital?",
+    "correctAnswer": "Dov'è l'ospedale più vicino?",
     "hints": [
       "Practise this phrase out loud."
     ]
   },
   {
     "id": "it-he-3",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I have had a headache since this morning.",
-    "correctAnswer": "Ho mal di testa da questa mattina.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "it-he-4",
-    "level": "a2",
-    "difficulty": "a2",
-    "prompt": "Say: I am allergic to peanuts.",
-    "correctAnswer": "Sono allergico alle arachidi.",
-    "hints": [
-      "Pay attention to the sentence structure."
-    ]
-  },
-  {
-    "id": "it-he-5",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Ask: Should I take this medicine before or after meals?",
-    "correctAnswer": "Devo prendere questa medicina prima o dopo i pasti?",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "it-he-6",
-    "level": "b1",
-    "difficulty": "b1",
-    "prompt": "Say: The pain gets worse when I walk quickly.",
-    "correctAnswer": "Il dolore peggiora quando cammino velocemente.",
-    "hints": [
-      "Notice the tense or modal used."
-    ]
-  },
-  {
-    "id": "it-he-7",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Say: I need a full checkup because these symptoms persist.",
-    "correctAnswer": "Ho bisogno di un controllo completo perché questi sintomi persistono.",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "it-he-8",
-    "level": "b2",
-    "difficulty": "b2",
-    "prompt": "Ask: Could you explain the treatment options in detail?",
-    "correctAnswer": "Potrebbe spiegarmi in dettaglio le opzioni di trattamento?",
-    "hints": [
-      "Focus on natural phrasing and word order."
-    ]
-  },
-  {
-    "id": "it-he-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: My throat hurts when I swallow.",
-    "correctAnswer": "Mi fa male la gola quando deglutisco.",
+    "prompt": "Say: I have a headache.",
+    "correctAnswer": "Ho mal di testa.",
     "hints": [
       "Practise this phrase out loud."
     ]
   },
   {
-    "id": "it-he-10",
+    "id": "it-he-13",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I have a fever.",
+    "correctAnswer": "Ho la febbre.",
+    "hints": [
+      "Use 'I have a...' for symptoms."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-he-14",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Is there a pharmacy nearby?",
+    "correctAnswer": "C'è una farmacia nelle vicinanze?",
+    "hints": [
+      "A pharmacy is also called a chemist's."
+    ]
+  },
+  {
+    "id": "it-he-15",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: My stomach hurts.",
+    "correctAnswer": "Mi fa male lo stomaco.",
+    "hints": [
+      "'Hurts' is the verb for pain."
+    ]
+  },
+  {
+    "id": "it-he-16",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: a person who treats sick people",
+    "correctAnswer": "medico",
+    "hints": [
+      "Think of who you visit when you are ill."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "it-he-17",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I am allergic to penicillin.",
+    "correctAnswer": "Sono allergico alla penicillina.",
+    "hints": [
+      "An important phrase in a medical emergency."
+    ]
+  },
+  {
+    "id": "it-he-18",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Can you call an ambulance?",
+    "correctAnswer": "Puoi chiamare un'ambulanza?",
+    "hints": [
+      "Use 'can you' for urgent requests."
+    ]
+  },
+  {
+    "id": "it-he-19",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I need a doctor.",
+    "correctAnswer": "Mi serve un dottore.",
+    "hints": [
+      "Short, clear phrase for emergencies."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Ask: Where is the nearest pharmacy?",
+    "correctAnswer": "Dov'è la farmacia più vicina?",
+    "hints": [
+      "Useful health question."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-he-a1-40"
+  },
+  {
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I drink water every day.",
+    "correctAnswer": "Bevo acqua ogni giorno.",
+    "hints": [
+      "Healthy habit statement."
+    ],
+    "exerciseType": "flashcard",
+    "id": "it-he-a1-41"
+  },
+  {
+    "id": "it-he-4",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Do I need an appointment for this checkup?",
-    "correctAnswer": "Ho bisogno di un appuntamento per questo controllo?",
+    "prompt": "Say: I have had a sore throat for three days.",
+    "correctAnswer": "Ho avuto una gola dolorosa per tre giorni.",
+    "hints": [
+      "Use the present perfect for ongoing symptoms."
+    ]
+  },
+  {
+    "id": "it-he-5",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Can I make an appointment with the doctor today?",
+    "correctAnswer": "Posso fissare un appuntamento con il dottore oggi?",
     "hints": [
       "Pay attention to the sentence structure."
     ]
   },
   {
-    "id": "it-he-11",
+    "id": "it-he-6",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I need to take these tablets twice a day.",
+    "correctAnswer": "Devo prendere queste compresse due volte al giorno.",
+    "hints": [
+      "Pay attention to the sentence structure."
+    ]
+  },
+  {
+    "id": "it-he-20",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have been feeling dizzy since this morning.",
+    "correctAnswer": "Mi sento di vertigini da stamattina.",
+    "hints": [
+      "Use 'since' for a specific starting point in the past."
+    ]
+  },
+  {
+    "id": "it-he-21",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: What are the side effects of this medication?",
+    "correctAnswer": "Quali sono gli effetti collaterali di questo farmaco?",
+    "hints": [
+      "Use 'what are' to ask about multiple things."
+    ]
+  },
+  {
+    "id": "it-he-22",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I twisted my ankle while hiking.",
+    "correctAnswer": "Mi sono girato la caviglia mentre camminavo.",
+    "hints": [
+      "'While' links two actions happening at the same time."
+    ]
+  },
+  {
+    "id": "it-he-23",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Do I need a prescription for this medicine?",
+    "correctAnswer": "Ho bisogno di una prescrizione per questo farmaco?",
+    "hints": [
+      "Yes/no question with 'do I need'."
+    ]
+  },
+  {
+    "id": "it-he-24",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I have a rash on my arm.",
+    "correctAnswer": "Ho un rash sul braccio.",
+    "hints": [
+      "Describe the symptom and its location."
+    ]
+  },
+  {
+    "id": "it-he-25",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: The pain gets worse when I move.",
+    "correctAnswer": "Il dolore peggiora quando mi muovo.",
+    "hints": [
+      "Use 'gets worse' to describe worsening symptoms."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "it-he-26",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: Is this contagious?",
+    "correctAnswer": "E' contagioso?",
+    "hints": [
+      "Simple yes/no question with 'is this'."
+    ]
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I should sleep more during the week.",
+    "correctAnswer": "Dovrei dormire di più durante la settimana.",
+    "hints": [
+      "Advice with 'should'."
+    ],
+    "id": "it-he-a2-49"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Ask: How often do you exercise?",
+    "correctAnswer": "Quante volte si esercita?",
+    "hints": [
+      "Routine health question."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-he-a2-50"
+  },
+  {
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I started cooking healthier meals.",
+    "correctAnswer": "Ho iniziato a cucinare pasti più sani.",
+    "hints": [
+      "Lifestyle improvement phrase."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-he-a2-51"
+  },
+  {
+    "id": "it-he-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I have been feeling tired for several days.",
-    "correctAnswer": "Mi sento stanco da diversi giorni.",
+    "prompt": "Say: I have a pre-existing condition that requires regular medication.",
+    "correctAnswer": "Ho una condizione preesistente che richiede farmaci regolari.",
+    "hints": [
+      "'Pre-existing condition' means a health issue you already had before."
+    ]
+  },
+  {
+    "id": "it-he-8",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Would it be safe to exercise with this condition?",
+    "correctAnswer": "Sarebbe sicuro esercitare con questa condizione?",
     "hints": [
       "Notice the tense or modal used."
+    ]
+  },
+  {
+    "id": "it-he-9",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I would like a second opinion before deciding on surgery.",
+    "correctAnswer": "Vorrei una seconda opinione prima di decidere l'intervento.",
+    "hints": [
+      "'A second opinion' means consulting another doctor."
+    ]
+  },
+  {
+    "id": "it-he-27",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The symptoms started gradually and have been getting worse.",
+    "correctAnswer": "I sintomi sono iniziati gradualmente e sono peggiorati.",
+    "hints": [
+      "Use present perfect continuous for an ongoing trend."
+    ]
+  },
+  {
+    "id": "it-he-28",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: How long should I wait before the antibiotics start working?",
+    "correctAnswer": "Quanto dovrei aspettare prima che gli antibiotici inizino a lavorare?",
+    "hints": [
+      "Use 'should I' for advice-seeking questions."
+    ]
+  },
+  {
+    "id": "it-he-29",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I have been following a low-sodium diet on my doctor's advice.",
+    "correctAnswer": "Ho seguito una dieta a basso contenuto di sodio su consiglio del medico.",
+    "hints": [
+      "Present perfect continuous shows an ongoing action started in the past."
+    ]
+  },
+  {
+    "id": "it-he-30",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am concerned that my blood pressure has been fluctuating.",
+    "correctAnswer": "Sono preoccupato che la mia pressione sanguigna stia fluttuando.",
+    "hints": [
+      "Express worry with 'I am concerned that'."
+    ]
+  },
+  {
+    "id": "it-he-31",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Choose the best response. The doctor asks about your sleep patterns.",
+    "correctAnswer": "Di solito sono circa sei ore, ma ultimamente mi sono svegliato.",
+    "hints": [
+      "Give specific detail and use 'lately' for recent changes."
+    ],
+    "exerciseType": "roleplay"
+  },
+  {
+    "id": "it-he-32",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I am currently taking medication for high blood pressure.",
+    "correctAnswer": "Attualmente sto assumendo farmaci per l'ipertensione.",
+    "hints": [
+      "'Currently' emphasises something happening right now."
+    ]
+  },
+  {
+    "id": "it-he-33",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: Are there any lifestyle changes I should make alongside this treatment?",
+    "correctAnswer": "Ci sono cambiamenti di stile di vita che dovrei fare insieme a questo trattamento?",
+    "hints": [
+      "Use 'alongside' to mean 'in addition to'."
+    ]
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: Stress affects my concentration at work.",
+    "correctAnswer": "Lo stress influisce sulla mia concentrazione al lavoro.",
+    "hints": [
+      "Health impact sentence."
+    ],
+    "id": "it-he-b1-59"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Ask: What helps you recover after a difficult week?",
+    "correctAnswer": "Cosa ti aiuta a recuperare dopo una settimana difficile?",
+    "hints": [
+      "Coping strategy prompt."
+    ],
+    "exerciseType": "build_sentence",
+    "id": "it-he-b1-60"
+  },
+  {
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: I reduced sugar because it improved my energy.",
+    "correctAnswer": "Ho ridotto lo zucchero perché ha migliorato la mia energia.",
+    "hints": [
+      "Cause-effect form."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-he-b1-61"
+  },
+  {
+    "id": "it-he-10",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I would appreciate a referral to a specialist for further investigation.",
+    "correctAnswer": "Apprezzo un rinvio a uno specialista per ulteriori indagini.",
+    "hints": [
+      "Formal, polite language for medical requests."
+    ]
+  },
+  {
+    "id": "it-he-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: What are the long-term implications of leaving this untreated?",
+    "correctAnswer": "Quali sono le implicazioni a lungo termine di lasciare questo non trattato?",
+    "hints": [
+      "Focus on natural phrasing and word order."
     ]
   },
   {
     "id": "it-he-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I would like a second opinion before starting treatment.",
-    "correctAnswer": "Vorrei un secondo parere prima di iniziare il trattamento.",
+    "prompt": "Say: I would like to discuss the risks and benefits before consenting to the procedure.",
+    "correctAnswer": "Vorrei discutere i rischi e i benefici prima di acconsentire alla procedura.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
+  },
+  {
+    "id": "it-he-34",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The evidence suggests that early intervention significantly improves outcomes.",
+    "correctAnswer": "Le prove suggeriscono che l'intervento precoce migliora significativamente i risultati.",
+    "hints": [
+      "Formal, evidence-based language typical of medical discussions."
+    ]
+  },
+  {
+    "id": "it-he-35",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Are there contraindications given my existing medication?",
+    "correctAnswer": "Ci sono controindicazioni date il mio farmaco esistente?",
+    "hints": [
+      "'Contraindications' are reasons a treatment should not be used."
+    ]
+  },
+  {
+    "id": "it-he-36",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: I want to explore non-invasive alternatives before committing to surgery.",
+    "correctAnswer": "Voglio esplorare alternative non invasive prima di impegnarsi in chirurgia.",
+    "hints": [
+      "'Non-invasive' means no cutting or entering the body."
+    ]
+  },
+  {
+    "id": "it-he-37",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The deterioration in my condition appears to correlate with increased stress levels.",
+    "correctAnswer": "Il deterioramento della mia condizione sembra correlare con un aumento dei livelli di stress.",
+    "hints": [
+      "'Deterioration' means worsening; 'correlate with' means linked to."
+    ]
+  },
+  {
+    "id": "it-he-38",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Would a preventive course of treatment be advisable given my family history?",
+    "correctAnswer": "Si consiglia un corso di trattamento preventivo dato la mia storia familiare?",
+    "hints": [
+      "'Preventive' means aimed at stopping a problem before it starts."
+    ]
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Preventive care is more effective than reactive treatment.",
+    "correctAnswer": "La cura preventiva è più efficace del trattamento reattivo.",
+    "hints": [
+      "Advanced health framing."
+    ],
+    "id": "it-he-b2-69"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Ask: Which policies can improve access to mental health care?",
+    "correctAnswer": "Quali politiche possono migliorare l'accesso all'assistenza sanitaria mentale?",
+    "hints": [
+      "Public-health discussion prompt."
+    ],
+    "exerciseType": "cloze_sentence",
+    "id": "it-he-b2-70"
+  },
+  {
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Sustainable routines matter more than short-term motivation.",
+    "correctAnswer": "Le routine sostenibili sono più che motivate a breve termine.",
+    "hints": [
+      "Abstract comparison sentence."
+    ],
+    "exerciseType": "dialogue_turn",
+    "id": "it-he-b2-71"
   }
 ]
