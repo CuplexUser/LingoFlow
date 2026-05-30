@@ -1,0 +1,4002 @@
+[
+  {
+    "prompt": "cat",
+    "answer": "gatto"
+  },
+  {
+    "prompt": "dog",
+    "answer": "cane"
+  },
+  {
+    "prompt": "water",
+    "answer": "acqua"
+  },
+  {
+    "prompt": "bread",
+    "answer": "pane"
+  },
+  {
+    "prompt": "book",
+    "answer": "libro"
+  },
+  {
+    "prompt": "house",
+    "answer": "casa"
+  },
+  {
+    "prompt": "sun",
+    "answer": "sole"
+  },
+  {
+    "prompt": "night",
+    "answer": "notte"
+  },
+  {
+    "prompt": "table",
+    "answer": "tavolo"
+  },
+  {
+    "prompt": "chair",
+    "answer": "sedia"
+  },
+  {
+    "prompt": "door",
+    "answer": "porta"
+  },
+  {
+    "prompt": "window",
+    "answer": "finestra"
+  },
+  {
+    "prompt": "floor",
+    "answer": "pavimento"
+  },
+  {
+    "prompt": "wall",
+    "answer": "muro"
+  },
+  {
+    "prompt": "roof",
+    "answer": "tetto"
+  },
+  {
+    "prompt": "bed",
+    "answer": "letto"
+  },
+  {
+    "prompt": "lamp",
+    "answer": "lampada"
+  },
+  {
+    "prompt": "mirror",
+    "answer": "specchio"
+  },
+  {
+    "prompt": "clock",
+    "answer": "orologio"
+  },
+  {
+    "prompt": "key",
+    "answer": "chiave"
+  },
+  {
+    "prompt": "bag",
+    "answer": "borsa"
+  },
+  {
+    "prompt": "bottle",
+    "answer": "bottiglia"
+  },
+  {
+    "prompt": "cup",
+    "answer": "tazza"
+  },
+  {
+    "prompt": "plate",
+    "answer": "piatto"
+  },
+  {
+    "prompt": "knife",
+    "answer": "coltello"
+  },
+  {
+    "prompt": "fork",
+    "answer": "forchetta"
+  },
+  {
+    "prompt": "spoon",
+    "answer": "cucchiaio"
+  },
+  {
+    "prompt": "glass",
+    "answer": "bicchiere"
+  },
+  {
+    "prompt": "pot",
+    "answer": "pentola"
+  },
+  {
+    "prompt": "pan",
+    "answer": "padella"
+  },
+  {
+    "prompt": "milk",
+    "answer": "latte"
+  },
+  {
+    "prompt": "egg",
+    "answer": "uovo"
+  },
+  {
+    "prompt": "cheese",
+    "answer": "formaggio"
+  },
+  {
+    "prompt": "butter",
+    "answer": "burro"
+  },
+  {
+    "prompt": "meat",
+    "answer": "carne"
+  },
+  {
+    "prompt": "fish",
+    "answer": "pesce"
+  },
+  {
+    "prompt": "chicken",
+    "answer": "pollo"
+  },
+  {
+    "prompt": "rice",
+    "answer": "riso"
+  },
+  {
+    "prompt": "soup",
+    "answer": "zuppa"
+  },
+  {
+    "prompt": "salad",
+    "answer": "insalata"
+  },
+  {
+    "prompt": "fruit",
+    "answer": "frutta"
+  },
+  {
+    "prompt": "apple",
+    "answer": "mela"
+  },
+  {
+    "prompt": "orange",
+    "answer": "arancia"
+  },
+  {
+    "prompt": "banana",
+    "answer": "banana"
+  },
+  {
+    "prompt": "grape",
+    "answer": "uva"
+  },
+  {
+    "prompt": "strawberry",
+    "answer": "fragola"
+  },
+  {
+    "prompt": "lemon",
+    "answer": "limone"
+  },
+  {
+    "prompt": "tomato",
+    "answer": "pomodoro"
+  },
+  {
+    "prompt": "potato",
+    "answer": "patata"
+  },
+  {
+    "prompt": "carrot",
+    "answer": "carota"
+  },
+  {
+    "prompt": "onion",
+    "answer": "cipolla"
+  },
+  {
+    "prompt": "garlic",
+    "answer": "aglio"
+  },
+  {
+    "prompt": "pepper",
+    "answer": "peperone"
+  },
+  {
+    "prompt": "salt",
+    "answer": "sale"
+  },
+  {
+    "prompt": "sugar",
+    "answer": "zucchero"
+  },
+  {
+    "prompt": "oil",
+    "answer": "olio"
+  },
+  {
+    "prompt": "coffee",
+    "answer": "caffè"
+  },
+  {
+    "prompt": "tea",
+    "answer": "tè"
+  },
+  {
+    "prompt": "juice",
+    "answer": "succo"
+  },
+  {
+    "prompt": "beer",
+    "answer": "birra"
+  },
+  {
+    "prompt": "wine",
+    "answer": "vino"
+  },
+  {
+    "prompt": "horse",
+    "answer": "cavallo"
+  },
+  {
+    "prompt": "cow",
+    "answer": "mucca"
+  },
+  {
+    "prompt": "pig",
+    "answer": "maiale"
+  },
+  {
+    "prompt": "sheep",
+    "answer": "pecora"
+  },
+  {
+    "prompt": "bird",
+    "answer": "uccello"
+  },
+  {
+    "prompt": "fish",
+    "answer": "pesce"
+  },
+  {
+    "prompt": "rabbit",
+    "answer": "coniglio"
+  },
+  {
+    "prompt": "mouse",
+    "answer": "topo"
+  },
+  {
+    "prompt": "bear",
+    "answer": "orso"
+  },
+  {
+    "prompt": "wolf",
+    "answer": "lupo"
+  },
+  {
+    "prompt": "fox",
+    "answer": "volpe"
+  },
+  {
+    "prompt": "deer",
+    "answer": "cervo"
+  },
+  {
+    "prompt": "eagle",
+    "answer": "aquila"
+  },
+  {
+    "prompt": "owl",
+    "answer": "gufo"
+  },
+  {
+    "prompt": "snake",
+    "answer": "serpente"
+  },
+  {
+    "prompt": "frog",
+    "answer": "rana"
+  },
+  {
+    "prompt": "butterfly",
+    "answer": "farfalla"
+  },
+  {
+    "prompt": "bee",
+    "answer": "ape"
+  },
+  {
+    "prompt": "ant",
+    "answer": "formica"
+  },
+  {
+    "prompt": "spider",
+    "answer": "ragno"
+  },
+  {
+    "prompt": "dolphin",
+    "answer": "delfino"
+  },
+  {
+    "prompt": "whale",
+    "answer": "balena"
+  },
+  {
+    "prompt": "shark",
+    "answer": "squalo"
+  },
+  {
+    "prompt": "lion",
+    "answer": "leone"
+  },
+  {
+    "prompt": "tiger",
+    "answer": "tigre"
+  },
+  {
+    "prompt": "elephant",
+    "answer": "elefante"
+  },
+  {
+    "prompt": "monkey",
+    "answer": "scimmia"
+  },
+  {
+    "prompt": "giraffe",
+    "answer": "giraffa"
+  },
+  {
+    "prompt": "camel",
+    "answer": "cammello"
+  },
+  {
+    "prompt": "penguin",
+    "answer": "pinguino"
+  },
+  {
+    "prompt": "tree",
+    "answer": "albero"
+  },
+  {
+    "prompt": "flower",
+    "answer": "fiore"
+  },
+  {
+    "prompt": "grass",
+    "answer": "erba"
+  },
+  {
+    "prompt": "forest",
+    "answer": "bosco"
+  },
+  {
+    "prompt": "river",
+    "answer": "fiume"
+  },
+  {
+    "prompt": "lake",
+    "answer": "lago"
+  },
+  {
+    "prompt": "sea",
+    "answer": "mare"
+  },
+  {
+    "prompt": "ocean",
+    "answer": "oceano"
+  },
+  {
+    "prompt": "mountain",
+    "answer": "montagna"
+  },
+  {
+    "prompt": "hill",
+    "answer": "collina"
+  },
+  {
+    "prompt": "valley",
+    "answer": "valle"
+  },
+  {
+    "prompt": "beach",
+    "answer": "spiaggia"
+  },
+  {
+    "prompt": "island",
+    "answer": "isola"
+  },
+  {
+    "prompt": "desert",
+    "answer": "deserto"
+  },
+  {
+    "prompt": "cloud",
+    "answer": "nuvola"
+  },
+  {
+    "prompt": "rain",
+    "answer": "pioggia"
+  },
+  {
+    "prompt": "snow",
+    "answer": "neve"
+  },
+  {
+    "prompt": "wind",
+    "answer": "vento"
+  },
+  {
+    "prompt": "ice",
+    "answer": "ghiaccio"
+  },
+  {
+    "prompt": "fire",
+    "answer": "fuoco"
+  },
+  {
+    "prompt": "smoke",
+    "answer": "fumo"
+  },
+  {
+    "prompt": "stone",
+    "answer": "pietra"
+  },
+  {
+    "prompt": "sand",
+    "answer": "sabbia"
+  },
+  {
+    "prompt": "mud",
+    "answer": "fango"
+  },
+  {
+    "prompt": "leaf",
+    "answer": "foglia"
+  },
+  {
+    "prompt": "branch",
+    "answer": "ramo"
+  },
+  {
+    "prompt": "root",
+    "answer": "radice"
+  },
+  {
+    "prompt": "seed",
+    "answer": "seme"
+  },
+  {
+    "prompt": "soil",
+    "answer": "terra"
+  },
+  {
+    "prompt": "field",
+    "answer": "campo"
+  },
+  {
+    "prompt": "head",
+    "answer": "testa"
+  },
+  {
+    "prompt": "face",
+    "answer": "faccia"
+  },
+  {
+    "prompt": "eye",
+    "answer": "occhio"
+  },
+  {
+    "prompt": "ear",
+    "answer": "orecchio"
+  },
+  {
+    "prompt": "nose",
+    "answer": "naso"
+  },
+  {
+    "prompt": "mouth",
+    "answer": "bocca"
+  },
+  {
+    "prompt": "tooth",
+    "answer": "dente"
+  },
+  {
+    "prompt": "tongue",
+    "answer": "lingua"
+  },
+  {
+    "prompt": "lip",
+    "answer": "labbro"
+  },
+  {
+    "prompt": "chin",
+    "answer": "mento"
+  },
+  {
+    "prompt": "cheek",
+    "answer": "guancia"
+  },
+  {
+    "prompt": "hair",
+    "answer": "capelli"
+  },
+  {
+    "prompt": "neck",
+    "answer": "collo"
+  },
+  {
+    "prompt": "shoulder",
+    "answer": "spalla"
+  },
+  {
+    "prompt": "arm",
+    "answer": "braccio"
+  },
+  {
+    "prompt": "elbow",
+    "answer": "gomito"
+  },
+  {
+    "prompt": "hand",
+    "answer": "mano"
+  },
+  {
+    "prompt": "finger",
+    "answer": "dito"
+  },
+  {
+    "prompt": "thumb",
+    "answer": "pollice"
+  },
+  {
+    "prompt": "nail",
+    "answer": "unghia"
+  },
+  {
+    "prompt": "chest",
+    "answer": "petto"
+  },
+  {
+    "prompt": "back",
+    "answer": "schiena"
+  },
+  {
+    "prompt": "stomach",
+    "answer": "stomaco"
+  },
+  {
+    "prompt": "leg",
+    "answer": "gamba"
+  },
+  {
+    "prompt": "knee",
+    "answer": "ginocchio"
+  },
+  {
+    "prompt": "foot",
+    "answer": "piede"
+  },
+  {
+    "prompt": "toe",
+    "answer": "dito del piede"
+  },
+  {
+    "prompt": "heart",
+    "answer": "cuore"
+  },
+  {
+    "prompt": "lung",
+    "answer": "polmone"
+  },
+  {
+    "prompt": "blood",
+    "answer": "sangue"
+  },
+  {
+    "prompt": "shirt",
+    "answer": "camicia"
+  },
+  {
+    "prompt": "trousers",
+    "answer": "pantaloni"
+  },
+  {
+    "prompt": "dress",
+    "answer": "vestito"
+  },
+  {
+    "prompt": "skirt",
+    "answer": "gonna"
+  },
+  {
+    "prompt": "jacket",
+    "answer": "giacca"
+  },
+  {
+    "prompt": "coat",
+    "answer": "cappotto"
+  },
+  {
+    "prompt": "hat",
+    "answer": "cappello"
+  },
+  {
+    "prompt": "cap",
+    "answer": "berretto"
+  },
+  {
+    "prompt": "scarf",
+    "answer": "sciarpa"
+  },
+  {
+    "prompt": "gloves",
+    "answer": "guanti"
+  },
+  {
+    "prompt": "socks",
+    "answer": "calzini"
+  },
+  {
+    "prompt": "shoes",
+    "answer": "scarpe"
+  },
+  {
+    "prompt": "boots",
+    "answer": "stivali"
+  },
+  {
+    "prompt": "belt",
+    "answer": "cintura"
+  },
+  {
+    "prompt": "pocket",
+    "answer": "tasca"
+  },
+  {
+    "prompt": "button",
+    "answer": "bottone"
+  },
+  {
+    "prompt": "sleeve",
+    "answer": "manica"
+  },
+  {
+    "prompt": "collar",
+    "answer": "colletto"
+  },
+  {
+    "prompt": "tie",
+    "answer": "cravatta"
+  },
+  {
+    "prompt": "underwear",
+    "answer": "biancheria intima"
+  },
+  {
+    "prompt": "red",
+    "answer": "rosso"
+  },
+  {
+    "prompt": "blue",
+    "answer": "blu"
+  },
+  {
+    "prompt": "green",
+    "answer": "verde"
+  },
+  {
+    "prompt": "yellow",
+    "answer": "giallo"
+  },
+  {
+    "prompt": "orange",
+    "answer": "arancione"
+  },
+  {
+    "prompt": "purple",
+    "answer": "viola"
+  },
+  {
+    "prompt": "pink",
+    "answer": "rosa"
+  },
+  {
+    "prompt": "black",
+    "answer": "nero"
+  },
+  {
+    "prompt": "white",
+    "answer": "bianco"
+  },
+  {
+    "prompt": "grey",
+    "answer": "grigio"
+  },
+  {
+    "prompt": "brown",
+    "answer": "marrone"
+  },
+  {
+    "prompt": "gold",
+    "answer": "dorato"
+  },
+  {
+    "prompt": "silver",
+    "answer": "argento"
+  },
+  {
+    "prompt": "dark",
+    "answer": "scuro"
+  },
+  {
+    "prompt": "light",
+    "answer": "chiaro"
+  },
+  {
+    "prompt": "one",
+    "answer": "uno"
+  },
+  {
+    "prompt": "two",
+    "answer": "due"
+  },
+  {
+    "prompt": "three",
+    "answer": "tre"
+  },
+  {
+    "prompt": "four",
+    "answer": "quattro"
+  },
+  {
+    "prompt": "five",
+    "answer": "cinque"
+  },
+  {
+    "prompt": "six",
+    "answer": "sei"
+  },
+  {
+    "prompt": "seven",
+    "answer": "sette"
+  },
+  {
+    "prompt": "eight",
+    "answer": "otto"
+  },
+  {
+    "prompt": "nine",
+    "answer": "nove"
+  },
+  {
+    "prompt": "ten",
+    "answer": "dieci"
+  },
+  {
+    "prompt": "twenty",
+    "answer": "venti"
+  },
+  {
+    "prompt": "thirty",
+    "answer": "trenta"
+  },
+  {
+    "prompt": "forty",
+    "answer": "quaranta"
+  },
+  {
+    "prompt": "fifty",
+    "answer": "cinquanta"
+  },
+  {
+    "prompt": "hundred",
+    "answer": "cento"
+  },
+  {
+    "prompt": "thousand",
+    "answer": "mille"
+  },
+  {
+    "prompt": "million",
+    "answer": "milione"
+  },
+  {
+    "prompt": "half",
+    "answer": "metà"
+  },
+  {
+    "prompt": "double",
+    "answer": "doppio"
+  },
+  {
+    "prompt": "zero",
+    "answer": "zero"
+  },
+  {
+    "prompt": "day",
+    "answer": "giorno"
+  },
+  {
+    "prompt": "week",
+    "answer": "settimana"
+  },
+  {
+    "prompt": "month",
+    "answer": "mese"
+  },
+  {
+    "prompt": "year",
+    "answer": "anno"
+  },
+  {
+    "prompt": "hour",
+    "answer": "ora"
+  },
+  {
+    "prompt": "minute",
+    "answer": "minuto"
+  },
+  {
+    "prompt": "second",
+    "answer": "secondo"
+  },
+  {
+    "prompt": "morning",
+    "answer": "mattina"
+  },
+  {
+    "prompt": "afternoon",
+    "answer": "pomeriggio"
+  },
+  {
+    "prompt": "evening",
+    "answer": "sera"
+  },
+  {
+    "prompt": "midnight",
+    "answer": "mezzanotte"
+  },
+  {
+    "prompt": "today",
+    "answer": "oggi"
+  },
+  {
+    "prompt": "yesterday",
+    "answer": "ieri"
+  },
+  {
+    "prompt": "tomorrow",
+    "answer": "domani"
+  },
+  {
+    "prompt": "now",
+    "answer": "adesso"
+  },
+  {
+    "prompt": "soon",
+    "answer": "presto"
+  },
+  {
+    "prompt": "always",
+    "answer": "sempre"
+  },
+  {
+    "prompt": "never",
+    "answer": "mai"
+  },
+  {
+    "prompt": "often",
+    "answer": "spesso"
+  },
+  {
+    "prompt": "sometimes",
+    "answer": "a volte"
+  },
+  {
+    "prompt": "Monday",
+    "answer": "lunedì"
+  },
+  {
+    "prompt": "Tuesday",
+    "answer": "martedì"
+  },
+  {
+    "prompt": "Wednesday",
+    "answer": "mercoledì"
+  },
+  {
+    "prompt": "Thursday",
+    "answer": "giovedì"
+  },
+  {
+    "prompt": "Friday",
+    "answer": "venerdì"
+  },
+  {
+    "prompt": "Saturday",
+    "answer": "sabato"
+  },
+  {
+    "prompt": "Sunday",
+    "answer": "domenica"
+  },
+  {
+    "prompt": "January",
+    "answer": "gennaio"
+  },
+  {
+    "prompt": "February",
+    "answer": "febbraio"
+  },
+  {
+    "prompt": "March",
+    "answer": "marzo"
+  },
+  {
+    "prompt": "April",
+    "answer": "aprile"
+  },
+  {
+    "prompt": "May",
+    "answer": "maggio"
+  },
+  {
+    "prompt": "June",
+    "answer": "giugno"
+  },
+  {
+    "prompt": "July",
+    "answer": "luglio"
+  },
+  {
+    "prompt": "August",
+    "answer": "agosto"
+  },
+  {
+    "prompt": "September",
+    "answer": "settembre"
+  },
+  {
+    "prompt": "October",
+    "answer": "ottobre"
+  },
+  {
+    "prompt": "November",
+    "answer": "novembre"
+  },
+  {
+    "prompt": "December",
+    "answer": "dicembre"
+  },
+  {
+    "prompt": "mother",
+    "answer": "madre"
+  },
+  {
+    "prompt": "father",
+    "answer": "padre"
+  },
+  {
+    "prompt": "sister",
+    "answer": "sorella"
+  },
+  {
+    "prompt": "brother",
+    "answer": "fratello"
+  },
+  {
+    "prompt": "daughter",
+    "answer": "figlia"
+  },
+  {
+    "prompt": "son",
+    "answer": "figlio"
+  },
+  {
+    "prompt": "grandmother",
+    "answer": "nonna"
+  },
+  {
+    "prompt": "grandfather",
+    "answer": "nonno"
+  },
+  {
+    "prompt": "aunt",
+    "answer": "zia"
+  },
+  {
+    "prompt": "uncle",
+    "answer": "zio"
+  },
+  {
+    "prompt": "cousin",
+    "answer": "cugino"
+  },
+  {
+    "prompt": "wife",
+    "answer": "moglie"
+  },
+  {
+    "prompt": "husband",
+    "answer": "marito"
+  },
+  {
+    "prompt": "baby",
+    "answer": "bambino"
+  },
+  {
+    "prompt": "child",
+    "answer": "bambino"
+  },
+  {
+    "prompt": "family",
+    "answer": "famiglia"
+  },
+  {
+    "prompt": "friend",
+    "answer": "amico"
+  },
+  {
+    "prompt": "neighbor",
+    "answer": "vicino"
+  },
+  {
+    "prompt": "colleague",
+    "answer": "collega"
+  },
+  {
+    "prompt": "stranger",
+    "answer": "straniero"
+  },
+  {
+    "prompt": "city",
+    "answer": "città"
+  },
+  {
+    "prompt": "town",
+    "answer": "città"
+  },
+  {
+    "prompt": "village",
+    "answer": "villaggio"
+  },
+  {
+    "prompt": "street",
+    "answer": "strada"
+  },
+  {
+    "prompt": "road",
+    "answer": "strada"
+  },
+  {
+    "prompt": "bridge",
+    "answer": "ponte"
+  },
+  {
+    "prompt": "park",
+    "answer": "parco"
+  },
+  {
+    "prompt": "garden",
+    "answer": "giardino"
+  },
+  {
+    "prompt": "square",
+    "answer": "piazza"
+  },
+  {
+    "prompt": "market",
+    "answer": "mercato"
+  },
+  {
+    "prompt": "shop",
+    "answer": "negozio"
+  },
+  {
+    "prompt": "store",
+    "answer": "magazzino"
+  },
+  {
+    "prompt": "bank",
+    "answer": "banca"
+  },
+  {
+    "prompt": "hospital",
+    "answer": "ospedale"
+  },
+  {
+    "prompt": "school",
+    "answer": "scuola"
+  },
+  {
+    "prompt": "university",
+    "answer": "università"
+  },
+  {
+    "prompt": "library",
+    "answer": "biblioteca"
+  },
+  {
+    "prompt": "church",
+    "answer": "chiesa"
+  },
+  {
+    "prompt": "museum",
+    "answer": "museo"
+  },
+  {
+    "prompt": "hotel",
+    "answer": "albergo"
+  },
+  {
+    "prompt": "restaurant",
+    "answer": "ristorante"
+  },
+  {
+    "prompt": "café",
+    "answer": "caffè"
+  },
+  {
+    "prompt": "airport",
+    "answer": "aeroporto"
+  },
+  {
+    "prompt": "station",
+    "answer": "stazione"
+  },
+  {
+    "prompt": "port",
+    "answer": "porto"
+  },
+  {
+    "prompt": "factory",
+    "answer": "fabbrica"
+  },
+  {
+    "prompt": "farm",
+    "answer": "fattoria"
+  },
+  {
+    "prompt": "office",
+    "answer": "ufficio"
+  },
+  {
+    "prompt": "building",
+    "answer": "edificio"
+  },
+  {
+    "prompt": "apartment",
+    "answer": "appartamento"
+  },
+  {
+    "prompt": "car",
+    "answer": "macchina"
+  },
+  {
+    "prompt": "bus",
+    "answer": "autobus"
+  },
+  {
+    "prompt": "train",
+    "answer": "treno"
+  },
+  {
+    "prompt": "plane",
+    "answer": "aereo"
+  },
+  {
+    "prompt": "boat",
+    "answer": "barca"
+  },
+  {
+    "prompt": "ship",
+    "answer": "nave"
+  },
+  {
+    "prompt": "bicycle",
+    "answer": "bicicletta"
+  },
+  {
+    "prompt": "motorcycle",
+    "answer": "moto"
+  },
+  {
+    "prompt": "truck",
+    "answer": "camion"
+  },
+  {
+    "prompt": "taxi",
+    "answer": "taxi"
+  },
+  {
+    "prompt": "subway",
+    "answer": "metro"
+  },
+  {
+    "prompt": "ticket",
+    "answer": "biglietto"
+  },
+  {
+    "prompt": "seat",
+    "answer": "posto"
+  },
+  {
+    "prompt": "driver",
+    "answer": "autista"
+  },
+  {
+    "prompt": "passenger",
+    "answer": "passeggero"
+  },
+  {
+    "prompt": "journey",
+    "answer": "viaggio"
+  },
+  {
+    "prompt": "trip",
+    "answer": "gita"
+  },
+  {
+    "prompt": "stop",
+    "answer": "fermata"
+  },
+  {
+    "prompt": "map",
+    "answer": "mappa"
+  },
+  {
+    "prompt": "direction",
+    "answer": "direzione"
+  },
+  {
+    "prompt": "work",
+    "answer": "lavoro"
+  },
+  {
+    "prompt": "job",
+    "answer": "lavoro"
+  },
+  {
+    "prompt": "doctor",
+    "answer": "medico"
+  },
+  {
+    "prompt": "nurse",
+    "answer": "infermiera"
+  },
+  {
+    "prompt": "teacher",
+    "answer": "insegnante"
+  },
+  {
+    "prompt": "student",
+    "answer": "studente"
+  },
+  {
+    "prompt": "engineer",
+    "answer": "ingegnere"
+  },
+  {
+    "prompt": "lawyer",
+    "answer": "avvocato"
+  },
+  {
+    "prompt": "police",
+    "answer": "polizia"
+  },
+  {
+    "prompt": "firefighter",
+    "answer": "pompiere"
+  },
+  {
+    "prompt": "soldier",
+    "answer": "soldato"
+  },
+  {
+    "prompt": "pilot",
+    "answer": "pilota"
+  },
+  {
+    "prompt": "chef",
+    "answer": "cuoco"
+  },
+  {
+    "prompt": "waiter",
+    "answer": "cameriere"
+  },
+  {
+    "prompt": "farmer",
+    "answer": "agricoltore"
+  },
+  {
+    "prompt": "carpenter",
+    "answer": "falegname"
+  },
+  {
+    "prompt": "painter",
+    "answer": "pittore"
+  },
+  {
+    "prompt": "writer",
+    "answer": "scrittore"
+  },
+  {
+    "prompt": "actor",
+    "answer": "attore"
+  },
+  {
+    "prompt": "musician",
+    "answer": "musicista"
+  },
+  {
+    "prompt": "to go",
+    "answer": "andare"
+  },
+  {
+    "prompt": "to come",
+    "answer": "venire"
+  },
+  {
+    "prompt": "to eat",
+    "answer": "mangiare"
+  },
+  {
+    "prompt": "to drink",
+    "answer": "bere"
+  },
+  {
+    "prompt": "to sleep",
+    "answer": "dormire"
+  },
+  {
+    "prompt": "to wake",
+    "answer": "svegliarsi"
+  },
+  {
+    "prompt": "to walk",
+    "answer": "camminare"
+  },
+  {
+    "prompt": "to run",
+    "answer": "correre"
+  },
+  {
+    "prompt": "to sit",
+    "answer": "sedersi"
+  },
+  {
+    "prompt": "to stand",
+    "answer": "stare in piedi"
+  },
+  {
+    "prompt": "to talk",
+    "answer": "parlare"
+  },
+  {
+    "prompt": "to listen",
+    "answer": "ascoltare"
+  },
+  {
+    "prompt": "to read",
+    "answer": "leggere"
+  },
+  {
+    "prompt": "to write",
+    "answer": "scrivere"
+  },
+  {
+    "prompt": "to work",
+    "answer": "lavorare"
+  },
+  {
+    "prompt": "to play",
+    "answer": "giocare"
+  },
+  {
+    "prompt": "to buy",
+    "answer": "comprare"
+  },
+  {
+    "prompt": "to sell",
+    "answer": "vendere"
+  },
+  {
+    "prompt": "to open",
+    "answer": "aprire"
+  },
+  {
+    "prompt": "to close",
+    "answer": "chiudere"
+  },
+  {
+    "prompt": "to give",
+    "answer": "dare"
+  },
+  {
+    "prompt": "to take",
+    "answer": "prendere"
+  },
+  {
+    "prompt": "to find",
+    "answer": "trovare"
+  },
+  {
+    "prompt": "to lose",
+    "answer": "perdere"
+  },
+  {
+    "prompt": "to help",
+    "answer": "aiutare"
+  },
+  {
+    "prompt": "to ask",
+    "answer": "chiedere"
+  },
+  {
+    "prompt": "to answer",
+    "answer": "rispondere"
+  },
+  {
+    "prompt": "to think",
+    "answer": "pensare"
+  },
+  {
+    "prompt": "to know",
+    "answer": "sapere"
+  },
+  {
+    "prompt": "to learn",
+    "answer": "imparare"
+  },
+  {
+    "prompt": "to see",
+    "answer": "vedere"
+  },
+  {
+    "prompt": "to look",
+    "answer": "guardare"
+  },
+  {
+    "prompt": "to hear",
+    "answer": "sentire"
+  },
+  {
+    "prompt": "to feel",
+    "answer": "sentire"
+  },
+  {
+    "prompt": "to love",
+    "answer": "amare"
+  },
+  {
+    "prompt": "to like",
+    "answer": "piacere"
+  },
+  {
+    "prompt": "to want",
+    "answer": "volere"
+  },
+  {
+    "prompt": "to need",
+    "answer": "avere bisogno"
+  },
+  {
+    "prompt": "to start",
+    "answer": "iniziare"
+  },
+  {
+    "prompt": "to stop",
+    "answer": "fermare"
+  },
+  {
+    "prompt": "to wait",
+    "answer": "aspettare"
+  },
+  {
+    "prompt": "to arrive",
+    "answer": "arrivare"
+  },
+  {
+    "prompt": "to leave",
+    "answer": "partire"
+  },
+  {
+    "prompt": "to return",
+    "answer": "tornare"
+  },
+  {
+    "prompt": "to bring",
+    "answer": "portare"
+  },
+  {
+    "prompt": "to carry",
+    "answer": "portare"
+  },
+  {
+    "prompt": "to put",
+    "answer": "mettere"
+  },
+  {
+    "prompt": "to keep",
+    "answer": "tenere"
+  },
+  {
+    "prompt": "to send",
+    "answer": "inviare"
+  },
+  {
+    "prompt": "to receive",
+    "answer": "ricevere"
+  },
+  {
+    "prompt": "to show",
+    "answer": "mostrare"
+  },
+  {
+    "prompt": "to pay",
+    "answer": "pagare"
+  },
+  {
+    "prompt": "to choose",
+    "answer": "scegliere"
+  },
+  {
+    "prompt": "big",
+    "answer": "grande"
+  },
+  {
+    "prompt": "small",
+    "answer": "piccolo"
+  },
+  {
+    "prompt": "long",
+    "answer": "lungo"
+  },
+  {
+    "prompt": "short",
+    "answer": "corto"
+  },
+  {
+    "prompt": "tall",
+    "answer": "alto"
+  },
+  {
+    "prompt": "wide",
+    "answer": "largo"
+  },
+  {
+    "prompt": "narrow",
+    "answer": "stretto"
+  },
+  {
+    "prompt": "heavy",
+    "answer": "pesante"
+  },
+  {
+    "prompt": "light",
+    "answer": "leggero"
+  },
+  {
+    "prompt": "fast",
+    "answer": "veloce"
+  },
+  {
+    "prompt": "slow",
+    "answer": "lento"
+  },
+  {
+    "prompt": "hot",
+    "answer": "caldo"
+  },
+  {
+    "prompt": "cold",
+    "answer": "freddo"
+  },
+  {
+    "prompt": "warm",
+    "answer": "tiepido"
+  },
+  {
+    "prompt": "cool",
+    "answer": "fresco"
+  },
+  {
+    "prompt": "old",
+    "answer": "vecchio"
+  },
+  {
+    "prompt": "young",
+    "answer": "giovane"
+  },
+  {
+    "prompt": "new",
+    "answer": "nuovo"
+  },
+  {
+    "prompt": "good",
+    "answer": "buono"
+  },
+  {
+    "prompt": "bad",
+    "answer": "cattivo"
+  },
+  {
+    "prompt": "beautiful",
+    "answer": "bello"
+  },
+  {
+    "prompt": "ugly",
+    "answer": "brutto"
+  },
+  {
+    "prompt": "clean",
+    "answer": "pulito"
+  },
+  {
+    "prompt": "dirty",
+    "answer": "sporco"
+  },
+  {
+    "prompt": "full",
+    "answer": "pieno"
+  },
+  {
+    "prompt": "empty",
+    "answer": "vuoto"
+  },
+  {
+    "prompt": "open",
+    "answer": "aperto"
+  },
+  {
+    "prompt": "closed",
+    "answer": "chiuso"
+  },
+  {
+    "prompt": "easy",
+    "answer": "facile"
+  },
+  {
+    "prompt": "difficult",
+    "answer": "difficile"
+  },
+  {
+    "prompt": "right",
+    "answer": "giusto"
+  },
+  {
+    "prompt": "wrong",
+    "answer": "sbagliato"
+  },
+  {
+    "prompt": "safe",
+    "answer": "sicuro"
+  },
+  {
+    "prompt": "dangerous",
+    "answer": "pericoloso"
+  },
+  {
+    "prompt": "rich",
+    "answer": "ricco"
+  },
+  {
+    "prompt": "poor",
+    "answer": "povero"
+  },
+  {
+    "prompt": "happy",
+    "answer": "felice"
+  },
+  {
+    "prompt": "sad",
+    "answer": "triste"
+  },
+  {
+    "prompt": "tired",
+    "answer": "stanco"
+  },
+  {
+    "prompt": "hungry",
+    "answer": "affamato"
+  },
+  {
+    "prompt": "thirsty",
+    "answer": "assetato"
+  },
+  {
+    "prompt": "sick",
+    "answer": "malato"
+  },
+  {
+    "prompt": "healthy",
+    "answer": "sano"
+  },
+  {
+    "prompt": "strong",
+    "answer": "forte"
+  },
+  {
+    "prompt": "weak",
+    "answer": "debole"
+  },
+  {
+    "prompt": "clever",
+    "answer": "intelligente"
+  },
+  {
+    "prompt": "stupid",
+    "answer": "stupido"
+  },
+  {
+    "prompt": "funny",
+    "answer": "divertente"
+  },
+  {
+    "prompt": "serious",
+    "answer": "serio"
+  },
+  {
+    "prompt": "quiet",
+    "answer": "tranquillo"
+  },
+  {
+    "prompt": "loud",
+    "answer": "rumoroso"
+  },
+  {
+    "prompt": "soft",
+    "answer": "morbido"
+  },
+  {
+    "prompt": "hard",
+    "answer": "duro"
+  },
+  {
+    "prompt": "sharp",
+    "answer": "affilato"
+  },
+  {
+    "prompt": "smooth",
+    "answer": "liscio"
+  },
+  {
+    "prompt": "rough",
+    "answer": "ruvido"
+  },
+  {
+    "prompt": "flat",
+    "answer": "piatto"
+  },
+  {
+    "prompt": "round",
+    "answer": "rotondo"
+  },
+  {
+    "prompt": "straight",
+    "answer": "dritto"
+  },
+  {
+    "prompt": "crooked",
+    "answer": "storto"
+  },
+  {
+    "prompt": "thick",
+    "answer": "spesso"
+  },
+  {
+    "prompt": "thin",
+    "answer": "sottile"
+  },
+  {
+    "prompt": "deep",
+    "answer": "profondo"
+  },
+  {
+    "prompt": "shallow",
+    "answer": "poco profondo"
+  },
+  {
+    "prompt": "in",
+    "answer": "in"
+  },
+  {
+    "prompt": "on",
+    "answer": "su"
+  },
+  {
+    "prompt": "at",
+    "answer": "a"
+  },
+  {
+    "prompt": "under",
+    "answer": "sotto"
+  },
+  {
+    "prompt": "above",
+    "answer": "sopra"
+  },
+  {
+    "prompt": "between",
+    "answer": "tra"
+  },
+  {
+    "prompt": "behind",
+    "answer": "dietro"
+  },
+  {
+    "prompt": "before",
+    "answer": "prima"
+  },
+  {
+    "prompt": "after",
+    "answer": "dopo"
+  },
+  {
+    "prompt": "with",
+    "answer": "con"
+  },
+  {
+    "prompt": "without",
+    "answer": "senza"
+  },
+  {
+    "prompt": "from",
+    "answer": "da"
+  },
+  {
+    "prompt": "to",
+    "answer": "a"
+  },
+  {
+    "prompt": "for",
+    "answer": "per"
+  },
+  {
+    "prompt": "of",
+    "answer": "di"
+  },
+  {
+    "prompt": "through",
+    "answer": "attraverso"
+  },
+  {
+    "prompt": "near",
+    "answer": "vicino"
+  },
+  {
+    "prompt": "far",
+    "answer": "lontano"
+  },
+  {
+    "prompt": "next to",
+    "answer": "accanto a"
+  },
+  {
+    "prompt": "across",
+    "answer": "dall'altra parte"
+  },
+  {
+    "prompt": "idea",
+    "answer": "idea"
+  },
+  {
+    "prompt": "question",
+    "answer": "domanda"
+  },
+  {
+    "prompt": "answer",
+    "answer": "risposta"
+  },
+  {
+    "prompt": "problem",
+    "answer": "problema"
+  },
+  {
+    "prompt": "solution",
+    "answer": "soluzione"
+  },
+  {
+    "prompt": "reason",
+    "answer": "ragione"
+  },
+  {
+    "prompt": "example",
+    "answer": "esempio"
+  },
+  {
+    "prompt": "rule",
+    "answer": "regola"
+  },
+  {
+    "prompt": "law",
+    "answer": "legge"
+  },
+  {
+    "prompt": "right",
+    "answer": "diritto"
+  },
+  {
+    "prompt": "duty",
+    "answer": "dovere"
+  },
+  {
+    "prompt": "mistake",
+    "answer": "errore"
+  },
+  {
+    "prompt": "choice",
+    "answer": "scelta"
+  },
+  {
+    "prompt": "plan",
+    "answer": "piano"
+  },
+  {
+    "prompt": "step",
+    "answer": "passo"
+  },
+  {
+    "prompt": "story",
+    "answer": "storia"
+  },
+  {
+    "prompt": "news",
+    "answer": "notizie"
+  },
+  {
+    "prompt": "message",
+    "answer": "messaggio"
+  },
+  {
+    "prompt": "word",
+    "answer": "parola"
+  },
+  {
+    "prompt": "sentence",
+    "answer": "frase"
+  },
+  {
+    "prompt": "language",
+    "answer": "lingua"
+  },
+  {
+    "prompt": "voice",
+    "answer": "voce"
+  },
+  {
+    "prompt": "sound",
+    "answer": "suono"
+  },
+  {
+    "prompt": "music",
+    "answer": "musica"
+  },
+  {
+    "prompt": "song",
+    "answer": "canzone"
+  },
+  {
+    "prompt": "movie",
+    "answer": "film"
+  },
+  {
+    "prompt": "game",
+    "answer": "gioco"
+  },
+  {
+    "prompt": "sport",
+    "answer": "sport"
+  },
+  {
+    "prompt": "art",
+    "answer": "arte"
+  },
+  {
+    "prompt": "science",
+    "answer": "scienza"
+  },
+  {
+    "prompt": "history",
+    "answer": "storia"
+  },
+  {
+    "prompt": "pain",
+    "answer": "dolore"
+  },
+  {
+    "prompt": "medicine",
+    "answer": "medicina"
+  },
+  {
+    "prompt": "pill",
+    "answer": "pillola"
+  },
+  {
+    "prompt": "fever",
+    "answer": "febbre"
+  },
+  {
+    "prompt": "cold",
+    "answer": "raffreddore"
+  },
+  {
+    "prompt": "cough",
+    "answer": "tosse"
+  },
+  {
+    "prompt": "headache",
+    "answer": "mal di testa"
+  },
+  {
+    "prompt": "allergy",
+    "answer": "allergia"
+  },
+  {
+    "prompt": "injury",
+    "answer": "ferita"
+  },
+  {
+    "prompt": "surgery",
+    "answer": "chirurgia"
+  },
+  {
+    "prompt": "weather",
+    "answer": "tempo"
+  },
+  {
+    "prompt": "temperature",
+    "answer": "temperatura"
+  },
+  {
+    "prompt": "fog",
+    "answer": "nebbia"
+  },
+  {
+    "prompt": "storm",
+    "answer": "tempesta"
+  },
+  {
+    "prompt": "thunder",
+    "answer": "tuono"
+  },
+  {
+    "prompt": "lightning",
+    "answer": "fulmine"
+  },
+  {
+    "prompt": "rainbow",
+    "answer": "arcobaleno"
+  },
+  {
+    "prompt": "frost",
+    "answer": "gelo"
+  },
+  {
+    "prompt": "flood",
+    "answer": "alluvione"
+  },
+  {
+    "prompt": "drought",
+    "answer": "siccità"
+  },
+  {
+    "prompt": "computer",
+    "answer": "computer"
+  },
+  {
+    "prompt": "phone",
+    "answer": "telefono"
+  },
+  {
+    "prompt": "screen",
+    "answer": "schermo"
+  },
+  {
+    "prompt": "keyboard",
+    "answer": "tastiera"
+  },
+  {
+    "prompt": "battery",
+    "answer": "batteria"
+  },
+  {
+    "prompt": "internet",
+    "answer": "internet"
+  },
+  {
+    "prompt": "network",
+    "answer": "rete"
+  },
+  {
+    "prompt": "software",
+    "answer": "software"
+  },
+  {
+    "prompt": "password",
+    "answer": "password"
+  },
+  {
+    "prompt": "camera",
+    "answer": "fotocamera"
+  },
+  {
+    "prompt": "television",
+    "answer": "televisione"
+  },
+  {
+    "prompt": "radio",
+    "answer": "radio"
+  },
+  {
+    "prompt": "printer",
+    "answer": "stampante"
+  },
+  {
+    "prompt": "button",
+    "answer": "pulsante"
+  },
+  {
+    "prompt": "cable",
+    "answer": "cavo"
+  },
+  {
+    "prompt": "class",
+    "answer": "classe"
+  },
+  {
+    "prompt": "lesson",
+    "answer": "lezione"
+  },
+  {
+    "prompt": "homework",
+    "answer": "compito"
+  },
+  {
+    "prompt": "exam",
+    "answer": "esame"
+  },
+  {
+    "prompt": "grade",
+    "answer": "voto"
+  },
+  {
+    "prompt": "pencil",
+    "answer": "matita"
+  },
+  {
+    "prompt": "pen",
+    "answer": "penna"
+  },
+  {
+    "prompt": "paper",
+    "answer": "carta"
+  },
+  {
+    "prompt": "notebook",
+    "answer": "quaderno"
+  },
+  {
+    "prompt": "ruler",
+    "answer": "righello"
+  },
+  {
+    "prompt": "eraser",
+    "answer": "gomma"
+  },
+  {
+    "prompt": "backpack",
+    "answer": "zaino"
+  },
+  {
+    "prompt": "dictionary",
+    "answer": "dizionario"
+  },
+  {
+    "prompt": "money",
+    "answer": "soldi"
+  },
+  {
+    "prompt": "price",
+    "answer": "prezzo"
+  },
+  {
+    "prompt": "coin",
+    "answer": "moneta"
+  },
+  {
+    "prompt": "bill",
+    "answer": "banconota"
+  },
+  {
+    "prompt": "card",
+    "answer": "carta"
+  },
+  {
+    "prompt": "receipt",
+    "answer": "ricevuta"
+  },
+  {
+    "prompt": "discount",
+    "answer": "sconto"
+  },
+  {
+    "prompt": "wallet",
+    "answer": "portafoglio"
+  },
+  {
+    "prompt": "change",
+    "answer": "resto"
+  },
+  {
+    "prompt": "tax",
+    "answer": "tassa"
+  },
+  {
+    "prompt": "kitchen",
+    "answer": "cucina"
+  },
+  {
+    "prompt": "bathroom",
+    "answer": "bagno"
+  },
+  {
+    "prompt": "bedroom",
+    "answer": "camera da letto"
+  },
+  {
+    "prompt": "living room",
+    "answer": "soggiorno"
+  },
+  {
+    "prompt": "staircase",
+    "answer": "scala"
+  },
+  {
+    "prompt": "ceiling",
+    "answer": "soffitto"
+  },
+  {
+    "prompt": "curtain",
+    "answer": "tenda"
+  },
+  {
+    "prompt": "carpet",
+    "answer": "tappeto"
+  },
+  {
+    "prompt": "drawer",
+    "answer": "cassetto"
+  },
+  {
+    "prompt": "shelf",
+    "answer": "mensola"
+  },
+  {
+    "prompt": "pillow",
+    "answer": "cuscino"
+  },
+  {
+    "prompt": "blanket",
+    "answer": "coperta"
+  },
+  {
+    "prompt": "towel",
+    "answer": "asciugamano"
+  },
+  {
+    "prompt": "soap",
+    "answer": "sapone"
+  },
+  {
+    "prompt": "toothbrush",
+    "answer": "spazzolino"
+  },
+  {
+    "prompt": "toothpaste",
+    "answer": "dentifricio"
+  },
+  {
+    "prompt": "shampoo",
+    "answer": "shampoo"
+  },
+  {
+    "prompt": "broom",
+    "answer": "scopa"
+  },
+  {
+    "prompt": "bucket",
+    "answer": "secchio"
+  },
+  {
+    "prompt": "trash",
+    "answer": "spazzatura"
+  },
+  {
+    "prompt": "anger",
+    "answer": "rabbia"
+  },
+  {
+    "prompt": "fear",
+    "answer": "paura"
+  },
+  {
+    "prompt": "joy",
+    "answer": "gioia"
+  },
+  {
+    "prompt": "surprise",
+    "answer": "sorpresa"
+  },
+  {
+    "prompt": "worry",
+    "answer": "preoccupazione"
+  },
+  {
+    "prompt": "hope",
+    "answer": "speranza"
+  },
+  {
+    "prompt": "trust",
+    "answer": "fiducia"
+  },
+  {
+    "prompt": "pride",
+    "answer": "orgoglio"
+  },
+  {
+    "prompt": "shame",
+    "answer": "vergogna"
+  },
+  {
+    "prompt": "jealousy",
+    "answer": "gelosia"
+  },
+  {
+    "prompt": "patience",
+    "answer": "pazienza"
+  },
+  {
+    "prompt": "courage",
+    "answer": "coraggio"
+  },
+  {
+    "prompt": "kindness",
+    "answer": "gentilezza"
+  },
+  {
+    "prompt": "honesty",
+    "answer": "onestà"
+  },
+  {
+    "prompt": "loyalty",
+    "answer": "lealtà"
+  },
+  {
+    "prompt": "football",
+    "answer": "calcio"
+  },
+  {
+    "prompt": "basketball",
+    "answer": "pallacanestro"
+  },
+  {
+    "prompt": "tennis",
+    "answer": "tennis"
+  },
+  {
+    "prompt": "swimming",
+    "answer": "nuoto"
+  },
+  {
+    "prompt": "running",
+    "answer": "corsa"
+  },
+  {
+    "prompt": "cycling",
+    "answer": "ciclismo"
+  },
+  {
+    "prompt": "skiing",
+    "answer": "sci"
+  },
+  {
+    "prompt": "dancing",
+    "answer": "danza"
+  },
+  {
+    "prompt": "singing",
+    "answer": "canto"
+  },
+  {
+    "prompt": "painting",
+    "answer": "pittura"
+  },
+  {
+    "prompt": "cooking",
+    "answer": "cucinare"
+  },
+  {
+    "prompt": "reading",
+    "answer": "lettura"
+  },
+  {
+    "prompt": "hiking",
+    "answer": "escursionismo"
+  },
+  {
+    "prompt": "fishing",
+    "answer": "pesca"
+  },
+  {
+    "prompt": "hunting",
+    "answer": "caccia"
+  },
+  {
+    "prompt": "mathematics",
+    "answer": "matematica"
+  },
+  {
+    "prompt": "physics",
+    "answer": "fisica"
+  },
+  {
+    "prompt": "chemistry",
+    "answer": "chimica"
+  },
+  {
+    "prompt": "biology",
+    "answer": "biologia"
+  },
+  {
+    "prompt": "geography",
+    "answer": "geografia"
+  },
+  {
+    "prompt": "philosophy",
+    "answer": "filosofia"
+  },
+  {
+    "prompt": "psychology",
+    "answer": "psicologia"
+  },
+  {
+    "prompt": "economics",
+    "answer": "economia"
+  },
+  {
+    "prompt": "politics",
+    "answer": "politica"
+  },
+  {
+    "prompt": "religion",
+    "answer": "religione"
+  },
+  {
+    "prompt": "age",
+    "answer": "età"
+  },
+  {
+    "prompt": "name",
+    "answer": "nome"
+  },
+  {
+    "prompt": "address",
+    "answer": "indirizzo"
+  },
+  {
+    "prompt": "number",
+    "answer": "numero"
+  },
+  {
+    "prompt": "size",
+    "answer": "dimensione"
+  },
+  {
+    "prompt": "shape",
+    "answer": "forma"
+  },
+  {
+    "prompt": "type",
+    "answer": "tipo"
+  },
+  {
+    "prompt": "kind",
+    "answer": "tipo"
+  },
+  {
+    "prompt": "part",
+    "answer": "parte"
+  },
+  {
+    "prompt": "piece",
+    "answer": "pezzo"
+  },
+  {
+    "prompt": "group",
+    "answer": "gruppo"
+  },
+  {
+    "prompt": "team",
+    "answer": "squadra"
+  },
+  {
+    "prompt": "side",
+    "answer": "lato"
+  },
+  {
+    "prompt": "line",
+    "answer": "linea"
+  },
+  {
+    "prompt": "point",
+    "answer": "punto"
+  },
+  {
+    "prompt": "center",
+    "answer": "centro"
+  },
+  {
+    "prompt": "edge",
+    "answer": "bordo"
+  },
+  {
+    "prompt": "corner",
+    "answer": "angolo"
+  },
+  {
+    "prompt": "top",
+    "answer": "cima"
+  },
+  {
+    "prompt": "bottom",
+    "answer": "fondo"
+  },
+  {
+    "prompt": "end",
+    "answer": "fine"
+  },
+  {
+    "prompt": "start",
+    "answer": "inizio"
+  },
+  {
+    "prompt": "middle",
+    "answer": "mezzo"
+  },
+  {
+    "prompt": "space",
+    "answer": "spazio"
+  },
+  {
+    "prompt": "air",
+    "answer": "aria"
+  },
+  {
+    "prompt": "earth",
+    "answer": "terra"
+  },
+  {
+    "prompt": "world",
+    "answer": "mondo"
+  },
+  {
+    "prompt": "country",
+    "answer": "paese"
+  },
+  {
+    "prompt": "nation",
+    "answer": "nazione"
+  },
+  {
+    "prompt": "government",
+    "answer": "governo"
+  },
+  {
+    "prompt": "power",
+    "answer": "potere"
+  },
+  {
+    "prompt": "war",
+    "answer": "guerra"
+  },
+  {
+    "prompt": "peace",
+    "answer": "pace"
+  },
+  {
+    "prompt": "trade",
+    "answer": "commercio"
+  },
+  {
+    "prompt": "industry",
+    "answer": "industria"
+  },
+  {
+    "prompt": "energy",
+    "answer": "energia"
+  },
+  {
+    "prompt": "environment",
+    "answer": "ambiente"
+  },
+  {
+    "prompt": "culture",
+    "answer": "cultura"
+  },
+  {
+    "prompt": "society",
+    "answer": "società"
+  },
+  {
+    "prompt": "community",
+    "answer": "comunità"
+  },
+  {
+    "prompt": "population",
+    "answer": "popolazione"
+  },
+  {
+    "prompt": "generation",
+    "answer": "generazione"
+  },
+  {
+    "prompt": "tradition",
+    "answer": "tradizione"
+  },
+  {
+    "prompt": "memory",
+    "answer": "memoria"
+  },
+  {
+    "prompt": "dream",
+    "answer": "sogno"
+  },
+  {
+    "prompt": "truth",
+    "answer": "verità"
+  },
+  {
+    "prompt": "lie",
+    "answer": "bugia"
+  },
+  {
+    "prompt": "freedom",
+    "answer": "libertà"
+  },
+  {
+    "prompt": "luck",
+    "answer": "fortuna"
+  },
+  {
+    "prompt": "chance",
+    "answer": "possibilità"
+  },
+  {
+    "prompt": "risk",
+    "answer": "rischio"
+  },
+  {
+    "prompt": "change",
+    "answer": "cambiamento"
+  },
+  {
+    "prompt": "growth",
+    "answer": "crescita"
+  },
+  {
+    "prompt": "loss",
+    "answer": "perdita"
+  },
+  {
+    "prompt": "effort",
+    "answer": "sforzo"
+  },
+  {
+    "prompt": "success",
+    "answer": "successo"
+  },
+  {
+    "prompt": "failure",
+    "answer": "fallimento"
+  },
+  {
+    "prompt": "experience",
+    "answer": "esperienza"
+  },
+  {
+    "prompt": "skill",
+    "answer": "abilità"
+  },
+  {
+    "prompt": "knowledge",
+    "answer": "conoscenza"
+  },
+  {
+    "prompt": "opinion",
+    "answer": "opinione"
+  },
+  {
+    "prompt": "belief",
+    "answer": "credenza"
+  },
+  {
+    "prompt": "habit",
+    "answer": "abitudine"
+  },
+  {
+    "prompt": "interest",
+    "answer": "interesse"
+  },
+  {
+    "prompt": "attention",
+    "answer": "attenzione"
+  },
+  {
+    "prompt": "effort",
+    "answer": "sforzo"
+  },
+  {
+    "prompt": "purpose",
+    "answer": "scopo"
+  },
+  {
+    "prompt": "value",
+    "answer": "valore"
+  },
+  {
+    "prompt": "quality",
+    "answer": "qualità"
+  },
+  {
+    "prompt": "condition",
+    "answer": "condizione"
+  },
+  {
+    "prompt": "result",
+    "answer": "risultato"
+  },
+  {
+    "prompt": "effect",
+    "answer": "effetto"
+  },
+  {
+    "prompt": "cause",
+    "answer": "causa"
+  },
+  {
+    "prompt": "event",
+    "answer": "evento"
+  },
+  {
+    "prompt": "moment",
+    "answer": "momento"
+  },
+  {
+    "prompt": "situation",
+    "answer": "situazione"
+  },
+  {
+    "prompt": "activity",
+    "answer": "attività"
+  },
+  {
+    "prompt": "process",
+    "answer": "processo"
+  },
+  {
+    "prompt": "system",
+    "answer": "sistema"
+  },
+  {
+    "prompt": "method",
+    "answer": "metodo"
+  },
+  {
+    "prompt": "material",
+    "answer": "materiale"
+  },
+  {
+    "prompt": "product",
+    "answer": "prodotto"
+  },
+  {
+    "prompt": "service",
+    "answer": "servizio"
+  },
+  {
+    "prompt": "information",
+    "answer": "informazione"
+  },
+  {
+    "prompt": "data",
+    "answer": "dati"
+  },
+  {
+    "prompt": "report",
+    "answer": "rapporto"
+  },
+  {
+    "prompt": "document",
+    "answer": "documento"
+  },
+  {
+    "prompt": "contract",
+    "answer": "contratto"
+  },
+  {
+    "prompt": "agreement",
+    "answer": "accordo"
+  },
+  {
+    "prompt": "meeting",
+    "answer": "riunione"
+  },
+  {
+    "prompt": "project",
+    "answer": "progetto"
+  },
+  {
+    "prompt": "task",
+    "answer": "compito"
+  },
+  {
+    "prompt": "goal",
+    "answer": "obiettivo"
+  },
+  {
+    "prompt": "level",
+    "answer": "livello"
+  },
+  {
+    "prompt": "degree",
+    "answer": "grado"
+  },
+  {
+    "prompt": "amount",
+    "answer": "quantità"
+  },
+  {
+    "prompt": "number",
+    "answer": "numero"
+  },
+  {
+    "prompt": "order",
+    "answer": "ordine"
+  },
+  {
+    "prompt": "list",
+    "answer": "lista"
+  },
+  {
+    "prompt": "note",
+    "answer": "nota"
+  },
+  {
+    "prompt": "sign",
+    "answer": "segno"
+  },
+  {
+    "prompt": "symbol",
+    "answer": "simbolo"
+  },
+  {
+    "prompt": "image",
+    "answer": "immagine"
+  },
+  {
+    "prompt": "photo",
+    "answer": "foto"
+  },
+  {
+    "prompt": "color",
+    "answer": "colore"
+  },
+  {
+    "prompt": "pattern",
+    "answer": "motivo"
+  },
+  {
+    "prompt": "style",
+    "answer": "stile"
+  },
+  {
+    "prompt": "model",
+    "answer": "modello"
+  },
+  {
+    "prompt": "design",
+    "answer": "design"
+  },
+  {
+    "prompt": "difference",
+    "answer": "differenza"
+  },
+  {
+    "prompt": "similarity",
+    "answer": "somiglianza"
+  },
+  {
+    "prompt": "average",
+    "answer": "media"
+  },
+  {
+    "prompt": "total",
+    "answer": "totale"
+  },
+  {
+    "prompt": "distance",
+    "answer": "distanza"
+  },
+  {
+    "prompt": "speed",
+    "answer": "velocità"
+  },
+  {
+    "prompt": "weight",
+    "answer": "peso"
+  },
+  {
+    "prompt": "height",
+    "answer": "altezza"
+  },
+  {
+    "prompt": "width",
+    "answer": "larghezza"
+  },
+  {
+    "prompt": "depth",
+    "answer": "profondità"
+  },
+  {
+    "prompt": "volume",
+    "answer": "volume"
+  },
+  {
+    "prompt": "pressure",
+    "answer": "pressione"
+  },
+  {
+    "prompt": "heat",
+    "answer": "calore"
+  },
+  {
+    "prompt": "electricity",
+    "answer": "elettricità"
+  },
+  {
+    "prompt": "light",
+    "answer": "luce"
+  },
+  {
+    "prompt": "shadow",
+    "answer": "ombra"
+  },
+  {
+    "prompt": "noise",
+    "answer": "rumore"
+  },
+  {
+    "prompt": "silence",
+    "answer": "silenzio"
+  },
+  {
+    "prompt": "smell",
+    "answer": "odore"
+  },
+  {
+    "prompt": "taste",
+    "answer": "sapore"
+  },
+  {
+    "prompt": "touch",
+    "answer": "tatto"
+  },
+  {
+    "prompt": "sight",
+    "answer": "vista"
+  },
+  {
+    "prompt": "mind",
+    "answer": "mente"
+  },
+  {
+    "prompt": "brain",
+    "answer": "cervello"
+  },
+  {
+    "prompt": "soul",
+    "answer": "anima"
+  },
+  {
+    "prompt": "spirit",
+    "answer": "spirito"
+  },
+  {
+    "prompt": "body",
+    "answer": "corpo"
+  },
+  {
+    "prompt": "skin",
+    "answer": "pelle"
+  },
+  {
+    "prompt": "bone",
+    "answer": "osso"
+  },
+  {
+    "prompt": "muscle",
+    "answer": "muscolo"
+  },
+  {
+    "prompt": "nerve",
+    "answer": "nervo"
+  },
+  {
+    "prompt": "breath",
+    "answer": "respiro"
+  },
+  {
+    "prompt": "life",
+    "answer": "vita"
+  },
+  {
+    "prompt": "death",
+    "answer": "morte"
+  },
+  {
+    "prompt": "birth",
+    "answer": "nascita"
+  },
+  {
+    "prompt": "age",
+    "answer": "età"
+  },
+  {
+    "prompt": "future",
+    "answer": "futuro"
+  },
+  {
+    "prompt": "past",
+    "answer": "passato"
+  },
+  {
+    "prompt": "present",
+    "answer": "presente"
+  },
+  {
+    "prompt": "beginning",
+    "answer": "inizio"
+  },
+  {
+    "prompt": "end",
+    "answer": "fine"
+  },
+  {
+    "prompt": "length",
+    "answer": "lunghezza"
+  },
+  {
+    "prompt": "original",
+    "answer": "originale"
+  },
+  {
+    "prompt": "copy",
+    "answer": "copia"
+  },
+  {
+    "prompt": "version",
+    "answer": "versione"
+  },
+  {
+    "prompt": "detail",
+    "answer": "dettaglio"
+  },
+  {
+    "prompt": "feature",
+    "answer": "caratteristica"
+  },
+  {
+    "prompt": "option",
+    "answer": "opzione"
+  },
+  {
+    "prompt": "position",
+    "answer": "posizione"
+  },
+  {
+    "prompt": "role",
+    "answer": "ruolo"
+  },
+  {
+    "prompt": "relationship",
+    "answer": "relazione"
+  },
+  {
+    "prompt": "connection",
+    "answer": "connessione"
+  },
+  {
+    "prompt": "support",
+    "answer": "supporto"
+  },
+  {
+    "prompt": "pressure",
+    "answer": "pressione"
+  },
+  {
+    "prompt": "limit",
+    "answer": "limite"
+  },
+  {
+    "prompt": "freedom",
+    "answer": "libertà"
+  },
+  {
+    "prompt": "power",
+    "answer": "potere"
+  },
+  {
+    "prompt": "strength",
+    "answer": "forza"
+  },
+  {
+    "prompt": "ability",
+    "answer": "capacità"
+  },
+  {
+    "prompt": "opportunity",
+    "answer": "opportunità"
+  },
+  {
+    "prompt": "benefit",
+    "answer": "beneficio"
+  },
+  {
+    "prompt": "cost",
+    "answer": "costo"
+  },
+  {
+    "prompt": "demand",
+    "answer": "domanda"
+  },
+  {
+    "prompt": "supply",
+    "answer": "offerta"
+  },
+  {
+    "prompt": "resource",
+    "answer": "risorsa"
+  },
+  {
+    "prompt": "investment",
+    "answer": "investimento"
+  },
+  {
+    "prompt": "profit",
+    "answer": "profitto"
+  },
+  {
+    "prompt": "loss",
+    "answer": "perdita"
+  },
+  {
+    "prompt": "budget",
+    "answer": "bilancio"
+  },
+  {
+    "prompt": "salary",
+    "answer": "stipendio"
+  },
+  {
+    "prompt": "payment",
+    "answer": "pagamento"
+  },
+  {
+    "prompt": "account",
+    "answer": "conto"
+  },
+  {
+    "prompt": "loan",
+    "answer": "prestito"
+  },
+  {
+    "prompt": "debt",
+    "answer": "debito"
+  },
+  {
+    "prompt": "interest",
+    "answer": "interesse"
+  },
+  {
+    "prompt": "insurance",
+    "answer": "assicurazione"
+  },
+  {
+    "prompt": "business",
+    "answer": "affari"
+  },
+  {
+    "prompt": "company",
+    "answer": "azienda"
+  },
+  {
+    "prompt": "brand",
+    "answer": "marca"
+  },
+  {
+    "prompt": "competition",
+    "answer": "competizione"
+  },
+  {
+    "prompt": "customer",
+    "answer": "cliente"
+  },
+  {
+    "prompt": "deal",
+    "answer": "affare"
+  },
+  {
+    "prompt": "price",
+    "answer": "prezzo"
+  },
+  {
+    "prompt": "value",
+    "answer": "valore"
+  },
+  {
+    "prompt": "offer",
+    "answer": "offerta"
+  },
+  {
+    "prompt": "gift",
+    "answer": "regalo"
+  },
+  {
+    "prompt": "reward",
+    "answer": "ricompensa"
+  },
+  {
+    "prompt": "prize",
+    "answer": "premio"
+  },
+  {
+    "prompt": "certificate",
+    "answer": "certificato"
+  },
+  {
+    "prompt": "degree",
+    "answer": "laurea"
+  },
+  {
+    "prompt": "experience",
+    "answer": "esperienza"
+  },
+  {
+    "prompt": "interview",
+    "answer": "colloquio"
+  },
+  {
+    "prompt": "application",
+    "answer": "domanda"
+  },
+  {
+    "prompt": "decision",
+    "answer": "decisione"
+  },
+  {
+    "prompt": "action",
+    "answer": "azione"
+  },
+  {
+    "prompt": "behavior",
+    "answer": "comportamento"
+  },
+  {
+    "prompt": "attitude",
+    "answer": "atteggiamento"
+  },
+  {
+    "prompt": "character",
+    "answer": "carattere"
+  },
+  {
+    "prompt": "personality",
+    "answer": "personalità"
+  },
+  {
+    "prompt": "identity",
+    "answer": "identità"
+  },
+  {
+    "prompt": "reputation",
+    "answer": "reputazione"
+  },
+  {
+    "prompt": "respect",
+    "answer": "rispetto"
+  },
+  {
+    "prompt": "responsibility",
+    "answer": "responsabilità"
+  },
+  {
+    "prompt": "authority",
+    "answer": "autorità"
+  },
+  {
+    "prompt": "influence",
+    "answer": "influenza"
+  },
+  {
+    "prompt": "impact",
+    "answer": "impatto"
+  },
+  {
+    "prompt": "progress",
+    "answer": "progresso"
+  },
+  {
+    "prompt": "development",
+    "answer": "sviluppo"
+  },
+  {
+    "prompt": "improvement",
+    "answer": "miglioramento"
+  },
+  {
+    "prompt": "innovation",
+    "answer": "innovazione"
+  },
+  {
+    "prompt": "technology",
+    "answer": "tecnologia"
+  },
+  {
+    "prompt": "tool",
+    "answer": "strumento"
+  },
+  {
+    "prompt": "machine",
+    "answer": "macchina"
+  },
+  {
+    "prompt": "engine",
+    "answer": "motore"
+  },
+  {
+    "prompt": "device",
+    "answer": "dispositivo"
+  },
+  {
+    "prompt": "equipment",
+    "answer": "attrezzatura"
+  },
+  {
+    "prompt": "instrument",
+    "answer": "strumento"
+  },
+  {
+    "prompt": "weapon",
+    "answer": "arma"
+  },
+  {
+    "prompt": "medicine",
+    "answer": "medicina"
+  },
+  {
+    "prompt": "treatment",
+    "answer": "trattamento"
+  },
+  {
+    "prompt": "test",
+    "answer": "test"
+  },
+  {
+    "prompt": "experiment",
+    "answer": "esperimento"
+  },
+  {
+    "prompt": "research",
+    "answer": "ricerca"
+  },
+  {
+    "prompt": "discovery",
+    "answer": "scoperta"
+  },
+  {
+    "prompt": "invention",
+    "answer": "invenzione"
+  },
+  {
+    "prompt": "theory",
+    "answer": "teoria"
+  },
+  {
+    "prompt": "practice",
+    "answer": "pratica"
+  },
+  {
+    "prompt": "exercise",
+    "answer": "esercizio"
+  },
+  {
+    "prompt": "training",
+    "answer": "allenamento"
+  },
+  {
+    "prompt": "competition",
+    "answer": "gara"
+  },
+  {
+    "prompt": "victory",
+    "answer": "vittoria"
+  },
+  {
+    "prompt": "defeat",
+    "answer": "sconfitta"
+  },
+  {
+    "prompt": "score",
+    "answer": "punteggio"
+  },
+  {
+    "prompt": "match",
+    "answer": "partita"
+  },
+  {
+    "prompt": "race",
+    "answer": "gara"
+  },
+  {
+    "prompt": "record",
+    "answer": "record"
+  },
+  {
+    "prompt": "performance",
+    "answer": "prestazione"
+  },
+  {
+    "prompt": "audience",
+    "answer": "pubblico"
+  },
+  {
+    "prompt": "stage",
+    "answer": "palcoscenico"
+  },
+  {
+    "prompt": "concert",
+    "answer": "concerto"
+  },
+  {
+    "prompt": "show",
+    "answer": "spettacolo"
+  },
+  {
+    "prompt": "exhibition",
+    "answer": "mostra"
+  },
+  {
+    "prompt": "festival",
+    "answer": "festival"
+  },
+  {
+    "prompt": "celebration",
+    "answer": "celebrazione"
+  },
+  {
+    "prompt": "party",
+    "answer": "festa"
+  },
+  {
+    "prompt": "wedding",
+    "answer": "matrimonio"
+  },
+  {
+    "prompt": "birthday",
+    "answer": "compleanno"
+  },
+  {
+    "prompt": "holiday",
+    "answer": "vacanze"
+  },
+  {
+    "prompt": "trip",
+    "answer": "gita"
+  },
+  {
+    "prompt": "adventure",
+    "answer": "avventura"
+  },
+  {
+    "prompt": "memory",
+    "answer": "ricordo"
+  },
+  {
+    "prompt": "photograph",
+    "answer": "fotografia"
+  },
+  {
+    "prompt": "painting",
+    "answer": "dipinto"
+  },
+  {
+    "prompt": "sculpture",
+    "answer": "scultura"
+  },
+  {
+    "prompt": "poem",
+    "answer": "poesia"
+  },
+  {
+    "prompt": "novel",
+    "answer": "romanzo"
+  },
+  {
+    "prompt": "newspaper",
+    "answer": "giornale"
+  },
+  {
+    "prompt": "magazine",
+    "answer": "rivista"
+  },
+  {
+    "prompt": "advertisement",
+    "answer": "pubblicità"
+  },
+  {
+    "prompt": "channel",
+    "answer": "canale"
+  },
+  {
+    "prompt": "signal",
+    "answer": "segnale"
+  },
+  {
+    "prompt": "message",
+    "answer": "messaggio"
+  },
+  {
+    "prompt": "call",
+    "answer": "chiamata"
+  },
+  {
+    "prompt": "conversation",
+    "answer": "conversazione"
+  },
+  {
+    "prompt": "meeting",
+    "answer": "incontro"
+  },
+  {
+    "prompt": "appointment",
+    "answer": "appuntamento"
+  },
+  {
+    "prompt": "invitation",
+    "answer": "invito"
+  },
+  {
+    "prompt": "permission",
+    "answer": "permesso"
+  },
+  {
+    "prompt": "advice",
+    "answer": "consiglio"
+  },
+  {
+    "prompt": "warning",
+    "answer": "avvertimento"
+  },
+  {
+    "prompt": "complaint",
+    "answer": "lamentela"
+  },
+  {
+    "prompt": "request",
+    "answer": "richiesta"
+  },
+  {
+    "prompt": "offer",
+    "answer": "offerta"
+  },
+  {
+    "prompt": "help",
+    "answer": "aiuto"
+  },
+  {
+    "prompt": "care",
+    "answer": "cura"
+  },
+  {
+    "prompt": "attention",
+    "answer": "attenzione"
+  },
+  {
+    "prompt": "welcome",
+    "answer": "benvenuto"
+  },
+  {
+    "prompt": "goodbye",
+    "answer": "arrivederci"
+  },
+  {
+    "prompt": "please",
+    "answer": "per favore"
+  },
+  {
+    "prompt": "thanks",
+    "answer": "grazie"
+  },
+  {
+    "prompt": "sorry",
+    "answer": "scusa"
+  },
+  {
+    "prompt": "yes",
+    "answer": "sì"
+  },
+  {
+    "prompt": "no",
+    "answer": "no"
+  },
+  {
+    "prompt": "maybe",
+    "answer": "forse"
+  },
+  {
+    "prompt": "here",
+    "answer": "qui"
+  },
+  {
+    "prompt": "there",
+    "answer": "là"
+  },
+  {
+    "prompt": "where",
+    "answer": "dove"
+  },
+  {
+    "prompt": "when",
+    "answer": "quando"
+  },
+  {
+    "prompt": "why",
+    "answer": "perché"
+  },
+  {
+    "prompt": "how",
+    "answer": "come"
+  },
+  {
+    "prompt": "who",
+    "answer": "chi"
+  },
+  {
+    "prompt": "what",
+    "answer": "cosa"
+  },
+  {
+    "prompt": "which",
+    "answer": "quale"
+  },
+  {
+    "prompt": "all",
+    "answer": "tutto"
+  },
+  {
+    "prompt": "some",
+    "answer": "qualcosa"
+  },
+  {
+    "prompt": "many",
+    "answer": "molti"
+  },
+  {
+    "prompt": "few",
+    "answer": "pochi"
+  },
+  {
+    "prompt": "more",
+    "answer": "più"
+  },
+  {
+    "prompt": "less",
+    "answer": "meno"
+  },
+  {
+    "prompt": "enough",
+    "answer": "abbastanza"
+  },
+  {
+    "prompt": "very",
+    "answer": "molto"
+  },
+  {
+    "prompt": "too",
+    "answer": "anche"
+  },
+  {
+    "prompt": "only",
+    "answer": "solo"
+  },
+  {
+    "prompt": "already",
+    "answer": "già"
+  },
+  {
+    "prompt": "still",
+    "answer": "ancora"
+  },
+  {
+    "prompt": "again",
+    "answer": "di nuovo"
+  },
+  {
+    "prompt": "together",
+    "answer": "insieme"
+  },
+  {
+    "prompt": "alone",
+    "answer": "da solo"
+  },
+  {
+    "prompt": "both",
+    "answer": "entrambi"
+  },
+  {
+    "prompt": "either",
+    "answer": "uno dei due"
+  },
+  {
+    "prompt": "each",
+    "answer": "ogni"
+  },
+  {
+    "prompt": "every",
+    "answer": "ogni"
+  },
+  {
+    "prompt": "other",
+    "answer": "altro"
+  },
+  {
+    "prompt": "same",
+    "answer": "stesso"
+  },
+  {
+    "prompt": "own",
+    "answer": "proprio"
+  },
+  {
+    "prompt": "new",
+    "answer": "nuovo"
+  },
+  {
+    "prompt": "last",
+    "answer": "ultimo"
+  },
+  {
+    "prompt": "next",
+    "answer": "prossimo"
+  },
+  {
+    "prompt": "first",
+    "answer": "primo"
+  },
+  {
+    "prompt": "second",
+    "answer": "secondo"
+  },
+  {
+    "prompt": "third",
+    "answer": "terzo"
+  },
+  {
+    "prompt": "main",
+    "answer": "principale"
+  },
+  {
+    "prompt": "important",
+    "answer": "importante"
+  },
+  {
+    "prompt": "common",
+    "answer": "comune"
+  },
+  {
+    "prompt": "simple",
+    "answer": "semplice"
+  },
+  {
+    "prompt": "complex",
+    "answer": "complesso"
+  },
+  {
+    "prompt": "natural",
+    "answer": "naturale"
+  },
+  {
+    "prompt": "normal",
+    "answer": "normale"
+  },
+  {
+    "prompt": "special",
+    "answer": "speciale"
+  },
+  {
+    "prompt": "general",
+    "answer": "generale"
+  },
+  {
+    "prompt": "public",
+    "answer": "pubblico"
+  },
+  {
+    "prompt": "private",
+    "answer": "privato"
+  },
+  {
+    "prompt": "free",
+    "answer": "gratuito"
+  },
+  {
+    "prompt": "available",
+    "answer": "disponibile"
+  },
+  {
+    "prompt": "necessary",
+    "answer": "necessario"
+  },
+  {
+    "prompt": "possible",
+    "answer": "possibile"
+  },
+  {
+    "prompt": "impossible",
+    "answer": "impossibile"
+  },
+  {
+    "prompt": "certain",
+    "answer": "certo"
+  },
+  {
+    "prompt": "clear",
+    "answer": "chiaro"
+  },
+  {
+    "prompt": "sure",
+    "answer": "sicuro"
+  },
+  {
+    "prompt": "ready",
+    "answer": "pronto"
+  },
+  {
+    "prompt": "able",
+    "answer": "capace"
+  },
+  {
+    "prompt": "careful",
+    "answer": "attento"
+  },
+  {
+    "prompt": "serious",
+    "answer": "serio"
+  },
+  {
+    "prompt": "useful",
+    "answer": "utile"
+  },
+  {
+    "prompt": "popular",
+    "answer": "popolare"
+  },
+  {
+    "prompt": "traditional",
+    "answer": "tradizionale"
+  },
+  {
+    "prompt": "modern",
+    "answer": "moderno"
+  },
+  {
+    "prompt": "ancient",
+    "answer": "antico"
+  },
+  {
+    "prompt": "local",
+    "answer": "locale"
+  },
+  {
+    "prompt": "foreign",
+    "answer": "straniero"
+  },
+  {
+    "prompt": "international",
+    "answer": "internazionale"
+  },
+  {
+    "prompt": "human",
+    "answer": "umano"
+  },
+  {
+    "prompt": "animal",
+    "answer": "animale"
+  },
+  {
+    "prompt": "plant",
+    "answer": "pianta"
+  },
+  {
+    "prompt": "wild",
+    "answer": "selvatico"
+  },
+  {
+    "prompt": "domestic",
+    "answer": "domestico"
+  },
+  {
+    "prompt": "tropical",
+    "answer": "tropicale"
+  },
+  {
+    "prompt": "frozen",
+    "answer": "congelato"
+  },
+  {
+    "prompt": "wet",
+    "answer": "bagnato"
+  },
+  {
+    "prompt": "dry",
+    "answer": "secco"
+  },
+  {
+    "prompt": "fresh",
+    "answer": "fresco"
+  },
+  {
+    "prompt": "raw",
+    "answer": "crudo"
+  },
+  {
+    "prompt": "cooked",
+    "answer": "cotto"
+  },
+  {
+    "prompt": "sweet",
+    "answer": "dolce"
+  },
+  {
+    "prompt": "sour",
+    "answer": "acido"
+  },
+  {
+    "prompt": "bitter",
+    "answer": "amaro"
+  },
+  {
+    "prompt": "salty",
+    "answer": "salato"
+  },
+  {
+    "prompt": "spicy",
+    "answer": "piccante"
+  },
+  {
+    "prompt": "delicious",
+    "answer": "delizioso"
+  }
+]

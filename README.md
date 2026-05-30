@@ -55,6 +55,10 @@ npm run translate:language
 
 The tool reads `server/.env`, lets you select a supported target language and category files, rate-limits API calls if needed, and writes only new files under `server/content/languages/<language>/`. It never overwrites existing category files.
 
+The wizard first asks **what to generate** — course categories or the **practice word** pool. Choosing practice words translates the English word list in `server/content/practice_words/_template.json` into the target language, writing `server/content/practice_words/<language>.json`. Translations are batched (`TRANSLATE_BATCH_SIZE` words per request), so a ~1000-word pool costs roughly 20 API calls rather than one per word.
+
+The generator code is split for clarity under `scripts/libretranslate/`: `terminal-menu.ts` (generic interactive prompts), `content-generator.ts` (translation + JSON file IO), and `index.ts` (the wizard that wires them together).
+
 **Content authors** can add curated per-word translations to any exercise via a `wordGlossary` object:
 
 ```json
@@ -233,6 +237,11 @@ server/
       swedish/
       french/
       german/
+    practice_words/       # Per-language practice word pools (+ _template.json)
+      _template.json      # Canonical English word list (translation source)
+      english.json
+      spanish.json
+      ...
 ```
 
 ---

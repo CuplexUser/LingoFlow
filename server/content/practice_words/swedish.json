@@ -1,0 +1,4002 @@
+[
+  {
+    "prompt": "cat",
+    "answer": "katt"
+  },
+  {
+    "prompt": "dog",
+    "answer": "hund"
+  },
+  {
+    "prompt": "water",
+    "answer": "vatten"
+  },
+  {
+    "prompt": "bread",
+    "answer": "bröd"
+  },
+  {
+    "prompt": "book",
+    "answer": "bok"
+  },
+  {
+    "prompt": "house",
+    "answer": "hus"
+  },
+  {
+    "prompt": "sun",
+    "answer": "sol"
+  },
+  {
+    "prompt": "night",
+    "answer": "natt"
+  },
+  {
+    "prompt": "table",
+    "answer": "bord"
+  },
+  {
+    "prompt": "chair",
+    "answer": "stol"
+  },
+  {
+    "prompt": "door",
+    "answer": "dörr"
+  },
+  {
+    "prompt": "window",
+    "answer": "fönster"
+  },
+  {
+    "prompt": "floor",
+    "answer": "golv"
+  },
+  {
+    "prompt": "wall",
+    "answer": "vägg"
+  },
+  {
+    "prompt": "roof",
+    "answer": "tak"
+  },
+  {
+    "prompt": "bed",
+    "answer": "säng"
+  },
+  {
+    "prompt": "lamp",
+    "answer": "lampa"
+  },
+  {
+    "prompt": "mirror",
+    "answer": "spegel"
+  },
+  {
+    "prompt": "clock",
+    "answer": "klocka"
+  },
+  {
+    "prompt": "key",
+    "answer": "nyckel"
+  },
+  {
+    "prompt": "bag",
+    "answer": "väska"
+  },
+  {
+    "prompt": "bottle",
+    "answer": "flaska"
+  },
+  {
+    "prompt": "cup",
+    "answer": "kopp"
+  },
+  {
+    "prompt": "plate",
+    "answer": "tallrik"
+  },
+  {
+    "prompt": "knife",
+    "answer": "kniv"
+  },
+  {
+    "prompt": "fork",
+    "answer": "gaffel"
+  },
+  {
+    "prompt": "spoon",
+    "answer": "sked"
+  },
+  {
+    "prompt": "glass",
+    "answer": "glas"
+  },
+  {
+    "prompt": "pot",
+    "answer": "kastrull"
+  },
+  {
+    "prompt": "pan",
+    "answer": "stekpanna"
+  },
+  {
+    "prompt": "milk",
+    "answer": "mjölk"
+  },
+  {
+    "prompt": "egg",
+    "answer": "ägg"
+  },
+  {
+    "prompt": "cheese",
+    "answer": "ost"
+  },
+  {
+    "prompt": "butter",
+    "answer": "smör"
+  },
+  {
+    "prompt": "meat",
+    "answer": "kött"
+  },
+  {
+    "prompt": "fish",
+    "answer": "fisk"
+  },
+  {
+    "prompt": "chicken",
+    "answer": "kyckling"
+  },
+  {
+    "prompt": "rice",
+    "answer": "ris"
+  },
+  {
+    "prompt": "soup",
+    "answer": "soppa"
+  },
+  {
+    "prompt": "salad",
+    "answer": "sallad"
+  },
+  {
+    "prompt": "fruit",
+    "answer": "frukt"
+  },
+  {
+    "prompt": "apple",
+    "answer": "äpple"
+  },
+  {
+    "prompt": "orange",
+    "answer": "apelsin"
+  },
+  {
+    "prompt": "banana",
+    "answer": "banan"
+  },
+  {
+    "prompt": "grape",
+    "answer": "druva"
+  },
+  {
+    "prompt": "strawberry",
+    "answer": "jordgubbe"
+  },
+  {
+    "prompt": "lemon",
+    "answer": "citron"
+  },
+  {
+    "prompt": "tomato",
+    "answer": "tomat"
+  },
+  {
+    "prompt": "potato",
+    "answer": "potatis"
+  },
+  {
+    "prompt": "carrot",
+    "answer": "morot"
+  },
+  {
+    "prompt": "onion",
+    "answer": "lök"
+  },
+  {
+    "prompt": "garlic",
+    "answer": "vitlök"
+  },
+  {
+    "prompt": "pepper",
+    "answer": "paprika"
+  },
+  {
+    "prompt": "salt",
+    "answer": "salt"
+  },
+  {
+    "prompt": "sugar",
+    "answer": "socker"
+  },
+  {
+    "prompt": "oil",
+    "answer": "olja"
+  },
+  {
+    "prompt": "coffee",
+    "answer": "kaffe"
+  },
+  {
+    "prompt": "tea",
+    "answer": "te"
+  },
+  {
+    "prompt": "juice",
+    "answer": "juice"
+  },
+  {
+    "prompt": "beer",
+    "answer": "öl"
+  },
+  {
+    "prompt": "wine",
+    "answer": "vin"
+  },
+  {
+    "prompt": "horse",
+    "answer": "häst"
+  },
+  {
+    "prompt": "cow",
+    "answer": "ko"
+  },
+  {
+    "prompt": "pig",
+    "answer": "gris"
+  },
+  {
+    "prompt": "sheep",
+    "answer": "får"
+  },
+  {
+    "prompt": "bird",
+    "answer": "fågel"
+  },
+  {
+    "prompt": "fish",
+    "answer": "fisk"
+  },
+  {
+    "prompt": "rabbit",
+    "answer": "kanin"
+  },
+  {
+    "prompt": "mouse",
+    "answer": "mus"
+  },
+  {
+    "prompt": "bear",
+    "answer": "björn"
+  },
+  {
+    "prompt": "wolf",
+    "answer": "varg"
+  },
+  {
+    "prompt": "fox",
+    "answer": "räv"
+  },
+  {
+    "prompt": "deer",
+    "answer": "hjort"
+  },
+  {
+    "prompt": "eagle",
+    "answer": "örn"
+  },
+  {
+    "prompt": "owl",
+    "answer": "uggla"
+  },
+  {
+    "prompt": "snake",
+    "answer": "orm"
+  },
+  {
+    "prompt": "frog",
+    "answer": "groda"
+  },
+  {
+    "prompt": "butterfly",
+    "answer": "fjäril"
+  },
+  {
+    "prompt": "bee",
+    "answer": "bi"
+  },
+  {
+    "prompt": "ant",
+    "answer": "myra"
+  },
+  {
+    "prompt": "spider",
+    "answer": "spindel"
+  },
+  {
+    "prompt": "dolphin",
+    "answer": "delfin"
+  },
+  {
+    "prompt": "whale",
+    "answer": "val"
+  },
+  {
+    "prompt": "shark",
+    "answer": "haj"
+  },
+  {
+    "prompt": "lion",
+    "answer": "lejon"
+  },
+  {
+    "prompt": "tiger",
+    "answer": "tiger"
+  },
+  {
+    "prompt": "elephant",
+    "answer": "elefant"
+  },
+  {
+    "prompt": "monkey",
+    "answer": "apa"
+  },
+  {
+    "prompt": "giraffe",
+    "answer": "giraff"
+  },
+  {
+    "prompt": "camel",
+    "answer": "kamel"
+  },
+  {
+    "prompt": "penguin",
+    "answer": "pingvin"
+  },
+  {
+    "prompt": "tree",
+    "answer": "träd"
+  },
+  {
+    "prompt": "flower",
+    "answer": "blomma"
+  },
+  {
+    "prompt": "grass",
+    "answer": "gräs"
+  },
+  {
+    "prompt": "forest",
+    "answer": "skog"
+  },
+  {
+    "prompt": "river",
+    "answer": "flod"
+  },
+  {
+    "prompt": "lake",
+    "answer": "sjö"
+  },
+  {
+    "prompt": "sea",
+    "answer": "hav"
+  },
+  {
+    "prompt": "ocean",
+    "answer": "ocean"
+  },
+  {
+    "prompt": "mountain",
+    "answer": "berg"
+  },
+  {
+    "prompt": "hill",
+    "answer": "kulle"
+  },
+  {
+    "prompt": "valley",
+    "answer": "dal"
+  },
+  {
+    "prompt": "beach",
+    "answer": "strand"
+  },
+  {
+    "prompt": "island",
+    "answer": "ö"
+  },
+  {
+    "prompt": "desert",
+    "answer": "öken"
+  },
+  {
+    "prompt": "cloud",
+    "answer": "moln"
+  },
+  {
+    "prompt": "rain",
+    "answer": "regn"
+  },
+  {
+    "prompt": "snow",
+    "answer": "snö"
+  },
+  {
+    "prompt": "wind",
+    "answer": "vind"
+  },
+  {
+    "prompt": "ice",
+    "answer": "is"
+  },
+  {
+    "prompt": "fire",
+    "answer": "eld"
+  },
+  {
+    "prompt": "smoke",
+    "answer": "rök"
+  },
+  {
+    "prompt": "stone",
+    "answer": "sten"
+  },
+  {
+    "prompt": "sand",
+    "answer": "sand"
+  },
+  {
+    "prompt": "mud",
+    "answer": "lera"
+  },
+  {
+    "prompt": "leaf",
+    "answer": "löv"
+  },
+  {
+    "prompt": "branch",
+    "answer": "gren"
+  },
+  {
+    "prompt": "root",
+    "answer": "rot"
+  },
+  {
+    "prompt": "seed",
+    "answer": "frö"
+  },
+  {
+    "prompt": "soil",
+    "answer": "jord"
+  },
+  {
+    "prompt": "field",
+    "answer": "fält"
+  },
+  {
+    "prompt": "head",
+    "answer": "huvud"
+  },
+  {
+    "prompt": "face",
+    "answer": "ansikte"
+  },
+  {
+    "prompt": "eye",
+    "answer": "öga"
+  },
+  {
+    "prompt": "ear",
+    "answer": "öra"
+  },
+  {
+    "prompt": "nose",
+    "answer": "näsa"
+  },
+  {
+    "prompt": "mouth",
+    "answer": "mun"
+  },
+  {
+    "prompt": "tooth",
+    "answer": "tand"
+  },
+  {
+    "prompt": "tongue",
+    "answer": "tunga"
+  },
+  {
+    "prompt": "lip",
+    "answer": "läpp"
+  },
+  {
+    "prompt": "chin",
+    "answer": "haka"
+  },
+  {
+    "prompt": "cheek",
+    "answer": "kind"
+  },
+  {
+    "prompt": "hair",
+    "answer": "hår"
+  },
+  {
+    "prompt": "neck",
+    "answer": "hals"
+  },
+  {
+    "prompt": "shoulder",
+    "answer": "axel"
+  },
+  {
+    "prompt": "arm",
+    "answer": "arm"
+  },
+  {
+    "prompt": "elbow",
+    "answer": "armbåge"
+  },
+  {
+    "prompt": "hand",
+    "answer": "hand"
+  },
+  {
+    "prompt": "finger",
+    "answer": "finger"
+  },
+  {
+    "prompt": "thumb",
+    "answer": "tumme"
+  },
+  {
+    "prompt": "nail",
+    "answer": "nagel"
+  },
+  {
+    "prompt": "chest",
+    "answer": "bröst"
+  },
+  {
+    "prompt": "back",
+    "answer": "rygg"
+  },
+  {
+    "prompt": "stomach",
+    "answer": "mage"
+  },
+  {
+    "prompt": "leg",
+    "answer": "ben"
+  },
+  {
+    "prompt": "knee",
+    "answer": "knä"
+  },
+  {
+    "prompt": "foot",
+    "answer": "fot"
+  },
+  {
+    "prompt": "toe",
+    "answer": "tå"
+  },
+  {
+    "prompt": "heart",
+    "answer": "hjärta"
+  },
+  {
+    "prompt": "lung",
+    "answer": "lunga"
+  },
+  {
+    "prompt": "blood",
+    "answer": "blod"
+  },
+  {
+    "prompt": "shirt",
+    "answer": "skjorta"
+  },
+  {
+    "prompt": "trousers",
+    "answer": "byxor"
+  },
+  {
+    "prompt": "dress",
+    "answer": "klänning"
+  },
+  {
+    "prompt": "skirt",
+    "answer": "kjol"
+  },
+  {
+    "prompt": "jacket",
+    "answer": "jacka"
+  },
+  {
+    "prompt": "coat",
+    "answer": "kappa"
+  },
+  {
+    "prompt": "hat",
+    "answer": "hatt"
+  },
+  {
+    "prompt": "cap",
+    "answer": "keps"
+  },
+  {
+    "prompt": "scarf",
+    "answer": "halsduk"
+  },
+  {
+    "prompt": "gloves",
+    "answer": "handskar"
+  },
+  {
+    "prompt": "socks",
+    "answer": "strumpor"
+  },
+  {
+    "prompt": "shoes",
+    "answer": "skor"
+  },
+  {
+    "prompt": "boots",
+    "answer": "stövlar"
+  },
+  {
+    "prompt": "belt",
+    "answer": "bälte"
+  },
+  {
+    "prompt": "pocket",
+    "answer": "ficka"
+  },
+  {
+    "prompt": "button",
+    "answer": "knapp"
+  },
+  {
+    "prompt": "sleeve",
+    "answer": "ärm"
+  },
+  {
+    "prompt": "collar",
+    "answer": "krage"
+  },
+  {
+    "prompt": "tie",
+    "answer": "slips"
+  },
+  {
+    "prompt": "underwear",
+    "answer": "underkläder"
+  },
+  {
+    "prompt": "red",
+    "answer": "röd"
+  },
+  {
+    "prompt": "blue",
+    "answer": "blå"
+  },
+  {
+    "prompt": "green",
+    "answer": "grön"
+  },
+  {
+    "prompt": "yellow",
+    "answer": "gul"
+  },
+  {
+    "prompt": "orange",
+    "answer": "orange"
+  },
+  {
+    "prompt": "purple",
+    "answer": "lila"
+  },
+  {
+    "prompt": "pink",
+    "answer": "rosa"
+  },
+  {
+    "prompt": "black",
+    "answer": "svart"
+  },
+  {
+    "prompt": "white",
+    "answer": "vit"
+  },
+  {
+    "prompt": "grey",
+    "answer": "grå"
+  },
+  {
+    "prompt": "brown",
+    "answer": "brun"
+  },
+  {
+    "prompt": "gold",
+    "answer": "guld"
+  },
+  {
+    "prompt": "silver",
+    "answer": "silver"
+  },
+  {
+    "prompt": "dark",
+    "answer": "mörk"
+  },
+  {
+    "prompt": "light",
+    "answer": "ljus"
+  },
+  {
+    "prompt": "one",
+    "answer": "ett"
+  },
+  {
+    "prompt": "two",
+    "answer": "två"
+  },
+  {
+    "prompt": "three",
+    "answer": "tre"
+  },
+  {
+    "prompt": "four",
+    "answer": "fyra"
+  },
+  {
+    "prompt": "five",
+    "answer": "fem"
+  },
+  {
+    "prompt": "six",
+    "answer": "sex"
+  },
+  {
+    "prompt": "seven",
+    "answer": "sju"
+  },
+  {
+    "prompt": "eight",
+    "answer": "åtta"
+  },
+  {
+    "prompt": "nine",
+    "answer": "nio"
+  },
+  {
+    "prompt": "ten",
+    "answer": "tio"
+  },
+  {
+    "prompt": "twenty",
+    "answer": "tjugo"
+  },
+  {
+    "prompt": "thirty",
+    "answer": "trettio"
+  },
+  {
+    "prompt": "forty",
+    "answer": "fyrtio"
+  },
+  {
+    "prompt": "fifty",
+    "answer": "femtio"
+  },
+  {
+    "prompt": "hundred",
+    "answer": "hundra"
+  },
+  {
+    "prompt": "thousand",
+    "answer": "tusen"
+  },
+  {
+    "prompt": "million",
+    "answer": "miljon"
+  },
+  {
+    "prompt": "half",
+    "answer": "halv"
+  },
+  {
+    "prompt": "double",
+    "answer": "dubbel"
+  },
+  {
+    "prompt": "zero",
+    "answer": "noll"
+  },
+  {
+    "prompt": "day",
+    "answer": "dag"
+  },
+  {
+    "prompt": "week",
+    "answer": "vecka"
+  },
+  {
+    "prompt": "month",
+    "answer": "månad"
+  },
+  {
+    "prompt": "year",
+    "answer": "år"
+  },
+  {
+    "prompt": "hour",
+    "answer": "timme"
+  },
+  {
+    "prompt": "minute",
+    "answer": "minut"
+  },
+  {
+    "prompt": "second",
+    "answer": "sekund"
+  },
+  {
+    "prompt": "morning",
+    "answer": "morgon"
+  },
+  {
+    "prompt": "afternoon",
+    "answer": "eftermiddag"
+  },
+  {
+    "prompt": "evening",
+    "answer": "kväll"
+  },
+  {
+    "prompt": "midnight",
+    "answer": "midnatt"
+  },
+  {
+    "prompt": "today",
+    "answer": "idag"
+  },
+  {
+    "prompt": "yesterday",
+    "answer": "igår"
+  },
+  {
+    "prompt": "tomorrow",
+    "answer": "imorgon"
+  },
+  {
+    "prompt": "now",
+    "answer": "nu"
+  },
+  {
+    "prompt": "soon",
+    "answer": "snart"
+  },
+  {
+    "prompt": "always",
+    "answer": "alltid"
+  },
+  {
+    "prompt": "never",
+    "answer": "aldrig"
+  },
+  {
+    "prompt": "often",
+    "answer": "ofta"
+  },
+  {
+    "prompt": "sometimes",
+    "answer": "ibland"
+  },
+  {
+    "prompt": "Monday",
+    "answer": "måndag"
+  },
+  {
+    "prompt": "Tuesday",
+    "answer": "tisdag"
+  },
+  {
+    "prompt": "Wednesday",
+    "answer": "onsdag"
+  },
+  {
+    "prompt": "Thursday",
+    "answer": "torsdag"
+  },
+  {
+    "prompt": "Friday",
+    "answer": "fredag"
+  },
+  {
+    "prompt": "Saturday",
+    "answer": "lördag"
+  },
+  {
+    "prompt": "Sunday",
+    "answer": "söndag"
+  },
+  {
+    "prompt": "January",
+    "answer": "januari"
+  },
+  {
+    "prompt": "February",
+    "answer": "februari"
+  },
+  {
+    "prompt": "March",
+    "answer": "mars"
+  },
+  {
+    "prompt": "April",
+    "answer": "april"
+  },
+  {
+    "prompt": "May",
+    "answer": "maj"
+  },
+  {
+    "prompt": "June",
+    "answer": "juni"
+  },
+  {
+    "prompt": "July",
+    "answer": "juli"
+  },
+  {
+    "prompt": "August",
+    "answer": "augusti"
+  },
+  {
+    "prompt": "September",
+    "answer": "september"
+  },
+  {
+    "prompt": "October",
+    "answer": "oktober"
+  },
+  {
+    "prompt": "November",
+    "answer": "november"
+  },
+  {
+    "prompt": "December",
+    "answer": "december"
+  },
+  {
+    "prompt": "mother",
+    "answer": "mamma"
+  },
+  {
+    "prompt": "father",
+    "answer": "pappa"
+  },
+  {
+    "prompt": "sister",
+    "answer": "syster"
+  },
+  {
+    "prompt": "brother",
+    "answer": "bror"
+  },
+  {
+    "prompt": "daughter",
+    "answer": "dotter"
+  },
+  {
+    "prompt": "son",
+    "answer": "son"
+  },
+  {
+    "prompt": "grandmother",
+    "answer": "farmor"
+  },
+  {
+    "prompt": "grandfather",
+    "answer": "farfar"
+  },
+  {
+    "prompt": "aunt",
+    "answer": "faster"
+  },
+  {
+    "prompt": "uncle",
+    "answer": "farbror"
+  },
+  {
+    "prompt": "cousin",
+    "answer": "kusin"
+  },
+  {
+    "prompt": "wife",
+    "answer": "fru"
+  },
+  {
+    "prompt": "husband",
+    "answer": "man"
+  },
+  {
+    "prompt": "baby",
+    "answer": "bebis"
+  },
+  {
+    "prompt": "child",
+    "answer": "barn"
+  },
+  {
+    "prompt": "family",
+    "answer": "familj"
+  },
+  {
+    "prompt": "friend",
+    "answer": "vän"
+  },
+  {
+    "prompt": "neighbor",
+    "answer": "granne"
+  },
+  {
+    "prompt": "colleague",
+    "answer": "kollega"
+  },
+  {
+    "prompt": "stranger",
+    "answer": "främling"
+  },
+  {
+    "prompt": "city",
+    "answer": "stad"
+  },
+  {
+    "prompt": "town",
+    "answer": "stad"
+  },
+  {
+    "prompt": "village",
+    "answer": "by"
+  },
+  {
+    "prompt": "street",
+    "answer": "gata"
+  },
+  {
+    "prompt": "road",
+    "answer": "väg"
+  },
+  {
+    "prompt": "bridge",
+    "answer": "bro"
+  },
+  {
+    "prompt": "park",
+    "answer": "park"
+  },
+  {
+    "prompt": "garden",
+    "answer": "trädgård"
+  },
+  {
+    "prompt": "square",
+    "answer": "torg"
+  },
+  {
+    "prompt": "market",
+    "answer": "marknad"
+  },
+  {
+    "prompt": "shop",
+    "answer": "affär"
+  },
+  {
+    "prompt": "store",
+    "answer": "butik"
+  },
+  {
+    "prompt": "bank",
+    "answer": "bank"
+  },
+  {
+    "prompt": "hospital",
+    "answer": "sjukhus"
+  },
+  {
+    "prompt": "school",
+    "answer": "skola"
+  },
+  {
+    "prompt": "university",
+    "answer": "universitet"
+  },
+  {
+    "prompt": "library",
+    "answer": "bibliotek"
+  },
+  {
+    "prompt": "church",
+    "answer": "kyrka"
+  },
+  {
+    "prompt": "museum",
+    "answer": "museum"
+  },
+  {
+    "prompt": "hotel",
+    "answer": "hotell"
+  },
+  {
+    "prompt": "restaurant",
+    "answer": "restaurang"
+  },
+  {
+    "prompt": "café",
+    "answer": "kafé"
+  },
+  {
+    "prompt": "airport",
+    "answer": "flygplats"
+  },
+  {
+    "prompt": "station",
+    "answer": "station"
+  },
+  {
+    "prompt": "port",
+    "answer": "hamn"
+  },
+  {
+    "prompt": "factory",
+    "answer": "fabrik"
+  },
+  {
+    "prompt": "farm",
+    "answer": "gård"
+  },
+  {
+    "prompt": "office",
+    "answer": "kontor"
+  },
+  {
+    "prompt": "building",
+    "answer": "byggnad"
+  },
+  {
+    "prompt": "apartment",
+    "answer": "lägenhet"
+  },
+  {
+    "prompt": "car",
+    "answer": "bil"
+  },
+  {
+    "prompt": "bus",
+    "answer": "buss"
+  },
+  {
+    "prompt": "train",
+    "answer": "tåg"
+  },
+  {
+    "prompt": "plane",
+    "answer": "flygplan"
+  },
+  {
+    "prompt": "boat",
+    "answer": "båt"
+  },
+  {
+    "prompt": "ship",
+    "answer": "skepp"
+  },
+  {
+    "prompt": "bicycle",
+    "answer": "cykel"
+  },
+  {
+    "prompt": "motorcycle",
+    "answer": "motorcykel"
+  },
+  {
+    "prompt": "truck",
+    "answer": "lastbil"
+  },
+  {
+    "prompt": "taxi",
+    "answer": "taxi"
+  },
+  {
+    "prompt": "subway",
+    "answer": "tunnelbana"
+  },
+  {
+    "prompt": "ticket",
+    "answer": "biljett"
+  },
+  {
+    "prompt": "seat",
+    "answer": "säte"
+  },
+  {
+    "prompt": "driver",
+    "answer": "förare"
+  },
+  {
+    "prompt": "passenger",
+    "answer": "passagerare"
+  },
+  {
+    "prompt": "journey",
+    "answer": "resa"
+  },
+  {
+    "prompt": "trip",
+    "answer": "tur"
+  },
+  {
+    "prompt": "stop",
+    "answer": "hållplats"
+  },
+  {
+    "prompt": "map",
+    "answer": "karta"
+  },
+  {
+    "prompt": "direction",
+    "answer": "riktning"
+  },
+  {
+    "prompt": "work",
+    "answer": "arbete"
+  },
+  {
+    "prompt": "job",
+    "answer": "jobb"
+  },
+  {
+    "prompt": "doctor",
+    "answer": "läkare"
+  },
+  {
+    "prompt": "nurse",
+    "answer": "sjuksköterska"
+  },
+  {
+    "prompt": "teacher",
+    "answer": "lärare"
+  },
+  {
+    "prompt": "student",
+    "answer": "student"
+  },
+  {
+    "prompt": "engineer",
+    "answer": "ingenjör"
+  },
+  {
+    "prompt": "lawyer",
+    "answer": "advokat"
+  },
+  {
+    "prompt": "police",
+    "answer": "polis"
+  },
+  {
+    "prompt": "firefighter",
+    "answer": "brandman"
+  },
+  {
+    "prompt": "soldier",
+    "answer": "soldat"
+  },
+  {
+    "prompt": "pilot",
+    "answer": "pilot"
+  },
+  {
+    "prompt": "chef",
+    "answer": "kock"
+  },
+  {
+    "prompt": "waiter",
+    "answer": "servitör"
+  },
+  {
+    "prompt": "farmer",
+    "answer": "bonde"
+  },
+  {
+    "prompt": "carpenter",
+    "answer": "snickare"
+  },
+  {
+    "prompt": "painter",
+    "answer": "målare"
+  },
+  {
+    "prompt": "writer",
+    "answer": "författare"
+  },
+  {
+    "prompt": "actor",
+    "answer": "skådespelare"
+  },
+  {
+    "prompt": "musician",
+    "answer": "musiker"
+  },
+  {
+    "prompt": "to go",
+    "answer": "gå"
+  },
+  {
+    "prompt": "to come",
+    "answer": "komma"
+  },
+  {
+    "prompt": "to eat",
+    "answer": "äta"
+  },
+  {
+    "prompt": "to drink",
+    "answer": "dricka"
+  },
+  {
+    "prompt": "to sleep",
+    "answer": "sova"
+  },
+  {
+    "prompt": "to wake",
+    "answer": "vakna"
+  },
+  {
+    "prompt": "to walk",
+    "answer": "gå"
+  },
+  {
+    "prompt": "to run",
+    "answer": "springa"
+  },
+  {
+    "prompt": "to sit",
+    "answer": "sitta"
+  },
+  {
+    "prompt": "to stand",
+    "answer": "stå"
+  },
+  {
+    "prompt": "to talk",
+    "answer": "prata"
+  },
+  {
+    "prompt": "to listen",
+    "answer": "lyssna"
+  },
+  {
+    "prompt": "to read",
+    "answer": "läsa"
+  },
+  {
+    "prompt": "to write",
+    "answer": "skriva"
+  },
+  {
+    "prompt": "to work",
+    "answer": "arbeta"
+  },
+  {
+    "prompt": "to play",
+    "answer": "leka"
+  },
+  {
+    "prompt": "to buy",
+    "answer": "köpa"
+  },
+  {
+    "prompt": "to sell",
+    "answer": "sälja"
+  },
+  {
+    "prompt": "to open",
+    "answer": "öppna"
+  },
+  {
+    "prompt": "to close",
+    "answer": "stänga"
+  },
+  {
+    "prompt": "to give",
+    "answer": "ge"
+  },
+  {
+    "prompt": "to take",
+    "answer": "ta"
+  },
+  {
+    "prompt": "to find",
+    "answer": "hitta"
+  },
+  {
+    "prompt": "to lose",
+    "answer": "förlora"
+  },
+  {
+    "prompt": "to help",
+    "answer": "hjälpa"
+  },
+  {
+    "prompt": "to ask",
+    "answer": "fråga"
+  },
+  {
+    "prompt": "to answer",
+    "answer": "svara"
+  },
+  {
+    "prompt": "to think",
+    "answer": "tänka"
+  },
+  {
+    "prompt": "to know",
+    "answer": "veta"
+  },
+  {
+    "prompt": "to learn",
+    "answer": "lära"
+  },
+  {
+    "prompt": "to see",
+    "answer": "se"
+  },
+  {
+    "prompt": "to look",
+    "answer": "titta"
+  },
+  {
+    "prompt": "to hear",
+    "answer": "höra"
+  },
+  {
+    "prompt": "to feel",
+    "answer": "känna"
+  },
+  {
+    "prompt": "to love",
+    "answer": "älska"
+  },
+  {
+    "prompt": "to like",
+    "answer": "gilla"
+  },
+  {
+    "prompt": "to want",
+    "answer": "vilja"
+  },
+  {
+    "prompt": "to need",
+    "answer": "behöva"
+  },
+  {
+    "prompt": "to start",
+    "answer": "börja"
+  },
+  {
+    "prompt": "to stop",
+    "answer": "stoppa"
+  },
+  {
+    "prompt": "to wait",
+    "answer": "vänta"
+  },
+  {
+    "prompt": "to arrive",
+    "answer": "anlända"
+  },
+  {
+    "prompt": "to leave",
+    "answer": "lämna"
+  },
+  {
+    "prompt": "to return",
+    "answer": "återvända"
+  },
+  {
+    "prompt": "to bring",
+    "answer": "ta med"
+  },
+  {
+    "prompt": "to carry",
+    "answer": "bära"
+  },
+  {
+    "prompt": "to put",
+    "answer": "lägga"
+  },
+  {
+    "prompt": "to keep",
+    "answer": "behålla"
+  },
+  {
+    "prompt": "to send",
+    "answer": "skicka"
+  },
+  {
+    "prompt": "to receive",
+    "answer": "ta emot"
+  },
+  {
+    "prompt": "to show",
+    "answer": "visa"
+  },
+  {
+    "prompt": "to pay",
+    "answer": "betala"
+  },
+  {
+    "prompt": "to choose",
+    "answer": "välja"
+  },
+  {
+    "prompt": "big",
+    "answer": "stor"
+  },
+  {
+    "prompt": "small",
+    "answer": "liten"
+  },
+  {
+    "prompt": "long",
+    "answer": "lång"
+  },
+  {
+    "prompt": "short",
+    "answer": "kort"
+  },
+  {
+    "prompt": "tall",
+    "answer": "hög"
+  },
+  {
+    "prompt": "wide",
+    "answer": "bred"
+  },
+  {
+    "prompt": "narrow",
+    "answer": "smal"
+  },
+  {
+    "prompt": "heavy",
+    "answer": "tung"
+  },
+  {
+    "prompt": "light",
+    "answer": "lätt"
+  },
+  {
+    "prompt": "fast",
+    "answer": "snabb"
+  },
+  {
+    "prompt": "slow",
+    "answer": "långsam"
+  },
+  {
+    "prompt": "hot",
+    "answer": "varm"
+  },
+  {
+    "prompt": "cold",
+    "answer": "kall"
+  },
+  {
+    "prompt": "warm",
+    "answer": "varm"
+  },
+  {
+    "prompt": "cool",
+    "answer": "sval"
+  },
+  {
+    "prompt": "old",
+    "answer": "gammal"
+  },
+  {
+    "prompt": "young",
+    "answer": "ung"
+  },
+  {
+    "prompt": "new",
+    "answer": "ny"
+  },
+  {
+    "prompt": "good",
+    "answer": "bra"
+  },
+  {
+    "prompt": "bad",
+    "answer": "dålig"
+  },
+  {
+    "prompt": "beautiful",
+    "answer": "vacker"
+  },
+  {
+    "prompt": "ugly",
+    "answer": "ful"
+  },
+  {
+    "prompt": "clean",
+    "answer": "ren"
+  },
+  {
+    "prompt": "dirty",
+    "answer": "smutsig"
+  },
+  {
+    "prompt": "full",
+    "answer": "full"
+  },
+  {
+    "prompt": "empty",
+    "answer": "tom"
+  },
+  {
+    "prompt": "open",
+    "answer": "öppen"
+  },
+  {
+    "prompt": "closed",
+    "answer": "stängd"
+  },
+  {
+    "prompt": "easy",
+    "answer": "lätt"
+  },
+  {
+    "prompt": "difficult",
+    "answer": "svår"
+  },
+  {
+    "prompt": "right",
+    "answer": "rätt"
+  },
+  {
+    "prompt": "wrong",
+    "answer": "fel"
+  },
+  {
+    "prompt": "safe",
+    "answer": "säker"
+  },
+  {
+    "prompt": "dangerous",
+    "answer": "farlig"
+  },
+  {
+    "prompt": "rich",
+    "answer": "rik"
+  },
+  {
+    "prompt": "poor",
+    "answer": "fattig"
+  },
+  {
+    "prompt": "happy",
+    "answer": "glad"
+  },
+  {
+    "prompt": "sad",
+    "answer": "ledsen"
+  },
+  {
+    "prompt": "tired",
+    "answer": "trött"
+  },
+  {
+    "prompt": "hungry",
+    "answer": "hungrig"
+  },
+  {
+    "prompt": "thirsty",
+    "answer": "törstig"
+  },
+  {
+    "prompt": "sick",
+    "answer": "sjuk"
+  },
+  {
+    "prompt": "healthy",
+    "answer": "frisk"
+  },
+  {
+    "prompt": "strong",
+    "answer": "stark"
+  },
+  {
+    "prompt": "weak",
+    "answer": "svag"
+  },
+  {
+    "prompt": "clever",
+    "answer": "smart"
+  },
+  {
+    "prompt": "stupid",
+    "answer": "dum"
+  },
+  {
+    "prompt": "funny",
+    "answer": "rolig"
+  },
+  {
+    "prompt": "serious",
+    "answer": "seriös"
+  },
+  {
+    "prompt": "quiet",
+    "answer": "tyst"
+  },
+  {
+    "prompt": "loud",
+    "answer": "hög"
+  },
+  {
+    "prompt": "soft",
+    "answer": "mjuk"
+  },
+  {
+    "prompt": "hard",
+    "answer": "hård"
+  },
+  {
+    "prompt": "sharp",
+    "answer": "vass"
+  },
+  {
+    "prompt": "smooth",
+    "answer": "slät"
+  },
+  {
+    "prompt": "rough",
+    "answer": "grov"
+  },
+  {
+    "prompt": "flat",
+    "answer": "platt"
+  },
+  {
+    "prompt": "round",
+    "answer": "rund"
+  },
+  {
+    "prompt": "straight",
+    "answer": "rak"
+  },
+  {
+    "prompt": "crooked",
+    "answer": "krokig"
+  },
+  {
+    "prompt": "thick",
+    "answer": "tjock"
+  },
+  {
+    "prompt": "thin",
+    "answer": "tunn"
+  },
+  {
+    "prompt": "deep",
+    "answer": "djup"
+  },
+  {
+    "prompt": "shallow",
+    "answer": "grund"
+  },
+  {
+    "prompt": "in",
+    "answer": "i"
+  },
+  {
+    "prompt": "on",
+    "answer": "på"
+  },
+  {
+    "prompt": "at",
+    "answer": "vid"
+  },
+  {
+    "prompt": "under",
+    "answer": "under"
+  },
+  {
+    "prompt": "above",
+    "answer": "ovanför"
+  },
+  {
+    "prompt": "between",
+    "answer": "mellan"
+  },
+  {
+    "prompt": "behind",
+    "answer": "bakom"
+  },
+  {
+    "prompt": "before",
+    "answer": "före"
+  },
+  {
+    "prompt": "after",
+    "answer": "efter"
+  },
+  {
+    "prompt": "with",
+    "answer": "med"
+  },
+  {
+    "prompt": "without",
+    "answer": "utan"
+  },
+  {
+    "prompt": "from",
+    "answer": "från"
+  },
+  {
+    "prompt": "to",
+    "answer": "till"
+  },
+  {
+    "prompt": "for",
+    "answer": "för"
+  },
+  {
+    "prompt": "of",
+    "answer": "av"
+  },
+  {
+    "prompt": "through",
+    "answer": "genom"
+  },
+  {
+    "prompt": "near",
+    "answer": "nära"
+  },
+  {
+    "prompt": "far",
+    "answer": "långt"
+  },
+  {
+    "prompt": "next to",
+    "answer": "bredvid"
+  },
+  {
+    "prompt": "across",
+    "answer": "tvärs över"
+  },
+  {
+    "prompt": "idea",
+    "answer": "idé"
+  },
+  {
+    "prompt": "question",
+    "answer": "fråga"
+  },
+  {
+    "prompt": "answer",
+    "answer": "svar"
+  },
+  {
+    "prompt": "problem",
+    "answer": "problem"
+  },
+  {
+    "prompt": "solution",
+    "answer": "lösning"
+  },
+  {
+    "prompt": "reason",
+    "answer": "anledning"
+  },
+  {
+    "prompt": "example",
+    "answer": "exempel"
+  },
+  {
+    "prompt": "rule",
+    "answer": "regel"
+  },
+  {
+    "prompt": "law",
+    "answer": "lag"
+  },
+  {
+    "prompt": "right",
+    "answer": "rätt"
+  },
+  {
+    "prompt": "duty",
+    "answer": "plikt"
+  },
+  {
+    "prompt": "mistake",
+    "answer": "misstag"
+  },
+  {
+    "prompt": "choice",
+    "answer": "val"
+  },
+  {
+    "prompt": "plan",
+    "answer": "plan"
+  },
+  {
+    "prompt": "step",
+    "answer": "steg"
+  },
+  {
+    "prompt": "story",
+    "answer": "historia"
+  },
+  {
+    "prompt": "news",
+    "answer": "nyheter"
+  },
+  {
+    "prompt": "message",
+    "answer": "meddelande"
+  },
+  {
+    "prompt": "word",
+    "answer": "ord"
+  },
+  {
+    "prompt": "sentence",
+    "answer": "mening"
+  },
+  {
+    "prompt": "language",
+    "answer": "språk"
+  },
+  {
+    "prompt": "voice",
+    "answer": "röst"
+  },
+  {
+    "prompt": "sound",
+    "answer": "ljud"
+  },
+  {
+    "prompt": "music",
+    "answer": "musik"
+  },
+  {
+    "prompt": "song",
+    "answer": "sång"
+  },
+  {
+    "prompt": "movie",
+    "answer": "film"
+  },
+  {
+    "prompt": "game",
+    "answer": "spel"
+  },
+  {
+    "prompt": "sport",
+    "answer": "sport"
+  },
+  {
+    "prompt": "art",
+    "answer": "konst"
+  },
+  {
+    "prompt": "science",
+    "answer": "vetenskap"
+  },
+  {
+    "prompt": "history",
+    "answer": "historia"
+  },
+  {
+    "prompt": "pain",
+    "answer": "smärta"
+  },
+  {
+    "prompt": "medicine",
+    "answer": "medicin"
+  },
+  {
+    "prompt": "pill",
+    "answer": "piller"
+  },
+  {
+    "prompt": "fever",
+    "answer": "feber"
+  },
+  {
+    "prompt": "cold",
+    "answer": "förkylning"
+  },
+  {
+    "prompt": "cough",
+    "answer": "hosta"
+  },
+  {
+    "prompt": "headache",
+    "answer": "huvudvärk"
+  },
+  {
+    "prompt": "allergy",
+    "answer": "allergi"
+  },
+  {
+    "prompt": "injury",
+    "answer": "skada"
+  },
+  {
+    "prompt": "surgery",
+    "answer": "operation"
+  },
+  {
+    "prompt": "weather",
+    "answer": "väder"
+  },
+  {
+    "prompt": "temperature",
+    "answer": "temperatur"
+  },
+  {
+    "prompt": "fog",
+    "answer": "dimma"
+  },
+  {
+    "prompt": "storm",
+    "answer": "storm"
+  },
+  {
+    "prompt": "thunder",
+    "answer": "åska"
+  },
+  {
+    "prompt": "lightning",
+    "answer": "blixt"
+  },
+  {
+    "prompt": "rainbow",
+    "answer": "regnbåge"
+  },
+  {
+    "prompt": "frost",
+    "answer": "frost"
+  },
+  {
+    "prompt": "flood",
+    "answer": "översvämning"
+  },
+  {
+    "prompt": "drought",
+    "answer": "torka"
+  },
+  {
+    "prompt": "computer",
+    "answer": "dator"
+  },
+  {
+    "prompt": "phone",
+    "answer": "telefon"
+  },
+  {
+    "prompt": "screen",
+    "answer": "skärm"
+  },
+  {
+    "prompt": "keyboard",
+    "answer": "tangentbord"
+  },
+  {
+    "prompt": "battery",
+    "answer": "batteri"
+  },
+  {
+    "prompt": "internet",
+    "answer": "internet"
+  },
+  {
+    "prompt": "network",
+    "answer": "nätverk"
+  },
+  {
+    "prompt": "software",
+    "answer": "mjukvara"
+  },
+  {
+    "prompt": "password",
+    "answer": "lösenord"
+  },
+  {
+    "prompt": "camera",
+    "answer": "kamera"
+  },
+  {
+    "prompt": "television",
+    "answer": "television"
+  },
+  {
+    "prompt": "radio",
+    "answer": "radio"
+  },
+  {
+    "prompt": "printer",
+    "answer": "skrivare"
+  },
+  {
+    "prompt": "button",
+    "answer": "knapp"
+  },
+  {
+    "prompt": "cable",
+    "answer": "kabel"
+  },
+  {
+    "prompt": "class",
+    "answer": "klass"
+  },
+  {
+    "prompt": "lesson",
+    "answer": "lektion"
+  },
+  {
+    "prompt": "homework",
+    "answer": "läxor"
+  },
+  {
+    "prompt": "exam",
+    "answer": "prov"
+  },
+  {
+    "prompt": "grade",
+    "answer": "betyg"
+  },
+  {
+    "prompt": "pencil",
+    "answer": "penna"
+  },
+  {
+    "prompt": "pen",
+    "answer": "penna"
+  },
+  {
+    "prompt": "paper",
+    "answer": "papper"
+  },
+  {
+    "prompt": "notebook",
+    "answer": "anteckningsbok"
+  },
+  {
+    "prompt": "ruler",
+    "answer": "linjal"
+  },
+  {
+    "prompt": "eraser",
+    "answer": "radergummi"
+  },
+  {
+    "prompt": "backpack",
+    "answer": "ryggsäck"
+  },
+  {
+    "prompt": "dictionary",
+    "answer": "ordbok"
+  },
+  {
+    "prompt": "money",
+    "answer": "pengar"
+  },
+  {
+    "prompt": "price",
+    "answer": "pris"
+  },
+  {
+    "prompt": "coin",
+    "answer": "mynt"
+  },
+  {
+    "prompt": "bill",
+    "answer": "sedel"
+  },
+  {
+    "prompt": "card",
+    "answer": "kort"
+  },
+  {
+    "prompt": "receipt",
+    "answer": "kvitto"
+  },
+  {
+    "prompt": "discount",
+    "answer": "rabatt"
+  },
+  {
+    "prompt": "wallet",
+    "answer": "plånbok"
+  },
+  {
+    "prompt": "change",
+    "answer": "växel"
+  },
+  {
+    "prompt": "tax",
+    "answer": "skatt"
+  },
+  {
+    "prompt": "kitchen",
+    "answer": "kök"
+  },
+  {
+    "prompt": "bathroom",
+    "answer": "badrum"
+  },
+  {
+    "prompt": "bedroom",
+    "answer": "sovrum"
+  },
+  {
+    "prompt": "living room",
+    "answer": "vardagsrum"
+  },
+  {
+    "prompt": "staircase",
+    "answer": "trappa"
+  },
+  {
+    "prompt": "ceiling",
+    "answer": "tak"
+  },
+  {
+    "prompt": "curtain",
+    "answer": "gardin"
+  },
+  {
+    "prompt": "carpet",
+    "answer": "matta"
+  },
+  {
+    "prompt": "drawer",
+    "answer": "låda"
+  },
+  {
+    "prompt": "shelf",
+    "answer": "hylla"
+  },
+  {
+    "prompt": "pillow",
+    "answer": "kudde"
+  },
+  {
+    "prompt": "blanket",
+    "answer": "filt"
+  },
+  {
+    "prompt": "towel",
+    "answer": "handduk"
+  },
+  {
+    "prompt": "soap",
+    "answer": "tvål"
+  },
+  {
+    "prompt": "toothbrush",
+    "answer": "tandborste"
+  },
+  {
+    "prompt": "toothpaste",
+    "answer": "tandkräm"
+  },
+  {
+    "prompt": "shampoo",
+    "answer": "schampo"
+  },
+  {
+    "prompt": "broom",
+    "answer": "kvast"
+  },
+  {
+    "prompt": "bucket",
+    "answer": "hink"
+  },
+  {
+    "prompt": "trash",
+    "answer": "skräp"
+  },
+  {
+    "prompt": "anger",
+    "answer": "ilska"
+  },
+  {
+    "prompt": "fear",
+    "answer": "rädsla"
+  },
+  {
+    "prompt": "joy",
+    "answer": "glädje"
+  },
+  {
+    "prompt": "surprise",
+    "answer": "överraskning"
+  },
+  {
+    "prompt": "worry",
+    "answer": "oro"
+  },
+  {
+    "prompt": "hope",
+    "answer": "hopp"
+  },
+  {
+    "prompt": "trust",
+    "answer": "förtroende"
+  },
+  {
+    "prompt": "pride",
+    "answer": "stolthet"
+  },
+  {
+    "prompt": "shame",
+    "answer": "skam"
+  },
+  {
+    "prompt": "jealousy",
+    "answer": "avundsjuka"
+  },
+  {
+    "prompt": "patience",
+    "answer": "tålamod"
+  },
+  {
+    "prompt": "courage",
+    "answer": "mod"
+  },
+  {
+    "prompt": "kindness",
+    "answer": "vänlighet"
+  },
+  {
+    "prompt": "honesty",
+    "answer": "ärlighet"
+  },
+  {
+    "prompt": "loyalty",
+    "answer": "lojalitet"
+  },
+  {
+    "prompt": "football",
+    "answer": "fotboll"
+  },
+  {
+    "prompt": "basketball",
+    "answer": "basket"
+  },
+  {
+    "prompt": "tennis",
+    "answer": "tennis"
+  },
+  {
+    "prompt": "swimming",
+    "answer": "simning"
+  },
+  {
+    "prompt": "running",
+    "answer": "löpning"
+  },
+  {
+    "prompt": "cycling",
+    "answer": "cykling"
+  },
+  {
+    "prompt": "skiing",
+    "answer": "skidåkning"
+  },
+  {
+    "prompt": "dancing",
+    "answer": "dans"
+  },
+  {
+    "prompt": "singing",
+    "answer": "sång"
+  },
+  {
+    "prompt": "painting",
+    "answer": "målning"
+  },
+  {
+    "prompt": "cooking",
+    "answer": "matlagning"
+  },
+  {
+    "prompt": "reading",
+    "answer": "läsning"
+  },
+  {
+    "prompt": "hiking",
+    "answer": "vandring"
+  },
+  {
+    "prompt": "fishing",
+    "answer": "fiske"
+  },
+  {
+    "prompt": "hunting",
+    "answer": "jakt"
+  },
+  {
+    "prompt": "mathematics",
+    "answer": "matematik"
+  },
+  {
+    "prompt": "physics",
+    "answer": "fysik"
+  },
+  {
+    "prompt": "chemistry",
+    "answer": "kemi"
+  },
+  {
+    "prompt": "biology",
+    "answer": "biologi"
+  },
+  {
+    "prompt": "geography",
+    "answer": "geografi"
+  },
+  {
+    "prompt": "philosophy",
+    "answer": "filosofi"
+  },
+  {
+    "prompt": "psychology",
+    "answer": "psykologi"
+  },
+  {
+    "prompt": "economics",
+    "answer": "ekonomi"
+  },
+  {
+    "prompt": "politics",
+    "answer": "politik"
+  },
+  {
+    "prompt": "religion",
+    "answer": "religion"
+  },
+  {
+    "prompt": "age",
+    "answer": "ålder"
+  },
+  {
+    "prompt": "name",
+    "answer": "namn"
+  },
+  {
+    "prompt": "address",
+    "answer": "adress"
+  },
+  {
+    "prompt": "number",
+    "answer": "nummer"
+  },
+  {
+    "prompt": "size",
+    "answer": "storlek"
+  },
+  {
+    "prompt": "shape",
+    "answer": "form"
+  },
+  {
+    "prompt": "type",
+    "answer": "typ"
+  },
+  {
+    "prompt": "kind",
+    "answer": "sort"
+  },
+  {
+    "prompt": "part",
+    "answer": "del"
+  },
+  {
+    "prompt": "piece",
+    "answer": "bit"
+  },
+  {
+    "prompt": "group",
+    "answer": "grupp"
+  },
+  {
+    "prompt": "team",
+    "answer": "lag"
+  },
+  {
+    "prompt": "side",
+    "answer": "sida"
+  },
+  {
+    "prompt": "line",
+    "answer": "linje"
+  },
+  {
+    "prompt": "point",
+    "answer": "punkt"
+  },
+  {
+    "prompt": "center",
+    "answer": "centrum"
+  },
+  {
+    "prompt": "edge",
+    "answer": "kant"
+  },
+  {
+    "prompt": "corner",
+    "answer": "hörn"
+  },
+  {
+    "prompt": "top",
+    "answer": "topp"
+  },
+  {
+    "prompt": "bottom",
+    "answer": "botten"
+  },
+  {
+    "prompt": "end",
+    "answer": "slut"
+  },
+  {
+    "prompt": "start",
+    "answer": "start"
+  },
+  {
+    "prompt": "middle",
+    "answer": "mitten"
+  },
+  {
+    "prompt": "space",
+    "answer": "utrymme"
+  },
+  {
+    "prompt": "air",
+    "answer": "luft"
+  },
+  {
+    "prompt": "earth",
+    "answer": "jord"
+  },
+  {
+    "prompt": "world",
+    "answer": "värld"
+  },
+  {
+    "prompt": "country",
+    "answer": "land"
+  },
+  {
+    "prompt": "nation",
+    "answer": "nation"
+  },
+  {
+    "prompt": "government",
+    "answer": "regering"
+  },
+  {
+    "prompt": "power",
+    "answer": "makt"
+  },
+  {
+    "prompt": "war",
+    "answer": "krig"
+  },
+  {
+    "prompt": "peace",
+    "answer": "fred"
+  },
+  {
+    "prompt": "trade",
+    "answer": "handel"
+  },
+  {
+    "prompt": "industry",
+    "answer": "industri"
+  },
+  {
+    "prompt": "energy",
+    "answer": "energi"
+  },
+  {
+    "prompt": "environment",
+    "answer": "miljö"
+  },
+  {
+    "prompt": "culture",
+    "answer": "kultur"
+  },
+  {
+    "prompt": "society",
+    "answer": "samhälle"
+  },
+  {
+    "prompt": "community",
+    "answer": "gemenskap"
+  },
+  {
+    "prompt": "population",
+    "answer": "befolkning"
+  },
+  {
+    "prompt": "generation",
+    "answer": "generation"
+  },
+  {
+    "prompt": "tradition",
+    "answer": "tradition"
+  },
+  {
+    "prompt": "memory",
+    "answer": "minne"
+  },
+  {
+    "prompt": "dream",
+    "answer": "dröm"
+  },
+  {
+    "prompt": "truth",
+    "answer": "sanning"
+  },
+  {
+    "prompt": "lie",
+    "answer": "lögn"
+  },
+  {
+    "prompt": "freedom",
+    "answer": "frihet"
+  },
+  {
+    "prompt": "luck",
+    "answer": "tur"
+  },
+  {
+    "prompt": "chance",
+    "answer": "chans"
+  },
+  {
+    "prompt": "risk",
+    "answer": "risk"
+  },
+  {
+    "prompt": "change",
+    "answer": "förändring"
+  },
+  {
+    "prompt": "growth",
+    "answer": "tillväxt"
+  },
+  {
+    "prompt": "loss",
+    "answer": "förlust"
+  },
+  {
+    "prompt": "effort",
+    "answer": "ansträngning"
+  },
+  {
+    "prompt": "success",
+    "answer": "framgång"
+  },
+  {
+    "prompt": "failure",
+    "answer": "misslyckande"
+  },
+  {
+    "prompt": "experience",
+    "answer": "erfarenhet"
+  },
+  {
+    "prompt": "skill",
+    "answer": "färdighet"
+  },
+  {
+    "prompt": "knowledge",
+    "answer": "kunskap"
+  },
+  {
+    "prompt": "opinion",
+    "answer": "åsikt"
+  },
+  {
+    "prompt": "belief",
+    "answer": "tro"
+  },
+  {
+    "prompt": "habit",
+    "answer": "vana"
+  },
+  {
+    "prompt": "interest",
+    "answer": "intresse"
+  },
+  {
+    "prompt": "attention",
+    "answer": "uppmärksamhet"
+  },
+  {
+    "prompt": "effort",
+    "answer": "ansträngning"
+  },
+  {
+    "prompt": "purpose",
+    "answer": "syfte"
+  },
+  {
+    "prompt": "value",
+    "answer": "värde"
+  },
+  {
+    "prompt": "quality",
+    "answer": "kvalitet"
+  },
+  {
+    "prompt": "condition",
+    "answer": "tillstånd"
+  },
+  {
+    "prompt": "result",
+    "answer": "resultat"
+  },
+  {
+    "prompt": "effect",
+    "answer": "effekt"
+  },
+  {
+    "prompt": "cause",
+    "answer": "orsak"
+  },
+  {
+    "prompt": "event",
+    "answer": "händelse"
+  },
+  {
+    "prompt": "moment",
+    "answer": "ögonblick"
+  },
+  {
+    "prompt": "situation",
+    "answer": "situation"
+  },
+  {
+    "prompt": "activity",
+    "answer": "aktivitet"
+  },
+  {
+    "prompt": "process",
+    "answer": "process"
+  },
+  {
+    "prompt": "system",
+    "answer": "system"
+  },
+  {
+    "prompt": "method",
+    "answer": "metod"
+  },
+  {
+    "prompt": "material",
+    "answer": "material"
+  },
+  {
+    "prompt": "product",
+    "answer": "produkt"
+  },
+  {
+    "prompt": "service",
+    "answer": "tjänst"
+  },
+  {
+    "prompt": "information",
+    "answer": "information"
+  },
+  {
+    "prompt": "data",
+    "answer": "data"
+  },
+  {
+    "prompt": "report",
+    "answer": "rapport"
+  },
+  {
+    "prompt": "document",
+    "answer": "dokument"
+  },
+  {
+    "prompt": "contract",
+    "answer": "kontrakt"
+  },
+  {
+    "prompt": "agreement",
+    "answer": "avtal"
+  },
+  {
+    "prompt": "meeting",
+    "answer": "möte"
+  },
+  {
+    "prompt": "project",
+    "answer": "projekt"
+  },
+  {
+    "prompt": "task",
+    "answer": "uppgift"
+  },
+  {
+    "prompt": "goal",
+    "answer": "mål"
+  },
+  {
+    "prompt": "level",
+    "answer": "nivå"
+  },
+  {
+    "prompt": "degree",
+    "answer": "grad"
+  },
+  {
+    "prompt": "amount",
+    "answer": "mängd"
+  },
+  {
+    "prompt": "number",
+    "answer": "antal"
+  },
+  {
+    "prompt": "order",
+    "answer": "ordning"
+  },
+  {
+    "prompt": "list",
+    "answer": "lista"
+  },
+  {
+    "prompt": "note",
+    "answer": "anteckning"
+  },
+  {
+    "prompt": "sign",
+    "answer": "tecken"
+  },
+  {
+    "prompt": "symbol",
+    "answer": "symbol"
+  },
+  {
+    "prompt": "image",
+    "answer": "bild"
+  },
+  {
+    "prompt": "photo",
+    "answer": "foto"
+  },
+  {
+    "prompt": "color",
+    "answer": "färg"
+  },
+  {
+    "prompt": "pattern",
+    "answer": "mönster"
+  },
+  {
+    "prompt": "style",
+    "answer": "stil"
+  },
+  {
+    "prompt": "model",
+    "answer": "modell"
+  },
+  {
+    "prompt": "design",
+    "answer": "design"
+  },
+  {
+    "prompt": "difference",
+    "answer": "skillnad"
+  },
+  {
+    "prompt": "similarity",
+    "answer": "likhet"
+  },
+  {
+    "prompt": "average",
+    "answer": "medelvärde"
+  },
+  {
+    "prompt": "total",
+    "answer": "totalt"
+  },
+  {
+    "prompt": "distance",
+    "answer": "avstånd"
+  },
+  {
+    "prompt": "speed",
+    "answer": "hastighet"
+  },
+  {
+    "prompt": "weight",
+    "answer": "vikt"
+  },
+  {
+    "prompt": "height",
+    "answer": "höjd"
+  },
+  {
+    "prompt": "width",
+    "answer": "bredd"
+  },
+  {
+    "prompt": "depth",
+    "answer": "djup"
+  },
+  {
+    "prompt": "volume",
+    "answer": "volym"
+  },
+  {
+    "prompt": "pressure",
+    "answer": "tryck"
+  },
+  {
+    "prompt": "heat",
+    "answer": "värme"
+  },
+  {
+    "prompt": "electricity",
+    "answer": "elektricitet"
+  },
+  {
+    "prompt": "light",
+    "answer": "ljus"
+  },
+  {
+    "prompt": "shadow",
+    "answer": "skugga"
+  },
+  {
+    "prompt": "noise",
+    "answer": "buller"
+  },
+  {
+    "prompt": "silence",
+    "answer": "tystnad"
+  },
+  {
+    "prompt": "smell",
+    "answer": "lukt"
+  },
+  {
+    "prompt": "taste",
+    "answer": "smak"
+  },
+  {
+    "prompt": "touch",
+    "answer": "beröring"
+  },
+  {
+    "prompt": "sight",
+    "answer": "syn"
+  },
+  {
+    "prompt": "mind",
+    "answer": "sinne"
+  },
+  {
+    "prompt": "brain",
+    "answer": "hjärna"
+  },
+  {
+    "prompt": "soul",
+    "answer": "själ"
+  },
+  {
+    "prompt": "spirit",
+    "answer": "ande"
+  },
+  {
+    "prompt": "body",
+    "answer": "kropp"
+  },
+  {
+    "prompt": "skin",
+    "answer": "hud"
+  },
+  {
+    "prompt": "bone",
+    "answer": "ben"
+  },
+  {
+    "prompt": "muscle",
+    "answer": "muskel"
+  },
+  {
+    "prompt": "nerve",
+    "answer": "nerv"
+  },
+  {
+    "prompt": "breath",
+    "answer": "andedräkt"
+  },
+  {
+    "prompt": "life",
+    "answer": "liv"
+  },
+  {
+    "prompt": "death",
+    "answer": "döden"
+  },
+  {
+    "prompt": "birth",
+    "answer": "födelse"
+  },
+  {
+    "prompt": "age",
+    "answer": "ålder"
+  },
+  {
+    "prompt": "future",
+    "answer": "framtid"
+  },
+  {
+    "prompt": "past",
+    "answer": "dåtid"
+  },
+  {
+    "prompt": "present",
+    "answer": "nutid"
+  },
+  {
+    "prompt": "beginning",
+    "answer": "början"
+  },
+  {
+    "prompt": "end",
+    "answer": "slut"
+  },
+  {
+    "prompt": "length",
+    "answer": "längd"
+  },
+  {
+    "prompt": "original",
+    "answer": "original"
+  },
+  {
+    "prompt": "copy",
+    "answer": "kopia"
+  },
+  {
+    "prompt": "version",
+    "answer": "version"
+  },
+  {
+    "prompt": "detail",
+    "answer": "detalj"
+  },
+  {
+    "prompt": "feature",
+    "answer": "funktion"
+  },
+  {
+    "prompt": "option",
+    "answer": "alternativ"
+  },
+  {
+    "prompt": "position",
+    "answer": "position"
+  },
+  {
+    "prompt": "role",
+    "answer": "roll"
+  },
+  {
+    "prompt": "relationship",
+    "answer": "förhållande"
+  },
+  {
+    "prompt": "connection",
+    "answer": "koppling"
+  },
+  {
+    "prompt": "support",
+    "answer": "stöd"
+  },
+  {
+    "prompt": "pressure",
+    "answer": "press"
+  },
+  {
+    "prompt": "limit",
+    "answer": "gräns"
+  },
+  {
+    "prompt": "freedom",
+    "answer": "frihet"
+  },
+  {
+    "prompt": "power",
+    "answer": "kraft"
+  },
+  {
+    "prompt": "strength",
+    "answer": "styrka"
+  },
+  {
+    "prompt": "ability",
+    "answer": "förmåga"
+  },
+  {
+    "prompt": "opportunity",
+    "answer": "möjlighet"
+  },
+  {
+    "prompt": "benefit",
+    "answer": "fördel"
+  },
+  {
+    "prompt": "cost",
+    "answer": "kostnad"
+  },
+  {
+    "prompt": "demand",
+    "answer": "efterfrågan"
+  },
+  {
+    "prompt": "supply",
+    "answer": "utbud"
+  },
+  {
+    "prompt": "resource",
+    "answer": "resurs"
+  },
+  {
+    "prompt": "investment",
+    "answer": "investering"
+  },
+  {
+    "prompt": "profit",
+    "answer": "vinst"
+  },
+  {
+    "prompt": "loss",
+    "answer": "förlust"
+  },
+  {
+    "prompt": "budget",
+    "answer": "budget"
+  },
+  {
+    "prompt": "salary",
+    "answer": "lön"
+  },
+  {
+    "prompt": "payment",
+    "answer": "betalning"
+  },
+  {
+    "prompt": "account",
+    "answer": "konto"
+  },
+  {
+    "prompt": "loan",
+    "answer": "lån"
+  },
+  {
+    "prompt": "debt",
+    "answer": "skuld"
+  },
+  {
+    "prompt": "interest",
+    "answer": "ränta"
+  },
+  {
+    "prompt": "insurance",
+    "answer": "försäkring"
+  },
+  {
+    "prompt": "business",
+    "answer": "affär"
+  },
+  {
+    "prompt": "company",
+    "answer": "företag"
+  },
+  {
+    "prompt": "brand",
+    "answer": "varumärke"
+  },
+  {
+    "prompt": "competition",
+    "answer": "konkurrens"
+  },
+  {
+    "prompt": "customer",
+    "answer": "kund"
+  },
+  {
+    "prompt": "deal",
+    "answer": "affär"
+  },
+  {
+    "prompt": "price",
+    "answer": "pris"
+  },
+  {
+    "prompt": "value",
+    "answer": "värde"
+  },
+  {
+    "prompt": "offer",
+    "answer": "erbjudande"
+  },
+  {
+    "prompt": "gift",
+    "answer": "gåva"
+  },
+  {
+    "prompt": "reward",
+    "answer": "belöning"
+  },
+  {
+    "prompt": "prize",
+    "answer": "pris"
+  },
+  {
+    "prompt": "certificate",
+    "answer": "certifikat"
+  },
+  {
+    "prompt": "degree",
+    "answer": "examen"
+  },
+  {
+    "prompt": "experience",
+    "answer": "erfarenhet"
+  },
+  {
+    "prompt": "interview",
+    "answer": "intervju"
+  },
+  {
+    "prompt": "application",
+    "answer": "ansökan"
+  },
+  {
+    "prompt": "decision",
+    "answer": "beslut"
+  },
+  {
+    "prompt": "action",
+    "answer": "handling"
+  },
+  {
+    "prompt": "behavior",
+    "answer": "beteende"
+  },
+  {
+    "prompt": "attitude",
+    "answer": "attityd"
+  },
+  {
+    "prompt": "character",
+    "answer": "karaktär"
+  },
+  {
+    "prompt": "personality",
+    "answer": "personlighet"
+  },
+  {
+    "prompt": "identity",
+    "answer": "identitet"
+  },
+  {
+    "prompt": "reputation",
+    "answer": "rykte"
+  },
+  {
+    "prompt": "respect",
+    "answer": "respekt"
+  },
+  {
+    "prompt": "responsibility",
+    "answer": "ansvar"
+  },
+  {
+    "prompt": "authority",
+    "answer": "auktoritet"
+  },
+  {
+    "prompt": "influence",
+    "answer": "inflytande"
+  },
+  {
+    "prompt": "impact",
+    "answer": "påverkan"
+  },
+  {
+    "prompt": "progress",
+    "answer": "framsteg"
+  },
+  {
+    "prompt": "development",
+    "answer": "utveckling"
+  },
+  {
+    "prompt": "improvement",
+    "answer": "förbättring"
+  },
+  {
+    "prompt": "innovation",
+    "answer": "innovation"
+  },
+  {
+    "prompt": "technology",
+    "answer": "teknologi"
+  },
+  {
+    "prompt": "tool",
+    "answer": "verktyg"
+  },
+  {
+    "prompt": "machine",
+    "answer": "maskin"
+  },
+  {
+    "prompt": "engine",
+    "answer": "motor"
+  },
+  {
+    "prompt": "device",
+    "answer": "enhet"
+  },
+  {
+    "prompt": "equipment",
+    "answer": "utrustning"
+  },
+  {
+    "prompt": "instrument",
+    "answer": "instrument"
+  },
+  {
+    "prompt": "weapon",
+    "answer": "vapen"
+  },
+  {
+    "prompt": "medicine",
+    "answer": "medicin"
+  },
+  {
+    "prompt": "treatment",
+    "answer": "behandling"
+  },
+  {
+    "prompt": "test",
+    "answer": "test"
+  },
+  {
+    "prompt": "experiment",
+    "answer": "experiment"
+  },
+  {
+    "prompt": "research",
+    "answer": "forskning"
+  },
+  {
+    "prompt": "discovery",
+    "answer": "upptäckt"
+  },
+  {
+    "prompt": "invention",
+    "answer": "uppfinning"
+  },
+  {
+    "prompt": "theory",
+    "answer": "teori"
+  },
+  {
+    "prompt": "practice",
+    "answer": "praktik"
+  },
+  {
+    "prompt": "exercise",
+    "answer": "övning"
+  },
+  {
+    "prompt": "training",
+    "answer": "träning"
+  },
+  {
+    "prompt": "competition",
+    "answer": "tävling"
+  },
+  {
+    "prompt": "victory",
+    "answer": "seger"
+  },
+  {
+    "prompt": "defeat",
+    "answer": "nederlag"
+  },
+  {
+    "prompt": "score",
+    "answer": "poäng"
+  },
+  {
+    "prompt": "match",
+    "answer": "match"
+  },
+  {
+    "prompt": "race",
+    "answer": "lopp"
+  },
+  {
+    "prompt": "record",
+    "answer": "rekord"
+  },
+  {
+    "prompt": "performance",
+    "answer": "prestation"
+  },
+  {
+    "prompt": "audience",
+    "answer": "publik"
+  },
+  {
+    "prompt": "stage",
+    "answer": "scen"
+  },
+  {
+    "prompt": "concert",
+    "answer": "konsert"
+  },
+  {
+    "prompt": "show",
+    "answer": "show"
+  },
+  {
+    "prompt": "exhibition",
+    "answer": "utställning"
+  },
+  {
+    "prompt": "festival",
+    "answer": "festival"
+  },
+  {
+    "prompt": "celebration",
+    "answer": "firande"
+  },
+  {
+    "prompt": "party",
+    "answer": "fest"
+  },
+  {
+    "prompt": "wedding",
+    "answer": "bröllop"
+  },
+  {
+    "prompt": "birthday",
+    "answer": "födelsedag"
+  },
+  {
+    "prompt": "holiday",
+    "answer": "semester"
+  },
+  {
+    "prompt": "trip",
+    "answer": "resa"
+  },
+  {
+    "prompt": "adventure",
+    "answer": "äventyr"
+  },
+  {
+    "prompt": "memory",
+    "answer": "minne"
+  },
+  {
+    "prompt": "photograph",
+    "answer": "fotografi"
+  },
+  {
+    "prompt": "painting",
+    "answer": "målning"
+  },
+  {
+    "prompt": "sculpture",
+    "answer": "skulptur"
+  },
+  {
+    "prompt": "poem",
+    "answer": "dikt"
+  },
+  {
+    "prompt": "novel",
+    "answer": "roman"
+  },
+  {
+    "prompt": "newspaper",
+    "answer": "tidning"
+  },
+  {
+    "prompt": "magazine",
+    "answer": "tidskrift"
+  },
+  {
+    "prompt": "advertisement",
+    "answer": "reklam"
+  },
+  {
+    "prompt": "channel",
+    "answer": "kanal"
+  },
+  {
+    "prompt": "signal",
+    "answer": "signal"
+  },
+  {
+    "prompt": "message",
+    "answer": "meddelande"
+  },
+  {
+    "prompt": "call",
+    "answer": "samtal"
+  },
+  {
+    "prompt": "conversation",
+    "answer": "konversation"
+  },
+  {
+    "prompt": "meeting",
+    "answer": "möte"
+  },
+  {
+    "prompt": "appointment",
+    "answer": "möte"
+  },
+  {
+    "prompt": "invitation",
+    "answer": "inbjudan"
+  },
+  {
+    "prompt": "permission",
+    "answer": "tillstånd"
+  },
+  {
+    "prompt": "advice",
+    "answer": "råd"
+  },
+  {
+    "prompt": "warning",
+    "answer": "varning"
+  },
+  {
+    "prompt": "complaint",
+    "answer": "klagomål"
+  },
+  {
+    "prompt": "request",
+    "answer": "förfrågan"
+  },
+  {
+    "prompt": "offer",
+    "answer": "erbjudande"
+  },
+  {
+    "prompt": "help",
+    "answer": "hjälp"
+  },
+  {
+    "prompt": "care",
+    "answer": "omsorg"
+  },
+  {
+    "prompt": "attention",
+    "answer": "uppmärksamhet"
+  },
+  {
+    "prompt": "welcome",
+    "answer": "välkommen"
+  },
+  {
+    "prompt": "goodbye",
+    "answer": "hejdå"
+  },
+  {
+    "prompt": "please",
+    "answer": "snälla"
+  },
+  {
+    "prompt": "thanks",
+    "answer": "tack"
+  },
+  {
+    "prompt": "sorry",
+    "answer": "förlåt"
+  },
+  {
+    "prompt": "yes",
+    "answer": "ja"
+  },
+  {
+    "prompt": "no",
+    "answer": "nej"
+  },
+  {
+    "prompt": "maybe",
+    "answer": "kanske"
+  },
+  {
+    "prompt": "here",
+    "answer": "här"
+  },
+  {
+    "prompt": "there",
+    "answer": "där"
+  },
+  {
+    "prompt": "where",
+    "answer": "var"
+  },
+  {
+    "prompt": "when",
+    "answer": "när"
+  },
+  {
+    "prompt": "why",
+    "answer": "varför"
+  },
+  {
+    "prompt": "how",
+    "answer": "hur"
+  },
+  {
+    "prompt": "who",
+    "answer": "vem"
+  },
+  {
+    "prompt": "what",
+    "answer": "vad"
+  },
+  {
+    "prompt": "which",
+    "answer": "vilken"
+  },
+  {
+    "prompt": "all",
+    "answer": "allt"
+  },
+  {
+    "prompt": "some",
+    "answer": "något"
+  },
+  {
+    "prompt": "many",
+    "answer": "många"
+  },
+  {
+    "prompt": "few",
+    "answer": "få"
+  },
+  {
+    "prompt": "more",
+    "answer": "mer"
+  },
+  {
+    "prompt": "less",
+    "answer": "mindre"
+  },
+  {
+    "prompt": "enough",
+    "answer": "tillräckligt"
+  },
+  {
+    "prompt": "very",
+    "answer": "mycket"
+  },
+  {
+    "prompt": "too",
+    "answer": "också"
+  },
+  {
+    "prompt": "only",
+    "answer": "bara"
+  },
+  {
+    "prompt": "already",
+    "answer": "redan"
+  },
+  {
+    "prompt": "still",
+    "answer": "fortfarande"
+  },
+  {
+    "prompt": "again",
+    "answer": "igen"
+  },
+  {
+    "prompt": "together",
+    "answer": "tillsammans"
+  },
+  {
+    "prompt": "alone",
+    "answer": "ensam"
+  },
+  {
+    "prompt": "both",
+    "answer": "båda"
+  },
+  {
+    "prompt": "either",
+    "answer": "antingen"
+  },
+  {
+    "prompt": "each",
+    "answer": "varje"
+  },
+  {
+    "prompt": "every",
+    "answer": "varje"
+  },
+  {
+    "prompt": "other",
+    "answer": "annan"
+  },
+  {
+    "prompt": "same",
+    "answer": "samma"
+  },
+  {
+    "prompt": "own",
+    "answer": "egen"
+  },
+  {
+    "prompt": "new",
+    "answer": "ny"
+  },
+  {
+    "prompt": "last",
+    "answer": "sista"
+  },
+  {
+    "prompt": "next",
+    "answer": "nästa"
+  },
+  {
+    "prompt": "first",
+    "answer": "första"
+  },
+  {
+    "prompt": "second",
+    "answer": "andra"
+  },
+  {
+    "prompt": "third",
+    "answer": "tredje"
+  },
+  {
+    "prompt": "main",
+    "answer": "huvud"
+  },
+  {
+    "prompt": "important",
+    "answer": "viktig"
+  },
+  {
+    "prompt": "common",
+    "answer": "vanlig"
+  },
+  {
+    "prompt": "simple",
+    "answer": "enkel"
+  },
+  {
+    "prompt": "complex",
+    "answer": "komplex"
+  },
+  {
+    "prompt": "natural",
+    "answer": "naturlig"
+  },
+  {
+    "prompt": "normal",
+    "answer": "normal"
+  },
+  {
+    "prompt": "special",
+    "answer": "speciell"
+  },
+  {
+    "prompt": "general",
+    "answer": "allmän"
+  },
+  {
+    "prompt": "public",
+    "answer": "offentlig"
+  },
+  {
+    "prompt": "private",
+    "answer": "privat"
+  },
+  {
+    "prompt": "free",
+    "answer": "gratis"
+  },
+  {
+    "prompt": "available",
+    "answer": "tillgänglig"
+  },
+  {
+    "prompt": "necessary",
+    "answer": "nödvändig"
+  },
+  {
+    "prompt": "possible",
+    "answer": "möjlig"
+  },
+  {
+    "prompt": "impossible",
+    "answer": "omöjlig"
+  },
+  {
+    "prompt": "certain",
+    "answer": "säker"
+  },
+  {
+    "prompt": "clear",
+    "answer": "klar"
+  },
+  {
+    "prompt": "sure",
+    "answer": "säker"
+  },
+  {
+    "prompt": "ready",
+    "answer": "redo"
+  },
+  {
+    "prompt": "able",
+    "answer": "kapabel"
+  },
+  {
+    "prompt": "careful",
+    "answer": "försiktig"
+  },
+  {
+    "prompt": "serious",
+    "answer": "allvarlig"
+  },
+  {
+    "prompt": "useful",
+    "answer": "användbar"
+  },
+  {
+    "prompt": "popular",
+    "answer": "populär"
+  },
+  {
+    "prompt": "traditional",
+    "answer": "traditionell"
+  },
+  {
+    "prompt": "modern",
+    "answer": "modern"
+  },
+  {
+    "prompt": "ancient",
+    "answer": "forntida"
+  },
+  {
+    "prompt": "local",
+    "answer": "lokal"
+  },
+  {
+    "prompt": "foreign",
+    "answer": "utländsk"
+  },
+  {
+    "prompt": "international",
+    "answer": "internationell"
+  },
+  {
+    "prompt": "human",
+    "answer": "mänsklig"
+  },
+  {
+    "prompt": "animal",
+    "answer": "djur"
+  },
+  {
+    "prompt": "plant",
+    "answer": "växt"
+  },
+  {
+    "prompt": "wild",
+    "answer": "vild"
+  },
+  {
+    "prompt": "domestic",
+    "answer": "inhemsk"
+  },
+  {
+    "prompt": "tropical",
+    "answer": "tropisk"
+  },
+  {
+    "prompt": "frozen",
+    "answer": "fryst"
+  },
+  {
+    "prompt": "wet",
+    "answer": "blöt"
+  },
+  {
+    "prompt": "dry",
+    "answer": "torr"
+  },
+  {
+    "prompt": "fresh",
+    "answer": "färsk"
+  },
+  {
+    "prompt": "raw",
+    "answer": "rå"
+  },
+  {
+    "prompt": "cooked",
+    "answer": "kokt"
+  },
+  {
+    "prompt": "sweet",
+    "answer": "söt"
+  },
+  {
+    "prompt": "sour",
+    "answer": "sur"
+  },
+  {
+    "prompt": "bitter",
+    "answer": "bitter"
+  },
+  {
+    "prompt": "salty",
+    "answer": "salt"
+  },
+  {
+    "prompt": "spicy",
+    "answer": "kryddig"
+  },
+  {
+    "prompt": "delicious",
+    "answer": "läcker"
+  }
+]

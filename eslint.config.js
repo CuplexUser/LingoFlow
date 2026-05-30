@@ -23,23 +23,6 @@ module.exports = [
     }
   },
   {
-    files: ["scripts/create-language-from-libretranslate.ts"],
-    languageOptions: {
-      parser: tsParser,
-      ecmaVersion: "latest",
-      sourceType: "script",
-      globals: {
-        __dirname: "readonly",
-        console: "readonly",
-        fetch: "readonly",
-        module: "readonly",
-        process: "readonly",
-        require: "readonly",
-        setTimeout: "readonly"
-      }
-    }
-  },
-  {
     files: ["scripts/write-version.js"],
     languageOptions: {
       globals: {
@@ -54,6 +37,37 @@ module.exports = [
     ...config,
     files: ["client/src/**/*.{js,jsx,ts,tsx}", "server/src/**/*.ts"]
   })),
+  {
+    // Standalone ESM TypeScript scripts. Placed after js.configs.recommended so the
+    // TS-aware unused-vars rule (which ignores type-position params) wins over core.
+    files: ["scripts/libretranslate/**/*.ts"],
+    languageOptions: {
+      parser: tsParser,
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        console: "readonly",
+        fetch: "readonly",
+        process: "readonly",
+        setTimeout: "readonly"
+      }
+    },
+    plugins: {
+      "@typescript-eslint": tsPlugin
+    },
+    rules: {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+          varsIgnorePattern: "^_"
+        }
+      ]
+    }
+  },
   {
     files: ["client/src/**/*.{js,jsx,ts,tsx}"],
     languageOptions: {

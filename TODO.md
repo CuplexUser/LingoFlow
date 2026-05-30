@@ -92,6 +92,9 @@ Quality checklist per batch:
 
 - [x] Add French as a selectable course language with split category content files.
 - [x] Add an interactive TypeScript LibreTranslate script for creating new language category files from English.
+- [x] Split `practice-words.json` into per-language files under `server/content/practice_words/` and add a `_template.json` English source list.
+- [x] Extend the LibreTranslate wizard to generate practice word pools from the template, with batched API calls.
+- [ ] Generate the French and German practice word pools from the template (`npm run translate:language`).
 - [ ] Evaluate adding German, Portuguese, or Japanese based on user demand.
 - [ ] Each new language starts with the 5 core categories at A1-A2, minimum 15 exercises per level.
 

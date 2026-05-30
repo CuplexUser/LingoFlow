@@ -1,24 +1,26 @@
 const fs = require("fs");
 const path = require("path");
 
-const PRACTICE_WORDS_PATH = path.join(__dirname, "..", "..", "content", "practice-words.json");
-let cached = null;
+const PRACTICE_WORDS_DIR = path.join(__dirname, "..", "..", "content", "practice_words");
+const cache = new Map();
 
-function loadPracticeWords() {
-  if (cached) return cached;
+function loadPracticeWords(key) {
+  if (cache.has(key)) return cache.get(key);
+  let entries = [];
   try {
-    const raw = fs.readFileSync(PRACTICE_WORDS_PATH, "utf8");
-    cached = JSON.parse(raw);
+    const raw = fs.readFileSync(path.join(PRACTICE_WORDS_DIR, `${key}.json`), "utf8");
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) entries = parsed;
   } catch (_error) {
-    cached = {};
+    entries = [];
   }
-  return cached;
+  cache.set(key, entries);
+  return entries;
 }
 
 function getPracticePool(language) {
   const key = String(language || "").toLowerCase();
-  const data = loadPracticeWords();
-  const entries = Array.isArray(data[key]) ? data[key] : [];
+  const entries = loadPracticeWords(key);
   return entries.map((entry, index) => ({
     id: `${key}-practice-${index + 1}`,
     level: entry.level || "a1",

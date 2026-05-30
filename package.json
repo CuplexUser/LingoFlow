@@ -6,7 +6,7 @@
     "version": "node scripts/write-version.js",
     "install:all": "npm install && npm install --prefix server && npm install --prefix client",
     "dev": "npm run version && concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-    "translate:language": "node --experimental-strip-types scripts/create-language-from-libretranslate.ts",
+    "translate:language": "node --experimental-strip-types scripts/libretranslate/index.ts",
     "build": "npm run version && npm run build --prefix client",
     "start": "npm run start --prefix server",
     "test": "npm run version && npm run test:server && npm run test:client",
