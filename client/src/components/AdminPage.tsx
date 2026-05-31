@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type {
   CommunityContributionListResponse,
   CommunityContributionUpdatePayload
@@ -86,6 +86,19 @@ function WordCachePanel() {
   const [status, setStatus] = useState<{ rebuilt: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [counts, setCounts] = useState<{ libretranslate: number; content: number; total: number } | null>(null);
+
+  async function loadCounts() {
+    try {
+      setCounts(await api.getWordTranslationCounts());
+    } catch {
+      setCounts(null);
+    }
+  }
+
+  useEffect(() => {
+    loadCounts();
+  }, []);
 
   async function handleRebuild() {
     setLoading(true);
@@ -94,6 +107,7 @@ function WordCachePanel() {
     try {
       const result = await api.rebuildWordTranslations();
       setStatus(result);
+      await loadCounts();
     } catch {
       setError("Rebuild failed. Check the server logs.");
     } finally {
@@ -112,6 +126,13 @@ function WordCachePanel() {
         <li><strong>Content</strong> — seeded at startup from wordGlossary fields, vocabulary flashcards, and hint annotations in the language files.</li>
         <li><strong>LibreTranslate</strong> — fetched on demand during exercises and cached to avoid repeated API calls.</li>
       </ul>
+
+      <p className="word-cache-counts">
+        Cached words:{" "}
+        <strong>{counts ? counts.libretranslate.toLocaleString(navigator.language) : "—"} LibreTranslate</strong>
+        {" · "}
+        {counts ? counts.content.toLocaleString(navigator.language) : "—"} content
+      </p>
       <p>
         Rebuilding clears the entire table and re-seeds it from the current language files.
         Any LibreTranslate-fetched translations will be re-fetched on demand as exercises are played.

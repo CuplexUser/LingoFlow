@@ -236,7 +236,10 @@ export function useSessionSpeech({ language, onTranscriptCaptured }: UseSessionS
       setSpeechError("Speech is not supported in this browser.");
       return;
     }
-    const utterance = new SpeechSynthesisUtterance(text);
+    // Slash-separated alternatives (e.g. "word1 / word2 / word3") should be read as a
+    // short pause between words, not as the literal word "slash".
+    const spokenText = text.replace(/\s*\/\s*/g, ", ");
+    const utterance = new SpeechSynthesisUtterance(spokenText);
     utterance.lang = getSpeechLanguage(language);
     utterance.rate = Number.isFinite(rate) ? rate : 0.95;
     utterance.onstart = () => setSpeechError("");

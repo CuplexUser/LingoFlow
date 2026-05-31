@@ -495,5 +495,7 @@ export const api = {
       .catch(() => ({}));
   },
   rebuildWordTranslations: (): Promise<{ rebuilt: number }> =>
-    request<{ rebuilt: number }>("/admin/word-translations/rebuild", { method: "POST" })
+    request<{ rebuilt: number }>("/admin/word-translations/rebuild", { method: "POST" }),
+  getWordTranslationCounts: (): Promise<{ libretranslate: number; content: number; total: number }> =>
+    request<{ libretranslate: number; content: number; total: number }>("/admin/word-translations/counts")
 };

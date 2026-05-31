@@ -2528,6 +2528,19 @@ function clearContentWordTranslations(): void {
   db.exec("DELETE FROM word_translations WHERE source = 'content'");
 }
 
+function getWordTranslationCounts(): { libretranslate: number; content: number; total: number } {
+  const rows = db
+    .prepare("SELECT source, COUNT(*) AS count FROM word_translations GROUP BY source")
+    .all() as { source: string; count: number }[];
+  let libretranslate = 0;
+  let content = 0;
+  for (const row of rows) {
+    if (row.source === "content") content += row.count;
+    else libretranslate += row.count;
+  }
+  return { libretranslate, content, total: libretranslate + content };
+}
+
 function clearWordTranslations(): void {
   db.exec("DELETE FROM word_translations");
 }
@@ -2589,5 +2602,6 @@ module.exports = {
   getCachedWordTranslations,
   upsertWordTranslation,
   clearContentWordTranslations,
-  clearWordTranslations
+  clearWordTranslations,
+  getWordTranslationCounts
 };

@@ -223,6 +223,13 @@ function registerCourseRoutes(app: any, deps: any): void {
     return res.json({ translations });
   });
 
+  app.get("/api/admin/word-translations/counts", requireAuth, (req: any, res: any) => {
+    if (!canAccessAdminRoutes(req.authUserId)) {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+    return res.json(database.getWordTranslationCounts());
+  });
+
   app.post("/api/admin/word-translations/rebuild", requireAuth, (req: any, res: any) => {
     if (!canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Forbidden" });
