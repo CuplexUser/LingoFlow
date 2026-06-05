@@ -184,6 +184,29 @@ npm run start:dist --prefix server
 
 ---
 
+## Server deployment
+
+Do **not** run `npm update` on the server — that resolves to newer versions and rewrites the lockfile, which is non-reproducible. Update dependencies locally, commit the lockfiles, then install from them on the server with `npm ci` (a clean, reproducible install that fails if `package.json` and the lockfile disagree).
+
+```bash
+git pull
+npm ci && npm ci --prefix server && npm ci --prefix client
+npm run build          # bundles client into server/dist/client
+# then restart the service (pm2 / systemd / etc.)
+```
+
+If you build the artifacts in CI and ship `dist/` to the server, the runtime box only needs production server deps and can skip the client install:
+
+```bash
+npm ci --omit=dev --prefix server
+```
+
+Otherwise keep dev dependencies — the build tools (`vite`, `esbuild`, `tsc`) live under `devDependencies`.
+
+**Native modules:** never copy `node_modules` from another machine. `better-sqlite3` is a native module whose binary is platform- and ABI-specific; `npm ci` fetches the correct prebuilt binary for the server's OS and Node version. The lockfile itself is platform-neutral. The Node version must be one with a published `better-sqlite3` prebuild (any current LTS) — otherwise the install falls back to compiling from source and needs a C/C++ toolchain.
+
+---
+
 ## Project Structure
 
 ```
