@@ -128,6 +128,7 @@
     "difficulty": "a1",
     "prompt": "Choose the best response. Someone greets you: 'Здравствуйте!'",
     "correctAnswer": "Здравствуйте! Очень приятно.",
+    "answerEnglish": "Hello! Nice to meet you.",
     "hints": [
       "Mirror the formal greeting and add a polite response."
     ],
@@ -220,6 +221,7 @@
     "difficulty": "a2",
     "prompt": "Choose the best response. Someone asks how your week is going.",
     "correctAnswer": "Спасибо, всё хорошо. А у тебя?",
+    "answerEnglish": "Thanks, everything's good. And you?",
     "hints": [
       "A polite response followed by a returning question."
     ],
@@ -355,6 +357,7 @@
     "difficulty": "b1",
     "prompt": "Choose the best response. A colleague asks your opinion on a proposal.",
     "correctAnswer": "На мой взгляд, у предложения есть и плюсы, и минусы.",
+    "answerEnglish": "In my view, the proposal has both pros and cons.",
     "hints": [
       "'На мой взгляд' = in my view. A balanced, diplomatic answer."
     ],

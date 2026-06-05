@@ -133,6 +133,7 @@
     "difficulty": "a1",
     "prompt": "Choose the best response. Someone says '¿Cómo te llamas?'",
     "correctAnswer": "Me llamo Carlos.",
+    "answerEnglish": "My name is Carlos.",
     "hints": [
       "They are asking your name."
     ],
@@ -237,6 +238,7 @@
     "difficulty": "a2",
     "prompt": "Choose the best response. A waiter asks '¿Qué desea tomar?'",
     "correctAnswer": "Un café con leche, por favor.",
+    "answerEnglish": "A coffee with milk, please.",
     "hints": [
       "They are asking what you want to drink."
     ],
@@ -404,6 +406,7 @@
     "difficulty": "b1",
     "prompt": "Choose the best response. Someone asks 'Do you need anything else?'",
     "correctAnswer": "No, eso es todo, gracias.",
+    "answerEnglish": "No, that's all, thanks.",
     "hints": [
       "A polite way to decline."
     ],
@@ -591,6 +594,7 @@
     "difficulty": "b2",
     "prompt": "Choose the best response. Someone says 'I find grammar really boring.'",
     "correctAnswer": "A mí me parece que la gramática es fascinante una vez que le encuentras el sentido.",
+    "answerEnglish": "I think grammar is fascinating once you get the hang of it.",
     "hints": [
       "Politely disagree and offer your perspective."
     ],

@@ -353,6 +353,7 @@
     "difficulty": "a2",
     "prompt": "Roleplay: Ask at the hotel reception whether Wi-Fi is available.",
     "correctAnswer": "У вас есть Wi-Fi в номерах?",
+    "answerEnglish": "Do you have Wi-Fi in the rooms?",
     "hints": ["'У вас есть' = do you have; 'в номерах' = in the rooms."],
     "exerciseType": "roleplay"
   },
@@ -545,6 +546,7 @@
     "difficulty": "b1",
     "prompt": "Roleplay: Tell the hotel reception your room key does not work.",
     "correctAnswer": "Извините, ключ от моего номера не работает.",
+    "answerEnglish": "Excuse me, my room key doesn't work.",
     "hints": ["'Ключ от номера' = room key — genitive after 'от'."],
     "exerciseType": "roleplay"
   },
@@ -737,6 +739,7 @@
     "difficulty": "b2",
     "prompt": "Roleplay: At check-in, explain that your surname is spelled differently on your ticket and ask if it is a problem.",
     "correctAnswer": "Моя фамилия на билете написана немного иначе. Это проблема?",
+    "answerEnglish": "My surname is spelled a little differently on my ticket. Is that a problem?",
     "hints": ["'Написана иначе' = spelled differently; keep the question short and direct."],
     "exerciseType": "roleplay"
   },
@@ -746,6 +749,7 @@
     "difficulty": "b2",
     "prompt": "Roleplay: Ask a local for advice on the quickest way to get to the old town.",
     "correctAnswer": "Подскажите, пожалуйста, как быстрее всего добраться до старого города?",
+    "answerEnglish": "Could you tell me the quickest way to get to the old town?",
     "hints": ["'Подскажите' = could you tell me; 'добраться до' + genitive = to get to."],
     "exerciseType": "roleplay"
   }

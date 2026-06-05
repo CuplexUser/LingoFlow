@@ -112,6 +112,7 @@
     "difficulty": "a1",
     "prompt": "Choose the best response. Someone says: Как дела?",
     "correctAnswer": "Хорошо, спасибо!",
+    "answerEnglish": "Fine, thanks!",
     "hints": [
       "Give a positive reply to 'How are you?'"
     ],
@@ -227,6 +228,7 @@
     "difficulty": "a2",
     "prompt": "Choose the best response. A stranger asks you for directions but you do not know.",
     "correctAnswer": "Извините, я не знаю. Я не местный.",
+    "answerEnglish": "Sorry, I don't know. I'm not from around here.",
     "hints": [
       "Politely say you cannot help.",
       "Use the formal Вы register or a neutral phrase."
@@ -399,6 +401,7 @@
     "difficulty": "b1",
     "prompt": "Choose the best response. Your teacher says your homework has many errors.",
     "correctAnswer": "Спасибо за замечания, я постараюсь исправить ошибки.",
+    "answerEnglish": "Thanks for the feedback, I'll try to fix the mistakes.",
     "hints": [
       "Respond politely and show willingness to improve.",
       "Use perfective постараюсь for a one-time effort."
@@ -581,6 +584,7 @@
     "difficulty": "b2",
     "prompt": "Choose the best response. Someone says your Russian accent is very good.",
     "correctAnswer": "Спасибо, я много работаю над произношением, но мне ещё есть куда расти.",
+    "answerEnglish": "Thanks, I work hard on my pronunciation, but I still have room to grow.",
     "hints": [
       "A modest, natural response.",
       "Use the idiom есть куда расти (there is room for growth)."
@@ -799,6 +803,7 @@
     "difficulty": "b2",
     "prompt": "Roleplay: Thank your tutor for detailed corrections.",
     "correctAnswer": "Спасибо за подробные исправления, они очень помогают мне прогрессировать.",
+    "answerEnglish": "Thank you for the detailed corrections — they really help me progress.",
     "hints": [
       "Use a polite and natural appreciative tone."
     ],
