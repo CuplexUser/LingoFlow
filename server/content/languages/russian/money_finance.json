@@ -389,6 +389,7 @@
     "difficulty": "a2",
     "prompt": "Roleplay: Ask a shop assistant if there is a discount on this item.",
     "correctAnswer": "Есть ли скидка на этот товар?",
+    "answerEnglish": "Is there a discount on this item?",
     "hints": [
       "Use 'есть ли' for a polite yes/no question."
     ],
@@ -444,6 +445,7 @@
     "difficulty": "a2",
     "prompt": "Roleplay: Tell a friend you are trying to cut down on unnecessary spending.",
     "correctAnswer": "Я стараюсь сократить ненужные расходы.",
+    "answerEnglish": "I'm trying to cut down on unnecessary spending.",
     "hints": [
       "'Сократить расходы' = to cut spending."
     ],
@@ -499,6 +501,7 @@
     "difficulty": "a2",
     "prompt": "Roleplay: Ask a bank clerk to help you fill in a transfer form.",
     "correctAnswer": "Не могли бы вы помочь мне заполнить бланк перевода?",
+    "answerEnglish": "Could you help me fill in the transfer form?",
     "hints": [
       "Use 'не могли бы вы' for a polite request."
     ],
@@ -582,6 +585,7 @@
     "difficulty": "b1",
     "prompt": "Roleplay: Negotiate a lower price with a market seller.",
     "correctAnswer": "Не могли бы вы немного снизить цену? Я готов купить сразу несколько штук.",
+    "answerEnglish": "Could you lower the price a little? I'm ready to buy several at once.",
     "hints": [
       "Offer something in return to strengthen your negotiation."
     ],
@@ -631,7 +635,8 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Roleplay: Explain to a friend why you prefer paying by card rather than cash.",
-    "correctAnswer": "Платить картой удобнее — не нужно носить с собой наличные, и все транзакции автоматически записываются.",
+    "correctAnswer": "Платить картой удобнее: не нужно носить наличные, и все траты видно в приложении.",
+    "answerEnglish": "Paying by card is more convenient: no need to carry cash, and you can see every expense in the app.",
     "hints": [
       "Give at least two reasons to make your argument convincing."
     ],
@@ -676,6 +681,7 @@
     "difficulty": "b1",
     "prompt": "Roleplay: Ask your bank about the fees associated with a foreign currency transfer.",
     "correctAnswer": "Какие комиссии взимаются при переводе средств в иностранной валюте?",
+    "answerEnglish": "What fees are charged on a foreign currency transfer?",
     "hints": [
       "'Взимать комиссию' = to charge a fee; use formal register."
     ],
@@ -736,7 +742,8 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Roleplay: Advise a colleague on the risks of concentrating all investments in a single asset class.",
-    "correctAnswer": "Сосредоточение всех вложений в одном классе активов значительно увеличивает ваш риск. Диверсификация позволяет сгладить потери при падении отдельных рынков.",
+    "correctAnswer": "Все вложения в один класс активов сильно повышают риск, поэтому лучше диверсифицировать портфель.",
+    "answerEnglish": "Putting all your investments in one asset class greatly increases risk, so it's better to diversify your portfolio.",
     "hints": [
       "Use formal register; mention both the risk and the alternative."
     ],
@@ -786,7 +793,8 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Roleplay: Explain to a client why hedging currency risk is advisable for their international business.",
-    "correctAnswer": "Поскольку ваш бизнес работает с несколькими валютами, хеджирование валютных рисков позволит вам зафиксировать обменный курс и избежать непредвиденных потерь при резких колебаниях рынка.",
+    "correctAnswer": "Хеджирование валютных рисков зафиксирует обменный курс и защитит вас от потерь при колебаниях рынка.",
+    "answerEnglish": "Hedging currency risk locks in the exchange rate and protects you from losses when the market fluctuates.",
     "hints": [
       "Use 'хеджирование' (hedging); explain the benefit clearly in formal language."
     ],
@@ -836,7 +844,8 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Roleplay: Present the case for and against taking on leverage to fund expansion.",
-    "correctAnswer": "Привлечение заёмных средств ускоряет рост, однако увеличивает финансовую нагрузку и риск дефолта при ухудшении рыночной конъюнктуры. Всё зависит от того, насколько стабильны ваши денежные потоки.",
+    "correctAnswer": "Заёмные средства ускоряют рост, однако повышают риск дефолта — всё зависит от стабильности ваших денежных потоков.",
+    "answerEnglish": "Leverage accelerates growth but raises default risk — it all depends on how stable your cash flows are.",
     "hints": [
       "Present both sides; use 'однако' for contrast and 'зависит от' for nuance."
     ],
