@@ -295,3 +295,31 @@ test("items with Cyrillic/non-Latin prompts are not used as English distractors"
     }
   }
 });
+
+test("instruction-prompt items (dictation) are not used as English distractors", () => {
+  const course = {
+    russian: {
+      travel: [
+        { id: "ru-main", level: "a1", difficulty: "a1", exerciseType: "mc_sentence", prompt: "I need a hotel room.", correctAnswer: "Мне нужен номер в отеле." },
+        // Dictation prompt is a fixed instruction, not a translatable English phrase — must not leak in.
+        { id: "ru-dictation", level: "a1", difficulty: "a1", exerciseType: "dictation_sentence", prompt: "Listen and type the sentence you hear.", correctAnswer: "Банк предлагает выгодные условия." },
+        { id: "ru-3", level: "a1", difficulty: "a1", exerciseType: "mc_sentence", prompt: "Where is the exit?", correctAnswer: "Где выход?" },
+        { id: "ru-4", level: "a1", difficulty: "a1", exerciseType: "mc_sentence", prompt: "How much is the ticket?", correctAnswer: "Сколько стоит билет?" },
+        { id: "ru-5", level: "a2", difficulty: "a2", exerciseType: "mc_sentence", prompt: "Can you help me find the platform?", correctAnswer: "Вы можете помочь найти платформу?" }
+      ]
+    }
+  };
+  const selectors = createCourseSelectors(course);
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  const session = generateSession({ language: "russian", category: "travel", count: 5, random: () => 0 });
+
+  const reversed = session.questions.filter((q: any) => q.direction === "reverse" && q.type === "mc_sentence");
+  for (const q of reversed) {
+    for (const opt of (q.options as string[])) {
+      assert.ok(
+        !/listen and type/i.test(opt),
+        `option "${opt}" is a dictation instruction — instruction prompts leaked into English distractors`
+      );
+    }
+  }
+});

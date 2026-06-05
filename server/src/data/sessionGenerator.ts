@@ -81,6 +81,18 @@ function isCleanEnglishText(text) {
 }
 
 
+// Exercise types whose prompt is a fixed instruction ("Listen and type…", "Fill the blank…")
+// rather than a translatable English phrase. They must never supply English distractors.
+const NON_TRANSLATABLE_TYPES = [
+  "pronunciation",
+  "flashcard",
+  "cloze_sentence",
+  "dictation_sentence",
+  "matching",
+  "roleplay",
+  "dialogue_turn"
+];
+
 function pickEnglishDistractors(pool, item, count, randomFn) {
   const englishAnswer = resolveEnglishFromPrompt(item);
   const normalizedAnswer = normalizeComparableText(englishAnswer);
@@ -89,6 +101,8 @@ function pickEnglishDistractors(pool, item, count, randomFn) {
   shuffle(pool, randomFn).forEach((candidate) => {
     if (unique.length >= count) return;
     if (isRoleplayLikeItem(candidate)) return;
+    const candidateType = normalizeExerciseType(candidate?.exerciseType);
+    if (candidateType && NON_TRANSLATABLE_TYPES.includes(candidateType)) return;
     const eng = resolveEnglishFromPrompt(candidate);
     if (countWords(eng) < 2) return;
     if (!isCleanEnglishText(eng)) return;
@@ -105,8 +119,7 @@ function isEligibleForReversal(item, resolvedType, language) {
   if (isRoleplayLikeItem(item)) return false;
   if (!["mc_sentence", "build_sentence"].includes(resolvedType)) return false;  
   const fixedType = normalizeExerciseType(item?.exerciseType);
-  const nonReversibleTypes = ["pronunciation", "flashcard", "cloze_sentence", "dictation_sentence", "matching", "roleplay", "dialogue_turn"];
-  if (fixedType && nonReversibleTypes.includes(fixedType)) return false;
+  if (fixedType && NON_TRANSLATABLE_TYPES.includes(fixedType)) return false;
   // multiple_choice items have question-style prompts ("Which word means X?"), not translatable phrases
   if (String(item?.exerciseType || "").trim().toLowerCase() === "multiple_choice") return false;
   const englishText = resolveEnglishFromPrompt(item);
