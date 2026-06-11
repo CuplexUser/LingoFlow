@@ -484,6 +484,18 @@ db.exec(`
     UNIQUE(user_id, question_id)
   );
 
+  CREATE TABLE IF NOT EXISTS saved_words (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    language TEXT NOT NULL,
+    word TEXT NOT NULL,
+    translation TEXT NOT NULL DEFAULT '',
+    story_id TEXT NOT NULL DEFAULT '',
+    category TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(user_id, language, word)
+  );
+
   CREATE TABLE IF NOT EXISTS achievements (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -513,6 +525,8 @@ db.exec(`
   ON language_progress(user_id, language);
   CREATE INDEX IF NOT EXISTS idx_item_progress_user_language_category
   ON item_progress(user_id, language, category);
+  CREATE INDEX IF NOT EXISTS idx_saved_words_user_language
+  ON saved_words(user_id, language);
   CREATE INDEX IF NOT EXISTS idx_active_sessions_user
   ON active_sessions(user_id, created_at DESC);
   CREATE INDEX IF NOT EXISTS idx_email_verifications_token
@@ -1999,6 +2013,96 @@ function isBookmarked(userId, questionId) {
   return Boolean(row);
 }
 
+// Saved story words share a single synthetic item_progress category so the SRS
+// UNIQUE(user, language, category, item_id) constraint keeps re-saves idempotent
+// regardless of which story (and category) the word came from.
+const SAVED_WORD_CATEGORY = "saved_words";
+
+function savedWordItemId(word) {
+  return `saved-word:${String(word || "").toLowerCase()}`;
+}
+
+// Idempotently records a saved word: a saved_words row for listing and a fresh
+// item_progress row so the word enters the spaced-repetition queue. Re-saving the
+// same word does not reset its existing schedule.
+function saveReviewWord(userId, { language, word, translation = "", storyId = "", category = "", today = toIsoDate() }) {
+  const safeLanguage = normalizeLanguageId(language, "");
+  const safeWord = String(word || "").trim().toLowerCase();
+  if (!safeLanguage || !safeWord) return false;
+
+  db.prepare(`
+    INSERT INTO saved_words (user_id, language, word, translation, story_id, category)
+    VALUES (?, ?, ?, ?, ?, ?)
+    ON CONFLICT(user_id, language, word) DO UPDATE SET
+      translation = CASE WHEN excluded.translation != '' THEN excluded.translation ELSE saved_words.translation END,
+      story_id = CASE WHEN excluded.story_id != '' THEN excluded.story_id ELSE saved_words.story_id END,
+      category = CASE WHEN excluded.category != '' THEN excluded.category ELSE saved_words.category END
+  `).run(userId, safeLanguage, safeWord, String(translation || ""), String(storyId || ""), String(category || ""));
+
+  const itemId = savedWordItemId(safeWord);
+  const existing = db.prepare(`
+    SELECT 1 FROM item_progress
+    WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?
+  `).get(userId, safeLanguage, SAVED_WORD_CATEGORY, itemId);
+
+  if (!existing) {
+    db.prepare(`
+      INSERT INTO item_progress (
+        user_id, language, category, item_id, objective, ease, streak, attempts, correct, error_count,
+        last_error_type, last_seen_date, next_due_date
+      )
+      VALUES (?, ?, ?, ?, ?, 1.8, 0, 0, 0, 0, '', NULL, ?)
+    `).run(userId, safeLanguage, SAVED_WORD_CATEGORY, itemId, String(translation || ""), today);
+  }
+  return true;
+}
+
+function removeReviewWord(userId, language, word) {
+  const safeLanguage = normalizeLanguageId(language, "");
+  const safeWord = String(word || "").trim().toLowerCase();
+  if (!safeLanguage || !safeWord) return;
+  db.prepare(`DELETE FROM saved_words WHERE user_id = ? AND language = ? AND word = ?`)
+    .run(userId, safeLanguage, safeWord);
+  db.prepare(`DELETE FROM item_progress WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?`)
+    .run(userId, safeLanguage, SAVED_WORD_CATEGORY, savedWordItemId(safeWord));
+}
+
+function getSavedReviewWords(userId, language?) {
+  const safeLanguage = language ? normalizeLanguageId(language, "") : null;
+  const rows = safeLanguage
+    ? db.prepare(`SELECT * FROM saved_words WHERE user_id = ? AND language = ? ORDER BY created_at DESC`).all(userId, safeLanguage)
+    : db.prepare(`SELECT * FROM saved_words WHERE user_id = ? ORDER BY created_at DESC`).all(userId);
+  return rows.map((row) => ({
+    word: row.word,
+    translation: row.translation,
+    language: row.language,
+    storyId: row.story_id,
+    category: row.category,
+    createdAt: row.created_at
+  }));
+}
+
+// Surfaces saved words as practice-pool items (English prompt → target word) so
+// they resurface in practice/speak/listen sessions. Item ids line up with the
+// saved-word item_progress rows for future SRS scheduling.
+function getSavedWordPoolItems(userId, language) {
+  const safeLanguage = normalizeLanguageId(language, "");
+  if (!safeLanguage) return [];
+  const rows = db.prepare(`
+    SELECT word, translation FROM saved_words WHERE user_id = ? AND language = ?
+  `).all(userId, safeLanguage);
+  return rows
+    .filter((row) => String(row.translation || "").trim())
+    .map((row) => ({
+      id: savedWordItemId(row.word),
+      level: "a1",
+      difficulty: "a1",
+      prompt: String(row.translation),
+      correctAnswer: String(row.word),
+      target: String(row.word)
+    }));
+}
+
 function getStats(userId = 1, language) {
   const settings = getSettings(userId);
   const safeLanguage = normalizeLanguageId(language, settings.targetLanguage || "spanish");
@@ -2583,6 +2687,10 @@ module.exports = {
   removeBookmark,
   getBookmarks,
   isBookmarked,
+  saveReviewWord,
+  removeReviewWord,
+  getSavedReviewWords,
+  getSavedWordPoolItems,
   getTodayXp,
   getProgress,
   getProgressOverview,

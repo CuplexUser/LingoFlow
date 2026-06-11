@@ -109,6 +109,11 @@ function registerSessionRoutes(
     const mistakeSelection = isMistakesMode
       ? database.getMistakeReviewSelection(userId, language, safeCount)
       : { itemIds: [], count: 0, categories: [] };
+    // Practice modes draw from a shared pool; fold in the learner's saved story
+    // words so they resurface in practice/speak/listen sessions.
+    const extraPoolItems = String(mode || "")
+      ? database.getSavedWordPoolItems(userId, language)
+      : [];
     const session = generateSession({
       language,
       category,
@@ -119,6 +124,7 @@ function registerSessionRoutes(
       weakItemIds: hints.weakItemIds,
       notDueItemIds: hints.notDueItemIds,
       focusItemIds: mistakeSelection.itemIds,
+      extraPoolItems,
       count: safeCount,
       mode
     });

@@ -2,6 +2,7 @@ import { BookmarksPage } from "./BookmarksPage";
 import { ContributePage } from "./ContributePage";
 import { LearnPage } from "./LearnPage";
 import { PracticePage } from "./PracticePage";
+import { StoryPage } from "./StoryPage";
 import { SetupPage } from "./SetupPage";
 import { StatsPage } from "./StatsPage";
 import { AdminPage } from "./AdminPage";
@@ -92,6 +93,15 @@ export function PageRouter() {
           clearActiveSession(activeCourseLanguage);
         }}
         onSessionSnapshot={(snapshot) => saveSessionSnapshot(activeCourseLanguage, snapshot)}
+      />
+    );
+  }
+
+  if (activePage === "story") {
+    return (
+      <StoryPage
+        language={activeCourseLanguage}
+        languageLabel={activeLanguageLabel}
       />
     );
   }

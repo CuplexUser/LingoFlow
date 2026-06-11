@@ -87,7 +87,9 @@ const {
   LEVEL_XP_MULTIPLIER,
   injectCommunityItem,
   rebuildContentWordTranslations,
-  rebuildAllWordTranslations
+  rebuildAllWordTranslations,
+  listStories,
+  getStoryById
 } = require("./data.ts");
 
 // Inject already-approved community exercises into the live content pool at startup
@@ -358,7 +360,7 @@ function createApp(): any {
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
-  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations });
+  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById });
   registerSessionRoutes(app, {
     requireAuth,
     database,

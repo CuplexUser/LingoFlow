@@ -341,6 +341,45 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
   - run `npm run test --prefix server` and manual session spot checks across at least 3 languages
   - ship in small batches with changelog notes and quick post-release metric review
 
+### Phase 18: Story Reader (comprehensible input) — MVP shipped
+
+A tap-to-translate reading mode that turns leveled short stories into a vocabulary
+pipeline feeding the spaced-repetition system.
+
+**Done**
+- [x] Story content type loaded through a validated pipeline (`server/src/data/storyLoader.ts`,
+  `server/content/stories/<language>.json`), mirroring the `practice_words/` per-language convention.
+  Startup validation enforces unique ids, required fields, CEFR level, glossary `{g,pos,note?}`,
+  and cultural note. Seeded with three Russian stories (A1 morning, A2 market, B1 letter).
+- [x] Read endpoints: `GET /api/stories` (filter by language/level/category) and `GET /api/stories/:id`,
+  auth-gated alongside other content routes.
+- [x] Gloss resolution reuses the existing three-tier system: curated story glossary (tier 1) +
+  the `/api/dictionary/batch` cache→LibreTranslate fallback (tiers 2–3), pre-fetched on story open
+  exactly like reverse-translation/cloze tooltips.
+- [x] Save-to-review: `saved_words` table + idempotent `item_progress` row (fresh `next_due`, no
+  reschedule on re-save). Saved words are injected into the per-user practice pool so they resurface
+  in practice/speak/listen sessions. `POST/GET/DELETE /api/saved-words`.
+- [x] Client `StoryPage.tsx` + `styles/story.css` (theme tokens, no injected `<style>`/font `@import`),
+  registered as the **Read** nav tab. Serif reading body, two-tier underline, amber "saved" signal,
+  bottom lookup drawer, sentence audio (browser TTS), Show/Hide English, cultural note, counters,
+  Finish summary. A11y: focusable word buttons, focus rings, Escape closes the drawer, `aria-live`,
+  reduced-motion. Reading grants **no XP**.
+- [x] Tests: story loader (+ bad-fixture cases), list/fetch routes, save idempotency; client tokenizer
+  edge cases (`«Сколько`, `яблоки?»`, hyphenated compounds, em dash) and drawer/save/English/level UI.
+
+**Deferred**
+- [ ] **Close the SRS loop on practice completion** — practice sessions (`practice_*` types) currently
+  do not write `item_progress`, so a saved word's schedule advances only if it surfaces in a mistake
+  review. Update `POST /api/session/complete` to record `item_progress` attempts for saved-word items
+  (or add a dedicated saved-word review selection) so the spaced-repetition interval actually grows
+  as the learner re-encounters the word.
+- [ ] **Native/Forvo audio** — Story Reader uses browser `SpeechSynthesis` only; real recorded audio
+  remains out of scope (shared with the existing audio TODO).
+- [ ] **More stories / more languages** — only Russian is seeded. Add stories for the other six
+  languages, keeping the concrete high-frequency vocabulary + factual cultural-note quality bar.
+- [ ] Optionally surface saved words directly in the mistake-review drill, and add a saved-words
+  management view (reuse the Bookmarks page pattern).
+
 ## Completed archive
 
 ### Phase 1: Reliability and anti-trivial-cheat

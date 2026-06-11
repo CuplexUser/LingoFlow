@@ -255,6 +255,37 @@ function registerUserRoutes(app: any, deps: any): void {
     database.removeBookmark(userId, questionId);
     return res.json({ ok: true, bookmarked: false });
   });
+
+  app.get("/api/saved-words", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const language = String(req.query.language || "").trim() || undefined;
+    return res.json(database.getSavedReviewWords(userId, language));
+  });
+
+  app.post("/api/saved-words", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const language = String(req.body?.language || "").trim();
+    const word = String(req.body?.word || "").trim();
+    const translation = String(req.body?.translation || "").trim();
+    const storyId = String(req.body?.storyId || "").trim();
+    const category = String(req.body?.category || "").trim();
+    if (!language || !word) {
+      return res.status(400).json({ error: "language and word are required" });
+    }
+    database.saveReviewWord(userId, { language, word, translation, storyId, category });
+    return res.json({ ok: true, saved: true });
+  });
+
+  app.delete("/api/saved-words/:word", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const word = String(req.params.word || "").trim();
+    const language = String(req.query.language || req.body?.language || "").trim();
+    if (!word || !language) {
+      return res.status(400).json({ error: "language and word are required" });
+    }
+    database.removeReviewWord(userId, language, word);
+    return res.json({ ok: true, saved: false });
+  });
 }
 
 module.exports = {

@@ -1,0 +1,131 @@
+[
+  {
+    "id": "ru-story-a1-morning",
+    "level": "a1",
+    "title": "Утро Анны",
+    "titleEn": "Anna's morning",
+    "theme": "Daily life",
+    "category": "essentials",
+    "sentences": [
+      { "target": "Анна живёт в Москве.", "en": "Anna lives in Moscow." },
+      { "target": "Утром она пьёт чай.", "en": "In the morning she drinks tea." },
+      { "target": "Потом она идёт на работу.", "en": "Then she goes to work." },
+      { "target": "Анна любит свой город.", "en": "Anna loves her city." }
+    ],
+    "glossary": {
+      "анна": { "g": "Anna", "pos": "proper noun" },
+      "живёт": { "g": "lives", "pos": "verb · жить" },
+      "в": { "g": "in", "pos": "preposition" },
+      "москве": { "g": "Moscow", "pos": "noun · prepositional", "note": "Prepositional case after в to mark location." },
+      "утром": { "g": "in the morning", "pos": "adverb", "note": "Instrumental form used for times of day." },
+      "она": { "g": "she", "pos": "pronoun" },
+      "пьёт": { "g": "drinks", "pos": "verb · пить" },
+      "чай": { "g": "tea", "pos": "noun · masc." },
+      "потом": { "g": "then, after that", "pos": "adverb" },
+      "идёт": { "g": "goes, is going", "pos": "verb · идти" },
+      "на": { "g": "to, onto", "pos": "preposition" },
+      "работу": { "g": "work", "pos": "noun · accusative", "note": "Accusative after на to mark direction of motion." },
+      "любит": { "g": "loves", "pos": "verb · любить" },
+      "свой": { "g": "her own", "pos": "possessive", "note": "Reflexive possessive: refers back to the subject." },
+      "город": { "g": "city", "pos": "noun · masc." }
+    },
+    "culturalNote": {
+      "term": "Москва",
+      "body": "Moscow is Russia's capital and largest city, set on the Moskva River. Its historic centre radiates out from the Kremlin and Red Square."
+    }
+  },
+  {
+    "id": "ru-story-a2-market",
+    "level": "a2",
+    "title": "На рынке",
+    "titleEn": "At the market",
+    "theme": "Food & shopping",
+    "category": "food_cooking",
+    "sentences": [
+      { "target": "Утром Анна пошла на рынок.", "en": "In the morning Anna went to the market." },
+      { "target": "Она хотела купить овощи и фрукты.", "en": "She wanted to buy vegetables and fruit." },
+      { "target": "«Сколько стоят яблоки?» — спросила она.", "en": "“How much are the apples?” she asked." },
+      { "target": "Продавец улыбнулся и сказал: «Сто рублей за килограмм.»", "en": "The seller smiled and said: “A hundred roubles per kilo.”" },
+      { "target": "Анна купила яблоки, хлеб и немного сыра.", "en": "Anna bought apples, bread and a little cheese." }
+    ],
+    "glossary": {
+      "утром": { "g": "in the morning", "pos": "adverb" },
+      "анна": { "g": "Anna", "pos": "proper noun" },
+      "пошла": { "g": "went", "pos": "verb · пойти · past fem.", "note": "Feminine past tense takes the -ла ending." },
+      "на": { "g": "to, onto", "pos": "preposition" },
+      "рынок": { "g": "market", "pos": "noun · masc." },
+      "она": { "g": "she", "pos": "pronoun" },
+      "хотела": { "g": "wanted", "pos": "verb · хотеть · past fem.", "note": "Feminine past tense (-ла)." },
+      "купить": { "g": "to buy", "pos": "verb · perfective infinitive" },
+      "овощи": { "g": "vegetables", "pos": "noun · pl." },
+      "и": { "g": "and", "pos": "conjunction" },
+      "фрукты": { "g": "fruit", "pos": "noun · pl." },
+      "сколько": { "g": "how much, how many", "pos": "interrogative" },
+      "стоят": { "g": "cost", "pos": "verb · стоить · 3rd pl." },
+      "яблоки": { "g": "apples", "pos": "noun · pl." },
+      "спросила": { "g": "asked", "pos": "verb · спросить · past fem." },
+      "продавец": { "g": "seller, vendor", "pos": "noun · masc." },
+      "улыбнулся": { "g": "smiled", "pos": "verb · улыбнуться · past masc.", "note": "Reflexive verb: -ся ending, masculine past." },
+      "сказал": { "g": "said", "pos": "verb · сказать · past masc." },
+      "сто": { "g": "a hundred", "pos": "number" },
+      "рублей": { "g": "roubles", "pos": "noun · genitive pl.", "note": "Genitive plural after numbers ending in 5–20 and hundreds." },
+      "за": { "g": "per, for", "pos": "preposition" },
+      "килограмм": { "g": "kilogram", "pos": "noun · masc." },
+      "купила": { "g": "bought", "pos": "verb · купить · past fem." },
+      "хлеб": { "g": "bread", "pos": "noun · masc." },
+      "немного": { "g": "a little, some", "pos": "adverb" },
+      "сыра": { "g": "(of) cheese", "pos": "noun · genitive", "note": "Partitive genitive after немного — a portion of the whole." }
+    },
+    "culturalNote": {
+      "term": "рынок",
+      "body": "Covered and open-air markets are a fixture of Russian city life. In Moscow, the Danilovsky and Usachevsky markets are well known for fresh produce, cheese and prepared food."
+    }
+  },
+  {
+    "id": "ru-story-b1-letter",
+    "level": "b1",
+    "title": "Письмо из Петербурга",
+    "titleEn": "A letter from Petersburg",
+    "theme": "Travel",
+    "category": "travel",
+    "sentences": [
+      { "target": "Привет, Маша! Я наконец-то приехал в Санкт-Петербург.", "en": "Hi, Masha! I've finally arrived in St Petersburg." },
+      { "target": "Город оказался даже красивее, чем я думал.", "en": "The city turned out to be even more beautiful than I'd thought." },
+      { "target": "Вчера я гулял по набережной и фотографировал мосты.", "en": "Yesterday I walked along the embankment and photographed the bridges." },
+      { "target": "Если будет время, обязательно приезжай сюда летом.", "en": "If you get the time, definitely come here in the summer." }
+    ],
+    "glossary": {
+      "привет": { "g": "hi", "pos": "greeting" },
+      "маша": { "g": "Masha", "pos": "proper noun · diminutive of Мария" },
+      "я": { "g": "I", "pos": "pronoun" },
+      "наконец-то": { "g": "finally, at last", "pos": "adverb" },
+      "приехал": { "g": "arrived", "pos": "verb · приехать · past masc." },
+      "в": { "g": "to, into", "pos": "preposition" },
+      "санкт-петербург": { "g": "St Petersburg", "pos": "proper noun" },
+      "город": { "g": "city", "pos": "noun · masc." },
+      "оказался": { "g": "turned out (to be)", "pos": "verb · оказаться · past masc." },
+      "даже": { "g": "even", "pos": "particle" },
+      "красивее": { "g": "more beautiful", "pos": "adjective · comparative", "note": "Comparative formed with the -ее ending." },
+      "чем": { "g": "than", "pos": "conjunction" },
+      "думал": { "g": "thought", "pos": "verb · думать · past masc." },
+      "вчера": { "g": "yesterday", "pos": "adverb" },
+      "гулял": { "g": "walked, strolled", "pos": "verb · гулять · past masc." },
+      "по": { "g": "along, around", "pos": "preposition", "note": "по + dative case to mean movement along a surface." },
+      "набережной": { "g": "embankment", "pos": "noun · dative", "note": "Dative singular after по." },
+      "и": { "g": "and", "pos": "conjunction" },
+      "фотографировал": { "g": "photographed", "pos": "verb · фотографировать · past masc." },
+      "мосты": { "g": "bridges", "pos": "noun · pl." },
+      "если": { "g": "if", "pos": "conjunction" },
+      "будет": { "g": "will be", "pos": "verb · быть · future", "note": "Future of быть; sets up a real-condition clause." },
+      "время": { "g": "time", "pos": "noun · neuter" },
+      "обязательно": { "g": "definitely, without fail", "pos": "adverb" },
+      "приезжай": { "g": "come (over)", "pos": "verb · приезжать · imperative", "note": "Imperative of the imperfective — an open invitation." },
+      "сюда": { "g": "here (to here)", "pos": "adverb · direction" },
+      "летом": { "g": "in summer", "pos": "adverb", "note": "Instrumental of лето used for seasons." }
+    },
+    "culturalNote": {
+      "term": "Санкт-Петербург",
+      "body": "St Petersburg is built across the islands of the Neva delta and is laced with canals. In the navigation season its drawbridges (разводные мосты) are raised at night to let ships through."
+    }
+  }
+]

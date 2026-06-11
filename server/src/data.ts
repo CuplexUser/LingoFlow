@@ -3,6 +3,7 @@ const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER } = require("./data/constan
 const { loadLanguageContent } = require("./data/contentLoader.ts");
 const { createCourseSelectors, createSessionGenerator, recommendedLevelFromMastery } = require("./data/sessionGenerator.ts");
 const { getPracticePool } = require("./data/practicePool.ts");
+const { loadStories } = require("./data/storyLoader.ts");
 const { createContentMetrics } = require("./data/contentMetrics.ts");
 const { getContentFingerprints, upsertContentFingerprint, resetCategoryProgress } = require("./db.ts");
 
@@ -28,6 +29,38 @@ for (const langId of Object.keys(COURSE)) {
     upsertContentFingerprint(langId, catId, fingerprint);
   }
 }
+const STORIES: any[] = loadStories();
+console.log(`[startup] Loaded ${STORIES.length} stories`);
+
+function summarizeStory(story: any) {
+  return {
+    id: story.id,
+    language: story.language,
+    level: story.level,
+    title: story.title,
+    titleEn: story.titleEn,
+    theme: story.theme,
+    category: story.category,
+    sentenceCount: story.sentences.length
+  };
+}
+
+function listStories({ language, level, category }: { language?: string; level?: string; category?: string } = {}) {
+  const lang = String(language || "").trim().toLowerCase();
+  const lvl = String(level || "").trim().toLowerCase();
+  const cat = String(category || "").trim();
+  return STORIES
+    .filter((story) => (!lang || story.language === lang))
+    .filter((story) => (!lvl || story.level === lvl))
+    .filter((story) => (!cat || story.category === cat))
+    .map(summarizeStory);
+}
+
+function getStoryById(id: string) {
+  const storyId = String(id || "").trim();
+  return STORIES.find((story) => story.id === storyId) || null;
+}
+
 const { getCategoryItems, getAllItems, getCourseOverview } = createCourseSelectors(COURSE);
 const generateSession = createSessionGenerator(getCategoryItems, getAllItems, getPracticePool);
 const getContentMetrics = createContentMetrics(COURSE, CATEGORIES);
@@ -137,6 +170,9 @@ module.exports = {
   LEVEL_ORDER,
   LEVEL_XP_MULTIPLIER,
   LANGUAGE_CONTENT_META,
+  STORIES,
+  listStories,
+  getStoryById,
   getCourseOverview,
   getContentMetrics,
   getCategoryItems,

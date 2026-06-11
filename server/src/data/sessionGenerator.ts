@@ -389,12 +389,13 @@ function dedupeItems(items) {
   });
 }
 
-function buildPracticePool(getAllItems, language, practicePool) {
+function buildPracticePool(getAllItems, language, practicePool, extraItems = []) {
   const allItems = getAllItems(language);
   const poolItems = typeof practicePool === "function"
     ? practicePool(language)
     : Array.isArray(practicePool?.[language]) ? practicePool[language] : [];
-  return dedupeItems([...poolItems, ...allItems]);
+  const extras = Array.isArray(extraItems) ? extraItems : [];
+  return dedupeItems([...extras, ...poolItems, ...allItems]);
 }
 
 function buildQuestionTypePlan(items) {
@@ -741,6 +742,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     weakItemIds = [],
     notDueItemIds = [],
     focusItemIds = [],
+    extraPoolItems = [],
     mode,
     random,
     dailyMode = false
@@ -748,7 +750,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     const randomFn = typeof random === "function" ? random : Math.random;
     const isPracticeMode = Boolean(mode);
     const sourceItems = isPracticeMode
-      ? buildPracticePool(getAllItems, language, practicePool)
+      ? buildPracticePool(getAllItems, language, practicePool, extraPoolItems)
       : getCategoryItems(language, category);
     const all = filterItemsForMode(sourceItems, mode);
     if (!all.length) {

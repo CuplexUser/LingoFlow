@@ -13,6 +13,7 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 - Post-session mistake review — optional mini-session drilled from session errors
 - Session autosave and resume — in-progress sessions survive page refresh or tab close
 - Per-language course switching — independent progress tracked per language
+- **Story Reader** (Read tab) — comprehensible-input reading mode with leveled short stories (A1–B2). Tap any word for a bottom lookup drawer (gloss, part of speech, optional grammar note, listen button) backed by the same three-tier word system as exercise tooltips. Glossary words get a solid accent underline, grammar-hint words a dotted underline. Includes sentence-level audio, a Show/Hide English toggle, an inline cultural note, and looked-up/saved counters. "Save to review" persists unknown words so they resurface in practice sessions via spaced repetition. Reading grants no XP (anti-score-inflation).
 
 ### Exercise Types
 
@@ -324,6 +325,11 @@ npm run verify          # Lint + client tests
 | `GET` | `/api/bookmarks?language=<id>` | List bookmarks |
 | `POST` | `/api/bookmarks` | Add a bookmark |
 | `DELETE` | `/api/bookmarks/:questionId` | Remove a bookmark |
+| `GET` | `/api/stories?language=<id>&level=<lvl>&category=<cat>` | List story summaries (filterable) |
+| `GET` | `/api/stories/:id` | Fetch a full story (sentences, glossary, cultural note) |
+| `GET` | `/api/saved-words?language=<id>` | List words saved from the Story Reader |
+| `POST` | `/api/saved-words` | Save a word to review (idempotent; enters the SRS queue) |
+| `DELETE` | `/api/saved-words/:word?language=<id>` | Remove a saved word |
 | `POST` | `/api/community/contribute` | Submit a community exercise |
 | `GET` | `/api/community/contributions` | List contributions (own or all) |
 | `PATCH` | `/api/community/contributions/:id` | Update moderation status |

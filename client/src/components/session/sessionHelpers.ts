@@ -8,11 +8,30 @@ export function normalizeSentence(text: string | null | undefined): string {
     .trim();
 }
 
+const LEADING_PUNCTUATION = /^[«»"“”‘’(){}.,!?;:]+/;
+const TRAILING_PUNCTUATION = /[«»"“”‘’(){}.,!?;:]+$/;
+const HAS_LETTER = /[\p{L}]/u;
+
+export type WordToken = { lead: string; core: string; trail: string };
+
+// Splits a raw whitespace-delimited token into the punctuation that wraps it and
+// the word "core" in between. Hyphens inside a word (e.g. наконец-то) stay in the
+// core; standalone punctuation like an em dash collapses to an empty core.
+export function splitWordToken(token: string | null | undefined): WordToken {
+  const raw = String(token || "");
+  const lead = raw.match(LEADING_PUNCTUATION)?.[0] ?? "";
+  const rest = raw.slice(lead.length);
+  const trail = rest.match(TRAILING_PUNCTUATION)?.[0] ?? "";
+  const core = trail ? rest.slice(0, rest.length - trail.length) : rest;
+  return { lead, core, trail };
+}
+
+export function tokenHasLetter(value: string | null | undefined): boolean {
+  return HAS_LETTER.test(String(value || ""));
+}
+
 function stripWrappingPunctuation(token: string): string {
-  return String(token || "")
-    .replace(/^[«»"“”‘’(){}.,!?;:]+/g, "")
-    .replace(/[«»"“”‘’(){}.,!?;:]+$/g, "")
-    .trim();
+  return splitWordToken(token).core.trim();
 }
 
 export function splitSentenceWords(text: string | null | undefined): string[] {
@@ -20,6 +39,15 @@ export function splitSentenceWords(text: string | null | undefined): string[] {
     .split(/\s+/g)
     .map((token) => stripWrappingPunctuation(token))
     .filter(Boolean);
+}
+
+// Tokenizes a full sentence into render-ready word tokens, preserving the
+// inter-token spacing as `lead`/`trail` punctuation around each clickable core.
+export function tokenizeSentence(text: string | null | undefined): WordToken[] {
+  return String(text || "")
+    .split(/\s+/g)
+    .filter(Boolean)
+    .map((token) => splitWordToken(token));
 }
 
 function levenshteinDistance(left: string | null | undefined, right: string | null | undefined): number {

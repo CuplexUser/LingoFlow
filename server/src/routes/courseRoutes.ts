@@ -1,5 +1,5 @@
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations } = deps;
+  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, listStories, getStoryById } = deps;
 
   const contentReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
@@ -93,6 +93,19 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
 
     res.json(enriched);
+  });
+
+  app.get("/api/stories", requireAuth, (req: any, res: any) => {
+    const language = String(req.query.language || "").trim().toLowerCase();
+    const level = String(req.query.level || "").trim().toLowerCase();
+    const category = String(req.query.category || "").trim();
+    return res.json(listStories({ language, level, category }));
+  });
+
+  app.get("/api/stories/:id", requireAuth, (req: any, res: any) => {
+    const story = getStoryById(String(req.params.id || ""));
+    if (!story) return res.status(404).json({ error: "Story not found" });
+    return res.json(story);
   });
 
   app.get("/api/content/metrics", requireAuth, (req: any, res: any) => {

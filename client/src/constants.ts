@@ -2,6 +2,7 @@ export const PAGE_PATHS = {
   bookmarks: "/bookmarks",
   learn: "/learn",
   practice: "/practice",
+  story: "/story",
   contribute: "/contribute",
   setup: "/setup",
   stats: "/stats",

@@ -68,6 +68,13 @@ function NavIcon({ id }: { id: string }) {
       <path d="M12 3V5.5M12 18.5V21M3 12H5.5M18.5 12H21" strokeWidth="1.2"/>
     </svg>
   );
+  if (id === "story") return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 5.5C4 4.7 4.6 4 5.5 4H11V19H5.5C4.6 19 4 18.3 4 17.5Z"/>
+      <path d="M20 5.5C20 4.7 19.4 4 18.5 4H13V19H18.5C19.4 19 20 18.3 20 17.5Z"/>
+      <path d="M6.4 7.5H8.8M6.4 10H8.8M15.2 7.5H17.6M15.2 10H17.6" strokeWidth="1.1" opacity="0.7"/>
+    </svg>
+  );
   if (id === "contribute") return (
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M4 8.5C4 7.7 4.7 7 5.5 7H14L19 11.5V16.5C19 17.3 18.3 18 17.5 18H10L6 21V18H5.5C4.7 18 4 17.3 4 16.5Z"/>
@@ -111,6 +118,7 @@ function AchievementIcon({ icon }: { icon: string }) {
 const TABS: Array<{ id: AppPage; label: string }> = [
   { id: "learn",      label: "Learn"      },
   { id: "practice",   label: "Practice"   },
+  { id: "story",      label: "Read"       },
   { id: "contribute", label: "Contribute" },
   { id: "setup",      label: "Setup"      },
   { id: "stats",      label: "Stats"      }
