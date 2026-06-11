@@ -1,0 +1,141 @@
+[
+  {
+    "id": "de-story-a1-morning",
+    "level": "a1",
+    "title": "Annas Morgen",
+    "titleEn": "Anna's morning",
+    "theme": "Daily life",
+    "category": "essentials",
+    "sentences": [
+      { "target": "Anna wohnt in Berlin.", "en": "Anna lives in Berlin." },
+      { "target": "Am Morgen trinkt sie Kaffee.", "en": "In the morning she drinks coffee." },
+      { "target": "Dann geht sie zur Arbeit.", "en": "Then she goes to work." },
+      { "target": "Anna liebt ihre Stadt.", "en": "Anna loves her city." }
+    ],
+    "glossary": {
+      "anna": { "g": "Anna", "pos": "proper noun" },
+      "wohnt": { "g": "lives", "pos": "verb · wohnen" },
+      "in": { "g": "in", "pos": "preposition" },
+      "berlin": { "g": "Berlin", "pos": "proper noun" },
+      "am": { "g": "in the, on the", "pos": "contraction · an + dem", "note": "am Morgen is the set phrase for \"in the morning\"." },
+      "morgen": { "g": "morning", "pos": "noun · masc." },
+      "trinkt": { "g": "drinks", "pos": "verb · trinken" },
+      "sie": { "g": "she", "pos": "pronoun" },
+      "kaffee": { "g": "coffee", "pos": "noun · masc." },
+      "dann": { "g": "then, after that", "pos": "adverb" },
+      "geht": { "g": "goes", "pos": "verb · gehen" },
+      "zur": { "g": "to the", "pos": "contraction · zu + der" },
+      "arbeit": { "g": "work", "pos": "noun · fem." },
+      "liebt": { "g": "loves", "pos": "verb · lieben" },
+      "ihre": { "g": "her", "pos": "possessive · fem." },
+      "stadt": { "g": "city", "pos": "noun · fem." }
+    },
+    "culturalNote": {
+      "term": "Berlin",
+      "body": "Berlin is Germany's capital and largest city. Once divided by the Berlin Wall, it is now known for its museums, its long history and a relaxed, café-filled daily pace."
+    }
+  },
+  {
+    "id": "de-story-a2-market",
+    "level": "a2",
+    "title": "Auf dem Markt",
+    "titleEn": "At the market",
+    "theme": "Food & shopping",
+    "category": "food_cooking",
+    "sentences": [
+      { "target": "Am Morgen ging Anna zum Markt.", "en": "In the morning Anna went to the market." },
+      { "target": "Sie wollte Gemüse und Obst kaufen.", "en": "She wanted to buy vegetables and fruit." },
+      { "target": "„Was kosten die Äpfel?“ fragte sie.", "en": "“How much are the apples?” she asked." },
+      { "target": "Der Verkäufer lächelte und sagte: „Zwei Euro das Kilo.“", "en": "The seller smiled and said: “Two euros a kilo.”" },
+      { "target": "Anna kaufte Äpfel, Brot und etwas Käse.", "en": "Anna bought apples, bread and a little cheese." }
+    ],
+    "glossary": {
+      "am": { "g": "in the, on the", "pos": "contraction · an + dem" },
+      "morgen": { "g": "morning", "pos": "noun · masc." },
+      "ging": { "g": "went", "pos": "verb · gehen · past" },
+      "anna": { "g": "Anna", "pos": "proper noun" },
+      "zum": { "g": "to the", "pos": "contraction · zu + dem" },
+      "markt": { "g": "market", "pos": "noun · masc." },
+      "sie": { "g": "she", "pos": "pronoun" },
+      "wollte": { "g": "wanted", "pos": "verb · wollen · past" },
+      "gemüse": { "g": "vegetables", "pos": "noun · neuter" },
+      "und": { "g": "and", "pos": "conjunction" },
+      "obst": { "g": "fruit", "pos": "noun · neuter" },
+      "kaufen": { "g": "to buy", "pos": "verb · infinitive", "note": "The infinitive goes to the end of the clause after wollte." },
+      "was": { "g": "what", "pos": "interrogative" },
+      "kosten": { "g": "cost", "pos": "verb · kosten" },
+      "die": { "g": "the", "pos": "article · pl." },
+      "äpfel": { "g": "apples", "pos": "noun · masc. pl.", "note": "Plural of Apfel, with an umlaut." },
+      "fragte": { "g": "asked", "pos": "verb · fragen · past" },
+      "der": { "g": "the", "pos": "article · masc." },
+      "verkäufer": { "g": "seller, vendor", "pos": "noun · masc." },
+      "lächelte": { "g": "smiled", "pos": "verb · lächeln · past" },
+      "sagte": { "g": "said", "pos": "verb · sagen · past" },
+      "zwei": { "g": "two", "pos": "number" },
+      "euro": { "g": "euros", "pos": "noun · masc.", "note": "Euro stays unchanged after a number in German." },
+      "das": { "g": "the", "pos": "article · neuter" },
+      "kilo": { "g": "kilo", "pos": "noun · neuter" },
+      "kaufte": { "g": "bought", "pos": "verb · kaufen · past" },
+      "brot": { "g": "bread", "pos": "noun · neuter" },
+      "etwas": { "g": "some, a little", "pos": "determiner" },
+      "käse": { "g": "cheese", "pos": "noun · masc." }
+    },
+    "culturalNote": {
+      "term": "der Wochenmarkt",
+      "body": "Most German towns hold a Wochenmarkt — a weekly open-air market — on set days. Regional fruit, vegetables, bread and cheese are sold from stalls, and many shoppers bring their own basket."
+    }
+  },
+  {
+    "id": "de-story-b1-letter",
+    "level": "b1",
+    "title": "Ein Brief aus Hamburg",
+    "titleEn": "A letter from Hamburg",
+    "theme": "Travel",
+    "category": "travel",
+    "sentences": [
+      { "target": "Hallo, Maria! Ich bin endlich in Hamburg angekommen.", "en": "Hi, Maria! I've finally arrived in Hamburg." },
+      { "target": "Die Stadt ist noch schöner, als ich dachte.", "en": "The city is even more beautiful than I thought." },
+      { "target": "Gestern bin ich am Hafen spazieren gegangen und habe die Schiffe fotografiert.", "en": "Yesterday I strolled along the harbour and photographed the ships." },
+      { "target": "Wenn du Zeit hast, komm im Sommer unbedingt hierher.", "en": "If you have time, definitely come here in the summer." }
+    ],
+    "glossary": {
+      "hallo": { "g": "hi, hello", "pos": "greeting" },
+      "maria": { "g": "Maria", "pos": "proper noun" },
+      "ich": { "g": "I", "pos": "pronoun" },
+      "bin": { "g": "am", "pos": "verb · sein · auxiliary", "note": "sein is the auxiliary for ankommen in the perfect tense." },
+      "endlich": { "g": "finally, at last", "pos": "adverb" },
+      "in": { "g": "in", "pos": "preposition" },
+      "hamburg": { "g": "Hamburg", "pos": "proper noun" },
+      "angekommen": { "g": "arrived", "pos": "verb · ankommen · past participle", "note": "Separable verb; the participle takes ge- in the middle: an-ge-kommen." },
+      "die": { "g": "the", "pos": "article · fem." },
+      "stadt": { "g": "city", "pos": "noun · fem." },
+      "ist": { "g": "is", "pos": "verb · sein" },
+      "noch": { "g": "even, still", "pos": "adverb" },
+      "schöner": { "g": "more beautiful", "pos": "adjective · comparative" },
+      "als": { "g": "than", "pos": "conjunction" },
+      "dachte": { "g": "thought", "pos": "verb · denken · past" },
+      "gestern": { "g": "yesterday", "pos": "adverb" },
+      "am": { "g": "at the", "pos": "contraction · an + dem" },
+      "hafen": { "g": "harbour, port", "pos": "noun · masc." },
+      "spazieren": { "g": "to stroll", "pos": "verb · infinitive", "note": "spazieren gehen means \"to go for a walk\"." },
+      "gegangen": { "g": "gone", "pos": "verb · gehen · past participle" },
+      "und": { "g": "and", "pos": "conjunction" },
+      "habe": { "g": "have", "pos": "verb · haben · auxiliary" },
+      "schiffe": { "g": "ships", "pos": "noun · neuter pl." },
+      "fotografiert": { "g": "photographed", "pos": "verb · fotografieren · past participle" },
+      "wenn": { "g": "if, when", "pos": "conjunction" },
+      "du": { "g": "you", "pos": "pronoun · informal" },
+      "zeit": { "g": "time", "pos": "noun · fem." },
+      "hast": { "g": "have", "pos": "verb · haben" },
+      "komm": { "g": "come", "pos": "verb · kommen · imperative" },
+      "im": { "g": "in the", "pos": "contraction · in + dem" },
+      "sommer": { "g": "summer", "pos": "noun · masc." },
+      "unbedingt": { "g": "definitely, by all means", "pos": "adverb" },
+      "hierher": { "g": "here (to here)", "pos": "adverb · direction" }
+    },
+    "culturalNote": {
+      "term": "Hamburg",
+      "body": "Hamburg is Germany's largest port, on the Elbe river near the North Sea. Its harbour, warehouse district (Speicherstadt) and canals shape the city — it is said to have more bridges than Venice."
+    }
+  }
+]

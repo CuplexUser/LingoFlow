@@ -1,0 +1,136 @@
+[
+  {
+    "id": "sv-story-a1-morning",
+    "level": "a1",
+    "title": "Annas morgon",
+    "titleEn": "Anna's morning",
+    "theme": "Daily life",
+    "category": "essentials",
+    "sentences": [
+      { "target": "Anna bor i Stockholm.", "en": "Anna lives in Stockholm." },
+      { "target": "På morgonen dricker hon kaffe.", "en": "In the morning she drinks coffee." },
+      { "target": "Sedan går hon till jobbet.", "en": "Then she goes to work." },
+      { "target": "Anna älskar sin stad.", "en": "Anna loves her city." }
+    ],
+    "glossary": {
+      "anna": { "g": "Anna", "pos": "proper noun" },
+      "bor": { "g": "lives", "pos": "verb · bo" },
+      "i": { "g": "in", "pos": "preposition" },
+      "stockholm": { "g": "Stockholm", "pos": "proper noun" },
+      "på": { "g": "in, on", "pos": "preposition", "note": "på morgonen is the set phrase for \"in the morning\"." },
+      "morgonen": { "g": "the morning", "pos": "noun · definite", "note": "morgon + the -en definite ending." },
+      "dricker": { "g": "drinks", "pos": "verb · dricka" },
+      "hon": { "g": "she", "pos": "pronoun" },
+      "kaffe": { "g": "coffee", "pos": "noun · neuter" },
+      "sedan": { "g": "then, after that", "pos": "adverb" },
+      "går": { "g": "goes, walks", "pos": "verb · gå" },
+      "till": { "g": "to", "pos": "preposition" },
+      "jobbet": { "g": "the job, work", "pos": "noun · definite" },
+      "älskar": { "g": "loves", "pos": "verb · älska" },
+      "sin": { "g": "her own", "pos": "reflexive possessive", "note": "sin refers back to the subject of the clause." },
+      "stad": { "g": "city", "pos": "noun · common" }
+    },
+    "culturalNote": {
+      "term": "fika",
+      "body": "Swedes take coffee seriously. A fika is a deliberate coffee break — often with a cinnamon bun (kanelbulle) — and a daily social ritual at home and at work."
+    }
+  },
+  {
+    "id": "sv-story-a2-market",
+    "level": "a2",
+    "title": "På marknaden",
+    "titleEn": "At the market",
+    "theme": "Food & shopping",
+    "category": "food_cooking",
+    "sentences": [
+      { "target": "På morgonen gick Anna till marknaden.", "en": "In the morning Anna went to the market." },
+      { "target": "Hon ville köpa grönsaker och frukt.", "en": "She wanted to buy vegetables and fruit." },
+      { "target": "”Vad kostar äpplena?” frågade hon.", "en": "“How much are the apples?” she asked." },
+      { "target": "Försäljaren log och sa: ”Tjugo kronor kilot.”", "en": "The seller smiled and said: “Twenty kronor a kilo.”" },
+      { "target": "Anna köpte äpplen, bröd och lite ost.", "en": "Anna bought apples, bread and a little cheese." }
+    ],
+    "glossary": {
+      "på": { "g": "in, on", "pos": "preposition" },
+      "morgonen": { "g": "the morning", "pos": "noun · definite" },
+      "gick": { "g": "went, walked", "pos": "verb · gå · past" },
+      "anna": { "g": "Anna", "pos": "proper noun" },
+      "till": { "g": "to", "pos": "preposition" },
+      "marknaden": { "g": "the market", "pos": "noun · definite" },
+      "hon": { "g": "she", "pos": "pronoun" },
+      "ville": { "g": "wanted", "pos": "verb · vilja · past" },
+      "köpa": { "g": "to buy", "pos": "verb · infinitive" },
+      "grönsaker": { "g": "vegetables", "pos": "noun · pl." },
+      "och": { "g": "and", "pos": "conjunction" },
+      "frukt": { "g": "fruit", "pos": "noun · common" },
+      "vad": { "g": "what", "pos": "interrogative" },
+      "kostar": { "g": "cost", "pos": "verb · kosta" },
+      "äpplena": { "g": "the apples", "pos": "noun · definite pl." },
+      "frågade": { "g": "asked", "pos": "verb · fråga · past" },
+      "försäljaren": { "g": "the seller", "pos": "noun · definite" },
+      "log": { "g": "smiled", "pos": "verb · le · past" },
+      "sa": { "g": "said", "pos": "verb · säga · past" },
+      "tjugo": { "g": "twenty", "pos": "number" },
+      "kronor": { "g": "kronor", "pos": "noun · pl.", "note": "The krona (plural kronor) is Sweden's currency." },
+      "kilot": { "g": "the kilo, per kilo", "pos": "noun · definite" },
+      "köpte": { "g": "bought", "pos": "verb · köpa · past" },
+      "äpplen": { "g": "apples", "pos": "noun · pl." },
+      "bröd": { "g": "bread", "pos": "noun · neuter" },
+      "lite": { "g": "a little", "pos": "adverb" },
+      "ost": { "g": "cheese", "pos": "noun · common" }
+    },
+    "culturalNote": {
+      "term": "saluhall",
+      "body": "A saluhall is an indoor market hall. Stockholm's Östermalms Saluhall and Gothenburg's Saluhallen gather grocers, fishmongers and small cafés under one roof — a warm refuge in winter."
+    }
+  },
+  {
+    "id": "sv-story-b1-letter",
+    "level": "b1",
+    "title": "Ett brev från Göteborg",
+    "titleEn": "A letter from Gothenburg",
+    "theme": "Travel",
+    "category": "travel",
+    "sentences": [
+      { "target": "Hej, Maria! Jag har äntligen kommit till Göteborg.", "en": "Hi, Maria! I've finally arrived in Gothenburg." },
+      { "target": "Staden är ännu vackrare än jag trodde.", "en": "The city is even more beautiful than I thought." },
+      { "target": "I går promenerade jag längs hamnen och fotograferade båtarna.", "en": "Yesterday I walked along the harbour and photographed the boats." },
+      { "target": "Om du har tid, kom hit i sommar utan tvekan.", "en": "If you have time, come here in summer without hesitation." }
+    ],
+    "glossary": {
+      "hej": { "g": "hi, hello", "pos": "greeting" },
+      "maria": { "g": "Maria", "pos": "proper noun" },
+      "jag": { "g": "I", "pos": "pronoun" },
+      "har": { "g": "have", "pos": "verb · ha · auxiliary" },
+      "äntligen": { "g": "finally, at last", "pos": "adverb" },
+      "kommit": { "g": "come, arrived", "pos": "verb · komma · supine" },
+      "till": { "g": "to", "pos": "preposition" },
+      "göteborg": { "g": "Gothenburg", "pos": "proper noun" },
+      "staden": { "g": "the city", "pos": "noun · definite" },
+      "är": { "g": "is", "pos": "verb · vara" },
+      "ännu": { "g": "even, still", "pos": "adverb" },
+      "vackrare": { "g": "more beautiful", "pos": "adjective · comparative" },
+      "än": { "g": "than", "pos": "conjunction" },
+      "trodde": { "g": "thought, believed", "pos": "verb · tro · past" },
+      "i": { "g": "in, ago", "pos": "preposition", "note": "i går is the set phrase for \"yesterday\"." },
+      "går": { "g": "(in i går) yesterday", "pos": "adverb" },
+      "promenerade": { "g": "walked, strolled", "pos": "verb · promenera · past" },
+      "längs": { "g": "along", "pos": "preposition" },
+      "hamnen": { "g": "the harbour", "pos": "noun · definite" },
+      "och": { "g": "and", "pos": "conjunction" },
+      "fotograferade": { "g": "photographed", "pos": "verb · fotografera · past" },
+      "båtarna": { "g": "the boats", "pos": "noun · definite pl." },
+      "om": { "g": "if", "pos": "conjunction" },
+      "du": { "g": "you", "pos": "pronoun" },
+      "tid": { "g": "time", "pos": "noun · common" },
+      "kom": { "g": "come", "pos": "verb · komma · imperative" },
+      "hit": { "g": "here (to here)", "pos": "adverb · direction" },
+      "sommar": { "g": "summer", "pos": "noun · common", "note": "i sommar means \"this (coming) summer\"." },
+      "utan": { "g": "without", "pos": "preposition" },
+      "tvekan": { "g": "hesitation", "pos": "noun · common", "note": "utan tvekan = \"without hesitation\"." }
+    },
+    "culturalNote": {
+      "term": "Göteborg",
+      "body": "Gothenburg is Sweden's second city, a port on the west coast. Its canals and the nearby Bohuslän archipelago make boats and the sea part of everyday life there."
+    }
+  }
+]

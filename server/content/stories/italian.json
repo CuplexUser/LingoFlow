@@ -1,0 +1,143 @@
+[
+  {
+    "id": "it-story-a1-morning",
+    "level": "a1",
+    "title": "La mattina di Anna",
+    "titleEn": "Anna's morning",
+    "theme": "Daily life",
+    "category": "essentials",
+    "sentences": [
+      { "target": "Anna abita a Roma.", "en": "Anna lives in Rome." },
+      { "target": "La mattina beve un caffè.", "en": "In the morning she drinks a coffee." },
+      { "target": "Poi va al lavoro.", "en": "Then she goes to work." },
+      { "target": "Anna ama la sua città.", "en": "Anna loves her city." }
+    ],
+    "glossary": {
+      "anna": { "g": "Anna", "pos": "proper noun" },
+      "abita": { "g": "lives", "pos": "verb · abitare" },
+      "a": { "g": "in, at", "pos": "preposition", "note": "a is used with cities: abitare a Roma." },
+      "roma": { "g": "Rome", "pos": "proper noun" },
+      "la": { "g": "the", "pos": "article · fem." },
+      "mattina": { "g": "morning", "pos": "noun · fem." },
+      "beve": { "g": "drinks", "pos": "verb · bere" },
+      "un": { "g": "a, one", "pos": "article · masc." },
+      "caffè": { "g": "coffee", "pos": "noun · masc." },
+      "poi": { "g": "then, afterwards", "pos": "adverb" },
+      "va": { "g": "goes", "pos": "verb · andare" },
+      "al": { "g": "to the", "pos": "contraction · a + il" },
+      "lavoro": { "g": "work", "pos": "noun · masc." },
+      "ama": { "g": "loves", "pos": "verb · amare" },
+      "sua": { "g": "her, his", "pos": "possessive · fem." },
+      "città": { "g": "city", "pos": "noun · fem." }
+    },
+    "culturalNote": {
+      "term": "il caffè",
+      "body": "In Italy a caffè means an espresso, drunk quickly at the bar (the counter). A cappuccino is a morning-only choice — ordering one after lunch surprises most Italians."
+    }
+  },
+  {
+    "id": "it-story-a2-market",
+    "level": "a2",
+    "title": "Al mercato",
+    "titleEn": "At the market",
+    "theme": "Food & shopping",
+    "category": "food_cooking",
+    "sentences": [
+      { "target": "La mattina Anna è andata al mercato.", "en": "In the morning Anna went to the market." },
+      { "target": "Voleva comprare verdura e frutta.", "en": "She wanted to buy vegetables and fruit." },
+      { "target": "«Quanto costano le mele?» chiese.", "en": "“How much are the apples?” she asked." },
+      { "target": "Il venditore sorrise e disse: «Due euro al chilo.»", "en": "The seller smiled and said: “Two euros a kilo.”" },
+      { "target": "Anna comprò mele, pane e un po' di formaggio.", "en": "Anna bought apples, bread and a little cheese." }
+    ],
+    "glossary": {
+      "la": { "g": "the", "pos": "article · fem." },
+      "mattina": { "g": "morning", "pos": "noun · fem." },
+      "anna": { "g": "Anna", "pos": "proper noun" },
+      "è": { "g": "is", "pos": "verb · essere · auxiliary", "note": "essere is the auxiliary for andare in the passato prossimo." },
+      "andata": { "g": "gone", "pos": "verb · andare · past participle fem.", "note": "Agrees with the feminine subject Anna." },
+      "al": { "g": "to the", "pos": "contraction · a + il" },
+      "mercato": { "g": "market", "pos": "noun · masc." },
+      "voleva": { "g": "wanted", "pos": "verb · volere · imperfect" },
+      "comprare": { "g": "to buy", "pos": "verb · infinitive" },
+      "verdura": { "g": "vegetables", "pos": "noun · fem." },
+      "e": { "g": "and", "pos": "conjunction" },
+      "frutta": { "g": "fruit", "pos": "noun · fem." },
+      "quanto": { "g": "how much", "pos": "interrogative" },
+      "costano": { "g": "cost", "pos": "verb · costare · 3rd pl." },
+      "le": { "g": "the", "pos": "article · fem. pl." },
+      "mele": { "g": "apples", "pos": "noun · fem. pl." },
+      "chiese": { "g": "asked", "pos": "verb · chiedere · past historic" },
+      "il": { "g": "the", "pos": "article · masc." },
+      "venditore": { "g": "seller, vendor", "pos": "noun · masc." },
+      "sorrise": { "g": "smiled", "pos": "verb · sorridere · past historic" },
+      "disse": { "g": "said", "pos": "verb · dire · past historic" },
+      "due": { "g": "two", "pos": "number" },
+      "euro": { "g": "euros", "pos": "noun · masc.", "note": "euro is invariable in the plural in Italian." },
+      "chilo": { "g": "kilo", "pos": "noun · masc." },
+      "comprò": { "g": "bought", "pos": "verb · comprare · past historic" },
+      "pane": { "g": "bread", "pos": "noun · masc." },
+      "un": { "g": "a, one", "pos": "article · masc." },
+      "po'": { "g": "a bit", "pos": "adverb", "note": "un po' di means \"a little (of)\"; po' is a shortening of poco." },
+      "di": { "g": "of", "pos": "preposition" },
+      "formaggio": { "g": "cheese", "pos": "noun · masc." }
+    },
+    "culturalNote": {
+      "term": "il mercato",
+      "body": "Open-air food markets remain central to Italian cooking. Rome's Campo de' Fiori and Florence's Mercato di Sant'Ambrogio sell seasonal produce, cheese and bread to home cooks every morning."
+    }
+  },
+  {
+    "id": "it-story-b1-letter",
+    "level": "b1",
+    "title": "Una lettera da Venezia",
+    "titleEn": "A letter from Venice",
+    "theme": "Travel",
+    "category": "travel",
+    "sentences": [
+      { "target": "Ciao, Maria! Finalmente sono arrivato a Venezia.", "en": "Hi, Maria! I've finally arrived in Venice." },
+      { "target": "La città è ancora più bella di quanto pensassi.", "en": "The city is even more beautiful than I thought." },
+      { "target": "Ieri ho passeggiato lungo i canali e ho fotografato i ponti.", "en": "Yesterday I strolled along the canals and photographed the bridges." },
+      { "target": "Se hai tempo, vieni qui in estate senza dubbio.", "en": "If you have time, come here in summer without doubt." }
+    ],
+    "glossary": {
+      "ciao": { "g": "hi, bye", "pos": "greeting" },
+      "maria": { "g": "Maria", "pos": "proper noun" },
+      "finalmente": { "g": "finally, at last", "pos": "adverb" },
+      "sono": { "g": "am", "pos": "verb · essere · auxiliary" },
+      "arrivato": { "g": "arrived", "pos": "verb · arrivare · past participle masc." },
+      "a": { "g": "in, to", "pos": "preposition" },
+      "venezia": { "g": "Venice", "pos": "proper noun" },
+      "la": { "g": "the", "pos": "article · fem." },
+      "città": { "g": "city", "pos": "noun · fem." },
+      "è": { "g": "is", "pos": "verb · essere" },
+      "ancora": { "g": "even, still", "pos": "adverb" },
+      "più": { "g": "more", "pos": "adverb" },
+      "bella": { "g": "beautiful", "pos": "adjective · fem." },
+      "di": { "g": "than", "pos": "preposition", "note": "di quanto + subjunctive expresses \"than\" in a comparison." },
+      "quanto": { "g": "what, how much", "pos": "pronoun" },
+      "pensassi": { "g": "I thought", "pos": "verb · pensare · imperfect subjunctive" },
+      "ieri": { "g": "yesterday", "pos": "adverb" },
+      "ho": { "g": "have", "pos": "verb · avere · auxiliary" },
+      "passeggiato": { "g": "strolled", "pos": "verb · passeggiare · past participle" },
+      "lungo": { "g": "along", "pos": "preposition" },
+      "i": { "g": "the", "pos": "article · masc. pl." },
+      "canali": { "g": "canals", "pos": "noun · masc. pl." },
+      "e": { "g": "and", "pos": "conjunction" },
+      "fotografato": { "g": "photographed", "pos": "verb · fotografare · past participle" },
+      "ponti": { "g": "bridges", "pos": "noun · masc. pl." },
+      "se": { "g": "if", "pos": "conjunction" },
+      "hai": { "g": "you have", "pos": "verb · avere" },
+      "tempo": { "g": "time", "pos": "noun · masc." },
+      "vieni": { "g": "come", "pos": "verb · venire · imperative" },
+      "qui": { "g": "here", "pos": "adverb" },
+      "in": { "g": "in", "pos": "preposition" },
+      "estate": { "g": "summer", "pos": "noun · fem." },
+      "senza": { "g": "without", "pos": "preposition" },
+      "dubbio": { "g": "doubt", "pos": "noun · masc.", "note": "senza dubbio = \"without doubt, certainly\"." }
+    },
+    "culturalNote": {
+      "term": "Venezia",
+      "body": "Venice is built on more than a hundred small islands in a lagoon, linked by canals and some four hundred bridges. There are no cars: people move on foot or by vaporetto (water bus)."
+    }
+  }
+]

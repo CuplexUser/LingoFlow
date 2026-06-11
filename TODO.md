@@ -350,7 +350,8 @@ pipeline feeding the spaced-repetition system.
 - [x] Story content type loaded through a validated pipeline (`server/src/data/storyLoader.ts`,
   `server/content/stories/<language>.json`), mirroring the `practice_words/` per-language convention.
   Startup validation enforces unique ids, required fields, CEFR level, glossary `{g,pos,note?}`,
-  and cultural note. Seeded with three Russian stories (A1 morning, A2 market, B1 letter).
+  and cultural note. Seeded with three stories each (A1 morning, A2 market, B1 letter) for all six
+  learnable languages: Russian, Spanish, Italian, Swedish, French, German.
 - [x] Read endpoints: `GET /api/stories` (filter by language/level/category) and `GET /api/stories/:id`,
   auth-gated alongside other content routes.
 - [x] Gloss resolution reuses the existing three-tier system: curated story glossary (tier 1) +
@@ -375,8 +376,8 @@ pipeline feeding the spaced-repetition system.
   as the learner re-encounters the word.
 - [ ] **Native/Forvo audio** — Story Reader uses browser `SpeechSynthesis` only; real recorded audio
   remains out of scope (shared with the existing audio TODO).
-- [ ] **More stories / more languages** — only Russian is seeded. Add stories for the other six
-  languages, keeping the concrete high-frequency vocabulary + factual cultural-note quality bar.
+- [ ] **More stories per language** — each language has the three seed stories (A1/A2/B1). Add more
+  per level and a B2 tier, keeping the concrete high-frequency vocabulary + factual cultural-note bar.
 - [ ] Optionally surface saved words directly in the mistake-review drill, and add a saved-words
   management view (reuse the Bookmarks page pattern).
 
