@@ -150,6 +150,53 @@ test("POST /api/saved-words is idempotent and creates a single SRS item", async 
   assert.equal(after.filter((entry) => entry.word === "москве").length, 0);
 });
 
+test("GET /api/admin/content-stats reports story coverage per language", async (t) => {
+  const reviewerEmail = `stats-admin-${Date.now()}-${Math.random().toString(16).slice(2)}@example.com`;
+  const prevReviewers = process.env.CONTRIBUTION_REVIEWER_EMAILS;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
+  const srv = new TestServer();
+  t.after(() => {
+    srv.close();
+    if (prevReviewers === undefined) delete process.env.CONTRIBUTION_REVIEWER_EMAILS;
+    else process.env.CONTRIBUTION_REVIEWER_EMAILS = prevReviewers;
+  });
+
+  await fetch(`${srv.base}/api/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: reviewerEmail, password: "Password123!", displayName: "stats-admin" })
+  }).then((r) => r.json()).then((registered: any) =>
+    fetch(`${srv.base}/api/auth/verify-email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: registered.verificationToken })
+    })
+  );
+  const logged = await fetch(`${srv.base}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: reviewerEmail, password: "Password123!" })
+  }).then((r) => r.json()) as any;
+  const headers = { Authorization: `Bearer ${logged.token}`, "Content-Type": "application/json" };
+
+  const res = await fetch(`${srv.base}/api/admin/content-stats`, { headers });
+  assert.equal(res.status, 200);
+  const data = await res.json() as any;
+
+  assert.ok(data.stories, "response includes a stories coverage map");
+  const ru = data.stories.russian;
+  assert.ok(ru, "russian story coverage is present");
+  assert.equal(ru.total, 3, "three Russian stories are seeded");
+  assert.equal(ru.a1, 1);
+  assert.equal(ru.a2, 1);
+  assert.equal(ru.b1, 1);
+  assert.ok(ru.sentences >= 3, "sentence totals are aggregated");
+  // Every language listed in coverage should have a stories entry (even if empty).
+  for (const lang of data.languages) {
+    assert.ok(data.stories[lang.id], `stories entry exists for ${lang.id}`);
+  }
+});
+
 test("saved words surface as items in the practice pool", async (t) => {
   const srv = new TestServer();
   t.after(() => srv.close());

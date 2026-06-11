@@ -142,11 +142,33 @@ function registerCourseRoutes(app: any, deps: any): void {
       }
     }
 
+    const allStories = listStories();
+    const stories: Record<string, any> = {};
+    for (const lang of LANGUAGES) {
+      const langStories = allStories.filter((s: any) => s.language === lang.id);
+      const levelCounts: Record<string, number> = {};
+      let sentences = 0;
+      for (const story of langStories) {
+        const lvl = String(story.level || "").toLowerCase();
+        levelCounts[lvl] = (levelCounts[lvl] || 0) + 1;
+        sentences += Number(story.sentenceCount || 0);
+      }
+      stories[lang.id] = {
+        a1: levelCounts["a1"] || 0,
+        a2: levelCounts["a2"] || 0,
+        b1: levelCounts["b1"] || 0,
+        b2: levelCounts["b2"] || 0,
+        total: langStories.length,
+        sentences
+      };
+    }
+
     res.json({
       languages: LANGUAGES.map((l: any) => ({ id: l.id, label: l.label, flag: l.flag })),
       categories: CATEGORIES.map((c: any) => ({ id: c.id, label: c.label })),
       levels: LEVEL_ORDER,
-      coverage
+      coverage,
+      stories
     });
   });
 

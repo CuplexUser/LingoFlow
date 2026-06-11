@@ -341,6 +341,85 @@ function CoverageGrid({ data }: { data: ContentStatsData }) {
   );
 }
 
+// ── story reader coverage ─────────────────────────────────────────────────────
+
+function StoryCoverageTable({ data }: { data: ContentStatsData }) {
+  const totals = useMemo(() => {
+    let stories = 0, sentences = 0, langsWith = 0;
+    for (const lang of data.languages) {
+      const s = data.stories?.[lang.id];
+      if (!s) continue;
+      stories += s.total;
+      sentences += s.sentences;
+      if (s.total > 0) langsWith++;
+    }
+    return { stories, sentences, langsWith };
+  }, [data]);
+
+  return (
+    <>
+      <div className="coverage-summary">
+        <span className="summary-chip chip-green">{totals.stories} stories</span>
+        <span className="summary-chip chip-legend">{totals.sentences} sentences</span>
+        <span style={{ marginLeft: "auto", fontSize: 12, color: "var(--muted)" }}>
+          available in {totals.langsWith} / {data.languages.length} languages
+        </span>
+      </div>
+      <div className="coverage-grid-wrap">
+        <table className="coverage-table">
+          <thead>
+            <tr>
+              <th className="cat-header">Language</th>
+              <th className="lang-header">A1</th>
+              <th className="lang-header">A2</th>
+              <th className="lang-header">B1</th>
+              <th className="lang-header">B2</th>
+              <th className="lang-header">Stories</th>
+              <th className="lang-header">Sentences</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.languages.map((lang) => {
+              const s = data.stories?.[lang.id];
+              const total = s?.total ?? 0;
+              return (
+                <tr key={lang.id}>
+                  <td className="cat-label">{lang.flag} {lang.label}</td>
+                  {(["a1", "a2", "b1", "b2"] as const).map((lvl) => {
+                    const n = s?.[lvl] ?? 0;
+                    return (
+                      <td key={lvl} className="coverage-cell" style={n === 0 ? { color: "var(--muted)" } : undefined}>
+                        {n}
+                      </td>
+                    );
+                  })}
+                  <td className={`coverage-cell ${total === 0 ? "cell-red" : "cell-green"}`}>{total}</td>
+                  <td className="coverage-cell">{s?.sentences ?? 0}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td className="cat-label foot-label">Total</td>
+              {(["a1", "a2", "b1", "b2"] as const).map((lvl) => {
+                const t = data.languages.reduce((sum, lang) => sum + (data.stories?.[lang.id]?.[lvl] ?? 0), 0);
+                return <td key={lvl} className="coverage-cell foot-total">{t}</td>;
+              })}
+              <td className="coverage-cell foot-total">
+                {data.languages.reduce((sum, lang) => sum + (data.stories?.[lang.id]?.total ?? 0), 0)}
+              </td>
+              <td className="coverage-cell foot-total">
+                {data.languages.reduce((sum, lang) => sum + (data.stories?.[lang.id]?.sentences ?? 0), 0)}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </>
+  );
+}
+
 // ── summary chips ─────────────────────────────────────────────────────────────
 
 function SummaryChips({ data }: { data: ContentStatsData }) {
@@ -424,6 +503,13 @@ export function ContentStatsPage({ canModerate }: Props) {
       >
         <SummaryChips data={data}/>
         <CoverageGrid data={data}/>
+      </ChartCard>
+
+      <ChartCard
+        title="Story Reader coverage"
+        sub="Reading-mode stories by language and CEFR level"
+      >
+        <StoryCoverageTable data={data}/>
       </ChartCard>
     </section>
   );

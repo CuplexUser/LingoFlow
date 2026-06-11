@@ -144,11 +144,21 @@ export type ContentLevelStats = {
   types: Record<string, number>;
 };
 
+export type ContentStoryStats = {
+  a1: number;
+  a2: number;
+  b1: number;
+  b2: number;
+  total: number;
+  sentences: number;
+};
+
 export type ContentStatsData = {
   languages: { id: string; label: string; flag: string }[];
   categories: { id: string; label: string }[];
   levels: string[];
   coverage: Record<string, Record<string, ContentLevelStats>>;
+  stories: Record<string, ContentStoryStats>;
 };
 
 export type Achievement = {
