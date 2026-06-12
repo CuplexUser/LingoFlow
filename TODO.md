@@ -404,8 +404,14 @@ a tooling path to scale authored content across languages.
   English-course story set and is the canonical translation source.
 - [x] **LibreTranslate Stories job.** `scripts/libretranslate` gained a "Stories" content type:
   forward (English → target) for sentences/titles plus a reverse (target → English) glossary pass
-  (`translateStories` in `content-generator.ts`). Never overwrites existing files; `pos` left blank
-  for machine glosses.
+  (`translateStories` in `content-generator.ts`). Generated glossaries borrow `pos` (and exact-match
+  `note`) from the English source glossary, and are written in the compact one-line-per-entry layout of
+  the hand-authored files. Never overwrites existing files.
+- [x] **Per-culture localization.** `scripts/libretranslate/story-localization.json` swaps
+  culturally-specific terms (place names, currency) and overrides the cultural note per target culture,
+  so each language gets a native setting (the B1 letter is set in Barcelona/Paris/Berlin/Rome/Stockholm,
+  not London) instead of carrying English proper nouns straight through MT. The native spelling is fed
+  to MT and shielded from the glossary; the English exonym is kept as the reference.
 - [x] Tests: completion endpoint (idempotent, per-user, 404), loader `break`/optional-`pos`, updated
   content-stats counts; client Finish→complete + Read next flow.
 

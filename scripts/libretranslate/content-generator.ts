@@ -19,13 +19,15 @@ const PRACTICE_WORDS_DIR = path.join(REPO_ROOT, "server", "content", "practice_w
 const PRACTICE_WORDS_TEMPLATE = path.join(PRACTICE_WORDS_DIR, "_template.json");
 const STORIES_DIR = path.join(REPO_ROOT, "server", "content", "stories");
 const STORIES_SOURCE = path.join(STORIES_DIR, "english.json");
+// Lives beside the tooling (not in STORIES_DIR — the loader validates every file there).
+const STORIES_LOCALIZATION = path.join(MODULE_DIR, "story-localization.json");
 export const PRACTICE_WORDS_ID = "practice_words";
 export const STORIES_ID = "stories";
 const SOURCE_LANGUAGE_ID = "english";
 
 // Number of texts sent to LibreTranslate per /translate request. Batching keeps the
 // request count (and the rate-limit budget) low — e.g. ~1000 words become ~20 calls.
-export const TRANSLATE_BATCH_SIZE = 25;
+export const TRANSLATE_BATCH_SIZE = 50;
 
 export interface TargetLanguage extends Choice {
   id: string;
@@ -593,6 +595,62 @@ function readStorySource(): StorySource[] {
   return parsed as StorySource[];
 }
 
+// --- Per-language localization map -------------------------------------------
+//
+// MT preserves proper nouns and the English source is set in the anglosphere
+// (London, pounds, UK museums). To give each language a native setting we read a
+// small map keyed by source story id: `terms` swap culturally-specific words and
+// `culturalNote` overrides the explanatory note per target culture.
+
+type LocalizedTerm = string | { en: string; target: string };
+
+interface StoryLocalization {
+  terms?: Record<string, Record<string, LocalizedTerm>>;
+  culturalNote?: Record<string, { term: string; body: string }>;
+}
+
+type LocalizationMap = Record<string, StoryLocalization>;
+
+function readLocalizationMap(): LocalizationMap {
+  if (!fs.existsSync(STORIES_LOCALIZATION)) return {};
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(fs.readFileSync(STORIES_LOCALIZATION, "utf8"));
+  } catch {
+    throw new Error(`Story localization map is invalid JSON: ${relPath(STORIES_LOCALIZATION)}`);
+  }
+  return parsed && typeof parsed === "object" ? (parsed as LocalizationMap) : {};
+}
+
+// `target` is the native spelling fed to MT (Roma); `en` is the exonym shown as the
+// English reference (Rome). Plain strings use the same value for both.
+const termEn = (value: LocalizedTerm): string => (typeof value === "string" ? value : value.en);
+const termTarget = (value: LocalizedTerm): string =>
+  typeof value === "string" ? value : value.target;
+
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Replace whole-word occurrences of each source term with its per-language value.
+// `useTarget` picks the native spelling (MT input) over the English exonym (reference).
+function applyStoryTerms(
+  text: string,
+  terms: StoryLocalization["terms"],
+  libreCode: string,
+  useTarget: boolean
+): string {
+  if (!terms) return text;
+  let out = text;
+  for (const [source, perLang] of Object.entries(terms)) {
+    const value = perLang[libreCode];
+    if (value === undefined) continue;
+    const replacement = useTarget ? termTarget(value) : termEn(value);
+    out = out.replace(new RegExp(`\\b${escapeRegExp(source)}\\b`, "g"), replacement);
+  }
+  return out;
+}
+
 // Forward (English) text count, used for the wizard's pre-run estimate. The
 // glossary pass adds more calls that can only be counted after translation.
 export function countStorySourceTexts(): number {
@@ -648,6 +706,108 @@ async function translateUnique(
   return map;
 }
 
+interface WordMeta {
+  pos: string;
+  note?: string;
+}
+
+interface GeneratedStory {
+  id: string;
+  level: string;
+  title: string;
+  titleEn: string;
+  theme: string;
+  category: string;
+  sentences: { target: string; en: string; break?: boolean }[];
+  glossary: Record<string, { g: string; pos: string; note?: string }>;
+  culturalNote: { term: string; body: string };
+}
+
+// The hand-authored English glossary carries rich part-of-speech labels and grammar
+// notes. Since generated stories are translations of the *same* English sentences,
+// a reverse-translated word's English gloss usually matches an English glossary key —
+// so we borrow its pos/note rather than leaving pos blank.
+function buildEnglishLexicon(stories: StorySource[]): Map<string, WordMeta> {
+  const lexicon = new Map<string, WordMeta>();
+  for (const story of stories) {
+    for (const [word, entry] of Object.entries(story.glossary || {})) {
+      const key = word.toLowerCase().trim();
+      if (!key || lexicon.has(key)) continue;
+      lexicon.set(key, { pos: String(entry.pos || ""), note: entry.note });
+    }
+  }
+  return lexicon;
+}
+
+const LEADING_ARTICLE_RE = /^(?:to|a|an|the)\s+/;
+
+// Resolve an English gloss to a part-of-speech (and, on an exact match, a note).
+// Falls back through comma/slash alternatives and article-stripped forms for pos.
+function lookupEnglishMeta(
+  lexicon: Map<string, WordMeta>,
+  gloss: string
+): { pos: string; note?: string } | null {
+  const full = gloss.toLowerCase().trim();
+  const exact = lexicon.get(full);
+  if (exact) return { pos: exact.pos, note: exact.note };
+  const pieces = full.split(/\s*(?:,|\/|\bor\b)\s*/).map((piece) => piece.trim()).filter(Boolean);
+  for (const piece of pieces) {
+    for (const candidate of [piece, piece.replace(LEADING_ARTICLE_RE, "").trim()]) {
+      const meta = lexicon.get(candidate);
+      if (meta) return { pos: meta.pos }; // pos only — a note for one sense may not fit a partial match
+    }
+  }
+  return null;
+}
+
+// Serialise stories to match the hand-authored layout: each sentence and glossary
+// entry stays compact on a single line, while the surrounding structure is indented.
+export function formatStoriesJson(stories: GeneratedStory[]): string {
+  const jstr = (value: unknown): string => JSON.stringify(value);
+  const lines: string[] = ["["];
+  stories.forEach((story, storyIndex) => {
+    const storyComma = storyIndex < stories.length - 1 ? "," : "";
+    lines.push("  {");
+    lines.push(`    "id": ${jstr(story.id)},`);
+    lines.push(`    "level": ${jstr(story.level)},`);
+    lines.push(`    "title": ${jstr(story.title)},`);
+    lines.push(`    "titleEn": ${jstr(story.titleEn)},`);
+    lines.push(`    "theme": ${jstr(story.theme)},`);
+    lines.push(`    "category": ${jstr(story.category)},`);
+
+    lines.push(`    "sentences": [`);
+    story.sentences.forEach((sentence, index) => {
+      const comma = index < story.sentences.length - 1 ? "," : "";
+      const parts = [`"target": ${jstr(sentence.target)}`, `"en": ${jstr(sentence.en)}`];
+      if (sentence.break) parts.push(`"break": true`);
+      lines.push(`      { ${parts.join(", ")} }${comma}`);
+    });
+    lines.push(`    ],`);
+
+    const glossEntries = Object.entries(story.glossary);
+    if (glossEntries.length === 0) {
+      lines.push(`    "glossary": {},`);
+    } else {
+      lines.push(`    "glossary": {`);
+      glossEntries.forEach(([word, entry], index) => {
+        const comma = index < glossEntries.length - 1 ? "," : "";
+        const parts = [`"g": ${jstr(entry.g)}`, `"pos": ${jstr(entry.pos)}`];
+        if (entry.note) parts.push(`"note": ${jstr(entry.note)}`);
+        lines.push(`      ${jstr(word)}: { ${parts.join(", ")} }${comma}`);
+      });
+      lines.push(`    },`);
+    }
+
+    lines.push(`    "culturalNote": {`);
+    lines.push(`      "term": ${jstr(story.culturalNote.term)},`);
+    lines.push(`      "body": ${jstr(story.culturalNote.body)}`);
+    lines.push(`    }`);
+    lines.push(`  }${storyComma}`);
+  });
+  lines.push("]");
+  return lines.join("\n");
+}
+
 export interface TranslateStoriesResult {
   outputPath: string;
   elapsed: number;
@@ -664,14 +824,43 @@ export async function translateStories(
   onProgress?: (progress: TranslateProgress) => void
 ): Promise<TranslateStoriesResult> {
   const stories = readStorySource();
+  const localization = readLocalizationMap();
+  const libreCode = config.target;
   const stats: CategoryStats = { callCount: 0, callDurations: [], startedAt: Date.now() };
   const unresolved: string[] = [];
 
-  // Pass 1 — English → target for every sentence and title.
+  // Pre-localize each story for this culture: `src` is the native-spelled English
+  // fed to MT, `en` is the exonym shown as the reference, cultural notes are swapped,
+  // and native place spellings are collected so they never become glossary entries.
+  const prepared = stories.map((story) => {
+    const loc = localization[story.id] || {};
+    const toSource = (text: string) => applyStoryTerms(text, loc.terms, libreCode, true);
+    const toRef = (text: string) => applyStoryTerms(text, loc.terms, libreCode, false);
+    const sentences = story.sentences.map((sentence) => ({
+      src: toSource(sentence.en),
+      en: toRef(sentence.en),
+      break: sentence.break
+    }));
+    const skip = new Set<string>();
+    for (const perLang of Object.values(loc.terms || {})) {
+      const value = perLang[libreCode];
+      if (value !== undefined) for (const token of storyTokens(termTarget(value))) skip.add(token);
+    }
+    return {
+      story,
+      titleSource: toSource(story.titleEn),
+      titleRef: toRef(story.titleEn),
+      sentences,
+      culturalNote: loc.culturalNote?.[libreCode] || story.culturalNote,
+      skip
+    };
+  });
+
+  // Pass 1 — English → target for every (localized) sentence and title.
   const forwardTexts = new Set<string>();
-  for (const story of stories) {
-    forwardTexts.add(story.titleEn);
-    for (const sentence of story.sentences) forwardTexts.add(sentence.en);
+  for (const item of prepared) {
+    forwardTexts.add(item.titleSource);
+    for (const sentence of item.sentences) forwardTexts.add(sentence.src);
   }
   const forwardList = [...forwardTexts];
   const reportForward = (done: number) =>
@@ -689,15 +878,15 @@ export async function translateStories(
 
   // Build target sentences and collect the unique target tokens to gloss.
   const targetTokens = new Set<string>();
-  const builtStories = stories.map((story) => {
-    const sentences = story.sentences.map((sentence) => {
-      const target = forwardMap.get(sentence.en) || sentence.en;
+  const builtStories = prepared.map((item) => {
+    const sentences = item.sentences.map((sentence) => {
+      const target = forwardMap.get(sentence.src) || sentence.src;
       for (const token of storyTokens(target)) targetTokens.add(token);
       const out: { target: string; en: string; break?: boolean } = { target, en: sentence.en };
       if (sentence.break) out.break = true;
       return out;
     });
-    return { story, sentences };
+    return { item, sentences };
   });
 
   // Pass 2 — target → English for each glossary token.
@@ -715,33 +904,39 @@ export async function translateStories(
     tokenList, config, pacer, stats, config.target, "en", unresolved, reportReverse
   );
 
-  const result = builtStories.map(({ story, sentences }) => {
-    const glossary: Record<string, { g: string; pos: string }> = {};
+  const englishLexicon = buildEnglishLexicon(stories);
+  const result: GeneratedStory[] = builtStories.map(({ item, sentences }) => {
+    const { story } = item;
+    const glossary: Record<string, { g: string; pos: string; note?: string }> = {};
     for (const sentence of sentences) {
       for (const token of storyTokens(sentence.target)) {
-        if (glossary[token]) continue;
+        if (glossary[token] || item.skip.has(token)) continue;
         const gloss = glossMap.get(token) || "";
         // Skip words that translated to themselves (proper nouns, unresolved).
         if (!gloss || gloss.toLowerCase() === token) continue;
-        glossary[token] = { g: gloss, pos: "" };
+        // Borrow pos (and an exact-match note) from the English source glossary.
+        const meta = lookupEnglishMeta(englishLexicon, gloss);
+        const entry: { g: string; pos: string; note?: string } = { g: gloss, pos: meta?.pos ?? "" };
+        if (meta?.note) entry.note = meta.note;
+        glossary[token] = entry;
       }
     }
     return {
       id: rewriteId(story.id, language),
       level: story.level,
-      title: forwardMap.get(story.titleEn) || story.titleEn,
-      titleEn: story.titleEn,
+      title: forwardMap.get(item.titleSource) || item.titleSource,
+      titleEn: item.titleRef,
       theme: story.theme,
       category: story.category,
       sentences,
       glossary,
-      culturalNote: story.culturalNote
+      culturalNote: item.culturalNote
     };
   });
 
   const outputPath = getOutputPath(language, STORIES_ID);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, `${JSON.stringify(result, null, 2)}\n`, "utf8");
+  fs.writeFileSync(outputPath, `${formatStoriesJson(result)}\n`, "utf8");
 
   return {
     outputPath,

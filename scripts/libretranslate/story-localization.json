@@ -1,0 +1,69 @@
+{
+  "_comment": "Per-language localization for generated stories. `terms` swap culturally-specific proper nouns (place names, currency) before translation so each language gets a native setting; the `en` exonym is shown as the English reference, the `target` native spelling is fed to MT. `culturalNote` fully overrides the English note with one describing the target culture (kept in English for the learner). Keyed by the source (en-…) story id; language keys are LibreTranslate codes (es/fr/de/it/sv). Anything omitted falls back to the English source.",
+  "en-story-a1-mia": {
+    "culturalNote": {
+      "es": { "term": "Small towns", "body": "In Spain, small towns (pueblos) are cherished for their slower rhythm, where neighbours greet one another in the plaza and daily life centres on family, school and the local shops." },
+      "fr": { "term": "Small towns", "body": "In France, small towns and villages are prized for their gentle pace of life, where daily routines revolve around family, the school and the village square or weekly market." },
+      "de": { "term": "Small towns", "body": "In Germany, small towns (Kleinstädte) are valued for their calm, orderly pace, where residents often know their neighbours and weekends centre on family and local clubs (Vereine)." },
+      "it": { "term": "Small towns", "body": "In Italy, small towns (paesi) are loved for their slower pace, where neighbours meet in the piazza and daily life revolves around family, school and the local shops." },
+      "sv": { "term": "Small towns", "body": "In Sweden, small towns are valued for their calm and their closeness to nature, where life moves at an unhurried pace and weekends often centre on family and the outdoors." }
+    }
+  },
+  "en-story-a1-family": {
+    "culturalNote": {
+      "es": { "term": "Sunday visits", "body": "In Spain, Sunday is traditionally for family. Many gather for a long midday meal (la comida), and visiting grandparents over the weekend is a cherished custom." },
+      "fr": { "term": "Sunday visits", "body": "In France, Sunday is traditionally a family day. Many families share a long déjeuner together, and visiting grandparents is a common weekend tradition." },
+      "de": { "term": "Sunday visits", "body": "In Germany, Sunday is a quiet family day when most shops stay closed. Families often gather for Kaffee und Kuchen in the afternoon and visit grandparents." },
+      "it": { "term": "Sunday visits", "body": "In Italy, Sunday is dedicated to family. Many gather for a long pranzo della domenica, and visiting the nonni over the weekend is a treasured custom." },
+      "sv": { "term": "Sunday visits", "body": "In Sweden, weekends often bring families together for fika — coffee and something sweet — and a relaxed visit to grandparents." }
+    }
+  },
+  "en-story-a2-market": {
+    "terms": {
+      "pounds": { "es": "euros", "fr": "euros", "de": "euros", "it": "euros", "sv": "kronor" }
+    },
+    "culturalNote": {
+      "es": { "term": "Market day", "body": "Open-air markets (mercados and mercadillos) remain popular across Spain. Many towns hold a weekly market where locals buy fresh produce, bread and flowers directly from the sellers." },
+      "fr": { "term": "Market day", "body": "The weekly market (le marché) is a fixture of French life. In most towns, locals shop for fresh produce, bread, cheese and flowers directly from the stallholders." },
+      "de": { "term": "Market day", "body": "Weekly markets (Wochenmärkte) are popular across Germany. On market day, locals buy fresh produce, bread and flowers directly from the sellers on the town square." },
+      "it": { "term": "Market day", "body": "The open-air market (il mercato) is part of daily life in Italy. Many towns hold a weekly market where locals buy fresh produce, bread and flowers from the vendors." },
+      "sv": { "term": "Market day", "body": "Outdoor markets (torghandel) are a familiar sight on town squares across Sweden, where locals buy fresh produce, bread and flowers from the stallholders, especially in summer." }
+    }
+  },
+  "en-story-a2-weekend": {
+    "culturalNote": {
+      "es": { "term": "Hillwalking", "body": "Hiking (senderismo) is a much-loved weekend pastime in Spain, from the Pyrenees to the Picos de Europa. Walkers set out with a packed lunch and often end the day at a village bar." },
+      "fr": { "term": "Hillwalking", "body": "Hiking (la randonnée) is a popular weekend activity in France, from the Alps to the Pyrenees. Walkers set out with a picnic and often finish the day in a mountain café." },
+      "de": { "term": "Hillwalking", "body": "Hiking (Wandern) is a beloved weekend pastime in Germany, especially in regions like the Black Forest and the Alps. Walkers carry a packed lunch and often stop at a mountain hut (Hütte)." },
+      "it": { "term": "Hillwalking", "body": "Hiking (escursionismo) is a popular weekend pastime in Italy, from the Dolomites to the Apennines. Walkers set out with a packed lunch and often end the day in a mountain rifugio." },
+      "sv": { "term": "Hillwalking", "body": "Spending the weekend in nature is central to Swedish life, supported by allemansrätten, the right to roam. Walkers head out with a packed lunch and a thermos, whatever the weather." }
+    }
+  },
+  "en-story-b1-letter": {
+    "terms": {
+      "London": {
+        "es": "Barcelona",
+        "fr": "Paris",
+        "de": "Berlin",
+        "it": { "en": "Rome", "target": "Roma" },
+        "sv": "Stockholm"
+      }
+    },
+    "culturalNote": {
+      "es": { "term": "Free museums", "body": "Spain has many world-class museums, and several offer free entry at certain times — including Madrid's Prado on weekday evenings and many of Barcelona's museums on the first Sunday of the month." },
+      "fr": { "term": "Free museums", "body": "France has many celebrated museums, and the national ones — including the Louvre and the Musée d'Orsay in Paris — offer free entry on the first Sunday of the month." },
+      "de": { "term": "Free museums", "body": "Germany is rich in museums, especially in Berlin, home to the Museumsinsel. Many offer reduced or free admission at certain times, and entry is often free for children and students." },
+      "it": { "term": "Free museums", "body": "Italy is home to extraordinary museums and sites, and state-run ones — including the Colosseum and the Roman Forum in Rome — offer free entry on the first Sunday of the month." },
+      "sv": { "term": "Free museums", "body": "Sweden made many of its national museums free to enter, including several in Stockholm such as the Nationalmuseum and the Moderna Museet, so visitors can explore world-class collections without paying admission." }
+    }
+  },
+  "en-story-b1-interview": {
+    "culturalNote": {
+      "es": { "term": "Starting a new job", "body": "In many Spanish workplaces, a new employee's first day includes a tour, introductions to the team and often a relaxed coffee together. Colleagues tend to be warm and approachable." },
+      "fr": { "term": "Starting a new job", "body": "In many French workplaces, a new colleague's first day includes introductions to the team and often a welcoming coffee. It is common to greet each colleague individually." },
+      "de": { "term": "Starting a new job", "body": "In many German workplaces, a new employee's first day is well organised, with a tour, introductions and a clear handover of tasks. Punctuality and asking questions are valued." },
+      "it": { "term": "Starting a new job", "body": "In many Italian workplaces, a new colleague's first day includes a tour, introductions to the team and often a coffee together at the bar. Colleagues tend to be welcoming." },
+      "sv": { "term": "Starting a new job", "body": "In many Swedish workplaces, a new employee's first day includes introductions and a shared fika with the team. Workplaces tend to be informal and consensus-driven, and questions are welcome." }
+    }
+  }
+}
