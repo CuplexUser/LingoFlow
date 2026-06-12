@@ -376,10 +376,46 @@ pipeline feeding the spaced-repetition system.
   as the learner re-encounters the word.
 - [ ] **Native/Forvo audio** — Story Reader uses browser `SpeechSynthesis` only; real recorded audio
   remains out of scope (shared with the existing audio TODO).
-- [ ] **More stories per language** — each language has the three seed stories (A1/A2/B1). Add more
-  per level and a B2 tier, keeping the concrete high-frequency vocabulary + factual cultural-note bar.
+- [ ] **More stories per language** — English and Russian now ship six longer stories each (2 per
+  A1/A2/B1, see Phase 18.1). Generate the remaining five languages from the English source via the
+  LibreTranslate Stories job, then add a B2 tier.
 - [ ] Optionally surface saved words directly in the mistake-review drill, and add a saved-words
   management view (reuse the Bookmarks page pattern).
+
+#### Phase 18.1: Longer content, progressive library & translation pipeline — shipped
+
+Expands the MVP from one short story per level to a multi-story library that tracks progress, with
+a tooling path to scale authored content across languages.
+
+**Done**
+- [x] **Progressive library + completion tracking.** New `story_completions` table
+  (`UNIQUE(user_id, story_id)`) with `markStoryComplete` / `getCompletedStoryIds` in `db.ts`.
+  `POST /api/stories/:id/complete` records a finish; `GET /api/stories` is now user-aware and returns
+  a `completed` flag per summary. "Finish story" calls the endpoint and the modal offers **Read next**
+  (the next unread story, lowest level first).
+- [x] **Client `StoryPage.tsx`** rebuilt around a two-tier selector: level tabs (A1/A2/B1) drive a
+  per-level story list (`sr-library`) showing each story's title + a completed check. On load it
+  defaults to the first unread story; completed stories persist across reloads.
+- [x] **Longer stories with paragraph breaks.** `storyLoader.ts` accepts an optional `break` flag per
+  sentence (rendered as a paragraph gap) and treats glossary `pos` as optional. English + Russian
+  authored as the reference set: six stories each (Daily life, Family, Market, Weekend, Travel letter,
+  First day at work) at ~10–20 sentences with full grammar-aware glossaries.
+- [x] **English as dual-purpose source.** `server/content/stories/english.json` ships as the
+  English-course story set and is the canonical translation source.
+- [x] **LibreTranslate Stories job.** `scripts/libretranslate` gained a "Stories" content type:
+  forward (English → target) for sentences/titles plus a reverse (target → English) glossary pass
+  (`translateStories` in `content-generator.ts`). Never overwrites existing files; `pos` left blank
+  for machine glosses.
+- [x] Tests: completion endpoint (idempotent, per-user, 404), loader `break`/optional-`pos`, updated
+  content-stats counts; client Finish→complete + Read next flow.
+
+**Remaining**
+- [ ] **Generate es/it/sv/fr/de stories** from the English source. Run
+  `node --experimental-strip-types scripts/libretranslate/index.ts` → *Stories*, after deleting each
+  language's existing short-seed `server/content/stories/<lang>.json`. Requires `LIBRETRANSLATE_URL` /
+  `LIBRETRANSLATE_API_KEY` in `server/.env`. Spot-check and hand-fix any unresolved glosses.
+- [ ] Optional: vocab-mastery–gated story ordering (the `story_completions` schema is compatible with
+  layering this on later).
 
 ## Completed archive
 

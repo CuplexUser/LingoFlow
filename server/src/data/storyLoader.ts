@@ -7,6 +7,7 @@ const STORIES_DIR = path.join(__dirname, "..", "..", "content", "stories");
 interface StorySentence {
   target: string;
   en: string;
+  break?: boolean;
 }
 
 interface StoryGlossEntry {
@@ -84,7 +85,9 @@ function validateStory(raw: unknown, language: string, index: number): Story {
     const en = String(sentence.en ?? "").trim();
     if (!target) throw new Error(`${prefix}.sentences[${sentenceIndex}].target is required`);
     if (!en) throw new Error(`${prefix}.sentences[${sentenceIndex}].en is required`);
-    return { target, en };
+    const normalized: StorySentence = { target, en };
+    if (sentence.break === true) normalized.break = true;
+    return normalized;
   });
 
   if (!item.glossary || typeof item.glossary !== "object" || Array.isArray(item.glossary)) {
@@ -98,9 +101,10 @@ function validateStory(raw: unknown, language: string, index: number): Story {
     }
     const entry = rawEntry as Record<string, unknown>;
     const g = String(entry.g || "").trim();
+    // pos is optional: machine-generated glossaries (LibreTranslate) may omit it,
+    // while hand-authored stories supply rich part-of-speech labels.
     const pos = String(entry.pos || "").trim();
     if (!g) throw new Error(`${prefix}.glossary["${word}"].g is required`);
-    if (!pos) throw new Error(`${prefix}.glossary["${word}"].pos is required`);
     const normalized: StoryGlossEntry = { g, pos };
     if (entry.note !== undefined) {
       if (typeof entry.note !== "string") {

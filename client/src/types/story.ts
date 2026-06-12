@@ -3,6 +3,8 @@ export type StoryLevel = "a1" | "a2" | "b1" | "b2";
 export type StorySentence = {
   target: string;
   en: string;
+  // When true, render a paragraph break before this sentence (longer stories).
+  break?: boolean;
 };
 
 export type StoryGlossEntry = {
@@ -21,6 +23,7 @@ export type StorySummary = {
   theme: string;
   category: string;
   sentenceCount: number;
+  completed?: boolean;
 };
 
 // Full shape returned by GET /api/stories/:id.

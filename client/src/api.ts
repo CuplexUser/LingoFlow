@@ -506,6 +506,8 @@ export const api = {
     return request<StorySummary[]>(`/stories${query ? `?${query}` : ""}`);
   },
   getStory: (id: string): Promise<Story> => request<Story>(`/stories/${encodeURIComponent(id)}`),
+  completeStory: (id: string): Promise<{ ok: boolean }> =>
+    request<{ ok: boolean }>(`/stories/${encodeURIComponent(id)}/complete`, { method: "POST" }),
   getSavedWords: (language?: string): Promise<SavedWord[]> =>
     request<SavedWord[]>(`/saved-words${language ? `?language=${encodeURIComponent(language)}` : ""}`),
   saveWord: (payload: { language: string; word: string; translation: string; storyId: string; category: string }) =>

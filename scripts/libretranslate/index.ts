@@ -18,9 +18,12 @@ import {
   PRACTICE_WORDS_ID,
   RATE_LIMITS,
   SERVER_ENV_PATH,
+  STORIES_CATEGORY,
+  STORIES_ID,
   TARGET_LANGUAGES,
   TRANSLATE_BATCH_SIZE,
   assertCanWriteContent,
+  assertCanWriteStories,
   countUniqueTexts,
   describeLanguagePaths,
   formatDuration,
@@ -32,6 +35,7 @@ import {
   relPath,
   saveRateLimitPreference,
   translateCategory,
+  translateStories,
   type Category,
   type CompletedCategoryStats,
   type LibreTranslateConfig,
@@ -40,7 +44,7 @@ import {
   type TranslateProgress
 } from "./content-generator.ts";
 
-type ContentType = "categories" | "practice_words";
+type ContentType = "categories" | "practice_words" | "stories";
 type WizardStep = "language" | "contentType" | "categories" | "rateLimit" | "confirm";
 type CompletionAction = "again" | "exit";
 
@@ -65,7 +69,8 @@ interface WizardResult {
 
 const CONTENT_TYPES: ContentTypeChoice[] = [
   { label: "Course categories", value: "categories" },
-  { label: "Practice words", value: "practice_words" }
+  { label: "Practice words", value: "practice_words" },
+  { label: "Stories (Story Reader)", value: "stories" }
 ];
 
 function cancelRun(): never {
@@ -106,9 +111,11 @@ function buildSummaryLines(
   const contentSummary =
     contentType === "practice_words"
       ? "Practice words"
-      : `${categories.length} categor${categories.length === 1 ? "y" : "ies"} — ${categories
-          .map((category) => category.label)
-          .join(", ")}`;
+      : contentType === "stories"
+        ? "Stories (English → target, plus a reverse glossary pass)"
+        : `${categories.length} categor${categories.length === 1 ? "y" : "ies"} — ${categories
+            .map((category) => category.label)
+            .join(", ")}`;
 
   return [
     `${color("Language", ANSI.cyan)}    ${language.label} (${language.libreCode})`,
@@ -193,6 +200,26 @@ async function collectWizardSelections(): Promise<WizardResult> {
         continue;
       }
 
+      if (contentType === "stories") {
+        const outputPath = getOutputPath(language!, STORIES_ID);
+        if (fs.existsSync(outputPath)) {
+          const action = await showNotice(
+            `Stories already exist for ${language!.label}`,
+            [
+              `File: ${relPath(outputPath)}`,
+              "",
+              "Delete it first if you want to regenerate the Story Reader content."
+            ],
+            true
+          );
+          if (action === "cancel") cancelRun();
+          continue;
+        }
+        categories = [STORIES_CATEGORY];
+        step = "rateLimit";
+        continue;
+      }
+
       categories = undefined;
       step = "categories";
       continue;
@@ -252,7 +279,7 @@ async function collectWizardSelections(): Promise<WizardResult> {
       });
       if (result.action === "cancel") cancelRun();
       if (result.action === "back") {
-        step = contentType === "practice_words" ? "contentType" : "categories";
+        step = contentType === "categories" ? "categories" : "contentType";
         continue;
       }
 
@@ -290,7 +317,7 @@ async function runTranslationJob(
   selections: WizardResult,
   configBase: LibreTranslateConfig
 ): Promise<"done" | "back"> {
-  const { language, categories, rateLimit } = selections;
+  const { language, categories, contentType, rateLimit } = selections;
   const pacer = new CallPacer(rateLimit.value);
   const config: LibreTranslateConfig = { ...configBase, target: language.libreCode };
   const startedAt = Date.now();
@@ -305,6 +332,42 @@ async function runTranslationJob(
     }.`
   );
   console.log("Only new files will be written. Existing files are never overwritten.");
+
+  // Stories run a two-direction translation (sentences forward, glossary reverse)
+  // that does not fit the per-category loop, so they get a dedicated path.
+  if (contentType === "stories") {
+    try {
+      console.log("\nTranslating Stories (sentences English → target, then glossary target → English)");
+      const result = await translateStories(language, config, pacer, renderProgress);
+      process.stdout.write("\n");
+      console.log(
+        `Wrote ${relPath(result.outputPath)} — ${result.storyCount} stories in ${formatDuration(
+          result.elapsed
+        )} (${result.callCount} calls, avg ${formatDuration(result.averageCallMs)})`
+      );
+      if (result.unresolved.length) {
+        console.log(
+          color(
+            `  ! ${result.unresolved.length} text(s) had no translation and kept the source. Review the glossary by hand.`,
+            ANSI.yellow
+          )
+        );
+      }
+      console.log("\nDone.");
+      return "done";
+    } catch (error) {
+      if (error instanceof LibreTranslateRequestError && error.status === 400) {
+        const action = await showNotice(
+          "LibreTranslate rejected the request",
+          [error.message, "", "No story file was written.", "Go back to adjust your selection, or cancel."],
+          true
+        );
+        if (action === "cancel") cancelRun();
+        return "back";
+      }
+      throw error;
+    }
+  }
 
   try {
     for (const category of categories) {
@@ -423,7 +486,11 @@ async function main(): Promise<void> {
 
     while (true) {
       const selections = await collectWizardSelections();
-      assertCanWriteContent(selections.language, selections.categories);
+      if (selections.contentType === "stories") {
+        assertCanWriteStories(selections.language);
+      } else {
+        assertCanWriteContent(selections.language, selections.categories);
+      }
 
       const result = await runTranslationJob(selections, configBase);
       if (result === "back") continue;

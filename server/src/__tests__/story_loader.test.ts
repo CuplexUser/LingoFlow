@@ -23,17 +23,35 @@ function validStory(overrides: Record<string, unknown> = {}) {
 test("loadStories loads and validates the seeded Russian stories", () => {
   const stories = loadStories();
   const ids = stories.map((story: any) => story.id);
-  assert.ok(ids.includes("ru-story-a1-morning"));
+  assert.ok(ids.includes("ru-story-a1-day"));
   assert.ok(ids.includes("ru-story-a2-market"));
   assert.ok(ids.includes("ru-story-b1-letter"));
 
-  const morning = stories.find((story: any) => story.id === "ru-story-a1-morning");
-  assert.equal(morning.language, "russian");
-  assert.equal(morning.level, "a1");
-  assert.ok(morning.sentences.length >= 1);
-  assert.ok(morning.glossary["москве"]);
-  assert.equal(morning.glossary["москве"].g, "Moscow");
-  assert.ok(morning.glossary["москве"].note);
+  const day = stories.find((story: any) => story.id === "ru-story-a1-day");
+  assert.equal(day.language, "russian");
+  assert.equal(day.level, "a1");
+  assert.ok(day.sentences.length >= 1);
+  assert.ok(day.glossary["городе"]);
+  assert.equal(day.glossary["городе"].g, "town, city");
+  assert.ok(day.glossary["рядом"].note);
+});
+
+test("validateStory carries an optional paragraph break and allows blank pos", () => {
+  const story = validateStory(
+    validStory({
+      sentences: [
+        { target: "Привет.", en: "Hi." },
+        { target: "Пока.", en: "Bye.", break: true }
+      ],
+      glossary: { "пока": { g: "bye" } }
+    }),
+    "russian",
+    0
+  );
+  assert.equal(story.sentences[0].break, undefined);
+  assert.equal(story.sentences[1].break, true);
+  assert.equal(story.glossary["пока"].g, "bye");
+  assert.equal(story.glossary["пока"].pos, "");
 });
 
 test("validateStory normalizes glossary keys to lowercase", () => {

@@ -496,6 +496,15 @@ db.exec(`
     UNIQUE(user_id, language, word)
   );
 
+  CREATE TABLE IF NOT EXISTS story_completions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    language TEXT NOT NULL,
+    story_id TEXT NOT NULL,
+    completed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(user_id, story_id)
+  );
+
   CREATE TABLE IF NOT EXISTS achievements (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -2103,6 +2112,30 @@ function getSavedWordPoolItems(userId, language) {
     }));
 }
 
+// Records that a learner finished reading a story. Idempotent: re-finishing the
+// same story refreshes the timestamp without creating duplicate rows.
+function markStoryComplete(userId, { storyId, language }) {
+  const safeStoryId = String(storyId || "").trim();
+  const safeLanguage = normalizeLanguageId(language, "");
+  if (!safeStoryId || !safeLanguage) return false;
+  db.prepare(`
+    INSERT INTO story_completions (user_id, language, story_id, completed_at)
+    VALUES (?, ?, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT(user_id, story_id) DO UPDATE SET completed_at = CURRENT_TIMESTAMP
+  `).run(userId, safeLanguage, safeStoryId);
+  return true;
+}
+
+// Returns the set of story ids the learner has finished, optionally scoped to a
+// language. Used to flag completed stories in the Story Reader library.
+function getCompletedStoryIds(userId, language?) {
+  const safeLanguage = language ? normalizeLanguageId(language, "") : null;
+  const rows = safeLanguage
+    ? db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND language = ?`).all(userId, safeLanguage)
+    : db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ?`).all(userId);
+  return rows.map((row) => row.story_id);
+}
+
 function getStats(userId = 1, language) {
   const settings = getSettings(userId);
   const safeLanguage = normalizeLanguageId(language, settings.targetLanguage || "spanish");
@@ -2691,6 +2724,8 @@ module.exports = {
   removeReviewWord,
   getSavedReviewWords,
   getSavedWordPoolItems,
+  markStoryComplete,
+  getCompletedStoryIds,
   getTodayXp,
   getProgress,
   getProgressOverview,

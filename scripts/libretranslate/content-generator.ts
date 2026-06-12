@@ -17,7 +17,10 @@ export const SERVER_ENV_PATH = path.join(REPO_ROOT, "server", ".env");
 const CONTENT_ROOT = path.join(REPO_ROOT, "server", "content", "languages");
 const PRACTICE_WORDS_DIR = path.join(REPO_ROOT, "server", "content", "practice_words");
 const PRACTICE_WORDS_TEMPLATE = path.join(PRACTICE_WORDS_DIR, "_template.json");
+const STORIES_DIR = path.join(REPO_ROOT, "server", "content", "stories");
+const STORIES_SOURCE = path.join(STORIES_DIR, "english.json");
 export const PRACTICE_WORDS_ID = "practice_words";
+export const STORIES_ID = "stories";
 const SOURCE_LANGUAGE_ID = "english";
 
 // Number of texts sent to LibreTranslate per /translate request. Batching keeps the
@@ -109,6 +112,8 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const PRACTICE_WORDS_CATEGORY: Category = { id: PRACTICE_WORDS_ID, label: "Practice Words" };
+
+export const STORIES_CATEGORY: Category = { id: STORIES_ID, label: "Stories" };
 
 export const RATE_LIMITS: RateLimitChoice[] = [
   { label: "60 calls/minute", value: 60 },
@@ -219,6 +224,9 @@ export function saveRateLimitPreference(value: number): void {
 export function getOutputPath(language: TargetLanguage, categoryId: string): string {
   if (categoryId === PRACTICE_WORDS_ID) {
     return path.join(PRACTICE_WORDS_DIR, `${language.id}.json`);
+  }
+  if (categoryId === STORIES_ID) {
+    return path.join(STORIES_DIR, `${language.id}.json`);
   }
   return path.join(CONTENT_ROOT, language.id, `${categoryId}.json`);
 }
@@ -385,6 +393,7 @@ export function prepareTranslationUnit(
 
 // Words that will actually be sent to the API for a category (after de-duplication).
 export function countUniqueTexts(category: Category, language: TargetLanguage): number {
+  if (category.id === STORIES_ID) return countStorySourceTexts();
   return prepareTranslationUnit(category, language).uniqueTexts.length;
 }
 
@@ -410,7 +419,11 @@ async function translateBatch(
   texts: string[],
   config: LibreTranslateConfig,
   pacer: CallPacer,
-  stats: TranslationStats
+  stats: TranslationStats,
+  // Direction overrides. Default to English → config.target so existing callers
+  // are unchanged; the story glossary pass uses the reverse (target → English).
+  source: string = "en",
+  target: string = config.target
 ): Promise<string[]> {
   if (!texts.length) return [];
 
@@ -422,8 +435,8 @@ async function translateBatch(
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       q: texts,
-      source: "en",
-      target: config.target,
+      source,
+      target,
       format: "text",
       api_key: config.apiKey
     })
@@ -532,6 +545,210 @@ export async function translateCategory(
     elapsed: Date.now() - stats.startedAt,
     callCount: stats.callCount,
     averageCallMs: average(stats.callDurations),
+    unresolved
+  };
+}
+
+// --- Story Reader generation -------------------------------------------------
+//
+// Stories need two translation directions: English → target for the sentences
+// and titles, then target → English for the per-word glossary. The hand-authored
+// `english.json` is the source of truth; generated files mirror its structure with
+// a machine glossary (pos left blank — the loader treats pos as optional).
+
+interface StorySourceSentence {
+  target?: string;
+  en: string;
+  break?: boolean;
+}
+
+interface StorySource {
+  id: string;
+  level: string;
+  title?: string;
+  titleEn: string;
+  theme: string;
+  category: string;
+  sentences: StorySourceSentence[];
+  glossary?: Record<string, { g: string; pos: string; note?: string }>;
+  culturalNote: { term: string; body: string };
+}
+
+// Word tokens used as glossary keys: unicode letters with internal apostrophes
+// or hyphens, lowercased. Mirrors the client tokenizer closely enough for lookups.
+const STORY_WORD_RE = /\p{L}[\p{L}\p{M}'’-]*/gu;
+
+function storyTokens(text: string): string[] {
+  return (text.match(STORY_WORD_RE) || []).map((word) => word.toLowerCase());
+}
+
+function readStorySource(): StorySource[] {
+  if (!fs.existsSync(STORIES_SOURCE)) {
+    throw new Error(`Story source is missing: ${relPath(STORIES_SOURCE)}`);
+  }
+  const parsed: unknown = JSON.parse(fs.readFileSync(STORIES_SOURCE, "utf8"));
+  if (!Array.isArray(parsed)) {
+    throw new Error(`Story source must be an array: ${relPath(STORIES_SOURCE)}`);
+  }
+  return parsed as StorySource[];
+}
+
+// Forward (English) text count, used for the wizard's pre-run estimate. The
+// glossary pass adds more calls that can only be counted after translation.
+export function countStorySourceTexts(): number {
+  const stories = readStorySource();
+  const texts = new Set<string>();
+  for (const story of stories) {
+    texts.add(story.titleEn);
+    for (const sentence of story.sentences) texts.add(sentence.en);
+  }
+  return texts.size;
+}
+
+export function assertCanWriteStories(language: TargetLanguage): void {
+  if (!fs.existsSync(STORIES_SOURCE)) {
+    throw new Error(`Story source is missing: ${relPath(STORIES_SOURCE)}. Author it before generating.`);
+  }
+  const outputPath = getOutputPath(language, STORIES_ID);
+  if (fs.existsSync(outputPath)) {
+    throw new Error(`Refusing to overwrite existing file: ${relPath(outputPath)}`);
+  }
+}
+
+// Translate a de-duplicated list in a single direction, retrying empties once and
+// recording any text that never resolved (it keeps the source as a fallback).
+async function translateUnique(
+  uniqueTexts: string[],
+  config: LibreTranslateConfig,
+  pacer: CallPacer,
+  stats: TranslationStats,
+  source: string,
+  target: string,
+  unresolved: string[],
+  onBatch?: (done: number) => void
+): Promise<Map<string, string>> {
+  const map = new Map<string, string>();
+  for (let index = 0; index < uniqueTexts.length; index += TRANSLATE_BATCH_SIZE) {
+    const batch = uniqueTexts.slice(index, index + TRANSLATE_BATCH_SIZE);
+    const translations = await translateBatch(batch, config, pacer, stats, source, target);
+    for (const [offset, sourceText] of batch.entries()) {
+      let translated = translations[offset];
+      if (!translated) {
+        const [retried] = await translateBatch([sourceText], config, pacer, stats, source, target);
+        translated = retried || "";
+      }
+      if (!translated) {
+        unresolved.push(sourceText);
+        translated = sourceText;
+      }
+      map.set(sourceText, translated);
+    }
+    onBatch?.(Math.min(index + batch.length, uniqueTexts.length));
+  }
+  return map;
+}
+
+export interface TranslateStoriesResult {
+  outputPath: string;
+  elapsed: number;
+  callCount: number;
+  averageCallMs: number;
+  storyCount: number;
+  unresolved: string[];
+}
+
+export async function translateStories(
+  language: TargetLanguage,
+  config: LibreTranslateConfig,
+  pacer: CallPacer,
+  onProgress?: (progress: TranslateProgress) => void
+): Promise<TranslateStoriesResult> {
+  const stories = readStorySource();
+  const stats: CategoryStats = { callCount: 0, callDurations: [], startedAt: Date.now() };
+  const unresolved: string[] = [];
+
+  // Pass 1 — English → target for every sentence and title.
+  const forwardTexts = new Set<string>();
+  for (const story of stories) {
+    forwardTexts.add(story.titleEn);
+    for (const sentence of story.sentences) forwardTexts.add(sentence.en);
+  }
+  const forwardList = [...forwardTexts];
+  const reportForward = (done: number) =>
+    onProgress?.({
+      category: STORIES_CATEGORY,
+      words: forwardList.length,
+      totalWords: forwardList.length,
+      batchCount: Math.ceil(forwardList.length / TRANSLATE_BATCH_SIZE),
+      done,
+      averageCallMs: average(stats.callDurations)
+    });
+  const forwardMap = await translateUnique(
+    forwardList, config, pacer, stats, "en", config.target, unresolved, reportForward
+  );
+
+  // Build target sentences and collect the unique target tokens to gloss.
+  const targetTokens = new Set<string>();
+  const builtStories = stories.map((story) => {
+    const sentences = story.sentences.map((sentence) => {
+      const target = forwardMap.get(sentence.en) || sentence.en;
+      for (const token of storyTokens(target)) targetTokens.add(token);
+      const out: { target: string; en: string; break?: boolean } = { target, en: sentence.en };
+      if (sentence.break) out.break = true;
+      return out;
+    });
+    return { story, sentences };
+  });
+
+  // Pass 2 — target → English for each glossary token.
+  const tokenList = [...targetTokens];
+  const reportReverse = (done: number) =>
+    onProgress?.({
+      category: STORIES_CATEGORY,
+      words: tokenList.length,
+      totalWords: tokenList.length,
+      batchCount: Math.ceil(tokenList.length / TRANSLATE_BATCH_SIZE),
+      done,
+      averageCallMs: average(stats.callDurations)
+    });
+  const glossMap = await translateUnique(
+    tokenList, config, pacer, stats, config.target, "en", unresolved, reportReverse
+  );
+
+  const result = builtStories.map(({ story, sentences }) => {
+    const glossary: Record<string, { g: string; pos: string }> = {};
+    for (const sentence of sentences) {
+      for (const token of storyTokens(sentence.target)) {
+        if (glossary[token]) continue;
+        const gloss = glossMap.get(token) || "";
+        // Skip words that translated to themselves (proper nouns, unresolved).
+        if (!gloss || gloss.toLowerCase() === token) continue;
+        glossary[token] = { g: gloss, pos: "" };
+      }
+    }
+    return {
+      id: rewriteId(story.id, language),
+      level: story.level,
+      title: forwardMap.get(story.titleEn) || story.titleEn,
+      titleEn: story.titleEn,
+      theme: story.theme,
+      category: story.category,
+      sentences,
+      glossary,
+      culturalNote: story.culturalNote
+    };
+  });
+
+  const outputPath = getOutputPath(language, STORIES_ID);
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, `${JSON.stringify(result, null, 2)}\n`, "utf8");
+
+  return {
+    outputPath,
+    elapsed: Date.now() - stats.startedAt,
+    callCount: stats.callCount,
+    averageCallMs: average(stats.callDurations),
+    storyCount: result.length,
     unresolved
   };
 }

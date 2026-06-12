@@ -13,7 +13,7 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 - Post-session mistake review — optional mini-session drilled from session errors
 - Session autosave and resume — in-progress sessions survive page refresh or tab close
 - Per-language course switching — independent progress tracked per language
-- **Story Reader** (Read tab) — comprehensible-input reading mode with leveled short stories (A1–B2). Tap any word for a bottom lookup drawer (gloss, part of speech, optional grammar note, listen button) backed by the same three-tier word system as exercise tooltips. Glossary words get a solid accent underline, grammar-hint words a dotted underline. Includes sentence-level audio, a Show/Hide English toggle, an inline cultural note, and looked-up/saved counters. "Save to review" persists unknown words so they resurface in practice sessions via spaced repetition. Reading grants no XP (anti-score-inflation).
+- **Story Reader** (Read tab) — comprehensible-input reading mode with a leveled story library (A1–B2). Each level offers several stories; level tabs drive a per-level list that marks finished stories and opens to the first unread one. Tap any word for a bottom lookup drawer (gloss, part of speech, optional grammar note, listen button) backed by the same three-tier word system as exercise tooltips. Glossary words get a solid accent underline, grammar-hint words a dotted underline. Stories run from short A1 pieces to multi-paragraph B1 reads, with sentence-level audio, a Show/Hide English toggle, an inline cultural note, and looked-up/saved counters. "Finish story" records completion and suggests the next unread story; "Save to review" persists unknown words so they resurface in practice sessions via spaced repetition. Reading grants no XP (anti-score-inflation).
 
 ### Exercise Types
 
@@ -56,7 +56,9 @@ npm run translate:language
 
 The tool reads `server/.env`, lets you select a supported target language and category files, rate-limits API calls if needed, and writes only new files under `server/content/languages/<language>/`. It never overwrites existing category files.
 
-The wizard first asks **what to generate** — course categories or the **practice word** pool. Choosing practice words translates the English word list in `server/content/practice_words/_template.json` into the target language, writing `server/content/practice_words/<language>.json`. Translations are batched (`TRANSLATE_BATCH_SIZE` words per request), so a ~1000-word pool costs roughly 20 API calls rather than one per word.
+The wizard first asks **what to generate** — course categories, the **practice word** pool, or **Story Reader stories**. Choosing practice words translates the English word list in `server/content/practice_words/_template.json` into the target language, writing `server/content/practice_words/<language>.json`. Translations are batched (`TRANSLATE_BATCH_SIZE` words per request), so a ~1000-word pool costs roughly 20 API calls rather than one per word.
+
+Choosing **Stories** reads the hand-authored `server/content/stories/english.json`, translates each sentence and title English → target, then runs a reverse target → English pass to build a per-word glossary (part-of-speech left blank for machine glosses), writing `server/content/stories/<language>.json`. As with all jobs it never overwrites an existing file, so delete a language's short-seed story file first if you want to regenerate it from the longer English source.
 
 The generator code is split for clarity under `scripts/libretranslate/`: `terminal-menu.ts` (generic interactive prompts), `content-generator.ts` (translation + JSON file IO), and `index.ts` (the wizard that wires them together).
 
@@ -327,6 +329,7 @@ npm run verify          # Lint + client tests
 | `DELETE` | `/api/bookmarks/:questionId` | Remove a bookmark |
 | `GET` | `/api/stories?language=<id>&level=<lvl>&category=<cat>` | List story summaries (filterable) |
 | `GET` | `/api/stories/:id` | Fetch a full story (sentences, glossary, cultural note) |
+| `POST` | `/api/stories/:id/complete` | Mark a story finished (idempotent, per user) |
 | `GET` | `/api/saved-words?language=<id>` | List words saved from the Story Reader |
 | `POST` | `/api/saved-words` | Save a word to review (idempotent; enters the SRS queue) |
 | `DELETE` | `/api/saved-words/:word?language=<id>` | Remove a saved word |

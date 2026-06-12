@@ -99,13 +99,22 @@ function registerCourseRoutes(app: any, deps: any): void {
     const language = String(req.query.language || "").trim().toLowerCase();
     const level = String(req.query.level || "").trim().toLowerCase();
     const category = String(req.query.category || "").trim();
-    return res.json(listStories({ language, level, category }));
+    const summaries = listStories({ language, level, category });
+    const completed = new Set<string>(database.getCompletedStoryIds(req.authUserId, language || undefined));
+    return res.json(summaries.map((story: any) => ({ ...story, completed: completed.has(story.id) })));
   });
 
   app.get("/api/stories/:id", requireAuth, (req: any, res: any) => {
     const story = getStoryById(String(req.params.id || ""));
     if (!story) return res.status(404).json({ error: "Story not found" });
     return res.json(story);
+  });
+
+  app.post("/api/stories/:id/complete", requireAuth, (req: any, res: any) => {
+    const story = getStoryById(String(req.params.id || ""));
+    if (!story) return res.status(404).json({ error: "Story not found" });
+    database.markStoryComplete(req.authUserId, { storyId: story.id, language: story.language });
+    return res.json({ ok: true });
   });
 
   app.get("/api/content/metrics", requireAuth, (req: any, res: any) => {

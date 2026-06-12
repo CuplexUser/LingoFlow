@@ -81,13 +81,13 @@ test("GET /api/stories/:id returns the full story and 404s for unknown ids", asy
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "story-fetch");
 
-  const res = await fetch(`${srv.base}/api/stories/ru-story-a1-morning`, { headers });
+  const res = await fetch(`${srv.base}/api/stories/ru-story-a1-day`, { headers });
   assert.equal(res.status, 200);
   const story = await res.json() as any;
-  assert.equal(story.id, "ru-story-a1-morning");
+  assert.equal(story.id, "ru-story-a1-day");
   assert.ok(Array.isArray(story.sentences) && story.sentences.length > 0);
   assert.ok(story.sentences[0].target && story.sentences[0].en);
-  assert.ok(story.glossary["москве"]);
+  assert.ok(story.glossary["городе"]);
   assert.ok(story.culturalNote.term && story.culturalNote.body);
 
   const missing = await fetch(`${srv.base}/api/stories/does-not-exist`, { headers });
@@ -111,7 +111,7 @@ test("POST /api/saved-words is idempotent and creates a single SRS item", async 
     language: "russian",
     word: "Москве",
     translation: "Moscow",
-    storyId: "ru-story-a1-morning",
+    storyId: "ru-story-a1-day",
     category: "essentials"
   };
 
@@ -150,6 +150,37 @@ test("POST /api/saved-words is idempotent and creates a single SRS item", async 
   assert.equal(after.filter((entry) => entry.word === "москве").length, 0);
 });
 
+test("POST /api/stories/:id/complete marks a story completed, per user and idempotently", async (t) => {
+  const srv = new TestServer();
+  t.after(() => srv.close());
+  const headers = await createAuthHeaders(srv.base, "story-complete");
+
+  const before = await (await fetch(`${srv.base}/api/stories?language=russian`, { headers })).json() as any[];
+  const target = before.find((story) => story.id === "ru-story-a1-day");
+  assert.ok(target, "story summary is present");
+  assert.equal(target.completed, false, "fresh user has not completed the story");
+
+  const done = await fetch(`${srv.base}/api/stories/ru-story-a1-day/complete`, { method: "POST", headers });
+  assert.equal(done.status, 200);
+  // Re-completing the same story must stay a single, stable record.
+  const again = await fetch(`${srv.base}/api/stories/ru-story-a1-day/complete`, { method: "POST", headers });
+  assert.equal(again.status, 200);
+
+  const after = await (await fetch(`${srv.base}/api/stories?language=russian`, { headers })).json() as any[];
+  assert.equal(after.find((story) => story.id === "ru-story-a1-day").completed, true);
+  // A different story remains unread.
+  assert.equal(after.find((story) => story.id === "ru-story-a2-market").completed, false);
+
+  // Completion is per-user: a second learner still sees it as unread.
+  const other = await createAuthHeaders(srv.base, "story-complete-other");
+  const otherList = await (await fetch(`${srv.base}/api/stories?language=russian`, { headers: other })).json() as any[];
+  assert.equal(otherList.find((story) => story.id === "ru-story-a1-day").completed, false);
+
+  // Unknown ids 404 rather than recording a phantom completion.
+  const missing = await fetch(`${srv.base}/api/stories/does-not-exist/complete`, { method: "POST", headers });
+  assert.equal(missing.status, 404);
+});
+
 test("GET /api/admin/content-stats reports story coverage per language", async (t) => {
   const reviewerEmail = `stats-admin-${Date.now()}-${Math.random().toString(16).slice(2)}@example.com`;
   const prevReviewers = process.env.CONTRIBUTION_REVIEWER_EMAILS;
@@ -186,10 +217,10 @@ test("GET /api/admin/content-stats reports story coverage per language", async (
   assert.ok(data.stories, "response includes a stories coverage map");
   const ru = data.stories.russian;
   assert.ok(ru, "russian story coverage is present");
-  assert.equal(ru.total, 3, "three Russian stories are seeded");
-  assert.equal(ru.a1, 1);
-  assert.equal(ru.a2, 1);
-  assert.equal(ru.b1, 1);
+  assert.equal(ru.total, 6, "six Russian stories are seeded");
+  assert.equal(ru.a1, 2);
+  assert.equal(ru.a2, 2);
+  assert.equal(ru.b1, 2);
   assert.ok(ru.sentences >= 3, "sentence totals are aggregated");
   // Every language listed in coverage should have a stories entry (even if empty).
   for (const lang of data.languages) {
@@ -205,7 +236,7 @@ test("saved words surface as items in the practice pool", async (t) => {
 
   await fetch(`${srv.base}/api/saved-words`, {
     method: "POST", headers,
-    body: JSON.stringify({ language: "russian", word: "город", translation: "city", storyId: "ru-story-a1-morning" })
+    body: JSON.stringify({ language: "russian", word: "город", translation: "city", storyId: "ru-story-a1-day" })
   });
 
   const poolItems = database.getSavedWordPoolItems(userId, "russian");

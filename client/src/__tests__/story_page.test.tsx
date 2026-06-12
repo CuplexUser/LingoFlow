@@ -4,6 +4,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 
 const getStories = vi.fn();
 const getStory = vi.fn();
+const completeStory = vi.fn();
 const getSavedWords = vi.fn();
 const fetchWordTranslations = vi.fn();
 const saveWord = vi.fn();
@@ -13,6 +14,7 @@ vi.mock("../api", () => ({
   api: {
     getStories: (...args: unknown[]) => getStories(...args),
     getStory: (...args: unknown[]) => getStory(...args),
+    completeStory: (...args: unknown[]) => completeStory(...args),
     getSavedWords: (...args: unknown[]) => getSavedWords(...args),
     fetchWordTranslations: (...args: unknown[]) => fetchWordTranslations(...args),
     saveWord: (...args: unknown[]) => saveWord(...args),
@@ -59,6 +61,7 @@ const SUMMARIES = [
 beforeEach(() => {
   vi.clearAllMocks();
   getStories.mockResolvedValue(SUMMARIES);
+  completeStory.mockResolvedValue({ ok: true });
   getSavedWords.mockResolvedValue([]);
   fetchWordTranslations.mockResolvedValue({});
   saveWord.mockResolvedValue({ ok: true, saved: true });
@@ -69,8 +72,9 @@ beforeEach(() => {
 describe("StoryPage", () => {
   it("renders the first story for the active language", async () => {
     render(<StoryPage language="russian" languageLabel="Russian" />);
-    expect(await screen.findByText("Утро Анны")).toBeInTheDocument();
-    expect(screen.getByText("Anna's morning")).toBeInTheDocument();
+    // The title shows in the story heading (the library list repeats it as a span).
+    expect(await screen.findByRole("heading", { name: "Утро Анны" })).toBeInTheDocument();
+    expect(screen.getAllByText("Anna's morning").length).toBeGreaterThan(0);
     // English translations are hidden until toggled on.
     expect(screen.queryByText("Anna lives in Moscow.")).not.toBeInTheDocument();
   });
@@ -113,9 +117,22 @@ describe("StoryPage", () => {
 
   it("switches stories when a different level is selected", async () => {
     render(<StoryPage language="russian" languageLabel="Russian" />);
-    await screen.findByText("Утро Анны");
+    await screen.findByRole("heading", { name: "Утро Анны" });
     await userEvent.click(screen.getByRole("button", { name: "A2" }));
-    expect(await screen.findByText("На рынке")).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "На рынке" })).toBeInTheDocument();
+    expect(getStory).toHaveBeenCalledWith("ru-a2");
+  });
+
+  it("marks the story complete on finish and jumps to the next unread story", async () => {
+    render(<StoryPage language="russian" languageLabel="Russian" />);
+    await screen.findByRole("heading", { name: "Утро Анны" });
+
+    await userEvent.click(screen.getByRole("button", { name: /Finish story/ }));
+    await waitFor(() => expect(completeStory).toHaveBeenCalledWith("ru-a1"));
+
+    // The completion modal offers the next unread story (the A2 one).
+    await userEvent.click(await screen.findByRole("button", { name: /Read next/ }));
+    expect(await screen.findByRole("heading", { name: "На рынке" })).toBeInTheDocument();
     expect(getStory).toHaveBeenCalledWith("ru-a2");
   });
 });

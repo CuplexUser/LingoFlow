@@ -8,6 +8,24 @@ type StoryPageProps = {
   languageLabel: string;
 };
 
+const LEVEL_SEQUENCE = ["a1", "a2", "b1", "b2"];
+
+// First unread story in a list, falling back to the first story so a level tab
+// always resolves to something selectable.
+function firstUnreadId(list: StorySummary[]): string {
+  const unread = list.find((summary) => !summary.completed);
+  return (unread ?? list[0])?.id ?? "";
+}
+
+// Next unread story across the whole library (lowest level first), used to power
+// the "Read next" affordance after finishing a story.
+function nextUnreadStory(list: StorySummary[], currentId: string): StorySummary | null {
+  const ordered = [...list].sort(
+    (a, b) => LEVEL_SEQUENCE.indexOf(a.level) - LEVEL_SEQUENCE.indexOf(b.level)
+  );
+  return ordered.find((summary) => !summary.completed && summary.id !== currentId) ?? null;
+}
+
 type DrawerEntry = {
   word: string;
   gloss: string;
@@ -66,6 +84,7 @@ function Icon({ name }: { name: string }) {
 export function StoryPage({ language, languageLabel }: StoryPageProps) {
   const [stories, setStories] = useState<StorySummary[]>([]);
   const [storiesError, setStoriesError] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState("");
   const [selectedId, setSelectedId] = useState("");
   const [story, setStory] = useState<Story | null>(null);
   const [storyLoading, setStoryLoading] = useState(false);
@@ -90,7 +109,14 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
       .then((list) => {
         if (cancelled) return;
         setStories(list);
-        setSelectedId(list[0]?.id ?? "");
+        // Default to the lowest level that still has an unread story (progressive).
+        const present = LEVEL_SEQUENCE.filter((lvl) => list.some((s) => s.level === lvl));
+        const level =
+          present.find((lvl) => list.some((s) => s.level === lvl && !s.completed)) ??
+          present[0] ??
+          "";
+        setSelectedLevel(level);
+        setSelectedId(firstUnreadId(list.filter((s) => s.level === level)));
       })
       .catch(() => {
         if (cancelled) return;
@@ -187,6 +213,7 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
     return story.sentences.map((sentence) => ({
       en: sentence.en,
       target: sentence.target,
+      brk: Boolean(sentence.break),
       tokens: tokenizeSentence(sentence.target).map((token) => {
         const interactive = tokenHasLetter(token.core);
         const key = interactive ? token.core.toLowerCase() : "";
@@ -250,13 +277,41 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
     }
   }
 
-  const levels = useMemo(() => {
-    const seen = new Map<string, string>();
-    for (const summary of stories) {
-      if (!seen.has(summary.level)) seen.set(summary.level, summary.id);
-    }
-    return [...seen.entries()].map(([level, id]) => ({ level, id }));
+  const availableLevels = useMemo(() => {
+    const present = new Set(stories.map((summary) => summary.level));
+    return LEVEL_SEQUENCE.filter((level) => present.has(level as StorySummary["level"]));
   }, [stories]);
+
+  const storiesInLevel = useMemo(
+    () => stories.filter((summary) => summary.level === selectedLevel),
+    [stories, selectedLevel]
+  );
+
+  const readNext = useMemo(() => nextUnreadStory(stories, selectedId), [stories, selectedId]);
+
+  function selectLevel(level: string) {
+    setSelectedLevel(level);
+    setSelectedId(firstUnreadId(stories.filter((summary) => summary.level === level)));
+  }
+
+  function selectStory(summary: StorySummary) {
+    setSelectedLevel(summary.level);
+    setSelectedId(summary.id);
+    setFinished(false);
+  }
+
+  async function handleFinish() {
+    setFinished(true);
+    if (!story) return;
+    const id = story.id;
+    // Optimistically mark the story complete; completion is best-effort.
+    setStories((prev) => prev.map((s) => (s.id === id ? { ...s, completed: true } : s)));
+    try {
+      await api.completeStory(id);
+    } catch {
+      /* the modal still shows; completion will retry on the next finish */
+    }
+  }
 
   const savedList = [...saved];
 
@@ -268,15 +323,15 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
             <p className="eyebrow">Read · {languageLabel}</p>
             <h2>Story Reader</h2>
           </div>
-          {levels.length > 0 && (
+          {availableLevels.length > 0 && (
             <div className="sr-levels" role="group" aria-label="Reading level">
-              {levels.map(({ level, id }) => (
+              {availableLevels.map((level) => (
                 <button
                   key={level}
                   type="button"
                   className="sr-level"
-                  aria-pressed={stories.find((s) => s.id === selectedId)?.level === level}
-                  onClick={() => setSelectedId(id)}
+                  aria-pressed={selectedLevel === level}
+                  onClick={() => selectLevel(level)}
                 >
                   {level.toUpperCase()}
                 </button>
@@ -284,6 +339,31 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
             </div>
           )}
         </div>
+
+        {storiesInLevel.length > 0 && (
+          <ul className="sr-library" aria-label="Stories in this level">
+            {storiesInLevel.map((summary) => (
+              <li key={summary.id}>
+                <button
+                  type="button"
+                  className={`sr-lib-item ${summary.id === selectedId ? "active" : ""} ${
+                    summary.completed ? "done" : ""
+                  }`}
+                  aria-pressed={summary.id === selectedId}
+                  onClick={() => selectStory(summary)}
+                >
+                  <span className="sr-lib-title">{summary.title}</span>
+                  <span className="sr-lib-sub">{summary.titleEn}</span>
+                  {summary.completed ? (
+                    <span className="sr-lib-check" aria-label="Completed">
+                      <Icon name="check" />
+                    </span>
+                  ) : null}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {storiesError ? <div className="status">{storiesError}</div> : null}
         {!storiesError && !stories.length ? (
@@ -303,7 +383,7 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
 
             <div className="sr-story">
               {tokenized.map((sentence, sentenceIndex) => (
-                <p className="sr-sent" key={sentenceIndex}>
+                <p className={`sr-sent${sentence.brk ? " sr-break" : ""}`} key={sentenceIndex}>
                   {sentence.tokens.map((token, tokenIndex) => {
                     const trailingSpace = tokenIndex < sentence.tokens.length - 1 ? " " : "";
                     if (!token.entry || !token.key) {
@@ -433,7 +513,7 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
                 <b>{saved.size}</b> saved
               </span>
             </div>
-            <button type="button" className="sr-finish" onClick={() => setFinished(true)}>
+            <button type="button" className="sr-finish" onClick={handleFinish}>
               Finish story <Icon name="arrow" />
             </button>
           </div>
@@ -464,9 +544,14 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
               )}
             </div>
             <div className="sr-modal-actions">
-              <button type="button" className="sr-action primary" onClick={() => setFinished(false)}>
+              <button type="button" className="sr-action" onClick={() => setFinished(false)}>
                 <Icon name="check" /> Done
               </button>
+              {readNext ? (
+                <button type="button" className="sr-action primary" onClick={() => selectStory(readNext)}>
+                  Read next <Icon name="arrow" />
+                </button>
+              ) : null}
             </div>
           </div>
         </div>
