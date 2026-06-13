@@ -303,7 +303,7 @@ function buildDictationPrompt(itemPrompt, answer) {
     return "Listen and type the sentence you hear.";
   }
 
-  const prefixPattern = /^(listen and type:|dictation:)\s*/i;
+  const prefixPattern = /^(listen and type:|dictation:|say aloud:)\s*/i;
   if (!prefixPattern.test(rawPrompt)) {
     return rawPrompt;
   }
@@ -431,9 +431,11 @@ function createQuestion(item, pool, questionType, category, language, englishRol
       : String(englishRoleplayAnswerByPrompt?.get(String(item.prompt || "")) || item.answerEnglish || "").trim())
     : "";
 
-  // Speaking long sentences is frustrating; fall back to a non-speaking exercise.
+  // Speaking long sentences is frustrating; fall back to a listening exercise.
+  // Pronunciation items have no translation (the prompt IS the target sentence), so
+  // build_sentence would just reveal the answer — dictation keeps it a real challenge.
   if (resolvedType === "pronunciation" && countWords(answer) > 7) {
-    resolvedType = "build_sentence";
+    resolvedType = "dictation_sentence";
   }
 
   const base = {
