@@ -265,10 +265,10 @@
     "id": "ru-nm-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The documentary raised serious questions about media bias.",
-    "correctAnswer": "Документальный фильм поднял серьёзные вопросы о предвзятости СМИ.",
+    "prompt": "Say: The documentary explained how the news is made.",
+    "correctAnswer": "Документальный фильм рассказал о том, как создаются новости.",
     "hints": [
-      "'Поднять вопросы' is a fixed collocation; use past tense."
+      "'рассказать о том, как ...' introduces a clause; 'создаются' is reflexive passive."
     ]
   },
   {
@@ -324,9 +324,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "What does 'СМИ' stand for?",
-    "correctAnswer": "средства массовой информации (mass media)",
+    "correctAnswer": "средства массовой информации",
     "hints": [
-      "A very common acronym in Russian journalism."
+      "A very common acronym in Russian journalism; it means 'mass media'."
     ],
     "exerciseType": "multiple_choice",
     "options": [
@@ -351,9 +351,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and build the sentence you hear.",
-    "correctAnswer": "Свобода прессы — важная составляющая демократии.",
+    "correctAnswer": "Журналист задал министру несколько вопросов.",
     "hints": [
-      "Listen for the noun in the instrumental case at the end."
+      "Listen for the dative (министру) and the genitive after 'несколько' (вопросов)."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -361,10 +361,10 @@
     "id": "ru-nm-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Investigative journalism plays a crucial role in holding power accountable.",
-    "correctAnswer": "Журналистика расследований играет ключевую роль в привлечении власти к ответственности.",
+    "prompt": "Say: Journalists check the facts before publishing an article.",
+    "correctAnswer": "Журналисты проверяют факты перед публикацией статьи.",
     "hints": [
-      "Use the noun phrase 'играть роль в'."
+      "'перед' takes the instrumental; 'публикацией статьи' = before publication of the article."
     ]
   },
   {
@@ -381,38 +381,38 @@
     "id": "ru-nm-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Algorithmic curation increasingly shapes what information audiences consume.",
-    "correctAnswer": "Алгоритмическая фильтрация всё больше определяет, какую информацию потребляет аудитория.",
+    "prompt": "Say: Many people get their news from social media today.",
+    "correctAnswer": "Сегодня многие люди узнают новости из социальных сетей.",
     "hints": [
-      "Use the third-person singular present."
+      "'узнавать новости из' + genitive (социальных сетей)."
     ],
-    "culturalNote": "This sentence reflects contemporary debates about information bubbles and algorithmic feeds."
+    "culturalNote": "Social media platforms are now a common way Russian speakers follow the news, alongside television and traditional outlets."
   },
   {
     "id": "ru-nm-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Независимые издания часто испытывают давление со стороны ____ структур.",
-    "correctAnswer": "властных",
+    "prompt": "Cloze: Эту новость ____ все крупные издания.",
+    "correctAnswer": "опубликовали",
     "hints": [
-      "An adjective from 'власть' (power/authority), genitive plural."
+      "Plural past tense to agree with 'все крупные издания'."
     ],
     "exerciseType": "cloze_sentence",
     "clozeOptions": [
-      "властных",
-      "коммерческих",
-      "зарубежных",
-      "государственных"
+      "опубликовали",
+      "опубликовал",
+      "публикует",
+      "напечатал"
     ]
   },
   {
     "id": "ru-nm-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The media landscape has become increasingly fragmented due to the rise of digital platforms.",
-    "correctAnswer": "Медиапространство всё больше фрагментируется из-за роста цифровых платформ.",
+    "prompt": "Say: Today almost every outlet has its own website and app.",
+    "correctAnswer": "Сегодня почти у каждого издания есть свой сайт и приложение.",
     "hints": [
-      "Use 'из-за' + genitive to express cause."
+      "Possession with 'у + genitive ... есть'; 'у каждого издания'."
     ]
   },
   {
@@ -437,10 +437,10 @@
     "id": "ru-nm-b2-7",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Citizen journalism blurs the line between reporter and audience.",
-    "correctAnswer": "Гражданская журналистика стирает границу между репортёром и аудиторией.",
+    "prompt": "Say: Many reporters do live broadcasts from the scene.",
+    "correctAnswer": "Многие репортёры ведут прямые трансляции с места событий.",
     "hints": [
-      "'Стирать границу' is the natural collocation for 'blur the line'."
+      "'вести трансляцию' = to run a broadcast; 'с места событий' = from the scene."
     ]
   },
   {
@@ -464,7 +464,7 @@
     "hints": [
       "Use the perfective past 'изменилась' for a noticeable completed shift."
     ],
-    "culturalNote": "Changes in media ownership are a topical issue in the Russian media landscape."
+    "culturalNote": "'Редакционная политика' (editorial policy) refers to the standards and editorial stance an outlet applies to what it publishes."
   },
   {
     "id": "ru-nm-vocab-a1-1",
@@ -709,5 +709,243 @@
       "Use 'играть роль в' + prepositional verbal noun (распространении) with the genitive object (новостей)."
     ],
     "culturalNote": "Russian-language news reaches audiences far beyond Russia itself — across the former Soviet states and a large diaspora — so major outlets routinely publish for readers in many time zones."
+  },
+  {
+    "id": "ru-nm-a1-11",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Vocabulary: photograph",
+    "correctAnswer": "фотография",
+    "hints": [
+      "A picture taken with a camera."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-a1-12",
+    "level": "a1",
+    "difficulty": "a1",
+    "prompt": "Say: I listen to the radio in the morning.",
+    "correctAnswer": "Я слушаю радио утром.",
+    "hints": [
+      "'Радио' is indeclinable; 'утром' is the adverb 'in the morning'."
+    ]
+  },
+  {
+    "id": "ru-nm-a2-10",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Say: I read this magazine every week.",
+    "correctAnswer": "Я читаю этот журнал каждую неделю.",
+    "hints": [
+      "'каждую неделю' is accusative for regular time."
+    ]
+  },
+  {
+    "id": "ru-nm-a2-11",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Cloze: Я смотрю новости ____ телевизору.",
+    "correctAnswer": "по",
+    "hints": [
+      "'по телевизору' = on TV (dative with 'по')."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "по",
+      "в",
+      "на",
+      "через"
+    ]
+  },
+  {
+    "id": "ru-nm-a2-12",
+    "level": "a2",
+    "difficulty": "a2",
+    "prompt": "Choose the best translation: 'the morning paper'.",
+    "correctAnswer": "утренняя газета",
+    "hints": [
+      "'утренний/-яя' = morning (adjective)."
+    ],
+    "exerciseType": "mc_sentence",
+    "options": [
+      "утренняя газета",
+      "вечерняя газета",
+      "свежая газета",
+      "ежедневная газета"
+    ]
+  },
+  {
+    "id": "ru-nm-b1-11",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The newspaper published an interview with the mayor.",
+    "correctAnswer": "Газета опубликовала интервью с мэром.",
+    "hints": [
+      "'интервью с' + instrumental (с мэром)."
+    ]
+  },
+  {
+    "id": "ru-nm-b1-12",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Cloze: Эту статью ____ тысячи человек.",
+    "correctAnswer": "прочитали",
+    "hints": [
+      "Plural past to agree with 'тысячи человек'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "прочитали",
+      "прочитал",
+      "читает",
+      "написали"
+    ]
+  },
+  {
+    "id": "ru-nm-b1-13",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Build a sentence: I / usually / read / the news / on my phone.",
+    "correctAnswer": "Я обычно читаю новости в телефоне.",
+    "hints": [
+      "'в телефоне' = on one's phone (colloquial)."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-nm-b1-14",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Say: The interview lasted almost an hour.",
+    "correctAnswer": "Интервью длилось почти час.",
+    "hints": [
+      "'интервью' is neuter indeclinable, so the verb is 'длилось'."
+    ]
+  },
+  {
+    "id": "ru-nm-vocab-b1-3",
+    "level": "b1",
+    "difficulty": "b1",
+    "prompt": "Vocabulary: subscription",
+    "correctAnswer": "подписка",
+    "hints": [
+      "What you buy to receive a paper or service regularly."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-b2-8",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The newspaper apologised for the mistake in yesterday's article.",
+    "correctAnswer": "Газета извинилась за ошибку во вчерашней статье.",
+    "hints": [
+      "'извиниться за' + accusative; 'во вчерашней статье' is prepositional."
+    ]
+  },
+  {
+    "id": "ru-nm-b2-11",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: The channel broadcasts the news in several languages.",
+    "correctAnswer": "Канал транслирует новости на нескольких языках.",
+    "hints": [
+      "'на ... языках' = in ... languages (prepositional plural)."
+    ]
+  },
+  {
+    "id": "ru-nm-b2-12",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Cloze: Корреспондент ____ репортаж прямо с места событий.",
+    "correctAnswer": "вёл",
+    "hints": [
+      "Past tense of 'вести' (вести репортаж = to run a report)."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "вёл",
+      "велел",
+      "ведёт",
+      "водил"
+    ]
+  },
+  {
+    "id": "ru-nm-b2-13",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Build a sentence: The reporter / sent / the article / to the editor / in the evening.",
+    "correctAnswer": "Репортёр отправил статью редактору вечером.",
+    "hints": [
+      "'отправить' takes accusative (статью) + dative recipient (редактору)."
+    ],
+    "exerciseType": "build_sentence"
+  },
+  {
+    "id": "ru-nm-b2-14",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best translation: 'The press conference was postponed.'.",
+    "correctAnswer": "Пресс-конференцию перенесли.",
+    "hints": [
+      "Impersonal 3rd-person plural 'перенесли' = was postponed."
+    ],
+    "exerciseType": "mc_sentence",
+    "options": [
+      "Пресс-конференцию перенесли.",
+      "Пресс-конференция началась.",
+      "Пресс-конференцию отменили.",
+      "Пресс-конференция закончилась."
+    ]
+  },
+  {
+    "id": "ru-nm-b2-15",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say: Many readers leave comments under the articles.",
+    "correctAnswer": "Многие читатели оставляют комментарии под статьями.",
+    "hints": [
+      "'под' + instrumental (под статьями)."
+    ]
+  },
+  {
+    "id": "ru-nm-vocab-b2-3",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Vocabulary: live broadcast",
+    "correctAnswer": "прямой эфир / прямая трансляция",
+    "hints": [
+      "Broadcasting in real time, as it happens."
+    ],
+    "exerciseType": "flashcard"
+  },
+  {
+    "id": "ru-nm-pron-b2-1",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Say aloud: Корреспондент вёл прямую трансляцию с места событий.",
+    "correctAnswer": "Корреспондент вёл прямую трансляцию с места событий.",
+    "hints": [
+      "Stress: корреспонДЕНТ, трансЛЯцию, соBYtий."
+    ],
+    "exerciseType": "pronunciation"
+  },
+  {
+    "id": "ru-nm-mc-b2-1",
+    "level": "b2",
+    "difficulty": "b2",
+    "prompt": "Choose the best translation: 'an exclusive interview'.",
+    "correctAnswer": "эксклюзивное интервью",
+    "hints": [
+      "'эксклюзивный' = exclusive."
+    ],
+    "exerciseType": "mc_sentence",
+    "options": [
+      "эксклюзивное интервью",
+      "срочное интервью",
+      "личное интервью",
+      "прямое интервью"
+    ]
   }
 ]
