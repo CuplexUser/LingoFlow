@@ -81,7 +81,7 @@ function isCleanEnglishText(text) {
 }
 
 
-// Exercise types whose prompt is a fixed instruction ("Listen and type…", "Fill the blank…")
+// Exercise types whose prompt is a fixed instruction ("Listen and build…", "Fill the blank…")
 // rather than a translatable English phrase. They must never supply English distractors.
 const NON_TRANSLATABLE_TYPES = [
   "pronunciation",
@@ -300,10 +300,10 @@ function buildDictationPrompt(itemPrompt, answer) {
   const rawPrompt = String(itemPrompt || "").trim();
   const cleanedAnswer = String(answer || "").trim();
   if (!rawPrompt) {
-    return "Listen and type the sentence you hear.";
+    return "Listen and build the sentence you hear.";
   }
 
-  const prefixPattern = /^(listen and type:|dictation:|say aloud:)\s*/i;
+  const prefixPattern = /^(listen and (?:type|build):|dictation:|say aloud:)\s*/i;
   if (!prefixPattern.test(rawPrompt)) {
     return rawPrompt;
   }
@@ -313,10 +313,10 @@ function buildDictationPrompt(itemPrompt, answer) {
   const normalizedAnswer = normalizeComparableText(cleanedAnswer);
 
   if (!tail || normalizedTail === normalizedAnswer) {
-    return "Listen and type the sentence you hear.";
+    return "Listen and build the sentence you hear.";
   }
 
-  return `Listen and type. Translation: ${tail}`;
+  return `Listen and build. Translation: ${tail}`;
 }
 
 function pickLevelAwareDistractors(pool, item, count, randomFn) {

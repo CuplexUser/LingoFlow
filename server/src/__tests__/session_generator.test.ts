@@ -302,7 +302,7 @@ test("instruction-prompt items (dictation) are not used as English distractors",
       travel: [
         { id: "ru-main", level: "a1", difficulty: "a1", exerciseType: "mc_sentence", prompt: "I need a hotel room.", correctAnswer: "Мне нужен номер в отеле." },
         // Dictation prompt is a fixed instruction, not a translatable English phrase — must not leak in.
-        { id: "ru-dictation", level: "a1", difficulty: "a1", exerciseType: "dictation_sentence", prompt: "Listen and type the sentence you hear.", correctAnswer: "Банк предлагает выгодные условия." },
+        { id: "ru-dictation", level: "a1", difficulty: "a1", exerciseType: "dictation_sentence", prompt: "Listen and build the sentence you hear.", correctAnswer: "Банк предлагает выгодные условия." },
         { id: "ru-3", level: "a1", difficulty: "a1", exerciseType: "mc_sentence", prompt: "Where is the exit?", correctAnswer: "Где выход?" },
         { id: "ru-4", level: "a1", difficulty: "a1", exerciseType: "mc_sentence", prompt: "How much is the ticket?", correctAnswer: "Сколько стоит билет?" },
         { id: "ru-5", level: "a2", difficulty: "a2", exerciseType: "mc_sentence", prompt: "Can you help me find the platform?", correctAnswer: "Вы можете помочь найти платформу?" }
@@ -317,7 +317,7 @@ test("instruction-prompt items (dictation) are not used as English distractors",
   for (const q of reversed) {
     for (const opt of (q.options as string[])) {
       assert.ok(
-        !/listen and type/i.test(opt),
+        !/listen and (type|build)/i.test(opt),
         `option "${opt}" is a dictation instruction — instruction prompts leaked into English distractors`
       );
     }
