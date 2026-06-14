@@ -9,24 +9,70 @@ const { getContentFingerprints, upsertContentFingerprint, resetCategoryProgress 
 
 const { languages: LANGUAGES, course: COURSE, contentMeta: LANGUAGE_CONTENT_META } = loadLanguageContent();
 
-function computeCategoryFingerprint(items: any[]): string {
-  const entries = items
-    .map((item: any) => `${item.id}|${String(item.correctAnswer ?? item.target ?? "")}`)
-    .sort()
-    .join("\n");
-  return createHash("sha256").update(entries).digest("hex").slice(0, 16);
+// Fraction of a category's items that must change before progress is reset.
+// Small fixes (typos, reworded answers) stay below this and preserve progress;
+// only a substantial overhaul of a category wipes it.
+const CONTENT_RESET_THRESHOLD = 0.25;
+
+function computeItemFingerprint(item: any): string {
+  const entry = `${item.id}|${String(item.correctAnswer ?? item.target ?? "")}`;
+  return createHash("sha256").update(entry).digest("hex").slice(0, 16);
+}
+
+function computeCategoryFingerprints(items: any[]): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const item of items) {
+    map[String(item.id)] = computeItemFingerprint(item);
+  }
+  return map;
+}
+
+// Parse a stored per-item fingerprint map. Returns null for the legacy
+// single-hash format (or anything unparseable), which is treated as
+// "not comparable" so we never reset progress during the migration boot.
+function parseStoredFingerprints(raw: string | undefined): Record<string, string> | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+      return parsed as Record<string, string>;
+    }
+  } catch (_) {
+    // legacy single-hash format — cannot diff per item
+  }
+  return null;
+}
+
+function changedItemRatio(
+  stored: Record<string, string>,
+  current: Record<string, string>
+): number {
+  const ids = new Set([...Object.keys(stored), ...Object.keys(current)]);
+  if (ids.size === 0) return 0;
+  let changed = 0;
+  for (const id of ids) {
+    // counts added, removed, and modified items
+    if (stored[id] !== current[id]) changed++;
+  }
+  return changed / ids.size;
 }
 
 const storedFingerprints = getContentFingerprints();
 for (const langId of Object.keys(COURSE)) {
   for (const catId of Object.keys(COURSE[langId])) {
-    const fingerprint = computeCategoryFingerprint(COURSE[langId][catId]);
+    const current = computeCategoryFingerprints(COURSE[langId][catId]);
     const key = `${langId}:${catId}`;
-    if (storedFingerprints[key] !== undefined && storedFingerprints[key] !== fingerprint) {
-      resetCategoryProgress(langId, catId);
-      console.log(`[content] Progress reset for ${langId}/${catId} — content changed`);
+    const stored = parseStoredFingerprints(storedFingerprints[key]);
+    if (stored) {
+      const ratio = changedItemRatio(stored, current);
+      if (ratio > CONTENT_RESET_THRESHOLD) {
+        resetCategoryProgress(langId, catId);
+        console.log(
+          `[content] Progress reset for ${langId}/${catId} — ${(ratio * 100).toFixed(0)}% of items changed`
+        );
+      }
     }
-    upsertContentFingerprint(langId, catId, fingerprint);
+    upsertContentFingerprint(langId, catId, JSON.stringify(current));
   }
 }
 const STORIES: any[] = loadStories();
