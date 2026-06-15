@@ -760,7 +760,7 @@ function lookupEnglishMeta(
   return null;
 }
 
-// Serialise stories to match the hand-authored layout: each sentence and glossary
+// Serialize stories to match the hand-authored layout: each sentence and glossary
 // entry stays compact on a single line, while the surrounding structure is indented.
 export function formatStoriesJson(stories: GeneratedStory[]): string {
   const jstr = (value: unknown): string => JSON.stringify(value);

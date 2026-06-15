@@ -128,7 +128,7 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
     };
   }, [language]);
 
-  // Initialise the saved set from the learner's persisted saved words.
+  // Initialize the saved set from the learner's persisted saved words.
   useEffect(() => {
     let cancelled = false;
     api

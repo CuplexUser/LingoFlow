@@ -46,7 +46,7 @@ docker run -it -p 5000:5000 libretranslate/libretranslate --api-keys
 docker exec <container-id> ltmanage keys add
 ```
 
-Fetched translations are validated before caching: punctuation-only responses and strings identical to the source word are discarded. Translations are normalised — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
+Fetched translations are validated before caching: punctuation-only responses and strings identical to the source word are discarded. Translations are normalized — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
 
 The repo also includes an interactive TypeScript utility for generating new language content from English via LibreTranslate:
 
