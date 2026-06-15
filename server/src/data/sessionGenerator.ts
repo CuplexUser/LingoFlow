@@ -72,6 +72,12 @@ function resolveEnglishFromPrompt(item) {
   return stripExercisePrefix(String(item?.prompt || "").trim());
 }
 
+// True when `text` contains no characters outside the Latin script (ignoring
+// punctuation/whitespace) — used to keep distractor scripts matched to the answer.
+function isLatinScript(text) {
+  return !/[^\p{Script=Latin}\p{Script=Common}\p{Script=Inherited}]/u.test(String(text || ""));
+}
+
 function isCleanEnglishText(text) {
   if (!text || text.includes("____") || text.includes("___")) return false;
   // Reject phrase-chunked sentences (e.g. "word / word / word")
@@ -325,9 +331,14 @@ function pickLevelAwareDistractors(pool, item, count, randomFn) {
   const answerWordCount = countWords(answer);
   const enforceSentenceLike = answerWordCount >= 4;
   const ranked = levelRank(resolveDifficulty(item));
+  // Distractors must share the answer's script. Some pool answers are English glosses
+  // (e.g. multiple_choice items whose correctAnswer is "a wooden nesting doll"); without
+  // this guard those leak Latin distractors into a Cyrillic (or other non-Latin) exercise.
+  const answerIsLatin = isLatinScript(answer);
   const allCandidates = pool.filter((candidate) => {
     const candidateAnswer = resolveAnswer(candidate);
-    return normalizeComparableText(candidateAnswer) !== normalizedAnswer;
+    if (normalizeComparableText(candidateAnswer) === normalizedAnswer) return false;
+    return isLatinScript(candidateAnswer) === answerIsLatin;
   });
 
   const sameBand = allCandidates.filter(
@@ -545,8 +556,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     const promptText = stripExercisePrefix(item.prompt);
     const hasAuthoredBlank = /_{2,}/.test(promptText);
 
-    const isLatin = (text: string) =>
-      !/[^\p{Script=Latin}\p{Script=Common}\p{Script=Inherited}]/u.test(text);
+    const isLatin = (text: string) => isLatinScript(text);
     // Distractors must share the answer's script — a handful of pool answers hold English
     // glosses (e.g. "a world-famous art museum") that would otherwise leak Latin words
     // like "art" into a Cyrillic exercise.
