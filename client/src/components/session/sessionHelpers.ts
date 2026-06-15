@@ -119,6 +119,7 @@ export function getSpeechLanguage(language: string): string {
   if (language === "italian") return "it-IT";
   if (language === "swedish") return "sv-SE";
   if (language === "german") return "de-DE";
+  if (language === "french") return "fr-FR";
   return "en-US";
 }
 
@@ -129,5 +130,6 @@ export function getWhisperLanguage(language: string): string {
   if (language === "italian") return "it";
   if (language === "swedish") return "sv";
   if (language === "german") return "de";
+  if (language === "french") return "fr";
   return "en";
 }
