@@ -2682,7 +2682,16 @@ function clearWordTranslations(): void {
   db.exec("DELETE FROM word_translations");
 }
 
+function closeDatabase() {
+  try {
+    db.close();
+  } catch (_error) {
+    // Already closed or never opened — nothing to do.
+  }
+}
+
 module.exports = {
+  closeDatabase,
   getUserByEmail,
   getUserById,
   createUser,

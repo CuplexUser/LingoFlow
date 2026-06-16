@@ -2,13 +2,8 @@ import type { } from "node"; // ensure file is treated as a module
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const path = require("path");
-
-const testDbPath = path.join(
-  __dirname, "..", "..", "data",
-  `lingoflow.${path.basename(__filename, path.extname(__filename))}.${process.pid}.${Date.now()}.test.db`
-);
-process.env.LINGOFLOW_DB_PATH = testDbPath;
+const { configureTestDb } = require("./helpers/testDb.ts");
+configureTestDb(__filename);
 
 const { calculateXp, evaluateAttempt, normalizeSentence } = require("../index.ts");
 const { generateSession, getContentMetrics } = require("../data.ts");
