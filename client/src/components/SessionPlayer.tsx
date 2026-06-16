@@ -363,6 +363,15 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     speakText(text);
   }
 
+  // Play the target-language source sentence for "Translate to English" exercises.
+  function speakSourceText() {
+    if (question.audioUrl) {
+      playAudioUrl(question.audioUrl, listenSpeed);
+      return;
+    }
+    if (reversedSourceText) speakText(reversedSourceText, listenSpeed);
+  }
+
   function speakBuildTranslationHint() {
     setHintsUsed((value) => value + 1);
     setBuildHintCount((c) => c + 1);
@@ -537,7 +546,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
         {question.type === "roleplay" ? <span>Roleplay</span> : null}
         <span>{currentStep}/{fixedQuestionCount}</span>
         <span className="session-xp-tally">~{estimatedXp} XP</span>
-        {(question.type === "build_sentence" ||
+        {(isReversed ||
+          question.type === "build_sentence" ||
           question.type === "dictation_sentence" ||
           question.type === "pronunciation" ||
           question.type === "practice_speak" ||
@@ -561,12 +571,26 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       <div key={question.id} className="question-body">
         <h2>{isReversed ? "Translate to English" : question.type === "cloze_sentence" ? "Fill in the blank" : question.prompt}</h2>
         {isReversed && reversedSourceText ? (
-          <SourceTextWithHints
-            sourceText={reversedSourceText}
-            hints={Array.isArray(question.hints) ? question.hints : []}
-            wordGlossary={question.wordGlossary}
-            language={session.language}
-          />
+          <>
+            <SourceTextWithHints
+              sourceText={reversedSourceText}
+              hints={Array.isArray(question.hints) ? question.hints : []}
+              wordGlossary={question.wordGlossary}
+              language={session.language}
+            />
+            {question.type !== "build_sentence" && question.type !== "dictation_sentence" ? (
+              <div className="build-hints">
+                <button
+                  type="button"
+                  className="speak-button"
+                  onClick={speakSourceText}
+                  aria-label="Listen to the sentence"
+                >
+                  Listen
+                </button>
+              </div>
+            ) : null}
+          </>
         ) : null}
         {!isReversed && question.type === "cloze_sentence" ? (
           <div className="cloze-prompt">
