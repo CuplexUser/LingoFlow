@@ -323,3 +323,33 @@ test("instruction-prompt items (dictation) are not used as English distractors",
     }
   }
 });
+
+test("Latin-script target text does not leak into reversed build_sentence tokens", () => {
+  const course = {
+    spanish: {
+      travel: [
+        ...SPANISH_POOL_REVERSAL,
+        // Instruction-prefixed prompt whose body is Spanish — resolveEnglishFromPrompt would
+        // strip "Fill in the blank:" and leave Spanish text. Latin script can't be told from
+        // English, so this must be excluded by item type, not by a script check.
+        { id: "sp-cloze", level: "a1", difficulty: "a1", exerciseType: "cloze_sentence", prompt: "Fill in the blank: ¿Cómo estás?", correctAnswer: "estás" },
+        // Comprehension MC whose options are Spanish — also not a translatable English phrase.
+        { id: "sp-mc", level: "a1", difficulty: "a1", exerciseType: "multiple_choice", prompt: "¿Qué significa baño?", correctAnswer: "bathroom" }
+      ]
+    }
+  };
+  const selectors = createCourseSelectors(course);
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  const session = generateSession({ language: "spanish", category: "travel", count: 8, random: () => 0 });
+
+  const reversed = session.questions.filter((q: any) => q.direction === "reverse" && q.type === "build_sentence");
+  assert.ok(reversed.length > 0, "expected at least one reversed build_sentence");
+  for (const q of reversed) {
+    for (const token of (q.tokens as string[])) {
+      assert.ok(
+        !/[¿¡ñáéíóúü]/i.test(token),
+        `token "${token}" carries Spanish characters — target-language text leaked into English builder tokens`
+      );
+    }
+  }
+});

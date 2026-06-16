@@ -99,6 +99,26 @@ const NON_TRANSLATABLE_TYPES = [
   "dialogue_turn"
 ];
 
+// The English phrase a pool entry can contribute to an English distractor/noise pool, or
+// "" if its prompt is not a plain English translatable phrase. Latin-script target languages
+// (Spanish, Italian, French, …) share the Latin script with English, so a script check alone
+// can't tell them apart — instead we reject the item types whose prompt is in the target
+// language: roleplay/dialogue, instruction-prefixed prompts (cloze "Fill in the blank: …",
+// pronunciation "Say: …"), and comprehension multiple_choice questions.
+function resolveEnglishDistractorText(entry) {
+  if (isRoleplayLikeItem(entry)) return "";
+  const type = normalizeExerciseType(entry?.exerciseType);
+  if (type && NON_TRANSLATABLE_TYPES.includes(type)) return "";
+  // multiple_choice prompts are questions ("¿Qué significa…?" / "Which word means…?"), not phrases.
+  if (String(entry?.exerciseType || "").trim().toLowerCase() === "multiple_choice") return "";
+  const eng = resolveEnglishFromPrompt(entry);
+  if (!eng || !isCleanEnglishText(eng)) return "";
+  // Bare meta-questions ("How do you say X?") with no exercise prefix are instructions, not phrases.
+  const rawPrompt = String(entry?.prompt || "").trim();
+  if (eng.trimEnd().endsWith("?") && !EXERCISE_PREFIX_RE.test(rawPrompt)) return "";
+  return eng;
+}
+
 function pickEnglishDistractors(pool, item, count, randomFn) {
   const englishAnswer = resolveEnglishFromPrompt(item);
   const normalizedAnswer = normalizeComparableText(englishAnswer);
@@ -106,12 +126,8 @@ function pickEnglishDistractors(pool, item, count, randomFn) {
   const unique: string[] = [];
   shuffle(pool, randomFn).forEach((candidate) => {
     if (unique.length >= count) return;
-    if (isRoleplayLikeItem(candidate)) return;
-    const candidateType = normalizeExerciseType(candidate?.exerciseType);
-    if (candidateType && NON_TRANSLATABLE_TYPES.includes(candidateType)) return;
-    const eng = resolveEnglishFromPrompt(candidate);
+    const eng = resolveEnglishDistractorText(candidate);
     if (countWords(eng) < 2) return;
-    if (!isCleanEnglishText(eng)) return;
     const norm = normalizeComparableText(eng);
     if (!norm || seen.has(norm)) return;
     seen.add(norm);
@@ -325,17 +341,24 @@ function buildDictationPrompt(itemPrompt, answer) {
   return `Listen and build. Translation: ${tail}`;
 }
 
-function pickLevelAwareDistractors(pool, item, count, randomFn) {
+function pickLevelAwareDistractors(pool, item, count, randomFn, language = "") {
   const answer = resolveAnswer(item);
   const normalizedAnswer = normalizeComparableText(answer);
   const answerWordCount = countWords(answer);
   const enforceSentenceLike = answerWordCount >= 4;
   const ranked = levelRank(resolveDifficulty(item));
-  // Distractors must share the answer's script. Some pool answers are English glosses
-  // (e.g. multiple_choice items whose correctAnswer is "a wooden nesting doll"); without
-  // this guard those leak Latin distractors into a Cyrillic (or other non-Latin) exercise.
+  // Distractors must be a target-language phrase that shares the answer's script. Two leaks to
+  // guard against: (1) a stray Latin gloss in a non-Latin (e.g. Cyrillic) exercise — caught by
+  // the script check; (2) an English gloss in a Latin-script target course (Spanish, Italian, …)
+  // where the script check can't tell English from the target. Comprehension multiple_choice
+  // items hold those English glosses as their correctAnswer ("a wooden nesting doll"), so drop
+  // them as a distractor source in non-English courses (in an English course they ARE the target).
+  const excludeMultipleChoice = String(language || "").trim().toLowerCase() !== "english";
   const answerIsLatin = isLatinScript(answer);
   const allCandidates = pool.filter((candidate) => {
+    if (excludeMultipleChoice && String(candidate?.exerciseType || "").trim().toLowerCase() === "multiple_choice") {
+      return false;
+    }
     const candidateAnswer = resolveAnswer(candidate);
     if (normalizeComparableText(candidateAnswer) === normalizedAnswer) return false;
     return isLatinScript(candidateAnswer) === answerIsLatin;
@@ -529,7 +552,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
       : null;
     const distractors = authoredOptions
       ? authoredOptions.filter((o) => o !== answer).slice(0, 3)
-      : pickLevelAwareDistractors(pool, item, 3, randomFn);
+      : pickLevelAwareDistractors(pool, item, 3, randomFn, language);
     const rawOptions = shuffle([answer, ...distractors], randomFn);
     return {
       ...base,
@@ -538,7 +561,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "dialogue_turn" || resolvedType === "roleplay") {
-    const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
+    const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn, language);
     const promptBase = String(item.prompt || "").trim();
     const normalized = promptBase.toLowerCase();
     const prefix = "choose the best response.";
@@ -621,8 +644,8 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     const engTokenSet = new Set(engTokens.map((t) => t.toLowerCase().replace(/[.?!]+$/, "")));
     const engTokenPool = pool
       .flatMap((entry) => {
-        const eng = resolveEnglishFromPrompt(entry);
-        if (!isCleanEnglishText(eng)) return [];
+        const eng = resolveEnglishDistractorText(entry);
+        if (!eng) return [];
         return tokenizeBuildWords(eng);
       })
       .filter((token) => token.length > 2 && !engTokenSet.has(token.toLowerCase()));
@@ -677,9 +700,9 @@ function createPracticeSpeakQuestion(item) {
   };
 }
 
-function createPracticeListenQuestion(item, pool, randomFn) {
+function createPracticeListenQuestion(item, pool, randomFn, language = "") {
   const answer = resolveAnswer(item);
-  const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
+  const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn, language);
   return {
     id: item.id,
     type: "practice_listen",
@@ -855,7 +878,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       return {
         recommendedLevel: selfRatedLevel,
         difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
-        questions: selected.map((item) => createPracticeListenQuestion(item, all, randomFn))
+        questions: selected.map((item) => createPracticeListenQuestion(item, all, randomFn, language))
       };
     }
 
