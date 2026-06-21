@@ -26,7 +26,16 @@ const apiMock = vi.hoisted(() => ({
   saveSettings: vi.fn(),
   startSession: vi.fn(),
   completeSession: vi.fn(),
-  getAchievements: vi.fn().mockResolvedValue([])
+  getAchievements: vi.fn().mockResolvedValue([]),
+  getRecommendedStory: vi.fn().mockResolvedValue(null),
+  getReadingStats: vi.fn().mockResolvedValue({
+    storiesRead: 0,
+    sentencesRead: 0,
+    wordsSaved: 0,
+    quizzesTaken: 0,
+    levels: [],
+    themes: []
+  })
 }));
 
 vi.mock("../api", () => ({

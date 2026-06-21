@@ -501,7 +501,12 @@ db.exec(`
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     language TEXT NOT NULL,
     story_id TEXT NOT NULL,
-    completed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    started_at TEXT,
+    last_sentence_index INTEGER NOT NULL DEFAULT 0,
+    quiz_score INTEGER,
+    quiz_total INTEGER,
+    xp_awarded INTEGER NOT NULL DEFAULT 0,
+    completed_at TEXT,
     UNIQUE(user_id, story_id)
   );
 
@@ -558,6 +563,8 @@ db.exec(`
   ON bookmarks(user_id, created_at DESC);
   CREATE INDEX IF NOT EXISTS idx_achievements_user
   ON achievements(user_id, earned_at DESC);
+  CREATE INDEX IF NOT EXISTS idx_story_completions_user_language
+  ON story_completions(user_id, language);
 `);
 
 function ensureSettingsColumns() {
@@ -591,6 +598,10 @@ function ensureSettingsColumns() {
   if (!names.has("unlock_all_lessons")) {
     db.exec("ALTER TABLE settings ADD COLUMN unlock_all_lessons INTEGER NOT NULL DEFAULT 0");
   }
+
+  if (!names.has("speech_rate")) {
+    db.exec("ALTER TABLE settings ADD COLUMN speech_rate REAL NOT NULL DEFAULT 0.92");
+  }
 }
 
 ensureSettingsColumns();
@@ -611,6 +622,81 @@ function ensureCommunityExercisesColumns() {
 }
 
 ensureCommunityExercisesColumns();
+
+// Existing databases predate the Story Reader progress/quiz columns. The original
+// table also had completed_at NOT NULL DEFAULT CURRENT_TIMESTAMP, but in-progress
+// (resume) rows are inserted with completed_at NULL. SQLite cannot drop a column
+// constraint via ALTER, so a legacy table is rebuilt; otherwise we just add columns.
+function ensureStoryCompletionsColumns() {
+  if (!tableExists("story_completions")) return;
+  const info = () => db.prepare("PRAGMA table_info(story_completions)").all();
+  const completedAt = info().find((column: any) => column.name === "completed_at");
+  const legacyNotNull = completedAt && completedAt.notnull === 1;
+
+  if (legacyNotNull) {
+    // Rebuild with a nullable completed_at, preserving whatever columns already exist.
+    const existing = new Set(info().map((column: any) => column.name));
+    const carried = [
+      "id",
+      "user_id",
+      "language",
+      "story_id",
+      "started_at",
+      "last_sentence_index",
+      "quiz_score",
+      "quiz_total",
+      "xp_awarded",
+      "completed_at"
+    ].filter((column) => existing.has(column));
+    const rebuild = db.transaction(() => {
+      db.exec(`
+        CREATE TABLE story_completions_new (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+          language TEXT NOT NULL,
+          story_id TEXT NOT NULL,
+          started_at TEXT,
+          last_sentence_index INTEGER NOT NULL DEFAULT 0,
+          quiz_score INTEGER,
+          quiz_total INTEGER,
+          xp_awarded INTEGER NOT NULL DEFAULT 0,
+          completed_at TEXT,
+          UNIQUE(user_id, story_id)
+        );
+      `);
+      db.exec(
+        `INSERT INTO story_completions_new (${carried.join(", ")}) ` +
+          `SELECT ${carried.join(", ")} FROM story_completions;`
+      );
+      db.exec("DROP TABLE story_completions;");
+      db.exec("ALTER TABLE story_completions_new RENAME TO story_completions;");
+    });
+    rebuild();
+    db.exec(
+      "CREATE INDEX IF NOT EXISTS idx_story_completions_user_language ON story_completions(user_id, language);"
+    );
+    return;
+  }
+
+  const names = new Set(info().map((column: any) => column.name));
+  if (!names.has("started_at")) {
+    db.exec("ALTER TABLE story_completions ADD COLUMN started_at TEXT");
+  }
+  if (!names.has("last_sentence_index")) {
+    db.exec("ALTER TABLE story_completions ADD COLUMN last_sentence_index INTEGER NOT NULL DEFAULT 0");
+  }
+  if (!names.has("quiz_score")) {
+    db.exec("ALTER TABLE story_completions ADD COLUMN quiz_score INTEGER");
+  }
+  if (!names.has("quiz_total")) {
+    db.exec("ALTER TABLE story_completions ADD COLUMN quiz_total INTEGER");
+  }
+  if (!names.has("xp_awarded")) {
+    db.exec("ALTER TABLE story_completions ADD COLUMN xp_awarded INTEGER NOT NULL DEFAULT 0");
+  }
+}
+
+ensureStoryCompletionsColumns();
 createWordTranslationsTable();
 
 db.prepare(`
@@ -1158,11 +1244,19 @@ function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDateTime()
   return getUserById(row.user_id);
 }
 
+// Clamps the shared text-to-speech rate to a sane, audible range. Defaults to the
+// historic 0.92 when callers omit or send a non-numeric value.
+function normalizeSpeechRate(value) {
+  const rate = Number(value);
+  if (!Number.isFinite(rate)) return 0.92;
+  return Math.min(1.5, Math.max(0.5, rate));
+}
+
 function getSettings(userId = 1) {
   ensureUserState(userId);
   const row: any = db.prepare(`
     SELECT native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
-           self_rated_level, learner_name, learner_bio, focus_area, unlock_all_lessons
+           self_rated_level, learner_name, learner_bio, focus_area, unlock_all_lessons, speech_rate
     FROM settings
     WHERE user_id = ?
   `).get(userId);
@@ -1182,7 +1276,8 @@ function getSettings(userId = 1) {
     learnerName: row.learner_name,
     learnerBio: row.learner_bio,
     focusArea: row.focus_area,
-    unlockAllLessons: Boolean(row.unlock_all_lessons)
+    unlockAllLessons: Boolean(row.unlock_all_lessons),
+    speechRate: typeof row.speech_rate === "number" ? row.speech_rate : 0.92
   };
 }
 
@@ -1209,6 +1304,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
         learner_bio = ?,
         focus_area = ?,
         unlock_all_lessons = ?,
+        speech_rate = ?,
         updated_at = CURRENT_TIMESTAMP
     WHERE user_id = ?
   `).run(
@@ -1224,6 +1320,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
     String(safeSettings.learnerBio || "").trim(),
     String(safeSettings.focusArea || "").trim(),
     safeSettings.unlockAllLessons ? 1 : 0,
+    normalizeSpeechRate(safeSettings.speechRate),
     userId
   );
 
@@ -2112,27 +2209,133 @@ function getSavedWordPoolItems(userId, language) {
     }));
 }
 
-// Records that a learner finished reading a story. Idempotent: re-finishing the
-// same story refreshes the timestamp without creating duplicate rows.
-function markStoryComplete(userId, { storyId, language }) {
+// Saves how far through a story the learner has read so they can resume later.
+// Never regresses the furthest sentence reached and never marks the story complete.
+function upsertStoryProgress(userId, { storyId, language, sentenceIndex }) {
   const safeStoryId = String(storyId || "").trim();
   const safeLanguage = normalizeLanguageId(language, "");
   if (!safeStoryId || !safeLanguage) return false;
+  const idx = Number.isFinite(sentenceIndex) ? Math.max(0, Math.floor(sentenceIndex)) : 0;
   db.prepare(`
-    INSERT INTO story_completions (user_id, language, story_id, completed_at)
-    VALUES (?, ?, ?, CURRENT_TIMESTAMP)
-    ON CONFLICT(user_id, story_id) DO UPDATE SET completed_at = CURRENT_TIMESTAMP
-  `).run(userId, safeLanguage, safeStoryId);
+    INSERT INTO story_completions (user_id, language, story_id, last_sentence_index, started_at, completed_at)
+    VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, NULL)
+    ON CONFLICT(user_id, story_id) DO UPDATE SET
+      last_sentence_index = MAX(last_sentence_index, excluded.last_sentence_index),
+      started_at = COALESCE(started_at, excluded.started_at)
+  `).run(userId, safeLanguage, safeStoryId, idx);
   return true;
 }
 
-// Returns the set of story ids the learner has finished, optionally scoped to a
-// language. Used to flag completed stories in the Story Reader library.
+// Returns per-story reading state (resume point, completion, quiz score) for the
+// Story Reader library, keyed by story id.
+function getStoryProgress(userId, language?) {
+  const safeLanguage = language ? normalizeLanguageId(language, "") : null;
+  const rows = safeLanguage
+    ? db.prepare(`SELECT story_id, last_sentence_index, completed_at, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND language = ?`).all(userId, safeLanguage)
+    : db.prepare(`SELECT story_id, last_sentence_index, completed_at, quiz_score, quiz_total FROM story_completions WHERE user_id = ?`).all(userId);
+  const map = {};
+  for (const row of rows) {
+    map[row.story_id] = {
+      lastSentenceIndex: row.last_sentence_index || 0,
+      completedAt: row.completed_at || null,
+      quizScore: row.quiz_score == null ? null : row.quiz_score,
+      quizTotal: row.quiz_total == null ? null : row.quiz_total
+    };
+  }
+  return map;
+}
+
+// Records that a learner finished reading a story, storing the quiz score when one
+// was taken. Idempotent: re-finishing refreshes the timestamp without duplicating rows.
+function markStoryComplete(userId, { storyId, language, quizScore = null, quizTotal = null }) {
+  const safeStoryId = String(storyId || "").trim();
+  const safeLanguage = normalizeLanguageId(language, "");
+  if (!safeStoryId || !safeLanguage) return false;
+  const score = Number.isFinite(quizScore) ? Math.max(0, Math.floor(quizScore)) : null;
+  const total = Number.isFinite(quizTotal) ? Math.max(0, Math.floor(quizTotal)) : null;
+  db.prepare(`
+    INSERT INTO story_completions (user_id, language, story_id, completed_at, started_at, quiz_score, quiz_total)
+    VALUES (?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?)
+    ON CONFLICT(user_id, story_id) DO UPDATE SET
+      completed_at = CURRENT_TIMESTAMP,
+      started_at = COALESCE(started_at, CURRENT_TIMESTAMP),
+      quiz_score = COALESCE(excluded.quiz_score, quiz_score),
+      quiz_total = COALESCE(excluded.quiz_total, quiz_total)
+  `).run(userId, safeLanguage, safeStoryId, score, total);
+  return true;
+}
+
+// Awards XP for finishing a story exactly once per (user, story) and rolls the
+// daily streak forward the same way a practice session does. Mirrors recordPracticeXp's
+// streak math but does not write to session_history (reading is not a session).
+function awardStoryXp(userId, { storyId, language, xpGained, today = toIsoDate() }) {
+  ensureUserState(userId);
+  const safeStoryId = String(storyId || "").trim();
+  const safeLanguage = normalizeLanguageId(language, "spanish");
+  if (!safeStoryId) {
+    return { xpGained: 0, alreadyAwarded: false, todayXp: getTodayXp(userId, safeLanguage, today) };
+  }
+  const existing = db
+    .prepare(`SELECT xp_awarded FROM story_completions WHERE user_id = ? AND story_id = ?`)
+    .get(userId, safeStoryId);
+  if (existing && existing.xp_awarded) {
+    return { xpGained: 0, alreadyAwarded: true, todayXp: getTodayXp(userId, safeLanguage, today) };
+  }
+  const gain = Number.isFinite(xpGained) ? Math.max(0, Math.floor(xpGained)) : 0;
+  const tx = db.transaction(() => {
+    ensureLanguageProgress(userId, safeLanguage);
+    const progress = db
+      .prepare(`SELECT streak, last_completed_date FROM language_progress WHERE user_id = ? AND language = ?`)
+      .get(userId, safeLanguage);
+    let nextStreak = progress.streak;
+    if (!progress.last_completed_date) {
+      nextStreak = 1;
+    } else {
+      const last = new Date(progress.last_completed_date + "T00:00:00Z");
+      const current = new Date(today + "T00:00:00Z");
+      const diffDays = Math.floor((current.getTime() - last.getTime()) / (24 * 60 * 60 * 1000));
+      if (diffDays === 1) nextStreak = progress.streak + 1;
+      else if (diffDays > 1) nextStreak = 1;
+    }
+    addDailyXp(userId, safeLanguage, today, gain);
+    db.prepare(`
+      UPDATE language_progress
+      SET streak = ?, last_completed_date = ?, updated_at = CURRENT_TIMESTAMP
+      WHERE user_id = ? AND language = ?
+    `).run(nextStreak, today, userId, safeLanguage);
+    db.prepare(`UPDATE story_completions SET xp_awarded = 1 WHERE user_id = ? AND story_id = ?`)
+      .run(userId, safeStoryId);
+    refreshAggregateProgressFromLanguageProgress(userId);
+  });
+  tx();
+  return { xpGained: gain, alreadyAwarded: false, todayXp: getTodayXp(userId, safeLanguage, today) };
+}
+
+// Aggregates the learner's reading activity. Levels/themes are enriched in the
+// route from in-memory story metadata, which the db layer cannot see.
+function getReadingStats(userId, language?) {
+  const safeLanguage = language ? normalizeLanguageId(language, "") : null;
+  const completedRows = safeLanguage
+    ? db.prepare(`SELECT story_id, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND language = ? AND completed_at IS NOT NULL`).all(userId, safeLanguage)
+    : db.prepare(`SELECT story_id, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND completed_at IS NOT NULL`).all(userId);
+  const wordsRow = safeLanguage
+    ? db.prepare(`SELECT COUNT(1) AS c FROM saved_words WHERE user_id = ? AND language = ?`).get(userId, safeLanguage)
+    : db.prepare(`SELECT COUNT(1) AS c FROM saved_words WHERE user_id = ?`).get(userId);
+  return {
+    completedStoryIds: completedRows.map((row) => row.story_id),
+    storiesRead: completedRows.length,
+    wordsSaved: wordsRow ? wordsRow.c : 0,
+    quizzesTaken: completedRows.filter((row) => row.quiz_total != null).length
+  };
+}
+
+// Returns the set of story ids the learner has actually finished (a row may exist
+// only to hold resume progress, so completion is gated on completed_at).
 function getCompletedStoryIds(userId, language?) {
   const safeLanguage = language ? normalizeLanguageId(language, "") : null;
   const rows = safeLanguage
-    ? db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND language = ?`).all(userId, safeLanguage)
-    : db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ?`).all(userId);
+    ? db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND language = ? AND completed_at IS NOT NULL`).all(userId, safeLanguage)
+    : db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND completed_at IS NOT NULL`).all(userId);
   return rows.map((row) => row.story_id);
 }
 
@@ -2735,6 +2938,10 @@ module.exports = {
   getSavedWordPoolItems,
   markStoryComplete,
   getCompletedStoryIds,
+  upsertStoryProgress,
+  getStoryProgress,
+  awardStoryXp,
+  getReadingStats,
   getTodayXp,
   getProgress,
   getProgressOverview,

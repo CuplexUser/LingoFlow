@@ -31,7 +31,8 @@ function registerUserRoutes(app: any, deps: any): void {
       learnerName,
       learnerBio,
       focusArea,
-      unlockAllLessons
+      unlockAllLessons,
+      speechRate
     } = req.body || {};
 
     const devUnlockAll = process.env.NODE_ENV !== "production" && Boolean(unlockAllLessons);
@@ -47,7 +48,8 @@ function registerUserRoutes(app: any, deps: any): void {
       learnerName: String(learnerName || "Learner").trim() || "Learner",
       learnerBio: String(learnerBio || "").trim(),
       focusArea: String(focusArea || "").trim(),
-      unlockAllLessons: devUnlockAll
+      unlockAllLessons: devUnlockAll,
+      speechRate
     });
 
     res.json(row);

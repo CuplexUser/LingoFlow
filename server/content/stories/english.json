@@ -65,7 +65,27 @@
     "culturalNote": {
       "term": "Small towns",
       "body": "In many English-speaking countries, small towns are valued for a slower pace of life, where people often know their neighbors and daily routines center on family, school and local shops."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Mia?",
+        "options": ["A student", "A teacher", "A doctor"],
+        "correct": 0,
+        "explanation": "The story begins, \"Mia is a student.\""
+      },
+      {
+        "stem": "Where does Mia live?",
+        "options": ["In a big city", "In a small town", "By the sea"],
+        "correct": 1,
+        "explanation": "\"She lives in a small town.\""
+      },
+      {
+        "stem": "What does Mia do in the afternoon?",
+        "options": ["Reads books", "Cooks dinner", "Goes to work"],
+        "correct": 0,
+        "explanation": "\"In the afternoon she reads books.\""
+      }
+    ]
   },
   {
     "id": "en-story-a1-family",
@@ -135,7 +155,27 @@
     "culturalNote": {
       "term": "Sunday visits",
       "body": "Sunday is traditionally a day for family in much of the English-speaking world. Many families gather for a shared meal, and visiting grandparents is a common weekend custom."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Tom's mother's job?",
+        "options": ["A teacher", "A doctor", "A shopkeeper"],
+        "correct": 1,
+        "explanation": "\"My mother is a doctor.\""
+      },
+      {
+        "stem": "How old is Tom's brother?",
+        "options": ["Five", "Ten", "Two"],
+        "correct": 0,
+        "explanation": "\"My brother is only five years old.\""
+      },
+      {
+        "stem": "Who does the family visit on Sunday?",
+        "options": ["Their grandmother", "Their teacher", "A neighbor"],
+        "correct": 0,
+        "explanation": "\"On Sunday we visit my grandmother.\""
+      }
+    ]
   },
   {
     "id": "en-story-a2-market",

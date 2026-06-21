@@ -33,7 +33,29 @@
     "culturalNote": {
       "term": "il caffè",
       "body": "In Italy a caffè means an espresso, drunk quickly at the bar (the counter). A cappuccino is a morning-only choice — ordering one after lunch surprises most Italians."
-    }
+    },
+    "questions": [
+      {
+        "stem": "Where does Anna live?",
+        "options": ["Rome", "Venice", "Florence"],
+        "correct": 0,
+        "explanation": "The story opens with \"Anna abita a Roma\" — Anna lives in Rome."
+      },
+      {
+        "stem": "What does Anna drink in the morning?",
+        "options": ["Tea", "Coffee", "Juice"],
+        "correct": 1,
+        "explanation": "\"La mattina beve un caffè\" — in the morning she drinks a coffee."
+      },
+      {
+        "stem": "Cosa fa Anna dopo il caffè?",
+        "stemLang": "target",
+        "options": ["Va al lavoro", "Torna a letto", "Va al mercato"],
+        "optionsLang": "target",
+        "correct": 0,
+        "explanation": "\"Poi va al lavoro\" — then she goes to work."
+      }
+    ]
   },
   {
     "id": "it-story-a2-market",

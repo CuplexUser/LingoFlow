@@ -1,12 +1,22 @@
-import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { api } from "../api";
+import { CourseContext } from "../context/CourseContext";
 import { tokenHasLetter, tokenizeSentence } from "./session/sessionHelpers";
-import type { Story, StoryGlossEntry, StorySummary } from "../types/story";
+import { useStoryPlayback } from "./story/useStoryPlayback";
+import { StoryQuiz } from "./story/StoryQuiz";
+import type {
+  Story,
+  StoryCompletionResult,
+  StoryGlossEntry,
+  StorySummary
+} from "../types/story";
 
 type StoryPageProps = {
   language: string;
   languageLabel: string;
 };
+
+type ReaderStep = "reading" | "quiz" | "complete";
 
 const LEVEL_SEQUENCE = ["a1", "a2", "b1", "b2"];
 
@@ -17,8 +27,8 @@ function firstUnreadId(list: StorySummary[]): string {
   return (unread ?? list[0])?.id ?? "";
 }
 
-// Next unread story across the whole library (lowest level first), used to power
-// the "Read next" affordance after finishing a story.
+// Next unread story across the whole library (lowest level first), used as a fallback
+// for the "Read next" affordance when the server recommendation is unavailable.
 function nextUnreadStory(list: StorySummary[], currentId: string): StorySummary | null {
   const ordered = [...list].sort(
     (a, b) => LEVEL_SEQUENCE.indexOf(a.level) - LEVEL_SEQUENCE.indexOf(b.level)
@@ -46,19 +56,6 @@ function resolveSpeechLang(language: string): string {
   return "en-US";
 }
 
-function speak(text: string, lang: string): void {
-  if (typeof window === "undefined" || !window.speechSynthesis) return;
-  try {
-    window.speechSynthesis.cancel();
-    const utterance = new window.SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    utterance.rate = 0.92;
-    window.speechSynthesis.speak(utterance);
-  } catch {
-    /* speech is best-effort */
-  }
-}
-
 function Icon({ name }: { name: string }) {
   const common = {
     viewBox: "0 0 24 24",
@@ -78,10 +75,17 @@ function Icon({ name }: { name: string }) {
   if (name === "arrow") return <svg {...common}><path d="M5 12h14M13 6l6 6-6 6" /></svg>;
   if (name === "reset") return <svg {...common}><path d="M4 4v6h6M20 12a8 8 0 1 1-2.3-5.6L20 8" /></svg>;
   if (name === "spark") return <svg {...common}><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" /></svg>;
+  if (name === "play") return <svg {...common}><path d="M7 5l12 7-12 7z" /></svg>;
+  if (name === "stop") return <svg {...common}><rect x="6" y="6" width="12" height="12" rx="1.5" /></svg>;
   return null;
 }
 
 export function StoryPage({ language, languageLabel }: StoryPageProps) {
+  // Read the shared TTS rate from course context when available; the Story Reader is
+  // also rendered standalone in tests, so fall back to the default rate gracefully.
+  const course = useContext(CourseContext);
+  const speechRate = course?.settings?.speechRate ?? 0.92;
+
   const [stories, setStories] = useState<StorySummary[]>([]);
   const [storiesError, setStoriesError] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
@@ -93,10 +97,27 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
   const [saved, setSaved] = useState<Set<string>>(() => new Set());
   const [lookedUp, setLookedUp] = useState<Set<string>>(() => new Set());
   const [showEn, setShowEn] = useState(false);
-  const [finished, setFinished] = useState(false);
+  const [step, setStep] = useState<ReaderStep>("reading");
+  const [result, setResult] = useState<StoryCompletionResult | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const [ttsSupported] = useState(() => typeof window !== "undefined" && !!window.speechSynthesis);
   const speechLang = resolveSpeechLang(language);
+
+  const sentenceRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+  const maxSeenRef = useRef(0);
+  const saveTimerRef = useRef<number | null>(null);
+  const resumeIndexRef = useRef(0);
+
+  const tokenizedSentences = useMemo(() => story?.sentences.map((s) => s.target) ?? [], [story]);
+  const playback = useStoryPlayback({
+    sentences: tokenizedSentences,
+    lang: speechLang,
+    rate: speechRate,
+    enabled: ttsSupported,
+    resetKey: `${story?.id ?? ""}:${speechLang}:${speechRate}`
+  });
+  const { currentSentence } = playback;
 
   // Load the story list for the active course language.
   useEffect(() => {
@@ -155,9 +176,13 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
     setStoryLoading(true);
     setActive(null);
     setShowEn(false);
-    setFinished(false);
+    setStep("reading");
+    setResult(null);
     setLookedUp(new Set());
     setResolvedGlosses({});
+    // Remember where the learner left off so we can resume after the story renders.
+    resumeIndexRef.current = stories.find((s) => s.id === selectedId)?.lastSentenceIndex ?? 0;
+    maxSeenRef.current = resumeIndexRef.current;
     api
       .getStory(selectedId)
       .then((full) => {
@@ -221,6 +246,57 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
       })
     }));
   }, [story, entryFor]);
+
+  // Scroll to the resume point once the story has rendered.
+  useEffect(() => {
+    if (!story || step !== "reading") return;
+    const idx = resumeIndexRef.current;
+    if (idx <= 0) return;
+    const el = sentenceRefs.current[idx];
+    if (el) {
+      window.setTimeout(() => el.scrollIntoView({ block: "center" }), 60);
+    }
+  }, [story, step]);
+
+  // Track the furthest sentence the learner has reached and persist it (debounced),
+  // so reopening the story resumes where they left off.
+  useEffect(() => {
+    if (!story || step !== "reading") return;
+    const els = sentenceRefs.current.filter(Boolean) as HTMLParagraphElement[];
+    if (typeof IntersectionObserver === "undefined" || !els.length) return;
+    const storyId = story.id;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let changed = false;
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const idx = Number((entry.target as HTMLElement).dataset.index || 0);
+          if (idx > maxSeenRef.current) {
+            maxSeenRef.current = idx;
+            changed = true;
+          }
+        }
+        if (!changed) return;
+        if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current);
+        saveTimerRef.current = window.setTimeout(() => {
+          api.saveStoryProgress(storyId, maxSeenRef.current).catch(() => {});
+        }, 1200);
+      },
+      { threshold: 0.5 }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => {
+      observer.disconnect();
+      if (saveTimerRef.current) window.clearTimeout(saveTimerRef.current);
+    };
+  }, [story, step, tokenized]);
+
+  // Keep the sentence being narrated in view.
+  useEffect(() => {
+    if (currentSentence == null) return;
+    const el = sentenceRefs.current[currentSentence];
+    if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
+  }, [currentSentence]);
 
   const onTapWord = useCallback((key: string) => {
     setActive(key);
@@ -295,25 +371,50 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
   }
 
   function selectStory(summary: StorySummary) {
+    playback.stop();
     setSelectedLevel(summary.level);
     setSelectedId(summary.id);
-    setFinished(false);
+    setStep("reading");
+    setResult(null);
   }
 
-  async function handleFinish() {
-    setFinished(true);
-    if (!story) return;
+  // Sends the (optionally empty) answer set to the server, which scores the quiz and
+  // awards XP. Updates the library row but leaves the step transition to the caller.
+  async function submitCompletion(answers: number[]): Promise<StoryCompletionResult | null> {
+    if (!story) return null;
     const id = story.id;
-    // Optimistically mark the story complete; completion is best-effort.
+    setSubmitting(true);
+    // Optimistically flag the story complete; scoring/XP come from the response.
     setStories((prev) => prev.map((s) => (s.id === id ? { ...s, completed: true } : s)));
     try {
-      await api.completeStory(id);
+      const res = await api.completeStory(id, answers);
+      setResult(res);
+      setStories((prev) =>
+        prev.map((s) =>
+          s.id === id ? { ...s, completed: true, quizScore: res.quizScore, quizTotal: res.quizTotal } : s
+        )
+      );
+      return res;
     } catch {
-      /* the modal still shows; completion will retry on the next finish */
+      return null;
+    } finally {
+      setSubmitting(false);
     }
   }
 
+  async function handleFinish() {
+    if (!story) return;
+    playback.stop();
+    if (story.questions && story.questions.length > 0) {
+      setStep("quiz");
+      return;
+    }
+    await submitCompletion([]);
+    setStep("complete");
+  }
+
   const savedList = [...saved];
+  const finished = step === "complete";
 
   return (
     <section className="panel">
@@ -342,26 +443,40 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
 
         {storiesInLevel.length > 0 && (
           <ul className="sr-library" aria-label="Stories in this level">
-            {storiesInLevel.map((summary) => (
-              <li key={summary.id}>
-                <button
-                  type="button"
-                  className={`sr-lib-item ${summary.id === selectedId ? "active" : ""} ${
-                    summary.completed ? "done" : ""
-                  }`}
-                  aria-pressed={summary.id === selectedId}
-                  onClick={() => selectStory(summary)}
-                >
-                  <span className="sr-lib-title">{summary.title}</span>
-                  <span className="sr-lib-sub">{summary.titleEn}</span>
-                  {summary.completed ? (
-                    <span className="sr-lib-check" aria-label="Completed">
-                      <Icon name="check" />
+            {storiesInLevel.map((summary) => {
+              const progress = summary.sentenceCount
+                ? Math.min(1, (summary.lastSentenceIndex ?? 0) / summary.sentenceCount)
+                : 0;
+              const inProgress = !summary.completed && progress > 0;
+              return (
+                <li key={summary.id}>
+                  <button
+                    type="button"
+                    className={`sr-lib-item ${summary.id === selectedId ? "active" : ""} ${
+                      summary.completed ? "done" : ""
+                    }`}
+                    aria-pressed={summary.id === selectedId}
+                    onClick={() => selectStory(summary)}
+                  >
+                    <span className="sr-lib-title">{summary.title}</span>
+                    <span className="sr-lib-sub">{summary.titleEn}</span>
+                    <span className="sr-lib-tags">
+                      {summary.hasQuiz ? <span className="sr-lib-tag">Quiz</span> : null}
+                      {summary.completed ? (
+                        <span className="sr-lib-check" aria-label="Completed">
+                          <Icon name="check" />
+                        </span>
+                      ) : null}
                     </span>
-                  ) : null}
-                </button>
-              </li>
-            ))}
+                    {inProgress ? (
+                      <span className="sr-lib-progress" aria-hidden>
+                        <span style={{ width: `${Math.round(progress * 100)}%` }} />
+                      </span>
+                    ) : null}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         )}
 
@@ -381,76 +496,86 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
               <p className="sr-subtitle">{story.titleEn}</p>
             </header>
 
-            <div className="sr-story">
-              {tokenized.map((sentence, sentenceIndex) => (
-                <p className={`sr-sent${sentence.brk ? " sr-break" : ""}`} key={sentenceIndex}>
-                  {sentence.tokens.map((token, tokenIndex) => {
-                    const trailingSpace = tokenIndex < sentence.tokens.length - 1 ? " " : "";
-                    if (!token.entry || !token.key) {
-                      return (
-                        <Fragment key={tokenIndex}>
-                          {token.lead}
-                          {token.core}
-                          {token.trail}
-                          {trailingSpace}
-                        </Fragment>
-                      );
-                    }
-                    const className = [
-                      "sr-word",
-                      token.entry.tier === "curated" ? (token.entry.note ? "grammar" : "gloss") : "",
-                      saved.has(token.key) ? "saved" : "",
-                      token.key === active ? "active" : ""
-                    ]
-                      .filter(Boolean)
-                      .join(" ");
-                    return (
-                      <Fragment key={tokenIndex}>
-                        {token.lead}
-                        <button
-                          type="button"
-                          className={className}
-                          aria-label={`${token.core} — ${token.entry.gloss}`}
-                          onClick={() => onTapWord(token.key)}
-                        >
-                          {token.core}
-                        </button>
-                        {token.trail}
-                        {trailingSpace}
-                      </Fragment>
-                    );
-                  })}
-                  <button
-                    type="button"
-                    className="sr-spk"
-                    aria-label="Listen to this sentence"
-                    onClick={() => speak(sentence.target, speechLang)}
-                    disabled={!ttsSupported}
-                  >
-                    <Icon name="speak" />
-                  </button>
-                  {showEn ? <span className="sr-sent-en">{sentence.en}</span> : null}
-                </p>
-              ))}
-            </div>
+            {step === "quiz" && story.questions ? (
+              <StoryQuiz
+                questions={story.questions}
+                result={result}
+                submitting={submitting}
+                onSubmit={(answers) => submitCompletion(answers)}
+                onContinue={() => setStep("complete")}
+              />
+            ) : (
+              <>
+                <div className="sr-story">
+                  {tokenized.map((sentence, sentenceIndex) => (
+                    <p
+                      className={`sr-sent${sentence.brk ? " sr-break" : ""}${
+                        sentenceIndex === currentSentence ? " playing" : ""
+                      }`}
+                      key={sentenceIndex}
+                      data-index={sentenceIndex}
+                      aria-current={sentenceIndex === currentSentence ? "true" : undefined}
+                      ref={(el) => {
+                        sentenceRefs.current[sentenceIndex] = el;
+                      }}
+                    >
+                      {sentence.tokens.map((token, tokenIndex) => {
+                        const trailingSpace = tokenIndex < sentence.tokens.length - 1 ? " " : "";
+                        if (!token.entry || !token.key) {
+                          return (
+                            <Fragment key={tokenIndex}>
+                              {token.lead}
+                              {token.core}
+                              {token.trail}
+                              {trailingSpace}
+                            </Fragment>
+                          );
+                        }
+                        const className = [
+                          "sr-word",
+                          token.entry.tier === "curated" ? (token.entry.note ? "grammar" : "gloss") : "",
+                          saved.has(token.key) ? "saved" : "",
+                          token.key === active ? "active" : ""
+                        ]
+                          .filter(Boolean)
+                          .join(" ");
+                        return (
+                          <Fragment key={tokenIndex}>
+                            {token.lead}
+                            <button
+                              type="button"
+                              className={className}
+                              aria-label={`${token.core} — ${token.entry.gloss}`}
+                              onClick={() => onTapWord(token.key)}
+                            >
+                              {token.core}
+                            </button>
+                            {token.trail}
+                            {trailingSpace}
+                          </Fragment>
+                        );
+                      })}
+                      <button
+                        type="button"
+                        className="sr-spk"
+                        aria-label="Listen to this sentence"
+                        onClick={() => playback.speakText(sentence.target)}
+                        disabled={!ttsSupported}
+                      >
+                        <Icon name="speak" />
+                      </button>
+                      {showEn ? <span className="sr-sent-en">{sentence.en}</span> : null}
+                    </p>
+                  ))}
+                </div>
 
-            <aside className="sr-note">
-              <div className="sr-note-label">Cultural note</div>
-              <p className="sr-note-term">{story.culturalNote.term}</p>
-              <p className="sr-note-body">{story.culturalNote.body}</p>
-            </aside>
-
-            <div className="sr-tools">
-              <button
-                type="button"
-                className="sr-text-btn"
-                aria-pressed={showEn}
-                onClick={() => setShowEn((value) => !value)}
-              >
-                <Icon name={showEn ? "check" : "arrow"} />
-                {showEn ? "Hide English" : "Show English"}
-              </button>
-            </div>
+                <aside className="sr-note">
+                  <div className="sr-note-label">Cultural note</div>
+                  <p className="sr-note-term">{story.culturalNote.term}</p>
+                  <p className="sr-note-body">{story.culturalNote.body}</p>
+                </aside>
+              </>
+            )}
           </>
         ) : null}
       </div>
@@ -467,7 +592,7 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
                     type="button"
                     className="sr-icon-btn"
                     aria-label="Listen"
-                    onClick={() => active && speak(active, speechLang)}
+                    onClick={() => active && playback.speakText(active)}
                     disabled={!ttsSupported}
                   >
                     <Icon name="speak" />
@@ -502,9 +627,29 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
         </div>
       </div>
 
-      {story && !storyLoading ? (
+      {story && !storyLoading && step === "reading" ? (
         <div className="sr-footer">
           <div className="sr-footer-inner">
+            <div className="sr-footer-controls">
+              <button
+                type="button"
+                className="sr-text-btn"
+                onClick={() => (playback.playing ? playback.stop() : playback.playAll(0))}
+                disabled={!ttsSupported}
+              >
+                <Icon name={playback.playing ? "stop" : "play"} />
+                {playback.playing ? "Stop" : "Play story"}
+              </button>
+              <button
+                type="button"
+                className="sr-text-btn"
+                aria-pressed={showEn}
+                onClick={() => setShowEn((value) => !value)}
+              >
+                <Icon name={showEn ? "check" : "arrow"} />
+                {showEn ? "Hide English" : "Show English"}
+              </button>
+            </div>
             <div className="sr-counts">
               <span>
                 <b>{lookedUp.size}</b> looked up
@@ -514,19 +659,32 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
               </span>
             </div>
             <button type="button" className="sr-finish" onClick={handleFinish}>
-              Finish story <Icon name="arrow" />
+              {story.questions && story.questions.length > 0 ? "Take the quiz" : "Finish story"}{" "}
+              <Icon name="arrow" />
             </button>
           </div>
         </div>
       ) : null}
 
       {finished ? (
-        <div className="sr-modal-scrim" onClick={() => setFinished(false)}>
+        <div className="sr-modal-scrim" onClick={() => setStep("reading")}>
           <div className="sr-modal" role="dialog" aria-label="Story complete" onClick={(event) => event.stopPropagation()}>
             <div className="sr-modal-spark">
               <Icon name="spark" />
             </div>
             <h3>Nicely read.</h3>
+            {result && result.quizTotal ? (
+              <p className="sr-modal-score">
+                Quiz: <b>{result.quizScore}</b> / {result.quizTotal}
+              </p>
+            ) : null}
+            {result && result.xpGained > 0 ? (
+              <p className="sr-modal-xp">
+                <Icon name="spark" /> +{result.xpGained} XP
+              </p>
+            ) : result && result.alreadyAwarded ? (
+              <p className="sr-modal-xp muted">You already earned XP for this story.</p>
+            ) : null}
             <p>
               {savedList.length > 0
                 ? `${savedList.length} ${savedList.length === 1 ? "word goes" : "words go"} into your review queue. They'll resurface in upcoming practice sessions.`
@@ -544,7 +702,7 @@ export function StoryPage({ language, languageLabel }: StoryPageProps) {
               )}
             </div>
             <div className="sr-modal-actions">
-              <button type="button" className="sr-action" onClick={() => setFinished(false)}>
+              <button type="button" className="sr-action" onClick={() => setStep("reading")}>
                 <Icon name="check" /> Done
               </button>
               {readNext ? (

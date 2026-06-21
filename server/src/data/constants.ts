@@ -35,8 +35,16 @@ const CATEGORIES = [
 const LEVEL_ORDER = ["a1", "a2", "b1", "b2"];
 const LEVEL_XP_MULTIPLIER = { a1: 1.0, a2: 1.25, b1: 1.6, b2: 2.0 };
 
+// XP awarded for finishing a story, before the per-level multiplier (a1=20 … b2=40),
+// plus the maximum bonus for a perfect comprehension quiz (scaled by score and level).
+// Kept modest so reading cannot trivially complete the daily goal on its own.
+const STORY_BASE_XP = 20;
+const QUIZ_BONUS_MAX = 15;
+
 module.exports = {
   CATEGORIES,
   LEVEL_ORDER,
-  LEVEL_XP_MULTIPLIER
+  LEVEL_XP_MULTIPLIER,
+  STORY_BASE_XP,
+  QUIZ_BONUS_MAX
 };

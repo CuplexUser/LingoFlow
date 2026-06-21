@@ -8,7 +8,13 @@ import type {
   CourseCategory
 } from "./types/course";
 import type { ContributionModerationStatus, ContributionSubmission } from "./types/contribution";
-import type { Story, StorySummary, SavedWord } from "./types/story";
+import type {
+  Story,
+  StorySummary,
+  SavedWord,
+  StoryCompletionResult,
+  ReadingStats
+} from "./types/story";
 import type {
   ActiveSession,
   BuildSentenceQuestion,
@@ -506,8 +512,24 @@ export const api = {
     return request<StorySummary[]>(`/stories${query ? `?${query}` : ""}`);
   },
   getStory: (id: string): Promise<Story> => request<Story>(`/stories/${encodeURIComponent(id)}`),
-  completeStory: (id: string): Promise<{ ok: boolean }> =>
-    request<{ ok: boolean }>(`/stories/${encodeURIComponent(id)}/complete`, { method: "POST" }),
+  getRecommendedStory: (language?: string): Promise<StorySummary | null> =>
+    request<StorySummary | null>(
+      `/stories/recommended${language ? `?language=${encodeURIComponent(language)}` : ""}`
+    ),
+  getReadingStats: (language?: string): Promise<ReadingStats> =>
+    request<ReadingStats>(
+      `/stories/stats${language ? `?language=${encodeURIComponent(language)}` : ""}`
+    ),
+  saveStoryProgress: (id: string, sentenceIndex: number): Promise<{ ok: boolean }> =>
+    request<{ ok: boolean }>(`/stories/${encodeURIComponent(id)}/progress`, {
+      method: "POST",
+      body: JSON.stringify({ sentenceIndex })
+    }),
+  completeStory: (id: string, answers?: number[]): Promise<StoryCompletionResult> =>
+    request<StoryCompletionResult>(`/stories/${encodeURIComponent(id)}/complete`, {
+      method: "POST",
+      body: JSON.stringify({ answers: answers ?? [] })
+    }),
   getSavedWords: (language?: string): Promise<SavedWord[]> =>
     request<SavedWord[]>(`/saved-words${language ? `?language=${encodeURIComponent(language)}` : ""}`),
   saveWord: (payload: { language: string; word: string; translation: string; storyId: string; category: string }) =>

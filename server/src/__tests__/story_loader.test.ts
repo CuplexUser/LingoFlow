@@ -94,3 +94,73 @@ test("validateStory rejects a missing cultural note body", () => {
     /culturalNote.body is required/
   );
 });
+
+test("validateStory accepts an optional comprehension quiz", () => {
+  const story = validateStory(
+    validStory({
+      questions: [
+        {
+          stem: "Where?",
+          options: ["Moscow", "Kyiv"],
+          correct: 0,
+          explanation: "It says Moscow."
+        },
+        {
+          stem: "Что?",
+          stemLang: "target",
+          options: ["да", "нет"],
+          optionsLang: "target",
+          correct: 1
+        }
+      ]
+    }),
+    "russian",
+    0
+  );
+  assert.equal(story.questions.length, 2);
+  assert.equal(story.questions[0].stemLang, "en");
+  assert.equal(story.questions[0].correct, 0);
+  assert.equal(story.questions[1].stemLang, "target");
+  assert.equal(story.questions[1].optionsLang, "target");
+});
+
+test("validateStory treats a missing quiz as valid (backward compatible)", () => {
+  const story = validateStory(validStory(), "russian", 0);
+  assert.equal(story.questions, undefined);
+});
+
+test("validateStory rejects a quiz with an out-of-range correct index", () => {
+  assert.throws(
+    () =>
+      validateStory(
+        validStory({ questions: [{ stem: "Q?", options: ["a", "b"], correct: 5 }] }),
+        "russian",
+        0
+      ),
+    /correct out of range/
+  );
+});
+
+test("validateStory rejects a quiz question with too few options", () => {
+  assert.throws(
+    () =>
+      validateStory(
+        validStory({ questions: [{ stem: "Q?", options: ["only one"], correct: 0 }] }),
+        "russian",
+        0
+      ),
+    /options must be an array of 2 to 5 choices/
+  );
+});
+
+test("validateStory rejects a quiz question with an unknown stemLang", () => {
+  assert.throws(
+    () =>
+      validateStory(
+        validStory({ questions: [{ stem: "Q?", stemLang: "fr", options: ["a", "b"], correct: 0 }] }),
+        "russian",
+        0
+      ),
+    /stemLang must be one of/
+  );
+});

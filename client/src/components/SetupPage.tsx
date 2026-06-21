@@ -161,6 +161,20 @@ export function SetupPage({
           </select>
         </label>
 
+        <label>
+          Listening Speed
+          <select
+            value={String(draftSettings.speechRate ?? 0.92)}
+            onChange={(event) => onDraftChange({ speechRate: Number(event.target.value) })}
+          >
+            <option value="0.6">Slow (0.6×)</option>
+            <option value="0.8">Relaxed (0.8×)</option>
+            <option value="0.92">Normal (0.92×)</option>
+            <option value="1">Natural (1.0×)</option>
+            <option value="1.2">Fast (1.2×)</option>
+          </select>
+        </label>
+
         <label className="wide-label">
           About You
           <textarea

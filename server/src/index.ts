@@ -89,7 +89,10 @@ const {
   rebuildContentWordTranslations,
   rebuildAllWordTranslations,
   listStories,
-  getStoryById
+  getStoryById,
+  sanitizeStoryForClient,
+  computeStoryXp,
+  recommendNextStory
 } = require("./data.ts");
 
 // Inject already-approved community exercises into the live content pool at startup
@@ -360,7 +363,7 @@ function createApp(): any {
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
-  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById });
+  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory });
   registerSessionRoutes(app, {
     requireAuth,
     database,

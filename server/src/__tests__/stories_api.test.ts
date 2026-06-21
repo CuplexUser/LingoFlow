@@ -222,6 +222,84 @@ test("GET /api/admin/content-stats reports story coverage per language", async (
   }
 });
 
+test("GET /api/stories/:id strips the quiz answer key", async (t) => {
+  const srv = new TestServer();
+  t.after(() => srv.close());
+  const headers = await createAuthHeaders(srv.base, "quiz-strip");
+
+  const res = await fetch(`${srv.base}/api/stories/it-story-a1-morning`, { headers });
+  assert.equal(res.status, 200);
+  const story = await res.json() as any;
+  assert.ok(Array.isArray(story.questions) && story.questions.length === 3, "quiz questions are present");
+  for (const question of story.questions) {
+    assert.ok(question.stem && Array.isArray(question.options));
+    assert.equal(question.correct, undefined, "correct index must not be sent to the client");
+    assert.equal(question.explanation, undefined, "explanation must not be sent before submission");
+  }
+});
+
+test("POST /api/stories/:id/complete scores the quiz and awards XP once", async (t) => {
+  const srv = new TestServer();
+  t.after(() => srv.close());
+  const headers = await createAuthHeaders(srv.base, "quiz-score");
+
+  // Italian a1 story has 3 questions with correct answers [0, 1, 0].
+  const res = await fetch(`${srv.base}/api/stories/it-story-a1-morning/complete`, {
+    method: "POST", headers, body: JSON.stringify({ answers: [0, 1, 2] })
+  });
+  assert.equal(res.status, 200);
+  const result = await res.json() as any;
+  assert.equal(result.quizTotal, 3);
+  assert.equal(result.quizScore, 2, "two of three answers are correct");
+  assert.deepEqual(result.perQuestion, [true, true, false]);
+  assert.deepEqual(result.correctAnswers, [0, 1, 0]);
+  assert.ok(result.explanations.every((e: unknown) => typeof e === "string"));
+  assert.ok(result.xpGained > 0, "finishing awards XP");
+  assert.equal(result.alreadyAwarded, false);
+
+  // Re-finishing must not award XP again.
+  const again = await fetch(`${srv.base}/api/stories/it-story-a1-morning/complete`, {
+    method: "POST", headers, body: JSON.stringify({ answers: [0, 1, 0] })
+  });
+  const repeat = await again.json() as any;
+  assert.equal(repeat.alreadyAwarded, true);
+  assert.equal(repeat.xpGained, 0, "XP is awarded only once per story");
+});
+
+test("story progress is saved and resumes via the library summary", async (t) => {
+  const srv = new TestServer();
+  t.after(() => srv.close());
+  const headers = await createAuthHeaders(srv.base, "story-progress");
+
+  const save = await fetch(`${srv.base}/api/stories/it-story-a2-market/progress`, {
+    method: "POST", headers, body: JSON.stringify({ sentenceIndex: 3 })
+  });
+  assert.equal(save.status, 200);
+
+  // Progress never regresses to a lower sentence.
+  await fetch(`${srv.base}/api/stories/it-story-a2-market/progress`, {
+    method: "POST", headers, body: JSON.stringify({ sentenceIndex: 1 })
+  });
+
+  const list = await (await fetch(`${srv.base}/api/stories?language=italian`, { headers })).json() as any[];
+  const summary = list.find((story) => story.id === "it-story-a2-market");
+  assert.equal(summary.lastSentenceIndex, 3, "furthest sentence reached is retained");
+  assert.equal(summary.completed, false, "progress alone does not complete the story");
+});
+
+test("GET /api/stories/recommended returns an uncompleted story", async (t) => {
+  const srv = new TestServer();
+  t.after(() => srv.close());
+  const headers = await createAuthHeaders(srv.base, "story-rec");
+
+  const res = await fetch(`${srv.base}/api/stories/recommended?language=russian`, { headers });
+  assert.equal(res.status, 200);
+  const recommended = await res.json() as any;
+  assert.ok(recommended && typeof recommended.id === "string", "a story is recommended");
+  assert.equal(recommended.language, "russian");
+  assert.equal(recommended.completed, undefined, "summary is the lightweight shape");
+});
+
 test("saved words surface as items in the practice pool", async (t) => {
   const srv = new TestServer();
   t.after(() => srv.close());

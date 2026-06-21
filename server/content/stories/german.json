@@ -33,7 +33,29 @@
     "culturalNote": {
       "term": "Berlin",
       "body": "Berlin is Germany's capital and largest city. Once divided by the Berlin Wall, it is now known for its museums, its long history and a relaxed, café-filled daily pace."
-    }
+    },
+    "questions": [
+      {
+        "stem": "Where does Anna live?",
+        "options": ["Berlin", "Munich", "Hamburg"],
+        "correct": 0,
+        "explanation": "„Anna wohnt in Berlin\" — Anna lives in Berlin."
+      },
+      {
+        "stem": "Was trinkt Anna am Morgen?",
+        "stemLang": "target",
+        "options": ["Kaffee", "Tee", "Wasser"],
+        "optionsLang": "target",
+        "correct": 0,
+        "explanation": "„Am Morgen trinkt sie Kaffee\" — in the morning she drinks coffee."
+      },
+      {
+        "stem": "What does Anna do after her coffee?",
+        "options": ["Goes to work", "Reads a book", "Visits a friend"],
+        "correct": 0,
+        "explanation": "„Dann geht sie zur Arbeit\" — then she goes to work."
+      }
+    ]
   },
   {
     "id": "de-story-a2-market",

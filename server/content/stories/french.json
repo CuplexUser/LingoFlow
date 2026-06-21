@@ -69,7 +69,29 @@
     "culturalNote": {
       "term": "Small towns",
       "body": "In France, small towns and villages are prized for their gentle pace of life, where daily routines revolve around family, the school and the village square or weekly market."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Mia?",
+        "options": ["A student", "A teacher", "A doctor"],
+        "correct": 0,
+        "explanation": "« Mia est étudiante » — Mia is a student."
+      },
+      {
+        "stem": "Where does Mia live?",
+        "options": ["In a big city", "In a small town", "By the sea"],
+        "correct": 1,
+        "explanation": "« Elle vit dans une petite ville » — she lives in a small town."
+      },
+      {
+        "stem": "Que fait Mia l'après-midi ?",
+        "stemLang": "target",
+        "options": ["Elle lit des livres", "Elle prépare le dîner", "Elle va au travail"],
+        "optionsLang": "target",
+        "correct": 0,
+        "explanation": "« L'après-midi, elle lit des livres » — in the afternoon she reads books."
+      }
+    ]
   },
   {
     "id": "fr-story-a1-family",
@@ -139,7 +161,27 @@
     "culturalNote": {
       "term": "Sunday visits",
       "body": "In France, Sunday is traditionally a family day. Many families share a long déjeuner together, and visiting grandparents is a common weekend tradition."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Tom's mother's job?",
+        "options": ["A teacher", "A doctor", "A shopkeeper"],
+        "correct": 1,
+        "explanation": "« Ma mère est médecin » — his mother is a doctor."
+      },
+      {
+        "stem": "How old is Tom's brother?",
+        "options": ["Five", "Ten", "Two"],
+        "correct": 0,
+        "explanation": "« Mon frère n'a que cinq ans » — his brother is only five."
+      },
+      {
+        "stem": "Who does the family visit on Sunday?",
+        "options": ["Their grandmother", "Their teacher", "A neighbor"],
+        "correct": 0,
+        "explanation": "« Dimanche, nous rendons visite à ma grand-mère » — on Sunday they visit their grandmother."
+      }
+    ]
   },
   {
     "id": "fr-story-a2-market",

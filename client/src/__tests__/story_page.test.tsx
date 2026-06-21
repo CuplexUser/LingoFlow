@@ -128,7 +128,7 @@ describe("StoryPage", () => {
     await screen.findByRole("heading", { name: "Утро Анны" });
 
     await userEvent.click(screen.getByRole("button", { name: /Finish story/ }));
-    await waitFor(() => expect(completeStory).toHaveBeenCalledWith("ru-a1"));
+    await waitFor(() => expect(completeStory).toHaveBeenCalledWith("ru-a1", []));
 
     // The completion modal offers the next unread story (the A2 one).
     await userEvent.click(await screen.findByRole("button", { name: /Read next/ }));

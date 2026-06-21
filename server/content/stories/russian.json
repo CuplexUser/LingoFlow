@@ -66,7 +66,29 @@
     "culturalNote": {
       "term": "Маленькие города",
       "body": "Beyond Moscow and St Petersburg, much of Russian life unfolds in small towns where neighbors know one another and the day is shaped by school, work and a shared family meal in the evening."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Katya?",
+        "options": ["A student", "A teacher", "A doctor"],
+        "correct": 0,
+        "explanation": "The story opens with «Катя — студентка» — Katya is a student."
+      },
+      {
+        "stem": "Where does Katya live?",
+        "options": ["In a big city", "In a small town", "By the sea"],
+        "correct": 1,
+        "explanation": "She lives «в маленьком городе» — in a small town."
+      },
+      {
+        "stem": "Что Катя делает днём?",
+        "stemLang": "target",
+        "options": ["Читает книги", "Готовит ужин", "Идёт на работу"],
+        "optionsLang": "target",
+        "correct": 0,
+        "explanation": "«Днём она читает книги» — in the afternoon she reads books."
+      }
+    ]
   },
   {
     "id": "ru-story-a1-family",
@@ -134,7 +156,27 @@
     "culturalNote": {
       "term": "Воскресенье у бабушки",
       "body": "Sunday is a traditional family day in Russia. Many families gather at a grandmother's home, where homemade pies (пироги) are a classic sign of welcome."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Ivan's mother's job?",
+        "options": ["A teacher", "A doctor", "A shopkeeper"],
+        "correct": 1,
+        "explanation": "«Моя мама — врач» — his mother is a doctor."
+      },
+      {
+        "stem": "How old is Ivan's brother?",
+        "options": ["Five", "Ten", "Two"],
+        "correct": 0,
+        "explanation": "«Моему брату только пять лет» — his brother is only five."
+      },
+      {
+        "stem": "Who does the family visit on Sunday?",
+        "options": ["Their grandmother", "Their teacher", "A neighbor"],
+        "correct": 0,
+        "explanation": "«В воскресенье мы навещаем бабушку» — on Sunday they visit their grandmother."
+      }
+    ]
   },
   {
     "id": "ru-story-a2-market",

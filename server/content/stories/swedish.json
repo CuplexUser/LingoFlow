@@ -33,7 +33,29 @@
     "culturalNote": {
       "term": "fika",
       "body": "Swedes take coffee seriously. A fika is a deliberate coffee break — often with a cinnamon bun (kanelbulle) — and a daily social ritual at home and at work."
-    }
+    },
+    "questions": [
+      {
+        "stem": "Where does Anna live?",
+        "options": ["Stockholm", "Gothenburg", "Malmö"],
+        "correct": 0,
+        "explanation": "”Anna bor i Stockholm” — Anna lives in Stockholm."
+      },
+      {
+        "stem": "Vad dricker Anna på morgonen?",
+        "stemLang": "target",
+        "options": ["Kaffe", "Te", "Vatten"],
+        "optionsLang": "target",
+        "correct": 0,
+        "explanation": "”På morgonen dricker hon kaffe” — in the morning she drinks coffee."
+      },
+      {
+        "stem": "What does Anna do after her coffee?",
+        "options": ["Goes to work", "Reads a book", "Visits a friend"],
+        "correct": 0,
+        "explanation": "”Sedan går hon till jobbet” — then she goes to work."
+      }
+    ]
   },
   {
     "id": "sv-story-a2-market",

@@ -1,5 +1,5 @@
 const { createHash } = require("crypto");
-const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER } = require("./data/constants.ts");
+const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER, STORY_BASE_XP, QUIZ_BONUS_MAX } = require("./data/constants.ts");
 const { loadLanguageContent } = require("./data/contentLoader.ts");
 const { createCourseSelectors, createSessionGenerator, recommendedLevelFromMastery } = require("./data/sessionGenerator.ts");
 const { getPracticePool } = require("./data/practicePool.ts");
@@ -79,6 +79,7 @@ const STORIES: any[] = loadStories();
 console.log(`[startup] Loaded ${STORIES.length} stories`);
 
 function summarizeStory(story: any) {
+  const questionCount = Array.isArray(story.questions) ? story.questions.length : 0;
   return {
     id: story.id,
     language: story.language,
@@ -87,7 +88,9 @@ function summarizeStory(story: any) {
     titleEn: story.titleEn,
     theme: story.theme,
     category: story.category,
-    sentenceCount: story.sentences.length
+    sentenceCount: story.sentences.length,
+    hasQuiz: questionCount > 0,
+    questionCount
   };
 }
 
@@ -105,6 +108,69 @@ function listStories({ language, level, category }: { language?: string; level?:
 function getStoryById(id: string) {
   const storyId = String(id || "").trim();
   return STORIES.find((story) => story.id === storyId) || null;
+}
+
+// Removes the answer key from a story before it is sent to the client. Question
+// `correct` indices and `explanation` text are only revealed after the learner submits.
+function sanitizeStoryForClient(story: any) {
+  if (!story) return story;
+  if (!Array.isArray(story.questions) || story.questions.length === 0) return story;
+  return {
+    ...story,
+    questions: story.questions.map((question: any) => ({
+      stem: question.stem,
+      stemLang: question.stemLang,
+      options: question.options,
+      optionsLang: question.optionsLang
+    }))
+  };
+}
+
+// Computes XP for finishing a story: a level-scaled base plus a quiz bonus scaled
+// by both accuracy and level. Returns a whole number.
+function computeStoryXp(level: string, quizScore?: number, quizTotal?: number): number {
+  const multiplier = LEVEL_XP_MULTIPLIER[String(level || "a1").toLowerCase()] || 1;
+  let xp = STORY_BASE_XP * multiplier;
+  if (Number.isFinite(quizTotal) && (quizTotal as number) > 0) {
+    const ratio = Math.max(0, Math.min(1, (quizScore as number) / (quizTotal as number)));
+    xp += QUIZ_BONUS_MAX * multiplier * ratio;
+  }
+  return Math.round(xp);
+}
+
+// Suggests the next story to read for a learner. Prefers an uncompleted story at the
+// learner's current level matching their focus category, then same level any category,
+// then the next level up, then any uncompleted story. Returns a summary or null.
+function recommendNextStory({
+  language,
+  completedIds,
+  level,
+  category
+}: {
+  language: string;
+  completedIds: string[];
+  level?: string;
+  category?: string;
+}) {
+  const lang = String(language || "").trim().toLowerCase();
+  if (!lang) return null;
+  const done = new Set(completedIds || []);
+  const pool = STORIES.filter((story) => story.language === lang && !done.has(story.id));
+  if (!pool.length) return null;
+
+  const currentLevel = LEVEL_ORDER.includes(String(level || "").toLowerCase())
+    ? String(level).toLowerCase()
+    : LEVEL_ORDER[0];
+  const cat = String(category || "").trim();
+  const nextLevel = LEVEL_ORDER[Math.min(LEVEL_ORDER.indexOf(currentLevel) + 1, LEVEL_ORDER.length - 1)];
+
+  const pick =
+    pool.find((s) => s.level === currentLevel && cat && s.category === cat) ||
+    pool.find((s) => s.level === currentLevel) ||
+    pool.find((s) => s.level === nextLevel) ||
+    [...pool].sort((a, b) => LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level))[0];
+
+  return pick ? summarizeStory(pick) : null;
 }
 
 const { getCategoryItems, getAllItems, getCourseOverview } = createCourseSelectors(COURSE);
@@ -219,6 +285,9 @@ module.exports = {
   STORIES,
   listStories,
   getStoryById,
+  sanitizeStoryForClient,
+  computeStoryXp,
+  recommendNextStory,
   getCourseOverview,
   getContentMetrics,
   getCategoryItems,

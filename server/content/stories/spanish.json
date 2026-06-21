@@ -68,7 +68,29 @@
     "culturalNote": {
       "term": "Small towns",
       "body": "In Spain, small towns (pueblos) are cherished for their slower rhythm, where neighbors greet one another in the plaza and daily life centers on family, school and the local shops."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Mia?",
+        "options": ["A student", "A teacher", "A doctor"],
+        "correct": 0,
+        "explanation": "«Mia es estudiante» — Mia is a student."
+      },
+      {
+        "stem": "Where does Mia live?",
+        "options": ["In a big city", "In a small town", "By the sea"],
+        "correct": 1,
+        "explanation": "«Vive en un pequeño pueblo» — she lives in a small town."
+      },
+      {
+        "stem": "¿Qué hace Mia por la tarde?",
+        "stemLang": "target",
+        "options": ["Lee libros", "Cocina la cena", "Va al trabajo"],
+        "optionsLang": "target",
+        "correct": 0,
+        "explanation": "«Por la tarde lee libros» — in the afternoon she reads books."
+      }
+    ]
   },
   {
     "id": "es-story-a1-family",
@@ -133,7 +155,27 @@
     "culturalNote": {
       "term": "Sunday visits",
       "body": "In Spain, Sunday is traditionally for family. Many gather for a long midday meal (la comida), and visiting grandparents over the weekend is a cherished custom."
-    }
+    },
+    "questions": [
+      {
+        "stem": "What is Tom's mother's job?",
+        "options": ["A teacher", "A doctor", "A shopkeeper"],
+        "correct": 1,
+        "explanation": "«Mi madre es doctora» — his mother is a doctor."
+      },
+      {
+        "stem": "How old is Tom's brother?",
+        "options": ["Five", "Ten", "Two"],
+        "correct": 0,
+        "explanation": "«Mi hermano tiene sólo cinco años» — his brother is only five."
+      },
+      {
+        "stem": "Who does the family visit on Sunday?",
+        "options": ["Their grandmother", "Their teacher", "A neighbor"],
+        "correct": 0,
+        "explanation": "«El domingo visitamos a mi abuela» — on Sunday they visit their grandmother."
+      }
+    ]
   },
   {
     "id": "es-story-a2-market",

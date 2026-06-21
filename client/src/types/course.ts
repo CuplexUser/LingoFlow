@@ -14,6 +14,8 @@ export type LearnerSettings = {
   learnerBio: string;
   focusArea: string;
   unlockAllLessons?: boolean;
+  // Shared text-to-speech playback rate (0.5–1.5), used by the Story Reader.
+  speechRate?: number;
 };
 
 export type LearnerProgress = {

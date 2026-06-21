@@ -16,6 +16,17 @@ interface StoryGlossEntry {
   note?: string;
 }
 
+type StoryTextLang = "en" | "target";
+
+interface StoryQuestion {
+  stem: string;
+  stemLang: StoryTextLang;
+  options: string[];
+  optionsLang: StoryTextLang;
+  correct: number;
+  explanation?: string;
+}
+
 interface Story {
   id: string;
   language: string;
@@ -27,6 +38,7 @@ interface Story {
   sentences: StorySentence[];
   glossary: Record<string, StoryGlossEntry>;
   culturalNote: { term: string; body: string };
+  questions?: StoryQuestion[];
 }
 
 function parseJsonFile(filePath: string): unknown {
@@ -39,6 +51,61 @@ function parseJsonFile(filePath: string): unknown {
       { cause: error }
     );
   }
+}
+
+const TEXT_LANGS = ["en", "target"];
+
+// Validates an optional comprehension question. Stories authored before quizzes
+// existed simply omit `questions`, so this is only reached when the key is present.
+function validateQuestion(raw: unknown, prefix: string): StoryQuestion {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    throw new Error(`${prefix} must be an object`);
+  }
+  const item = raw as Record<string, unknown>;
+
+  const stem = String(item.stem || "").trim();
+  if (!stem) throw new Error(`${prefix}.stem is required`);
+
+  const stemLang = String(item.stemLang || "en").trim().toLowerCase();
+  if (!TEXT_LANGS.includes(stemLang)) {
+    throw new Error(`${prefix}.stemLang must be one of ${TEXT_LANGS.join(", ")}`);
+  }
+  const optionsLang = String(item.optionsLang || "en").trim().toLowerCase();
+  if (!TEXT_LANGS.includes(optionsLang)) {
+    throw new Error(`${prefix}.optionsLang must be one of ${TEXT_LANGS.join(", ")}`);
+  }
+
+  if (!Array.isArray(item.options) || item.options.length < 2 || item.options.length > 5) {
+    throw new Error(`${prefix}.options must be an array of 2 to 5 choices`);
+  }
+  const options = item.options.map((rawOption, optionIndex) => {
+    const option = String(rawOption ?? "").trim();
+    if (!option) throw new Error(`${prefix}.options[${optionIndex}] must be a non-empty string`);
+    return option;
+  });
+
+  if (typeof item.correct !== "number" || !Number.isInteger(item.correct)) {
+    throw new Error(`${prefix}.correct must be an integer`);
+  }
+  if (item.correct < 0 || item.correct >= options.length) {
+    throw new Error(`${prefix}.correct out of range (0..${options.length - 1})`);
+  }
+
+  const question: StoryQuestion = {
+    stem,
+    stemLang: stemLang as StoryTextLang,
+    options,
+    optionsLang: optionsLang as StoryTextLang,
+    correct: item.correct
+  };
+  if (item.explanation !== undefined) {
+    if (typeof item.explanation !== "string") {
+      throw new Error(`${prefix}.explanation must be a string`);
+    }
+    const explanation = item.explanation.trim();
+    if (explanation) question.explanation = explanation;
+  }
+  return question;
 }
 
 // Validates and normalizes a single raw story object. `language` comes from the file name.
@@ -125,7 +192,19 @@ function validateStory(raw: unknown, language: string, index: number): Story {
   if (!noteTerm) throw new Error(`${prefix}.culturalNote.term is required`);
   if (!noteBody) throw new Error(`${prefix}.culturalNote.body is required`);
 
-  return {
+  let questions: StoryQuestion[] | undefined;
+  if (item.questions !== undefined) {
+    if (!Array.isArray(item.questions)) {
+      throw new Error(`${prefix}.questions must be an array`);
+    }
+    if (item.questions.length > 0) {
+      questions = item.questions.map((rawQuestion, questionIndex) =>
+        validateQuestion(rawQuestion, `${prefix}.questions[${questionIndex}]`)
+      );
+    }
+  }
+
+  const story: Story = {
     id,
     language,
     level,
@@ -137,6 +216,8 @@ function validateStory(raw: unknown, language: string, index: number): Story {
     glossary,
     culturalNote: { term: noteTerm, body: noteBody }
   };
+  if (questions) story.questions = questions;
+  return story;
 }
 
 function loadStories(): Story[] {

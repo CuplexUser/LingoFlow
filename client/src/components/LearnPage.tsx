@@ -1,8 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SessionPlayer } from "./SessionPlayer";
 import { SessionPlayerErrorBoundary } from "./SessionPlayerErrorBoundary";
+import { api } from "../api";
 import type { CourseCategory, LearnerProgress, LearnerSettings } from "../types/course";
 import type { ActiveSession, SessionReport, SessionSnapshot } from "../types/session";
+import type { StorySummary } from "../types/story";
 
 type LearnPageProps = {
   settings: LearnerSettings | null;
@@ -16,6 +18,7 @@ type LearnPageProps = {
   onSessionSnapshot: (snapshot: SessionSnapshot) => void;
   onOpenSetup: () => void;
   onOpenStats: () => void;
+  onOpenStory: () => void;
 };
 
 function PlayIcon() {
@@ -177,9 +180,28 @@ export function LearnPage({
   onExitSession,
   onSessionSnapshot,
   onOpenSetup,
-  onOpenStats
+  onOpenStats,
+  onOpenStory
 }: LearnPageProps) {
   const [filter, setFilter] = useState<"all" | "in-progress" | "mastered" | "locked">("all");
+
+  const [recommendedStory, setRecommendedStory] = useState<StorySummary | null>(null);
+  useEffect(() => {
+    const lang = settings?.targetLanguage;
+    if (!lang) return;
+    let cancelled = false;
+    api
+      .getRecommendedStory(lang)
+      .then((summary) => {
+        if (!cancelled) setRecommendedStory(summary);
+      })
+      .catch(() => {
+        if (!cancelled) setRecommendedStory(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [settings?.targetLanguage]);
 
   const recommended = useMemo(() =>
     courseCategories.find((c) => c.recommended && c.unlocked && c.attempts > 0) ||
@@ -309,6 +331,29 @@ export function LearnPage({
             <p style={{ fontSize: "12px", textAlign: "center", maxWidth: 200, margin: 0, color: "var(--muted)" }}>
               Best next target based on mastery
             </p>
+          </div>
+        </section>
+      )}
+
+      {/* Recommended story */}
+      {recommendedStory && (
+        <section className="reading-rec-card">
+          <div className="reading-rec-text">
+            <div className="learn-kicker accent">
+              {recommendedStory.lastSentenceIndex ? "Continue reading" : "Read a story"}
+            </div>
+            <h3 className="recommended-title">{recommendedStory.title}</h3>
+            <p className="recommended-desc">
+              {recommendedStory.titleEn} · {recommendedStory.theme}
+            </p>
+            <div className="reading-rec-meta">
+              <span className="reading-tag level">{recommendedStory.level.toUpperCase()}</span>
+              <span className="reading-rec-count">{recommendedStory.sentenceCount} sentences</span>
+              {recommendedStory.hasQuiz ? <span className="reading-tag">Quiz</span> : null}
+            </div>
+            <button className="btn-primary-lg" onClick={onOpenStory}>
+              <PlayIcon /> Open Story Reader
+            </button>
           </div>
         </section>
       )}

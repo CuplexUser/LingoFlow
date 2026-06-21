@@ -1,5 +1,5 @@
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, listStories, getStoryById } = deps;
+  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory } = deps;
 
   const contentReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
@@ -100,21 +100,135 @@ function registerCourseRoutes(app: any, deps: any): void {
     const level = String(req.query.level || "").trim().toLowerCase();
     const category = String(req.query.category || "").trim();
     const summaries = listStories({ language, level, category });
-    const completed = new Set<string>(database.getCompletedStoryIds(req.authUserId, language || undefined));
-    return res.json(summaries.map((story: any) => ({ ...story, completed: completed.has(story.id) })));
+    const progress = database.getStoryProgress(req.authUserId, language || undefined);
+    return res.json(
+      summaries.map((story: any) => {
+        const state = progress[story.id];
+        return {
+          ...story,
+          completed: Boolean(state && state.completedAt),
+          lastSentenceIndex: state ? state.lastSentenceIndex : 0,
+          quizScore: state ? state.quizScore : null,
+          quizTotal: state ? state.quizTotal : null
+        };
+      })
+    );
+  });
+
+  // "/stats" and "/recommended" must be registered before "/:id" so Express does
+  // not capture those words as a story id.
+  app.get("/api/stories/stats", requireAuth, (req: any, res: any) => {
+    const language = String(req.query.language || "").trim().toLowerCase();
+    const stats = database.getReadingStats(req.authUserId, language || undefined);
+    let sentencesRead = 0;
+    const levels = new Set<string>();
+    const themes = new Set<string>();
+    for (const id of stats.completedStoryIds) {
+      const story = getStoryById(id);
+      if (!story) continue;
+      sentencesRead += story.sentences.length;
+      if (story.level) levels.add(story.level);
+      if (story.theme) themes.add(story.theme);
+    }
+    return res.json({
+      storiesRead: stats.storiesRead,
+      sentencesRead,
+      wordsSaved: stats.wordsSaved,
+      quizzesTaken: stats.quizzesTaken,
+      levels: [...levels],
+      themes: [...themes]
+    });
+  });
+
+  app.get("/api/stories/recommended", requireAuth, (req: any, res: any) => {
+    const language = String(req.query.language || "").trim().toLowerCase();
+    if (!language) return res.json(null);
+    const completedIds = database.getCompletedStoryIds(req.authUserId, language);
+    const settings = database.getSettings(req.authUserId);
+    const categoryProgress = database.getCategoryProgress(req.authUserId, language) || [];
+    const topCategory = [...categoryProgress].sort(
+      (a: any, b: any) => (b.attempts || 0) - (a.attempts || 0)
+    )[0];
+    const recommended = recommendNextStory({
+      language,
+      completedIds,
+      level: settings.selfRatedLevel,
+      category: topCategory ? topCategory.category : ""
+    });
+    return res.json(recommended);
   });
 
   app.get("/api/stories/:id", requireAuth, (req: any, res: any) => {
     const story = getStoryById(String(req.params.id || ""));
     if (!story) return res.status(404).json({ error: "Story not found" });
-    return res.json(story);
+    return res.json(sanitizeStoryForClient(story));
+  });
+
+  app.post("/api/stories/:id/progress", requireAuth, (req: any, res: any) => {
+    const story = getStoryById(String(req.params.id || ""));
+    if (!story) return res.status(404).json({ error: "Story not found" });
+    database.upsertStoryProgress(req.authUserId, {
+      storyId: story.id,
+      language: story.language,
+      sentenceIndex: Number(req.body?.sentenceIndex)
+    });
+    return res.json({ ok: true });
   });
 
   app.post("/api/stories/:id/complete", requireAuth, (req: any, res: any) => {
     const story = getStoryById(String(req.params.id || ""));
     if (!story) return res.status(404).json({ error: "Story not found" });
-    database.markStoryComplete(req.authUserId, { storyId: story.id, language: story.language });
-    return res.json({ ok: true });
+
+    const questions = Array.isArray(story.questions) ? story.questions : [];
+    const rawAnswers = Array.isArray(req.body?.answers) ? req.body.answers : [];
+
+    let quizScore: number | null = null;
+    let quizTotal: number | null = null;
+    let perQuestion: boolean[] = [];
+    let correctAnswers: number[] = [];
+    let explanations: (string | null)[] = [];
+
+    if (questions.length > 0) {
+      quizTotal = questions.length;
+      let score = 0;
+      perQuestion = questions.map((question: any, index: number) => {
+        const isCorrect = Number(rawAnswers[index]) === question.correct;
+        if (isCorrect) score += 1;
+        return isCorrect;
+      });
+      quizScore = score;
+      correctAnswers = questions.map((question: any) => question.correct);
+      explanations = questions.map((question: any) => question.explanation || null);
+    }
+
+    database.markStoryComplete(req.authUserId, {
+      storyId: story.id,
+      language: story.language,
+      quizScore,
+      quizTotal
+    });
+    const potentialXp = computeStoryXp(
+      story.level,
+      quizScore == null ? undefined : quizScore,
+      quizTotal == null ? undefined : quizTotal
+    );
+    const award = database.awardStoryXp(req.authUserId, {
+      storyId: story.id,
+      language: story.language,
+      xpGained: potentialXp
+    });
+
+    return res.json({
+      ok: true,
+      quizScore,
+      quizTotal,
+      perQuestion,
+      correctAnswers,
+      explanations,
+      xpGained: award.xpGained,
+      alreadyAwarded: award.alreadyAwarded,
+      todayXp: award.todayXp
+    });
   });
 
   app.get("/api/content/metrics", requireAuth, (req: any, res: any) => {

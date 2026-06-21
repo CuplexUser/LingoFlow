@@ -8,6 +8,7 @@ import type {
   ProgressOverview,
   StatsData
 } from "../types/course";
+import type { ReadingStats } from "../types/story";
 
 type StatsPageProps = {
   settings: LearnerSettings | null;
@@ -419,6 +420,24 @@ export function StatsPage({
     api.getAchievements().then(setAchievements).catch(() => {});
   }, []);
 
+  const [readingStats, setReadingStats] = useState<ReadingStats | null>(null);
+  useEffect(() => {
+    const lang = settings?.targetLanguage;
+    if (!lang) return;
+    let cancelled = false;
+    api
+      .getReadingStats(lang)
+      .then((data) => {
+        if (!cancelled) setReadingStats(data);
+      })
+      .catch(() => {
+        if (!cancelled) setReadingStats(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [settings?.targetLanguage]);
+
   const dailyXpHistory = statsData?.dailyXpHistory || [];
   const sessionsByDay = (statsData?.sessionsByDay || []).slice(-7);
   const errorTypes = statsData?.errorTypeTrend || [];
@@ -510,6 +529,48 @@ export function StatsPage({
           </article>
         ))}
       </section>
+
+      {/* Reading activity */}
+      {readingStats && readingStats.storiesRead > 0 && (
+        <ChartCard
+          title="Reading"
+          sub="Story Reader activity"
+          right={<span className="chart-card-meta mono">{readingStats.storiesRead} read</span>}
+        >
+          <div className="reading-stats-grid">
+            <div className="reading-stat">
+              <span className="reading-stat-num">{readingStats.storiesRead}</span>
+              <span className="reading-stat-label">Stories read</span>
+            </div>
+            <div className="reading-stat">
+              <span className="reading-stat-num">{readingStats.sentencesRead.toLocaleString()}</span>
+              <span className="reading-stat-label">Sentences read</span>
+            </div>
+            <div className="reading-stat">
+              <span className="reading-stat-num">{readingStats.wordsSaved}</span>
+              <span className="reading-stat-label">Words saved</span>
+            </div>
+            <div className="reading-stat">
+              <span className="reading-stat-num">{readingStats.quizzesTaken}</span>
+              <span className="reading-stat-label">Quizzes taken</span>
+            </div>
+          </div>
+          {readingStats.levels.length > 0 || readingStats.themes.length > 0 ? (
+            <div className="reading-tags">
+              {[...readingStats.levels].map((level) => (
+                <span key={`lvl-${level}`} className="reading-tag level">
+                  {level.toUpperCase()}
+                </span>
+              ))}
+              {readingStats.themes.map((theme) => (
+                <span key={`theme-${theme}`} className="reading-tag">
+                  {theme}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </ChartCard>
+      )}
 
       {/* Charts row */}
       {(dailyXpHistory.length > 0 || sessionsByDay.length > 0) && (

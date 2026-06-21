@@ -30,7 +30,8 @@ export const DEFAULT_DRAFT = {
   learnerName: "Learner",
   learnerBio: "",
   focusArea: "",
-  unlockAllLessons: false
+  unlockAllLessons: false,
+  speechRate: 0.92
 } as const;
 
 export type ThemeMode = "auto" | "light" | "dark";

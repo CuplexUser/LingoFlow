@@ -64,6 +64,7 @@ export function PageRouter() {
         onSessionSnapshot={(snapshot) => saveSessionSnapshot(activeCourseLanguage, snapshot)}
         onOpenSetup={() => navigateToPage("setup")}
         onOpenStats={() => navigateToPage("stats")}
+        onOpenStory={() => navigateToPage("story")}
       />
     );
   }
