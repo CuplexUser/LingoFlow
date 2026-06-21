@@ -67,7 +67,8 @@ export function AppProvider({ children }: AppProviderProps) {
     setAuthMode,
     activePage,
     navigateToPage,
-    navigateAuthMode
+    navigateAuthMode,
+    consumePendingPage
   } = useAppNavigation({ authenticated: Boolean(authUser) });
 
   // ===== Course data =====
@@ -189,6 +190,9 @@ export function AppProvider({ children }: AppProviderProps) {
         if (cancelled) return;
         setAuthUser(me.user);
         await hydrateAuthenticatedApp();
+        // Restore a deep-linked page after the redirect to /login was undone.
+        const deepLink = consumePendingPage();
+        if (deepLink) navigateToPage(deepLink);
       } catch (_error) {
         api.clearAuthToken();
         if (typeof window !== "undefined") {
@@ -288,8 +292,9 @@ export function AppProvider({ children }: AppProviderProps) {
     setLoginFailureCount(0);
     setStatusMessage(`Welcome back, ${payload.user.displayName || "Learner"}!`);
     await hydrateAuthenticatedApp();
-    navigateToPage("learn");
-  }, [hydrateAuthenticatedApp, navigateToPage]);
+    // Honor a deep link (e.g. /story) the visitor opened before signing in.
+    navigateToPage(consumePendingPage() ?? "learn");
+  }, [hydrateAuthenticatedApp, navigateToPage, consumePendingPage]);
 
   const register = useCallback(async (form: { displayName: string; email: string; password: string }) => {
     setAuthBusy(true);

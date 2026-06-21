@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AUTH_PATHS, PAGE_PATHS } from "../constants";
 import { getPageFromPathname } from "../utils/theme";
 
@@ -10,6 +10,15 @@ export function getAuthModeFromPathname(pathname: string): AuthMode {
   if (pathname === AUTH_PATHS.forgotPassword) return "forgotPassword";
   if (pathname === AUTH_PATHS.resetPassword) return "resetPassword";
   return "login";
+}
+
+// When a signed-out visitor deep-links to a protected page (e.g. /story), the
+// normalize effect below rewrites the URL to /login, which would otherwise lose
+// their intended destination. Capture it from the very first render so we can
+// restore it once they authenticate.
+function deepLinkedPage(pathname: string): AppPage | null {
+  const protectedPaths = Object.values(PAGE_PATHS) as string[];
+  return protectedPaths.includes(pathname) ? getPageFromPathname(pathname) : null;
 }
 
 type UseAppNavigationParams = {
@@ -25,6 +34,17 @@ export function useAppNavigation({ authenticated }: UseAppNavigationParams) {
     if (typeof window === "undefined") return "learn";
     return getPageFromPathname(window.location.pathname);
   });
+
+  // Captured once on first render, before any URL normalization runs, so a
+  // deep link survives the redirect through /login.
+  const pendingPageRef = useRef<AppPage | null>(
+    typeof window === "undefined" ? null : deepLinkedPage(window.location.pathname)
+  );
+  const consumePendingPage = useCallback((): AppPage | null => {
+    const page = pendingPageRef.current;
+    pendingPageRef.current = null;
+    return page;
+  }, []);
 
   useEffect(() => {
     function onPopState() {
@@ -85,6 +105,7 @@ export function useAppNavigation({ authenticated }: UseAppNavigationParams) {
     activePage,
     setActivePage,
     navigateToPage,
-    navigateAuthMode
+    navigateAuthMode,
+    consumePendingPage
   };
 }

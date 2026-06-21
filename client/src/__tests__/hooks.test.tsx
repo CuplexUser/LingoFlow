@@ -41,6 +41,24 @@ describe("useAppNavigation", () => {
     expect(window.location.pathname).toBe("/forgot-password");
     expect(result.current.authMode).toBe("forgotPassword");
   });
+
+  test("captures a deep-linked protected page for a signed-out visitor", () => {
+    window.history.replaceState({}, "", "/story");
+
+    const { result } = renderHook(() => useAppNavigation({ authenticated: false }));
+
+    // Consumed once after authentication, then cleared.
+    expect(result.current.consumePendingPage()).toBe("story");
+    expect(result.current.consumePendingPage()).toBeNull();
+  });
+
+  test("does not capture a pending page when landing on an auth path", () => {
+    window.history.replaceState({}, "", "/login");
+
+    const { result } = renderHook(() => useAppNavigation({ authenticated: false }));
+
+    expect(result.current.consumePendingPage()).toBeNull();
+  });
 });
 
 describe("useCourseSessionState", () => {
