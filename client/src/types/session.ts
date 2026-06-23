@@ -126,6 +126,7 @@ export type SessionSnapshot = {
   matchingPairs: Array<{ prompt: string; answer: string }>;
   matchingPromptOrder: string[];
   matchingAnswerOrder: string[];
+  speakingDisabled: boolean;
 };
 
 export type SessionAttempt = {

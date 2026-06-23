@@ -46,6 +46,7 @@ type UseSessionEngineParams = {
   matchingPairs: MatchingPair[];
   attemptLog: SessionAttempt[];
   mistakeQuestionIds: string[];
+  speakingDisabled: boolean;
   successDelayMs?: number;
   onFinish: (report: SessionReport) => void | Promise<void>;
   setIndex: Dispatch<SetStateAction<number>>;
@@ -71,6 +72,7 @@ type UseSessionEngineParams = {
   setMatchingPairs: Dispatch<SetStateAction<MatchingPair[]>>;
   setMatchingPromptOrder: Dispatch<SetStateAction<string[]>>;
   setMatchingAnswerOrder: Dispatch<SetStateAction<string[]>>;
+  setSpeakingDisabled: Dispatch<SetStateAction<boolean>>;
   markPracticeCompleted: () => void;
   resetPracticeCompleted: () => void;
   clearSpeechError: () => void;
@@ -113,6 +115,7 @@ export function useSessionEngine({
   matchingPairs,
   attemptLog,
   mistakeQuestionIds,
+  speakingDisabled,
   successDelayMs,
   onFinish,
   setIndex,
@@ -138,6 +141,7 @@ export function useSessionEngine({
   setMatchingPairs,
   setMatchingPromptOrder,
   setMatchingAnswerOrder,
+  setSpeakingDisabled,
   markPracticeCompleted,
   clearSpeechError
 }: UseSessionEngineParams) {
@@ -147,6 +151,14 @@ export function useSessionEngine({
   useEffect(() => () => {
     if (pendingAdvanceRef.current) clearTimeout(pendingAdvanceRef.current.timer);
   }, []);
+
+  // After the learner opts out of speaking, automatically skip any remaining
+  // pronunciation exercises so they never see a speak prompt again this session.
+  useEffect(() => {
+    if (speakingDisabled && question?.type === "pronunciation") {
+      goNext(attemptLog, score);
+    }
+  }, [speakingDisabled, index]);
 
   function resetCurrentSelection() {
     if (pendingAdvanceRef.current) {
@@ -382,6 +394,8 @@ export function useSessionEngine({
   function skipPronunciationExercise() {
     if (question.type !== "pronunciation") return;
     clearSpeechError();
+    // Once the learner opts out of speaking, suppress any remaining speak exercises this session.
+    setSpeakingDisabled(true);
     goNext(attemptLog, score);
   }
 

@@ -124,6 +124,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     const saved = Number(localStorage.getItem("lingoflow_tts_speed"));
     return (SPEED_OPTIONS as readonly number[]).includes(saved) ? (saved as ListenSpeed) : 1;
   });
+  const [speakingDisabled, setSpeakingDisabled] = useState(() => resumeState.speakingDisabled || false);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
   const draggedWordIndexRef = useRef<number | null>(null);
   const builtWordDropHandledRef = useRef(false);
@@ -202,7 +203,8 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     practiceFeedback,
     matchingPairs,
     matchingPromptOrder,
-    matchingAnswerOrder
+    matchingAnswerOrder,
+    speakingDisabled
   };
   const {
     speechError,
@@ -253,6 +255,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     matchingPairs,
     attemptLog,
     mistakeQuestionIds,
+    speakingDisabled,
     successDelayMs: 900,
     onFinish,
     setIndex,
@@ -278,6 +281,7 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
     setMatchingPairs,
     setMatchingPromptOrder,
     setMatchingAnswerOrder,
+    setSpeakingDisabled,
     markPracticeCompleted: () => setPracticeCompleted(true),
     resetPracticeCompleted: () => setPracticeCompleted(false),
     clearSpeechError: () => setSpeechError("")
@@ -499,8 +503,15 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
       if (isCurrentlyBookmarked) next.delete(qid); else next.add(qid);
       return next;
     });
-    const prompt = String(question.prompt || "");
-    const answer = "answer" in question ? String(question.answer || "") : "";
+    const isFlashcard = question.type === "flashcard";
+    const prompt = isFlashcard
+      ? String(question.front || question.prompt || "")
+      : String(question.prompt || "");
+    const answer = isFlashcard
+      ? String(question.back || question.answer || "")
+      : "answer" in question
+        ? String(question.answer || "")
+        : "";
     if (isCurrentlyBookmarked) {
       api.removeBookmark(qid).catch(() => { });
     } else {
