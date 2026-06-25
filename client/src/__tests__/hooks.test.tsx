@@ -139,7 +139,8 @@ describe("useCourseSessionState", () => {
         practiceFeedback: "",
         matchingPairs: [],
         matchingPromptOrder: [],
-        matchingAnswerOrder: []
+        matchingAnswerOrder: [],
+        speakingDisabled: false
       });
     });
 
