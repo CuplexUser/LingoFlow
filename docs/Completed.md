@@ -1,49 +1,14 @@
-# LingoFlow TODO and Roadmap
+# LingoFlow Completed Work Archive
 
-This file captures current product and technical priorities for future assignments.
-
-## Scope decisions
-
-- We are **not** aiming for a fully tamper-proof system.
-- We **do** want to prevent trivial cheating and easy score inflation.
-- Hearts are currently de-prioritized in the product experience.
-
-## Current focus
-
-Five priority tracks, ordered by priority:
-
-1. **Content expansion** — fill every category × level to 20-50 exercises per language
-2. **Moderation UI** — build the missing review workflow for community contributions
-3. **App.tsx refactor** — break the 1040-line orchestrator into focused modules
-4. **Test coverage** — close gaps in auth routes, page components, and E2E
-5. **Engagement features** — leaderboards, achievements, and weekly challenges
+Historical record of finished roadmap items, moved out of `TODO.md` to keep the
+active roadmap focused on pending work. Phase numbers are preserved from the
+original roadmap.
 
 ---
 
-## Active roadmap
+## Phase 13: Content file restructuring — completed steps
 
-### Phase 13: Content file restructuring and expansion ★ PRIORITY 1
-
-The monolithic `<language>.json` files (~2000 lines each) are hard to maintain and expand.
-Split them into a directory-per-language, file-per-category structure so each file stays
-small and focused.
-
-**Step 1 — Restructure content files**
-
-New layout:
-```
-server/content/languages/
-  english/
-    _meta.json          # { id, label, flag }
-    essentials.json     # exercises array
-    conversation.json
-    travel.json
-    ...
-  spanish/
-    _meta.json
-    essentials.json
-    ...
-```
+**Step 1 — Restructure content files** (directory-per-language, file-per-category)
 
 - [x] Create a migration script that splits each `<language>.json` into the new structure.
 - [x] Update `contentLoader.ts` to scan language directories, load `_meta.json` + category files,
@@ -52,12 +17,8 @@ server/content/languages/
 - [x] Verify with `npm run test --prefix server` and a manual spot-check.
 - [x] Delete the old monolithic JSON files after migration passes.
 
-**Step 2 — Fill content gaps**
+**Step 2 — Content fill progress snapshot (2026-04-24)**
 
-Current state: six languages are available, including French.
-Target: 20-50 exercises per category × level × language.
-
-Progress snapshot (2026-04-24):
 - English `work` expanded to 20 per level (A1/A2/B1/B2).
 - English `essentials` expanded to A2=20 and B1=20.
 - English sparse categories expanded:
@@ -69,41 +30,18 @@ Progress snapshot (2026-04-24):
 - Russian expansion completed across all categories:
   every Russian category now has A1=20, A2=20, B1=20, B2=20.
 
-Coverage priorities (sparse categories first):
-1. **English shortfalls** — add missing exercises to Essentials B2, Work A1/A2/B1, Essentials A2/B1.
-2. **Newer categories** — `hobbies_leisure`, `sports_fitness`, `news_media`, `money_finance`,
-   `science_technology`, `culture_history`, `nature_animals` all sit at ~3 exercises per level.
-   Expand each to 15-20 per level with balanced exercise types.
-3. **Established categories** — `essentials`, `conversation`, `travel`, `work`, `health`,
-   `family_friends`, `food_cooking`, `grammar` — expand from ~3-4 to 20+ per level.
-4. **Exercise type balance** — each category should mix recognition (MC, cloze), production
-   (build_sentence, dictation), and recall (flashcard, matching) types.
-5. **Cultural notes** — add `culturalNote` fields to at least 20% of exercises per language,
-   especially in `culture_history`, `food_cooking`, and `conversation`.
-
-Quality checklist per batch:
-- [ ] CEFR level-appropriate vocabulary and grammar
-- [ ] At least 2 accepted answer variants for production exercises
-- [ ] Plausible distractors (same word class, similar length, common confusion pairs)
-- [ ] Hints that coach the thought process, not just reveal the answer
-- [ ] No duplicate `id` values across the language
-
-**Step 3 — Add new languages (stretch)**
+**Step 3 — Add new languages**
 
 - [x] Add French as a selectable course language with split category content files.
 - [x] Add an interactive TypeScript LibreTranslate script for creating new language category files from English.
 - [x] Split `practice-words.json` into per-language files under `server/content/practice_words/` and add a `_template.json` English source list.
 - [x] Extend the LibreTranslate wizard to generate practice word pools from the template, with batched API calls.
-- [ ] Generate the French and German practice word pools from the template (`npm run translate:language`).
-- [ ] Evaluate adding German, Portuguese, or Japanese based on user demand.
-- [ ] Each new language starts with the 5 core categories at A1-A2, minimum 15 exercises per level.
+- [x] Generate the French and German practice word pools from the template (`npm run translate:language`).
+- [x] Evaluate adding German and French based on user demand.
 
 ---
 
-### Phase 14: Moderation UI for community contributions ✓ COMPLETE
-
-API endpoints exist (`/api/community/contributions`, PATCH `/api/community/contributions/:id`)
-but the frontend has no review workflow. Moderators currently cannot approve or reject submissions.
+## Phase 14: Moderation UI for community contributions ✓ COMPLETE
 
 **Step 1 — Moderation inbox page**
 
@@ -128,25 +66,18 @@ but the frontend has no review workflow. Moderators currently cannot approve or 
 
 ---
 
-### Phase 15: App.tsx refactor ✓ COMPLETE
-
-`App.tsx` was 1040 lines with ~20 `useState` calls and deep prop drilling. Broken into
-focused modules without changing user-visible behavior.
+## Phase 15: App.tsx refactor ✓ COMPLETE
 
 **Step 1 — Extract context providers**
 
-- [x] `AuthContext` — token, user, login/logout/register actions. Replaces auth-related
-      useState + handlers previously in App.tsx.
-- [x] `CourseContext` — languages, progress, stats, active language/category. Replaces
-      course-related state and the `useAuthenticatedAppData` hydration.
-- [x] `NavigationContext` — wrap `useAppNavigation` so any component can navigate without
-      prop drilling.
+- [x] `AuthContext` — token, user, login/logout/register actions.
+- [x] `CourseContext` — languages, progress, stats, active language/category (wraps `useAuthenticatedAppData`).
+- [x] `NavigationContext` — wrap `useAppNavigation` so any component can navigate without prop drilling.
 - [x] `SessionContext` — active session state, wrapping `useCourseSessionState`.
 
 **Step 2 — Extract page orchestration**
 
-- [x] Move the page-switch logic into a `<PageRouter>` component that reads from
-      `NavigationContext` and renders the active page.
+- [x] Move the page-switch logic into a `<PageRouter>` component that reads from `NavigationContext`.
 - [x] Each page receives only the props it needs from context, not everything from App.
 - [x] App.tsx becomes a thin shell: providers → PageRouter → pages.
 - [x] `AppShell` handles layout (topbar, nav, status banners, share card).
@@ -157,13 +88,10 @@ focused modules without changing user-visible behavior.
 - [x] `npm run build --prefix client` passes.
 - [x] `npm run test --prefix client` passes (35/35).
 - [x] Manual smoke test: login → learn → session → stats → setup → contribute → bookmarks.
-- [ ] No regressions in theme toggle, session pause/resume, or keyboard shortcuts.
 
 ---
 
-### Phase 16: Test coverage expansion
-
-Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
+## Phase 16: Test coverage expansion — completed step
 
 **Step 1 — Server test gaps**
 
@@ -176,26 +104,9 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [x] Course routes: GET /api/course, GET /api/languages.
 - [x] Edge cases: expired JWT, malformed tokens, rate limit enforcement.
 
-**Step 2 — Client test gaps**
-
-- [ ] Page components: LearnPage renders categories, PracticePage mode selection,
-      StatsPage chart rendering with mock data, SetupPage form save/reset.
-- [ ] SessionPlayer: full exercise flows for each type (MC submit, build_sentence drag,
-      cloze select, flashcard flip, matching pairs, pronunciation).
-- [ ] Session lifecycle: start → answer → complete → mistake drill → share card.
-- [ ] BookmarksPage: render bookmarks, delete, TTS playback trigger.
-- [ ] Auth flow: login form validation, registration, logout clears state.
-
-**Step 3 — E2E tests (stretch)**
-
-- [ ] Evaluate Playwright or Cypress for critical user journeys:
-  - register → verify → login → first session → complete → stats update
-  - daily challenge → streak increment
-  - contribute exercise → moderator approve
-
 ---
 
-### Phase 17: Engagement features
+## Phase 17: Engagement features — completed step
 
 **Step 1 — Achievement system** ✓ COMPLETE
 
@@ -211,36 +122,11 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [x] Achievement check runs at session completion; newly earned ones show as a toast/modal.
 - [x] Achievements page or section in StatsPage displaying earned badges with dates.
 
-**Step 2 — Leaderboards**
+**Speed Match mini-game** ✓ SHIPPED (per-language highscore, Practice tab) — open follow-ups remain in `TODO.md`.
 
-- [ ] `GET /api/leaderboard?period=daily|weekly|alltime&language=<id>`
-- [ ] Leaderboard shows top 20 users by XP for the selected period.
-- [ ] User's own rank always visible (even if outside top 20).
-- [ ] Optional: opt-out for users who don't want to appear on leaderboards.
-- [ ] Frontend: `LeaderboardPage` or panel on LearnPage with tabs for period selection.
+---
 
-**Step 3 — Weekly challenges**
-
-- [ ] Server generates a weekly challenge each Monday (deterministic from week number):
-  - "Earn 200 XP in Travel this week"
-  - "Complete 5 sessions without using hints"
-  - "Practice 3 different categories"
-- [ ] `weekly_challenges` table tracking progress and completion.
-- [ ] Challenge card on LearnPage with progress bar.
-- [ ] Bonus XP reward on completion (50-100 XP).
-
-**Step 4 — Social features (stretch)**
-
-- [ ] Friend system: add friends by username, see their streaks/achievements.
-- [ ] Challenge a friend: send a category/level challenge, compare scores.
-- [ ] Activity feed: "Alex just completed a 7-day streak!" notifications.
-
-**Step 5 — Speed Match mini-game** ✓ SHIPPED (per-language highscore, Practice tab)
-
-- [ ] Award token XP for playing Speed Match (deliberately deferred from v1 to avoid score inflation; gate on a per-day cap if added).
-- [ ] Optional: cross-user Speed Match leaderboard (current highscore is per-user, per-language only).
-
-### Phase 7: Integrity, operations, and scale
+## Phase 7: Integrity, operations, and scale ✓ COMPLETE
 
 - [x] Prevent score inflation via duplicate `questionId` submissions.
 - [x] Wrap session completion writes in a DB transaction (atomic completion).
@@ -249,7 +135,9 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [x] Add SQLite indexes for stats/history query paths.
 - [x] Add structured request/error logging and basic health diagnostics.
 
-### Phase 10: Session UX and retention polish
+---
+
+## Phase 10: Session UX and retention polish ✓ COMPLETE
 
 - [x] Post-session mistake drill from attempt logs ("Review mistakes" mini-session).
 - [x] Stats visuals with bars and a 14-day XP trend graph from `daily_xp`.
@@ -260,7 +148,9 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [x] React error boundary around `SessionPlayer` with friendly fallback.
 - [x] Session summary share card with copyable one-line result.
 
-### Phase 12: Engagement, quality, and UX polish
+---
+
+## Phase 12: Engagement, quality, and UX polish ✓ COMPLETE
 
 - [x] Daily streak badge with "streak at risk" warning when no practice today.
 - [x] Live XP estimate tally in session header (updates per correct answer).
@@ -274,7 +164,9 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [x] Correct-answer flash: 900 ms "Correct!" green banner before auto-advancing.
 - [x] Keyboard shortcut key labels (1–4) on multiple-choice option buttons.
 
-### Phase 8: Quality tooling and maintainability
+---
+
+## Phase 8: Quality tooling and maintainability ✓ COMPLETE
 
 - [x] Expand progression test coverage with level-up and unlock-threshold edge cases.
 - [x] Add project-level ESLint and Prettier configuration in `package.json`.
@@ -287,35 +179,24 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [x] Add typed client domain models for course, session, and contribution flows.
 - [x] Normalize raw session payloads into discriminated TypeScript question unions.
 
-### Phase 9: Content breadth and richer lesson formats
+---
 
-- [x] Add new course categories:
-  - `Hobbies & Leisure`
-  - `Science & Technology`
-  - `Culture & History`
-  - `Environment & Sustainability`
-- [ ] Expand each new category from the starter batch toward a 20-50 exercise target per level.
+## Phase 9: Content breadth and richer lesson formats — completed items
+
+- [x] Add new course categories: `Hobbies & Leisure`, `Science & Technology`, `Culture & History`, `Environment & Sustainability`.
 - [x] Seed starter JSON batches with richer exercise fields:
-  - `prompt`
-  - `correctAnswer`
-  - `hints`
-  - `difficulty`
-  - optional `audioUrl`, `imageUrl`, `culturalNote`, `exerciseType`
+  `prompt`, `correctAnswer`, `hints`, `difficulty`, optional `audioUrl`, `imageUrl`, `culturalNote`, `exerciseType`.
 - [x] Add culture-aware starter content, including Swedish `fika` notes.
-- [x] Extend session rendering for richer lesson types:
-  - flashcards
-  - matching
-  - pronunciation capture
-  - image display
-  - Web Audio playback for referenced clips
+- [x] Extend session rendering for richer lesson types: flashcards, matching, pronunciation capture, image display, Web Audio playback for referenced clips.
 - [x] Add a learner beta flag for experimental lessons.
 - [x] Add a community exercise contribution route and frontend submission form.
 - [x] Track per-exercise usage/completion data in the DB for iteration.
 - [x] Surface recommendation data based on learner strengths and weak spots.
 - [x] Add moderation review tooling for community exercises.
-- [ ] Add sourced language-specific audio batches from providers such as Forvo or LibriVox.
 
-### Phase 11: Content quality and learning depth plan
+---
+
+## Phase 11: Content quality and learning depth plan ✓ COMPLETE
 
 - [x] Baseline and instrumentation pass before content expansion:
   - define per-language/category baseline metrics (accuracy, reveal rate, retry rate, completion rate)
@@ -346,7 +227,9 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
   - run `npm run test --prefix server` and manual session spot checks across at least 3 languages
   - ship in small batches with changelog notes and quick post-release metric review
 
-### Phase 18: Story Reader (comprehensible input) — MVP shipped
+---
+
+## Phase 18: Story Reader (comprehensible input) — MVP shipped
 
 A tap-to-translate reading mode that turns leveled short stories into a vocabulary
 pipeline feeding the spaced-repetition system.
@@ -373,21 +256,7 @@ pipeline feeding the spaced-repetition system.
 - [x] Tests: story loader (+ bad-fixture cases), list/fetch routes, save idempotency; client tokenizer
   edge cases (`«Сколько`, `яблоки?»`, hyphenated compounds, em dash) and drawer/save/English/level UI.
 
-**Deferred**
-- [ ] **Close the SRS loop on practice completion** — practice sessions (`practice_*` types) currently
-  do not write `item_progress`, so a saved word's schedule advances only if it surfaces in a mistake
-  review. Update `POST /api/session/complete` to record `item_progress` attempts for saved-word items
-  (or add a dedicated saved-word review selection) so the spaced-repetition interval actually grows
-  as the learner re-encounters the word.
-- [ ] **Native/Forvo audio** — Story Reader uses browser `SpeechSynthesis` only; real recorded audio
-  remains out of scope (shared with the existing audio TODO).
-- [ ] **More stories per language** — English and Russian now ship six longer stories each (2 per
-  A1/A2/B1, see Phase 18.1). Generate the remaining five languages from the English source via the
-  LibreTranslate Stories job, then add a B2 tier.
-- [ ] Optionally surface saved words directly in the mistake-review drill, and add a saved-words
-  management view (reuse the Bookmarks page pattern).
-
-#### Phase 18.1: Longer content, progressive library & translation pipeline — shipped
+### Phase 18.1: Longer content, progressive library & translation pipeline — shipped
 
 Expands the MVP from one short story per level to a multi-story library that tracks progress, with
 a tooling path to scale authored content across languages.
@@ -420,17 +289,9 @@ a tooling path to scale authored content across languages.
 - [x] Tests: completion endpoint (idempotent, per-user, 404), loader `break`/optional-`pos`, updated
   content-stats counts; client Finish→complete + Read next flow.
 
-**Remaining**
-- [ ] **Generate es/it/sv/fr/de stories** from the English source. Run
-  `node --experimental-strip-types scripts/libretranslate/index.ts` → *Stories*, after deleting each
-  language's existing short-seed `server/content/stories/<lang>.json`. Requires `LIBRETRANSLATE_URL` /
-  `LIBRETRANSLATE_API_KEY` in `server/.env`. Spot-check and hand-fix any unresolved glosses.
-- [ ] Optional: vocab-mastery–gated story ordering (the `story_completions` schema is compatible with
-  layering this on later).
+---
 
-## Completed archive
-
-### Phase 1: Reliability and anti-trivial-cheat
+## Phase 1: Reliability and anti-trivial-cheat ✓ COMPLETE
 
 - [x] Move final scoring authority to server:
   - create server-side session records (`sessionId` + question IDs + expected answers)
@@ -442,7 +303,9 @@ a tooling path to scale authored content across languages.
   - ensure `difficultyLevel` and category match started session
   - prevent completion of unknown/expired session IDs
 
-### Phase 2: Automated tests
+---
+
+## Phase 2: Automated tests ✓ COMPLETE
 
 - [x] Add backend test setup under `server/src/__tests__/`.
 - [x] Unit tests for:
@@ -454,7 +317,9 @@ a tooling path to scale authored content across languages.
   - `/api/session/start` -> `/api/session/complete` happy path
   - invalid completion payloads
 
-### Phase 3: Better learning depth
+---
+
+## Phase 3: Better learning depth ✓ COMPLETE
 
 - [x] Add per-item progress model (`item_progress`) for retention:
   - `item_id`, `ease`, `last_seen`, `next_due`, `streak`, `error_count`
@@ -466,7 +331,9 @@ a tooling path to scale authored content across languages.
 - [x] Improve distractor generation quality:
   - same grammar pattern / semantic neighborhood distractors
 
-### Phase 4: Learning experience expansion
+---
+
+## Phase 4: Learning experience expansion ✓ COMPLETE
 
 - [x] Add exercise types:
   - cloze deletion
@@ -479,23 +346,25 @@ a tooling path to scale authored content across languages.
   - error-type trend
   - weak-objective recommendation panel
 
-## Product metrics follow-up
+---
+
+## Product metrics follow-up ✓ COMPLETE
 
 - [x] Replace daily progress from lifetime XP with true "XP earned today".
 - [x] Add per-day XP table and daily aggregation API.
 
-## Next roadmap (post-completion backlog)
+---
 
-These items are intentionally left open for the next development cycle.
-
-### Phase 5: Multi-user foundation
+## Phase 5: Multi-user foundation ✓ COMPLETE
 
 - [x] Add `users` table and authentication endpoints (register/login/me).
 - [x] Add `user_id` ownership to learner data tables and queries.
 - [x] Derive user identity server-side from auth token/session (never trust client-sent user id).
 - [x] Migrate existing single-user data into a default user safely.
 
-### Phase 6: Frontend architecture and test coverage
+---
+
+## Phase 6: Frontend architecture and test coverage ✓ COMPLETE
 
 - [x] Refactor `client/src/App.jsx` into smaller components/hooks.
 - [x] Add frontend tests under `client/src/__tests__/`:
@@ -506,33 +375,16 @@ These items are intentionally left open for the next development cycle.
 ### Phase 6 extension: TypeScript client architecture
 
 - [x] Convert page-level client components to `.tsx` modules:
-  - `LearnPage`
-  - `PracticePage`
-  - `SetupPage`
-  - `StatsPage`
-  - `ContributePage`
-  - `ContributionPanel`
+  `LearnPage`, `PracticePage`, `SetupPage`, `StatsPage`, `ContributePage`, `ContributionPanel`.
 - [x] Convert `SessionPlayer` and extracted session modules to TypeScript:
-  - `SessionPlayer.tsx`
-  - `SessionPanels.tsx`
-  - `sessionHelpers.ts`
+  `SessionPlayer.tsx`, `SessionPanels.tsx`, `sessionHelpers.ts`.
 - [x] Extract `SessionPlayer` cross-cutting concerns into hooks:
-  - `useSessionSpeech`
-  - `useSessionSnapshot`
-  - `useSessionEngine`
+  `useSessionSpeech`, `useSessionSnapshot`, `useSessionEngine`.
 - [x] Extract app-shell concerns into hooks:
-  - `useThemeMode`
-  - `useAppNavigation`
-  - `useCourseSessionState`
-  - `useAuthenticatedAppData`
-- [x] Add focused client tests for:
-  - session normalization
-  - navigation hook behavior
-  - stored session persistence behavior
+  `useThemeMode`, `useAppNavigation`, `useCourseSessionState`, `useAuthenticatedAppData`.
+- [x] Add focused client tests for: session normalization, navigation hook behavior, stored session persistence behavior.
 - [x] Verify the migrated client with:
-  - `npx tsc --noEmit -p client/tsconfig.json`
-  - `npm run test --prefix client`
-  - `npm run build --prefix client`
+  `npx tsc --noEmit -p client/tsconfig.json`, `npm run test --prefix client`, `npm run build --prefix client`.
 
 ### Phase 6 follow-up: Deployable auth UX
 
