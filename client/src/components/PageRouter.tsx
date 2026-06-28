@@ -87,6 +87,8 @@ export function PageRouter() {
         courseCategories={courseCategories}
         activeSession={activeSession}
         mistakeReviewCount={mistakeReviewCount}
+        activeCourseLanguage={activeCourseLanguage}
+        activeLanguageLabel={activeLanguageLabel}
         onStartPractice={startPractice}
         onFinishSession={finishSession}
         onExitSession={() => {

@@ -20,6 +20,7 @@ import type {
   BuildSentenceQuestion,
   ClozeSentenceQuestion,
   FlashcardQuestion,
+  MatchingPair,
   MatchingQuestion,
   MultipleChoiceQuestion,
   PracticeListenQuestion,
@@ -29,6 +30,16 @@ import type {
   SessionAttempt,
   SessionQuestion
 } from "./types/session";
+
+export type SpeedMatchPoolResponse = {
+  pairs: MatchingPair[];
+  highscore: number;
+};
+
+export type SpeedMatchScoreResponse = {
+  highscore: number;
+  isNewBest: boolean;
+};
 
 type ApiRequestOptions = RequestInit & { headers?: HeadersInit };
 
@@ -503,6 +514,13 @@ export const api = {
     request<BookmarkToggleResponse>("/bookmarks", { method: "POST", body: JSON.stringify(payload) }),
   removeBookmark: (questionId: string) =>
     request<BookmarkToggleResponse>(`/bookmarks/${encodeURIComponent(questionId)}`, { method: "DELETE" }),
+  getSpeedMatchPool: (language: string) =>
+    request<SpeedMatchPoolResponse>(`/practice/speed-match?language=${encodeURIComponent(language)}`),
+  submitSpeedMatchScore: (language: string, score: number) =>
+    request<SpeedMatchScoreResponse>("/practice/speed-match/score", {
+      method: "POST",
+      body: JSON.stringify({ language, score })
+    }),
   getStories: (params: { language?: string; level?: string; category?: string } = {}): Promise<StorySummary[]> => {
     const search = new URLSearchParams();
     if (params.language) search.set("language", params.language);

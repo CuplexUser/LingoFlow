@@ -235,6 +235,11 @@ Current coverage: ~40% server, ~20% client. Goal: 70%+ on both.
 - [ ] Challenge a friend: send a category/level challenge, compare scores.
 - [ ] Activity feed: "Alex just completed a 7-day streak!" notifications.
 
+**Step 5 — Speed Match mini-game** ✓ SHIPPED (per-language highscore, Practice tab)
+
+- [ ] Award token XP for playing Speed Match (deliberately deferred from v1 to avoid score inflation; gate on a per-day cap if added).
+- [ ] Optional: cross-user Speed Match leaderboard (current highscore is per-user, per-language only).
+
 ### Phase 7: Integrity, operations, and scale
 
 - [x] Prevent score inflation via duplicate `questionId` submissions.

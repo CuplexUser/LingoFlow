@@ -85,6 +85,8 @@ function registerSessionRoutes(
     database,
     generateSession,
     getCourseOverview,
+    getAllItems,
+    getPracticePool,
     evaluateAttempt,
     calculateXp,
     crypto
@@ -159,6 +161,85 @@ function registerSessionRoutes(
       mistakeReviewCount: mistakeSelection.count,
       mistakeReviewCategories: mistakeSelection.categories
     });
+  });
+
+  // Speed Match mini-game word pool: known flashcards + bookmarks, topped up
+  // from the per-language practice pool, plus the current per-language highscore.
+  app.get("/api/practice/speed-match", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const language = String(req.query.language || "").toLowerCase();
+    if (!language) {
+      return res.status(400).json({ error: "language is required" });
+    }
+
+    const seen = new Set<string>();
+    const pairs: Array<{ prompt: string; answer: string }> = [];
+    // Flashcard prompts are stored as "Vocabulary: word"; show just the word.
+    const stripVocabPrefix = (text: string) => text.replace(/^vocabulary:\s*/i, "").trim();
+    const pushPair = (prompt: any, answer: any) => {
+      const promptText = stripVocabPrefix(String(prompt || "").trim());
+      const answerText = String(answer || "").trim();
+      if (!promptText || !answerText) return;
+      const key = promptText.toLowerCase();
+      if (seen.has(key)) return;
+      seen.add(key);
+      pairs.push({ prompt: promptText, answer: answerText });
+    };
+
+    // 1. Known flashcards — resolve item ids to prompt/answer text via content.
+    const knownItems = database.getKnownFlashcardItems(userId, language);
+    if (knownItems.length) {
+      const textById = new Map<string, { prompt: string; answer: string }>();
+      for (const item of getAllItems(language) as any[]) {
+        textById.set(String(item.id), {
+          prompt: String(item.prompt || ""),
+          answer: String(item.correctAnswer || item.target || "")
+        });
+      }
+      for (const known of knownItems) {
+        const text = textById.get(String(known.itemId));
+        if (text) pushPair(text.prompt, text.answer);
+      }
+    }
+
+    // 2. Bookmarked flashcards (prompt/answer text stored directly).
+    for (const bookmark of database.getBookmarks(userId, language) as any[]) {
+      pushPair(bookmark.prompt, bookmark.answer);
+    }
+
+    // 3. Top up from the practice pool. Shuffle it first so each game samples a
+    // different slice of the (large) word list — otherwise the same handful of
+    // file-order words show up every time and the game feels repetitive.
+    const TARGET_POOL_SIZE = 150;
+    if (pairs.length < TARGET_POOL_SIZE) {
+      const practice = [...(getPracticePool(language) as any[])];
+      for (let i = practice.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [practice[i], practice[j]] = [practice[j], practice[i]];
+      }
+      for (const entry of practice) {
+        if (pairs.length >= TARGET_POOL_SIZE) break;
+        pushPair(entry.prompt, entry.correctAnswer);
+      }
+    }
+
+    return res.json({
+      pairs,
+      highscore: database.getSpeedMatchHighscore(userId, language)
+    });
+  });
+
+  app.post("/api/practice/speed-match/score", requireAuth, (req: any, res: any) => {
+    const userId = req.authUserId;
+    const { language, score } = req.body || {};
+    if (!language) {
+      return res.status(400).json({ error: "language is required" });
+    }
+    if (!Number.isInteger(score) || score < 0) {
+      return res.status(400).json({ error: "score must be a non-negative integer" });
+    }
+    const result = database.updateSpeedMatchHighscore(userId, String(language).toLowerCase(), score);
+    return res.json(result);
   });
 
   app.post("/api/session/daily", requireAuth, (req: any, res: any) => {

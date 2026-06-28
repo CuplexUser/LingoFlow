@@ -292,6 +292,7 @@ module.exports = {
   getContentMetrics,
   getCategoryItems,
   getAllItems,
+  getPracticePool,
   generateSession,
   recommendedLevelFromMastery,
   injectCommunityItem,

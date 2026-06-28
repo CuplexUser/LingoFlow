@@ -26,6 +26,7 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 - **Pronunciation** — Web Speech API recognition, accepts ≥ 90% similarity
 - **Roleplay** — guided dialogue completion
 - **Practice modes** — dedicated speaking, listening, word-matching, and previous-mistakes drill sessions; the mistakes mode pulls the worst-performing items across all categories, ranked by error count then accuracy
+- **Speed Match** — a timed self-competition mini-game in the Practice tab. Each run shows 6 word pairs to tap-match against a 30-second countdown bar; clearing a run starts the next after a short countdown break, and the game ends the moment a run beats the clock. Words are drawn from flashcards marked "Known" plus bookmarks, topped up from the per-language practice word pool. Your score (total correct matches) is compared against a per-language personal best that persists
 
 ### Word Hints & Tooltips
 

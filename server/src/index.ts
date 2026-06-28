@@ -83,6 +83,8 @@ const {
   COURSE,
   getCourseOverview,
   getContentMetrics,
+  getAllItems,
+  getPracticePool,
   generateSession,
   LEVEL_XP_MULTIPLIER,
   injectCommunityItem,
@@ -369,6 +371,8 @@ function createApp(): any {
     database,
     generateSession,
     getCourseOverview,
+    getAllItems,
+    getPracticePool,
     evaluateAttempt,
     calculateXp,
     crypto

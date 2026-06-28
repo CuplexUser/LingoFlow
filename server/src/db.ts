@@ -623,6 +623,28 @@ function ensureCommunityExercisesColumns() {
 
 ensureCommunityExercisesColumns();
 
+function ensureItemProgressColumns() {
+  const columns = db.prepare("PRAGMA table_info(item_progress)").all();
+  const names = new Set(columns.map((column: any) => column.name));
+
+  if (!names.has("flashcard_known")) {
+    db.exec("ALTER TABLE item_progress ADD COLUMN flashcard_known INTEGER NOT NULL DEFAULT 0");
+  }
+}
+
+ensureItemProgressColumns();
+
+function ensureLanguageProgressColumns() {
+  const columns = db.prepare("PRAGMA table_info(language_progress)").all();
+  const names = new Set(columns.map((column: any) => column.name));
+
+  if (!names.has("speed_match_highscore")) {
+    db.exec("ALTER TABLE language_progress ADD COLUMN speed_match_highscore INTEGER NOT NULL DEFAULT 0");
+  }
+}
+
+ensureLanguageProgressColumns();
+
 // Existing databases predate the Story Reader progress/quiz columns. The original
 // table also had completed_at NOT NULL DEFAULT CURRENT_TIMESTAMP, but in-progress
 // (resume) rows are inserted with completed_at NULL. SQLite cannot drop a column
@@ -1524,10 +1546,13 @@ function upsertItemProgressAttempt({
   flashcardKnown = false
 }) {
   const existing = db.prepare(`
-    SELECT ease, streak, attempts, correct, error_count
+    SELECT ease, streak, attempts, correct, error_count, flashcard_known
     FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?
   `).get(userId, language, category, itemId);
+
+  // Once an item is explicitly marked "known" via a flashcard it stays known.
+  const nextKnown = (flashcardKnown && correct) || (existing && existing.flashcard_known) ? 1 : 0;
 
   const previousEase = existing ? existing.ease : 1.8;
   const previousStreak = existing ? existing.streak : 0;
@@ -1549,9 +1574,9 @@ function upsertItemProgressAttempt({
     db.prepare(`
       INSERT INTO item_progress (
         user_id, language, category, item_id, objective, ease, streak, attempts, correct, error_count,
-        last_error_type, last_seen_date, next_due_date
+        last_error_type, last_seen_date, next_due_date, flashcard_known
       )
-      VALUES (?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?, ?, ?)
+      VALUES (?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?, ?, ?, ?)
     `).run(
       userId,
       language,
@@ -1564,7 +1589,8 @@ function upsertItemProgressAttempt({
       correct ? 0 : 1,
       correct ? "" : (errorType || "unknown"),
       today,
-      nextDueDate
+      nextDueDate,
+      nextKnown
     );
     return;
   }
@@ -1579,7 +1605,8 @@ function upsertItemProgressAttempt({
         error_count = ?,
         last_error_type = ?,
         last_seen_date = ?,
-        next_due_date = ?
+        next_due_date = ?,
+        flashcard_known = ?
     WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?
   `).run(
     objective || "",
@@ -1591,6 +1618,7 @@ function upsertItemProgressAttempt({
     correct ? "" : (errorType || "unknown"),
     today,
     nextDueDate,
+    nextKnown,
     userId,
     language,
     category,
@@ -2117,6 +2145,43 @@ function getBookmarks(userId, language?) {
 function isBookmarked(userId, questionId) {
   const row = db.prepare(`SELECT 1 FROM bookmarks WHERE user_id = ? AND question_id = ?`).get(userId, String(questionId));
   return Boolean(row);
+}
+
+// Items the user explicitly marked "Known" on a flashcard. Returns the
+// identifying keys; callers resolve item_id -> prompt/answer text via content.
+function getKnownFlashcardItems(userId, language) {
+  const safeLanguage = normalizeLanguageId(language, "");
+  if (!safeLanguage) return [];
+  const rows = db.prepare(`
+    SELECT category, item_id
+    FROM item_progress
+    WHERE user_id = ? AND language = ? AND flashcard_known = 1
+  `).all(userId, safeLanguage);
+  return rows.map((row) => ({ category: row.category, itemId: row.item_id }));
+}
+
+function getSpeedMatchHighscore(userId = 1, language) {
+  const safeLanguage = normalizeLanguageId(language, "spanish");
+  ensureLanguageProgress(userId, safeLanguage);
+  const row = db.prepare(`
+    SELECT speed_match_highscore FROM language_progress WHERE user_id = ? AND language = ?
+  `).get(userId, safeLanguage);
+  return row ? Number(row.speed_match_highscore) || 0 : 0;
+}
+
+function updateSpeedMatchHighscore(userId = 1, language, score) {
+  const safeLanguage = normalizeLanguageId(language, "spanish");
+  const safeScore = Number.isFinite(score) ? Math.max(0, Math.floor(score)) : 0;
+  const current = getSpeedMatchHighscore(userId, safeLanguage);
+  if (safeScore > current) {
+    db.prepare(`
+      UPDATE language_progress
+      SET speed_match_highscore = ?, updated_at = CURRENT_TIMESTAMP
+      WHERE user_id = ? AND language = ?
+    `).run(safeScore, userId, safeLanguage);
+    return { highscore: safeScore, isNewBest: true };
+  }
+  return { highscore: current, isNewBest: false };
 }
 
 // Saved story words share a single synthetic item_progress category so the SRS
@@ -2932,6 +2997,9 @@ module.exports = {
   removeBookmark,
   getBookmarks,
   isBookmarked,
+  getKnownFlashcardItems,
+  getSpeedMatchHighscore,
+  updateSpeedMatchHighscore,
   saveReviewWord,
   removeReviewWord,
   getSavedReviewWords,

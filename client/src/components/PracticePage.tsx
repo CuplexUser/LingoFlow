@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { SessionPlayer } from "./SessionPlayer";
 import { SessionPlayerErrorBoundary } from "./SessionPlayerErrorBoundary";
+import { SpeedMatchGame } from "./SpeedMatchGame";
 import type { CourseCategory } from "../types/course";
 import type { ActiveSession, PracticeMode, SessionReport, SessionSnapshot } from "../types/session";
 
@@ -7,6 +9,8 @@ type PracticePageProps = {
   courseCategories: CourseCategory[];
   activeSession: ActiveSession | null;
   mistakeReviewCount?: number;
+  activeCourseLanguage?: string;
+  activeLanguageLabel?: string;
   onStartPractice: (mode: PracticeMode, category: CourseCategory) => void | Promise<void>;
   onFinishSession: (sessionReport: SessionReport) => void | Promise<void>;
   onExitSession: () => void;
@@ -50,11 +54,14 @@ export function PracticePage({
   courseCategories,
   activeSession,
   mistakeReviewCount = 0,
+  activeCourseLanguage,
+  activeLanguageLabel,
   onStartPractice,
   onFinishSession,
   onExitSession,
   onSessionSnapshot
 }: PracticePageProps) {
+  const [speedMatchActive, setSpeedMatchActive] = useState(false);
   const practiceCategory = pickPracticeCategory(courseCategories);
   const preferredLabel = practiceCategory?.label || "your course";
   const mistakesCategory: CourseCategory = {
@@ -81,6 +88,16 @@ export function PracticePage({
           onSnapshot={onSessionSnapshot}
         />
       </SessionPlayerErrorBoundary>
+    );
+  }
+
+  if (speedMatchActive && activeCourseLanguage) {
+    return (
+      <SpeedMatchGame
+        language={activeCourseLanguage}
+        languageLabel={activeLanguageLabel}
+        onExit={() => setSpeedMatchActive(false)}
+      />
     );
   }
 
@@ -143,6 +160,25 @@ export function PracticePage({
               </article>
             );
           })}
+
+          <article className={`category-card${!activeCourseLanguage ? " locked" : ""}`}>
+            <div>
+              <h3>Speed Match</h3>
+              <p>Race the clock — match 6 words before time runs out, run after run.</p>
+              <p className="lock-note">
+                {activeCourseLanguage
+                  ? "Known flashcards and bookmarks, topped up with practice words."
+                  : "Pick a course language to play."}
+              </p>
+            </div>
+            <button
+              className="primary-button"
+              onClick={() => setSpeedMatchActive(true)}
+              disabled={!activeCourseLanguage}
+            >
+              Play Speed Match
+            </button>
+          </article>
         </div>
       </section>
     </>
