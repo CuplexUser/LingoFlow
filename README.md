@@ -1,6 +1,13 @@
-# LingoFlow
+# 🗣️ LingoFlow
 
-A focused language learning app built with React + Express. Adaptive CEFR progression, persistent learner data, and a variety of exercise types across six languages.
+A focused language learning app built with React + Express. Adaptive CEFR progression, persistent learner data, and a variety of exercise types across seven languages.
+
+[![TypeScript](https://badgen.net/badge/TypeScript/React%2018%20%2B%20Express/3178c6)]()
+[![Languages](https://badgen.net/badge/languages/7/4a90e2)]()
+[![Tests](https://badgen.net/badge/tests/Vitest%20%2B%20Node%20test%20runner/2ea44f)]()
+
+<!-- No live demo link currently — worth deploying a public instance (or a demo
+     account with seeded progress) so visitors can try it without cloning + npm install. -->
 
 ## Features
 
@@ -26,9 +33,10 @@ A focused language learning app built with React + Express. Adaptive CEFR progre
 - **Pronunciation** — Web Speech API recognition, accepts ≥ 90% similarity
 - **Roleplay** — guided dialogue completion
 - **Practice modes** — dedicated speaking, listening, word-matching, and previous-mistakes drill sessions; the mistakes mode pulls the worst-performing items across all categories, ranked by error count then accuracy
-- **Speed Match** — a timed self-competition mini-game in the Practice tab. Each run shows 6 word pairs to tap-match against a 30-second countdown bar; clearing a run starts the next after a short countdown break, and the game ends the moment a run beats the clock. Words are drawn from flashcards marked "Known" plus bookmarks, topped up from the per-language practice word pool. Your score (total correct matches) is compared against a per-language personal best that persists
+- **Speed Match** — a timed self-competition mini-game in the Practice tab. Each run shows 6 word pairs to tap-match against a 30-second countdown bar; clearing a run starts the next after a short countdown break, and the game ends the moment a run beats the clock. Words are drawn from flashcards marked "Known" plus bookmarks, topped up from the per-language practice word pool. Your score (total correct matches) is compared against a per-language personal best that persists.
 
-### Word Hints & Tooltips
+<details>
+<summary><b>Word Hints & Tooltips</b></summary>
 
 Hover over any word in a reverse-translation exercise (translating to English) or in a cloze sentence to see a tooltip. Three sources are checked in priority order:
 
@@ -83,6 +91,8 @@ The generator code is split for clarity under `scripts/libretranslate/`: `termin
 ```
 
 Keys are lowercased word forms exactly as they appear in `correctAnswer`; values are short English glosses. The field is optional and validated at server startup.
+
+</details>
 
 ### Session Experience
 
@@ -154,7 +164,8 @@ npm run dev
 
 ---
 
-## Environment Variables
+<details>
+<summary><b>Environment Variables</b></summary>
 
 Create `server/.env` (copy `server/.env.example`) for local development.
 
@@ -172,9 +183,10 @@ Create `server/.env` (copy `server/.env.example`) for local development.
 
 **Admin access:** the first registered user (id = 1) is automatically an admin. Additional admins are granted via `CONTRIBUTION_REVIEWER_EMAILS`.
 
----
+</details>
 
-## Production Build
+<details>
+<summary><b>Production Build & Server Deployment</b></summary>
 
 ```bash
 npm run build   # bundles client into server/dist/client
@@ -187,10 +199,6 @@ Or build the server bundle separately:
 npm run build --prefix server    # typecheck + minified bundle → server/dist/index.js
 npm run start:dist --prefix server
 ```
-
----
-
-## Server deployment
 
 Do **not** run `npm update` on the server — that resolves to newer versions and rewrites the lockfile, which is non-reproducible. Update dependencies locally, commit the lockfiles, then install from them on the server with `npm ci` (a clean, reproducible install that fails if `package.json` and the lockfile disagree).
 
@@ -211,9 +219,10 @@ Otherwise keep dev dependencies — the build tools (`vite`, `esbuild`, `tsc`) l
 
 **Native modules:** never copy `node_modules` from another machine. `better-sqlite3` is a native module whose binary is platform- and ABI-specific; `npm ci` fetches the correct prebuilt binary for the server's OS and Node version. The lockfile itself is platform-neutral. The Node version must be one with a published `better-sqlite3` prebuild (any current LTS) — otherwise the install falls back to compiling from source and needs a C/C++ toolchain.
 
----
+</details>
 
-## Project Structure
+<details>
+<summary><b>Project Structure</b></summary>
 
 ```
 client/
@@ -273,6 +282,8 @@ server/
       ...
 ```
 
+</details>
+
 ---
 
 ## Available Scripts
@@ -285,15 +296,16 @@ npm run build           # Production client bundle
 npm run start           # Serve backend + built frontend
 npm run lint            # ESLint (flat config)
 npm run lint:fix        # Auto-fix lint issues
-npm run format          # Prettier
+npm run format           # Prettier
 npm run format:check    # Verify formatting without writing
 npm run test            # Full test suite (server + client)
-npm run verify          # Lint + client tests
+npm run verify           # Lint + client tests
 ```
 
 ---
 
-## API Reference
+<details>
+<summary><b>API Reference</b></summary>
 
 ### Public
 
@@ -347,6 +359,8 @@ npm run verify          # Lint + client tests
 |--------|------|-------------|
 | `GET` | `/api/visitors/stats` | Login page visit aggregate metrics |
 | `GET` | `/api/admin/content-stats` | Exercise counts by language × category × CEFR level |
+
+</details>
 
 ---
 
