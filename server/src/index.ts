@@ -393,7 +393,7 @@ function createApp(): any {
   // Auth routes are registered in routes/authRoutes.ts.
   if (fs.existsSync(clientDistPath)) {
     app.use(express.static(clientDistPath));
-    app.get("*", (req: AuthenticatedRequest, res: any, next: any) => {
+    app.get("/{*splat}", (req: AuthenticatedRequest, res: any, next: any) => {
       if (req.path.startsWith("/api/")) {
         next();
         return;

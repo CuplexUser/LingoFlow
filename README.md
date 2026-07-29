@@ -2,7 +2,7 @@
 
 A focused language learning app built with React + Express. Adaptive CEFR progression, persistent learner data, and a variety of exercise types across seven languages.
 
-[![TypeScript](https://badgen.net/badge/TypeScript/React%2018%20%2B%20Express/3178c6)]()
+[![TypeScript](https://badgen.net/badge/TypeScript/React%2019%20%2B%20Express%205/3178c6)]()
 [![Languages](https://badgen.net/badge/languages/7/4a90e2)]()
 [![Tests](https://badgen.net/badge/tests/Vitest%20%2B%20Node%20test%20runner/2ea44f)]()
 
@@ -142,8 +142,8 @@ Visible only to the first registered user and anyone listed in `CONTRIBUTION_REV
 
 | Layer    | Technology                          |
 |----------|-------------------------------------|
-| Frontend | React 18, Vite, TypeScript          |
-| Backend  | Express, TypeScript (strip-types)   |
+| Frontend | React 19, Vite, TypeScript          |
+| Backend  | Express 5, TypeScript (strip-types) |
 | Database | SQLite via `better-sqlite3`         |
 | Auth     | JWT (30-day TTL), bcrypt, Google OAuth2 |
 | Charts   | Hand-rolled SVG — no chart library  |
@@ -155,7 +155,6 @@ Visible only to the first registered user and anyone listed in `CONTRIBUTION_REV
 
 ```bash
 npm install
-npm run install:all
 npm run dev
 ```
 
@@ -200,19 +199,19 @@ npm run build --prefix server    # typecheck + minified bundle → server/dist/i
 npm run start:dist --prefix server
 ```
 
-Do **not** run `npm update` on the server — that resolves to newer versions and rewrites the lockfile, which is non-reproducible. Update dependencies locally, commit the lockfiles, then install from them on the server with `npm ci` (a clean, reproducible install that fails if `package.json` and the lockfile disagree).
+Do **not** run `npm update` on the server — that resolves to newer versions and rewrites the lockfile, which is non-reproducible. Update dependencies locally, commit the single root lockfile (npm workspaces — `server/` and `client/` share it, there are no per-workspace lockfiles), then install from it on the server with `npm ci` (a clean, reproducible install that fails if `package.json` and the lockfile disagree).
 
 ```bash
 git pull
-npm ci && npm ci --prefix server && npm ci --prefix client
+npm ci
 npm run build          # bundles client into server/dist/client
 # then restart the service (pm2 / systemd / etc.)
 ```
 
-If you build the artifacts in CI and ship `dist/` to the server, the runtime box only needs production server deps and can skip the client install:
+If you build the artifacts in CI and ship `dist/` to the server, the runtime box only needs production deps:
 
 ```bash
-npm ci --omit=dev --prefix server
+npm ci --omit=dev
 ```
 
 Otherwise keep dev dependencies — the build tools (`vite`, `esbuild`, `tsc`) live under `devDependencies`.
