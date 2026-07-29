@@ -2,9 +2,10 @@
   "name": "lingoflow",
   "version": "1.0.0",
   "private": true,
+  "workspaces": ["server", "client"],
   "scripts": {
     "version": "node scripts/write-version.js",
-    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "install:all": "npm install",
     "dev": "npm run version && concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "translate:language": "node --experimental-strip-types scripts/libretranslate/index.ts",
     "build": "npm run version && npm run build --prefix client",
