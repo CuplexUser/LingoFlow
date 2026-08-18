@@ -25,7 +25,10 @@ function getDriver() {
 
   if (dialect === "postgres") {
     const { createPostgresDriver } = require("./postgresDriver.ts");
-    driver = createPostgresDriver({ connectionString: process.env.DATABASE_URL });
+    driver = createPostgresDriver({
+      connectionString: process.env.DATABASE_URL,
+      schema: process.env.LINGOFLOW_PG_SCHEMA || null
+    });
   } else {
     const { createSqliteDriver } = require("./sqliteDriver.ts");
     driver = createSqliteDriver({ path: process.env.LINGOFLOW_DB_PATH || null });

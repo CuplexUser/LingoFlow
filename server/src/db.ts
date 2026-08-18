@@ -715,6 +715,18 @@ async function seedDefaultUser() {
   await ensureUserState(1);
   await bootstrapLanguageProgress();
   await db.prepare("UPDATE users SET email_verified = 1, auth_provider = 'local' WHERE id = 1").run();
+  await resyncUsersSequence();
+}
+
+// A Postgres identity column does not advance when a row supplies its own id,
+// so the seed row above leaves the users sequence at 1 and the first real
+// registration collides on the primary key. SQLite's AUTOINCREMENT tracks
+// MAX(id) on its own and needs nothing here.
+async function resyncUsersSequence() {
+  if (db.dialect !== "postgres") return;
+  await db.prepare(
+    "SELECT setval(pg_get_serial_sequence('users', 'id'), COALESCE((SELECT MAX(id) FROM users), 1))"
+  ).get();
 }
 
 function isValidLanguageId(value) {
@@ -1677,7 +1689,11 @@ async function getItemSelectionHints(userId = 1, language, category, today = toI
     SELECT item_id
     FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ? AND (next_due_date IS NULL OR next_due_date <= ?)
-    ORDER BY next_due_date ASC, error_count DESC
+    -- The WHERE admits rows with no scheduled date, and the dialects disagree on
+    -- where those sort: SQLite puts NULLs first in ASC, Postgres puts them last.
+    -- Left implicit, an unscheduled item would lead the queue on SQLite and be
+    -- truncated away by the LIMIT on Postgres. Say which one we mean.
+    ORDER BY next_due_date ASC NULLS FIRST, error_count DESC
     LIMIT 20
   `).all(userId, language, category, today);
 

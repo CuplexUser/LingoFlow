@@ -23,9 +23,15 @@ function createPostgresDriver(config: any = {}) {
     );
   }
 
+  // An explicit schema scopes every connection in this pool to one namespace.
+  // Only the test harness sets it, so each test file gets an isolated set of
+  // tables inside a shared database and never touches "public".
+  const schema = config.schema ? String(config.schema) : null;
+
   const pool = new pg.Pool({
     connectionString,
-    ssl: config.ssl === false ? undefined : { rejectUnauthorized: false }
+    ssl: config.ssl === false ? undefined : { rejectUnauthorized: false },
+    ...(schema ? { options: `-c search_path=${schema}` } : {})
   });
 
   // Transactions must run every statement on one checked-out client. db.ts calls

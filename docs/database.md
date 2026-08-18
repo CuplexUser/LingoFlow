@@ -67,6 +67,20 @@ being branched on at runtime:
 - `MAX(a, b)` → a `CASE` expression. SQLite's two-argument `MAX`/`MIN` are scalar
   functions; in Postgres those names are aggregates and the scalar equivalents are
   `GREATEST`/`LEAST`, which SQLite does not have. `CASE` is the only form both accept.
+- `ORDER BY <nullable column>` states `NULLS FIRST` / `NULLS LAST` explicitly. The
+  defaults are opposite — SQLite sorts NULLs first in `ASC`, Postgres sorts them last —
+  so an implicit ordering silently changes which rows a `LIMIT` keeps. Only
+  `item_progress.next_due_date` is affected today.
+
+### Identity sequences
+
+Inserting a row with an explicit `id` does not advance a Postgres identity sequence,
+so any code path that supplies its own id must resync afterwards or the next generated
+id collides. `seedDefaultUser()` inserts the local user as id 1 and calls
+`resyncUsersSequence()` for exactly this reason — without it, the first real
+registration against a fresh Postgres database fails with a duplicate key error on
+`users_pkey`. `scripts/import-sqlite-to-postgres.ts` does the same resync for every
+imported table. SQLite's `AUTOINCREMENT` tracks `MAX(id)` itself and needs none of this.
 
 Booleans stay as `INTEGER` 0/1 on both backends. Several queries do `SUM(correct)` and
 divide by it, so promoting them to a real `boolean` type would break arithmetic.
@@ -128,6 +142,25 @@ Three legacy migrations are SQLite-only and gated on the dialect —
 `migrateLegacySingleUserSchema()`, the `story_completions` rebuild, and
 `maybeMigrateLegacyJson()`. They are rename-copy-drop workarounds for SQLite's
 inability to alter constraints, and a Postgres database is always created fresh here.
+
+## Testing against Postgres
+
+`npm run test` runs the suite against SQLite. That is fast and offline, but it cannot
+catch dialect bugs, because the things Postgres rejects are the things SQLite accepts.
+To run the same 123 server tests against Postgres:
+
+```bash
+npm run test:server:pg    # needs DATABASE_URL in server/.env
+```
+
+Each test file creates its own Postgres schema and drops it afterwards, so files stay
+isolated from each other and never touch `public` — pointing this at the same database
+the app uses is safe. Files run serially to keep connection count low. The schema is
+applied as a connection `search_path`, which Neon's *pooled* endpoint rejects as an
+unsupported startup parameter, so the harness rewrites the host to the direct endpoint.
+
+Run this after any change to SQL in `db.ts`. It is what found the identity-sequence bug
+described above, which a SQLite run passes cleanly.
 
 ## Importing SQLite data into Postgres
 

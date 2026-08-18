@@ -14,6 +14,7 @@
     "test": "npm run version && npm run test:server && npm run test:client",
     "test:server": "npm run test --prefix server",
     "test:client": "npm run test --prefix client",
+    "test:server:pg": "node --experimental-strip-types scripts/test-postgres.ts",
     "lint": "npm run version && eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",

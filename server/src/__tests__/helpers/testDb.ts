@@ -16,15 +16,37 @@ function configureTestDb(testFilename: string): string {
   );
   process.env.LINGOFLOW_DB_PATH = dbPath;
   process.env.NODE_ENV = "test";
-  // Tests always run against SQLite, even on a machine that has DATABASE_URL set
-  // for the real server.
-  process.env.LINGOFLOW_DB_DRIVER = "sqlite";
+  // Tests run against SQLite by default, even on a machine that has DATABASE_URL
+  // set for the real server. Setting LINGOFLOW_TEST_PG=1 runs the same suite
+  // against Postgres instead, which is the only way to catch dialect bugs that
+  // SQLite accepts (ambiguous ON CONFLICT columns, NULL ordering, aggregate
+  // types). Each file gets its own schema so files stay isolated from each other
+  // and from the real data in "public".
+  if (usePostgres()) {
+    process.env.LINGOFLOW_DB_DRIVER = "postgres";
+    process.env.LINGOFLOW_PG_SCHEMA = `test_${base.replace(/[^a-z0-9_]/gi, "_")}_${process.pid}`;
+    // Scoping a connection to a schema is a startup parameter, and Neon's
+    // pooled endpoint (PgBouncer) rejects those. The direct endpoint accepts
+    // them, and the suite runs serially, so connection count is not a concern.
+    process.env.DATABASE_URL = String(process.env.DATABASE_URL).replace(
+      "-pooler.",
+      "."
+    );
+  } else {
+    process.env.LINGOFLOW_DB_DRIVER = "sqlite";
+  }
 
   // Closing the database is async now, so it cannot happen in an "exit" handler;
   // node:test's after() hook can await it. The unlink stays on exit so the files
   // are removed even if the run aborts before the hook fires.
   after(async () => {
     try {
+      if (usePostgres()) {
+        const { getDriver } = require("../../db/driver.ts");
+        await getDriver().exec(
+          `DROP SCHEMA IF EXISTS ${process.env.LINGOFLOW_PG_SCHEMA} CASCADE`
+        );
+      }
       await require("../../db.ts").closeDatabase();
     } catch (_error) {
       // db.ts may not have been loaded — ignore.
@@ -48,7 +70,34 @@ function configureTestDb(testFilename: string): string {
 // awaited bootstrap now, so every test file that touches the database directly
 // has to run it first.
 async function initTestDb(): Promise<void> {
+  if (usePostgres()) {
+    // The pool's search_path already points at this schema; creating it is a
+    // plain DDL statement that does not depend on the path resolving.
+    const schema = process.env.LINGOFLOW_PG_SCHEMA;
+    const { getDriver } = require("../../db/driver.ts");
+    await getDriver().exec(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);
+    await getDriver().exec(`CREATE SCHEMA ${schema}`);
+  }
   await require("../../db.ts").initSchema();
+}
+
+function usePostgres(): boolean {
+  if (process.env.LINGOFLOW_TEST_PG !== "1") return false;
+  if (!process.env.DATABASE_URL) {
+    // The test runner does not load .env the way index.ts does, so pick up
+    // DATABASE_URL from there rather than making the caller export it.
+    try {
+      require("dotenv").config({ path: path.join(__dirname, "..", "..", "..", ".env") });
+    } catch (_error) {
+      // dotenv missing or no .env file — fall through to the check below.
+    }
+  }
+  if (!process.env.DATABASE_URL) {
+    throw new Error(
+      "LINGOFLOW_TEST_PG=1 requires DATABASE_URL (set it in server/.env or the environment)."
+    );
+  }
+  return true;
 }
 
 module.exports = { configureTestDb, initTestDb };
