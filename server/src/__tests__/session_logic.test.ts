@@ -2,8 +2,13 @@ import type { } from "node"; // ensure file is treated as a module
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { configureTestDb } = require("./helpers/testDb.ts");
+const { configureTestDb, initTestDb } = require("./helpers/testDb.ts");
 configureTestDb(__filename);
+
+// Schema creation is an awaited bootstrap now rather than an import side effect.
+test.before(async () => {
+  await initTestDb();
+});
 
 const { calculateXp, evaluateAttempt, normalizeSentence } = require("../index.ts");
 const { generateSession, getContentMetrics } = require("../data.ts");
@@ -53,8 +58,8 @@ interface RecordSessionInput {
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function createTestUser(prefix: string): number {
-  const created = database.createUser({
+async function createTestUser(prefix: string): number {
+  const created = await database.createUser({
     email: `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}@example.com`,
     passwordHash: "hashed-password",
     displayName: prefix,
@@ -67,13 +72,13 @@ function createTestUser(prefix: string): number {
 
 // ─── normalizeSentence ────────────────────────────────────────────────────────
 
-test("normalizeSentence trims punctuation and spaces", () => {
+test("normalizeSentence trims punctuation and spaces", async () => {
   assert.equal(normalizeSentence("  Hola,   ¿Cómo estás? "), "hola cómo estás");
 });
 
 // ─── evaluateAttempt ──────────────────────────────────────────────────────────
 
-test("evaluateAttempt validates build sentence variants", () => {
+test("evaluateAttempt validates build sentence variants", async () => {
   const question: BaseQuestion = {
     id: "q1",
     type: "build_sentence",
@@ -87,7 +92,7 @@ test("evaluateAttempt validates build sentence variants", () => {
   assert.equal(wrong.errorType, "word_order");
 });
 
-test("evaluateAttempt accepts close pronunciation matches", () => {
+test("evaluateAttempt accepts close pronunciation matches", async () => {
   const question: BaseQuestion = {
     id: "p1",
     type: "pronunciation",
@@ -100,7 +105,7 @@ test("evaluateAttempt accepts close pronunciation matches", () => {
   assert.equal(wrong.correct, false);
 });
 
-test("evaluateAttempt supports practice speak and listen", () => {
+test("evaluateAttempt supports practice speak and listen", async () => {
   const speak: BaseQuestion = { id: "ps1", type: "practice_speak", answer: "I read books.", acceptedAnswers: ["I read books"] };
   const listen: BaseQuestion = { id: "pl1", type: "practice_listen", answer: "I eat fruit." };
 
@@ -113,7 +118,7 @@ test("evaluateAttempt supports practice speak and listen", () => {
   assert.equal(listenWrong.correct, false);
 });
 
-test("evaluateAttempt accepts normalized cloze answers and classifies cloze mistakes", () => {
+test("evaluateAttempt accepts normalized cloze answers and classifies cloze mistakes", async () => {
   const question: BaseQuestion = { id: "cl-1", type: "cloze_sentence", answer: "placeholder", clozeAnswer: "rápido" };
 
   const ok = evaluateAttempt(question, { selectedOption: "Rápido!" }) as EvaluationResult;
@@ -125,7 +130,7 @@ test("evaluateAttempt accepts normalized cloze answers and classifies cloze mist
   assert.equal(wrong.errorType, "cloze_choice");
 });
 
-test("evaluateAttempt scores flashcards with known/unknown behavior", () => {
+test("evaluateAttempt scores flashcards with known/unknown behavior", async () => {
   const question: BaseQuestion = { id: "fc-1", type: "flashcard", answer: "unused" };
 
   const known = evaluateAttempt(question, { selectedOption: "known" }) as EvaluationResult;
@@ -137,7 +142,7 @@ test("evaluateAttempt scores flashcards with known/unknown behavior", () => {
   assert.equal(unknown.errorType, "wrong_option");
 });
 
-test("evaluateAttempt normalizes punctuation/case for multiple-choice scoring", () => {
+test("evaluateAttempt normalizes punctuation/case for multiple-choice scoring", async () => {
   const question: BaseQuestion = { id: "mc-1", type: "mc_sentence", answer: "¡Buenos días!", acceptedAnswers: [] };
 
   const ok = evaluateAttempt(question, { selectedOption: "¡buenos días!" }) as EvaluationResult;
@@ -145,7 +150,7 @@ test("evaluateAttempt normalizes punctuation/case for multiple-choice scoring", 
   assert.equal(ok.errorType, "none");
 });
 
-test("evaluateAttempt supports practice words pairs", () => {
+test("evaluateAttempt supports practice words pairs", async () => {
   const question: BaseQuestion = {
     id: "pw1",
     type: "practice_words",
@@ -163,7 +168,7 @@ test("evaluateAttempt supports practice words pairs", () => {
   assert.equal(wrong.correct, false);
 });
 
-test("evaluateAttempt grades matching exercises order-independently", () => {
+test("evaluateAttempt grades matching exercises order-independently", async () => {
   const question: BaseQuestion = {
     id: "m1",
     type: "matching",
@@ -178,7 +183,7 @@ test("evaluateAttempt grades matching exercises order-independently", () => {
 
 // ─── calculateXp ──────────────────────────────────────────────────────────────
 
-test("calculateXp penalizes mistakes and hints", () => {
+test("calculateXp penalizes mistakes and hints", async () => {
   const perfect: XpInput = { score: 10, maxScore: 10, mistakes: 0, hintsUsed: 0, revealedAnswers: 0, difficultyLevel: "b1" };
   const poor: XpInput = { score: 6, maxScore: 10, mistakes: 4, hintsUsed: 2, revealedAnswers: 1, difficultyLevel: "b1" };
 
@@ -187,14 +192,14 @@ test("calculateXp penalizes mistakes and hints", () => {
   assert.ok(high.xpGained > low.xpGained);
 });
 
-test("calculateXp enforces minimum XP floor for very poor outcomes", () => {
+test("calculateXp enforces minimum XP floor for very poor outcomes", async () => {
   const result = calculateXp({
     score: 0, maxScore: 10, mistakes: 20, hintsUsed: 20, revealedAnswers: 10, difficultyLevel: "a1"
   } satisfies XpInput) as XpResult;
   assert.equal(result.xpGained, 4);
 });
 
-test("calculateXp rewards higher difficulty for identical performance", () => {
+test("calculateXp rewards higher difficulty for identical performance", async () => {
   const shared: Omit<XpInput, "difficultyLevel"> = { score: 8, maxScore: 10, mistakes: 1, hintsUsed: 0, revealedAnswers: 0 };
   const a1 = calculateXp({ ...shared, difficultyLevel: "a1" }) as XpResult;
   const b2 = calculateXp({ ...shared, difficultyLevel: "b2" }) as XpResult;
@@ -217,7 +222,7 @@ function mulberry32(seed: number) {
   };
 }
 
-test("generateSession includes expanded exercise types", () => {
+test("generateSession includes expanded exercise types", async () => {
   // Union across a few fixed seeds so the assertion does not hinge on a single
   // generated layout while staying fully deterministic.
   const types = new Set<string>();
@@ -236,7 +241,7 @@ test("generateSession includes expanded exercise types", () => {
   assert.ok(types.has("dialogue_turn"));
 });
 
-test("generateSession creates practice modes", () => {
+test("generateSession creates practice modes", async () => {
   const base = {
     language: "spanish", category: "essentials",
     mastery: 10, count: 6, selfRatedLevel: "a1",
@@ -260,7 +265,7 @@ test("generateSession creates practice modes", () => {
 
 // ─── getContentMetrics ────────────────────────────────────────────────────────
 
-test("content metrics exposes level coverage and under-target buckets", () => {
+test("content metrics exposes level coverage and under-target buckets", async () => {
   const metrics = getContentMetrics({ language: "spanish" });
   assert.ok(metrics.generatedAt);
   assert.equal(metrics.targetPerLevel, 20);
@@ -277,23 +282,23 @@ test("content metrics exposes level coverage and under-target buckets", () => {
 
 // ─── recordSession ────────────────────────────────────────────────────────────
 
-test("recordSession updates mastery and daily xp", () => {
+test("recordSession updates mastery and daily xp", async () => {
   const today = database.toIsoDate() as string;
-  const before = database.getProgress(1, "spanish");
-  const saved = database.recordSession({
+  const before = await database.getProgress(1, "spanish");
+  const saved = await database.recordSession({
     language: "spanish", category: "essentials",
     score: 8, maxScore: 10, mistakes: 2,
     xpGained: 24, difficultyLevel: "a2", today
   } satisfies Omit<RecordSessionInput, "userId">);
-  const after = database.getProgress(1, "spanish");
+  const after = await database.getProgress(1, "spanish");
 
   assert.ok(saved.mastery >= 0);
   assert.ok(after.totalXp >= before.totalXp);
   assert.ok(after.todayXp >= 24);
 });
 
-test("recordSession levels up the learner when cumulative XP crosses a threshold", () => {
-  const userId = createTestUser("levelup");
+test("recordSession levels up the learner when cumulative XP crosses a threshold", async () => {
+  const userId = await createTestUser("levelup");
   const today = database.toIsoDate() as string;
   const sessionBase: RecordSessionInput = {
     userId, language: "english", category: "essentials",
@@ -301,9 +306,9 @@ test("recordSession levels up the learner when cumulative XP crosses a threshold
     xpGained: 0, difficultyLevel: "a2", today
   };
 
-  const first = database.recordSession({ ...sessionBase, category: "essentials", xpGained: 149 });
-  const second = database.recordSession({ ...sessionBase, category: "conversation", xpGained: 2 });
-  const progress = database.getProgress(userId, "english");
+  const first = await database.recordSession({ ...sessionBase, category: "essentials", xpGained: 149 });
+  const second = await database.recordSession({ ...sessionBase, category: "conversation", xpGained: 2 });
+  const progress = await database.getProgress(userId, "english");
 
   assert.equal(first.learnerLevel, 1);
   assert.equal(second.learnerLevel, 2);
@@ -311,8 +316,8 @@ test("recordSession levels up the learner when cumulative XP crosses a threshold
   assert.equal(progress.learnerLevel, 2);
 });
 
-test("recordSession advances category unlock bands across mastery thresholds", () => {
-  const userId = createTestUser("mastery");
+test("recordSession advances category unlock bands across mastery thresholds", async () => {
+  const userId = await createTestUser("mastery");
   const today = database.toIsoDate() as string;
   const sessionBase: RecordSessionInput = {
     userId, language: "italian", category: "grammar",
@@ -322,12 +327,12 @@ test("recordSession advances category unlock bands across mastery thresholds", (
 
   // Six sessions: first three at a1, last three at b2 to drive unlock band progression
   const results = [
-    database.recordSession(sessionBase),
-    database.recordSession(sessionBase),
-    database.recordSession(sessionBase),
-    database.recordSession({ ...sessionBase, xpGained: 36, difficultyLevel: "b2" }),
-    database.recordSession({ ...sessionBase, xpGained: 36, difficultyLevel: "b2" }),
-    database.recordSession({ ...sessionBase, xpGained: 36, difficultyLevel: "b2" })
+    await database.recordSession(sessionBase),
+    await database.recordSession(sessionBase),
+    await database.recordSession(sessionBase),
+    await database.recordSession({ ...sessionBase, xpGained: 36, difficultyLevel: "b2" }),
+    await database.recordSession({ ...sessionBase, xpGained: 36, difficultyLevel: "b2" }),
+    await database.recordSession({ ...sessionBase, xpGained: 36, difficultyLevel: "b2" })
   ];
 
   assert.equal(results[1].levelUnlocked, "a1");

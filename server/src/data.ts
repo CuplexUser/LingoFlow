@@ -5,7 +5,7 @@ const { createCourseSelectors, createSessionGenerator, recommendedLevelFromMaste
 const { getPracticePool } = require("./data/practicePool.ts");
 const { loadStories } = require("./data/storyLoader.ts");
 const { createContentMetrics } = require("./data/contentMetrics.ts");
-const { getContentFingerprints, upsertContentFingerprint, resetCategoryProgress } = require("./db.ts");
+const { getContentFingerprints, upsertContentFingerprints, resetCategoryProgress } = require("./db.ts");
 
 const { languages: LANGUAGES, course: COURSE, contentMeta: LANGUAGE_CONTENT_META } = loadLanguageContent();
 
@@ -57,23 +57,30 @@ function changedItemRatio(
   return changed / ids.size;
 }
 
-const storedFingerprints = getContentFingerprints();
-for (const langId of Object.keys(COURSE)) {
-  for (const catId of Object.keys(COURSE[langId])) {
-    const current = computeCategoryFingerprints(COURSE[langId][catId]);
-    const key = `${langId}:${catId}`;
-    const stored = parseStoredFingerprints(storedFingerprints[key]);
-    if (stored) {
-      const ratio = changedItemRatio(stored, current);
-      if (ratio > CONTENT_RESET_THRESHOLD) {
-        resetCategoryProgress(langId, catId);
-        console.log(
-          `[content] Progress reset for ${langId}/${catId} — ${(ratio * 100).toFixed(0)}% of items changed`
-        );
+// Reconcile stored content fingerprints against the loaded course content, resetting
+// progress for categories that changed substantially. This used to run as an import
+// side effect; the database layer is async now, so index.ts awaits it during startup.
+async function reconcileContentFingerprints(): Promise<void> {
+  const storedFingerprints = await getContentFingerprints();
+  const pending: any[] = [];
+  for (const langId of Object.keys(COURSE)) {
+    for (const catId of Object.keys(COURSE[langId])) {
+      const current = computeCategoryFingerprints(COURSE[langId][catId]);
+      const key = `${langId}:${catId}`;
+      const stored = parseStoredFingerprints(storedFingerprints[key]);
+      if (stored) {
+        const ratio = changedItemRatio(stored, current);
+        if (ratio > CONTENT_RESET_THRESHOLD) {
+          await resetCategoryProgress(langId, catId);
+          console.log(
+            `[content] Progress reset for ${langId}/${catId} — ${(ratio * 100).toFixed(0)}% of items changed`
+          );
+        }
       }
+      pending.push({ language: langId, category: catId, fingerprint: JSON.stringify(current) });
     }
-    upsertContentFingerprint(langId, catId, JSON.stringify(current));
   }
+  await upsertContentFingerprints(pending);
 }
 const STORIES: any[] = loadStories();
 console.log(`[startup] Loaded ${STORIES.length} stories`);
@@ -222,7 +229,10 @@ function injectCommunityItem(item: {
 const VOCAB_FLASHCARD_RE = /^vocabulary:\s*(.+)$/i;
 const HINT_WORD_RE = /'([^']+)'\s*=\s*([^;.']+)/g;
 
-function seedContentWordTranslations(database: any): number {
+async function seedContentWordTranslations(database: any): Promise<number> {
+  // Collected and written in batches at the end rather than one upsert per word:
+  // against a hosted Postgres, per-word round-trips made startup take about a minute.
+  const entries: any[] = [];
   let count = 0;
   for (const [lang, categories] of Object.entries(COURSE as Record<string, Record<string, any[]>>)) {
     for (const items of Object.values(categories as Record<string, any[]>)) {
@@ -230,7 +240,7 @@ function seedContentWordTranslations(database: any): number {
         if (item.wordGlossary && typeof item.wordGlossary === "object" && !Array.isArray(item.wordGlossary)) {
           for (const [word, translation] of Object.entries(item.wordGlossary as Record<string, string>)) {
             if (word.trim() && String(translation).trim()) {
-              database.upsertWordTranslation(lang, word.toLowerCase().trim(), String(translation).trim(), "content");
+              entries.push({ language: lang, word: word.toLowerCase().trim(), translation: String(translation).trim(), source: "content" });
               count++;
             }
           }
@@ -241,7 +251,7 @@ function seedContentWordTranslations(database: any): number {
             const englishWord = m[1].trim();
             const foreignWord = String(item.correctAnswer).trim().toLowerCase();
             if (foreignWord && !foreignWord.includes(" ") && englishWord) {
-              database.upsertWordTranslation(lang, foreignWord, englishWord, "content");
+              entries.push({ language: lang, word: foreignWord, translation: englishWord, source: "content" });
               count++;
             }
           }
@@ -254,7 +264,7 @@ function seedContentWordTranslations(database: any): number {
             const phrase = match[1].trim().toLowerCase();
             const value = match[2].trim().replace(/\s*[—–-]\s*.+$/, "").trim();
             if (phrase && value && !phrase.includes(" ")) {
-              database.upsertWordTranslation(lang, phrase, value, "content");
+              entries.push({ language: lang, word: phrase, translation: value, source: "content" });
               count++;
             }
           }
@@ -262,20 +272,22 @@ function seedContentWordTranslations(database: any): number {
       }
     }
   }
+  await database.upsertWordTranslations(entries);
   return count;
 }
 
-function rebuildContentWordTranslations(database: any): number {
-  database.clearContentWordTranslations();
+async function rebuildContentWordTranslations(database: any): Promise<number> {
+  await database.clearContentWordTranslations();
   return seedContentWordTranslations(database);
 }
 
-function rebuildAllWordTranslations(database: any): number {
-  database.clearWordTranslations();
+async function rebuildAllWordTranslations(database: any): Promise<number> {
+  await database.clearWordTranslations();
   return seedContentWordTranslations(database);
 }
 
 module.exports = {
+  reconcileContentFingerprints,
   LANGUAGES,
   CATEGORIES,
   COURSE,

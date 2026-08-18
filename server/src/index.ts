@@ -94,16 +94,32 @@ const {
   getStoryById,
   sanitizeStoryForClient,
   computeStoryXp,
-  recommendNextStory
+  recommendNextStory,
+  reconcileContentFingerprints
 } = require("./data.ts");
 
-// Inject already-approved community exercises into the live content pool at startup
-database.getApprovedCommunityExercises().forEach(injectCommunityItem);
+// Database work that used to run as an import side effect. The data layer is async
+// now, so it needs an explicit awaited bootstrap before the server serves traffic.
+let bootstrapped: Promise<void> | null = null;
 
-// Rebuild content-sourced word translations at startup (LibreTranslate rows are preserved)
-{
-  const count = rebuildContentWordTranslations(database);
+async function runBootstrap(): Promise<void> {
+  await database.initSchema();
+  await reconcileContentFingerprints();
+
+  // Inject already-approved community exercises into the live content pool at startup
+  for (const item of await database.getApprovedCommunityExercises()) {
+    injectCommunityItem(item);
+  }
+
+  // Rebuild content-sourced word translations at startup (LibreTranslate rows are preserved)
+  const count = await rebuildContentWordTranslations(database);
   console.log(`[startup] Seeded ${count} word translations from content`);
+}
+
+// Idempotent: repeated calls (tests build several apps in one process) share one run.
+function initDatabase(): Promise<void> {
+  if (!bootstrapped) bootstrapped = runBootstrap();
+  return bootstrapped;
 }
 
 const { registerCourseRoutes } = require("./routes/courseRoutes.ts");
@@ -312,7 +328,9 @@ function calculateXp({
 
 // Auth helpers live in auth/* and routes/authRoutes.ts.
 
-function createApp(): any {
+async function createApp(): Promise<any> {
+  await initDatabase();
+
   const app = express();
   app.use(cors());
   app.use(express.json());
@@ -342,7 +360,7 @@ function createApp(): any {
   });
   app.use(logger.requestLogger);
 
-  function requireAuth(req: AuthenticatedRequest, res: any, next: any) {
+  async function requireAuth(req: AuthenticatedRequest, res: any, next: any) {
     if (!req.authFromToken || !req.authUserId) {
       logger.logAuthEvent("auth_required_rejected", {
         requestId: req.requestId,
@@ -350,7 +368,7 @@ function createApp(): any {
       });
       return res.status(401).json({ error: "Authentication required" });
     }
-    const user = database.getUserById(req.authUserId);
+    const user = await database.getUserById(req.authUserId);
     if (!user) {
       logger.logAuthEvent("auth_required_rejected", {
         requestId: req.requestId,
@@ -406,14 +424,21 @@ function createApp(): any {
 }
 
 if (require.main === module) {
-  const app = createApp();
-  app.listen(port, () => {
-    console.log(`LingoFlow API listening on http://localhost:${port}`);
-  });
+  createApp()
+    .then((app) => {
+      app.listen(port, () => {
+        console.log(`LingoFlow API listening on http://localhost:${port}`);
+      });
+    })
+    .catch((error) => {
+      console.error("[startup] Failed to start LingoFlow API", error);
+      process.exit(1);
+    });
 }
 
 module.exports = {
   createApp,
+  initDatabase,
   normalizeSentence,
   evaluateAttempt,
   calculateXp

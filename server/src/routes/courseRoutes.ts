@@ -8,8 +8,8 @@ function registerCourseRoutes(app: any, deps: any): void {
       .filter(Boolean)
   );
 
-  function canAccessAdminRoutes(userId: number): boolean {
-    const user = database.getUserById(userId);
+  async function canAccessAdminRoutes(userId: number): Promise<boolean> {
+    const user = await database.getUserById(userId);
     if (!user) return false;
     if (user.id === 1) return true;
     return contentReviewerEmails.has(String(user.email || "").trim().toLowerCase());
@@ -52,21 +52,21 @@ function registerCourseRoutes(app: any, deps: any): void {
     res.json(LANGUAGES);
   });
 
-  app.post("/api/visitors/login", (req: any, res: any) => {
+  app.post("/api/visitors/login", async (req: any, res: any) => {
     const ipAddress = getRequestIpAddress(req);
-    database.recordLoginPageVisit({ ipAddress });
+    await database.recordLoginPageVisit({ ipAddress });
     return res.status(202).json({ ok: true });
   });
 
-  app.get("/api/course", requireAuth, (req: any, res: any) => {
+  app.get("/api/course", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    const settings = database.getSettings(userId);
+    const settings = await database.getSettings(userId);
     const devUnlockAll = process.env.NODE_ENV !== "production" && Boolean(settings.unlockAllLessons);
     const language = String(req.query.language || settings.targetLanguage || "spanish").toLowerCase();
     const categories = getCourseOverview(language) as any[];
-    const categoryProgress = database.getCategoryProgress(userId, language) as any[];
+    const categoryProgress = await database.getCategoryProgress(userId, language) as any[];
     const progressMap = new Map<string, any>(categoryProgress.map((item: any) => [item.category, item]));
-    const recommendedCategoryIds = new Set(database.getCategoryRecommendations(userId, language));
+    const recommendedCategoryIds = new Set(await database.getCategoryRecommendations(userId, language));
 
     const enriched = categories.map((category: any, index: number) => {
       const progress = progressMap.get(category.id);
@@ -95,12 +95,12 @@ function registerCourseRoutes(app: any, deps: any): void {
     res.json(enriched);
   });
 
-  app.get("/api/stories", requireAuth, (req: any, res: any) => {
+  app.get("/api/stories", requireAuth, async (req: any, res: any) => {
     const language = String(req.query.language || "").trim().toLowerCase();
     const level = String(req.query.level || "").trim().toLowerCase();
     const category = String(req.query.category || "").trim();
     const summaries = listStories({ language, level, category });
-    const progress = database.getStoryProgress(req.authUserId, language || undefined);
+    const progress = await database.getStoryProgress(req.authUserId, language || undefined);
     return res.json(
       summaries.map((story: any) => {
         const state = progress[story.id];
@@ -117,9 +117,9 @@ function registerCourseRoutes(app: any, deps: any): void {
 
   // "/stats" and "/recommended" must be registered before "/:id" so Express does
   // not capture those words as a story id.
-  app.get("/api/stories/stats", requireAuth, (req: any, res: any) => {
+  app.get("/api/stories/stats", requireAuth, async (req: any, res: any) => {
     const language = String(req.query.language || "").trim().toLowerCase();
-    const stats = database.getReadingStats(req.authUserId, language || undefined);
+    const stats = await database.getReadingStats(req.authUserId, language || undefined);
     let sentencesRead = 0;
     const levels = new Set<string>();
     const themes = new Set<string>();
@@ -140,12 +140,12 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
   });
 
-  app.get("/api/stories/recommended", requireAuth, (req: any, res: any) => {
+  app.get("/api/stories/recommended", requireAuth, async (req: any, res: any) => {
     const language = String(req.query.language || "").trim().toLowerCase();
     if (!language) return res.json(null);
-    const completedIds = database.getCompletedStoryIds(req.authUserId, language);
-    const settings = database.getSettings(req.authUserId);
-    const categoryProgress = database.getCategoryProgress(req.authUserId, language) || [];
+    const completedIds = await database.getCompletedStoryIds(req.authUserId, language);
+    const settings = await database.getSettings(req.authUserId);
+    const categoryProgress = await database.getCategoryProgress(req.authUserId, language) || [];
     const topCategory = [...categoryProgress].sort(
       (a: any, b: any) => (b.attempts || 0) - (a.attempts || 0)
     )[0];
@@ -158,16 +158,16 @@ function registerCourseRoutes(app: any, deps: any): void {
     return res.json(recommended);
   });
 
-  app.get("/api/stories/:id", requireAuth, (req: any, res: any) => {
+  app.get("/api/stories/:id", requireAuth, async (req: any, res: any) => {
     const story = getStoryById(String(req.params.id || ""));
     if (!story) return res.status(404).json({ error: "Story not found" });
     return res.json(sanitizeStoryForClient(story));
   });
 
-  app.post("/api/stories/:id/progress", requireAuth, (req: any, res: any) => {
+  app.post("/api/stories/:id/progress", requireAuth, async (req: any, res: any) => {
     const story = getStoryById(String(req.params.id || ""));
     if (!story) return res.status(404).json({ error: "Story not found" });
-    database.upsertStoryProgress(req.authUserId, {
+    await database.upsertStoryProgress(req.authUserId, {
       storyId: story.id,
       language: story.language,
       sentenceIndex: Number(req.body?.sentenceIndex)
@@ -175,7 +175,7 @@ function registerCourseRoutes(app: any, deps: any): void {
     return res.json({ ok: true });
   });
 
-  app.post("/api/stories/:id/complete", requireAuth, (req: any, res: any) => {
+  app.post("/api/stories/:id/complete", requireAuth, async (req: any, res: any) => {
     const story = getStoryById(String(req.params.id || ""));
     if (!story) return res.status(404).json({ error: "Story not found" });
 
@@ -201,7 +201,7 @@ function registerCourseRoutes(app: any, deps: any): void {
       explanations = questions.map((question: any) => question.explanation || null);
     }
 
-    database.markStoryComplete(req.authUserId, {
+    await database.markStoryComplete(req.authUserId, {
       storyId: story.id,
       language: story.language,
       quizScore,
@@ -212,7 +212,7 @@ function registerCourseRoutes(app: any, deps: any): void {
       quizScore == null ? undefined : quizScore,
       quizTotal == null ? undefined : quizTotal
     );
-    const award = database.awardStoryXp(req.authUserId, {
+    const award = await database.awardStoryXp(req.authUserId, {
       storyId: story.id,
       language: story.language,
       xpGained: potentialXp
@@ -231,13 +231,13 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
   });
 
-  app.get("/api/content/metrics", requireAuth, (req: any, res: any) => {
+  app.get("/api/content/metrics", requireAuth, async (req: any, res: any) => {
     const language = String(req.query.language || "").trim().toLowerCase();
     res.json(getContentMetrics({ language }));
   });
 
-  app.get("/api/admin/content-stats", requireAuth, (req: any, res: any) => {
-    if (!canAccessAdminRoutes(req.authUserId)) {
+  app.get("/api/admin/content-stats", requireAuth, async (req: any, res: any) => {
+    if (!await canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Admin access required" });
     }
 
@@ -366,14 +366,14 @@ function registerCourseRoutes(app: any, deps: any): void {
 
     if (!words.length) return res.json({ translations: {} });
 
-    const cached = database.getCachedWordTranslations(lang, words);
+    const cached = await database.getCachedWordTranslations(lang, words);
     const uncached = words.filter((w: string) => !(w in cached));
     const translations: Record<string, string> = { ...cached };
 
     for (const word of uncached) {
       const result = await translateWithLibreTranslate(word, lang);
       if (result) {
-        database.upsertWordTranslation(lang, word, result);
+        await database.upsertWordTranslation(lang, word, result);
         translations[word] = result;
       }
     }
@@ -381,15 +381,15 @@ function registerCourseRoutes(app: any, deps: any): void {
     return res.json({ translations });
   });
 
-  app.get("/api/admin/word-translations/counts", requireAuth, (req: any, res: any) => {
-    if (!canAccessAdminRoutes(req.authUserId)) {
+  app.get("/api/admin/word-translations/counts", requireAuth, async (req: any, res: any) => {
+    if (!await canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Forbidden" });
     }
-    return res.json(database.getWordTranslationCounts());
+    return res.json(await database.getWordTranslationCounts());
   });
 
-  app.post("/api/admin/word-translations/rebuild", requireAuth, (req: any, res: any) => {
-    if (!canAccessAdminRoutes(req.authUserId)) {
+  app.post("/api/admin/word-translations/rebuild", requireAuth, async (req: any, res: any) => {
+    if (!await canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Forbidden" });
     }
     const count = rebuildAllWordTranslations(database);

@@ -246,7 +246,7 @@ function registerAuthRoutes(app, deps) {
       return res.status(400).json({ error: "Password must be at least 8 characters" });
     }
 
-    if (database.getUserByEmail(email)) {
+    if (await database.getUserByEmail(email)) {
       logger.logAuthEvent("register_rejected", {
         requestId: req.requestId,
         reason: "email_exists",
@@ -256,7 +256,7 @@ function registerAuthRoutes(app, deps) {
     }
 
     try {
-      const created = database.createUser({
+      const created = await database.createUser({
         email,
         passwordHash: hashPassword(password),
         displayName,
@@ -270,7 +270,7 @@ function registerAuthRoutes(app, deps) {
 
       const verifyToken = crypto.randomBytes(32).toString("hex");
       const expiresAt = new Date(Date.now() + (1000 * 60 * 60 * 24)).toISOString();
-      database.replaceEmailVerification({
+      await database.replaceEmailVerification({
         userId: created.id,
         token: verifyToken,
         expiresAt
@@ -306,7 +306,7 @@ function registerAuthRoutes(app, deps) {
     }
   });
 
-  app.post("/api/auth/login", sensitiveRateLimit, (req, res) => {
+  app.post("/api/auth/login", sensitiveRateLimit, async (req, res) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     const password = String(req.body?.password || "");
 
@@ -314,7 +314,7 @@ function registerAuthRoutes(app, deps) {
       return res.status(400).json({ error: "email and password are required" });
     }
 
-    const user = database.getUserByEmail(email);
+    const user = await database.getUserByEmail(email);
     if (!user || user.authProvider !== "local" || !verifyPassword(password, user.passwordHash)) {
       logger.logAuthEvent("login_rejected", {
         requestId: req.requestId,
@@ -340,8 +340,8 @@ function registerAuthRoutes(app, deps) {
     });
 
     const token = tokenService.createAuthToken(user.id);
-    database.syncLearnerNameFromProfile(user.id, user.displayName);
-    const freshUser = database.getUserById(user.id);
+    await database.syncLearnerNameFromProfile(user.id, user.displayName);
+    const freshUser = await database.getUserById(user.id);
     return res.json({
       token,
       user: {
@@ -361,7 +361,7 @@ function registerAuthRoutes(app, deps) {
       return res.status(400).json({ error: "Valid email is required" });
     }
 
-    const user = database.getUserByEmail(email);
+    const user = await database.getUserByEmail(email);
     if (!user || user.authProvider !== "local") {
       return res.json({ ok: true, message: "If your account exists, a verification email has been sent." });
     }
@@ -371,7 +371,7 @@ function registerAuthRoutes(app, deps) {
 
     const token = crypto.randomBytes(32).toString("hex");
     const expiresAt = new Date(Date.now() + (1000 * 60 * 60 * 24)).toISOString();
-    database.replaceEmailVerification({
+    await database.replaceEmailVerification({
       userId: user.id,
       token,
       expiresAt
@@ -397,14 +397,14 @@ function registerAuthRoutes(app, deps) {
       return res.status(400).json({ error: "Valid email is required" });
     }
 
-    const user = database.getUserByEmail(email);
+    const user = await database.getUserByEmail(email);
     if (!user || user.authProvider !== "local") {
       return res.json({ ok: true, message: "If your account exists, a reset email has been sent." });
     }
 
     const token = crypto.randomBytes(32).toString("hex");
     const expiresAt = new Date(Date.now() + (1000 * 60 * 60)).toISOString();
-    database.replacePasswordResetToken({
+    await database.replacePasswordResetToken({
       userId: user.id,
       token,
       expiresAt
@@ -429,14 +429,14 @@ function registerAuthRoutes(app, deps) {
     });
   });
 
-  app.post("/api/auth/reset-password", authRateLimit, (req, res) => {
+  app.post("/api/auth/reset-password", authRateLimit, async (req, res) => {
     const token = normalizeInboundEmailToken(req.body?.token);
     const password = String(req.body?.password || "");
     if (!token || password.length < 8) {
       return res.status(400).json({ error: "Valid token and password are required" });
     }
 
-    const user = database.consumePasswordResetToken(token, hashPassword(password));
+    const user = await database.consumePasswordResetToken(token, hashPassword(password));
     if (!user) {
       return res.status(400).json({ error: "Invalid or expired reset token" });
     }
@@ -449,7 +449,7 @@ function registerAuthRoutes(app, deps) {
     return res.json({ ok: true, message: "Password updated successfully. You can now sign in." });
   });
 
-  app.get("/api/auth/google/start", (req, res) => {
+  app.get("/api/auth/google/start", async (req, res) => {
     if (!isGoogleOauthConfigured()) {
       return res.redirect(buildAuthReturnUrl(publicAppUrl, { authError: "Google sign in is not configured." }));
     }
@@ -482,9 +482,9 @@ function registerAuthRoutes(app, deps) {
 
     try {
       const profile = await getGoogleProfileFromAuthorizationCode(code);
-      let user = database.getUserByEmail(profile.email);
+      let user = await database.getUserByEmail(profile.email);
       if (!user) {
-        user = database.createUser({
+        user = await database.createUser({
           email: profile.email,
           passwordHash: `oauth-google:${crypto.randomUUID()}`,
           displayName: profile.displayName,
@@ -492,13 +492,13 @@ function registerAuthRoutes(app, deps) {
           emailVerified: true
         });
       } else if (!user.emailVerified) {
-        database.markUserEmailVerified(user.id);
+        await database.markUserEmailVerified(user.id);
       }
       if (!user) {
         throw new Error("Could not create user");
       }
 
-      database.syncLearnerNameFromProfile(user.id, profile.displayName);
+      await database.syncLearnerNameFromProfile(user.id, profile.displayName);
       const token = tokenService.createAuthToken(user.id);
       return res.redirect(buildAuthReturnUrl(publicAppUrl, { authToken: token }));
     } catch (error) {
@@ -507,9 +507,9 @@ function registerAuthRoutes(app, deps) {
     }
   });
 
-  app.get("/api/auth/me", (req, res) => {
+  app.get("/api/auth/me", async (req, res) => {
     if (!req.authUserId) return res.status(401).json({ error: "Authentication required" });
-    const user = database.getUserById(req.authUserId);
+    const user = await database.getUserById(req.authUserId);
     if (!user) return res.status(404).json({ error: "User not found" });
     return res.json({
       user: {
@@ -523,12 +523,12 @@ function registerAuthRoutes(app, deps) {
     });
   });
 
-  app.post("/api/auth/delete-account", (req, res) => {
+  app.post("/api/auth/delete-account", async (req, res) => {
     if (!req.authUserId) {
       return res.status(401).json({ error: "Authentication required" });
     }
 
-    const user = database.getUserById(req.authUserId);
+    const user = await database.getUserById(req.authUserId);
     if (!user) {
       return res.status(401).json({ error: "Authentication required" });
     }
@@ -542,7 +542,7 @@ function registerAuthRoutes(app, deps) {
       return res.status(400).json({ error: "Account deletion is only available for password accounts" });
     }
 
-    const localUser = database.getUserByEmail(user.email);
+    const localUser = await database.getUserByEmail(user.email);
     if (!localUser || localUser.authProvider !== "local") {
       return res.status(401).json({ error: "Authentication required" });
     }
@@ -557,7 +557,7 @@ function registerAuthRoutes(app, deps) {
       return res.status(401).json({ error: "Invalid password" });
     }
 
-    const deleted = database.deleteUserById(localUser.id);
+    const deleted = await database.deleteUserById(localUser.id);
     if (!deleted) {
       logger.logAuthEvent("delete_account_failed", {
         requestId: req.requestId,
@@ -574,10 +574,10 @@ function registerAuthRoutes(app, deps) {
     return res.json({ ok: true, message: "Account deleted." });
   });
 
-  app.post("/api/auth/verify-email", (req, res) => {
+  app.post("/api/auth/verify-email", async (req, res) => {
     const token = normalizeInboundEmailToken(req.body?.token);
     if (!token) return res.status(400).json({ error: "token is required" });
-    const user = database.consumeEmailVerificationToken(token);
+    const user = await database.consumeEmailVerificationToken(token);
     if (!user) {
       return res.status(400).json({ error: "Invalid or expired verification token" });
     }

@@ -144,10 +144,56 @@ Visible only to the first registered user and anyone listed in `CONTRIBUTION_REV
 |----------|-------------------------------------|
 | Frontend | React 19, Vite, TypeScript          |
 | Backend  | Express 5, TypeScript (strip-types) |
-| Database | SQLite via `better-sqlite3`         |
+| Database | SQLite (`better-sqlite3`) or PostgreSQL / Neon (`pg`) |
 | Auth     | JWT (30-day TTL), bcrypt, Google OAuth2 |
 | Charts   | Hand-rolled SVG — no chart library  |
 | Tests    | Vitest (client), Node test runner (server) |
+
+---
+
+## Database
+
+LingoFlow runs on either SQLite or PostgreSQL. The driver is selected at startup:
+
+| Condition | Driver |
+|---|---|
+| `DATABASE_URL` is set | PostgreSQL (`pg`) |
+| `DATABASE_URL` is unset | SQLite (`better-sqlite3`), at `server/data/lingoflow.db` |
+| `LINGOFLOW_DB_DRIVER=sqlite\|postgres` | Overrides the above |
+
+SQLite is the default for local development and is what the test suite always runs
+against, so no database server is needed to work on the app. Postgres (Neon) is
+intended for hosted deployments.
+
+There is one copy of every query. `server/src/db.ts` writes dialect-neutral SQL with
+`?` placeholders; `server/src/db/dialect.ts` translates it for Postgres (identity
+columns, timestamp defaults, `?` → `$1..$n`). Schema creation and migrations run once
+at startup through `initSchema()` and are idempotent on both backends.
+
+### Pointing at Neon
+
+Put the **pooled** connection string in `server/.env`:
+
+```
+DATABASE_URL=postgresql://user:pass@ep-xxx-pooler.region.aws.neon.tech/db?sslmode=require
+```
+
+Start the server once and it creates the schema.
+
+### Importing an existing SQLite database
+
+```bash
+npm run db:import-sqlite                       # from server/data/lingoflow.db
+npm run db:import-sqlite -- --from ./backup.db # from somewhere else
+npm run db:import-sqlite -- --dry-run          # report row counts only
+```
+
+The import copies all tables in FK-safe order, resyncs identity sequences afterwards
+(so the next insert does not collide on a primary key), and is safe to re-run —
+existing rows are reported as skipped.
+
+> `scripts/repair-xp.ts` and `scripts/set-xp.ts` open the SQLite file directly and are
+> SQLite-only maintenance tools; they do not work against Postgres.
 
 ---
 
@@ -216,7 +262,7 @@ npm ci --omit=dev
 
 Otherwise keep dev dependencies — the build tools (`vite`, `esbuild`, `tsc`) live under `devDependencies`.
 
-**Native modules:** never copy `node_modules` from another machine. `better-sqlite3` is a native module whose binary is platform- and ABI-specific; `npm ci` fetches the correct prebuilt binary for the server's OS and Node version. The lockfile itself is platform-neutral. The Node version must be one with a published `better-sqlite3` prebuild (any current LTS) — otherwise the install falls back to compiling from source and needs a C/C++ toolchain.
+**Native modules:** never copy `node_modules` from another machine. `better-sqlite3` is a native module whose binary is platform- and ABI-specific; `npm ci` fetches the correct prebuilt binary for the server's OS and Node version. The lockfile itself is platform-neutral. The Node version must be one with a published `better-sqlite3` prebuild (any current LTS) — otherwise the install falls back to compiling from source and needs a C/C++ toolchain. A Postgres-only deployment avoids this entirely: the driver modules are required lazily, so `better-sqlite3` is never loaded when `DATABASE_URL` is set.
 
 </details>
 
@@ -250,7 +296,12 @@ client/
 server/
   src/
     index.ts              # Express setup + route registration + answer evaluation
-    db.ts                 # SQLite schema, migrations, all queries
+    db.ts                 # Schema, migrations, all queries (dialect-neutral SQL)
+    db/
+      driver.ts           # Driver factory + the better-sqlite3-shaped facade db.ts uses
+      sqliteDriver.ts     # better-sqlite3 backend
+      postgresDriver.ts   # node-postgres backend (Neon)
+      dialect.ts          # SQLite -> Postgres SQL translation, ? -> $n placeholders
     data.ts               # Content + session logic entrypoint
     data/
       contentLoader.ts    # Loads JSON files from content/languages/

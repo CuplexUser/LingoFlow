@@ -8,6 +8,7 @@
     "install:all": "npm install",
     "dev": "npm run version && concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "translate:language": "node --experimental-strip-types scripts/libretranslate/index.ts",
+    "db:import-sqlite": "node --experimental-strip-types scripts/import-sqlite-to-postgres.ts",
     "build": "npm run version && npm run build --prefix client",
     "start": "npm run start --prefix server",
     "test": "npm run version && npm run test:server && npm run test:client",

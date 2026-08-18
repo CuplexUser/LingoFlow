@@ -1,41 +1,28 @@
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
-const Database = require("better-sqlite3");
+const { db, getDriver, resetDriver } = require("./db/driver.ts");
 
-const configuredDbPath = process.env.LINGOFLOW_DB_PATH
-  ? path.resolve(process.env.LINGOFLOW_DB_PATH)
-  : null;
-const dataDir = configuredDbPath
-  ? path.dirname(configuredDbPath)
-  : path.join(__dirname, "..", "data");
-const dbPath = configuredDbPath || path.join(dataDir, "lingoflow.db");
-const legacyJsonPath = path.join(dataDir, "lingoflow.db.json");
-
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
+// The SQLite driver owns the on-disk location; this is only needed so the
+// one-time legacy JSON import can look beside the database file. On Postgres
+// there is no local data directory and the legacy import does not run.
+function legacyJsonPath(): string | null {
+  const driver = getDriver();
+  if (driver.dialect !== "sqlite") return null;
+  return path.join(path.dirname(driver.dbPath), "lingoflow.db.json");
 }
 
-const db = new Database(dbPath);
-
-db.pragma("foreign_keys = ON");
-db.pragma("journal_mode = WAL");
-
-function tableExists(tableName) {
-  const row = db
-    .prepare("SELECT name FROM sqlite_master WHERE type = 'table' AND name = ?")
-    .get(tableName);
-  return Boolean(row);
+async function tableExists(tableName: string) {
+  return db.tableExists(tableName);
 }
 
-function tableHasColumn(tableName, columnName) {
-  if (!tableExists(tableName)) return false;
-  const columns = db.prepare(`PRAGMA table_info(${tableName})`).all();
-  return columns.some((column) => column.name === columnName);
+async function tableHasColumn(tableName: string, columnName: string) {
+  const columns = await db.columnInfo(tableName);
+  return columns.some((column: any) => column.name === columnName);
 }
 
-function createUsersTable() {
-  db.exec(`
+async function createUsersTable() {
+  await db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       email TEXT NOT NULL UNIQUE,
@@ -49,30 +36,31 @@ function createUsersTable() {
   `);
 }
 
-function ensureUsersColumns() {
-  const columns = db.prepare("PRAGMA table_info(users)").all();
+async function ensureUsersColumns() {
+  const columns = await db.columnInfo("users");
   const names = new Set(columns.map((column) => column.name));
 
   if (!names.has("email_verified")) {
-    db.exec("ALTER TABLE users ADD COLUMN email_verified INTEGER NOT NULL DEFAULT 0");
+    await db.exec("ALTER TABLE users ADD COLUMN email_verified INTEGER NOT NULL DEFAULT 0");
   }
 
   if (!names.has("auth_provider")) {
-    db.exec("ALTER TABLE users ADD COLUMN auth_provider TEXT NOT NULL DEFAULT 'local'");
+    await db.exec("ALTER TABLE users ADD COLUMN auth_provider TEXT NOT NULL DEFAULT 'local'");
   }
 }
 
-function migrateLegacySingleUserSchema() {
-  if (!tableExists("settings") || tableHasColumn("settings", "user_id")) return;
+async function migrateLegacySingleUserSchema() {
+  if (!await tableExists("settings") || await tableHasColumn("settings", "user_id")) return;
 
-  const runMigration = db.transaction(() => {
-    createUsersTable();
-    db.prepare(`
-      INSERT OR IGNORE INTO users (id, email, password_hash, display_name)
+  const runMigration = db.transaction(async () => {
+    await createUsersTable();
+    await db.prepare(`
+      INSERT INTO users (id, email, password_hash, display_name)
       VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner')
+      ON CONFLICT (id) DO NOTHING
     `).run();
 
-    db.exec(`
+    await db.exec(`
       ALTER TABLE settings RENAME TO settings_legacy;
       CREATE TABLE settings (
         user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
@@ -110,7 +98,7 @@ function migrateLegacySingleUserSchema() {
       DROP TABLE settings_legacy;
     `);
 
-    db.exec(`
+    await db.exec(`
       ALTER TABLE progress RENAME TO progress_legacy;
       CREATE TABLE progress (
         user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
@@ -135,8 +123,8 @@ function migrateLegacySingleUserSchema() {
       DROP TABLE progress_legacy;
     `);
 
-    if (tableExists("category_progress")) {
-      db.exec(`
+    if (await tableExists("category_progress")) {
+      await db.exec(`
         ALTER TABLE category_progress RENAME TO category_progress_legacy;
         CREATE TABLE category_progress (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -161,8 +149,8 @@ function migrateLegacySingleUserSchema() {
       `);
     }
 
-    if (tableExists("session_history")) {
-      db.exec(`
+    if (await tableExists("session_history")) {
+      await db.exec(`
         ALTER TABLE session_history RENAME TO session_history_legacy;
         CREATE TABLE session_history (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -186,8 +174,8 @@ function migrateLegacySingleUserSchema() {
       `);
     }
 
-    if (tableExists("active_sessions")) {
-      db.exec(`
+    if (await tableExists("active_sessions")) {
+      await db.exec(`
         ALTER TABLE active_sessions RENAME TO active_sessions_legacy;
         CREATE TABLE active_sessions (
           session_id TEXT PRIMARY KEY,
@@ -211,8 +199,8 @@ function migrateLegacySingleUserSchema() {
       `);
     }
 
-    if (tableExists("daily_xp")) {
-      db.exec(`
+    if (await tableExists("daily_xp")) {
+      await db.exec(`
         ALTER TABLE daily_xp RENAME TO daily_xp_legacy;
         CREATE TABLE daily_xp (
           user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -228,8 +216,8 @@ function migrateLegacySingleUserSchema() {
       `);
     }
 
-    if (tableExists("item_progress")) {
-      db.exec(`
+    if (await tableExists("item_progress")) {
+      await db.exec(`
         ALTER TABLE item_progress RENAME TO item_progress_legacy;
         CREATE TABLE item_progress (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -258,8 +246,8 @@ function migrateLegacySingleUserSchema() {
       `);
     }
 
-    if (tableExists("attempt_history")) {
-      db.exec(`
+    if (await tableExists("attempt_history")) {
+      await db.exec(`
         ALTER TABLE attempt_history RENAME TO attempt_history_legacy;
         CREATE TABLE attempt_history (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -285,15 +273,12 @@ function migrateLegacySingleUserSchema() {
     }
   });
 
-  runMigration();
+  await runMigration();
 }
 
-migrateLegacySingleUserSchema();
 
-createUsersTable();
-ensureUsersColumns();
-
-db.exec(`
+async function createCoreTables() {
+  await db.exec(`
   CREATE TABLE IF NOT EXISTS settings (
     user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     native_language TEXT NOT NULL DEFAULT 'english',
@@ -527,8 +512,10 @@ db.exec(`
     PRIMARY KEY(language, category)
   );
 `);
+}
 
-db.exec(`
+async function createIndexes() {
+  await db.exec(`
   CREATE INDEX IF NOT EXISTS idx_session_history_user_language_completed
   ON session_history(user_id, language, completed_at DESC);
   CREATE INDEX IF NOT EXISTS idx_attempt_history_user_language_created
@@ -566,98 +553,97 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_story_completions_user_language
   ON story_completions(user_id, language);
 `);
+}
 
-function ensureSettingsColumns() {
-  const columns = db.prepare("PRAGMA table_info(settings)").all();
+async function ensureSettingsColumns() {
+  const columns = await db.columnInfo("settings");
   const names = new Set(columns.map((column) => column.name));
 
   if (!names.has("learner_name")) {
-    db.exec("ALTER TABLE settings ADD COLUMN learner_name TEXT NOT NULL DEFAULT 'Learner'");
+    await db.exec("ALTER TABLE settings ADD COLUMN learner_name TEXT NOT NULL DEFAULT 'Learner'");
   }
 
   if (!names.has("learner_bio")) {
-    db.exec("ALTER TABLE settings ADD COLUMN learner_bio TEXT NOT NULL DEFAULT ''");
+    await db.exec("ALTER TABLE settings ADD COLUMN learner_bio TEXT NOT NULL DEFAULT ''");
   }
 
   if (!names.has("focus_area")) {
-    db.exec("ALTER TABLE settings ADD COLUMN focus_area TEXT NOT NULL DEFAULT ''");
+    await db.exec("ALTER TABLE settings ADD COLUMN focus_area TEXT NOT NULL DEFAULT ''");
   }
 
   if (!names.has("daily_minutes")) {
-    db.exec("ALTER TABLE settings ADD COLUMN daily_minutes INTEGER NOT NULL DEFAULT 20");
+    await db.exec("ALTER TABLE settings ADD COLUMN daily_minutes INTEGER NOT NULL DEFAULT 20");
   }
 
   if (!names.has("weekly_goal_sessions")) {
-    db.exec("ALTER TABLE settings ADD COLUMN weekly_goal_sessions INTEGER NOT NULL DEFAULT 5");
+    await db.exec("ALTER TABLE settings ADD COLUMN weekly_goal_sessions INTEGER NOT NULL DEFAULT 5");
   }
 
   if (!names.has("self_rated_level")) {
-    db.exec("ALTER TABLE settings ADD COLUMN self_rated_level TEXT NOT NULL DEFAULT 'a1'");
+    await db.exec("ALTER TABLE settings ADD COLUMN self_rated_level TEXT NOT NULL DEFAULT 'a1'");
   }
 
   if (!names.has("unlock_all_lessons")) {
-    db.exec("ALTER TABLE settings ADD COLUMN unlock_all_lessons INTEGER NOT NULL DEFAULT 0");
+    await db.exec("ALTER TABLE settings ADD COLUMN unlock_all_lessons INTEGER NOT NULL DEFAULT 0");
   }
 
   if (!names.has("speech_rate")) {
-    db.exec("ALTER TABLE settings ADD COLUMN speech_rate REAL NOT NULL DEFAULT 0.92");
+    await db.exec("ALTER TABLE settings ADD COLUMN speech_rate REAL NOT NULL DEFAULT 0.92");
   }
 }
 
-ensureSettingsColumns();
 
-function ensureCommunityExercisesColumns() {
-  const columns = db.prepare("PRAGMA table_info(community_exercises)").all();
+async function ensureCommunityExercisesColumns() {
+  const columns = await db.columnInfo("community_exercises");
   const names = new Set(columns.map((column: any) => column.name));
 
   if (!names.has("reviewer_comment")) {
-    db.exec("ALTER TABLE community_exercises ADD COLUMN reviewer_comment TEXT NOT NULL DEFAULT ''");
+    await db.exec("ALTER TABLE community_exercises ADD COLUMN reviewer_comment TEXT NOT NULL DEFAULT ''");
   }
   if (!names.has("reviewed_by")) {
-    db.exec("ALTER TABLE community_exercises ADD COLUMN reviewed_by INTEGER REFERENCES users(id)");
+    await db.exec("ALTER TABLE community_exercises ADD COLUMN reviewed_by INTEGER REFERENCES users(id)");
   }
   if (!names.has("reviewed_at")) {
-    db.exec("ALTER TABLE community_exercises ADD COLUMN reviewed_at TEXT");
+    await db.exec("ALTER TABLE community_exercises ADD COLUMN reviewed_at TEXT");
   }
 }
 
-ensureCommunityExercisesColumns();
 
-function ensureItemProgressColumns() {
-  const columns = db.prepare("PRAGMA table_info(item_progress)").all();
+async function ensureItemProgressColumns() {
+  const columns = await db.columnInfo("item_progress");
   const names = new Set(columns.map((column: any) => column.name));
 
   if (!names.has("flashcard_known")) {
-    db.exec("ALTER TABLE item_progress ADD COLUMN flashcard_known INTEGER NOT NULL DEFAULT 0");
+    await db.exec("ALTER TABLE item_progress ADD COLUMN flashcard_known INTEGER NOT NULL DEFAULT 0");
   }
 }
 
-ensureItemProgressColumns();
 
-function ensureLanguageProgressColumns() {
-  const columns = db.prepare("PRAGMA table_info(language_progress)").all();
+async function ensureLanguageProgressColumns() {
+  const columns = await db.columnInfo("language_progress");
   const names = new Set(columns.map((column: any) => column.name));
 
   if (!names.has("speed_match_highscore")) {
-    db.exec("ALTER TABLE language_progress ADD COLUMN speed_match_highscore INTEGER NOT NULL DEFAULT 0");
+    await db.exec("ALTER TABLE language_progress ADD COLUMN speed_match_highscore INTEGER NOT NULL DEFAULT 0");
   }
 }
 
-ensureLanguageProgressColumns();
 
 // Existing databases predate the Story Reader progress/quiz columns. The original
 // table also had completed_at NOT NULL DEFAULT CURRENT_TIMESTAMP, but in-progress
 // (resume) rows are inserted with completed_at NULL. SQLite cannot drop a column
 // constraint via ALTER, so a legacy table is rebuilt; otherwise we just add columns.
-function ensureStoryCompletionsColumns() {
-  if (!tableExists("story_completions")) return;
-  const info = () => db.prepare("PRAGMA table_info(story_completions)").all();
-  const completedAt = info().find((column: any) => column.name === "completed_at");
-  const legacyNotNull = completedAt && completedAt.notnull === 1;
+async function ensureStoryCompletionsColumns() {
+  if (!await tableExists("story_completions")) return;
+  const info = () => db.columnInfo("story_completions");
+  const completedAt = (await info()).find((column: any) => column.name === "completed_at");
+  // Rebuilding a table to drop a NOT NULL is a SQLite workaround; Postgres
+  // databases are always created fresh by this code and never hit the legacy shape.
+  const legacyNotNull = db.dialect === "sqlite" && completedAt && completedAt.notNull;
 
   if (legacyNotNull) {
     // Rebuild with a nullable completed_at, preserving whatever columns already exist.
-    const existing = new Set(info().map((column: any) => column.name));
+    const existing = new Set((await info()).map((column: any) => column.name));
     const carried = [
       "id",
       "user_id",
@@ -670,8 +656,8 @@ function ensureStoryCompletionsColumns() {
       "xp_awarded",
       "completed_at"
     ].filter((column) => existing.has(column));
-    const rebuild = db.transaction(() => {
-      db.exec(`
+    const rebuild = db.transaction(async () => {
+      await db.exec(`
         CREATE TABLE story_completions_new (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -686,45 +672,50 @@ function ensureStoryCompletionsColumns() {
           UNIQUE(user_id, story_id)
         );
       `);
-      db.exec(
+      await db.exec(
         `INSERT INTO story_completions_new (${carried.join(", ")}) ` +
           `SELECT ${carried.join(", ")} FROM story_completions;`
       );
-      db.exec("DROP TABLE story_completions;");
-      db.exec("ALTER TABLE story_completions_new RENAME TO story_completions;");
+      await db.exec("DROP TABLE story_completions;");
+      await db.exec("ALTER TABLE story_completions_new RENAME TO story_completions;");
     });
-    rebuild();
-    db.exec(
+    await rebuild();
+    await db.exec(
       "CREATE INDEX IF NOT EXISTS idx_story_completions_user_language ON story_completions(user_id, language);"
     );
     return;
   }
 
-  const names = new Set(info().map((column: any) => column.name));
+  const names = new Set((await info()).map((column: any) => column.name));
   if (!names.has("started_at")) {
-    db.exec("ALTER TABLE story_completions ADD COLUMN started_at TEXT");
+    await db.exec("ALTER TABLE story_completions ADD COLUMN started_at TEXT");
   }
   if (!names.has("last_sentence_index")) {
-    db.exec("ALTER TABLE story_completions ADD COLUMN last_sentence_index INTEGER NOT NULL DEFAULT 0");
+    await db.exec("ALTER TABLE story_completions ADD COLUMN last_sentence_index INTEGER NOT NULL DEFAULT 0");
   }
   if (!names.has("quiz_score")) {
-    db.exec("ALTER TABLE story_completions ADD COLUMN quiz_score INTEGER");
+    await db.exec("ALTER TABLE story_completions ADD COLUMN quiz_score INTEGER");
   }
   if (!names.has("quiz_total")) {
-    db.exec("ALTER TABLE story_completions ADD COLUMN quiz_total INTEGER");
+    await db.exec("ALTER TABLE story_completions ADD COLUMN quiz_total INTEGER");
   }
   if (!names.has("xp_awarded")) {
-    db.exec("ALTER TABLE story_completions ADD COLUMN xp_awarded INTEGER NOT NULL DEFAULT 0");
+    await db.exec("ALTER TABLE story_completions ADD COLUMN xp_awarded INTEGER NOT NULL DEFAULT 0");
   }
 }
 
-ensureStoryCompletionsColumns();
-createWordTranslationsTable();
-
-db.prepare(`
-  INSERT OR IGNORE INTO users (id, email, password_hash, display_name, email_verified, auth_provider)
-  VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner', 1, 'local')
-`).run();
+// The id=1 "local" account predates multi-user support; a fresh database still
+// gets it so single-user installs and the content tooling have a user to attach to.
+async function seedDefaultUser() {
+  await db.prepare(`
+    INSERT INTO users (id, email, password_hash, display_name, email_verified, auth_provider)
+    VALUES (1, 'local@lingoflow.dev', 'local-user-no-password', 'Learner', 1, 'local')
+    ON CONFLICT (id) DO NOTHING
+  `).run();
+  await ensureUserState(1);
+  await bootstrapLanguageProgress();
+  await db.prepare("UPDATE users SET email_verified = 1, auth_provider = 'local' WHERE id = 1").run();
+}
 
 function isValidLanguageId(value) {
   const normalized = String(value || "").trim().toLowerCase();
@@ -750,13 +741,14 @@ function normalizeTargetLanguageId(targetLanguage, nativeLanguage, fallback = "s
   return safeNativeLanguage === "english" ? "spanish" : "english";
 }
 
-function ensureLanguageProgress(userId = 1, language = "spanish") {
+async function ensureLanguageProgress(userId = 1, language = "spanish") {
   const safeLanguage = normalizeLanguageId(language, "spanish");
-  db.prepare(`
-    INSERT OR IGNORE INTO language_progress (
+  await db.prepare(`
+    INSERT INTO language_progress (
       user_id, language, total_xp, streak, learner_level
     )
     VALUES (?, ?, 0, 0, 1)
+    ON CONFLICT (user_id, language) DO NOTHING
   `).run(userId, safeLanguage);
 }
 
@@ -792,8 +784,8 @@ function liveStreak(stored: number, lastCompletedDate: string | null): number {
   return diffDays <= 1 ? stored : 0;
 }
 
-function refreshAggregateProgressFromLanguageProgress(userId = 1) {
-  const rows = db.prepare(`
+async function refreshAggregateProgressFromLanguageProgress(userId = 1) {
+  const rows = await db.prepare(`
     SELECT total_xp, streak, learner_level, last_completed_date
     FROM language_progress
     WHERE user_id = ?
@@ -808,7 +800,7 @@ function refreshAggregateProgressFromLanguageProgress(userId = 1) {
     .filter(Boolean)
     .sort((a, b) => (a < b ? 1 : -1))[0] || null;
 
-  db.prepare(`
+  await db.prepare(`
     UPDATE progress
     SET total_xp = ?,
         streak = ?,
@@ -819,15 +811,15 @@ function refreshAggregateProgressFromLanguageProgress(userId = 1) {
   `).run(totalXp, streak, levelFromXp(totalXp), lastCompletedDate, userId);
 }
 
-function sanitizeLanguageProgressRowsForUser(userId = 1) {
-  const settingsRow = db.prepare(`
+async function sanitizeLanguageProgressRowsForUser(userId = 1) {
+  const settingsRow = await db.prepare(`
     SELECT target_language
     FROM settings
     WHERE user_id = ?
   `).get(userId);
   const fallbackLanguage = normalizeLanguageId(settingsRow?.target_language, "spanish");
 
-  const rows = db.prepare(`
+  const rows = await db.prepare(`
     SELECT id, language, total_xp, streak, learner_level, last_completed_date
     FROM language_progress
     WHERE user_id = ?
@@ -836,10 +828,10 @@ function sanitizeLanguageProgressRowsForUser(userId = 1) {
   const invalidRows = rows.filter((row) => !isValidLanguageId(row.language));
   if (!invalidRows.length) return;
 
-  const tx = db.transaction(() => {
-    ensureLanguageProgress(userId, fallbackLanguage);
+  const tx = db.transaction(async () => {
+    await ensureLanguageProgress(userId, fallbackLanguage);
 
-    const targetRow = db.prepare(`
+    const targetRow = await db.prepare(`
       SELECT id, total_xp, streak, learner_level, last_completed_date
       FROM language_progress
       WHERE user_id = ? AND language = ?
@@ -859,7 +851,7 @@ function sanitizeLanguageProgressRowsForUser(userId = 1) {
       lastCompletedDate: targetRow.last_completed_date || null
     });
 
-    db.prepare(`
+    await db.prepare(`
       UPDATE language_progress
       SET total_xp = ?,
           streak = ?,
@@ -877,18 +869,18 @@ function sanitizeLanguageProgressRowsForUser(userId = 1) {
 
     const invalidIds = invalidRows.map((row) => row.id);
     const placeholders = invalidIds.map(() => "?").join(", ");
-    db.prepare(`
+    await db.prepare(`
       DELETE FROM language_progress
       WHERE user_id = ? AND id IN (${placeholders})
     `).run(userId, ...invalidIds);
   });
 
-  tx();
+  await tx();
 }
 
-function bootstrapLanguageProgress() {
-  db.prepare(`
-    INSERT OR IGNORE INTO language_progress (
+async function bootstrapLanguageProgress() {
+  await db.prepare(`
+    INSERT INTO language_progress (
       user_id, language, total_xp, streak, learner_level, last_completed_date
     )
     SELECT
@@ -897,33 +889,36 @@ function bootstrapLanguageProgress() {
       COALESCE(SUM(sh.xp_gained), 0),
       0,
       1,
-      MAX(DATE(sh.completed_at))
+      MAX(substr(sh.completed_at, 1, 10))
     FROM session_history sh
     GROUP BY sh.user_id, sh.language
+    ON CONFLICT (user_id, language) DO NOTHING
   `).run();
 
-  const targetRows = db.prepare(`
+  const targetRows = await db.prepare(`
     SELECT user_id, target_language
     FROM settings
   `).all();
-  targetRows.forEach((row) => ensureLanguageProgress(row.user_id, row.target_language));
+  for (const row of targetRows) {
+    await ensureLanguageProgress(row.user_id, row.target_language);
+  }
 
-  const languageRows = db.prepare(`
+  const languageRows = await db.prepare(`
     SELECT user_id, language
     FROM language_progress
   `).all();
 
-  languageRows.forEach((row) => {
-    const totals = db.prepare(`
+  for (const row of languageRows) {
+    const totals = await db.prepare(`
       SELECT
         COALESCE(SUM(xp_gained), 0) AS total_xp,
-        MAX(DATE(completed_at)) AS last_completed_date
+        MAX(substr(completed_at, 1, 10)) AS last_completed_date
       FROM session_history
       WHERE user_id = ? AND language = ?
     `).get(row.user_id, row.language);
 
-    const dates = db.prepare(`
-      SELECT DISTINCT DATE(completed_at) AS completed_day
+    const dates = await db.prepare(`
+      SELECT DISTINCT substr(completed_at, 1, 10) AS completed_day
       FROM session_history
       WHERE user_id = ? AND language = ?
       ORDER BY completed_day DESC
@@ -931,7 +926,7 @@ function bootstrapLanguageProgress() {
 
     const streak = computeStreakFromDatesDesc(dates.map((entry) => entry.completed_day));
     const totalXp = Number(totals?.total_xp || 0);
-    db.prepare(`
+    await db.prepare(`
       UPDATE language_progress
       SET total_xp = ?,
           streak = ?,
@@ -947,37 +942,36 @@ function bootstrapLanguageProgress() {
       row.user_id,
       row.language
     );
-  });
+  }
 
-  const userRows = db.prepare("SELECT id FROM users").all();
-  userRows.forEach((row) => {
-    sanitizeLanguageProgressRowsForUser(row.id);
-    refreshAggregateProgressFromLanguageProgress(row.id);
-  });
+  const userRows = await db.prepare("SELECT id FROM users").all();
+  for (const row of userRows) {
+    await sanitizeLanguageProgressRowsForUser(row.id);
+    await refreshAggregateProgressFromLanguageProgress(row.id);
+  }
 }
 
-function ensureUserState(userId = 1, preferredLearnerName = "Learner") {
+async function ensureUserState(userId = 1, preferredLearnerName = "Learner") {
   const initialLearnerName = normalizeDisplayName(preferredLearnerName);
-  db.prepare(`
-    INSERT OR IGNORE INTO settings (
+  await db.prepare(`
+    INSERT INTO settings (
       user_id, native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
       self_rated_level, learner_name, learner_bio, focus_area
     )
     VALUES (?, 'english', 'spanish', 30, 20, 5, 'a1', ?, '', '')
+    ON CONFLICT (user_id) DO NOTHING
   `).run(userId, initialLearnerName);
 
-  db.prepare(`
-    INSERT OR IGNORE INTO progress (user_id, total_xp, streak, learner_level)
+  await db.prepare(`
+    INSERT INTO progress (user_id, total_xp, streak, learner_level)
     VALUES (?, 0, 0, 1)
+    ON CONFLICT (user_id) DO NOTHING
   `).run(userId);
 
-  const row = db.prepare("SELECT target_language FROM settings WHERE user_id = ?").get(userId);
-  ensureLanguageProgress(userId, row?.target_language || "spanish");
+  const row = await db.prepare("SELECT target_language FROM settings WHERE user_id = ?").get(userId);
+  await ensureLanguageProgress(userId, row?.target_language || "spanish");
 }
 
-ensureUserState(1);
-bootstrapLanguageProgress();
-db.prepare("UPDATE users SET email_verified = 1, auth_provider = 'local' WHERE id = 1").run();
 
 function toIsoDate(date = new Date()) {
   return date.toISOString().slice(0, 10);
@@ -1008,25 +1002,26 @@ function levelFromXp(totalXp) {
   return Math.max(1, 1 + Math.floor(totalXp / 150));
 }
 
-function maybeMigrateLegacyJson() {
-  if (!fs.existsSync(legacyJsonPath)) return;
+async function maybeMigrateLegacyJson() {
+  const jsonPath = legacyJsonPath();
+  if (!jsonPath || !fs.existsSync(jsonPath)) return;
 
-  ensureUserState(1);
+  await ensureUserState(1);
 
-  const hasAnySessions = db.prepare(`
+  const hasAnySessions = (await db.prepare(`
     SELECT COUNT(1) AS count
     FROM session_history
     WHERE user_id = 1
-  `).get().count > 0;
-  const progress = db.prepare("SELECT total_xp FROM progress WHERE user_id = 1").get();
+  `).get()).count > 0;
+  const progress = await db.prepare("SELECT total_xp FROM progress WHERE user_id = 1").get();
   if (hasAnySessions || (progress && progress.total_xp > 0)) return;
 
   try {
-    const legacy = JSON.parse(fs.readFileSync(legacyJsonPath, "utf-8"));
+    const legacy = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
     const settings = legacy.settings || {};
     const prog = legacy.progress || {};
 
-    db.prepare(`
+    await db.prepare(`
       UPDATE settings
       SET native_language = ?,
           target_language = ?,
@@ -1043,7 +1038,7 @@ function maybeMigrateLegacyJson() {
     );
 
     const totalXp = Number(prog.totalXp || 0);
-    db.prepare(`
+    await db.prepare(`
       UPDATE progress
       SET total_xp = ?, streak = ?, learner_level = ?, last_completed_date = ?, updated_at = CURRENT_TIMESTAMP
       WHERE user_id = 1
@@ -1055,8 +1050,8 @@ function maybeMigrateLegacyJson() {
     );
 
     const targetLanguage = normalizeLanguageId(settings.targetLanguage, "spanish");
-    ensureLanguageProgress(1, targetLanguage);
-    db.prepare(`
+    await ensureLanguageProgress(1, targetLanguage);
+    await db.prepare(`
       UPDATE language_progress
       SET total_xp = ?,
           streak = ?,
@@ -1076,16 +1071,15 @@ function maybeMigrateLegacyJson() {
   }
 }
 
-maybeMigrateLegacyJson();
 
 function normalizeEmail(email) {
   return String(email || "").trim().toLowerCase();
 }
 
-function getUserByEmail(email) {
+async function getUserByEmail(email) {
   const normalized = normalizeEmail(email);
   if (!normalized) return null;
-  const row = db.prepare(`
+  const row = await db.prepare(`
     SELECT id, email, password_hash, display_name, email_verified, auth_provider
     FROM users
     WHERE email = ?
@@ -1101,8 +1095,8 @@ function getUserByEmail(email) {
   };
 }
 
-function getUserById(userId) {
-  const row = db.prepare(`
+async function getUserById(userId) {
+  const row = await db.prepare(`
     SELECT id, email, display_name, email_verified, auth_provider
     FROM users
     WHERE id = ?
@@ -1117,23 +1111,24 @@ function getUserById(userId) {
   };
 }
 
-function createUser({ email, passwordHash, displayName, emailVerified = false, authProvider = "local" }) {
+async function createUser({ email, passwordHash, displayName, emailVerified = false, authProvider = "local" }) {
   const normalizedEmail = normalizeEmail(email);
   if (!normalizedEmail || !passwordHash) return null;
   const safeName = normalizeDisplayName(displayName);
-  const insert = db.prepare(`
+  const inserted = await db.prepare(`
     INSERT INTO users (email, password_hash, display_name, email_verified, auth_provider)
     VALUES (?, ?, ?, ?, ?)
-  `).run(normalizedEmail, passwordHash, safeName, emailVerified ? 1 : 0, authProvider);
-  const userId = Number(insert.lastInsertRowid);
-  ensureUserState(userId, safeName);
-  return getUserById(userId);
+    RETURNING id
+  `).get(normalizedEmail, passwordHash, safeName, emailVerified ? 1 : 0, authProvider);
+  const userId = Number(inserted.id);
+  await ensureUserState(userId, safeName);
+  return await getUserById(userId);
 }
 
-function deleteUserById(userId) {
+async function deleteUserById(userId) {
   if (!Number.isInteger(userId) || userId <= 0) return false;
-  const tx = db.transaction(() => {
-    const result = db.prepare(`
+  const tx = db.transaction(async () => {
+    const result = await db.prepare(`
       DELETE FROM users
       WHERE id = ?
     `).run(userId);
@@ -1142,32 +1137,32 @@ function deleteUserById(userId) {
   return tx();
 }
 
-function createEmailVerification({ userId, token, expiresAt }) {
-  db.prepare(`
+async function createEmailVerification({ userId, token, expiresAt }) {
+  await db.prepare(`
     INSERT INTO email_verifications (user_id, token, expires_at)
     VALUES (?, ?, ?)
   `).run(userId, token, expiresAt);
 }
 
-function replaceEmailVerification({ userId, token, expiresAt, nowIso = toIsoDateTime() }) {
-  const tx = db.transaction(() => {
-    db.prepare(`
+async function replaceEmailVerification({ userId, token, expiresAt, nowIso = toIsoDateTime() }) {
+  const tx = db.transaction(async () => {
+    await db.prepare(`
       UPDATE email_verifications
       SET consumed_at = ?
       WHERE user_id = ? AND consumed_at IS NULL
     `).run(nowIso, userId);
 
-    db.prepare(`
+    await db.prepare(`
       INSERT INTO email_verifications (user_id, token, expires_at)
       VALUES (?, ?, ?)
     `).run(userId, token, expiresAt);
   });
 
-  tx();
+  await tx();
 }
 
-function consumeEmailVerificationToken(token, nowIso = toIsoDateTime()) {
-  const row = db.prepare(`
+async function consumeEmailVerificationToken(token, nowIso = toIsoDateTime()) {
+  const row = await db.prepare(`
     SELECT id, user_id, expires_at, consumed_at
     FROM email_verifications
     WHERE token = ?
@@ -1176,14 +1171,14 @@ function consumeEmailVerificationToken(token, nowIso = toIsoDateTime()) {
   if (row.consumed_at) return null;
   if (row.expires_at < nowIso) return null;
 
-  const tx = db.transaction(() => {
-    db.prepare(`
+  const tx = db.transaction(async () => {
+    await db.prepare(`
       UPDATE email_verifications
       SET consumed_at = ?
       WHERE id = ?
     `).run(nowIso, row.id);
 
-    db.prepare(`
+    await db.prepare(`
       UPDATE users
       SET email_verified = 1,
           updated_at = CURRENT_TIMESTAMP
@@ -1191,12 +1186,12 @@ function consumeEmailVerificationToken(token, nowIso = toIsoDateTime()) {
     `).run(row.user_id);
   });
 
-  tx();
-  return getUserById(row.user_id);
+  await tx();
+  return await getUserById(row.user_id);
 }
 
-function markUserEmailVerified(userId) {
-  db.prepare(`
+async function markUserEmailVerified(userId) {
+  await db.prepare(`
     UPDATE users
     SET email_verified = 1,
         updated_at = CURRENT_TIMESTAMP
@@ -1204,11 +1199,11 @@ function markUserEmailVerified(userId) {
   `).run(userId);
 }
 
-function syncLearnerNameFromProfile(userId, displayName) {
+async function syncLearnerNameFromProfile(userId, displayName) {
   const safeName = normalizeDisplayName(displayName);
-  const tx = db.transaction(() => {
-    ensureUserState(userId, safeName);
-    db.prepare(`
+  const tx = db.transaction(async () => {
+    await ensureUserState(userId, safeName);
+    await db.prepare(`
       UPDATE settings
       SET learner_name = ?,
           updated_at = CURRENT_TIMESTAMP
@@ -1216,28 +1211,28 @@ function syncLearnerNameFromProfile(userId, displayName) {
         AND (TRIM(COALESCE(learner_name, '')) = '' OR learner_name = 'Learner')
     `).run(safeName, userId);
   });
-  tx();
-  return getSettings(userId);
+  await tx();
+  return await getSettings(userId);
 }
 
-function replacePasswordResetToken({ userId, token, expiresAt, nowIso = toIsoDateTime() }) {
-  const tx = db.transaction(() => {
-    db.prepare(`
+async function replacePasswordResetToken({ userId, token, expiresAt, nowIso = toIsoDateTime() }) {
+  const tx = db.transaction(async () => {
+    await db.prepare(`
       UPDATE password_resets
       SET consumed_at = ?
       WHERE user_id = ? AND consumed_at IS NULL
     `).run(nowIso, userId);
 
-    db.prepare(`
+    await db.prepare(`
       INSERT INTO password_resets (user_id, token, expires_at)
       VALUES (?, ?, ?)
     `).run(userId, token, expiresAt);
   });
-  tx();
+  await tx();
 }
 
-function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDateTime()) {
-  const row = db.prepare(`
+async function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDateTime()) {
+  const row = await db.prepare(`
     SELECT id, user_id, expires_at, consumed_at
     FROM password_resets
     WHERE token = ?
@@ -1247,14 +1242,14 @@ function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDateTime()
   if (row.expires_at < nowIso) return null;
   if (!passwordHash) return null;
 
-  const tx = db.transaction(() => {
-    db.prepare(`
+  const tx = db.transaction(async () => {
+    await db.prepare(`
       UPDATE password_resets
       SET consumed_at = ?
       WHERE id = ?
     `).run(nowIso, row.id);
 
-    db.prepare(`
+    await db.prepare(`
       UPDATE users
       SET password_hash = ?,
           auth_provider = 'local',
@@ -1262,8 +1257,8 @@ function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDateTime()
       WHERE id = ?
     `).run(passwordHash, row.user_id);
   });
-  tx();
-  return getUserById(row.user_id);
+  await tx();
+  return await getUserById(row.user_id);
 }
 
 // Clamps the shared text-to-speech rate to a sane, audible range. Defaults to the
@@ -1274,9 +1269,9 @@ function normalizeSpeechRate(value) {
   return Math.min(1.5, Math.max(0.5, rate));
 }
 
-function getSettings(userId = 1) {
-  ensureUserState(userId);
-  const row: any = db.prepare(`
+async function getSettings(userId = 1) {
+  await ensureUserState(userId);
+  const row: any = await db.prepare(`
     SELECT native_language, target_language, daily_goal, daily_minutes, weekly_goal_sessions,
            self_rated_level, learner_name, learner_bio, focus_area, unlock_all_lessons, speech_rate
     FROM settings
@@ -1303,10 +1298,10 @@ function getSettings(userId = 1) {
   };
 }
 
-function saveSettings(userId = 1, nextSettings = {}) {
-  ensureUserState(userId);
+async function saveSettings(userId = 1, nextSettings = {}) {
+  await ensureUserState(userId);
   const safeSettings = nextSettings as any;
-  const existingSettings = db.prepare("SELECT target_language FROM settings WHERE user_id = ?").get(userId);
+  const existingSettings = await db.prepare("SELECT target_language FROM settings WHERE user_id = ?").get(userId);
   const nextNativeLanguage = normalizeLanguageId(safeSettings.nativeLanguage, "english");
   const fallbackLanguage = normalizeLanguageId(existingSettings?.target_language, "spanish");
   const nextTargetLanguage = normalizeTargetLanguageId(
@@ -1314,7 +1309,7 @@ function saveSettings(userId = 1, nextSettings = {}) {
     nextNativeLanguage,
     fallbackLanguage
   );
-  db.prepare(`
+  await db.prepare(`
     UPDATE settings
     SET native_language = ?,
         target_language = ?,
@@ -1346,25 +1341,25 @@ function saveSettings(userId = 1, nextSettings = {}) {
     userId
   );
 
-  ensureLanguageProgress(userId, nextTargetLanguage);
-  return getSettings(userId);
+  await ensureLanguageProgress(userId, nextTargetLanguage);
+  return await getSettings(userId);
 }
 
-function getCategoryMastery(userId = 1, language, category) {
-  const row = db
+async function getCategoryMastery(userId = 1, language, category) {
+  const row = await db
     .prepare("SELECT mastery FROM category_progress WHERE user_id = ? AND language = ? AND category = ?")
     .get(userId, language, category);
   return row ? row.mastery : 0;
 }
 
-function getCategoryProgress(userId = 1, language) {
-  return db
+async function getCategoryProgress(userId = 1, language) {
+  return (await db
     .prepare(`
       SELECT category, mastery, attempts, total_answers, correct_answers, level_unlocked, last_practiced_at
       FROM category_progress
       WHERE user_id = ? AND language = ?
     `)
-    .all(userId, language)
+    .all(userId, language))
     .map((row) => ({
       category: row.category,
       mastery: Number(row.mastery.toFixed(1)),
@@ -1377,8 +1372,8 @@ function getCategoryProgress(userId = 1, language) {
     }));
 }
 
-function getTotalTodayXpAllLanguages(userId = 1, today = toIsoDate()) {
-  const row = db.prepare(`
+async function getTotalTodayXpAllLanguages(userId = 1, today = toIsoDate()) {
+  const row = await db.prepare(`
     SELECT COALESCE(SUM(xp), 0) AS total_xp
     FROM daily_xp
     WHERE user_id = ? AND date = ?
@@ -1386,20 +1381,20 @@ function getTotalTodayXpAllLanguages(userId = 1, today = toIsoDate()) {
   return row ? row.total_xp : 0;
 }
 
-function getProgress(userId = 1, language) {
-  ensureUserState(userId);
+async function getProgress(userId = 1, language) {
+  await ensureUserState(userId);
   const safeLanguage = language ? normalizeLanguageId(language, "") : "";
-  const categories = safeLanguage ? getCategoryProgress(userId, safeLanguage) : [];
+  const categories = safeLanguage ? await getCategoryProgress(userId, safeLanguage) : [];
 
   if (safeLanguage) {
-    ensureLanguageProgress(userId, safeLanguage);
-    const languageRow = db.prepare(`
+    await ensureLanguageProgress(userId, safeLanguage);
+    const languageRow = await db.prepare(`
       SELECT streak, learner_level, last_completed_date
       FROM language_progress
       WHERE user_id = ? AND language = ?
     `).get(userId, safeLanguage);
 
-    const historyTotals = db.prepare(`
+    const historyTotals = await db.prepare(`
       SELECT COALESCE(SUM(xp_gained), 0) AS total_xp
       FROM session_history
       WHERE user_id = ? AND language = ?
@@ -1408,7 +1403,7 @@ function getProgress(userId = 1, language) {
     return {
       language: safeLanguage,
       totalXp: Number(historyTotals.total_xp),
-      todayXp: getTodayXp(userId, safeLanguage),
+      todayXp: await getTodayXp(userId, safeLanguage),
       streak: liveStreak(languageRow.streak, languageRow.last_completed_date),
       learnerLevel: languageRow.learner_level,
       lastCompletedDate: languageRow.last_completed_date,
@@ -1416,7 +1411,7 @@ function getProgress(userId = 1, language) {
     };
   }
 
-  const row = db.prepare(`
+  const row = await db.prepare(`
     SELECT total_xp, streak, learner_level, last_completed_date
     FROM progress
     WHERE user_id = ?
@@ -1425,7 +1420,7 @@ function getProgress(userId = 1, language) {
   return {
     language: null,
     totalXp: row.total_xp,
-    todayXp: getTotalTodayXpAllLanguages(userId),
+    todayXp: await getTotalTodayXpAllLanguages(userId),
     streak: liveStreak(row.streak, row.last_completed_date),
     learnerLevel: row.learner_level,
     lastCompletedDate: row.last_completed_date,
@@ -1433,32 +1428,36 @@ function getProgress(userId = 1, language) {
   };
 }
 
-function getProgressOverview(userId = 1) {
-  ensureUserState(userId);
-  sanitizeLanguageProgressRowsForUser(userId);
-  const rows = db.prepare(`
+async function getProgressOverview(userId = 1) {
+  await ensureUserState(userId);
+  await sanitizeLanguageProgressRowsForUser(userId);
+  const rows = await db.prepare(`
     SELECT language, total_xp, streak, learner_level, last_completed_date
     FROM language_progress
     WHERE user_id = ?
     ORDER BY updated_at DESC, language ASC
   `).all(userId);
 
-  return {
-    totalXp: rows.reduce((sum, row) => sum + row.total_xp, 0),
-    languages: rows.map((row) => ({
+  const languages = await Promise.all(
+    rows.map(async (row) => ({
       language: row.language,
       totalXp: row.total_xp,
-      todayXp: getTodayXp(userId, row.language),
+      todayXp: await getTodayXp(userId, row.language),
       streak: liveStreak(row.streak, row.last_completed_date),
       learnerLevel: row.learner_level,
       lastCompletedDate: row.last_completed_date
     }))
+  );
+
+  return {
+    totalXp: rows.reduce((sum, row) => sum + row.total_xp, 0),
+    languages
   };
 }
 
-function getRecentCategoryAccuracy(userId = 1, language, category, limit = 5) {
+async function getRecentCategoryAccuracy(userId = 1, language, category, limit = 5) {
   const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(limit, 15)) : 5;
-  const rows = db
+  const rows = await db
     .prepare(`
       SELECT accuracy
       FROM session_history
@@ -1473,7 +1472,7 @@ function getRecentCategoryAccuracy(userId = 1, language, category, limit = 5) {
   return Number(avg.toFixed(4));
 }
 
-function createActiveSession({
+async function createActiveSession({
   userId = 1,
   sessionId,
   language,
@@ -1482,8 +1481,8 @@ function createActiveSession({
   questions,
   expiresAt
 }) {
-  ensureUserState(userId);
-  db.prepare(`
+  await ensureUserState(userId);
+  await db.prepare(`
     INSERT INTO active_sessions (
       session_id, user_id, language, category, difficulty_level, questions_json, expires_at, completed
     )
@@ -1499,8 +1498,8 @@ function createActiveSession({
   );
 }
 
-function getActiveSession(sessionId, userId = 1) {
-  const row = db.prepare(`
+async function getActiveSession(sessionId, userId = 1) {
+  const row = await db.prepare(`
     SELECT session_id, user_id, language, category, difficulty_level, questions_json, expires_at, completed
     FROM active_sessions
     WHERE session_id = ? AND user_id = ?
@@ -1518,8 +1517,8 @@ function getActiveSession(sessionId, userId = 1) {
   };
 }
 
-function markActiveSessionCompleted(sessionId, userId = 1) {
-  db.prepare(`
+async function markActiveSessionCompleted(sessionId, userId = 1) {
+  await db.prepare(`
     UPDATE active_sessions
     SET completed = 1,
         completed_at = CURRENT_TIMESTAMP
@@ -1527,14 +1526,14 @@ function markActiveSessionCompleted(sessionId, userId = 1) {
   `).run(sessionId, userId);
 }
 
-function pruneExpiredActiveSessions(userId = 1, todayIso = toIsoDate()) {
-  db.prepare(`
+async function pruneExpiredActiveSessions(userId = 1, todayIso = toIsoDate()) {
+  await db.prepare(`
     DELETE FROM active_sessions
     WHERE user_id = ? AND (completed = 1 OR expires_at < ?)
   `).run(userId, todayIso);
 }
 
-function upsertItemProgressAttempt({
+async function upsertItemProgressAttempt({
   userId = 1,
   language,
   category,
@@ -1545,7 +1544,7 @@ function upsertItemProgressAttempt({
   today,
   flashcardKnown = false
 }) {
-  const existing = db.prepare(`
+  const existing = await db.prepare(`
     SELECT ease, streak, attempts, correct, error_count, flashcard_known
     FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?
@@ -1571,7 +1570,7 @@ function upsertItemProgressAttempt({
   const nextDueDate = addDaysIso(today, intervalDays);
 
   if (!existing) {
-    db.prepare(`
+    await db.prepare(`
       INSERT INTO item_progress (
         user_id, language, category, item_id, objective, ease, streak, attempts, correct, error_count,
         last_error_type, last_seen_date, next_due_date, flashcard_known
@@ -1595,7 +1594,7 @@ function upsertItemProgressAttempt({
     return;
   }
 
-  db.prepare(`
+  await db.prepare(`
     UPDATE item_progress
     SET objective = ?,
         ease = ?,
@@ -1626,7 +1625,7 @@ function upsertItemProgressAttempt({
   );
 }
 
-function recordAttemptHistory({
+async function recordAttemptHistory({
   userId = 1,
   sessionId,
   language,
@@ -1637,7 +1636,7 @@ function recordAttemptHistory({
   correct,
   errorType
 }) {
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO attempt_history (
       session_id, user_id, language, category, item_id, objective, question_type, correct, error_type
     )
@@ -1655,17 +1654,17 @@ function recordAttemptHistory({
   );
 }
 
-function addDailyXp(userId = 1, language, date, xpGained) {
+async function addDailyXp(userId = 1, language, date, xpGained) {
   const safeXp = Number.isFinite(xpGained) ? Math.max(0, Math.floor(xpGained)) : 0;
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO daily_xp (user_id, language, date, xp)
     VALUES (?, ?, ?, ?)
-    ON CONFLICT(user_id, language, date) DO UPDATE SET xp = xp + excluded.xp
+    ON CONFLICT(user_id, language, date) DO UPDATE SET xp = daily_xp.xp + excluded.xp
   `).run(userId, language, date, safeXp);
 }
 
-function getTodayXp(userId = 1, language, today = toIsoDate()) {
-  const row = db.prepare(`
+async function getTodayXp(userId = 1, language, today = toIsoDate()) {
+  const row = await db.prepare(`
     SELECT xp
     FROM daily_xp
     WHERE user_id = ? AND language = ? AND date = ?
@@ -1673,8 +1672,8 @@ function getTodayXp(userId = 1, language, today = toIsoDate()) {
   return row ? row.xp : 0;
 }
 
-function getItemSelectionHints(userId = 1, language, category, today = toIsoDate()) {
-  const dueRows = db.prepare(`
+async function getItemSelectionHints(userId = 1, language, category, today = toIsoDate()) {
+  const dueRows = await db.prepare(`
     SELECT item_id
     FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ? AND (next_due_date IS NULL OR next_due_date <= ?)
@@ -1682,7 +1681,7 @@ function getItemSelectionHints(userId = 1, language, category, today = toIsoDate
     LIMIT 20
   `).all(userId, language, category, today);
 
-  const weakRows = db.prepare(`
+  const weakRows = await db.prepare(`
     SELECT item_id
     FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ?
@@ -1692,7 +1691,7 @@ function getItemSelectionHints(userId = 1, language, category, today = toIsoDate
     LIMIT 20
   `).all(userId, language, category);
 
-  const notDueRows = db.prepare(`
+  const notDueRows = await db.prepare(`
     SELECT item_id
     FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ? AND next_due_date > ?
@@ -1705,11 +1704,11 @@ function getItemSelectionHints(userId = 1, language, category, today = toIsoDate
   };
 }
 
-function getMistakeReviewSelection(userId = 1, language, limit = 10) {
+async function getMistakeReviewSelection(userId = 1, language, limit = 10) {
   const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(20, limit)) : 10;
   // Fetch a larger pool so we can randomise without losing the worst items
   const fetchLimit = Math.min(safeLimit * 3, 60);
-  const rows = db.prepare(`
+  const rows = await db.prepare(`
     SELECT
       item_id,
       category,
@@ -1744,14 +1743,14 @@ function getMistakeReviewSelection(userId = 1, language, limit = 10) {
   };
 }
 
-function recordExerciseUsage({
+async function recordExerciseUsage({
   userId = 1,
   language,
   category,
   itemId,
   correct
 }) {
-  const existing = db.prepare(`
+  const existing = await db.prepare(`
     SELECT attempts, correct_attempts
     FROM exercise_usage
     WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?
@@ -1761,7 +1760,7 @@ function recordExerciseUsage({
   const correctAttempts = (existing?.correct_attempts || 0) + (correct ? 1 : 0);
   const completionRate = attempts > 0 ? Number((correctAttempts / attempts).toFixed(4)) : 0;
 
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO exercise_usage (
       user_id, language, category, item_id, attempts, correct_attempts, completion_rate, last_used_at
     )
@@ -1774,8 +1773,8 @@ function recordExerciseUsage({
   `).run(userId, language, category, itemId, attempts, correctAttempts, completionRate);
 }
 
-function getCategoryRecommendations(userId = 1, language) {
-  const categoryProgress = getCategoryProgress(userId, language);
+async function getCategoryRecommendations(userId = 1, language) {
+  const categoryProgress = await getCategoryProgress(userId, language);
   const sortedWeak = [...categoryProgress]
     .filter((item) => item.attempts > 0)
     .sort((a, b) => a.accuracy - b.accuracy || a.mastery - b.mastery);
@@ -1796,7 +1795,7 @@ function getCategoryRecommendations(userId = 1, language) {
   return Array.from(new Set(recommendedIds));
 }
 
-function createCommunityExercise({
+async function createCommunityExercise({
   userId = 1,
   language,
   category,
@@ -1809,13 +1808,15 @@ function createCommunityExercise({
   culturalNote = "",
   exerciseType = "build_sentence"
 }) {
-  const result = db.prepare(`
+  return await db.prepare(`
     INSERT INTO community_exercises (
       user_id, language, category, prompt, correct_answer, hints_json, difficulty,
       audio_url, image_url, cultural_note, exercise_type, moderation_status
     )
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending')
-  `).run(
+    RETURNING id, language, category, prompt, correct_answer, hints_json, difficulty,
+              audio_url, image_url, cultural_note, exercise_type, moderation_status, created_at
+  `).get(
     userId,
     String(language || "").trim().toLowerCase(),
     String(category || "").trim(),
@@ -1828,13 +1829,6 @@ function createCommunityExercise({
     String(culturalNote || "").trim(),
     String(exerciseType || "build_sentence").trim().toLowerCase()
   );
-
-  return db.prepare(`
-    SELECT id, language, category, prompt, correct_answer, hints_json, difficulty,
-           audio_url, image_url, cultural_note, exercise_type, moderation_status, created_at
-    FROM community_exercises
-    WHERE id = ?
-  `).get(result.lastInsertRowid);
 }
 
 function parseCommunityExerciseRow(row) {
@@ -1875,7 +1869,7 @@ function parseCommunityExerciseRow(row) {
   };
 }
 
-function listCommunityExercises({
+async function listCommunityExercises({
   userId = 1,
   includeAll = false,
   language = "",
@@ -1905,7 +1899,7 @@ function listCommunityExercises({
   }
 
   const whereClause = filters.length ? `WHERE ${filters.join(" AND ")}` : "";
-  const rows = db.prepare(`
+  const rows = await db.prepare(`
     SELECT
       ce.id,
       ce.language,
@@ -1946,7 +1940,7 @@ function listCommunityExercises({
   return rows.map(parseCommunityExerciseRow);
 }
 
-function updateCommunityExerciseModerationStatus({
+async function updateCommunityExerciseModerationStatus({
   id,
   moderationStatus,
   reviewerComment = "",
@@ -1959,7 +1953,7 @@ function updateCommunityExerciseModerationStatus({
 }) {
   const safeStatus = String(moderationStatus || "pending").trim().toLowerCase();
   const safeComment = String(reviewerComment || "").trim();
-  db.prepare(`
+  await db.prepare(`
     UPDATE community_exercises
     SET moderation_status = ?,
         reviewer_comment = ?,
@@ -1968,7 +1962,7 @@ function updateCommunityExerciseModerationStatus({
     WHERE id = ?
   `).run(safeStatus, safeComment, reviewedBy ?? null, Number(id));
 
-  const row = db.prepare(`
+  const row = await db.prepare(`
     SELECT
       ce.id,
       ce.language,
@@ -2000,15 +1994,15 @@ function updateCommunityExerciseModerationStatus({
   return parseCommunityExerciseRow(row);
 }
 
-function getPendingCommunityExerciseCount(): number {
-  const row: any = db.prepare(`
+async function getPendingCommunityExerciseCount(): Promise<number> {
+  const row: any = await db.prepare(`
     SELECT COUNT(1) AS cnt FROM community_exercises WHERE moderation_status = 'pending'
   `).get();
   return row?.cnt ?? 0;
 }
 
-function getApprovedCommunityExercises() {
-  const rows: any[] = db.prepare(`
+async function getApprovedCommunityExercises() {
+  const rows: any[] = await db.prepare(`
     SELECT id, language, category, prompt, correct_answer, hints_json,
            difficulty, audio_url, image_url, cultural_note, exercise_type
     FROM community_exercises
@@ -2043,27 +2037,28 @@ function hashVisitorIp(ipAddress) {
     .digest("hex");
 }
 
-function recordLoginPageVisit({ ipAddress }) {
+async function recordLoginPageVisit({ ipAddress }) {
   const visitorHash = hashVisitorIp(ipAddress);
   if (!visitorHash) return { ok: false };
   const today = toIsoDate();
 
-  const tx = db.transaction(() => {
-    db.prepare(`
+  const tx = db.transaction(async () => {
+    await db.prepare(`
       INSERT INTO login_page_daily_stats (date, total_visits, unique_visitors, updated_at)
       VALUES (?, 1, 0, CURRENT_TIMESTAMP)
       ON CONFLICT(date) DO UPDATE SET
-        total_visits = total_visits + 1,
+        total_visits = login_page_daily_stats.total_visits + 1,
         updated_at = CURRENT_TIMESTAMP
     `).run(today);
 
-    const insertedUnique = db.prepare(`
-      INSERT OR IGNORE INTO login_page_unique_visitors (date, visitor_hash)
+    const insertedUnique = await db.prepare(`
+      INSERT INTO login_page_unique_visitors (date, visitor_hash)
       VALUES (?, ?)
+      ON CONFLICT (date, visitor_hash) DO NOTHING
     `).run(today, visitorHash);
 
     if (insertedUnique.changes > 0) {
-      db.prepare(`
+      await db.prepare(`
         UPDATE login_page_daily_stats
         SET unique_visitors = unique_visitors + 1,
             updated_at = CURRENT_TIMESTAMP
@@ -2072,34 +2067,34 @@ function recordLoginPageVisit({ ipAddress }) {
     }
   });
 
-  tx();
+  await tx();
   return { ok: true };
 }
 
-function getVisitorStats({
+async function getVisitorStats({
   sinceDays = 30
 } = {}) {
   const safeSinceDays = Number.isInteger(sinceDays)
     ? Math.max(1, Math.min(sinceDays, 365))
     : 30;
-  const sinceWindow = `-${safeSinceDays - 1} days`;
+  const since = addDaysIso(toIsoDate(), -(safeSinceDays - 1));
   const limit = safeSinceDays;
 
-  const totals = db.prepare(`
+  const totals = await db.prepare(`
     SELECT
       COALESCE(SUM(total_visits), 0) AS total_visits,
       COALESCE(SUM(unique_visitors), 0) AS unique_visitors
     FROM login_page_daily_stats
-    WHERE date >= DATE('now', ?)
-  `).get(sinceWindow);
+    WHERE date >= ?
+  `).get(since);
 
-  const dailyRows = db.prepare(`
+  const dailyRows = (await db.prepare(`
     SELECT date, total_visits, unique_visitors
     FROM login_page_daily_stats
-    WHERE date >= DATE('now', ?)
+    WHERE date >= ?
     ORDER BY date DESC
     LIMIT ?
-  `).all(sinceWindow, limit).map((row) => ({
+  `).all(since, limit)).map((row) => ({
     date: row.date,
     totalVisits: row.total_visits,
     uniqueVisitors: row.unique_visitors
@@ -2115,22 +2110,23 @@ function getVisitorStats({
   };
 }
 
-function addBookmark(userId, { questionId, prompt, answer, language, category = "" }) {
-  db.prepare(`
-    INSERT OR IGNORE INTO bookmarks (user_id, question_id, prompt, answer, language, category)
+async function addBookmark(userId, { questionId, prompt, answer, language, category = "" }) {
+  await db.prepare(`
+    INSERT INTO bookmarks (user_id, question_id, prompt, answer, language, category)
     VALUES (?, ?, ?, ?, ?, ?)
+    ON CONFLICT (user_id, question_id) DO NOTHING
   `).run(userId, String(questionId), String(prompt), String(answer), String(language), String(category));
 }
 
-function removeBookmark(userId, questionId) {
-  db.prepare(`DELETE FROM bookmarks WHERE user_id = ? AND question_id = ?`).run(userId, String(questionId));
+async function removeBookmark(userId, questionId) {
+  await db.prepare(`DELETE FROM bookmarks WHERE user_id = ? AND question_id = ?`).run(userId, String(questionId));
 }
 
-function getBookmarks(userId, language?) {
+async function getBookmarks(userId, language?) {
   const safeLanguage = language ? normalizeLanguageId(language, "") : null;
   const rows = safeLanguage
-    ? db.prepare(`SELECT * FROM bookmarks WHERE user_id = ? AND language = ? ORDER BY created_at DESC`).all(userId, safeLanguage)
-    : db.prepare(`SELECT * FROM bookmarks WHERE user_id = ? ORDER BY created_at DESC`).all(userId);
+    ? await db.prepare(`SELECT * FROM bookmarks WHERE user_id = ? AND language = ? ORDER BY created_at DESC`).all(userId, safeLanguage)
+    : await db.prepare(`SELECT * FROM bookmarks WHERE user_id = ? ORDER BY created_at DESC`).all(userId);
   return rows.map((row) => ({
     id: row.id,
     questionId: row.question_id,
@@ -2142,17 +2138,17 @@ function getBookmarks(userId, language?) {
   }));
 }
 
-function isBookmarked(userId, questionId) {
-  const row = db.prepare(`SELECT 1 FROM bookmarks WHERE user_id = ? AND question_id = ?`).get(userId, String(questionId));
+async function isBookmarked(userId, questionId) {
+  const row = await db.prepare(`SELECT 1 FROM bookmarks WHERE user_id = ? AND question_id = ?`).get(userId, String(questionId));
   return Boolean(row);
 }
 
 // Items the user explicitly marked "Known" on a flashcard. Returns the
 // identifying keys; callers resolve item_id -> prompt/answer text via content.
-function getKnownFlashcardItems(userId, language) {
+async function getKnownFlashcardItems(userId, language) {
   const safeLanguage = normalizeLanguageId(language, "");
   if (!safeLanguage) return [];
-  const rows = db.prepare(`
+  const rows = await db.prepare(`
     SELECT category, item_id
     FROM item_progress
     WHERE user_id = ? AND language = ? AND flashcard_known = 1
@@ -2160,21 +2156,21 @@ function getKnownFlashcardItems(userId, language) {
   return rows.map((row) => ({ category: row.category, itemId: row.item_id }));
 }
 
-function getSpeedMatchHighscore(userId = 1, language) {
+async function getSpeedMatchHighscore(userId = 1, language) {
   const safeLanguage = normalizeLanguageId(language, "spanish");
-  ensureLanguageProgress(userId, safeLanguage);
-  const row = db.prepare(`
+  await ensureLanguageProgress(userId, safeLanguage);
+  const row = await db.prepare(`
     SELECT speed_match_highscore FROM language_progress WHERE user_id = ? AND language = ?
   `).get(userId, safeLanguage);
   return row ? Number(row.speed_match_highscore) || 0 : 0;
 }
 
-function updateSpeedMatchHighscore(userId = 1, language, score) {
+async function updateSpeedMatchHighscore(userId = 1, language, score) {
   const safeLanguage = normalizeLanguageId(language, "spanish");
   const safeScore = Number.isFinite(score) ? Math.max(0, Math.floor(score)) : 0;
-  const current = getSpeedMatchHighscore(userId, safeLanguage);
+  const current = await getSpeedMatchHighscore(userId, safeLanguage);
   if (safeScore > current) {
-    db.prepare(`
+    await db.prepare(`
       UPDATE language_progress
       SET speed_match_highscore = ?, updated_at = CURRENT_TIMESTAMP
       WHERE user_id = ? AND language = ?
@@ -2196,12 +2192,12 @@ function savedWordItemId(word) {
 // Idempotently records a saved word: a saved_words row for listing and a fresh
 // item_progress row so the word enters the spaced-repetition queue. Re-saving the
 // same word does not reset its existing schedule.
-function saveReviewWord(userId, { language, word, translation = "", storyId = "", category = "", today = toIsoDate() }) {
+async function saveReviewWord(userId, { language, word, translation = "", storyId = "", category = "", today = toIsoDate() }) {
   const safeLanguage = normalizeLanguageId(language, "");
   const safeWord = String(word || "").trim().toLowerCase();
   if (!safeLanguage || !safeWord) return false;
 
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO saved_words (user_id, language, word, translation, story_id, category)
     VALUES (?, ?, ?, ?, ?, ?)
     ON CONFLICT(user_id, language, word) DO UPDATE SET
@@ -2211,13 +2207,13 @@ function saveReviewWord(userId, { language, word, translation = "", storyId = ""
   `).run(userId, safeLanguage, safeWord, String(translation || ""), String(storyId || ""), String(category || ""));
 
   const itemId = savedWordItemId(safeWord);
-  const existing = db.prepare(`
+  const existing = await db.prepare(`
     SELECT 1 FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?
   `).get(userId, safeLanguage, SAVED_WORD_CATEGORY, itemId);
 
   if (!existing) {
-    db.prepare(`
+    await db.prepare(`
       INSERT INTO item_progress (
         user_id, language, category, item_id, objective, ease, streak, attempts, correct, error_count,
         last_error_type, last_seen_date, next_due_date
@@ -2228,21 +2224,21 @@ function saveReviewWord(userId, { language, word, translation = "", storyId = ""
   return true;
 }
 
-function removeReviewWord(userId, language, word) {
+async function removeReviewWord(userId, language, word) {
   const safeLanguage = normalizeLanguageId(language, "");
   const safeWord = String(word || "").trim().toLowerCase();
   if (!safeLanguage || !safeWord) return;
-  db.prepare(`DELETE FROM saved_words WHERE user_id = ? AND language = ? AND word = ?`)
+  await db.prepare(`DELETE FROM saved_words WHERE user_id = ? AND language = ? AND word = ?`)
     .run(userId, safeLanguage, safeWord);
-  db.prepare(`DELETE FROM item_progress WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?`)
+  await db.prepare(`DELETE FROM item_progress WHERE user_id = ? AND language = ? AND category = ? AND item_id = ?`)
     .run(userId, safeLanguage, SAVED_WORD_CATEGORY, savedWordItemId(safeWord));
 }
 
-function getSavedReviewWords(userId, language?) {
+async function getSavedReviewWords(userId, language?) {
   const safeLanguage = language ? normalizeLanguageId(language, "") : null;
   const rows = safeLanguage
-    ? db.prepare(`SELECT * FROM saved_words WHERE user_id = ? AND language = ? ORDER BY created_at DESC`).all(userId, safeLanguage)
-    : db.prepare(`SELECT * FROM saved_words WHERE user_id = ? ORDER BY created_at DESC`).all(userId);
+    ? await db.prepare(`SELECT * FROM saved_words WHERE user_id = ? AND language = ? ORDER BY created_at DESC`).all(userId, safeLanguage)
+    : await db.prepare(`SELECT * FROM saved_words WHERE user_id = ? ORDER BY created_at DESC`).all(userId);
   return rows.map((row) => ({
     word: row.word,
     translation: row.translation,
@@ -2256,10 +2252,10 @@ function getSavedReviewWords(userId, language?) {
 // Surfaces saved words as practice-pool items (English prompt → target word) so
 // they resurface in practice/speak/listen sessions. Item ids line up with the
 // saved-word item_progress rows for future SRS scheduling.
-function getSavedWordPoolItems(userId, language) {
+async function getSavedWordPoolItems(userId, language) {
   const safeLanguage = normalizeLanguageId(language, "");
   if (!safeLanguage) return [];
-  const rows = db.prepare(`
+  const rows = await db.prepare(`
     SELECT word, translation FROM saved_words WHERE user_id = ? AND language = ?
   `).all(userId, safeLanguage);
   return rows
@@ -2276,28 +2272,32 @@ function getSavedWordPoolItems(userId, language) {
 
 // Saves how far through a story the learner has read so they can resume later.
 // Never regresses the furthest sentence reached and never marks the story complete.
-function upsertStoryProgress(userId, { storyId, language, sentenceIndex }) {
+async function upsertStoryProgress(userId, { storyId, language, sentenceIndex }) {
   const safeStoryId = String(storyId || "").trim();
   const safeLanguage = normalizeLanguageId(language, "");
   if (!safeStoryId || !safeLanguage) return false;
   const idx = Number.isFinite(sentenceIndex) ? Math.max(0, Math.floor(sentenceIndex)) : 0;
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO story_completions (user_id, language, story_id, last_sentence_index, started_at, completed_at)
     VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP, NULL)
     ON CONFLICT(user_id, story_id) DO UPDATE SET
-      last_sentence_index = MAX(last_sentence_index, excluded.last_sentence_index),
-      started_at = COALESCE(started_at, excluded.started_at)
+      last_sentence_index = CASE
+        WHEN excluded.last_sentence_index > story_completions.last_sentence_index
+        THEN excluded.last_sentence_index
+        ELSE story_completions.last_sentence_index
+      END,
+      started_at = COALESCE(story_completions.started_at, excluded.started_at)
   `).run(userId, safeLanguage, safeStoryId, idx);
   return true;
 }
 
 // Returns per-story reading state (resume point, completion, quiz score) for the
 // Story Reader library, keyed by story id.
-function getStoryProgress(userId, language?) {
+async function getStoryProgress(userId, language?) {
   const safeLanguage = language ? normalizeLanguageId(language, "") : null;
   const rows = safeLanguage
-    ? db.prepare(`SELECT story_id, last_sentence_index, completed_at, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND language = ?`).all(userId, safeLanguage)
-    : db.prepare(`SELECT story_id, last_sentence_index, completed_at, quiz_score, quiz_total FROM story_completions WHERE user_id = ?`).all(userId);
+    ? await db.prepare(`SELECT story_id, last_sentence_index, completed_at, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND language = ?`).all(userId, safeLanguage)
+    : await db.prepare(`SELECT story_id, last_sentence_index, completed_at, quiz_score, quiz_total FROM story_completions WHERE user_id = ?`).all(userId);
   const map = {};
   for (const row of rows) {
     map[row.story_id] = {
@@ -2312,20 +2312,20 @@ function getStoryProgress(userId, language?) {
 
 // Records that a learner finished reading a story, storing the quiz score when one
 // was taken. Idempotent: re-finishing refreshes the timestamp without duplicating rows.
-function markStoryComplete(userId, { storyId, language, quizScore = null, quizTotal = null }) {
+async function markStoryComplete(userId, { storyId, language, quizScore = null, quizTotal = null }) {
   const safeStoryId = String(storyId || "").trim();
   const safeLanguage = normalizeLanguageId(language, "");
   if (!safeStoryId || !safeLanguage) return false;
   const score = Number.isFinite(quizScore) ? Math.max(0, Math.floor(quizScore)) : null;
   const total = Number.isFinite(quizTotal) ? Math.max(0, Math.floor(quizTotal)) : null;
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO story_completions (user_id, language, story_id, completed_at, started_at, quiz_score, quiz_total)
     VALUES (?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?)
     ON CONFLICT(user_id, story_id) DO UPDATE SET
       completed_at = CURRENT_TIMESTAMP,
-      started_at = COALESCE(started_at, CURRENT_TIMESTAMP),
-      quiz_score = COALESCE(excluded.quiz_score, quiz_score),
-      quiz_total = COALESCE(excluded.quiz_total, quiz_total)
+      started_at = COALESCE(story_completions.started_at, CURRENT_TIMESTAMP),
+      quiz_score = COALESCE(excluded.quiz_score, story_completions.quiz_score),
+      quiz_total = COALESCE(excluded.quiz_total, story_completions.quiz_total)
   `).run(userId, safeLanguage, safeStoryId, score, total);
   return true;
 }
@@ -2333,23 +2333,23 @@ function markStoryComplete(userId, { storyId, language, quizScore = null, quizTo
 // Awards XP for finishing a story exactly once per (user, story) and rolls the
 // daily streak forward the same way a practice session does. Mirrors recordPracticeXp's
 // streak math but does not write to session_history (reading is not a session).
-function awardStoryXp(userId, { storyId, language, xpGained, today = toIsoDate() }) {
-  ensureUserState(userId);
+async function awardStoryXp(userId, { storyId, language, xpGained, today = toIsoDate() }) {
+  await ensureUserState(userId);
   const safeStoryId = String(storyId || "").trim();
   const safeLanguage = normalizeLanguageId(language, "spanish");
   if (!safeStoryId) {
-    return { xpGained: 0, alreadyAwarded: false, todayXp: getTodayXp(userId, safeLanguage, today) };
+    return { xpGained: 0, alreadyAwarded: false, todayXp: await getTodayXp(userId, safeLanguage, today) };
   }
-  const existing = db
+  const existing = await db
     .prepare(`SELECT xp_awarded FROM story_completions WHERE user_id = ? AND story_id = ?`)
     .get(userId, safeStoryId);
   if (existing && existing.xp_awarded) {
-    return { xpGained: 0, alreadyAwarded: true, todayXp: getTodayXp(userId, safeLanguage, today) };
+    return { xpGained: 0, alreadyAwarded: true, todayXp: await getTodayXp(userId, safeLanguage, today) };
   }
   const gain = Number.isFinite(xpGained) ? Math.max(0, Math.floor(xpGained)) : 0;
-  const tx = db.transaction(() => {
-    ensureLanguageProgress(userId, safeLanguage);
-    const progress = db
+  const tx = db.transaction(async () => {
+    await ensureLanguageProgress(userId, safeLanguage);
+    const progress = await db
       .prepare(`SELECT streak, last_completed_date FROM language_progress WHERE user_id = ? AND language = ?`)
       .get(userId, safeLanguage);
     let nextStreak = progress.streak;
@@ -2362,30 +2362,30 @@ function awardStoryXp(userId, { storyId, language, xpGained, today = toIsoDate()
       if (diffDays === 1) nextStreak = progress.streak + 1;
       else if (diffDays > 1) nextStreak = 1;
     }
-    addDailyXp(userId, safeLanguage, today, gain);
-    db.prepare(`
+    await addDailyXp(userId, safeLanguage, today, gain);
+    await db.prepare(`
       UPDATE language_progress
       SET streak = ?, last_completed_date = ?, updated_at = CURRENT_TIMESTAMP
       WHERE user_id = ? AND language = ?
     `).run(nextStreak, today, userId, safeLanguage);
-    db.prepare(`UPDATE story_completions SET xp_awarded = 1 WHERE user_id = ? AND story_id = ?`)
+    await db.prepare(`UPDATE story_completions SET xp_awarded = 1 WHERE user_id = ? AND story_id = ?`)
       .run(userId, safeStoryId);
-    refreshAggregateProgressFromLanguageProgress(userId);
+    await refreshAggregateProgressFromLanguageProgress(userId);
   });
-  tx();
-  return { xpGained: gain, alreadyAwarded: false, todayXp: getTodayXp(userId, safeLanguage, today) };
+  await tx();
+  return { xpGained: gain, alreadyAwarded: false, todayXp: await getTodayXp(userId, safeLanguage, today) };
 }
 
 // Aggregates the learner's reading activity. Levels/themes are enriched in the
 // route from in-memory story metadata, which the db layer cannot see.
-function getReadingStats(userId, language?) {
+async function getReadingStats(userId, language?) {
   const safeLanguage = language ? normalizeLanguageId(language, "") : null;
   const completedRows = safeLanguage
-    ? db.prepare(`SELECT story_id, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND language = ? AND completed_at IS NOT NULL`).all(userId, safeLanguage)
-    : db.prepare(`SELECT story_id, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND completed_at IS NOT NULL`).all(userId);
+    ? await db.prepare(`SELECT story_id, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND language = ? AND completed_at IS NOT NULL`).all(userId, safeLanguage)
+    : await db.prepare(`SELECT story_id, quiz_score, quiz_total FROM story_completions WHERE user_id = ? AND completed_at IS NOT NULL`).all(userId);
   const wordsRow = safeLanguage
-    ? db.prepare(`SELECT COUNT(1) AS c FROM saved_words WHERE user_id = ? AND language = ?`).get(userId, safeLanguage)
-    : db.prepare(`SELECT COUNT(1) AS c FROM saved_words WHERE user_id = ?`).get(userId);
+    ? await db.prepare(`SELECT COUNT(1) AS c FROM saved_words WHERE user_id = ? AND language = ?`).get(userId, safeLanguage)
+    : await db.prepare(`SELECT COUNT(1) AS c FROM saved_words WHERE user_id = ?`).get(userId);
   return {
     completedStoryIds: completedRows.map((row) => row.story_id),
     storiesRead: completedRows.length,
@@ -2396,21 +2396,28 @@ function getReadingStats(userId, language?) {
 
 // Returns the set of story ids the learner has actually finished (a row may exist
 // only to hold resume progress, so completion is gated on completed_at).
-function getCompletedStoryIds(userId, language?) {
+async function getCompletedStoryIds(userId, language?) {
   const safeLanguage = language ? normalizeLanguageId(language, "") : null;
   const rows = safeLanguage
-    ? db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND language = ? AND completed_at IS NOT NULL`).all(userId, safeLanguage)
-    : db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND completed_at IS NOT NULL`).all(userId);
+    ? await db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND language = ? AND completed_at IS NOT NULL`).all(userId, safeLanguage)
+    : await db.prepare(`SELECT story_id FROM story_completions WHERE user_id = ? AND completed_at IS NOT NULL`).all(userId);
   return rows.map((row) => row.story_id);
 }
 
-function getStats(userId = 1, language) {
-  const settings = getSettings(userId);
+async function getStats(userId = 1, language) {
+  const settings = await getSettings(userId);
   const safeLanguage = normalizeLanguageId(language, settings.targetLanguage || "spanish");
-  const progress = getProgress(userId, safeLanguage);
-  const categoryProgress = getCategoryProgress(userId, safeLanguage);
+  const progress = await getProgress(userId, safeLanguage);
+  const categoryProgress = await getCategoryProgress(userId, safeLanguage);
 
-  const totals = db
+  // Date windows are computed here and bound as parameters rather than expressed
+  // with SQLite's DATE('now', ...) modifiers, which have no Postgres equivalent.
+  const today = toIsoDate();
+  const sinceSevenDays = addDaysIso(today, -6);
+  const sinceFourteenDays = addDaysIso(today, -13);
+  const sinceHalfYear = addDaysIso(today, -186);
+
+  const totals = await db
     .prepare(`
       SELECT
         COUNT(1) AS sessions_completed,
@@ -2421,22 +2428,22 @@ function getStats(userId = 1, language) {
     `)
     .get(userId, safeLanguage);
 
-  const recentSessions = db
+  const recentSessions = await db
     .prepare(`
       SELECT COUNT(1) AS sessions_last_7_days
       FROM session_history
-      WHERE user_id = ? AND language = ? AND DATE(completed_at) >= DATE('now', '-6 days')
+      WHERE user_id = ? AND language = ? AND substr(completed_at, 1, 10) >= ?
     `)
-    .get(userId, safeLanguage);
-  const sessionsByDayRows = db
+    .get(userId, safeLanguage, sinceSevenDays);
+  const sessionsByDayRows = await db
     .prepare(`
-      SELECT DATE(completed_at) AS day, COUNT(1) AS sessions
+      SELECT substr(completed_at, 1, 10) AS day, COUNT(1) AS sessions
       FROM session_history
-      WHERE user_id = ? AND language = ? AND DATE(completed_at) >= DATE('now', '-6 days')
-      GROUP BY DATE(completed_at)
+      WHERE user_id = ? AND language = ? AND substr(completed_at, 1, 10) >= ?
+      GROUP BY substr(completed_at, 1, 10)
       ORDER BY day ASC
     `)
-    .all(userId, safeLanguage);
+    .all(userId, safeLanguage, sinceSevenDays);
   const sessionsByDayMap = new Map(
     sessionsByDayRows.map((row) => [row.day, row.sessions])
   );
@@ -2449,7 +2456,7 @@ function getStats(userId = 1, language) {
     };
   });
 
-  const categoryStats = db
+  const categoryStats = (await db
     .prepare(`
       SELECT
         category,
@@ -2461,7 +2468,7 @@ function getStats(userId = 1, language) {
       GROUP BY category
       ORDER BY sessions DESC, accuracy DESC
     `)
-    .all(userId, safeLanguage)
+    .all(userId, safeLanguage))
     .map((row) => ({
       category: row.category,
       sessions: row.sessions,
@@ -2469,19 +2476,19 @@ function getStats(userId = 1, language) {
       lastCompletedAt: row.last_completed_at
     }));
 
-  const errorTypeTrend = db
+  const errorTypeTrend = (await db
     .prepare(`
       SELECT error_type, COUNT(1) AS count
       FROM attempt_history
-      WHERE user_id = ? AND language = ? AND correct = 0 AND DATE(created_at) >= DATE('now', '-13 days')
+      WHERE user_id = ? AND language = ? AND correct = 0 AND substr(created_at, 1, 10) >= ?
       GROUP BY error_type
       ORDER BY count DESC
       LIMIT 6
     `)
-    .all(userId, safeLanguage)
+    .all(userId, safeLanguage, sinceFourteenDays))
     .map((row) => ({ errorType: row.error_type, count: row.count }));
 
-  const objectiveStats = db
+  const objectiveStats = (await db
     .prepare(`
       SELECT
         objective,
@@ -2490,41 +2497,41 @@ function getStats(userId = 1, language) {
       FROM attempt_history
       WHERE user_id = ? AND language = ? AND objective <> ''
       GROUP BY objective
-      HAVING attempts > 0
-      ORDER BY CAST(correct AS REAL) / attempts ASC, attempts DESC
+      HAVING COUNT(1) > 0
+      ORDER BY CAST(SUM(correct) AS REAL) / COUNT(1) ASC, COUNT(1) DESC
       LIMIT 8
     `)
-    .all(userId, safeLanguage)
+    .all(userId, safeLanguage))
     .map((row) => ({
       objective: row.objective,
       attempts: row.attempts,
       accuracy: Number(((row.correct / row.attempts) * 100).toFixed(1))
     }));
 
-  const usageStats = db.prepare(`
+  const usageStats = (await db.prepare(`
     SELECT item_id, attempts, correct_attempts, completion_rate, last_used_at
     FROM exercise_usage
     WHERE user_id = ? AND language = ?
     ORDER BY completion_rate ASC, attempts DESC, last_used_at DESC
     LIMIT 6
-  `).all(userId, safeLanguage).map((row) => ({
+  `).all(userId, safeLanguage)).map((row) => ({
     itemId: row.item_id,
     attempts: row.attempts,
     correctAttempts: row.correct_attempts,
     completionRate: Number((row.completion_rate * 100).toFixed(1)),
     lastUsedAt: row.last_used_at
   }));
-  const dailyXpHistory = db.prepare(`
+  const dailyXpHistory = (await db.prepare(`
     SELECT date, xp
     FROM daily_xp
-    WHERE user_id = ? AND language = ? AND date >= DATE('now', '-186 days')
+    WHERE user_id = ? AND language = ? AND date >= ?
     ORDER BY date ASC
-  `).all(userId, safeLanguage).map((row) => ({
+  `).all(userId, safeLanguage, sinceHalfYear)).map((row) => ({
     date: row.date,
     xp: row.xp
   }));
 
-  const mistakeReviewCount = (db.prepare(`
+  const mistakeReviewCount = (await db.prepare(`
     SELECT COUNT(*) as count
     FROM item_progress
     WHERE user_id = ?
@@ -2566,7 +2573,7 @@ function getStats(userId = 1, language) {
     weeklyGoalSessions: settings.weeklyGoalSessions,
     sessionsByDay,
     weakestCategories,
-    recommendedCategories: getCategoryRecommendations(userId, safeLanguage),
+    recommendedCategories: await getCategoryRecommendations(userId, safeLanguage),
     categoryStats,
     errorTypeTrend,
     objectiveStats,
@@ -2576,7 +2583,7 @@ function getStats(userId = 1, language) {
   };
 }
 
-function recordSession({
+async function recordSession({
   userId = 1,
   language,
   category,
@@ -2587,11 +2594,11 @@ function recordSession({
   difficultyLevel,
   today
 }) {
-  ensureUserState(userId);
+  await ensureUserState(userId);
   const safeLanguage = normalizeLanguageId(language, "spanish");
   const accuracy = maxScore > 0 ? score / maxScore : 0;
 
-  const existing = db
+  const existing = await db
     .prepare(`
       SELECT mastery, attempts, total_answers, correct_answers
       FROM category_progress
@@ -2605,14 +2612,14 @@ function recordSession({
   const levelUnlocked = levelFromMastery(newMastery);
 
   if (!existing) {
-    db.prepare(`
+    await db.prepare(`
       INSERT INTO category_progress (
         user_id, language, category, mastery, attempts, total_answers, correct_answers, level_unlocked, last_practiced_at
       )
       VALUES (?, ?, ?, ?, 1, ?, ?, ?, CURRENT_TIMESTAMP)
     `).run(userId, safeLanguage, category, newMastery, maxScore, score, levelUnlocked);
   } else {
-    db.prepare(`
+    await db.prepare(`
       UPDATE category_progress
       SET mastery = ?,
           attempts = ?,
@@ -2633,13 +2640,13 @@ function recordSession({
     );
   }
 
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO session_history (user_id, language, category, score, max_score, accuracy, xp_gained, difficulty_level)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `).run(userId, safeLanguage, category, score, maxScore, accuracy, xpGained, difficultyLevel);
 
-  ensureLanguageProgress(userId, safeLanguage);
-  const progress = db.prepare(`
+  await ensureLanguageProgress(userId, safeLanguage);
+  const progress = await db.prepare(`
     SELECT total_xp, streak, last_completed_date
     FROM language_progress
     WHERE user_id = ? AND language = ?
@@ -2661,9 +2668,9 @@ function recordSession({
 
   const totalXp = progress.total_xp + xpGained;
   const learnerLevel = levelFromXp(totalXp);
-  addDailyXp(userId, safeLanguage, today, xpGained);
+  await addDailyXp(userId, safeLanguage, today, xpGained);
 
-  db.prepare(`
+  await db.prepare(`
     UPDATE language_progress
     SET total_xp = ?,
         streak = ?,
@@ -2673,7 +2680,7 @@ function recordSession({
     WHERE user_id = ? AND language = ?
   `).run(totalXp, nextStreak, learnerLevel, today, userId, safeLanguage);
 
-  refreshAggregateProgressFromLanguageProgress(userId);
+  await refreshAggregateProgressFromLanguageProgress(userId);
 
   return {
     xpGained,
@@ -2685,7 +2692,7 @@ function recordSession({
   };
 }
 
-function recordPracticeXp({
+async function recordPracticeXp({
   userId = 1,
   language,
   category,
@@ -2696,11 +2703,11 @@ function recordPracticeXp({
   xpGained,
   today
 }) {
-  ensureUserState(userId);
+  await ensureUserState(userId);
   const safeLanguage = normalizeLanguageId(language, "spanish");
-  ensureLanguageProgress(userId, safeLanguage);
+  await ensureLanguageProgress(userId, safeLanguage);
 
-  const progress = db.prepare(`
+  const progress = await db.prepare(`
     SELECT total_xp, streak, last_completed_date
     FROM language_progress
     WHERE user_id = ? AND language = ?
@@ -2722,14 +2729,14 @@ function recordPracticeXp({
 
   const totalXp = progress.total_xp + xpGained;
   const learnerLevel = levelFromXp(totalXp);
-  addDailyXp(userId, safeLanguage, today, xpGained);
+  await addDailyXp(userId, safeLanguage, today, xpGained);
 
-  db.prepare(`
+  await db.prepare(`
     INSERT INTO session_history (user_id, language, category, score, max_score, accuracy, xp_gained, difficulty_level)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `).run(userId, safeLanguage, category, score, maxScore, accuracy, xpGained, difficultyLevel);
 
-  db.prepare(`
+  await db.prepare(`
     UPDATE language_progress
     SET total_xp = ?,
         streak = ?,
@@ -2739,7 +2746,7 @@ function recordPracticeXp({
     WHERE user_id = ? AND language = ?
   `).run(totalXp, nextStreak, learnerLevel, today, userId, safeLanguage);
 
-  refreshAggregateProgressFromLanguageProgress(userId);
+  await refreshAggregateProgressFromLanguageProgress(userId);
 
   return {
     xpGained,
@@ -2777,7 +2784,7 @@ function resolveAchievementDef(achievementId: string) {
   return { name: achievementId, description: "", icon: "star" };
 }
 
-function checkAndGrantAchievements(userId: number, params: {
+async function checkAndGrantAchievements(userId: number, params: {
   streak: number;
   totalXp: number;
   language: string;
@@ -2794,16 +2801,16 @@ function checkAndGrantAchievements(userId: number, params: {
   const newlyUnlocked: Array<{ id: string; name: string; description: string; icon: string; earnedAt: string }> = [];
 
   const existingIds = new Set<string>(
-    (db.prepare("SELECT achievement_id FROM achievements WHERE user_id = ?").all(userId) as any[])
+    (await db.prepare("SELECT achievement_id FROM achievements WHERE user_id = ?").all(userId) as any[])
       .map((r: any) => String(r.achievement_id))
   );
 
-  function tryGrant(achievementId: string) {
+  async function tryGrant(achievementId: string) {
     if (existingIds.has(achievementId)) return;
     try {
-      const info = db.prepare("INSERT OR IGNORE INTO achievements (user_id, achievement_id) VALUES (?, ?)").run(userId, achievementId);
+      const info = await db.prepare("INSERT INTO achievements (user_id, achievement_id) VALUES (?, ?) ON CONFLICT (user_id, achievement_id) DO NOTHING").run(userId, achievementId);
       if ((info as any).changes > 0) {
-        const row: any = db.prepare("SELECT earned_at FROM achievements WHERE user_id = ? AND achievement_id = ?").get(userId, achievementId);
+        const row: any = await db.prepare("SELECT earned_at FROM achievements WHERE user_id = ? AND achievement_id = ?").get(userId, achievementId);
         newlyUnlocked.push({ id: achievementId, ...resolveAchievementDef(achievementId), earnedAt: row?.earned_at || new Date().toISOString() });
       }
     } catch (_err) {
@@ -2812,42 +2819,42 @@ function checkAndGrantAchievements(userId: number, params: {
   }
 
   for (const days of [3, 7, 30, 100]) {
-    if (streak >= days) tryGrant(`streak_${days}`);
+    if (streak >= days) await tryGrant(`streak_${days}`);
   }
 
   for (const xp of [100, 500, 1000, 5000]) {
-    if (totalXp >= xp) tryGrant(`xp_${xp}`);
+    if (totalXp >= xp) await tryGrant(`xp_${xp}`);
   }
 
   if (!isPracticeSession && mastery >= 80) {
-    tryGrant(`mastery_${language}_${category}`);
+    await tryGrant(`mastery_${language}_${category}`);
   }
 
   if (!isPracticeSession) {
-    const row: any = db.prepare(
+    const row: any = await db.prepare(
       "SELECT COUNT(*) as cnt FROM category_progress WHERE user_id = ? AND language = ? AND mastery >= 50"
     ).get(userId, language);
-    if ((row?.cnt || 0) >= 10) tryGrant(`completionist_${language}`);
+    if ((row?.cnt || 0) >= 10) await tryGrant(`completionist_${language}`);
   }
 
-  const langRow: any = db.prepare(
+  const langRow: any = await db.prepare(
     "SELECT COUNT(DISTINCT language) as cnt FROM language_progress WHERE user_id = ? AND total_xp > 0"
   ).get(userId);
-  if ((langRow?.cnt || 0) >= 2) tryGrant("polyglot");
+  if ((langRow?.cnt || 0) >= 2) await tryGrant("polyglot");
 
   if (!isPracticeSession && score >= 10 && score === maxScore && hintsUsed === 0 && revealedAnswers === 0) {
-    tryGrant("speed_demon");
+    await tryGrant("speed_demon");
   }
 
   const hour = now.getHours();
-  if (hour >= 0 && hour < 4) tryGrant("night_owl");
-  if (hour >= 5 && hour <= 7) tryGrant("early_bird");
+  if (hour >= 0 && hour < 4) await tryGrant("night_owl");
+  if (hour >= 5 && hour <= 7) await tryGrant("early_bird");
 
   return newlyUnlocked;
 }
 
-function getUserAchievements(userId: number) {
-  const rows: any[] = db.prepare(
+async function getUserAchievements(userId: number) {
+  const rows: any[] = await db.prepare(
     "SELECT achievement_id, earned_at, metadata_json FROM achievements WHERE user_id = ? ORDER BY earned_at DESC"
   ).all(userId) as any[];
   return rows.map((row: any) => ({
@@ -2857,13 +2864,13 @@ function getUserAchievements(userId: number) {
   }));
 }
 
-function runInTransaction(operation) {
+async function runInTransaction(operation) {
   const tx = db.transaction(operation);
   return tx();
 }
 
-function getContentFingerprints(): Record<string, string> {
-  const rows = db.prepare("SELECT language, category, fingerprint FROM content_versions").all() as any[];
+async function getContentFingerprints(): Promise<Record<string, string>> {
+  const rows = await db.prepare("SELECT language, category, fingerprint FROM content_versions").all() as any[];
   const result: Record<string, string> = {};
   for (const row of rows) {
     result[`${row.language}:${row.category}`] = row.fingerprint;
@@ -2871,23 +2878,55 @@ function getContentFingerprints(): Record<string, string> {
   return result;
 }
 
-function upsertContentFingerprint(language: string, category: string, fingerprint: string): void {
-  db.prepare(`
+async function upsertContentFingerprint(language: string, category: string, fingerprint: string): Promise<void> {
+  await db.prepare(`
     INSERT INTO content_versions (language, category, fingerprint, updated_at)
     VALUES (?, ?, ?, CURRENT_TIMESTAMP)
     ON CONFLICT(language, category) DO UPDATE SET fingerprint = excluded.fingerprint, updated_at = CURRENT_TIMESTAMP
   `).run(language, category, fingerprint);
 }
 
-function resetCategoryProgress(language: string, category: string): void {
-  db.transaction(() => {
-    db.prepare("DELETE FROM item_progress WHERE language = ? AND category = ?").run(language, category);
-    db.prepare("DELETE FROM category_progress WHERE language = ? AND category = ?").run(language, category);
+// Batched form of upsertContentFingerprint for the startup reconciliation, which
+// writes one row per language/category (~112 of them). Same reasoning as
+// upsertWordTranslations: per-row round-trips are free on SQLite and slow on Neon.
+async function upsertContentFingerprints(entries: any[]): Promise<number> {
+  if (!Array.isArray(entries) || entries.length === 0) return 0;
+
+  // A single INSERT ... ON CONFLICT cannot touch the same conflicting row twice.
+  const deduped = new Map<string, any>();
+  for (const entry of entries) {
+    deduped.set(`${entry.language}::${entry.category}`, entry);
+  }
+
+  const rows = [...deduped.values()];
+  const CHUNK = 400;
+
+  for (let offset = 0; offset < rows.length; offset += CHUNK) {
+    const chunk = rows.slice(offset, offset + CHUNK);
+    const params: any[] = [];
+    for (const row of chunk) params.push(row.language, row.category, row.fingerprint);
+    const tuples = chunk.map(() => "(?, ?, ?, CURRENT_TIMESTAMP)").join(", ");
+    await db.prepare(`
+      INSERT INTO content_versions (language, category, fingerprint, updated_at)
+      VALUES ${tuples}
+      ON CONFLICT(language, category) DO UPDATE SET
+        fingerprint = excluded.fingerprint,
+        updated_at = CURRENT_TIMESTAMP
+    `).run(...params);
+  }
+
+  return rows.length;
+}
+
+async function resetCategoryProgress(language: string, category: string) {
+  await db.transaction(async () => {
+    await db.prepare("DELETE FROM item_progress WHERE language = ? AND category = ?").run(language, category);
+    await db.prepare("DELETE FROM category_progress WHERE language = ? AND category = ?").run(language, category);
   })();
 }
 
-function createWordTranslationsTable(): void {
-  db.exec(`
+async function createWordTranslationsTable(): Promise<void> {
+  await db.exec(`
     CREATE TABLE IF NOT EXISTS word_translations (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       language TEXT NOT NULL,
@@ -2899,16 +2938,16 @@ function createWordTranslationsTable(): void {
     )
   `);
   // Add source column to existing databases that predate this field
-  const cols = db.prepare("PRAGMA table_info(word_translations)").all() as { name: string }[];
+  const cols = await db.columnInfo("word_translations") as { name: string }[];
   if (!cols.some((c) => c.name === "source")) {
-    db.exec("ALTER TABLE word_translations ADD COLUMN source TEXT NOT NULL DEFAULT 'libretranslate'");
+    await db.exec("ALTER TABLE word_translations ADD COLUMN source TEXT NOT NULL DEFAULT 'libretranslate'");
   }
 }
 
-function getCachedWordTranslations(language: string, words: string[]): Record<string, string> {
+async function getCachedWordTranslations(language: string, words: string[]): Promise<Record<string, string>> {
   if (!words.length) return {};
   const placeholders = words.map(() => "?").join(", ");
-  const rows = db
+  const rows = await db
     .prepare(
       `SELECT word, translation FROM word_translations WHERE language = ? AND word IN (${placeholders})`
     )
@@ -2918,8 +2957,8 @@ function getCachedWordTranslations(language: string, words: string[]): Record<st
   return result;
 }
 
-function upsertWordTranslation(language: string, word: string, translation: string, source = "libretranslate"): void {
-  db.prepare(`
+async function upsertWordTranslation(language: string, word: string, translation: string, source = "libretranslate"): Promise<void> {
+  await db.prepare(`
     INSERT INTO word_translations (language, word, translation, source)
     VALUES (?, ?, ?, ?)
     ON CONFLICT(language, word) DO UPDATE SET
@@ -2929,12 +2968,58 @@ function upsertWordTranslation(language: string, word: string, translation: stri
   `).run(language, word, translation, source);
 }
 
-function clearContentWordTranslations(): void {
-  db.exec("DELETE FROM word_translations WHERE source = 'content'");
+// Batched form of upsertWordTranslation, used by the startup content seeding.
+// One statement per chunk instead of one per word: seeding ~1000 words was a
+// thousand sequential round-trips, which is free on local SQLite but takes about
+// a minute against a hosted Postgres.
+//
+// Entries are de-duplicated on (language, word) with the last occurrence winning,
+// matching what sequential upserts produced -- and required, because a single
+// INSERT ... ON CONFLICT cannot touch the same conflicting row twice.
+async function upsertWordTranslations(entries: any[]): Promise<number> {
+  if (!Array.isArray(entries) || entries.length === 0) return 0;
+
+  const deduped = new Map<string, any>();
+  for (const entry of entries) {
+    const language = String(entry.language || "").trim().toLowerCase();
+    const word = String(entry.word || "").trim().toLowerCase();
+    const translation = String(entry.translation || "").trim();
+    if (!language || !word || !translation) continue;
+    deduped.set(`${language}::${word}`, {
+      language,
+      word,
+      translation,
+      source: entry.source || "libretranslate"
+    });
+  }
+
+  const rows = [...deduped.values()];
+  const CHUNK = 400; // 4 params per row, well under Postgres' 65535 bind limit
+
+  for (let offset = 0; offset < rows.length; offset += CHUNK) {
+    const chunk = rows.slice(offset, offset + CHUNK);
+    const params: any[] = [];
+    for (const row of chunk) params.push(row.language, row.word, row.translation, row.source);
+    const tuples = chunk.map(() => "(?, ?, ?, ?)").join(", ");
+    await db.prepare(`
+      INSERT INTO word_translations (language, word, translation, source)
+      VALUES ${tuples}
+      ON CONFLICT(language, word) DO UPDATE SET
+        translation = excluded.translation,
+        source = excluded.source,
+        created_at = CURRENT_TIMESTAMP
+    `).run(...params);
+  }
+
+  return rows.length;
 }
 
-function getWordTranslationCounts(): { libretranslate: number; content: number; total: number } {
-  const rows = db
+async function clearContentWordTranslations(): Promise<void> {
+  await db.exec("DELETE FROM word_translations WHERE source = 'content'");
+}
+
+async function getWordTranslationCounts(): Promise<{ libretranslate: number; content: number; total: number }> {
+  const rows = await db
     .prepare("SELECT source, COUNT(*) AS count FROM word_translations GROUP BY source")
     .all() as { source: string; count: number }[];
   let libretranslate = 0;
@@ -2946,19 +3031,52 @@ function getWordTranslationCounts(): { libretranslate: number; content: number; 
   return { libretranslate, content, total: libretranslate + content };
 }
 
-function clearWordTranslations(): void {
-  db.exec("DELETE FROM word_translations");
+async function clearWordTranslations(): Promise<void> {
+  await db.exec("DELETE FROM word_translations");
 }
 
-function closeDatabase() {
+// Schema creation and migrations.
+//
+// These used to run as import side effects. With an async driver they need an
+// explicit awaited bootstrap, which index.ts calls once before the server starts
+// serving. Idempotent: concurrent or repeated calls share the single run.
+let schemaReady: Promise<void> | null = null;
+
+async function runSchemaSetup(): Promise<void> {
+  await migrateLegacySingleUserSchema();
+  await createUsersTable();
+  await ensureUsersColumns();
+  await createCoreTables();
+  await createIndexes();
+  await ensureSettingsColumns();
+  await ensureCommunityExercisesColumns();
+  await ensureItemProgressColumns();
+  await ensureLanguageProgressColumns();
+  await ensureStoryCompletionsColumns();
+  await createWordTranslationsTable();
+  await seedDefaultUser();
+  await maybeMigrateLegacyJson();
+}
+
+function initSchema(): Promise<void> {
+  if (!schemaReady) schemaReady = runSchemaSetup();
+  return schemaReady;
+}
+
+async function closeDatabase() {
   try {
-    db.close();
+    await db.close();
   } catch (_error) {
     // Already closed or never opened — nothing to do.
   }
+  // Drop the driver and the schema-bootstrap latch so a later initSchema() in the
+  // same process (tests, scripts) opens a fresh connection.
+  resetDriver();
+  schemaReady = null;
 }
 
 module.exports = {
+  initSchema,
   closeDatabase,
   getUserByEmail,
   getUserById,
@@ -3024,10 +3142,12 @@ module.exports = {
   toIsoDateTime,
   getContentFingerprints,
   upsertContentFingerprint,
+  upsertContentFingerprints,
   resetCategoryProgress,
   createWordTranslationsTable,
   getCachedWordTranslations,
   upsertWordTranslation,
+  upsertWordTranslations,
   clearContentWordTranslations,
   clearWordTranslations,
   getWordTranslationCounts

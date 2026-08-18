@@ -2,8 +2,13 @@ import type { } from "node"; // ensure file is treated as a module
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { configureTestDb } = require("./helpers/testDb.ts");
+const { configureTestDb, initTestDb } = require("./helpers/testDb.ts");
 configureTestDb(__filename);
+
+// Schema creation is an awaited bootstrap now rather than an import side effect.
+test.before(async () => {
+  await initTestDb();
+});
 
 const { createApp } = require("../index.ts");
 const database = require("../db.ts");
@@ -44,11 +49,16 @@ class TestServer {
   private readonly server: any;
   readonly base: string;
 
-  constructor() {
-    const app = createApp();
+  constructor(app: any) {
     this.server = app.listen(0);
     const { port } = this.server.address() as { port: number };
     this.base = `http://127.0.0.1:${port}`;
+  }
+
+  // createApp() is async now — it awaits the database bootstrap — so construction
+  // goes through a factory rather than the constructor.
+  static async start(): Promise<TestServer> {
+    return new TestServer(await createApp());
   }
 
   close(): void {
@@ -96,7 +106,7 @@ async function createAuthHeaders(base: string, label: string): Promise<AuthHeade
 // ─── Auth route validation ────────────────────────────────────────────────────
 
 test("register rejects missing email", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/auth/register`, {
@@ -110,7 +120,7 @@ test("register rejects missing email", async (t) => {
 });
 
 test("register rejects invalid email format", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/auth/register`, {
@@ -123,7 +133,7 @@ test("register rejects invalid email format", async (t) => {
 });
 
 test("register rejects short password", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/auth/register`, {
@@ -136,7 +146,7 @@ test("register rejects short password", async (t) => {
 });
 
 test("register rejects duplicate email with 409", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `dup-${Date.now()}@example.com`;
@@ -159,7 +169,7 @@ test("register rejects duplicate email with 409", async (t) => {
 });
 
 test("login rejects missing fields with 400", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/auth/login`, {
@@ -171,7 +181,7 @@ test("login rejects missing fields with 400", async (t) => {
 });
 
 test("login rejects wrong password with 401", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `wrongpw-${Date.now()}@example.com`;
@@ -199,7 +209,7 @@ test("login rejects wrong password with 401", async (t) => {
 });
 
 test("GET /api/auth/me returns user for authenticated request", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "me-check");
 
@@ -212,7 +222,7 @@ test("GET /api/auth/me returns user for authenticated request", async (t) => {
 });
 
 test("GET /api/auth/me returns 401 without token", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   assert.equal((await fetch(`${srv.base}/api/auth/me`)).status, 401);
@@ -221,7 +231,7 @@ test("GET /api/auth/me returns 401 without token", async (t) => {
 // ─── Google OAuth redirects ───────────────────────────────────────────────────
 
 test("GET /api/auth/google/start issues a redirect", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/auth/google/start`, { redirect: "manual" });
@@ -230,7 +240,7 @@ test("GET /api/auth/google/start issues a redirect", async (t) => {
 });
 
 test("Google OAuth callback with user-denied error redirects with authError", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/auth/google/callback?error=access_denied&state=dummy`, {
@@ -242,7 +252,7 @@ test("Google OAuth callback with user-denied error redirects with authError", as
 });
 
 test("Google OAuth callback with invalid state redirects with authError", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/auth/google/callback?code=dummy&state=invalid-state`, {
@@ -256,7 +266,7 @@ test("Google OAuth callback with invalid state redirects with authError", async 
 // ─── User routes ──────────────────────────────────────────────────────────────
 
 test("GET /api/settings returns settings for authenticated user", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "settings-get");
 
@@ -270,14 +280,14 @@ test("GET /api/settings returns settings for authenticated user", async (t) => {
 });
 
 test("GET /api/settings returns 401 without auth", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   assert.equal((await fetch(`${srv.base}/api/settings`)).status, 401);
 });
 
 test("PUT /api/settings persists and returns updated settings", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "settings-put");
 
@@ -309,7 +319,7 @@ test("PUT /api/settings persists and returns updated settings", async (t) => {
 });
 
 test("GET /api/progress returns progress fields for given language", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "progress-get");
 
@@ -324,7 +334,7 @@ test("GET /api/progress returns progress fields for given language", async (t) =
 });
 
 test("GET /api/progress-overview returns language list", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "overview-get");
 
@@ -335,7 +345,7 @@ test("GET /api/progress-overview returns language list", async (t) => {
 });
 
 test("GET /api/stats returns stats for target language", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "stats-get");
 
@@ -345,7 +355,7 @@ test("GET /api/stats returns stats for target language", async (t) => {
 });
 
 test("GET /api/stats returns 401 without auth", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   assert.equal((await fetch(`${srv.base}/api/stats?language=spanish`)).status, 401);
@@ -354,7 +364,7 @@ test("GET /api/stats returns 401 without auth", async (t) => {
 // ─── Bookmark CRUD ────────────────────────────────────────────────────────────
 
 test("bookmark CRUD: POST, GET, DELETE", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "bookmark-crud");
 
@@ -401,7 +411,7 @@ test("bookmark CRUD: POST, GET, DELETE", async (t) => {
 });
 
 test("POST /api/bookmarks rejects missing required fields", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "bookmark-validation");
 
@@ -415,7 +425,7 @@ test("POST /api/bookmarks rejects missing required fields", async (t) => {
 });
 
 test("bookmarks are scoped to the signed-in user", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const userA = await createAuthHeaders(srv.base, "bookmark-scope-a");
   const userB = await createAuthHeaders(srv.base, "bookmark-scope-b");
@@ -434,7 +444,7 @@ test("bookmarks are scoped to the signed-in user", async (t) => {
 // ─── Course routes ────────────────────────────────────────────────────────────
 
 test("GET /api/languages returns array of language objects", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/languages`);
@@ -446,7 +456,7 @@ test("GET /api/languages returns array of language objects", async (t) => {
 });
 
 test("GET /api/course returns enriched category list for authenticated user", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "course-get");
 
@@ -462,7 +472,7 @@ test("GET /api/course returns enriched category list for authenticated user", as
 });
 
 test("GET /api/course returns 401 without auth", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   assert.equal((await fetch(`${srv.base}/api/course?language=spanish`)).status, 401);
@@ -471,7 +481,7 @@ test("GET /api/course returns 401 without auth", async (t) => {
 // ─── Token edge cases ─────────────────────────────────────────────────────────
 
 test("malformed token returns 401 on protected route", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const res = await fetch(`${srv.base}/api/settings`, {
@@ -481,7 +491,7 @@ test("malformed token returns 401 on protected route", async (t) => {
 });
 
 test("token with wrong signature returns 401 on protected route", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   // Sign a token with a different secret than the server expects
@@ -490,7 +500,7 @@ test("token with wrong signature returns 401 on protected route", async (t) => {
     tokenTtlSeconds: 60 * 60 * 24,
     googleStateTtlSeconds: 10 * 60
   });
-  const user = database.createUser({
+  const user = await database.createUser({
     email: `wrong-sig-${Date.now()}@example.com`,
     passwordHash: "irrelevant",
     displayName: "WrongSig",
@@ -506,10 +516,10 @@ test("token with wrong signature returns 401 on protected route", async (t) => {
 });
 
 test("expired token returns 401 on protected route", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
-  const user = database.createUser({
+  const user = await database.createUser({
     email: `expired-${Date.now()}@example.com`,
     passwordHash: "irrelevant",
     displayName: "Expired",
@@ -525,7 +535,7 @@ test("expired token returns 401 on protected route", async (t) => {
 });
 
 test("missing Authorization header returns 401 on all protected routes", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const protectedRoutes = ["/api/settings", "/api/progress", "/api/course", "/api/bookmarks", "/api/stats"];

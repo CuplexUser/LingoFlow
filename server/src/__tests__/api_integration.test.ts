@@ -2,8 +2,13 @@ import type { } from "node"; // ensure file is treated as a module
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { configureTestDb } = require("./helpers/testDb.ts");
+const { configureTestDb, initTestDb } = require("./helpers/testDb.ts");
 configureTestDb(__filename);
+
+// Schema creation is an awaited bootstrap now rather than an import side effect.
+test.before(async () => {
+  await initTestDb();
+});
 
 const { createApp } = require("../index.ts");
 const database = require("../db.ts");
@@ -57,11 +62,16 @@ class TestServer {
   private readonly server: any;
   readonly base: string;
 
-  constructor() {
-    const app = createApp();
+  constructor(app: any) {
     this.server = app.listen(0);
     const { port } = this.server.address() as { port: number };
     this.base = `http://127.0.0.1:${port}`;
+  }
+
+  // createApp() is async now — it awaits the database bootstrap — so construction
+  // goes through a factory rather than the constructor.
+  static async start(): Promise<TestServer> {
+    return new TestServer(await createApp());
   }
 
   close(): void {
@@ -73,7 +83,7 @@ class TestServer {
 
 async function createAuthHeaders(base: string, label: string): Promise<AuthHeaders> {
   const email = `${label}-${Date.now()}@example.com`;
-  return createAuthHeadersForEmail(base, email, label);
+  return await createAuthHeadersForEmail(base, email, label);
 }
 
 async function createAuthHeadersForEmail(base: string, email: string, displayName = "Learner"): Promise<AuthHeaders> {
@@ -149,7 +159,7 @@ function makeWrongAttempt(question: Question): Attempt {
 // ─── Session lifecycle ────────────────────────────────────────────────────────
 
 test("session start and complete happy path", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "happy-path");
 
@@ -192,7 +202,7 @@ test("session start and complete happy path", async (t) => {
 });
 
 test("daily challenge is deterministic per language/day across users", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const learnerA = await createAuthHeaders(srv.base, "daily-a");
   const learnerB = await createAuthHeaders(srv.base, "daily-b");
@@ -222,7 +232,7 @@ test("daily challenge is deterministic per language/day across users", async (t)
 });
 
 test("practice sessions award fixed XP and update progress", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "practice-xp");
 
@@ -266,7 +276,7 @@ test("practice sessions award fixed XP and update progress", async (t) => {
 });
 
 test("mistake practice starts from previous mistakes across categories", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "mistakes-practice");
 
@@ -320,7 +330,7 @@ test("mistake practice starts from previous mistakes across categories", async (
 // ─── Score validation ─────────────────────────────────────────────────────────
 
 test("practice revealed attempts are worth zero points", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "reveal-zero");
 
@@ -352,7 +362,7 @@ test("practice revealed attempts are worth zero points", async (t) => {
 });
 
 test("practice mistakes count unique incorrect questions, not retry attempts", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "mistake-unique");
 
@@ -393,7 +403,7 @@ test("practice mistakes count unique incorrect questions, not retry attempts", a
 });
 
 test("score is capped to session question count", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "score-cap");
 
@@ -425,7 +435,7 @@ test("score is capped to session question count", async (t) => {
 });
 
 test("session complete rejects unknown question ids", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "unknown-id");
 
@@ -452,7 +462,7 @@ test("session complete rejects unknown question ids", async (t) => {
 // ─── Settings and progress ────────────────────────────────────────────────────
 
 test("settings and progress overview normalize invalid language ids", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authHeaders = await createAuthHeaders(srv.base, "language-normalization");
 
@@ -507,7 +517,7 @@ test("settings and progress overview normalize invalid language ids", async (t) 
 // ─── User isolation ───────────────────────────────────────────────────────────
 
 test("auth users get isolated progress state", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const emailSuffix = Date.now();
   const authA = await createAuthHeadersForEmail(srv.base, `a-${emailSuffix}@example.com`, "Learner A");
@@ -543,7 +553,7 @@ test("auth users get isolated progress state", async (t) => {
 // ─── Auth flows ───────────────────────────────────────────────────────────────
 
 test("email login is blocked until verification", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `pending-${Date.now()}@example.com`;
@@ -563,7 +573,7 @@ test("email login is blocked until verification", async (t) => {
 });
 
 test("resend verification issues fresh token and allows verification", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `resend-${Date.now()}@example.com`;
@@ -610,7 +620,7 @@ test("resend verification issues fresh token and allows verification", async (t)
 });
 
 test("email verification accepts quoted-printable-mangled token from email clients", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `qp-verify-${Date.now()}@example.com`;
@@ -642,7 +652,7 @@ test("email verification accepts quoted-printable-mangled token from email clien
 });
 
 test("new account settings learnerName inherits registered display name", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `name-seed-${Date.now()}@example.com`;
@@ -656,7 +666,7 @@ test("new account settings learnerName inherits registered display name", async 
 });
 
 test("forgot password issues token and reset updates login credentials", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `forgot-${Date.now()}@example.com`;
@@ -700,7 +710,7 @@ test("forgot password issues token and reset updates login credentials", async (
 // ─── Account deletion ─────────────────────────────────────────────────────────
 
 test("delete account requires explicit confirmation", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `delete-confirm-${Date.now()}@example.com`;
@@ -723,7 +733,7 @@ test("delete account requires explicit confirmation", async (t) => {
 });
 
 test("delete account removes local account and invalidates existing auth token", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   const email = `delete-success-${Date.now()}@example.com`;
@@ -750,11 +760,11 @@ test("delete account removes local account and invalidates existing auth token",
 });
 
 test("delete account is rejected for oauth users", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
 
   // Create an OAuth user directly in the DB (no HTTP registration flow for OAuth)
-  const oauthUser = database.createUser({
+  const oauthUser = await database.createUser({
     email: `oauth-delete-${Date.now()}@example.com`,
     passwordHash: `oauth-google:${Date.now()}`,
     displayName: "OAuth User",
@@ -784,7 +794,7 @@ test("community contributions are scoped to the signed-in learner by default", a
   process.env.CONTRIBUTION_REVIEWER_EMAILS = "";
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const authorA = await createAuthHeaders(srv.base, "contrib-a");
   const authorB = await createAuthHeaders(srv.base, "contrib-b");
@@ -825,7 +835,7 @@ test("reviewers can list all community contributions and update moderation statu
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewer = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const contributor = await createAuthHeaders(srv.base, "moderated-user");
@@ -881,7 +891,7 @@ test("non-reviewers cannot update community contribution moderation status", asy
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewer = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const contributor = await createAuthHeaders(srv.base, "contributor");
@@ -923,7 +933,7 @@ test("reviewer comment is stored and returned after moderation update", async (t
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewer = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const contributor = await createAuthHeaders(srv.base, "comment-contrib");
@@ -970,7 +980,7 @@ test("changes_requested is a valid moderation status and appears in filtered lis
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewer = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const contributor = await createAuthHeaders(srv.base, "cr-contrib");
@@ -1014,7 +1024,7 @@ test("invalid moderation status is rejected with 400", async (t) => {
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewer = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const contributor = await createAuthHeaders(srv.base, "invalid-status-contrib");
@@ -1043,7 +1053,7 @@ test("pending-count endpoint returns count for moderators and zero for regular u
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewer = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const contributor = await createAuthHeaders(srv.base, "count-contrib");
@@ -1073,7 +1083,7 @@ test("reviewer comment is updated when status is changed again", async (t) => {
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewer = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const contributor = await createAuthHeaders(srv.base, "reupdate-contrib");
@@ -1116,7 +1126,7 @@ test("visitor stats include only login page aggregate metrics", async (t) => {
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
   t.after(() => { delete process.env.CONTRIBUTION_REVIEWER_EMAILS; });
 
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const reviewerHeaders = await createAuthHeadersForEmail(srv.base, reviewerEmail, "Reviewer");
   const authHeaders = await createAuthHeaders(srv.base, "visitor-stats");

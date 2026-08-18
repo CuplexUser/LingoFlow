@@ -7,19 +7,19 @@ function registerUserRoutes(app: any, deps: any): void {
       .filter(Boolean)
   );
 
-  function canModerateCommunityExercises(userId: number) {
-    const user = database.getUserById(userId);
+  async function canModerateCommunityExercises(userId: number) {
+    const user = await database.getUserById(userId);
     if (!user) return false;
     if (user.id === 1) return true;
     return contributionReviewerEmails.has(String(user.email || "").trim().toLowerCase());
   }
 
-  app.get("/api/settings", requireAuth, (req: any, res: any) => {
+  app.get("/api/settings", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    res.json(database.getSettings(userId));
+    res.json(await database.getSettings(userId));
   });
 
-  app.put("/api/settings", requireAuth, (req: any, res: any) => {
+  app.put("/api/settings", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const {
       nativeLanguage,
@@ -36,7 +36,7 @@ function registerUserRoutes(app: any, deps: any): void {
     } = req.body || {};
 
     const devUnlockAll = process.env.NODE_ENV !== "production" && Boolean(unlockAllLessons);
-    const row = database.saveSettings(userId, {
+    const row = await database.saveSettings(userId, {
       nativeLanguage: nativeLanguage || "english",
       targetLanguage: targetLanguage || "spanish",
       dailyGoal: Number.isInteger(dailyGoal) ? dailyGoal : 30,
@@ -55,15 +55,15 @@ function registerUserRoutes(app: any, deps: any): void {
     res.json(row);
   });
 
-  app.get("/api/user/achievements", requireAuth, (req: any, res: any) => {
+  app.get("/api/user/achievements", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    res.json(database.getUserAchievements(userId));
+    res.json(await database.getUserAchievements(userId));
   });
 
-  app.get("/api/progress", requireAuth, (req: any, res: any) => {
+  app.get("/api/progress", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "").toLowerCase();
-    const progress = database.getProgress(userId, language || undefined);
+    const progress = await database.getProgress(userId, language || undefined);
 
     res.json({
       totalXp: progress.totalXp,
@@ -75,31 +75,31 @@ function registerUserRoutes(app: any, deps: any): void {
     });
   });
 
-  app.get("/api/progress-overview", requireAuth, (req: any, res: any) => {
+  app.get("/api/progress-overview", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    const overview = database.getProgressOverview(userId);
+    const overview = await database.getProgressOverview(userId);
     res.json(overview);
   });
 
-  app.get("/api/stats", requireAuth, (req: any, res: any) => {
+  app.get("/api/stats", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    const settings = database.getSettings(userId);
+    const settings = await database.getSettings(userId);
     const language = String(req.query.language || settings.targetLanguage || "spanish").toLowerCase();
-    const stats = database.getStats(userId, language);
+    const stats = await database.getStats(userId, language);
     res.json(stats);
   });
 
-  app.get("/api/visitors/stats", requireAuth, (req: any, res: any) => {
+  app.get("/api/visitors/stats", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    if (!canModerateCommunityExercises(userId)) {
+    if (!await canModerateCommunityExercises(userId)) {
       return res.status(403).json({ error: "Reviewer access required" });
     }
     const sinceDays = Number.parseInt(String(req.query.sinceDays || "30"), 10);
-    const stats = database.getVisitorStats({ sinceDays });
+    const stats = await database.getVisitorStats({ sinceDays });
     res.json(stats);
   });
 
-  app.post("/api/community/contribute", requireAuth, (req: any, res: any) => {
+  app.post("/api/community/contribute", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const {
       language,
@@ -121,7 +121,7 @@ function registerUserRoutes(app: any, deps: any): void {
       return res.status(400).json({ error: "difficulty must be one of a1, a2, b1, b2" });
     }
 
-    const saved = database.createCommunityExercise({
+    const saved = await database.createCommunityExercise({
       userId,
       language,
       category,
@@ -149,9 +149,9 @@ function registerUserRoutes(app: any, deps: any): void {
     });
   });
 
-  app.get("/api/community/contributions", requireAuth, (req: any, res: any) => {
+  app.get("/api/community/contributions", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    const canModerate = canModerateCommunityExercises(userId);
+    const canModerate = await canModerateCommunityExercises(userId);
     const scope = String(req.query.scope || "").trim().toLowerCase();
     const includeAll = canModerate && scope === "all";
     const moderationStatus = String(req.query.status || "").trim().toLowerCase();
@@ -159,7 +159,7 @@ function registerUserRoutes(app: any, deps: any): void {
     const category = String(req.query.category || "").trim();
     const limit = Number.parseInt(String(req.query.limit || "50"), 10);
 
-    const submissions = database.listCommunityExercises({
+    const submissions = await database.listCommunityExercises({
       userId,
       includeAll,
       language,
@@ -176,9 +176,9 @@ function registerUserRoutes(app: any, deps: any): void {
     });
   });
 
-  app.patch("/api/community/contributions/:id", requireAuth, (req: any, res: any) => {
+  app.patch("/api/community/contributions/:id", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    if (!canModerateCommunityExercises(userId)) {
+    if (!await canModerateCommunityExercises(userId)) {
       return res.status(403).json({ error: "Reviewer access required" });
     }
 
@@ -192,7 +192,7 @@ function registerUserRoutes(app: any, deps: any): void {
       return res.status(400).json({ error: "moderationStatus must be pending, approved, rejected, or changes_requested" });
     }
 
-    const submission = database.updateCommunityExerciseModerationStatus({
+    const submission = await database.updateCommunityExerciseModerationStatus({
       id,
       moderationStatus,
       reviewerComment,
@@ -222,21 +222,21 @@ function registerUserRoutes(app: any, deps: any): void {
     });
   });
 
-  app.get("/api/community/contributions/pending-count", requireAuth, (req: any, res: any) => {
+  app.get("/api/community/contributions/pending-count", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    if (!canModerateCommunityExercises(userId)) {
+    if (!await canModerateCommunityExercises(userId)) {
       return res.json({ count: 0 });
     }
-    return res.json({ count: database.getPendingCommunityExerciseCount() });
+    return res.json({ count: await database.getPendingCommunityExerciseCount() });
   });
 
-  app.get("/api/bookmarks", requireAuth, (req: any, res: any) => {
+  app.get("/api/bookmarks", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "").trim() || undefined;
-    return res.json(database.getBookmarks(userId, language));
+    return res.json(await database.getBookmarks(userId, language));
   });
 
-  app.post("/api/bookmarks", requireAuth, (req: any, res: any) => {
+  app.post("/api/bookmarks", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const questionId = String(req.body?.questionId || "").trim();
     const prompt = String(req.body?.prompt || "").trim();
@@ -246,25 +246,25 @@ function registerUserRoutes(app: any, deps: any): void {
     if (!questionId || !prompt || !answer || !language) {
       return res.status(400).json({ error: "questionId, prompt, answer, and language are required" });
     }
-    database.addBookmark(userId, { questionId, prompt, answer, language, category });
+    await database.addBookmark(userId, { questionId, prompt, answer, language, category });
     return res.json({ ok: true, bookmarked: true });
   });
 
-  app.delete("/api/bookmarks/:questionId", requireAuth, (req: any, res: any) => {
+  app.delete("/api/bookmarks/:questionId", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const questionId = String(req.params.questionId || "").trim();
     if (!questionId) return res.status(400).json({ error: "questionId is required" });
-    database.removeBookmark(userId, questionId);
+    await database.removeBookmark(userId, questionId);
     return res.json({ ok: true, bookmarked: false });
   });
 
-  app.get("/api/saved-words", requireAuth, (req: any, res: any) => {
+  app.get("/api/saved-words", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "").trim() || undefined;
-    return res.json(database.getSavedReviewWords(userId, language));
+    return res.json(await database.getSavedReviewWords(userId, language));
   });
 
-  app.post("/api/saved-words", requireAuth, (req: any, res: any) => {
+  app.post("/api/saved-words", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const language = String(req.body?.language || "").trim();
     const word = String(req.body?.word || "").trim();
@@ -274,18 +274,18 @@ function registerUserRoutes(app: any, deps: any): void {
     if (!language || !word) {
       return res.status(400).json({ error: "language and word are required" });
     }
-    database.saveReviewWord(userId, { language, word, translation, storyId, category });
+    await database.saveReviewWord(userId, { language, word, translation, storyId, category });
     return res.json({ ok: true, saved: true });
   });
 
-  app.delete("/api/saved-words/:word", requireAuth, (req: any, res: any) => {
+  app.delete("/api/saved-words/:word", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const word = String(req.params.word || "").trim();
     const language = String(req.query.language || req.body?.language || "").trim();
     if (!word || !language) {
       return res.status(400).json({ error: "language and word are required" });
     }
-    database.removeReviewWord(userId, language, word);
+    await database.removeReviewWord(userId, language, word);
     return res.json({ ok: true, saved: false });
   });
 }

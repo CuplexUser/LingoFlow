@@ -2,8 +2,13 @@ import type { } from "node"; // ensure file is treated as a module
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { configureTestDb } = require("./helpers/testDb.ts");
+const { configureTestDb, initTestDb } = require("./helpers/testDb.ts");
 configureTestDb(__filename);
+
+// Schema creation is an awaited bootstrap now rather than an import side effect.
+test.before(async () => {
+  await initTestDb();
+});
 
 const { createApp } = require("../index.ts");
 const database = require("../db.ts");
@@ -17,11 +22,16 @@ interface AuthHeaders {
 class TestServer {
   private readonly server: any;
   readonly base: string;
-  constructor() {
-    const app = createApp();
+  constructor(app: any) {
     this.server = app.listen(0);
     const { port } = this.server.address() as { port: number };
     this.base = `http://127.0.0.1:${port}`;
+  }
+
+  // createApp() is async now — it awaits the database bootstrap — so construction
+  // goes through a factory rather than the constructor.
+  static async start(): Promise<TestServer> {
+    return new TestServer(await createApp());
   }
   close(): void {
     this.server.close();
@@ -52,7 +62,7 @@ async function createAuthHeaders(base: string, label: string): Promise<AuthHeade
 }
 
 test("GET /api/stories lists stories and supports filtering", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "story-list");
 
@@ -71,7 +81,7 @@ test("GET /api/stories lists stories and supports filtering", async (t) => {
 });
 
 test("GET /api/stories/:id returns the full story and 404s for unknown ids", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "story-fetch");
 
@@ -89,17 +99,17 @@ test("GET /api/stories/:id returns the full story and 404s for unknown ids", asy
 });
 
 test("story endpoints require authentication", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const res = await fetch(`${srv.base}/api/stories`);
   assert.equal(res.status, 401);
 });
 
 test("POST /api/saved-words is idempotent and creates a single SRS item", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "saved-words");
-  const userId = database.getUserByEmail(headers.email).id;
+  const userId = (await database.getUserByEmail(headers.email)).id;
 
   const payload = {
     language: "russian",
@@ -127,7 +137,7 @@ test("POST /api/saved-words is idempotent and creates a single SRS item", async 
   assert.equal(matches[0].translation, "Moscow");
 
   // A single item_progress row should back the saved word (idempotent re-save).
-  const poolItems = database.getSavedWordPoolItems(userId, "russian");
+  const poolItems = await database.getSavedWordPoolItems(userId, "russian");
   assert.equal(
     poolItems.filter((item: any) => item.id === "saved-word:москве").length,
     1,
@@ -145,7 +155,7 @@ test("POST /api/saved-words is idempotent and creates a single SRS item", async 
 });
 
 test("POST /api/stories/:id/complete marks a story completed, per user and idempotently", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "story-complete");
 
@@ -179,7 +189,7 @@ test("GET /api/admin/content-stats reports story coverage per language", async (
   const reviewerEmail = `stats-admin-${Date.now()}-${Math.random().toString(16).slice(2)}@example.com`;
   const prevReviewers = process.env.CONTRIBUTION_REVIEWER_EMAILS;
   process.env.CONTRIBUTION_REVIEWER_EMAILS = reviewerEmail;
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => {
     srv.close();
     if (prevReviewers === undefined) delete process.env.CONTRIBUTION_REVIEWER_EMAILS;
@@ -223,7 +233,7 @@ test("GET /api/admin/content-stats reports story coverage per language", async (
 });
 
 test("GET /api/stories/:id strips the quiz answer key", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "quiz-strip");
 
@@ -239,7 +249,7 @@ test("GET /api/stories/:id strips the quiz answer key", async (t) => {
 });
 
 test("POST /api/stories/:id/complete scores the quiz and awards XP once", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "quiz-score");
 
@@ -267,7 +277,7 @@ test("POST /api/stories/:id/complete scores the quiz and awards XP once", async 
 });
 
 test("story progress is saved and resumes via the library summary", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "story-progress");
 
@@ -288,7 +298,7 @@ test("story progress is saved and resumes via the library summary", async (t) =>
 });
 
 test("GET /api/stories/recommended returns an uncompleted story", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "story-rec");
 
@@ -301,17 +311,17 @@ test("GET /api/stories/recommended returns an uncompleted story", async (t) => {
 });
 
 test("saved words surface as items in the practice pool", async (t) => {
-  const srv = new TestServer();
+  const srv = await TestServer.start();
   t.after(() => srv.close());
   const headers = await createAuthHeaders(srv.base, "saved-pool");
-  const userId = database.getUserByEmail(headers.email).id;
+  const userId = (await database.getUserByEmail(headers.email)).id;
 
   await fetch(`${srv.base}/api/saved-words`, {
     method: "POST", headers,
     body: JSON.stringify({ language: "russian", word: "город", translation: "city", storyId: "ru-story-a1-day" })
   });
 
-  const poolItems = database.getSavedWordPoolItems(userId, "russian");
+  const poolItems = await database.getSavedWordPoolItems(userId, "russian");
   const match = poolItems.find((item: any) => item.correctAnswer === "город");
   assert.ok(match, "saved word should appear in the practice pool");
   assert.equal(match.prompt, "city");

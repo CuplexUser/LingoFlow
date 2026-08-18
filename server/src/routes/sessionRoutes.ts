@@ -92,29 +92,29 @@ function registerSessionRoutes(
     crypto
   } = deps;
 
-  app.post("/api/session/start", requireAuth, (req: any, res: any) => {
+  app.post("/api/session/start", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const { language, category, count, mode } = req.body || {};
     if (!language || !category) {
       return res.status(400).json({ error: "language and category are required" });
     }
 
-    database.pruneExpiredActiveSessions(userId, database.toIsoDate());
+    await database.pruneExpiredActiveSessions(userId, database.toIsoDate());
     const safeCount = Number.isInteger(count) ? Math.max(6, Math.min(15, count)) : 10;
     const isMistakesMode = String(mode || "") === "mistakes";
-    const mastery = isMistakesMode ? 0 : database.getCategoryMastery(userId, language, category);
-    const settings = database.getSettings(userId);
-    const recentAccuracy = isMistakesMode ? null : database.getRecentCategoryAccuracy(userId, language, category, 5);
+    const mastery = isMistakesMode ? 0 : await database.getCategoryMastery(userId, language, category);
+    const settings = await database.getSettings(userId);
+    const recentAccuracy = isMistakesMode ? null : await database.getRecentCategoryAccuracy(userId, language, category, 5);
     const hints = isMistakesMode
       ? { dueItemIds: [], weakItemIds: [], notDueItemIds: [] }
-      : database.getItemSelectionHints(userId, language, category, database.toIsoDate());
+      : await database.getItemSelectionHints(userId, language, category, database.toIsoDate());
     const mistakeSelection = isMistakesMode
-      ? database.getMistakeReviewSelection(userId, language, safeCount)
+      ? await database.getMistakeReviewSelection(userId, language, safeCount)
       : { itemIds: [], count: 0, categories: [] };
     // Practice modes draw from a shared pool; fold in the learner's saved story
     // words so they resurface in practice/speak/listen sessions.
     const extraPoolItems = String(mode || "")
-      ? database.getSavedWordPoolItems(userId, language)
+      ? await database.getSavedWordPoolItems(userId, language)
       : [];
     const session = generateSession({
       language,
@@ -140,7 +140,7 @@ function registerSessionRoutes(
 
     const sessionId = crypto.randomUUID();
     const expiresAt = database.toIsoDate(new Date(Date.now() + (1000 * 60 * 60 * 24 * 2)));
-    database.createActiveSession({
+    await database.createActiveSession({
       userId,
       sessionId,
       language,
@@ -165,7 +165,7 @@ function registerSessionRoutes(
 
   // Speed Match mini-game word pool: known flashcards + bookmarks, topped up
   // from the per-language practice pool, plus the current per-language highscore.
-  app.get("/api/practice/speed-match", requireAuth, (req: any, res: any) => {
+  app.get("/api/practice/speed-match", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const language = String(req.query.language || "").toLowerCase();
     if (!language) {
@@ -187,7 +187,7 @@ function registerSessionRoutes(
     };
 
     // 1. Known flashcards — resolve item ids to prompt/answer text via content.
-    const knownItems = database.getKnownFlashcardItems(userId, language);
+    const knownItems = await database.getKnownFlashcardItems(userId, language);
     if (knownItems.length) {
       const textById = new Map<string, { prompt: string; answer: string }>();
       for (const item of getAllItems(language) as any[]) {
@@ -203,7 +203,7 @@ function registerSessionRoutes(
     }
 
     // 2. Bookmarked flashcards (prompt/answer text stored directly).
-    for (const bookmark of database.getBookmarks(userId, language) as any[]) {
+    for (const bookmark of await database.getBookmarks(userId, language) as any[]) {
       pushPair(bookmark.prompt, bookmark.answer);
     }
 
@@ -225,11 +225,11 @@ function registerSessionRoutes(
 
     return res.json({
       pairs,
-      highscore: database.getSpeedMatchHighscore(userId, language)
+      highscore: await database.getSpeedMatchHighscore(userId, language)
     });
   });
 
-  app.post("/api/practice/speed-match/score", requireAuth, (req: any, res: any) => {
+  app.post("/api/practice/speed-match/score", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const { language, score } = req.body || {};
     if (!language) {
@@ -238,18 +238,18 @@ function registerSessionRoutes(
     if (!Number.isInteger(score) || score < 0) {
       return res.status(400).json({ error: "score must be a non-negative integer" });
     }
-    const result = database.updateSpeedMatchHighscore(userId, String(language).toLowerCase(), score);
+    const result = await database.updateSpeedMatchHighscore(userId, String(language).toLowerCase(), score);
     return res.json(result);
   });
 
-  app.post("/api/session/daily", requireAuth, (req: any, res: any) => {
+  app.post("/api/session/daily", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const { language } = req.body || {};
     if (!language) {
       return res.status(400).json({ error: "language is required" });
     }
 
-    database.pruneExpiredActiveSessions(userId, database.toIsoDate());
+    await database.pruneExpiredActiveSessions(userId, database.toIsoDate());
     const today = database.toIsoDate();
     const overview = getCourseOverview(language);
     const candidateCategories = Array.isArray(overview)
@@ -293,7 +293,7 @@ function registerSessionRoutes(
 
     const sessionId = crypto.randomUUID();
     const expiresAt = database.toIsoDate(new Date(Date.now() + (1000 * 60 * 60 * 24 * 2)));
-    database.createActiveSession({
+    await database.createActiveSession({
       userId,
       sessionId,
       language,
@@ -316,7 +316,7 @@ function registerSessionRoutes(
     });
   });
 
-  app.post("/api/session/complete", requireAuth, (req: any, res: any) => {
+  app.post("/api/session/complete", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const {
       sessionId,
@@ -334,7 +334,7 @@ function registerSessionRoutes(
       return res.status(400).json({ error: "Too many attempts in payload" });
     }
 
-    const session = database.getActiveSession(String(sessionId), userId);
+    const session = await database.getActiveSession(String(sessionId), userId);
     if (!session) return res.status(404).json({ error: "Session not found" });
     if (session.completed) return res.status(409).json({ error: "Session already completed" });
     if (session.language !== language || session.category !== category) {
@@ -442,9 +442,9 @@ function registerSessionRoutes(
     const runInTransaction = typeof database.runInTransaction === "function"
       ? database.runInTransaction.bind(database)
       : (operation: () => any) => operation();
-    const completion = runInTransaction(() => {
+    const completion = await runInTransaction(async () => {
       const saved = isPracticeSession
-        ? database.recordPracticeXp({
+        ? await database.recordPracticeXp({
           userId,
           language,
           category,
@@ -455,7 +455,7 @@ function registerSessionRoutes(
           xpGained: xp.xpGained,
           today
         })
-        : database.recordSession({
+        : await database.recordSession({
           userId,
           language,
           category,
@@ -468,9 +468,11 @@ function registerSessionRoutes(
         });
 
       if (!isPracticeSession || isMistakePracticeSession) {
-        evaluatedAttempts.forEach((entry) => {
+        // Sequential rather than forEach: these run inside the transaction and each
+        // one must complete before the next.
+        for (const entry of evaluatedAttempts) {
           const entryCategory = String((entry.question as any).sourceCategory || session.category);
-          database.upsertItemProgressAttempt({
+          await database.upsertItemProgressAttempt({
             userId,
             language,
             category: entryCategory,
@@ -481,7 +483,7 @@ function registerSessionRoutes(
             today,
             flashcardKnown: entry.question.type === "flashcard" && entry.correct
           });
-          database.recordAttemptHistory({
+          await database.recordAttemptHistory({
             userId,
             sessionId,
             language,
@@ -492,25 +494,25 @@ function registerSessionRoutes(
             correct: entry.correct,
             errorType: entry.errorType
           });
-          database.recordExerciseUsage({
+          await database.recordExerciseUsage({
             userId,
             language,
             category: entryCategory,
             itemId: entry.question.id,
             correct: entry.correct
           });
-        });
+        }
       }
 
-      database.markActiveSessionCompleted(sessionId, userId);
-      const progress = isPracticeSession ? database.getProgress(userId, language) : null;
+      await database.markActiveSessionCompleted(sessionId, userId);
+      const progress = isPracticeSession ? await database.getProgress(userId, language) : null;
       const categoryProgress = isPracticeSession
         ? progress?.categories?.find((item: any) => item.category === category)
         : null;
       return { saved, categoryProgress };
     });
 
-    const unlockedAchievements = database.checkAndGrantAchievements(userId, {
+    const unlockedAchievements = await database.checkAndGrantAchievements(userId, {
       streak: completion.saved.streak,
       totalXp: completion.saved.totalXp ?? 0,
       language,
