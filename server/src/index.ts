@@ -103,17 +103,35 @@ const {
 let bootstrapped: Promise<void> | null = null;
 
 async function runBootstrap(): Promise<void> {
+  // Temporary timing instrumentation to find where cold-start latency goes in
+  // production (see docs/TODO.md "slow page load" investigation). Safe to remove
+  // once the slow step is identified and fixed.
+  const bootStart = Date.now();
+  let mark = bootStart;
+  const lap = (label: string) => {
+    const now = Date.now();
+    console.log(`[startup] ${label}: ${now - mark}ms`);
+    mark = now;
+  };
+
   await database.initSchema();
+  lap("initSchema");
+
   await reconcileContentFingerprints();
+  lap("reconcileContentFingerprints");
 
   // Inject already-approved community exercises into the live content pool at startup
-  for (const item of await database.getApprovedCommunityExercises()) {
+  const approved = await database.getApprovedCommunityExercises();
+  lap("getApprovedCommunityExercises");
+  for (const item of approved) {
     injectCommunityItem(item);
   }
 
   // Rebuild content-sourced word translations at startup (LibreTranslate rows are preserved)
   const count = await rebuildContentWordTranslations(database);
+  lap("rebuildContentWordTranslations");
   console.log(`[startup] Seeded ${count} word translations from content`);
+  console.log(`[startup] runBootstrap total: ${Date.now() - bootStart}ms`);
 }
 
 // Idempotent: repeated calls (tests build several apps in one process) share one run.

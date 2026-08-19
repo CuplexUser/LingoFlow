@@ -3059,19 +3059,42 @@ async function clearWordTranslations(): Promise<void> {
 let schemaReady: Promise<void> | null = null;
 
 async function runSchemaSetup(): Promise<void> {
+  // Temporary timing instrumentation to find where cold-start latency goes in
+  // production (see docs/TODO.md "slow page load" investigation). Safe to remove
+  // once the slow step is identified and fixed.
+  let mark = Date.now();
+  const lap = (label: string) => {
+    const now = Date.now();
+    console.log(`[startup] schema: ${label}: ${now - mark}ms`);
+    mark = now;
+  };
+
   await migrateLegacySingleUserSchema();
+  lap("migrateLegacySingleUserSchema");
   await createUsersTable();
+  lap("createUsersTable");
   await ensureUsersColumns();
+  lap("ensureUsersColumns");
   await createCoreTables();
+  lap("createCoreTables");
   await createIndexes();
+  lap("createIndexes");
   await ensureSettingsColumns();
+  lap("ensureSettingsColumns");
   await ensureCommunityExercisesColumns();
+  lap("ensureCommunityExercisesColumns");
   await ensureItemProgressColumns();
+  lap("ensureItemProgressColumns");
   await ensureLanguageProgressColumns();
+  lap("ensureLanguageProgressColumns");
   await ensureStoryCompletionsColumns();
+  lap("ensureStoryCompletionsColumns");
   await createWordTranslationsTable();
+  lap("createWordTranslationsTable");
   await seedDefaultUser();
+  lap("seedDefaultUser");
   await maybeMigrateLegacyJson();
+  lap("maybeMigrateLegacyJson");
 }
 
 function initSchema(): Promise<void> {
