@@ -96,9 +96,41 @@ function getEmailTransporter() {
   });
 }
 
+// Resend (https://resend.com) is the preferred email provider -- a plain HTTPS API
+// call, no SMTP transport needed. SMTP (via nodemailer/getEmailTransporter) remains as
+// a fallback for deployments that configure SMTP_* instead of RESEND_API_KEY.
+async function sendViaResend({ apiKey, emailFrom, toEmail, subject, text, html }) {
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ from: emailFrom, to: toEmail, subject, text, html })
+  });
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    throw new Error(`Resend API error ${response.status}: ${body}`);
+  }
+}
+
+async function deliverEmail({ emailFrom, toEmail, subject, text, html }) {
+  if (process.env.NODE_ENV === "test") return false;
+
+  const resendApiKey = String(process.env.RESEND_API_KEY || "").trim();
+  if (resendApiKey) {
+    await sendViaResend({ apiKey: resendApiKey, emailFrom, toEmail, subject, text, html });
+    return true;
+  }
+
+  const transporter = getEmailTransporter();
+  if (!transporter) return false;
+  await transporter.sendMail({ from: emailFrom, to: toEmail, subject, text, html });
+  return true;
+}
+
 async function sendVerificationEmail({ publicAppUrl, emailFrom, toEmail, displayName, token }) {
   const link = buildEmailVerificationLink(publicAppUrl, token);
-  const transporter = getEmailTransporter();
   const subject = "Verify your LingoFlow account";
   const safeName = String(displayName || "Learner");
   const text = [
@@ -109,30 +141,22 @@ async function sendVerificationEmail({ publicAppUrl, emailFrom, toEmail, display
     "",
     "This link expires in 24 hours."
   ].join("\n");
-
-  if (!transporter) {
-    console.log(`[EMAIL_DEV] Verify ${toEmail}: ${link}`);
-    return { delivered: false, link };
-  }
-
-  await transporter.sendMail({
-    from: emailFrom,
-    to: toEmail,
-    subject,
-    text,
-    html: `
+  const html = `
       <p>Hi ${safeName},</p>
       <p>Welcome to LingoFlow. Confirm your email using the button below:</p>
       <p><a href="${link}" style="padding:10px 14px;border-radius:8px;background:#292524;color:#fff;text-decoration:none;">Verify Email</a></p>
       <p>This link expires in 24 hours.</p>
-    `
-  });
-  return { delivered: true, link };
+    `;
+
+  const delivered = await deliverEmail({ emailFrom, toEmail, subject, text, html });
+  if (!delivered) {
+    console.log(`[EMAIL_DEV] Verify ${toEmail}: ${link}`);
+  }
+  return { delivered, link };
 }
 
 async function sendPasswordResetEmail({ publicAppUrl, emailFrom, toEmail, displayName, token }) {
   const link = buildPasswordResetLink(publicAppUrl, token);
-  const transporter = getEmailTransporter();
   const subject = "Reset your LingoFlow password";
   const safeName = String(displayName || "Learner");
   const text = [
@@ -144,26 +168,19 @@ async function sendPasswordResetEmail({ publicAppUrl, emailFrom, toEmail, displa
     "",
     "This link expires in 1 hour."
   ].join("\n");
-
-  if (!transporter) {
-    console.log(`[EMAIL_DEV] Reset ${toEmail}: ${link}`);
-    return { delivered: false, link };
-  }
-
-  await transporter.sendMail({
-    from: emailFrom,
-    to: toEmail,
-    subject,
-    text,
-    html: `
+  const html = `
       <p>Hi ${safeName},</p>
       <p>A password reset was requested for your LingoFlow account.</p>
       <p><a href="${link}" style="padding:10px 14px;border-radius:8px;background:#292524;color:#fff;text-decoration:none;">Reset Password</a></p>
       <p>This link expires in 1 hour.</p>
       <p>If you did not request this, you can ignore this email.</p>
-    `
-  });
-  return { delivered: true, link };
+    `;
+
+  const delivered = await deliverEmail({ emailFrom, toEmail, subject, text, html });
+  if (!delivered) {
+    console.log(`[EMAIL_DEV] Reset ${toEmail}: ${link}`);
+  }
+  return { delivered, link };
 }
 
 function registerAuthRoutes(app, deps) {
@@ -276,13 +293,22 @@ function registerAuthRoutes(app, deps) {
         expiresAt
       });
 
-      await sendVerificationEmail({
-        publicAppUrl,
-        emailFrom,
-        toEmail: created.email,
-        displayName: created.displayName,
-        token: verifyToken
-      });
+      try {
+        await sendVerificationEmail({
+          publicAppUrl,
+          emailFrom,
+          toEmail: created.email,
+          displayName: created.displayName,
+          token: verifyToken
+        });
+      } catch (emailError) {
+        logger.logAuthEvent("register_verification_email_failed", {
+          requestId: req.requestId,
+          userId: created.id,
+          reason: emailError instanceof Error ? emailError.message : "unknown",
+          emailFingerprint: emailFingerprint(email)
+        });
+      }
 
       logger.logAuthEvent("register_success", {
         requestId: req.requestId,
@@ -376,13 +402,22 @@ function registerAuthRoutes(app, deps) {
       token,
       expiresAt
     });
-    await sendVerificationEmail({
-      publicAppUrl,
-      emailFrom,
-      toEmail: email,
-      displayName: user.displayName,
-      token
-    });
+    try {
+      await sendVerificationEmail({
+        publicAppUrl,
+        emailFrom,
+        toEmail: email,
+        displayName: user.displayName,
+        token
+      });
+    } catch (emailError) {
+      logger.logAuthEvent("resend_verification_email_failed", {
+        requestId: req.requestId,
+        userId: user.id,
+        reason: emailError instanceof Error ? emailError.message : "unknown",
+        emailFingerprint: emailFingerprint(email)
+      });
+    }
 
     return res.json({
       ok: true,

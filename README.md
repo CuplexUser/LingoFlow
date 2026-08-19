@@ -221,7 +221,8 @@ Create `server/.env` (copy `server/.env.example`) for local development.
 | `GOOGLE_OAUTH_CLIENT_SECRET` | server | Google OAuth2 web client secret |
 | `GOOGLE_OAUTH_REDIRECT_URI` | server | Callback URL registered in Google console (default: `http://localhost:4000/api/auth/google/callback`) |
 | `PUBLIC_APP_URL` | server | Base URL used in verification/reset emails (e.g. `https://app.example.com`) |
-| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE`, `EMAIL_FROM` | server | SMTP delivery for transactional emails |
+| `RESEND_API_KEY` | server | Preferred email delivery — [Resend](https://resend.com) HTTPS API. Takes priority over SMTP when set |
+| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE`, `EMAIL_FROM` | server | SMTP fallback for transactional emails, used when `RESEND_API_KEY` is unset. `EMAIL_FROM` is used for both delivery paths |
 | `CONTRIBUTION_REVIEWER_EMAILS` | server | Comma-separated moderator email list |
 | `LOG_LEVEL` | server | `debug` \| `info` \| `warn` \| `error` (default: `info`) |
 | `VITE_API_BASE` | client | API base path/URL (default: `/api`) |
