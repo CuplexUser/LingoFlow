@@ -57,5 +57,8 @@ function writeVersionFile(version) {
   fs.writeFileSync(target, content, "utf8");
 }
 
-const version = normalizeVersion(readGitDescribe());
+// Vercel's build containers don't include .git (confirmed via build logs: "fatal: not a
+// git repository"), so git-based resolution never works there. APP_VERSION, set as a Vercel
+// project env var and bumped alongside each release tag, takes precedence when present.
+const version = process.env.APP_VERSION || normalizeVersion(readGitDescribe());
 writeVersionFile(version);
