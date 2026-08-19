@@ -2,8 +2,7 @@ const fs: typeof import("fs") = require("fs");
 const path: typeof import("path") = require("path");
 const crypto: typeof import("crypto") = require("crypto");
 const { CATEGORIES, LEVEL_ORDER } = require("./constants.ts");
-
-const CONTENT_DIR = path.join(__dirname, "..", "..", "content", "languages");
+const { CONTENT_DIR } = require("../paths.ts");
 const SUPPORTED_EXERCISE_TYPES = [
   "flashcard",
   "matching",

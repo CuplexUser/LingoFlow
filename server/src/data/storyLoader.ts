@@ -1,8 +1,7 @@
 const fs: typeof import("fs") = require("fs");
 const path: typeof import("path") = require("path");
 const { CATEGORIES, LEVEL_ORDER } = require("./constants.ts");
-
-const STORIES_DIR = path.join(__dirname, "..", "..", "content", "stories");
+const { STORIES_DIR } = require("../paths.ts");
 
 interface StorySentence {
   target: string;

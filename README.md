@@ -267,6 +267,35 @@ Otherwise keep dev dependencies — the build tools (`vite`, `esbuild`, `tsc`) l
 </details>
 
 <details>
+<summary><b>Deploying to Vercel</b></summary>
+
+The repo is set up as a single Vercel project at the repo root — `vercel.json` builds
+both workspaces (`npm run vercel-build`), serves the client's static build
+(`client/dist`) from the CDN, and runs the Express API as one serverless Function
+(`api/index.js`, wrapping `server/dist/index.js`) behind a `/api/*` rewrite. The client
+and API share one domain, so the default `VITE_API_BASE` (`/api`) needs no override and
+CORS is same-origin.
+
+1. Import the repo into a Vercel project (dashboard or `vercel link`). No framework
+   preset is needed — `vercel.json` covers the build/output configuration.
+2. Point `DATABASE_URL` at your Neon Postgres database — prefer the **pooled** connection
+   string, since each Function invocation may be a fresh instance. `LINGOFLOW_DB_DRIVER`
+   does not need to be set; Postgres is selected automatically whenever `DATABASE_URL` is
+   present.
+3. Set the rest of the server env vars from the table above in the Vercel dashboard
+   (Production and Preview): `LINGOFLOW_AUTH_SECRET`, `GOOGLE_OAUTH_CLIENT_ID`,
+   `GOOGLE_OAUTH_CLIENT_SECRET`, `GOOGLE_OAUTH_REDIRECT_URI` (the deployed domain's
+   `/api/auth/google/callback` — also add this URL to the OAuth client's allowed redirect
+   URIs in Google Cloud Console), `PUBLIC_APP_URL` (the deployed domain, used in
+   verification emails), `SMTP_*` / `EMAIL_FROM`, `CONTRIBUTION_REVIEWER_EMAILS`,
+   `LOG_LEVEL`.
+4. Deploy. The Function bootstraps the DB schema and content on first invocation per
+   warm instance (same idempotent `initSchema()` bootstrap the long-running server runs),
+   not on every request.
+
+</details>
+
+<details>
 <summary><b>Project Structure</b></summary>
 
 ```

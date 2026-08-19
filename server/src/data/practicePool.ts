@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const { PRACTICE_WORDS_DIR } = require("../paths.ts");
 
-const PRACTICE_WORDS_DIR = path.join(__dirname, "..", "..", "content", "practice_words");
 const cache = new Map();
 
 function loadPracticeWords(key) {
