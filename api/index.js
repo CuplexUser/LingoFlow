@@ -1,4 +1,3 @@
-/* global console */
 // Vercel serverless entrypoint. Wraps the Express app built by server/dist/index.js
 // (produced by `npm run build --prefix server` as part of the Vercel build command).
 // createApp() is async (it awaits DB bootstrap), so the resulting app is cached at
@@ -8,14 +7,7 @@ const { createApp } = require("../server/dist/index.js");
 
 let appPromise;
 function getApp() {
-  if (!appPromise) {
-    const start = Date.now();
-    console.log("[startup] cold lambda: creating app");
-    appPromise = createApp().then((app) => {
-      console.log(`[startup] createApp total: ${Date.now() - start}ms`);
-      return app;
-    });
-  }
+  if (!appPromise) appPromise = createApp();
   return appPromise;
 }
 

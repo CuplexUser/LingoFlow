@@ -890,8 +890,21 @@ async function sanitizeLanguageProgressRowsForUser(userId = 1) {
   await tx();
 }
 
+// Runs on every cold start. total_xp/streak/last_completed_date on language_progress (and
+// the progress aggregate) are kept correct incrementally by real session completions -- see
+// completeSession / completeStoryReading, which already update both tables directly. This
+// function only needs to handle what those incremental updates cannot: backfilling rows for
+// legacy session_history data, ensuring a row exists for every user's current target
+// language, decaying a streak when a day passes with no activity (nothing else notices that),
+// and repairing rows left over from old invalid language ids. Each step is batched across all
+// users in one or two round trips rather than looping per user/row, since looping here used to
+// cost seconds of sequential round trips per cold start once real users existed.
 async function bootstrapLanguageProgress() {
-  await db.prepare(`
+  // 1. Backfill language_progress for any session_history rows that predate it. RETURNING
+  // isolates just the newly-created rows so the per-row streak computation below (day-gap
+  // logic that isn't portable SQL across SQLite/Postgres) only runs for genuinely new legacy
+  // data, not for every row on every cold start.
+  const backfilled = await db.prepare(`
     INSERT INTO language_progress (
       user_id, language, total_xp, streak, learner_level, last_completed_date
     )
@@ -905,61 +918,73 @@ async function bootstrapLanguageProgress() {
     FROM session_history sh
     GROUP BY sh.user_id, sh.language
     ON CONFLICT (user_id, language) DO NOTHING
-  `).run();
-
-  const targetRows = await db.prepare(`
-    SELECT user_id, target_language
-    FROM settings
-  `).all();
-  for (const row of targetRows) {
-    await ensureLanguageProgress(row.user_id, row.target_language);
-  }
-
-  const languageRows = await db.prepare(`
-    SELECT user_id, language
-    FROM language_progress
+    RETURNING user_id, language
   `).all();
 
-  for (const row of languageRows) {
-    const totals = await db.prepare(`
-      SELECT
-        COALESCE(SUM(xp_gained), 0) AS total_xp,
-        MAX(substr(completed_at, 1, 10)) AS last_completed_date
-      FROM session_history
-      WHERE user_id = ? AND language = ?
-    `).get(row.user_id, row.language);
-
+  for (const row of backfilled) {
     const dates = await db.prepare(`
       SELECT DISTINCT substr(completed_at, 1, 10) AS completed_day
       FROM session_history
       WHERE user_id = ? AND language = ?
       ORDER BY completed_day DESC
     `).all(row.user_id, row.language);
-
     const streak = computeStreakFromDatesDesc(dates.map((entry) => entry.completed_day));
-    const totalXp = Number(totals?.total_xp || 0);
-    await db.prepare(`
-      UPDATE language_progress
-      SET total_xp = ?,
-          streak = ?,
-          learner_level = ?,
-          last_completed_date = ?,
-          updated_at = CURRENT_TIMESTAMP
-      WHERE user_id = ? AND language = ?
-    `).run(
-      totalXp,
-      streak,
-      levelFromXp(totalXp),
-      totals?.last_completed_date || null,
-      row.user_id,
-      row.language
-    );
+    if (streak > 0) {
+      await db.prepare(`
+        UPDATE language_progress SET streak = ?, updated_at = CURRENT_TIMESTAMP
+        WHERE user_id = ? AND language = ?
+      `).run(streak, row.user_id, row.language);
+    }
   }
 
-  const userRows = await db.prepare("SELECT id FROM users").all();
-  for (const row of userRows) {
-    await sanitizeLanguageProgressRowsForUser(row.id);
-    await refreshAggregateProgressFromLanguageProgress(row.id);
+  // 2. Ensure every user has a language_progress row for their current target language, even
+  // with zero sessions so far -- one batched insert instead of one round trip per user.
+  const targetRows = await db.prepare(`SELECT user_id, target_language FROM settings`).all();
+  const TARGET_CHUNK = 400; // 2 params/row, well under Postgres' 65535 bind limit
+  for (let offset = 0; offset < targetRows.length; offset += TARGET_CHUNK) {
+    const chunk = targetRows.slice(offset, offset + TARGET_CHUNK);
+    const params: any[] = [];
+    for (const row of chunk) params.push(row.user_id, normalizeLanguageId(row.target_language, "spanish"));
+    const tuples = chunk.map(() => "(?, ?, 0, 0, 1)").join(", ");
+    await db.prepare(`
+      INSERT INTO language_progress (user_id, language, total_xp, streak, learner_level)
+      VALUES ${tuples}
+      ON CONFLICT (user_id, language) DO NOTHING
+    `).run(...params);
+  }
+
+  // 3. Streak decay: a day can pass with no activity and nothing else notices, since decay
+  // isn't triggered by an event the way an XP gain is. Reconcile that in one batched
+  // statement instead of recomputing every row's full history on every cold start.
+  const yesterday = toIsoDate(new Date(Date.now() - 86400000));
+  const decayed = await db.prepare(`
+    UPDATE language_progress
+    SET streak = 0, updated_at = CURRENT_TIMESTAMP
+    WHERE streak != 0 AND last_completed_date IS NOT NULL AND last_completed_date < ?
+    RETURNING user_id
+  `).all(yesterday);
+
+  // 4. Data-integrity repair for legacy invalid language ids: checked in one query across all
+  // rows instead of two round trips per user. The actual repair (rare in steady state -- it
+  // only fires for users a bad language id was ever written for) stays in the existing helper.
+  const allRows = await db.prepare(`SELECT user_id, language FROM language_progress`).all();
+  const usersWithInvalidRows = new Set<number>();
+  for (const row of allRows) {
+    if (!isValidLanguageId(row.language)) usersWithInvalidRows.add(row.user_id);
+  }
+  for (const userId of usersWithInvalidRows) {
+    await sanitizeLanguageProgressRowsForUser(userId);
+  }
+
+  // 5. Refresh the aggregate `progress` row only for users this run actually touched --
+  // everyone else's aggregate is already correct from the incremental update path.
+  const affectedUsers = new Set<number>([
+    ...backfilled.map((row: any) => row.user_id),
+    ...decayed.map((row: any) => row.user_id),
+    ...usersWithInvalidRows
+  ]);
+  for (const userId of affectedUsers) {
+    await refreshAggregateProgressFromLanguageProgress(userId);
   }
 }
 
@@ -3059,42 +3084,19 @@ async function clearWordTranslations(): Promise<void> {
 let schemaReady: Promise<void> | null = null;
 
 async function runSchemaSetup(): Promise<void> {
-  // Temporary timing instrumentation to find where cold-start latency goes in
-  // production (see docs/TODO.md "slow page load" investigation). Safe to remove
-  // once the slow step is identified and fixed.
-  let mark = Date.now();
-  const lap = (label: string) => {
-    const now = Date.now();
-    console.log(`[startup] schema: ${label}: ${now - mark}ms`);
-    mark = now;
-  };
-
   await migrateLegacySingleUserSchema();
-  lap("migrateLegacySingleUserSchema");
   await createUsersTable();
-  lap("createUsersTable");
   await ensureUsersColumns();
-  lap("ensureUsersColumns");
   await createCoreTables();
-  lap("createCoreTables");
   await createIndexes();
-  lap("createIndexes");
   await ensureSettingsColumns();
-  lap("ensureSettingsColumns");
   await ensureCommunityExercisesColumns();
-  lap("ensureCommunityExercisesColumns");
   await ensureItemProgressColumns();
-  lap("ensureItemProgressColumns");
   await ensureLanguageProgressColumns();
-  lap("ensureLanguageProgressColumns");
   await ensureStoryCompletionsColumns();
-  lap("ensureStoryCompletionsColumns");
   await createWordTranslationsTable();
-  lap("createWordTranslationsTable");
   await seedDefaultUser();
-  lap("seedDefaultUser");
   await maybeMigrateLegacyJson();
-  lap("maybeMigrateLegacyJson");
 }
 
 function initSchema(): Promise<void> {
