@@ -3,7 +3,31 @@ const { execSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
 
+function isShallowRepo() {
+  try {
+    return execSync("git rev-parse --is-shallow-repository", { encoding: "utf8" }).trim() === "true";
+  } catch {
+    return false;
+  }
+}
+
+function ensureTagsFetched() {
+  try {
+    // Hosts like Vercel clone shallowly and skip tags, so `git describe` sees nothing
+    // and falls back to "dev". Fetch tags (and, if shallow, enough history to reach one)
+    // before describing.
+    if (isShallowRepo()) {
+      execSync("git fetch --unshallow --tags --force --quiet", { stdio: "ignore" });
+    } else {
+      execSync("git fetch --tags --force --quiet", { stdio: "ignore" });
+    }
+  } catch {
+    // Best effort only (e.g. no network, no remote) - fall back to whatever tags are local.
+  }
+}
+
 function readGitDescribe() {
+  ensureTagsFetched();
   try {
     return execSync("git describe --tags --dirty --always", { encoding: "utf8" }).trim();
   } catch {
