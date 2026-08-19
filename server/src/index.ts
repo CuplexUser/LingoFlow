@@ -104,15 +104,20 @@ let bootstrapped: Promise<void> | null = null;
 
 async function runBootstrap(): Promise<void> {
   await database.initSchema();
+
+  // Sequential, not Promise.all: a serverless Postgres pool pays real connection-setup cost
+  // (hundreds of ms) for each *new* concurrent connection it has to open, but only ~tens of
+  // ms to reuse an already-open one. Running these one after another on the same connection
+  // that initSchema warmed up is faster than opening more connections to run them at once.
   await reconcileContentFingerprints();
+  const approved = await database.getApprovedCommunityExercises();
+  const count = await rebuildContentWordTranslations(database);
 
   // Inject already-approved community exercises into the live content pool at startup
-  for (const item of await database.getApprovedCommunityExercises()) {
+  for (const item of approved) {
     injectCommunityItem(item);
   }
 
-  // Rebuild content-sourced word translations at startup (LibreTranslate rows are preserved)
-  const count = await rebuildContentWordTranslations(database);
   console.log(`[startup] Seeded ${count} word translations from content`);
 }
 

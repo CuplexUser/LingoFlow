@@ -1421,26 +1421,35 @@ async function getTotalTodayXpAllLanguages(userId = 1, today = toIsoDate()) {
 async function getProgress(userId = 1, language) {
   await ensureUserState(userId);
   const safeLanguage = language ? normalizeLanguageId(language, "") : "";
-  const categories = safeLanguage ? await getCategoryProgress(userId, safeLanguage) : [];
 
   if (safeLanguage) {
-    await ensureLanguageProgress(userId, safeLanguage);
-    const languageRow = await db.prepare(`
-      SELECT streak, learner_level, last_completed_date
-      FROM language_progress
-      WHERE user_id = ? AND language = ?
-    `).get(userId, safeLanguage);
+    // ensureLanguageProgress must resolve before the row it guarantees is read, but is
+    // independent of the other three queries below -- so it only blocks its own read, not
+    // the whole batch, and everything runs in one round trip's worth of wall time instead of
+    // four sequential ones.
+    const languageRowPromise = ensureLanguageProgress(userId, safeLanguage).then(() =>
+      db.prepare(`
+        SELECT streak, learner_level, last_completed_date
+        FROM language_progress
+        WHERE user_id = ? AND language = ?
+      `).get(userId, safeLanguage)
+    );
 
-    const historyTotals = await db.prepare(`
-      SELECT COALESCE(SUM(xp_gained), 0) AS total_xp
-      FROM session_history
-      WHERE user_id = ? AND language = ?
-    `).get(userId, safeLanguage);
+    const [categories, languageRow, historyTotals, todayXp] = await Promise.all([
+      getCategoryProgress(userId, safeLanguage),
+      languageRowPromise,
+      db.prepare(`
+        SELECT COALESCE(SUM(xp_gained), 0) AS total_xp
+        FROM session_history
+        WHERE user_id = ? AND language = ?
+      `).get(userId, safeLanguage),
+      getTodayXp(userId, safeLanguage)
+    ]);
 
     return {
       language: safeLanguage,
       totalXp: Number(historyTotals.total_xp),
-      todayXp: await getTodayXp(userId, safeLanguage),
+      todayXp,
       streak: liveStreak(languageRow.streak, languageRow.last_completed_date),
       learnerLevel: languageRow.learner_level,
       lastCompletedDate: languageRow.last_completed_date,
@@ -1448,20 +1457,23 @@ async function getProgress(userId = 1, language) {
     };
   }
 
-  const row = await db.prepare(`
-    SELECT total_xp, streak, learner_level, last_completed_date
-    FROM progress
-    WHERE user_id = ?
-  `).get(userId);
+  const [row, todayXp] = await Promise.all([
+    db.prepare(`
+      SELECT total_xp, streak, learner_level, last_completed_date
+      FROM progress
+      WHERE user_id = ?
+    `).get(userId),
+    getTotalTodayXpAllLanguages(userId)
+  ]);
 
   return {
     language: null,
     totalXp: row.total_xp,
-    todayXp: await getTotalTodayXpAllLanguages(userId),
+    todayXp,
     streak: liveStreak(row.streak, row.last_completed_date),
     learnerLevel: row.learner_level,
     lastCompletedDate: row.last_completed_date,
-    categories
+    categories: []
   };
 }
 
@@ -2448,8 +2460,6 @@ async function getCompletedStoryIds(userId, language?) {
 async function getStats(userId = 1, language) {
   const settings = await getSettings(userId);
   const safeLanguage = normalizeLanguageId(language, settings.targetLanguage || "spanish");
-  const progress = await getProgress(userId, safeLanguage);
-  const categoryProgress = await getCategoryProgress(userId, safeLanguage);
 
   // Date windows are computed here and bound as parameters rather than expressed
   // with SQLite's DATE('now', ...) modifiers, which have no Postgres equivalent.
@@ -2458,33 +2468,101 @@ async function getStats(userId = 1, language) {
   const sinceFourteenDays = addDaysIso(today, -13);
   const sinceHalfYear = addDaysIso(today, -186);
 
-  const totals = await db
-    .prepare(`
+  // These 12 queries are independent reads (and one write-then-read, sanitize-only writes)
+  // against disjoint or non-conflicting rows, so they run concurrently instead of one round
+  // trip at a time -- sequentially this endpoint was taking 3+ seconds.
+  const [
+    progress,
+    categoryProgress,
+    totals,
+    recentSessions,
+    sessionsByDayRows,
+    categoryStatsRows,
+    errorTypeTrendRows,
+    objectiveStatsRows,
+    usageStatsRows,
+    dailyXpHistoryRows,
+    mistakeReviewCountRow,
+    recommendedCategories
+  ] = await Promise.all([
+    getProgress(userId, safeLanguage),
+    getCategoryProgress(userId, safeLanguage),
+    db.prepare(`
       SELECT
         COUNT(1) AS sessions_completed,
         COALESCE(AVG(accuracy), 0) AS avg_accuracy,
         COALESCE(SUM(xp_gained), 0) AS total_xp_from_sessions
       FROM session_history
       WHERE user_id = ? AND language = ?
-    `)
-    .get(userId, safeLanguage);
-
-  const recentSessions = await db
-    .prepare(`
+    `).get(userId, safeLanguage),
+    db.prepare(`
       SELECT COUNT(1) AS sessions_last_7_days
       FROM session_history
       WHERE user_id = ? AND language = ? AND substr(completed_at, 1, 10) >= ?
-    `)
-    .get(userId, safeLanguage, sinceSevenDays);
-  const sessionsByDayRows = await db
-    .prepare(`
+    `).get(userId, safeLanguage, sinceSevenDays),
+    db.prepare(`
       SELECT substr(completed_at, 1, 10) AS day, COUNT(1) AS sessions
       FROM session_history
       WHERE user_id = ? AND language = ? AND substr(completed_at, 1, 10) >= ?
       GROUP BY substr(completed_at, 1, 10)
       ORDER BY day ASC
-    `)
-    .all(userId, safeLanguage, sinceSevenDays);
+    `).all(userId, safeLanguage, sinceSevenDays),
+    db.prepare(`
+      SELECT
+        category,
+        COUNT(1) AS sessions,
+        COALESCE(AVG(accuracy), 0) AS accuracy,
+        MAX(completed_at) AS last_completed_at
+      FROM session_history
+      WHERE user_id = ? AND language = ?
+      GROUP BY category
+      ORDER BY sessions DESC, accuracy DESC
+    `).all(userId, safeLanguage),
+    db.prepare(`
+      SELECT error_type, COUNT(1) AS count
+      FROM attempt_history
+      WHERE user_id = ? AND language = ? AND correct = 0 AND substr(created_at, 1, 10) >= ?
+      GROUP BY error_type
+      ORDER BY count DESC
+      LIMIT 6
+    `).all(userId, safeLanguage, sinceFourteenDays),
+    db.prepare(`
+      SELECT
+        objective,
+        COUNT(1) AS attempts,
+        SUM(correct) AS correct
+      FROM attempt_history
+      WHERE user_id = ? AND language = ? AND objective <> ''
+      GROUP BY objective
+      HAVING COUNT(1) > 0
+      ORDER BY CAST(SUM(correct) AS REAL) / COUNT(1) ASC, COUNT(1) DESC
+      LIMIT 8
+    `).all(userId, safeLanguage),
+    db.prepare(`
+      SELECT item_id, attempts, correct_attempts, completion_rate, last_used_at
+      FROM exercise_usage
+      WHERE user_id = ? AND language = ?
+      ORDER BY completion_rate ASC, attempts DESC, last_used_at DESC
+      LIMIT 6
+    `).all(userId, safeLanguage),
+    db.prepare(`
+      SELECT date, xp
+      FROM daily_xp
+      WHERE user_id = ? AND language = ? AND date >= ?
+      ORDER BY date ASC
+    `).all(userId, safeLanguage, sinceHalfYear),
+    db.prepare(`
+      SELECT COUNT(*) as count
+      FROM item_progress
+      WHERE user_id = ?
+        AND language = ?
+        AND attempts > 0
+        AND error_count > 0
+        AND streak = 0
+    `).get(userId, safeLanguage) as Promise<{ count: number }>,
+    getCategoryRecommendations(userId, safeLanguage)
+  ]);
+
   const sessionsByDayMap = new Map(
     sessionsByDayRows.map((row) => [row.day, row.sessions])
   );
@@ -2497,90 +2575,34 @@ async function getStats(userId = 1, language) {
     };
   });
 
-  const categoryStats = (await db
-    .prepare(`
-      SELECT
-        category,
-        COUNT(1) AS sessions,
-        COALESCE(AVG(accuracy), 0) AS accuracy,
-        MAX(completed_at) AS last_completed_at
-      FROM session_history
-      WHERE user_id = ? AND language = ?
-      GROUP BY category
-      ORDER BY sessions DESC, accuracy DESC
-    `)
-    .all(userId, safeLanguage))
-    .map((row) => ({
-      category: row.category,
-      sessions: row.sessions,
-      accuracy: Number((row.accuracy * 100).toFixed(1)),
-      lastCompletedAt: row.last_completed_at
-    }));
+  const categoryStats = categoryStatsRows.map((row) => ({
+    category: row.category,
+    sessions: row.sessions,
+    accuracy: Number((row.accuracy * 100).toFixed(1)),
+    lastCompletedAt: row.last_completed_at
+  }));
 
-  const errorTypeTrend = (await db
-    .prepare(`
-      SELECT error_type, COUNT(1) AS count
-      FROM attempt_history
-      WHERE user_id = ? AND language = ? AND correct = 0 AND substr(created_at, 1, 10) >= ?
-      GROUP BY error_type
-      ORDER BY count DESC
-      LIMIT 6
-    `)
-    .all(userId, safeLanguage, sinceFourteenDays))
-    .map((row) => ({ errorType: row.error_type, count: row.count }));
+  const errorTypeTrend = errorTypeTrendRows.map((row) => ({ errorType: row.error_type, count: row.count }));
 
-  const objectiveStats = (await db
-    .prepare(`
-      SELECT
-        objective,
-        COUNT(1) AS attempts,
-        SUM(correct) AS correct
-      FROM attempt_history
-      WHERE user_id = ? AND language = ? AND objective <> ''
-      GROUP BY objective
-      HAVING COUNT(1) > 0
-      ORDER BY CAST(SUM(correct) AS REAL) / COUNT(1) ASC, COUNT(1) DESC
-      LIMIT 8
-    `)
-    .all(userId, safeLanguage))
-    .map((row) => ({
-      objective: row.objective,
-      attempts: row.attempts,
-      accuracy: Number(((row.correct / row.attempts) * 100).toFixed(1))
-    }));
+  const objectiveStats = objectiveStatsRows.map((row) => ({
+    objective: row.objective,
+    attempts: row.attempts,
+    accuracy: Number(((row.correct / row.attempts) * 100).toFixed(1))
+  }));
 
-  const usageStats = (await db.prepare(`
-    SELECT item_id, attempts, correct_attempts, completion_rate, last_used_at
-    FROM exercise_usage
-    WHERE user_id = ? AND language = ?
-    ORDER BY completion_rate ASC, attempts DESC, last_used_at DESC
-    LIMIT 6
-  `).all(userId, safeLanguage)).map((row) => ({
+  const usageStats = usageStatsRows.map((row) => ({
     itemId: row.item_id,
     attempts: row.attempts,
     correctAttempts: row.correct_attempts,
     completionRate: Number((row.completion_rate * 100).toFixed(1)),
     lastUsedAt: row.last_used_at
   }));
-  const dailyXpHistory = (await db.prepare(`
-    SELECT date, xp
-    FROM daily_xp
-    WHERE user_id = ? AND language = ? AND date >= ?
-    ORDER BY date ASC
-  `).all(userId, safeLanguage, sinceHalfYear)).map((row) => ({
+  const dailyXpHistory = dailyXpHistoryRows.map((row) => ({
     date: row.date,
     xp: row.xp
   }));
 
-  const mistakeReviewCount = (await db.prepare(`
-    SELECT COUNT(*) as count
-    FROM item_progress
-    WHERE user_id = ?
-      AND language = ?
-      AND attempts > 0
-      AND error_count > 0
-      AND streak = 0
-  `).get(userId, safeLanguage) as { count: number }).count;
+  const mistakeReviewCount = mistakeReviewCountRow.count;
 
   const masteredCount = categoryProgress.filter((item) => item.mastery >= 75).length;
   const completionPercent = categoryProgress.length
@@ -2614,7 +2636,7 @@ async function getStats(userId = 1, language) {
     weeklyGoalSessions: settings.weeklyGoalSessions,
     sessionsByDay,
     weakestCategories,
-    recommendedCategories: await getCategoryRecommendations(userId, safeLanguage),
+    recommendedCategories,
     categoryStats,
     errorTypeTrend,
     objectiveStats,
@@ -3083,7 +3105,50 @@ async function clearWordTranslations(): Promise<void> {
 // serving. Idempotent: concurrent or repeated calls share the single run.
 let schemaReady: Promise<void> | null = null;
 
+// Bump this whenever a migration step below changes (a new/altered column, a new table, a
+// new index). It gates the structural verification chain in runSchemaSetup: cold starts
+// after this version was already recorded skip straight past ~20 idempotent existence
+// checks (each a full round trip to a serverless Postgres endpoint -- seconds on a cold
+// connection) instead of re-confirming a schema that hasn't changed since the last deploy.
+// Forgetting to bump this after a real schema change means that change silently never runs
+// against an already-deployed database.
+const SCHEMA_VERSION = 1;
+
+async function isSchemaCurrent(): Promise<boolean> {
+  if (!(await db.tableExists("schema_meta"))) return false;
+  const row = await db.prepare(
+    "SELECT value FROM schema_meta WHERE key = 'schema_version'"
+  ).get();
+  return Boolean(row) && Number(row.value) === SCHEMA_VERSION;
+}
+
+async function markSchemaCurrent(): Promise<void> {
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS schema_meta (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL
+    )
+  `);
+  await db.prepare(`
+    INSERT INTO schema_meta (key, value) VALUES ('schema_version', ?)
+    ON CONFLICT (key) DO UPDATE SET value = excluded.value
+  `).run(String(SCHEMA_VERSION));
+}
+
 async function runSchemaSetup(): Promise<void> {
+  if (await isSchemaCurrent()) {
+    // Structure is already verified as of this version -- only the per-boot data work
+    // (backfill/decay/legacy-import, not schema structure) still needs to run.
+    await seedDefaultUser();
+    await maybeMigrateLegacyJson();
+    return;
+  }
+
+  // Sequential, not Promise.all: a serverless Postgres pool pays real connection-setup cost
+  // (hundreds of ms) for each *new* concurrent connection it has to open, but only ~tens of
+  // ms to reuse an already-open one, so running these one after another on one connection
+  // beats opening more connections to run them at once. This path only runs once per schema
+  // version anyway (see isSchemaCurrent above), so it is not on the hot cold-start path.
   await migrateLegacySingleUserSchema();
   await createUsersTable();
   await ensureUsersColumns();
@@ -3095,6 +3160,7 @@ async function runSchemaSetup(): Promise<void> {
   await ensureLanguageProgressColumns();
   await ensureStoryCompletionsColumns();
   await createWordTranslationsTable();
+  await markSchemaCurrent();
   await seedDefaultUser();
   await maybeMigrateLegacyJson();
 }
