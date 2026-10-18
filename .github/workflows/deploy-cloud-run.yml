@@ -1,0 +1,54 @@
+name: Deploy API to Cloud Run
+
+# Manual for now; switch to `push: branches: [main]` once the Vercel /api rewrite points here.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # Workload Identity Federation, no stored service-account keys
+
+concurrency:
+  group: deploy-cloud-run
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SERVICE_ACCOUNT }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      # Secrets live in Secret Manager; --set-secrets maps them to env vars at runtime.
+      - name: Deploy
+        run: |
+          gcloud run deploy lingoflow-api \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --region "${{ vars.GCP_REGION }}" \
+            --source . \
+            --allow-unauthenticated \
+            --min-instances 0 \
+            --max-instances 3 \
+            --memory 512Mi \
+            --cpu 1 \
+            --cpu-boost \
+            --concurrency 80 \
+            --timeout 60 \
+            --set-env-vars "PUBLIC_APP_URL=${{ vars.PUBLIC_APP_URL }},EMAIL_FROM=${{ vars.EMAIL_FROM }},GOOGLE_OAUTH_REDIRECT_URI=${{ vars.GOOGLE_OAUTH_REDIRECT_URI }},LOG_LEVEL=info" \
+            --set-secrets "DATABASE_URL=DATABASE_URL:latest,LINGOFLOW_AUTH_SECRET=LINGOFLOW_AUTH_SECRET:latest,GOOGLE_OAUTH_CLIENT_ID=GOOGLE_OAUTH_CLIENT_ID:latest,GOOGLE_OAUTH_CLIENT_SECRET=GOOGLE_OAUTH_CLIENT_SECRET:latest,RESEND_API_KEY=RESEND_API_KEY:latest,CONTRIBUTION_REVIEWER_EMAILS=CONTRIBUTION_REVIEWER_EMAILS:latest,REVENUECAT_SECRET_API_KEY=REVENUECAT_SECRET_API_KEY:latest,REVENUECAT_WEBHOOK_AUTH=REVENUECAT_WEBHOOK_AUTH:latest"
+
+      - name: Smoke test
+        run: |
+          url=$(gcloud run services describe lingoflow-api \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --region "${{ vars.GCP_REGION }}" \
+            --format 'value(status.url)')
+          curl --fail --silent --show-error --retry 3 "$url/api/health"

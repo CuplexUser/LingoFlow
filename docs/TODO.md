@@ -20,6 +20,20 @@ Three priority tracks, ordered by priority:
 
 ## Active roadmap
 
+### Phase 19: Backend for the Android app
+
+Server side of the Android app (separate repo). Done: native Google sign-in
+(`/api/auth/google/native`), `subscriptions` table, A1 cap for free app users,
+RevenueCat webhook and `/api/billing/sync`, Cloud Run `Dockerfile` and deploy workflow.
+
+Remaining:
+- [ ] **Account deletion for Google accounts** — `/api/auth/delete-account` only accepts
+  password accounts. Google Play requires deletion for every user; accept a fresh Google
+  ID token as confirmation instead of a password.
+- [ ] **Cloud Run cutover** — first deploy, then point the `vercel.json` `/api/*` rewrite
+  at the service and retire `api/index.js` (README → "Deploying the API to Google Cloud Run").
+- [ ] **Run the full suite on Postgres** (`npm run test:server:pg`) before the cutover.
+
 ### Phase 13: Content expansion ★ PRIORITY 1
 
 Target: 20-50 exercises per category × level × language across the six languages.

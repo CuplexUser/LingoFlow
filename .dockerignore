@@ -1,0 +1,15 @@
+**/node_modules
+**/dist
+**/.env
+**/.env.*
+**/*.db
+**/*.db-*
+.git
+.github
+.husky
+.vercel
+api
+docs
+server/data
+client
+!client/package.json

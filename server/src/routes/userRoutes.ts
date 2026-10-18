@@ -1,5 +1,152 @@
+const crypto = require("crypto");
+
+const REVENUECAT_API_BASE = "https://api.revenuecat.com/v1";
+
+// RevenueCat timestamps omit milliseconds ("...:42Z"); stored values must use one ISO
+// format so text comparison against toISOString() cutoffs stays correct.
+function normalizeIsoTimestamp(value: unknown): string | null {
+  if (!value) return null;
+  const parsed = new Date(String(value));
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+}
+
+function safeEqual(left: string, right: string): boolean {
+  const a = Buffer.from(left);
+  const b = Buffer.from(right);
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+
+// RevenueCat app user ids are our numeric user ids (the app calls Purchases.logIn with
+// it). Anonymous ids ("$RCAnonymousID:...") never map to an account and are skipped.
+function toUserId(value: unknown): number | null {
+  const text = String(value ?? "").trim();
+  if (!/^\d+$/.test(text)) return null;
+  const id = Number(text);
+  return Number.isSafeInteger(id) && id > 0 ? id : null;
+}
+
 function registerUserRoutes(app: any, deps: any): void {
-  const { requireAuth, database, injectCommunityItem } = deps;
+  const { requireAuth, database, injectCommunityItem, premiumEntitlement } = deps;
+  const revenueCatSecretKey = String(process.env.REVENUECAT_SECRET_API_KEY || "").trim();
+  const revenueCatWebhookAuth = String(process.env.REVENUECAT_WEBHOOK_AUTH || "").trim();
+
+  // RevenueCat's subscriber record is the source of truth. Webhook payloads only tell
+  // us *that* something changed; re-reading the record avoids having to reconcile
+  // out-of-order or redelivered events into a state machine of our own.
+  async function syncSubscriber(userId: number) {
+    if (!revenueCatSecretKey) {
+      throw new Error("RevenueCat is not configured");
+    }
+    const response = await fetch(
+      `${REVENUECAT_API_BASE}/subscribers/${encodeURIComponent(String(userId))}`,
+      { headers: { Authorization: `Bearer ${revenueCatSecretKey}`, Accept: "application/json" } }
+    );
+    if (!response.ok) {
+      throw new Error(`RevenueCat API error ${response.status}`);
+    }
+    const payload = await response.json() as any;
+    const subscriber = payload?.subscriber || {};
+    const entitlement = subscriber.entitlements?.[premiumEntitlement];
+    if (!entitlement) {
+      await database.deleteSubscription(userId, premiumEntitlement);
+      return null;
+    }
+
+    // Play product ids may carry the base plan ("product:base-plan"); the subscriptions
+    // map is keyed by either form depending on the SDK that made the purchase.
+    const productId = String(entitlement.product_identifier || "");
+    const subscriptions = subscriber.subscriptions || {};
+    const storeSubscription = subscriptions[productId] || subscriptions[productId.split(":")[0]] || null;
+    await database.upsertSubscription({
+      userId,
+      entitlement: premiumEntitlement,
+      provider: "revenuecat",
+      productId,
+      store: String(storeSubscription?.store || ""),
+      // A grace period (failed renewal Play is still retrying) keeps access open.
+      expiresAt: normalizeIsoTimestamp(entitlement.grace_period_expires_date) ||
+        normalizeIsoTimestamp(entitlement.expires_date),
+      willRenew: Boolean(storeSubscription) && !storeSubscription.unsubscribe_detected_at,
+      billingIssue: Boolean(storeSubscription?.billing_issues_detected_at)
+    });
+    return database.getActiveSubscription(userId, premiumEntitlement);
+  }
+
+  app.post("/api/billing/revenuecat-webhook", async (req: any, res: any) => {
+    if (!revenueCatWebhookAuth) {
+      return res.status(503).json({ error: "Billing webhook is not configured" });
+    }
+    if (!safeEqual(String(req.headers.authorization || ""), revenueCatWebhookAuth)) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    const event = req.body?.event || {};
+    const eventId = String(event.id || "").trim();
+    const eventType = String(event.type || "").trim();
+    if (!eventId) {
+      return res.status(400).json({ error: "event.id is required" });
+    }
+    if (eventType === "TEST") {
+      return res.json({ ok: true });
+    }
+
+    // TRANSFER moves a purchase between app users, so both sides need a re-sync.
+    const candidateIds = [
+      event.app_user_id,
+      event.original_app_user_id,
+      ...(Array.isArray(event.aliases) ? event.aliases : []),
+      ...(Array.isArray(event.transferred_from) ? event.transferred_from : []),
+      ...(Array.isArray(event.transferred_to) ? event.transferred_to : [])
+    ];
+    const userIds: number[] = [];
+    for (const candidate of candidateIds) {
+      const userId = toUserId(candidate);
+      if (userId && !userIds.includes(userId) && await database.getUserById(userId)) {
+        userIds.push(userId);
+      }
+    }
+
+    const isNewEvent = await database.recordBillingEvent({
+      eventId,
+      userId: userIds[0] ?? null,
+      eventType
+    });
+    if (!isNewEvent) {
+      return res.json({ ok: true, duplicate: true });
+    }
+
+    try {
+      for (const userId of userIds) {
+        await syncSubscriber(userId);
+      }
+    } catch (error) {
+      // Un-record the event so RevenueCat's retry is processed instead of skipped.
+      await database.forgetBillingEvent(eventId);
+      console.error("[billing] RevenueCat webhook sync failed", {
+        eventId,
+        eventType,
+        reason: error instanceof Error ? error.message : "unknown"
+      });
+      return res.status(500).json({ error: "Could not sync subscription" });
+    }
+
+    return res.json({ ok: true, synced: userIds.length });
+  });
+
+  // Called by the app right after a purchase or restore, so access does not wait on
+  // webhook delivery.
+  app.post("/api/billing/sync", requireAuth, async (req: any, res: any) => {
+    try {
+      const subscription = await syncSubscriber(req.authUserId);
+      return res.json({ isPremium: Boolean(subscription), subscription });
+    } catch (error) {
+      console.error("[billing] RevenueCat sync failed", {
+        userId: req.authUserId,
+        reason: error instanceof Error ? error.message : "unknown"
+      });
+      return res.status(502).json({ error: "Could not reach the billing service" });
+    }
+  });
   const contributionReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
       .split(",")
