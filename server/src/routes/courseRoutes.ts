@@ -1,5 +1,17 @@
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory } = deps;
+  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap } = deps;
+
+  const PREMIUM_REQUIRED = {
+    error: "This content requires LingoFlow Premium",
+    code: "premium_required"
+  };
+
+  // True when content at `level` sits above the request's free-tier cap ("" = no cap).
+  function isAboveLevelCap(level: unknown, levelCap: string): boolean {
+    if (!levelCap) return false;
+    const rank = LEVEL_ORDER.indexOf(String(level || "a1").toLowerCase());
+    return rank > LEVEL_ORDER.indexOf(levelCap);
+  }
 
   const contentReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
@@ -67,16 +79,22 @@ function registerCourseRoutes(app: any, deps: any): void {
     const categoryProgress = await database.getCategoryProgress(userId, language) as any[];
     const progressMap = new Map<string, any>(categoryProgress.map((item: any) => [item.category, item]));
     const recommendedCategoryIds = new Set(await database.getCategoryRecommendations(userId, language));
+    const levelCap = await getLevelCap(req);
 
     const enriched = categories.map((category: any, index: number) => {
       const progress = progressMap.get(category.id);
       const previousCategory = index > 0 ? categories[index - 1] : null;
       const previousProgress = previousCategory ? progressMap.get(previousCategory.id) : null;
-      const unlocked = devUnlockAll
+      const progressionUnlocked = devUnlockAll
         ? true
         : index === 0
         ? true
         : Boolean(previousProgress && (previousProgress.mastery >= 35 || previousProgress.attempts >= 2));
+      const levels: string[] = Array.isArray(category.levels) ? category.levels : [];
+      const premiumLevels = levels.filter((level) => isAboveLevelCap(level, levelCap));
+      // A category with no content at or below the cap has nothing to offer a free user.
+      const premiumOnly = levels.length > 0 && premiumLevels.length === levels.length;
+      const unlocked = progressionUnlocked && !premiumOnly;
 
       return {
         ...category,
@@ -85,9 +103,13 @@ function registerCourseRoutes(app: any, deps: any): void {
         accuracy: progress?.accuracy ?? 0,
         levelUnlocked: progress?.levelUnlocked ?? "a1",
         recommended: recommendedCategoryIds.has(category.id),
+        levelCap: levelCap || null,
+        premiumLevels,
         unlocked,
         lockReason: unlocked
           ? ""
+          : premiumOnly
+          ? "premium"
           : `Practice ${previousCategory.label} a bit more to unlock this step.`
       };
     });
@@ -101,11 +123,13 @@ function registerCourseRoutes(app: any, deps: any): void {
     const category = String(req.query.category || "").trim();
     const summaries = listStories({ language, level, category });
     const progress = await database.getStoryProgress(req.authUserId, language || undefined);
+    const levelCap = await getLevelCap(req);
     return res.json(
       summaries.map((story: any) => {
         const state = progress[story.id];
         return {
           ...story,
+          premiumLocked: isAboveLevelCap(story.level, levelCap),
           completed: Boolean(state && state.completedAt),
           lastSentenceIndex: state ? state.lastSentenceIndex : 0,
           quizScore: state ? state.quizScore : null,
@@ -149,18 +173,23 @@ function registerCourseRoutes(app: any, deps: any): void {
     const topCategory = [...categoryProgress].sort(
       (a: any, b: any) => (b.attempts || 0) - (a.attempts || 0)
     )[0];
+    const levelCap = await getLevelCap(req);
     const recommended = recommendNextStory({
       language,
       completedIds,
-      level: settings.selfRatedLevel,
+      level: isAboveLevelCap(settings.selfRatedLevel, levelCap) ? levelCap : settings.selfRatedLevel,
       category: topCategory ? topCategory.category : ""
     });
+    if (recommended && isAboveLevelCap(recommended.level, levelCap)) return res.json(null);
     return res.json(recommended);
   });
 
   app.get("/api/stories/:id", requireAuth, async (req: any, res: any) => {
     const story = getStoryById(String(req.params.id || ""));
     if (!story) return res.status(404).json({ error: "Story not found" });
+    if (isAboveLevelCap(story.level, await getLevelCap(req))) {
+      return res.status(402).json(PREMIUM_REQUIRED);
+    }
     return res.json(sanitizeStoryForClient(story));
   });
 

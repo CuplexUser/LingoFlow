@@ -89,7 +89,9 @@ function registerSessionRoutes(
     getPracticePool,
     evaluateAttempt,
     calculateXp,
-    crypto
+    crypto,
+    getLevelCap,
+    LEVEL_ORDER
   } = deps;
 
   app.post("/api/session/start", requireAuth, async (req: any, res: any) => {
@@ -116,12 +118,19 @@ function registerSessionRoutes(
     const extraPoolItems = String(mode || "")
       ? await database.getSavedWordPoolItems(userId, language)
       : [];
+    // Free-tier app users only get content up to the cap; the daily challenge is exempt.
+    const levelCap = await getLevelCap(req);
+    const selfRatedLevel = levelCap &&
+      LEVEL_ORDER.indexOf(settings.selfRatedLevel) > LEVEL_ORDER.indexOf(levelCap)
+      ? levelCap
+      : settings.selfRatedLevel;
     const session = generateSession({
       language,
       category,
       mastery,
       recentAccuracy,
-      selfRatedLevel: settings.selfRatedLevel,
+      selfRatedLevel,
+      maxLevel: levelCap,
       dueItemIds: hints.dueItemIds,
       weakItemIds: hints.weakItemIds,
       notDueItemIds: hints.notDueItemIds,
@@ -134,6 +143,12 @@ function registerSessionRoutes(
     if (!session.questions.length) {
       if (isMistakesMode) {
         return res.status(404).json({ error: "No previous mistakes are ready for review" });
+      }
+      if (levelCap) {
+        return res.status(402).json({
+          error: "This content requires LingoFlow Premium",
+          code: "premium_required"
+        });
       }
       return res.status(404).json({ error: "No exercises found for this category" });
     }

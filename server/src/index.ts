@@ -134,7 +134,8 @@ const { registerAuthRoutes } = require("./routes/authRoutes.ts");
 const { createTokenService } = require("./auth/tokenService.ts");
 const { hashPassword, verifyPassword } = require("./auth/password.ts");
 
-const port = 4000;
+// Cloud Run injects PORT; local dev keeps 4000 so the Vite proxy still finds the API.
+const port = Number(process.env.PORT) || 4000;
 const AUTH_SECRET = process.env.LINGOFLOW_AUTH_SECRET || "lingoflow-dev-secret-change-me";
 const TOKEN_TTL_SECONDS = 60 * 60 * 24 * 30;
 const PUBLIC_APP_URL = process.env.PUBLIC_APP_URL || "http://localhost:5173";
@@ -162,6 +163,26 @@ const tokenService = createTokenService({
   tokenTtlSeconds: TOKEN_TTL_SECONDS,
   googleStateTtlSeconds: GOOGLE_OAUTH_STATE_TTL_SECONDS
 });
+
+// Subscriptions. The web app stays free; the paywall only applies to requests made by
+// the Android app, which identifies itself with the X-LingoFlow-Client header.
+const PREMIUM_ENTITLEMENT = String(process.env.REVENUECAT_ENTITLEMENT_ID || "premium").trim();
+const FREE_TIER_MAX_LEVEL = "a1";
+
+function isAppClient(req: AuthenticatedRequest): boolean {
+  return String(req.headers["x-lingoflow-client"] || "").trim().toLowerCase() === "android";
+}
+
+async function isPremiumUser(userId: number | null): Promise<boolean> {
+  if (!userId) return false;
+  return Boolean(await database.getActiveSubscription(userId, PREMIUM_ENTITLEMENT));
+}
+
+// The highest CEFR level a request may receive content for, or "" for no cap.
+async function getLevelCap(req: AuthenticatedRequest): Promise<string> {
+  if (!isAppClient(req)) return "";
+  return (await isPremiumUser(req.authUserId)) ? "" : FREE_TIER_MAX_LEVEL;
+}
 
 function normalizeSentence(text: string): string {
   return String(text || "")
@@ -388,7 +409,7 @@ async function createApp(): Promise<any> {
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
-  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory });
+  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap });
   registerSessionRoutes(app, {
     requireAuth,
     database,
@@ -398,9 +419,16 @@ async function createApp(): Promise<any> {
     getPracticePool,
     evaluateAttempt,
     calculateXp,
-    crypto
+    crypto,
+    getLevelCap,
+    LEVEL_ORDER
   });
-  registerUserRoutes(app, { requireAuth, database, injectCommunityItem });
+  registerUserRoutes(app, {
+    requireAuth,
+    database,
+    injectCommunityItem,
+    premiumEntitlement: PREMIUM_ENTITLEMENT
+  });
   registerAuthRoutes(app, {
     database,
     logger,
@@ -410,7 +438,11 @@ async function createApp(): Promise<any> {
     hashPassword,
     verifyPassword,
     googleOauthClient,
-    googleOauthClientId: GOOGLE_OAUTH_CLIENT_ID
+    googleOauthClientId: GOOGLE_OAUTH_CLIENT_ID,
+    // Verifying an ID token from native sign-in needs only the client ID, not the secret.
+    googleIdTokenVerifier: googleOauthClient ||
+      (GOOGLE_OAUTH_CLIENT_ID ? new OAuth2Client(GOOGLE_OAUTH_CLIENT_ID) : null),
+    isPremiumUser
   });
 
   // Auth routes are registered in routes/authRoutes.ts.

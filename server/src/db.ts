@@ -3098,6 +3098,108 @@ async function clearWordTranslations(): Promise<void> {
   await db.exec("DELETE FROM word_translations");
 }
 
+// Store subscriptions (RevenueCat). One row per user and entitlement, overwritten
+// from RevenueCat's subscriber record on every sync, so it is a cache of their state
+// rather than a log. billing_events only exists to make webhook delivery idempotent.
+async function createSubscriptionTables(): Promise<void> {
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS subscriptions (
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      entitlement TEXT NOT NULL,
+      provider TEXT NOT NULL DEFAULT 'revenuecat',
+      product_id TEXT NOT NULL DEFAULT '',
+      store TEXT NOT NULL DEFAULT '',
+      expires_at TEXT,
+      will_renew INTEGER NOT NULL DEFAULT 0,
+      billing_issue INTEGER NOT NULL DEFAULT 0,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY(user_id, entitlement)
+    );
+
+    CREATE TABLE IF NOT EXISTS billing_events (
+      event_id TEXT PRIMARY KEY,
+      user_id INTEGER,
+      event_type TEXT NOT NULL DEFAULT '',
+      received_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+  `);
+}
+
+async function upsertSubscription({
+  userId,
+  entitlement,
+  provider = "revenuecat",
+  productId = "",
+  store = "",
+  expiresAt = null,
+  willRenew = false,
+  billingIssue = false
+}) {
+  await db.prepare(`
+    INSERT INTO subscriptions (
+      user_id, entitlement, provider, product_id, store, expires_at, will_renew, billing_issue, updated_at
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT(user_id, entitlement) DO UPDATE SET
+      provider = excluded.provider,
+      product_id = excluded.product_id,
+      store = excluded.store,
+      expires_at = excluded.expires_at,
+      will_renew = excluded.will_renew,
+      billing_issue = excluded.billing_issue,
+      updated_at = CURRENT_TIMESTAMP
+  `).run(
+    userId,
+    entitlement,
+    provider,
+    productId,
+    store,
+    expiresAt,
+    willRenew ? 1 : 0,
+    billingIssue ? 1 : 0
+  );
+}
+
+async function deleteSubscription(userId: number, entitlement: string) {
+  await db.prepare(
+    "DELETE FROM subscriptions WHERE user_id = ? AND entitlement = ?"
+  ).run(userId, entitlement);
+}
+
+// A NULL expires_at is a non-expiring (lifetime/promotional) grant. ISO-8601 UTC
+// strings compare correctly as text, so the cutoff is bound as a parameter.
+async function getActiveSubscription(userId: number, entitlement: string, nowIso = toIsoDateTime()) {
+  const row = await db.prepare(`
+    SELECT entitlement, product_id, store, expires_at, will_renew, billing_issue
+    FROM subscriptions
+    WHERE user_id = ? AND entitlement = ? AND (expires_at IS NULL OR expires_at > ?)
+  `).get(userId, entitlement, nowIso);
+  if (!row) return null;
+  return {
+    entitlement: row.entitlement,
+    productId: row.product_id,
+    store: row.store,
+    expiresAt: row.expires_at,
+    willRenew: Boolean(row.will_renew),
+    billingIssue: Boolean(row.billing_issue)
+  };
+}
+
+// Returns false when the event id was already recorded (a webhook redelivery).
+async function recordBillingEvent({ eventId, userId = null, eventType = "" }): Promise<boolean> {
+  const inserted = await db.prepare(`
+    INSERT INTO billing_events (event_id, user_id, event_type)
+    VALUES (?, ?, ?)
+    ON CONFLICT(event_id) DO NOTHING
+    RETURNING event_id
+  `).get(eventId, userId, eventType);
+  return Boolean(inserted);
+}
+
+async function forgetBillingEvent(eventId: string) {
+  await db.prepare("DELETE FROM billing_events WHERE event_id = ?").run(eventId);
+}
+
 // Schema creation and migrations.
 //
 // These used to run as import side effects. With an async driver they need an
@@ -3112,7 +3214,7 @@ let schemaReady: Promise<void> | null = null;
 // connection) instead of re-confirming a schema that hasn't changed since the last deploy.
 // Forgetting to bump this after a real schema change means that change silently never runs
 // against an already-deployed database.
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
 
 async function isSchemaCurrent(): Promise<boolean> {
   if (!(await db.tableExists("schema_meta"))) return false;
@@ -3160,6 +3262,7 @@ async function runSchemaSetup(): Promise<void> {
   await ensureLanguageProgressColumns();
   await ensureStoryCompletionsColumns();
   await createWordTranslationsTable();
+  await createSubscriptionTables();
   await markSchemaCurrent();
   await seedDefaultUser();
   await maybeMigrateLegacyJson();
@@ -3257,5 +3360,10 @@ module.exports = {
   upsertWordTranslations,
   clearContentWordTranslations,
   clearWordTranslations,
-  getWordTranslationCounts
+  getWordTranslationCounts,
+  upsertSubscription,
+  deleteSubscription,
+  getActiveSubscription,
+  recordBillingEvent,
+  forgetBillingEvent
 };

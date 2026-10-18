@@ -193,7 +193,9 @@ function registerAuthRoutes(app, deps) {
     hashPassword,
     verifyPassword,
     googleOauthClient,
-    googleOauthClientId
+    googleOauthClientId,
+    googleIdTokenVerifier,
+    isPremiumUser
   } = deps;
   const contributionReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
@@ -212,6 +214,18 @@ function registerAuthRoutes(app, deps) {
     return Boolean(googleOauthClient && googleOauthClientId);
   }
 
+  async function toClientUser(user) {
+    return {
+      id: user.id,
+      email: user.email,
+      displayName: user.displayName,
+      emailVerified: user.emailVerified,
+      authProvider: user.authProvider,
+      canModerateCommunityExercises: canModerateCommunityExercises(user),
+      isPremium: await isPremiumUser(user.id)
+    };
+  }
+
   async function getGoogleProfileFromAuthorizationCode(code) {
     if (!isGoogleOauthConfigured()) {
       throw new Error("Google OAuth is not configured");
@@ -226,7 +240,17 @@ function registerAuthRoutes(app, deps) {
       throw new Error("Google did not return an ID token");
     }
 
-    const ticket = await googleOauthClient.verifyIdToken({
+    return getGoogleProfileFromIdToken(idToken);
+  }
+
+  // Shared by the web redirect flow and native (Android Credential Manager) sign-in.
+  // Native ID tokens are requested with the web client ID as serverClientId, so both
+  // flows verify against the same audience.
+  async function getGoogleProfileFromIdToken(idToken) {
+    if (!googleIdTokenVerifier || !googleOauthClientId) {
+      throw new Error("Google sign in is not configured");
+    }
+    const ticket = await googleIdTokenVerifier.verifyIdToken({
       idToken,
       audience: googleOauthClientId
     });
@@ -239,6 +263,27 @@ function registerAuthRoutes(app, deps) {
       email: String(payload.email).toLowerCase(),
       displayName: String(payload.name || payload.given_name || "Learner")
     };
+  }
+
+  async function findOrCreateGoogleUser(profile) {
+    let user = await database.getUserByEmail(profile.email);
+    if (!user) {
+      user = await database.createUser({
+        email: profile.email,
+        passwordHash: `oauth-google:${crypto.randomUUID()}`,
+        displayName: profile.displayName,
+        authProvider: "google",
+        emailVerified: true
+      });
+    } else if (!user.emailVerified) {
+      await database.markUserEmailVerified(user.id);
+    }
+    if (!user) {
+      throw new Error("Could not create user");
+    }
+
+    await database.syncLearnerNameFromProfile(user.id, profile.displayName);
+    return user;
   }
 
   app.post("/api/auth/register", sensitiveRateLimit, async (req, res) => {
@@ -370,14 +415,7 @@ function registerAuthRoutes(app, deps) {
     const freshUser = await database.getUserById(user.id);
     return res.json({
       token,
-      user: {
-        id: freshUser.id,
-        email: freshUser.email,
-        displayName: freshUser.displayName,
-        emailVerified: freshUser.emailVerified,
-        authProvider: freshUser.authProvider,
-        canModerateCommunityExercises: canModerateCommunityExercises(freshUser)
-      }
+      user: await toClientUser(freshUser)
     });
   });
 
@@ -517,23 +555,7 @@ function registerAuthRoutes(app, deps) {
 
     try {
       const profile = await getGoogleProfileFromAuthorizationCode(code);
-      let user = await database.getUserByEmail(profile.email);
-      if (!user) {
-        user = await database.createUser({
-          email: profile.email,
-          passwordHash: `oauth-google:${crypto.randomUUID()}`,
-          displayName: profile.displayName,
-          authProvider: "google",
-          emailVerified: true
-        });
-      } else if (!user.emailVerified) {
-        await database.markUserEmailVerified(user.id);
-      }
-      if (!user) {
-        throw new Error("Could not create user");
-      }
-
-      await database.syncLearnerNameFromProfile(user.id, profile.displayName);
+      const user = await findOrCreateGoogleUser(profile);
       const token = tokenService.createAuthToken(user.id);
       return res.redirect(buildAuthReturnUrl(publicAppUrl, { authToken: token }));
     } catch (error) {
@@ -542,20 +564,52 @@ function registerAuthRoutes(app, deps) {
     }
   });
 
+  // Native Google sign-in: the Android app obtains an ID token from Credential Manager
+  // (Google blocks the redirect flow inside WebViews) and exchanges it for our token.
+  app.post("/api/auth/google/native", sensitiveRateLimit, async (req, res) => {
+    const idToken = String(req.body?.idToken || "").trim();
+    if (!idToken) {
+      return res.status(400).json({ error: "idToken is required" });
+    }
+
+    let profile;
+    try {
+      profile = await getGoogleProfileFromIdToken(idToken);
+    } catch (error) {
+      logger.logAuthEvent("google_native_rejected", {
+        requestId: req.requestId,
+        reason: error instanceof Error ? error.message : "unknown"
+      });
+      return res.status(401).json({ error: "Google sign in failed" });
+    }
+
+    try {
+      const user = await findOrCreateGoogleUser(profile);
+      logger.logAuthEvent("google_native_success", {
+        requestId: req.requestId,
+        userId: user.id,
+        emailFingerprint: emailFingerprint(profile.email)
+      });
+      const freshUser = await database.getUserById(user.id);
+      return res.json({
+        token: tokenService.createAuthToken(user.id),
+        user: await toClientUser(freshUser)
+      });
+    } catch (error) {
+      logger.logAuthEvent("google_native_failed", {
+        requestId: req.requestId,
+        reason: error instanceof Error ? error.message : "unknown",
+        emailFingerprint: emailFingerprint(profile.email)
+      });
+      return res.status(500).json({ error: "Could not sign in with Google" });
+    }
+  });
+
   app.get("/api/auth/me", async (req, res) => {
     if (!req.authUserId) return res.status(401).json({ error: "Authentication required" });
     const user = await database.getUserById(req.authUserId);
     if (!user) return res.status(404).json({ error: "User not found" });
-    return res.json({
-      user: {
-        id: user.id,
-        email: user.email,
-        displayName: user.displayName,
-        emailVerified: user.emailVerified,
-        authProvider: user.authProvider,
-        canModerateCommunityExercises: canModerateCommunityExercises(user)
-      }
-    });
+    return res.json({ user: await toClientUser(user) });
   });
 
   app.post("/api/auth/delete-account", async (req, res) => {
