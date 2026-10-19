@@ -226,6 +226,12 @@ Create `server/.env` (copy `server/.env.example`) for local development.
 | `CONTRIBUTION_REVIEWER_EMAILS` | server | Comma-separated moderator email list |
 | `LOG_LEVEL` | server | `debug` \| `info` \| `warn` \| `error` (default: `info`) |
 | `PORT` | server | Listen port (default: `4000`; Cloud Run sets it) |
+| `GEMINI_API_KEY` | server | Gemini API key for `/api/tts` (Gemini TTS); without it the endpoint answers 503 |
+| `TTS_CACHE_BUCKET` | server | Cloud Storage bucket that caches `/api/tts` audio (optional; without it only an in-memory cache is used) |
+| `TTS_MODEL` | server | Gemini TTS model (default: `gemini-3.8-flash-lite-tts`) |
+| `TTS_DAILY_GENERATION_LIMIT` | server | New `/api/tts` clips per day per instance (default: `1000`; each user also gets at most 150); cached clips are unlimited |
+| `TTS_VOICES` | server | Per-language Gemini voice overrides for `/api/tts`, e.g. `ru-RU=Charon` (default voice: Kore) |
+| `TTS_DISABLED` | server | `1` turns `/api/tts` off; clients then use their own TTS |
 | `REVENUECAT_SECRET_API_KEY` | server | RevenueCat secret API key (v1), used to read a subscriber's entitlements |
 | `REVENUECAT_WEBHOOK_AUTH` | server | Shared secret RevenueCat sends as the webhook `Authorization` header |
 | `REVENUECAT_ENTITLEMENT_ID` | server | Entitlement that unlocks the Android app (default: `premium`) |
@@ -313,8 +319,8 @@ The repo-root `Dockerfile` builds an API-only image: the esbuild bundle plus
 on Postgres; the SQLite native binding is deliberately not built.
 
 1. **Google Cloud project:** enable the Cloud Run, Cloud Build, Artifact Registry and
-   Secret Manager APIs. Use `europe-west1`: it is a few milliseconds from Neon's
-   `aws-eu-central-1` and is in Cloud Run's lower price tier.
+   Secret Manager APIs. The service runs in `europe-west3` (Frankfurt), the same city as
+   Neon's `aws-eu-central-1`, so database round trips stay short.
 2. **Secrets:** create each one in Secret Manager: `DATABASE_URL` (Neon **pooled**
    string), `LINGOFLOW_AUTH_SECRET` (must match Vercel's, or every existing session is
    signed out), `GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`, `RESEND_API_KEY`,
@@ -323,7 +329,7 @@ on Postgres; the SQLite native binding is deliberately not built.
 3. **First deploy:** run the **Deploy API to Cloud Run** workflow
    (`.github/workflows/deploy-cloud-run.yml`). It needs these GitHub repository variables:
    `GCP_PROJECT_ID`, `GCP_REGION`, `GCP_WIF_PROVIDER`, `GCP_DEPLOY_SERVICE_ACCOUNT`,
-   `PUBLIC_APP_URL`, `EMAIL_FROM` and `GOOGLE_OAUTH_REDIRECT_URI`. It authenticates with
+   `PUBLIC_APP_URL`, `EMAIL_FROM`, `GOOGLE_OAUTH_REDIRECT_URI` and `TTS_CACHE_BUCKET`. It authenticates with
    Workload Identity Federation, so no key is stored. The workflow uses
    `gcloud run deploy --source .`, which you can also run by hand with the same flags.
 4. **Verify:** `curl https://<service-url>/api/health` returns `{"ok":true}`.
@@ -332,11 +338,21 @@ on Postgres; the SQLite native binding is deliberately not built.
    `npm run build`, and delete `api/index.js`.
 6. **RevenueCat:** set the webhook URL to `https://<service-url>/api/billing/revenuecat-webhook`,
    with the authorization header value equal to `REVENUECAT_WEBHOOK_AUTH`.
+7. **Text-to-speech** (`GET /api/tts`, used by the Android app): set `GEMINI_API_KEY` (a
+   Gemini API key; speech comes from `gemini-3.8-flash-lite-tts`). Create a bucket for the
+   audio cache in the same region, and let the Cloud Run runtime service account read and
+   write it:
 
-Settings are chosen to stay in the free tier: `--min-instances 0` (cold starts of a
-second or two after idle periods), `--max-instances 3`, 512 MiB memory, and CPU only
-allocated during requests. The auth rate limiter is in-memory, so its limits apply per
-instance.
+   ```sh
+   gcloud storage buckets create gs://<bucket> --location europe-west3 --uniform-bucket-level-access
+   gcloud storage buckets add-iam-policy-binding gs://<bucket>      --member serviceAccount:<runtime-service-account> --role roles/storage.objectAdmin
+   ```
+
+   Set `TTS_CACHE_BUCKET` to `<bucket>`. A sentence is generated the first time someone
+   plays it (a few seconds) and served from the bucket afterwards. The voice is Kore;
+   `TTS_VOICES` overrides it per language (`ru-RU=Charon,...`), `TTS_MODEL` changes the
+   model, and `TTS_DISABLED=1` turns the endpoint off. Clients fall back to their own TTS
+   whenever it fails or is slow.
 
 </details>
 

@@ -131,6 +131,7 @@ const { registerCourseRoutes } = require("./routes/courseRoutes.ts");
 const { registerSessionRoutes } = require("./routes/sessionRoutes.ts");
 const { registerUserRoutes } = require("./routes/userRoutes.ts");
 const { registerAuthRoutes } = require("./routes/authRoutes.ts");
+const { registerTtsRoutes } = require("./routes/ttsRoutes.ts");
 const { createTokenService } = require("./auth/tokenService.ts");
 const { hashPassword, verifyPassword } = require("./auth/password.ts");
 
@@ -444,6 +445,8 @@ async function createApp(): Promise<any> {
       (GOOGLE_OAUTH_CLIENT_ID ? new OAuth2Client(GOOGLE_OAUTH_CLIENT_ID) : null),
     isPremiumUser
   });
+
+  registerTtsRoutes(app, { requireAuth, logger });
 
   // Auth routes are registered in routes/authRoutes.ts.
   if (fs.existsSync(clientDistPath)) {
