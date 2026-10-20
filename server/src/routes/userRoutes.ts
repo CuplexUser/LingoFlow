@@ -26,7 +26,7 @@ function toUserId(value: unknown): number | null {
 }
 
 function registerUserRoutes(app: any, deps: any): void {
-  const { requireAuth, database, injectCommunityItem, premiumEntitlement } = deps;
+  const { requireAuth, database, injectCommunityItem, premiumEntitlement, isComplimentaryPremium } = deps;
   const revenueCatSecretKey = String(process.env.REVENUECAT_SECRET_API_KEY || "").trim();
   const revenueCatWebhookAuth = String(process.env.REVENUECAT_WEBHOOK_AUTH || "").trim();
 
@@ -138,8 +138,12 @@ function registerUserRoutes(app: any, deps: any): void {
   app.post("/api/billing/sync", requireAuth, async (req: any, res: any) => {
     try {
       const subscription = await syncSubscriber(req.authUserId);
-      return res.json({ isPremium: Boolean(subscription), subscription });
+      return res.json({ isPremium: Boolean(subscription) || await isComplimentaryPremium(req.authUserId), subscription });
     } catch (error) {
+      // Complimentary accounts don't depend on the store, so a restore still confirms them.
+      if (await isComplimentaryPremium(req.authUserId)) {
+        return res.json({ isPremium: true, subscription: null });
+      }
       console.error("[billing] RevenueCat sync failed", {
         userId: req.authUserId,
         reason: error instanceof Error ? error.message : "unknown"

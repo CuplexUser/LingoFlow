@@ -145,6 +145,34 @@ test("an active subscription lifts the cap; an expired one does not", async (t) 
   }
 });
 
+test("accounts in PREMIUM_ACCOUNT_EMAILS get Premium without a subscription", async (t) => {
+  const srv = await startServer();
+  t.after(() => {
+    srv.close();
+    delete process.env.PREMIUM_ACCOUNT_EMAILS;
+  });
+  const reviewer = await signUp(srv.base, "play-review");
+  const other = await signUp(srv.base, "not-listed");
+  const email = (await database.getUserById(reviewer.userId)).email;
+  process.env.PREMIUM_ACCOUNT_EMAILS = ` someone@example.com; ${email.toUpperCase()} `;
+
+  const me = await getJson(srv.base, "/api/auth/me", reviewer.headers);
+  assert.equal(me.body.user.isPremium, true);
+  const path = await getJson(srv.base, "/api/path?language=spanish", { ...reviewer.headers, ...APP_HEADER });
+  assert.equal(path.status, 200);
+  assert.equal(path.body.levelCap, null);
+
+  // A restore confirms Premium even though the store has nothing (RevenueCat isn't set up here).
+  const sync = await postJson(srv.base, "/api/billing/sync", reviewer.headers, {});
+  assert.equal(sync.status, 200);
+  assert.equal(sync.body.isPremium, true);
+
+  const otherMe = await getJson(srv.base, "/api/auth/me", other.headers);
+  assert.equal(otherMe.body.user.isPremium, false);
+  const otherPath = await getJson(srv.base, "/api/path?language=spanish", { ...other.headers, ...APP_HEADER });
+  assert.equal(otherPath.body.levelCap, "a1");
+});
+
 test("stories above a1 are locked for free app users only", async (t) => {
   const srv = await startServer();
   t.after(() => srv.close());

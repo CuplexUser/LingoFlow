@@ -175,9 +175,27 @@ function isAppClient(req: AuthenticatedRequest): boolean {
   return String(req.headers["x-lingoflow-client"] || "").trim().toLowerCase() === "android";
 }
 
+// Complimentary Premium without a store subscription, such as the account Google Play's
+// reviewers sign in with. PREMIUM_ACCOUNT_EMAILS lists their emails, separated by commas,
+// semicolons or spaces (gcloud --set-env-vars splits on commas, so the deploy uses ";").
+function isComplimentaryPremiumEmail(email: string): boolean {
+  const normalized = String(email || "").trim().toLowerCase();
+  if (!normalized) return false;
+  return String(process.env.PREMIUM_ACCOUNT_EMAILS || "")
+    .split(/[,;\s]+/)
+    .some((entry) => entry.toLowerCase() === normalized);
+}
+
+async function isComplimentaryPremium(userId: number | null): Promise<boolean> {
+  if (!userId || !String(process.env.PREMIUM_ACCOUNT_EMAILS || "").trim()) return false;
+  const user = await database.getUserById(userId);
+  return Boolean(user && isComplimentaryPremiumEmail(user.email));
+}
+
 async function isPremiumUser(userId: number | null): Promise<boolean> {
   if (!userId) return false;
-  return Boolean(await database.getActiveSubscription(userId, PREMIUM_ENTITLEMENT));
+  if (await database.getActiveSubscription(userId, PREMIUM_ENTITLEMENT)) return true;
+  return isComplimentaryPremium(userId);
 }
 
 // The highest CEFR level a request may receive content for, or "" for no cap.
@@ -440,7 +458,8 @@ async function createApp(): Promise<any> {
     requireAuth,
     database,
     injectCommunityItem,
-    premiumEntitlement: PREMIUM_ENTITLEMENT
+    premiumEntitlement: PREMIUM_ENTITLEMENT,
+    isComplimentaryPremium
   });
   registerAuthRoutes(app, {
     database,
