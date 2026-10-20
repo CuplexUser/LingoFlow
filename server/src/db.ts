@@ -3200,6 +3200,146 @@ async function forgetBillingEvent(eventId: string) {
   await db.prepare("DELETE FROM billing_events WHERE event_id = ?").run(eventId);
 }
 
+// Learning path. A unit is one category at one CEFR level; path_units counts the lessons
+// finished in each, path_state holds the level a language's path starts at (set by the
+// placement check), and path_sessions tags the active sessions that belong to the path so
+// completing one can advance it.
+async function createPathTables(): Promise<void> {
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS path_units (
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      language TEXT NOT NULL,
+      level TEXT NOT NULL,
+      category TEXT NOT NULL,
+      lessons_done INTEGER NOT NULL DEFAULT 0,
+      tested_out INTEGER NOT NULL DEFAULT 0,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY(user_id, language, level, category)
+    );
+
+    CREATE TABLE IF NOT EXISTS path_state (
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      language TEXT NOT NULL,
+      start_level TEXT NOT NULL DEFAULT 'a1',
+      placement_done INTEGER NOT NULL DEFAULT 0,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY(user_id, language)
+    );
+
+    CREATE TABLE IF NOT EXISTS path_sessions (
+      session_id TEXT PRIMARY KEY,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      kind TEXT NOT NULL,
+      level TEXT NOT NULL,
+      details_json TEXT NOT NULL DEFAULT '{}',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+  `);
+}
+
+async function getPathUnits(userId: number, language: string) {
+  const rows = await db.prepare(`
+    SELECT level, category, lessons_done, tested_out
+    FROM path_units
+    WHERE user_id = ? AND language = ?
+  `).all(userId, language);
+  return rows.map((row: any) => ({
+    level: row.level,
+    category: row.category,
+    lessonsDone: Number(row.lessons_done) || 0,
+    testedOut: Boolean(row.tested_out)
+  }));
+}
+
+async function recordPathLesson(
+  userId: number,
+  language: string,
+  level: string,
+  category: string,
+  lessonCount: number
+) {
+  await db.prepare(`
+    INSERT INTO path_units (user_id, language, level, category, lessons_done, tested_out, updated_at)
+    VALUES (?, ?, ?, ?, 1, 0, CURRENT_TIMESTAMP)
+    ON CONFLICT(user_id, language, level, category) DO UPDATE SET
+      lessons_done = CASE
+        WHEN path_units.lessons_done + 1 > ? THEN ?
+        ELSE path_units.lessons_done + 1
+      END,
+      updated_at = CURRENT_TIMESTAMP
+  `).run(userId, language, level, category, lessonCount, lessonCount);
+}
+
+async function markPathUnitsTestedOut(
+  userId: number,
+  language: string,
+  level: string,
+  categories: string[],
+  lessonCount: number
+) {
+  for (const category of categories) {
+    await db.prepare(`
+      INSERT INTO path_units (user_id, language, level, category, lessons_done, tested_out, updated_at)
+      VALUES (?, ?, ?, ?, ?, 1, CURRENT_TIMESTAMP)
+      ON CONFLICT(user_id, language, level, category) DO UPDATE SET
+        lessons_done = excluded.lessons_done,
+        tested_out = 1,
+        updated_at = CURRENT_TIMESTAMP
+    `).run(userId, language, level, category, lessonCount);
+  }
+}
+
+async function getPathState(userId: number, language: string) {
+  const row = await db.prepare(`
+    SELECT start_level, placement_done
+    FROM path_state
+    WHERE user_id = ? AND language = ?
+  `).get(userId, language);
+  if (!row) return null;
+  return { startLevel: String(row.start_level), placementDone: Boolean(row.placement_done) };
+}
+
+async function savePathState(userId: number, language: string, startLevel: string) {
+  await db.prepare(`
+    INSERT INTO path_state (user_id, language, start_level, placement_done, updated_at)
+    VALUES (?, ?, ?, 1, CURRENT_TIMESTAMP)
+    ON CONFLICT(user_id, language) DO UPDATE SET
+      start_level = excluded.start_level,
+      placement_done = 1,
+      updated_at = CURRENT_TIMESTAMP
+  `).run(userId, language, startLevel);
+}
+
+async function setSelfRatedLevel(userId: number, level: string) {
+  await db.prepare("UPDATE settings SET self_rated_level = ? WHERE user_id = ?").run(level, userId);
+}
+
+async function createPathSession({ sessionId, userId, kind, level, details = {} }) {
+  // Path sessions live as long as their active session (two days); older rows are dead weight.
+  const cutoff = toIsoDate(new Date(Date.now() - 1000 * 60 * 60 * 24 * 3));
+  await db.prepare("DELETE FROM path_sessions WHERE user_id = ? AND created_at < ?").run(userId, cutoff);
+  await db.prepare(`
+    INSERT INTO path_sessions (session_id, user_id, kind, level, details_json)
+    VALUES (?, ?, ?, ?, ?)
+  `).run(sessionId, userId, kind, level, JSON.stringify(details));
+}
+
+async function getPathSession(sessionId: string, userId: number) {
+  const row = await db.prepare(`
+    SELECT session_id, kind, level, details_json
+    FROM path_sessions
+    WHERE session_id = ? AND user_id = ?
+  `).get(sessionId, userId);
+  if (!row) return null;
+  let details: any = {};
+  try {
+    details = JSON.parse(row.details_json || "{}");
+  } catch (_error) {
+    details = {};
+  }
+  return { sessionId: row.session_id, kind: String(row.kind), level: String(row.level), details };
+}
+
 // Schema creation and migrations.
 //
 // These used to run as import side effects. With an async driver they need an
@@ -3214,7 +3354,7 @@ let schemaReady: Promise<void> | null = null;
 // connection) instead of re-confirming a schema that hasn't changed since the last deploy.
 // Forgetting to bump this after a real schema change means that change silently never runs
 // against an already-deployed database.
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
 
 async function isSchemaCurrent(): Promise<boolean> {
   if (!(await db.tableExists("schema_meta"))) return false;
@@ -3263,6 +3403,7 @@ async function runSchemaSetup(): Promise<void> {
   await ensureStoryCompletionsColumns();
   await createWordTranslationsTable();
   await createSubscriptionTables();
+  await createPathTables();
   await markSchemaCurrent();
   await seedDefaultUser();
   await maybeMigrateLegacyJson();
@@ -3365,5 +3506,13 @@ module.exports = {
   deleteSubscription,
   getActiveSubscription,
   recordBillingEvent,
-  forgetBillingEvent
+  forgetBillingEvent,
+  getPathUnits,
+  recordPathLesson,
+  markPathUnitsTestedOut,
+  getPathState,
+  savePathState,
+  setSelfRatedLevel,
+  createPathSession,
+  getPathSession
 };

@@ -91,7 +91,8 @@ function registerSessionRoutes(
     calculateXp,
     crypto,
     getLevelCap,
-    LEVEL_ORDER
+    LEVEL_ORDER,
+    learningPath
   } = deps;
 
   app.post("/api/session/start", requireAuth, async (req: any, res: any) => {
@@ -355,6 +356,9 @@ function registerSessionRoutes(
     if (session.language !== language || session.category !== category) {
       return res.status(400).json({ error: "Session metadata mismatch" });
     }
+    if (session.category === learningPath?.PLACEMENT_CATEGORY) {
+      return res.status(400).json({ error: "Placement checks finish at /api/placement/complete" });
+    }
     if (session.expiresAt < database.toIsoDate()) {
       return res.status(410).json({ error: "Session expired" });
     }
@@ -362,7 +366,10 @@ function registerSessionRoutes(
     const questionMap = new Map<string, SessionQuestion>(
       session.questions.map((question: SessionQuestion) => [question.id, question])
     );
-    const isMistakePracticeSession = session.category === "__mistakes__";
+    // Learning-path checkpoints mix several categories, so like mistake drills they award
+    // XP and update each item without moving one category's mastery.
+    const isMistakePracticeSession = session.category === "__mistakes__" ||
+      session.category === learningPath?.CHECKPOINT_CATEGORY;
     const isPracticeSession = isMistakePracticeSession || (
       session.questions.length > 0 &&
       session.questions.every((question: SessionQuestion) => String(question.type || "").startsWith("practice_"))
@@ -527,6 +534,16 @@ function registerSessionRoutes(
       return { saved, categoryProgress };
     });
 
+    const pathResult = learningPath
+      ? await learningPath.applySessionCompletion({
+        userId,
+        sessionId: String(sessionId),
+        language,
+        questions: session.questions,
+        evaluatedAttempts
+      })
+      : null;
+
     const unlockedAchievements = await database.checkAndGrantAchievements(userId, {
       streak: completion.saved.streak,
       totalXp: completion.saved.totalXp ?? 0,
@@ -553,7 +570,8 @@ function registerSessionRoutes(
       learnerLevel: completion.saved.learnerLevel,
       mastery: isPracticeSession ? completion.categoryProgress?.mastery ?? 0 : completion.saved.mastery,
       levelUnlocked: isPracticeSession ? completion.categoryProgress?.levelUnlocked ?? "a1" : completion.saved.levelUnlocked,
-      unlockedAchievements
+      unlockedAchievements,
+      path: pathResult
     });
   });
 }

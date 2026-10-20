@@ -132,6 +132,7 @@ const { registerSessionRoutes } = require("./routes/sessionRoutes.ts");
 const { registerUserRoutes } = require("./routes/userRoutes.ts");
 const { registerAuthRoutes } = require("./routes/authRoutes.ts");
 const { registerTtsRoutes } = require("./routes/ttsRoutes.ts");
+const { createLearningPath, registerPathRoutes } = require("./routes/pathRoutes.ts");
 const { createTokenService } = require("./auth/tokenService.ts");
 const { hashPassword, verifyPassword } = require("./auth/password.ts");
 
@@ -411,6 +412,15 @@ async function createApp(): Promise<any> {
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
   registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap });
+  const learningPath = createLearningPath({
+    database,
+    CATEGORIES,
+    LEVEL_ORDER,
+    getAllItems,
+    generateSession,
+    evaluateAttempt,
+    crypto
+  });
   registerSessionRoutes(app, {
     requireAuth,
     database,
@@ -422,8 +432,10 @@ async function createApp(): Promise<any> {
     calculateXp,
     crypto,
     getLevelCap,
-    LEVEL_ORDER
+    LEVEL_ORDER,
+    learningPath
   });
+  registerPathRoutes(app, { requireAuth, database, LANGUAGES, getLevelCap }, learningPath);
   registerUserRoutes(app, {
     requireAuth,
     database,

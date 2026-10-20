@@ -781,7 +781,8 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     mode,
     random,
     dailyMode = false,
-    maxLevel = ""
+    maxLevel = "",
+    exactLevel = ""
   }) {
     const randomFn = typeof random === "function" ? random : Math.random;
     const isPracticeMode = Boolean(mode);
@@ -789,10 +790,14 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       ? buildPracticePool(getAllItems, language, practicePool, extraPoolItems)
       : getCategoryItems(language, category);
     // maxLevel caps content for free-tier app users; levels above it never reach the pool.
+    // exactLevel pins a learning-path lesson to its unit's level.
     const maxLevelRank = levelRank(maxLevel);
-    const all = filterItemsForMode(sourceItems, mode).filter((item) =>
-      maxLevelRank < 0 || levelRank(resolveDifficulty(item)) <= maxLevelRank
-    );
+    const exactLevelRank = levelRank(exactLevel);
+    const all = filterItemsForMode(sourceItems, mode).filter((item) => {
+      const rank = levelRank(resolveDifficulty(item));
+      return (maxLevelRank < 0 || rank <= maxLevelRank) &&
+        (exactLevelRank < 0 || rank === exactLevelRank);
+    });
     if (!all.length) {
       return {
         recommendedLevel: "a1",
@@ -906,7 +911,9 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       adaptiveRank = Math.max(adaptiveRank, selfRatedRank - 1);
     }
 
-    const recommendedRank = maxLevelRank < 0
+    const recommendedRank = exactLevelRank >= 0
+      ? exactLevelRank
+      : maxLevelRank < 0
       ? clampLevelRank(adaptiveRank)
       : Math.min(clampLevelRank(adaptiveRank), maxLevelRank);
     const recommendedLevel = LEVEL_ORDER[recommendedRank];
