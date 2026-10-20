@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon --exec \"node --experimental-strip-types\" src/index.ts",
+    "dev": "node --watch-path=src --watch-path=content --experimental-strip-types src/index.ts",
     "typecheck": "node ../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
     "build:dist": "node -e \"const esbuild=require('esbuild');require('fs').mkdirSync('dist',{recursive:true});esbuild.buildSync({entryPoints:['src/index.ts'],bundle:true,platform:'node',format:'cjs',target:'node20',packages:'external',minify:true,sourcemap:true,outfile:'dist/index.js'});\"",
     "build": "npm run typecheck && npm run build:dist",
@@ -18,12 +18,11 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "google-auth-library": "^10.6.2",
-    "nodemailer": "^9.0.3",
+    "nodemailer": "^10.1.7",
     "pg": "^8.23.0",
     "uuid": "^14.0.0"
   },
   "devDependencies": {
-    "@types/pg": "^8.23.1",
-    "nodemon": "^3.1.10"
+    "@types/pg": "^8.23.1"
   }
 }

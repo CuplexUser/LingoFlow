@@ -280,39 +280,27 @@ Otherwise keep dev dependencies — the build tools (`vite`, `esbuild`, `tsc`) l
 <details>
 <summary><b>Deploying to Vercel</b></summary>
 
-The repo is set up as a single Vercel project at the repo root — `vercel.json` builds
-both workspaces (`npm run vercel-build`), serves the client's static build
-(`client/dist`) from the CDN, and runs the Express API as one serverless Function
-(`api/index.js`, wrapping `server/dist/index.js`) behind a `/api/*` rewrite. The client
-and API share one domain, so the default `VITE_API_BASE` (`/api`) needs no override and
-CORS is same-origin.
+Vercel hosts the web client only. `vercel.json` installs just the client workspace,
+builds it (`npm run build`), serves `client/dist` from the CDN, and rewrites `/api/*` to
+the Cloud Run API (see the next section). The browser only ever talks to the Vercel
+domain, so the default `VITE_API_BASE` (`/api`) needs no override and requests stay
+same-origin.
 
 1. Import the repo into a Vercel project (dashboard or `vercel link`). No framework
    preset is needed — `vercel.json` covers the build/output configuration.
-2. Point `DATABASE_URL` at your Neon Postgres database — prefer the **pooled** connection
-   string, since each Function invocation may be a fresh instance. `LINGOFLOW_DB_DRIVER`
-   does not need to be set; Postgres is selected automatically whenever `DATABASE_URL` is
-   present.
-3. Set the rest of the server env vars from the table above in the Vercel dashboard
-   (Production and Preview): `LINGOFLOW_AUTH_SECRET`, `GOOGLE_OAUTH_CLIENT_ID`,
-   `GOOGLE_OAUTH_CLIENT_SECRET`, `GOOGLE_OAUTH_REDIRECT_URI` (the deployed domain's
-   `/api/auth/google/callback` — also add this URL to the OAuth client's allowed redirect
-   URIs in Google Cloud Console), `PUBLIC_APP_URL` (the deployed domain, used in
-   verification emails), `SMTP_*` / `EMAIL_FROM`, `CONTRIBUTION_REVIEWER_EMAILS`,
-   `LOG_LEVEL`.
-4. Deploy. The Function bootstraps the DB schema and content on first invocation per
-   warm instance (same idempotent `initSchema()` bootstrap the long-running server runs),
-   not on every request.
+2. No server env vars are needed on Vercel; they live on Cloud Run. The only optional
+   one is `APP_VERSION` (see `scripts/write-version.js`).
+3. If the Cloud Run service URL changes, update the `/api/(.*)` rewrite destination in
+   `vercel.json`.
 
 </details>
 
 <details>
 <summary><b>Deploying the API to Google Cloud Run</b></summary>
 
-The API is moving from the Vercel Function to Cloud Run so the web app and the Android
-app share one long-running backend. The web client stays on Vercel; once Cloud Run is
-live, Vercel forwards `/api/*` to it, so the web app stays same-origin and the Google
-OAuth redirect URI does not change.
+The API runs on Cloud Run so the web app and the Android app share one long-running
+backend. The web client stays on Vercel, which forwards `/api/*` to the service, so the
+web app stays same-origin.
 
 The repo-root `Dockerfile` builds an API-only image: the esbuild bundle plus
 `server/content/`, production dependencies only, listening on `$PORT`. It always runs
@@ -333,9 +321,9 @@ on Postgres; the SQLite native binding is deliberately not built.
    Workload Identity Federation, so no key is stored. The workflow uses
    `gcloud run deploy --source .`, which you can also run by hand with the same flags.
 4. **Verify:** `curl https://<service-url>/api/health` returns `{"ok":true}`.
-5. **Cut over the web app:** in `vercel.json`, replace the `/api/(.*)` rewrite's
-   destination with `https://<service-url>/api/$1`, change `buildCommand` to
-   `npm run build`, and delete `api/index.js`.
+5. **Web app:** the `/api/(.*)` rewrite in `vercel.json` points at
+   `https://<service-url>/api/$1`. Set `PUBLIC_APP_URL` to the Vercel domain, so Google
+   sign-in and verification emails return users to the web app.
 6. **RevenueCat:** set the webhook URL to `https://<service-url>/api/billing/revenuecat-webhook`,
    with the authorization header value equal to `REVENUECAT_WEBHOOK_AUTH`.
 7. **Text-to-speech** (`GET /api/tts`, used by the Android app): set `GEMINI_API_KEY` (a

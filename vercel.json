@@ -1,10 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run vercel-build",
+  "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
-  "installCommand": "npm ci",
+  "installCommand": "npm ci --workspace client --include-workspace-root",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" },
+    {
+      "source": "/api/(.*)",
+      "destination": "https://lingoflow-api-155063896002.europe-west3.run.app/api/$1"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -32,15 +32,6 @@ module.exports = [
       }
     }
   },
-  {
-    files: ["api/**/*.js"],
-    languageOptions: {
-      globals: {
-        module: "readonly",
-        require: "readonly"
-      }
-    }
-  },
   js.configs.recommended,
   ...tsRecommended.map((config) => ({
     ...config,
