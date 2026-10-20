@@ -312,9 +312,10 @@ on Postgres; the SQLite native binding is deliberately not built.
 2. **Secrets:** create each one in Secret Manager: `DATABASE_URL` (Neon **pooled**
    string), `LINGOFLOW_AUTH_SECRET` (must match Vercel's, or every existing session is
    signed out), `GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`, `RESEND_API_KEY`,
-   `CONTRIBUTION_REVIEWER_EMAILS`, `REVENUECAT_SECRET_API_KEY`, `REVENUECAT_WEBHOOK_AUTH`,
-   `GEMINI_API_KEY`, `LIBRETRANSLATE_API_KEY`. Give the Cloud Run runtime service account
-   `roles/secretmanager.secretAccessor`.
+   `CONTRIBUTION_REVIEWER_EMAILS`, `GEMINI_API_KEY`, `LIBRETRANSLATE_API_KEY`, and — once
+   RevenueCat is set up, together with adding them to the workflow's `--set-secrets` —
+   `REVENUECAT_SECRET_API_KEY` and `REVENUECAT_WEBHOOK_AUTH`. Give the Cloud Run runtime
+   service account `roles/secretmanager.secretAccessor` on each.
 3. **First deploy:** run the **Deploy API to Cloud Run** workflow
    (`.github/workflows/deploy-cloud-run.yml`). It needs these GitHub repository variables:
    `GCP_PROJECT_ID`, `GCP_REGION`, `GCP_WIF_PROVIDER`, `GCP_DEPLOY_SERVICE_ACCOUNT`,

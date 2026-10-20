@@ -32,6 +32,10 @@ Remaining:
   password accounts. Google Play requires deletion for every user; accept a fresh Google
   ID token as confirmation instead of a password.
 - [ ] **Run the full suite on Postgres** (`npm run test:server:pg`).
+- [ ] **RevenueCat secrets** — once RevenueCat is set up, create `REVENUECAT_SECRET_API_KEY`
+  and `REVENUECAT_WEBHOOK_AUTH` in Secret Manager (grant the runtime service account
+  `secretAccessor`), add both to `--set-secrets` in `.github/workflows/deploy-cloud-run.yml`,
+  and point the webhook at `/api/billing/revenuecat-webhook`.
 
 ### Phase 13: Content expansion ★ PRIORITY 1
 
