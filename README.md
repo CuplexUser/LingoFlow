@@ -312,12 +312,14 @@ on Postgres; the SQLite native binding is deliberately not built.
 2. **Secrets:** create each one in Secret Manager: `DATABASE_URL` (Neon **pooled**
    string), `LINGOFLOW_AUTH_SECRET` (must match Vercel's, or every existing session is
    signed out), `GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`, `RESEND_API_KEY`,
-   `CONTRIBUTION_REVIEWER_EMAILS`, `REVENUECAT_SECRET_API_KEY`, `REVENUECAT_WEBHOOK_AUTH`.
-   Give the Cloud Run runtime service account `roles/secretmanager.secretAccessor`.
+   `CONTRIBUTION_REVIEWER_EMAILS`, `REVENUECAT_SECRET_API_KEY`, `REVENUECAT_WEBHOOK_AUTH`,
+   `GEMINI_API_KEY`, `LIBRETRANSLATE_API_KEY`. Give the Cloud Run runtime service account
+   `roles/secretmanager.secretAccessor`.
 3. **First deploy:** run the **Deploy API to Cloud Run** workflow
    (`.github/workflows/deploy-cloud-run.yml`). It needs these GitHub repository variables:
    `GCP_PROJECT_ID`, `GCP_REGION`, `GCP_WIF_PROVIDER`, `GCP_DEPLOY_SERVICE_ACCOUNT`,
-   `PUBLIC_APP_URL`, `EMAIL_FROM`, `GOOGLE_OAUTH_REDIRECT_URI` and `TTS_CACHE_BUCKET`. It authenticates with
+   `PUBLIC_APP_URL`, `EMAIL_FROM`, `GOOGLE_OAUTH_REDIRECT_URI`, `TTS_CACHE_BUCKET` and
+   `LIBRETRANSLATE_URL`. It authenticates with
    Workload Identity Federation, so no key is stored. The workflow uses
    `gcloud run deploy --source .`, which you can also run by hand with the same flags.
 4. **Verify:** `curl https://<service-url>/api/health` returns `{"ok":true}`.
