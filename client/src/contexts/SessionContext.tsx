@@ -55,7 +55,8 @@ export type SessionContextValue = {
   removeBookmark: (questionId: string) => Promise<void>;
   saveSetup: () => Promise<void>;
   deleteAccount: (form: {
-    password: string;
+    password?: string;
+    confirmEmail?: string;
     confirmDelete: boolean;
   }) => Promise<void>;
 };
@@ -93,7 +94,8 @@ type SessionProviderProps = {
   clearAllActiveSessions: () => void;
   setAuthMode: (mode: string) => void;
   handleDeleteAccount: (form: {
-    password: string;
+    password?: string;
+    confirmEmail?: string;
     confirmDelete: boolean;
   }) => Promise<void>;
 };
@@ -364,7 +366,8 @@ export function SessionProvider({
   }
 
   async function deleteAccount(form: {
-    password: string;
+    password?: string;
+    confirmEmail?: string;
     confirmDelete: boolean;
   }) {
     await handleDeleteAccount(form);

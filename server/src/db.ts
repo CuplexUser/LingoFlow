@@ -1165,6 +1165,10 @@ async function createUser({ email, passwordHash, displayName, emailVerified = fa
 async function deleteUserById(userId) {
   if (!Number.isInteger(userId) || userId <= 0) return false;
   const tx = db.transaction(async () => {
+    // Everything the user owns cascades. These two only point at the user: keep the
+    // reviewed exercises and the webhook ids (needed for idempotency), drop the link.
+    await db.prepare("UPDATE community_exercises SET reviewed_by = NULL WHERE reviewed_by = ?").run(userId);
+    await db.prepare("UPDATE billing_events SET user_id = NULL WHERE user_id = ?").run(userId);
     const result = await db.prepare(`
       DELETE FROM users
       WHERE id = ?

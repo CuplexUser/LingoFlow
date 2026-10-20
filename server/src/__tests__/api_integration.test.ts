@@ -759,13 +759,14 @@ test("delete account removes local account and invalidates existing auth token",
   assert.equal(loginRes.status, 401);
 });
 
-test("delete account is rejected for oauth users", async (t) => {
+test("delete account removes a Google account confirmed with its email", async (t) => {
   const srv = await TestServer.start();
   t.after(() => srv.close());
 
   // Create an OAuth user directly in the DB (no HTTP registration flow for OAuth)
+  const email = `oauth-delete-${Date.now()}@example.com`;
   const oauthUser = await database.createUser({
-    email: `oauth-delete-${Date.now()}@example.com`,
+    email,
     passwordHash: `oauth-google:${Date.now()}`,
     displayName: "OAuth User",
     authProvider: "google",
@@ -778,14 +779,52 @@ test("delete account is rejected for oauth users", async (t) => {
     tokenTtlSeconds: 60 * 60 * 24 * 30,
     googleStateTtlSeconds: 10 * 60
   });
-  const token = tokenService.createAuthToken(oauthUser.id);
-
-  const deleteRes = await fetch(`${srv.base}/api/auth/delete-account`, {
+  const headers = {
+    Authorization: `Bearer ${tokenService.createAuthToken(oauthUser.id)}`,
+    "Content-Type": "application/json"
+  };
+  const remove = (body: unknown) => fetch(`${srv.base}/api/auth/delete-account`, {
     method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ password: "Password123!", confirmDelete: true })
+    headers,
+    body: JSON.stringify(body)
   });
-  assert.equal(deleteRes.status, 400);
+
+  // A password is not a confirmation for an account without one
+  assert.equal((await remove({ password: "Password123!", confirmDelete: true })).status, 400);
+  assert.equal((await remove({ confirmEmail: "someone-else@example.com", confirmDelete: true })).status, 400);
+  assert.equal((await remove({ confirmEmail: email, confirmDelete: false })).status, 400);
+  assert.ok(await database.getUserById(oauthUser.id));
+
+  const deleteRes = await remove({ confirmEmail: ` ${email.toUpperCase()} `, confirmDelete: true });
+  assert.equal(deleteRes.status, 200);
+  assert.equal(await database.getUserById(oauthUser.id), null);
+
+  const staleTokenRes = await fetch(`${srv.base}/api/settings`, { headers });
+  assert.equal(staleTokenRes.status, 401);
+});
+
+test("deleting a reviewer keeps the exercises they reviewed", async (t) => {
+  const srv = await TestServer.start();
+  t.after(() => srv.close());
+
+  const stamp = Date.now();
+  const author = await database.createUser({
+    email: `review-author-${stamp}@example.com`, passwordHash: "x", displayName: "Author"
+  });
+  const reviewer = await database.createUser({
+    email: `review-reviewer-${stamp}@example.com`, passwordHash: "x", displayName: "Reviewer"
+  });
+  const exercise = await database.createCommunityExercise({
+    userId: author.id, language: "spanish", category: "essentials",
+    prompt: "How do you say hello?", correctAnswer: "Hola"
+  });
+  await database.updateCommunityExerciseModerationStatus({
+    id: exercise.id, moderationStatus: "approved", reviewedBy: reviewer.id
+  });
+
+  assert.equal(await database.deleteUserById(reviewer.id), true);
+  assert.equal(await database.getUserById(reviewer.id), null);
+  assert.equal(await database.deleteUserById(author.id), true);
 });
 
 // ─── Community contributions ──────────────────────────────────────────────────

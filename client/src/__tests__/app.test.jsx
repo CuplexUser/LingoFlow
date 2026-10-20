@@ -248,7 +248,7 @@ test("setup page allows local users to delete account with password + confirmati
   expect(screen.getByText("Account deleted successfully.")).toBeInTheDocument();
 });
 
-test("setup page hides in-app account deletion for oauth users", async () => {
+test("setup page lets oauth users delete their account by typing their email", async () => {
   setupApiFixtures();
   apiMock.getMe.mockResolvedValueOnce({
     user: {
@@ -264,8 +264,25 @@ test("setup page hides in-app account deletion for oauth users", async () => {
   await screen.findByText("LingoFlow");
   await user.click(screen.getByRole("button", { name: "Setup" }));
   expect(await screen.findByText("Danger Zone")).toBeInTheDocument();
-  expect(screen.getByText("Account deletion in-app is available only for password-based accounts.")).toBeInTheDocument();
   expect(screen.queryByPlaceholderText("Enter your current password")).not.toBeInTheDocument();
+
+  const deleteButton = screen.getByRole("button", { name: "Delete Account" });
+  await user.click(screen.getByRole("checkbox", { name: /I understand this action is permanent/i }));
+  const emailInput = screen.getByLabelText("Type your account email to confirm");
+  await user.type(emailInput, "someone@example.com");
+  expect(deleteButton).toBeDisabled();
+
+  await user.clear(emailInput);
+  await user.type(emailInput, "OAuth@example.com");
+  expect(deleteButton).toBeEnabled();
+  await user.click(deleteButton);
+
+  await waitFor(() =>
+    expect(apiMock.deleteAccount).toHaveBeenCalledWith({
+      confirmEmail: "OAuth@example.com",
+      confirmDelete: true
+    })
+  );
 });
 
 test("loads and resumes an active session from local storage", async () => {

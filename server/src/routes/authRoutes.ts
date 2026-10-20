@@ -183,6 +183,29 @@ async function sendPasswordResetEmail({ publicAppUrl, emailFrom, toEmail, displa
   return { delivered, link };
 }
 
+// RevenueCat keeps a customer record per app user id (our user id). Deleting the account
+// deletes that record too; it does not cancel a Google Play subscription, which the user
+// cancels in Google Play. Best effort: the account is already gone when this runs.
+async function deleteRevenueCatCustomer(userId, logger, requestId) {
+  const secretKey = String(process.env.REVENUECAT_SECRET_API_KEY || "").trim();
+  if (!secretKey) return;
+  try {
+    const response = await fetch(
+      `https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(String(userId))}`,
+      { method: "DELETE", headers: { Authorization: `Bearer ${secretKey}` } }
+    );
+    if (!response.ok && response.status !== 404) {
+      logger.warn("revenuecat_delete_failed", { requestId, userId, status: response.status });
+    }
+  } catch (error) {
+    logger.warn("revenuecat_delete_failed", {
+      requestId,
+      userId,
+      reason: error instanceof Error ? error.message : "unknown"
+    });
+  }
+}
+
 function registerAuthRoutes(app, deps) {
   const {
     database,
@@ -627,38 +650,47 @@ function registerAuthRoutes(app, deps) {
       return res.status(400).json({ error: "Deletion confirmation is required" });
     }
 
-    if (user.authProvider !== "local") {
-      return res.status(400).json({ error: "Account deletion is only available for password accounts" });
+    // Password accounts confirm with their password. Google accounts have no password, so
+    // they confirm by typing their account email; the bearer token already proves the
+    // session. Play requires that every account created in the app can be deleted there.
+    if (user.authProvider === "local") {
+      const localUser = await database.getUserByEmail(user.email);
+      const password = String(req.body?.password || "");
+      if (!localUser || !password || !verifyPassword(password, localUser.passwordHash)) {
+        logger.logAuthEvent("delete_account_rejected", {
+          requestId: req.requestId,
+          userId: user.id,
+          reason: "invalid_password"
+        });
+        return res.status(401).json({ error: "Invalid password" });
+      }
+    } else {
+      const confirmEmail = String(req.body?.confirmEmail || "").trim().toLowerCase();
+      if (!confirmEmail || confirmEmail !== String(user.email).trim().toLowerCase()) {
+        logger.logAuthEvent("delete_account_rejected", {
+          requestId: req.requestId,
+          userId: user.id,
+          reason: "email_mismatch"
+        });
+        return res.status(400).json({ error: "Type your account email to confirm" });
+      }
     }
 
-    const localUser = await database.getUserByEmail(user.email);
-    if (!localUser || localUser.authProvider !== "local") {
-      return res.status(401).json({ error: "Authentication required" });
-    }
-
-    const password = String(req.body?.password || "");
-    if (!password || !verifyPassword(password, localUser.passwordHash)) {
-      logger.logAuthEvent("delete_account_rejected", {
-        requestId: req.requestId,
-        userId: localUser.id,
-        reason: "invalid_password"
-      });
-      return res.status(401).json({ error: "Invalid password" });
-    }
-
-    const deleted = await database.deleteUserById(localUser.id);
+    const deleted = await database.deleteUserById(user.id);
     if (!deleted) {
       logger.logAuthEvent("delete_account_failed", {
         requestId: req.requestId,
-        userId: localUser.id,
+        userId: user.id,
         reason: "delete_failed"
       });
       return res.status(500).json({ error: "Could not delete account" });
     }
 
+    await deleteRevenueCatCustomer(user.id, logger, req.requestId);
     logger.logAuthEvent("delete_account_success", {
       requestId: req.requestId,
-      userId: localUser.id
+      userId: user.id,
+      authProvider: user.authProvider
     });
     return res.json({ ok: true, message: "Account deleted." });
   });

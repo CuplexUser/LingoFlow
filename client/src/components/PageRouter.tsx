@@ -129,6 +129,7 @@ export function PageRouter() {
         settings={settings}
         draftSettings={draftSettings}
         authProvider={authUser?.authProvider}
+        accountEmail={authUser?.email}
         onDraftChange={(patch: Partial<LearnerSettings>) =>
           setDraftSettings((prev) => ({ ...prev, ...patch }))
         }

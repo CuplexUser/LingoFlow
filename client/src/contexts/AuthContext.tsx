@@ -27,7 +27,8 @@ export type AuthContextValue = {
   handleResetPassword: (form: { token: string; password: string }) => Promise<void>;
   handleResendVerification: (email: string) => Promise<void>;
   handleDeleteAccount: (form: {
-    password: string;
+    password?: string;
+    confirmEmail?: string;
     confirmDelete: boolean;
   }) => Promise<void>;
   handleNavigateAuthMode: (nextMode: AuthMode) => void;
@@ -387,7 +388,8 @@ export function AuthProvider({
   }
 
   async function handleDeleteAccount(form: {
-    password: string;
+    password?: string;
+    confirmEmail?: string;
     confirmDelete: boolean;
   }) {
     await api.deleteAccount(form);

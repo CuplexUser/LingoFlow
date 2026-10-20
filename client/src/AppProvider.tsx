@@ -426,7 +426,7 @@ export function AppProvider({ children }: AppProviderProps) {
     setPendingContributionCount(0);
   }, [resetAuthenticatedAppData, clearAllActiveSessions]);
 
-  const deleteAccount = useCallback(async (form: { password: string; confirmDelete: boolean }) => {
+  const deleteAccount = useCallback(async (form: { password?: string; confirmEmail?: string; confirmDelete: boolean }) => {
     await api.deleteAccount(form);
     api.clearAuthToken();
     if (typeof window !== "undefined") {

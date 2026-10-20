@@ -227,6 +227,10 @@ export function AuthPage({
         ) : null}
 
         {errorMessage ? <div className="feedback">{errorMessage}</div> : null}
+
+        <p className="auth-legal">
+          <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a>
+        </p>
       </section>
     </main>
   );

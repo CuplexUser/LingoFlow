@@ -6,10 +6,11 @@ type SetupPageProps = {
   settings: LearnerSettings | null;
   draftSettings: LearnerSettings;
   authProvider?: string;
+  accountEmail?: string;
   onDraftChange: (patch: Partial<LearnerSettings>) => void;
   onSave: () => void | Promise<void>;
   onReset: () => void;
-  onDeleteAccount: (payload: { password: string; confirmDelete: boolean }) => Promise<void>;
+  onDeleteAccount: (payload: { password?: string; confirmEmail?: string; confirmDelete: boolean }) => Promise<void>;
 };
 
 export function SetupPage({
@@ -17,19 +18,25 @@ export function SetupPage({
   settings,
   draftSettings,
   authProvider,
+  accountEmail,
   onDraftChange,
   onSave,
   onReset,
   onDeleteAccount
 }: SetupPageProps) {
   const [deletePassword, setDeletePassword] = useState("");
+  const [deleteEmail, setDeleteEmail] = useState("");
   const [deleteConfirmed, setDeleteConfirmed] = useState(false);
   const [deleteBusy, setDeleteBusy] = useState(false);
   const [deleteError, setDeleteError] = useState("");
   const learningLanguages = languages.filter(
     (language) => language.id !== draftSettings.nativeLanguage
   );
-  const canDeleteInApp = authProvider === "local";
+  // Password accounts confirm with the password; Google accounts type their email.
+  const isPasswordAccount = authProvider === "local";
+  const emailMatches = Boolean(accountEmail)
+    && deleteEmail.trim().toLowerCase() === String(accountEmail).trim().toLowerCase();
+  const deleteReady = deleteConfirmed && (isPasswordAccount ? Boolean(deletePassword) : emailMatches);
 
   function handleNumberChange(
     key: "dailyGoal" | "dailyMinutes" | "weeklyGoalSessions",
@@ -41,15 +48,15 @@ export function SetupPage({
   }
 
   async function handleDeleteAccount() {
-    if (!canDeleteInApp) return;
-    if (!deleteConfirmed || !deletePassword) return;
+    if (!deleteReady) return;
     setDeleteBusy(true);
     setDeleteError("");
     try {
-      await onDeleteAccount({
-        password: deletePassword,
-        confirmDelete: true
-      });
+      await onDeleteAccount(
+        isPasswordAccount
+          ? { password: deletePassword, confirmDelete: true }
+          : { confirmEmail: deleteEmail.trim(), confirmDelete: true }
+      );
     } catch (error: unknown) {
       setDeleteError(error instanceof Error ? error.message : "Could not delete account.");
       setDeleteBusy(false);
@@ -213,43 +220,54 @@ export function SetupPage({
 
       <div className="setup-preview">
         <h3>Danger Zone</h3>
-        {canDeleteInApp ? (
-          <>
-            <p>Deleting your account permanently removes your profile, progress, sessions, and submitted exercises.</p>
-            <label>
-              Confirm with your password
-              <input
-                type="password"
-                value={deletePassword}
-                onChange={(event) => setDeletePassword(event.target.value)}
-                placeholder="Enter your current password"
-                autoComplete="current-password"
-                disabled={deleteBusy}
-              />
-            </label>
-            <label className="toggle-label">
-              <input
-                type="checkbox"
-                checked={deleteConfirmed}
-                onChange={(event) => setDeleteConfirmed(event.target.checked)}
-                disabled={deleteBusy}
-              />
-              <span>I understand this action is permanent and cannot be undone.</span>
-            </label>
-            <div className="hero-actions">
-              <button
-                className="ghost-button"
-                onClick={handleDeleteAccount}
-                disabled={deleteBusy || !deleteConfirmed || !deletePassword}
-              >
-                {deleteBusy ? "Deleting account..." : "Delete Account"}
-              </button>
-            </div>
-            {deleteError ? <div className="feedback">{deleteError}</div> : null}
-          </>
+        <p>Deleting your account permanently removes your profile, progress, sessions, and submitted exercises.</p>
+        <p>This does not cancel a Premium subscription bought in Google Play. Cancel that in Google Play.</p>
+        {isPasswordAccount ? (
+          <label>
+            Confirm with your password
+            <input
+              type="password"
+              value={deletePassword}
+              onChange={(event) => setDeletePassword(event.target.value)}
+              placeholder="Enter your current password"
+              autoComplete="current-password"
+              disabled={deleteBusy}
+            />
+          </label>
         ) : (
-          <p>Account deletion in-app is available only for password-based accounts.</p>
+          <label>
+            Type your account email to confirm
+            <input
+              type="email"
+              value={deleteEmail}
+              onChange={(event) => setDeleteEmail(event.target.value)}
+              placeholder={accountEmail || "Your account email"}
+              autoComplete="off"
+              autoCapitalize="none"
+              spellCheck={false}
+              disabled={deleteBusy}
+            />
+          </label>
         )}
+        <label className="toggle-label">
+          <input
+            type="checkbox"
+            checked={deleteConfirmed}
+            onChange={(event) => setDeleteConfirmed(event.target.checked)}
+            disabled={deleteBusy}
+          />
+          <span>I understand this action is permanent and cannot be undone.</span>
+        </label>
+        <div className="hero-actions">
+          <button
+            className="ghost-button"
+            onClick={handleDeleteAccount}
+            disabled={deleteBusy || !deleteReady}
+          >
+            {deleteBusy ? "Deleting account..." : "Delete Account"}
+          </button>
+        </div>
+        {deleteError ? <div className="feedback">{deleteError}</div> : null}
       </div>
     </section>
   );

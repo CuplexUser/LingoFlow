@@ -90,7 +90,8 @@ export type ResetPasswordPayload = {
 };
 
 export type DeleteAccountPayload = {
-  password: string;
+  password?: string;
+  confirmEmail?: string;
   confirmDelete: boolean;
 };
 

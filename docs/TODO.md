@@ -25,12 +25,11 @@ Three priority tracks, ordered by priority:
 Server side of the Android app (separate repo). Done: native Google sign-in
 (`/api/auth/google/native`), `subscriptions` table, A1 cap for free app users,
 RevenueCat webhook and `/api/billing/sync`, Cloud Run `Dockerfile` and deploy workflow,
-Cloud Run cutover (Vercel serves the client only and rewrites `/api/*` to the service).
+Cloud Run cutover (Vercel serves the client only and rewrites `/api/*` to the service),
+account deletion for Google accounts (confirmed by typing the account email; it also deletes
+the RevenueCat customer), and the static `/privacy` and `/delete-account` pages for Play.
 
 Remaining:
-- [ ] **Account deletion for Google accounts** — `/api/auth/delete-account` only accepts
-  password accounts. Google Play requires deletion for every user; accept a fresh Google
-  ID token as confirmation instead of a password.
 - [ ] **Run the full suite on Postgres** (`npm run test:server:pg`).
 - [ ] **RevenueCat secrets** — once RevenueCat is set up, create `REVENUECAT_SECRET_API_KEY`
   and `REVENUECAT_WEBHOOK_AUTH` in Secret Manager (grant the runtime service account

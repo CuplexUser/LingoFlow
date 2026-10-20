@@ -8,6 +8,8 @@
       "source": "/api/(.*)",
       "destination": "https://lingoflow-api-155063896002.europe-west3.run.app/api/$1"
     },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/delete-account", "destination": "/delete-account.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
