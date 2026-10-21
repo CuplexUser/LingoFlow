@@ -2,12 +2,16 @@
   "name": "lingoflow",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["server", "client"],
+  "workspaces": [
+    "server",
+    "client"
+  ],
   "scripts": {
     "version": "node scripts/write-version.js",
     "install:all": "npm install",
     "dev": "npm run version && concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "translate:language": "node --experimental-strip-types scripts/libretranslate/index.ts",
+    "review:content": "node --experimental-strip-types scripts/content-review/index.ts",
     "db:import-sqlite": "node --experimental-strip-types scripts/import-sqlite-to-postgres.ts",
     "build": "npm run version && npm run build --prefix client",
     "start": "npm run start --prefix server",
@@ -17,6 +21,7 @@
     "test:server:pg": "node --experimental-strip-types scripts/test-postgres.ts",
     "lint": "npm run version && eslint .",
     "lint:fix": "eslint . --fix",
+    "lint:content": "node --experimental-strip-types scripts/lint-content.ts",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "verify": "npm run lint && npm run test:client",
@@ -31,6 +36,7 @@
   "devDependencies": {
     "@eslint/compat": "^2.0.3",
     "@eslint/js": "^9.39.4",
+    "@modelcontextprotocol/sdk": "^1.32.1",
     "@types/node": "^26.1.2",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
@@ -41,7 +47,8 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "husky": "^9.1.7",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "zod": "^4.6.7"
   },
   "overrides": {
     "sharp": "^0.35.3",

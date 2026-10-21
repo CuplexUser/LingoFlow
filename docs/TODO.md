@@ -59,6 +59,45 @@ Quality checklist per batch:
 - [ ] Hints that coach the thought process, not just reveal the answer
 - [ ] No duplicate `id` values across the language
 
+### Phase 20: Content quality parity with Russian
+
+Russian is hand-edited; the other courses are largely machine translations of the English course.
+`npm run lint:content` reports mechanical defects (the `content_lint` test blocks new ones) and
+`npm run review:content` hands out per-category review work orders to an AI (MCP or files). See
+`docs/content-quality-checklist.md`.
+
+- [ ] **Rewrite numbers_math multiple choice in fr/de/it/sv** — the 23 `multiple_choice` items per
+  course are literal translations of an English-only quiz ("How do you spell 50?" answered `50`,
+  English idioms with German answers). Rewrite them as Spanish and Russian did ("How do you write 37
+  in German words?"). Their known errors are in `server/content/lint-baseline.json`; remove entries
+  with `npm run lint:content -- --update-baseline` as they are fixed.
+- [ ] **Run the AI review per course** (fr, de, it, sv, es, en; 16 work orders each), triage the
+  findings with `--findings`, apply with `--apply`, and check the diff. Start with
+  `--severity=error`.
+- [ ] **Work down the lint warnings** — stock "Practice this phrase out loud." hints, untranslated
+  single words, English-template hints.
+- [ ] **Depth** — cultural notes (15 per course vs. 64 in Russian) and `acceptedAnswers` for gender
+  and formal/informal variants, which the review flags as `missing-alternative`.
+- [ ] **Failure-rate signal** — rank items by `session_attempts` failure rate against the Russian
+  baseline at the same level; outliers usually have a wrong answer or a missing accepted
+  alternative.
+
+**Report a problem (learner feedback)**
+
+- [ ] "Report a problem" on each exercise and on the feedback screen, with reason chips (my answer
+  should be accepted / the answer is wrong / typo / audio / other) and an optional comment. Store
+  the learner's submitted answer, the item id, language, and the content file hash in a
+  `content_reports` table (one report per user per item).
+- [ ] Filter the noise before anyone reads it: aggregate reports per item, surface an item only when
+  several distinct users report it (or its report rate is high relative to its attempts), weight
+  reporters by their accuracy at that level, and drop reports on items whose content has changed
+  since.
+- [ ] Triage: add surfaced items and their reports to the review work orders so the AI classifies
+  each report as valid or not and proposes a fix; "my answer should be accepted" reports become
+  `acceptedAnswers` candidates. Moderators confirm in the existing contributions moderation UI.
+- [ ] Close the loop: mark reports resolved when the item's fix ships, and optionally tell the
+  reporter.
+
 ### Phase 16: Test coverage expansion
 
 Current coverage: ~40% server, ~20% client. Goal: 70%+ on both. (Server route gaps are closed.)

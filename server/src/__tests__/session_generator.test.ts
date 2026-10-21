@@ -353,3 +353,36 @@ test("Latin-script target text does not leak into reversed build_sentence tokens
     }
   }
 });
+
+// ─── Accepted answers ─────────────────────────────────────────────────────────
+
+test("authored acceptedAnswers are accepted alongside the main answer", () => {
+  const course = {
+    russian: {
+      essentials: [
+        {
+          id: "ru-forgot",
+          level: "a2",
+          difficulty: "a2",
+          prompt: "Say: I forgot my notebook at home.",
+          correctAnswer: "Я забыл тетрадь дома.",
+          acceptedAnswers: ["Я забыла тетрадь дома."],
+          exerciseType: "build_sentence"
+        }
+      ]
+    }
+  };
+
+  const selectors = createCourseSelectors(course);
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  // 0.99 keeps the question in the forward (target-language) direction.
+  const session = generateSession({ language: "russian", category: "essentials", count: 1, random: () => 0.99 });
+
+  const question = session.questions.find((q: any) => q.id === "ru-forgot");
+  assert.ok(question, "expected the build_sentence question");
+  assert.deepEqual(question.acceptedAnswers, [
+    "Я забыл тетрадь дома",
+    "Я забыла тетрадь дома.",
+    "Я забыла тетрадь дома"
+  ]);
+});

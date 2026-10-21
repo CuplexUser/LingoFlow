@@ -283,6 +283,16 @@ function buildAcceptedAnswers(target) {
   return [];
 }
 
+// Alternatives an item lists itself (e.g. the feminine "Я забыла…" next to "Я забыл…"),
+// each also accepted without its trailing punctuation.
+function buildAuthoredAcceptedAnswers(item) {
+  const authored = Array.isArray(item?.acceptedAnswers) ? item.acceptedAnswers : [];
+  return authored
+    .map((value) => String(value || "").trim())
+    .filter(Boolean)
+    .flatMap((value) => [value, ...buildAcceptedAnswers(value)]);
+}
+
 function deriveObjective(category, level) {
   if (category === "grammar") {
     if (level === "a1") return "present-and-past-basics";
@@ -481,7 +491,7 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     answer,
     correctAnswer: answer,
     answerEnglish: answerEnglish || undefined,
-    acceptedAnswers: buildAcceptedAnswers(answer),
+    acceptedAnswers: [...buildAcceptedAnswers(answer), ...buildAuthoredAcceptedAnswers(item)],
     objective: deriveObjective(category, item.level),
     sourceCategory: item.category || category,
     expectedMistakeTypes: getMistakeProfile(category),
