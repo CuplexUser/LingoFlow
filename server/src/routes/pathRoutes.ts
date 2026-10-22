@@ -1,12 +1,11 @@
 // The learning path: the course as CEFR levels (A1–B2) of units, one unit per category
-// with enough content at that level, each unit four lessons. A placement check sets the
-// level a language's path starts at, and checkpoints let a learner test out of the units
-// ahead of them. Lessons and checkpoints are ordinary sessions; path_sessions tags them so
+// with enough content at that level, each unit two to four lessons depending on how much
+// content it has. A placement check sets the level a language's path starts at, and
+// checkpoints let a learner test out of the units ahead of them. Lessons and checkpoints are ordinary sessions; path_sessions tags them so
 // /api/session/complete can advance the path.
 
 const { sessionXpRules } = require("../xpRules.ts");
 
-const LESSONS_PER_UNIT = 4;
 const UNITS_PER_SECTION = 4;
 // A category needs this many items at a level to make a unit there.
 const MIN_UNIT_ITEMS = 8;
@@ -15,6 +14,8 @@ const MIN_LESSON_QUESTIONS = 6;
 // A review lesson may be this short rather than bring back words marked "I knew this".
 const MIN_REVIEW_QUESTIONS = 4;
 const CHECKPOINT_QUESTIONS = 15;
+// Testing out of a single unit ("Too easy? Jump ahead" after a lesson) is shorter.
+const UNIT_CHECK_QUESTIONS = 10;
 const CHECKPOINT_PASS_RATIO = 0.8;
 const PLACEMENT_QUESTIONS_PER_LEVEL = 6;
 const PLACEMENT_MAX_QUESTIONS = 12;
@@ -55,7 +56,7 @@ type PathLevel = {
 };
 
 type PathCheck = {
-  scope: "section" | "level";
+  scope: "unit" | "section" | "level";
   level: string;
   categories: string[];
   labels: string[];
@@ -64,6 +65,14 @@ type PathCheck = {
   questionCount: number;
   passCount: number;
 };
+
+// A unit's lessons each bring up to ten new items, and the last one reviews them. A unit
+// with ten items therefore has two lessons rather than four that repeat the same words.
+function lessonsForUnit(itemCount: number): number {
+  if (itemCount <= 12) return 2;
+  if (itemCount <= 20) return 3;
+  return 4;
+}
 
 function createLearningPath(deps: any) {
   const { database, CATEGORIES, LEVEL_ORDER, getAllItems, generateSession, evaluateAttempt, crypto } = deps;
@@ -95,20 +104,21 @@ function createLearningPath(deps: any) {
 
   // Units per level, in course order. Content is static apart from approved community
   // exercises, and counting a language's ~1,200 items is cheap, so this is not cached.
-  function getUnitsByLevel(language: string): Record<string, Array<{ category: string; label: string; description: string }>> {
+  function getUnitsByLevel(language: string): Record<string, Array<{ category: string; label: string; description: string; lessonCount: number }>> {
     const counts = new Map<string, number>();
     for (const item of getAllItems(language) as any[]) {
       const key = `${itemLevel(item)}:${item.category}`;
       counts.set(key, (counts.get(key) || 0) + 1);
     }
-    const byLevel: Record<string, Array<{ category: string; label: string; description: string }>> = {};
+    const byLevel: Record<string, Array<{ category: string; label: string; description: string; lessonCount: number }>> = {};
     for (const level of LEVEL_ORDER) {
       byLevel[level] = CATEGORIES
         .filter((category: any) => (counts.get(`${level}:${category.id}`) || 0) >= MIN_UNIT_ITEMS)
         .map((category: any) => ({
           category: category.id,
           label: category.label,
-          description: category.description
+          description: category.description,
+          lessonCount: lessonsForUnit(counts.get(`${level}:${category.id}`) || 0)
         }));
     }
     return byLevel;
@@ -116,7 +126,7 @@ function createLearningPath(deps: any) {
 
   function describeCheck(scope: PathCheck["scope"], level: string, units: PathUnit[]): PathCheck | null {
     if (!units.length) return null;
-    const questionCount = CHECKPOINT_QUESTIONS;
+    const questionCount = scope === "unit" ? UNIT_CHECK_QUESTIONS : CHECKPOINT_QUESTIONS;
     return {
       scope,
       level,
@@ -144,6 +154,7 @@ function createLearningPath(deps: any) {
 
     let current: { level: string; category: string; label: string; unitNumber: number; lessonIndex: number } | null = null;
     let jumpAhead: PathCheck | null = null;
+    let unitCheck: PathCheck | null = null;
     let levelTest: PathCheck | null = null;
 
     const levels: PathLevel[] = LEVEL_ORDER.map((level: string) => {
@@ -151,15 +162,15 @@ function createLearningPath(deps: any) {
       const placedOut = !premium && rank(level) < rank(effectiveStart);
       const units: PathUnit[] = unitsByLevel[level].map((unit, index) => {
         const row = progress.get(`${level}:${unit.category}`);
-        const lessonsDone = Math.min(LESSONS_PER_UNIT, Number(row?.lessonsDone) || 0);
+        // Progress from when the unit had more lessons counts up to its current length.
+        const lessonsDone = Math.min(unit.lessonCount, Number(row?.lessonsDone) || 0);
         const testedOut = Boolean(row?.testedOut);
         return {
           ...unit,
           number: index + 1,
           lessonsDone,
-          lessonCount: LESSONS_PER_UNIT,
           testedOut,
-          done: testedOut || lessonsDone >= LESSONS_PER_UNIT,
+          done: testedOut || lessonsDone >= unit.lessonCount,
           state: "locked"
         };
       });
@@ -194,6 +205,7 @@ function createLearningPath(deps: any) {
         };
         const sectionEnd = (Math.floor(currentIndex / UNITS_PER_SECTION) + 1) * UNITS_PER_SECTION;
         jumpAhead = describeCheck("section", level, units.slice(currentIndex, sectionEnd).filter((entry) => !entry.done));
+        unitCheck = describeCheck("unit", level, [unit]);
         levelTest = describeCheck("level", level, units.filter((entry) => !entry.done));
       }
 
@@ -217,9 +229,14 @@ function createLearningPath(deps: any) {
       currentLevel: current ? (current as { level: string }).level : null,
       current,
       jumpAhead,
+      unitCheck,
       levelTest,
       levels
     };
+  }
+
+  function unitLessonCount(language: string, level: string, category: string): number {
+    return getUnitsByLevel(language)[level]?.find((unit) => unit.category === category)?.lessonCount ?? 4;
   }
 
   // Counts a question as known only when every attempt at it was right, so retrying after
@@ -247,17 +264,18 @@ function createLearningPath(deps: any) {
 
     if (record.kind === "lesson") {
       const category = String(record.details.category || "");
-      await database.recordPathLesson(userId, language, record.level, category, LESSONS_PER_UNIT);
+      const lessonCount = unitLessonCount(language, record.level, category);
+      await database.recordPathLesson(userId, language, record.level, category, lessonCount);
       const unit = (await database.getPathUnits(userId, language) as any[])
         .find((row) => row.level === record.level && row.category === category);
-      const lessonsDone = Math.min(LESSONS_PER_UNIT, Number(unit?.lessonsDone) || 0);
+      const lessonsDone = Math.min(lessonCount, Number(unit?.lessonsDone) || 0);
       return {
         kind: "lesson",
         level: record.level,
         category,
         lessonsDone,
-        lessonCount: LESSONS_PER_UNIT,
-        unitDone: lessonsDone >= LESSONS_PER_UNIT,
+        lessonCount,
+        unitDone: lessonsDone >= lessonCount,
         correct,
         total
       };
@@ -268,7 +286,9 @@ function createLearningPath(deps: any) {
       const passCount = Math.ceil(total * CHECKPOINT_PASS_RATIO);
       const passed = total > 0 && correct >= passCount;
       if (passed) {
-        await database.markPathUnitsTestedOut(userId, language, record.level, categories, LESSONS_PER_UNIT);
+        for (const category of categories) {
+          await database.markPathUnitsTestedOut(userId, language, record.level, [category], unitLessonCount(language, record.level, category));
+        }
       }
       return {
         kind: "checkpoint",
@@ -370,8 +390,8 @@ function createLearningPath(deps: any) {
           category,
           unitLabel: unit.label,
           unitNumber: unit.number,
-          lessonNumber: Math.min(unit.lessonsDone + 1, LESSONS_PER_UNIT),
-          lessonCount: LESSONS_PER_UNIT
+          lessonNumber: Math.min(unit.lessonsDone + 1, unit.lessonCount),
+          lessonCount: unit.lessonCount
         }
       }
     };
@@ -423,7 +443,7 @@ function createLearningPath(deps: any) {
 
   async function startCheckpoint(userId: number, language: string, scope: string, levelCap: string) {
     const path = await buildPath(userId, language, levelCap);
-    const check = scope === "level" ? path.levelTest : path.jumpAhead;
+    const check = scope === "level" ? path.levelTest : scope === "unit" ? path.unitCheck : path.jumpAhead;
     if (!check) {
       return { status: 409, body: { error: "There is nothing ahead to test out of right now." } };
     }
@@ -434,9 +454,9 @@ function createLearningPath(deps: any) {
       check.level,
       check.categories,
       CHECKPOINT_QUESTION_TYPES,
-      CHECKPOINT_QUESTIONS
+      check.questionCount
     ).map((pool) => shuffled(pool));
-    const questions = shuffled(interleave(pools, CHECKPOINT_QUESTIONS));
+    const questions = shuffled(interleave(pools, check.questionCount));
     if (!questions.length) {
       return { status: 404, body: { error: "No exercises found for this checkpoint" } };
     }
@@ -609,7 +629,7 @@ function createLearningPath(deps: any) {
   }
 
   return {
-    LESSONS_PER_UNIT,
+    lessonsForUnit,
     CHECKPOINT_CATEGORY,
     PLACEMENT_CATEGORY,
     normalizeLevel,
@@ -660,7 +680,7 @@ function registerPathRoutes(app: any, deps: any, learningPath: ReturnType<typeof
   app.post("/api/path/checkpoint", requireAuth, async (req: any, res: any) => {
     const language = readLanguage(req.body?.language);
     if (!language) return res.status(400).json({ error: "A supported language is required" });
-    const scope = req.body?.scope === "level" ? "level" : "section";
+    const scope = req.body?.scope === "level" || req.body?.scope === "unit" ? req.body.scope : "section";
     const result = await learningPath.startCheckpoint(req.authUserId, language, scope, await getLevelCap(req));
     return res.status(result.status).json(result.body);
   });

@@ -111,7 +111,7 @@ test("a new learner starts at A1 with higher levels behind Premium in the app", 
   assert.equal(unknown.status, 400);
 });
 
-test("lessons are pinned to their level and four of them finish a unit", async (t) => {
+test("lessons are pinned to their level and the unit's lesson count finishes it", async (t) => {
   const srv = await startServer();
   t.after(() => srv.close());
   const user = await signUp(srv.base, "path-lessons");
@@ -134,7 +134,8 @@ test("lessons are pinned to their level and four of them finish a unit", async (
   });
   assert.equal(premium.status, 402);
 
-  for (let lesson = 1; lesson <= 4; lesson += 1) {
+  assert.ok(first.lessonCount >= 2 && first.lessonCount <= 4);
+  for (let lesson = 1; lesson <= first.lessonCount; lesson += 1) {
     const started = await call(srv.base, "POST", "/api/path/lesson", headers, {
       language: "spanish",
       level: "a1",
@@ -143,11 +144,13 @@ test("lessons are pinned to their level and four of them finish a unit", async (
     assert.equal(started.status, 200);
     assert.equal(started.body.recommendedLevel, "a1");
     assert.equal(started.body.pathLesson.lessonNumber, lesson);
+    assert.equal(started.body.pathLesson.lessonCount, first.lessonCount);
     const done = await finish(srv.base, headers, started.body, started.body.questions.map(rightAttempt));
     assert.equal(done.status, 200);
     assert.equal(done.body.path.kind, "lesson");
     assert.equal(done.body.path.lessonsDone, lesson);
-    assert.equal(done.body.path.unitDone, lesson === 4);
+    assert.equal(done.body.path.lessonCount, first.lessonCount);
+    assert.equal(done.body.path.unitDone, lesson === first.lessonCount);
   }
 
   const after = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
@@ -186,6 +189,43 @@ test("passing a checkpoint tests out of the section, failing it changes nothing"
     assert.equal(unit.state, "done");
     assert.equal(unit.testedOut, true);
   }
+});
+
+test("a unit has fewer lessons when it has less content, so they don't repeat", async () => {
+  const { createLearningPath } = require("../routes/pathRoutes.ts");
+  const { lessonsForUnit } = createLearningPath({ database: {}, CATEGORIES: [], LEVEL_ORDER: [] });
+  assert.equal(lessonsForUnit(8), 2);
+  assert.equal(lessonsForUnit(12), 2);
+  assert.equal(lessonsForUnit(13), 3);
+  assert.equal(lessonsForUnit(20), 3);
+  assert.equal(lessonsForUnit(21), 4);
+});
+
+test("the unit check tests out of the current unit only", async (t) => {
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const user = await signUp(srv.base, "path-unit-check");
+  const headers = { ...user.headers, ...APP };
+  const before = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+  assert.equal(before.unitCheck.scope, "unit");
+  assert.deepEqual(before.unitCheck.categories, [before.current.category]);
+  assert.equal(before.unitCheck.fromUnit, 1);
+  assert.equal(before.unitCheck.toUnit, 1);
+
+  const check = await call(srv.base, "POST", "/api/path/checkpoint", headers, { language: "spanish", scope: "unit" });
+  assert.equal(check.status, 200);
+  assert.ok(check.body.questions.length <= 10);
+  for (const question of check.body.questions) {
+    assert.equal(question.sourceCategory, before.current.category);
+  }
+  const result = await finish(srv.base, headers, check.body, check.body.questions.map(rightAttempt));
+  assert.equal(result.body.path.passed, true);
+  assert.equal(result.body.path.scope, "unit");
+
+  const after = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+  assert.equal(after.current.unitNumber, 2);
+  assert.equal(after.levels[0].units[0].testedOut, true);
+  assert.equal(after.levels[0].units[1].state, "current");
 });
 
 test("the placement check sets where the path starts", async (t) => {
