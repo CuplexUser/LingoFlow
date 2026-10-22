@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
+import { BrandMark } from "./BrandMark";
 
 type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
 
@@ -87,7 +88,10 @@ export function AuthPage({
   return (
     <main className="auth-shell">
       <section className="auth-card panel">
-        <h1>LingoFlow</h1>
+        <div className="auth-brand">
+          <BrandMark size={56} />
+          <h1>LingoFlow</h1>
+        </div>
         <p className="subtitle">Sign in to sync your learning progress across devices.</p>
 
         <h2>{title}</h2>

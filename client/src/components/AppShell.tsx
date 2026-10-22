@@ -1,4 +1,5 @@
 import { AuthPage } from "./AuthPage";
+import { BrandMark } from "./BrandMark";
 import { PageRouter } from "./PageRouter";
 import { useAuth } from "../context/AuthContext";
 import { useNavigation } from "../context/NavigationContext";
@@ -199,13 +200,7 @@ export function AppShell() {
     <main className="app-shell">
       <header className="topbar">
         <div className="brand">
-          <div className="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="32" height="32">
-              <circle cx="16" cy="16" r="15" className="brand-ring"/>
-              <path d="M9 19C11 14 13 14 16 16S21 18 23 13" className="brand-curve"/>
-              <circle cx="23" cy="13" r="1.6" className="brand-dot"/>
-            </svg>
-          </div>
+          <BrandMark />
           <div>
             <h1>LingoFlow</h1>
             <p className="topbar-subtitle">Focused daily language practice with adaptive challenges.</p>
