@@ -274,3 +274,87 @@ test("choosing a start level skips the placement check", async (t) => {
   assert.equal(path.body.currentLevel, "a2");
   assert.equal(path.body.levels[0].state, "placed_out");
 });
+
+test("words marked \"I knew this\" stay out of later lessons, even review lessons", async (t) => {
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const user = await signUp(srv.base, "path-known");
+  const headers = { ...user.headers, ...APP };
+  const path = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+  const category = path.levels[0].units[0].category;
+
+  // Every item in the first lesson is marked known through the database, as if it had
+  // been a flashcard answered "I knew this".
+  const first = await call(srv.base, "POST", "/api/path/lesson", headers, { language: "spanish", level: "a1", category });
+  assert.equal(first.status, 200);
+  const known = new Set<string>(first.body.questions.map((question: any) => String(question.id)));
+  for (const id of known) {
+    await database.upsertItemProgressAttempt({
+      userId: user.userId, language: "spanish", category, itemId: id, objective: "",
+      correct: true, errorType: "none", today: database.toIsoDate(), flashcardKnown: true
+    });
+  }
+  await finish(srv.base, headers, first.body, first.body.questions.map(rightAttempt));
+
+  // The later lessons run short of unseen items and fall back to review. Their flashcards
+  // are answered "Need review", so the unit keeps words that aren't marked known.
+  const reviewFlashcards = (question: any) => (question.type === "flashcard" ? wrongAttempt(question) : rightAttempt(question));
+  for (let lesson = 2; lesson <= 4; lesson += 1) {
+    const started = await call(srv.base, "POST", "/api/path/lesson", headers, { language: "spanish", level: "a1", category });
+    assert.equal(started.status, 200);
+    const repeated = started.body.questions.filter((question: any) => known.has(String(question.id)));
+    assert.deepEqual(repeated.map((question: any) => question.id), [], `lesson ${lesson} repeats known words`);
+    await finish(srv.base, headers, started.body, started.body.questions.map(reviewFlashcards));
+  }
+});
+
+test("the daily challenge leaves out words marked \"I knew this\"", async (t) => {
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const user = await signUp(srv.base, "daily-known");
+  const headers = { ...user.headers, ...APP };
+
+  const before = await call(srv.base, "POST", "/api/session/daily", headers, { language: "spanish" });
+  assert.equal(before.status, 200);
+  const known = before.body.questions.slice(0, 3).map((question: any) => String(question.id));
+  for (const id of known) {
+    await database.upsertItemProgressAttempt({
+      userId: user.userId, language: "spanish", category: before.body.category, itemId: id, objective: "",
+      correct: true, errorType: "none", today: database.toIsoDate(), flashcardKnown: true
+    });
+  }
+
+  const after = await call(srv.base, "POST", "/api/session/daily", headers, { language: "spanish" });
+  assert.equal(after.status, 200);
+  const ids = after.body.questions.map((question: any) => String(question.id));
+  assert.deepEqual(ids.filter((id: string) => known.includes(id)), []);
+});
+
+test("a lesson carries its XP rules, and finishing it earns what they give", async (t) => {
+  const { lessonXp } = require("../xpRules.ts");
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const user = await signUp(srv.base, "xp-rules");
+  const headers = { ...user.headers, ...APP };
+  const path = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+
+  const lesson = await call(srv.base, "POST", "/api/path/lesson", headers, {
+    language: "spanish",
+    level: "a1",
+    category: path.levels[0].units[0].category
+  });
+  assert.equal(lesson.status, 200);
+  assert.equal(lesson.body.xp.kind, "lesson");
+  assert.equal(lesson.body.xp.levelMultiplier, 1);
+
+  const questions = lesson.body.questions;
+  const attempts = questions.map((question: any, index: number) => (index === 0 ? wrongAttempt(question) : rightAttempt(question)));
+  const done = await finish(srv.base, headers, lesson.body, attempts);
+  assert.equal(done.status, 200);
+  const { score, maxScore, mistakes } = done.body.evaluated;
+  const expected = lessonXp(lesson.body.xp, { score, maxScore, mistakes, hintsUsed: 0, revealedAnswers: 0 });
+  assert.equal(done.body.xpGained, expected.xpGained);
+
+  const daily = await call(srv.base, "POST", "/api/session/daily", headers, { language: "spanish" });
+  assert.equal(daily.body.xp.kind, "lesson");
+});

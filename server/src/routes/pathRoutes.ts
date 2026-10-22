@@ -4,12 +4,16 @@
 // ahead of them. Lessons and checkpoints are ordinary sessions; path_sessions tags them so
 // /api/session/complete can advance the path.
 
+const { sessionXpRules } = require("../xpRules.ts");
+
 const LESSONS_PER_UNIT = 4;
 const UNITS_PER_SECTION = 4;
 // A category needs this many items at a level to make a unit there.
 const MIN_UNIT_ITEMS = 8;
 const LESSON_QUESTIONS = 10;
 const MIN_LESSON_QUESTIONS = 6;
+// A review lesson may be this short rather than bring back words marked "I knew this".
+const MIN_REVIEW_QUESTIONS = 4;
 const CHECKPOINT_QUESTIONS = 15;
 const CHECKPOINT_PASS_RATIO = 0.8;
 const PLACEMENT_QUESTIONS_PER_LEVEL = 6;
@@ -288,6 +292,7 @@ function createLearningPath(deps: any) {
       language,
       recommendedLevel: generated.recommendedLevel,
       difficultyMultiplier: generated.difficultyMultiplier,
+      xp: sessionXpRules(generated.recommendedLevel, questions, category === CHECKPOINT_CATEGORY),
       questions,
       practiceMode: ""
     };
@@ -329,8 +334,10 @@ function createLearningPath(deps: any) {
     });
     let generated = generate(hints.notDueItemIds);
     // A unit has about twenty items at its level, so its later lessons run out of items
-    // that are not yet due for review. Those lessons review what the unit already taught.
-    if (generated.questions.length < MIN_LESSON_QUESTIONS) generated = generate([]);
+    // that are not yet due for review. Those lessons review what the unit already taught,
+    // but not the words marked "I knew this", unless that leaves too little to make a lesson.
+    if (generated.questions.length < MIN_LESSON_QUESTIONS) generated = generate(hints.knownItemIds || []);
+    if (generated.questions.length < MIN_REVIEW_QUESTIONS) generated = generate([]);
     if (!generated.questions.length) {
       return { status: 404, body: { error: "No exercises found for this unit" } };
     }

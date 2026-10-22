@@ -952,7 +952,9 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     const levelSmoothed = selectByLevelWindow(remaining, recommendedRank, Math.max(0, targetCount - dueItems.length - weakItems.length), randomFn);
     let selected = [...dueItems, ...weakItems, ...levelSmoothed].slice(0, targetCount);
     if (dailyMode) {
-      selected = applyDailyCuration(selected, sourcePool, recommendedRank, randomFn).slice(0, targetCount);
+      // The confidence and stretch picks honor the exclusions too.
+      const curationPool = sourcePool.filter((item) => !notDueSet.has(item.id));
+      selected = applyDailyCuration(selected, curationPool, recommendedRank, randomFn).slice(0, targetCount);
     }
     const plannedTypes = buildQuestionTypePlan(selected);
     const questions = selected.map((item, idx) => {

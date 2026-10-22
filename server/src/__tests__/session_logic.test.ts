@@ -341,3 +341,16 @@ test("recordSession advances category unlock bands across mastery thresholds", a
   assert.equal(results[4].levelUnlocked, "b1");
   assert.equal(results[5].levelUnlocked, "b2");
 });
+
+test("practice drills earn a fixed amount, or one per right answer when speaking", async () => {
+  const { practiceXp, practiceXpRules, sessionXpRules } = require("../xpRules.ts");
+  const listen = practiceXpRules([{ type: "practice_listen" }, { type: "practice_listen" }]);
+  assert.equal(practiceXp(listen, 1, 2), 10);
+  const speak = practiceXpRules([{ type: "practice_speak" }, { type: "practice_speak" }, { type: "practice_speak" }]);
+  assert.equal(practiceXp(speak, 2, 3), 2);
+  assert.equal(practiceXp(speak, 9, 3), 3);
+  assert.equal(practiceXp(practiceXpRules([{ type: "practice_listen" }, { type: "practice_words" }]), 2, 2), 0);
+  // A mistake drill of practice questions is still scored like a lesson.
+  assert.equal(sessionXpRules("a1", [{ type: "practice_words" }], true).kind, "lesson");
+  assert.equal(sessionXpRules("b1", [{ type: "mc_sentence" }]).levelMultiplier, 1.6);
+});

@@ -1752,7 +1752,7 @@ async function getItemSelectionHints(userId = 1, language, category, today = toI
   `).all(userId, language, category);
 
   const notDueRows = await db.prepare(`
-    SELECT item_id
+    SELECT item_id, flashcard_known
     FROM item_progress
     WHERE user_id = ? AND language = ? AND category = ? AND next_due_date > ?
   `).all(userId, language, category, today);
@@ -1760,8 +1760,22 @@ async function getItemSelectionHints(userId = 1, language, category, today = toI
   return {
     dueItemIds: dueRows.map((row) => row.item_id),
     weakItemIds: weakRows.map((row) => row.item_id),
-    notDueItemIds: notDueRows.map((row) => row.item_id)
+    notDueItemIds: notDueRows.map((row) => row.item_id),
+    // Marked "I knew this" on a flashcard and not due yet: left out even when a session
+    // runs short and falls back to reviewing items it has seen.
+    knownItemIds: notDueRows.filter((row) => Number(row.flashcard_known) === 1).map((row) => row.item_id)
   };
+}
+
+// The language-wide form of knownItemIds, for sessions that span categories (the daily
+// challenge).
+async function getKnownNotDueItemIds(userId: number, language: string, today = toIsoDate()) {
+  const rows = await db.prepare(`
+    SELECT item_id
+    FROM item_progress
+    WHERE user_id = ? AND language = ? AND flashcard_known = 1 AND next_due_date > ?
+  `).all(userId, language, today);
+  return rows.map((row: any) => row.item_id);
 }
 
 async function getMistakeReviewSelection(userId = 1, language, limit = 10) {
@@ -3530,6 +3544,7 @@ module.exports = {
   getBookmarks,
   isBookmarked,
   getKnownFlashcardItems,
+  getKnownNotDueItemIds,
   getSpeedMatchHighscore,
   updateSpeedMatchHighscore,
   saveReviewWord,

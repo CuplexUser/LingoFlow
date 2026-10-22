@@ -3,6 +3,7 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { lessonXp, lessonXpRules } = require("./xpRules.ts");
 const { OAuth2Client } = require("google-auth-library");
 require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 
@@ -86,7 +87,6 @@ const {
   getAllItems,
   getPracticePool,
   generateSession,
-  LEVEL_XP_MULTIPLIER,
   injectCommunityItem,
   rebuildContentWordTranslations,
   rebuildAllWordTranslations,
@@ -363,13 +363,7 @@ function calculateXp({
   revealedAnswers,
   difficultyLevel
 }: CalculateXpInput): { accuracy: number; xpGained: number } {
-  const accuracy = maxScore > 0 ? score / maxScore : 0;
-  const baseXp = 16 + maxScore * 2;
-  const levelMultiplier = LEVEL_XP_MULTIPLIER[difficultyLevel] || 1;
-  const challengeBonus = accuracy >= 0.9 ? 8 : accuracy >= 0.75 ? 4 : 0;
-  const penalty = (accuracy < 0.5 ? 6 : 0) + mistakes * 2 + hintsUsed + revealedAnswers * 3;
-  const xpGained = Math.max(4, Math.round(baseXp * levelMultiplier + challengeBonus - penalty));
-  return { accuracy, xpGained };
+  return lessonXp(lessonXpRules(difficultyLevel), { score, maxScore, mistakes, hintsUsed, revealedAnswers });
 }
 
 // Auth helpers live in auth/* and routes/authRoutes.ts.

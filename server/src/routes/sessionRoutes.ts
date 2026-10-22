@@ -1,3 +1,5 @@
+const { practiceXp, practiceXpRules, sessionXpRules } = require("../xpRules.ts");
+
 type ErrorType =
   | "none"
   | "missing_answer"
@@ -40,20 +42,8 @@ interface SessionAttempt {
   revealed?: boolean;
 }
 
-const PRACTICE_XP_BY_TYPE: Record<string, number> = {
-  practice_listen: 10,
-  practice_words: 5
-};
-
 function getPracticeXp(questions: SessionQuestion[], score: number): number {
-  if (!Array.isArray(questions) || !questions.length) return 0;
-  const types = new Set(questions.map((question) => question.type));
-  if (types.size !== 1) return 0;
-  const [type] = Array.from(types);
-  if (type === "practice_speak") {
-    return Math.max(0, Math.min(score, questions.length));
-  }
-  return PRACTICE_XP_BY_TYPE[type] || 0;
+  return practiceXp(practiceXpRules(questions), score, questions.length);
 }
 
 function createSeededRandom(seedText: string, crypto: any): () => number {
@@ -172,6 +162,7 @@ function registerSessionRoutes(
       language,
       recommendedLevel: session.recommendedLevel,
       difficultyMultiplier: session.difficultyMultiplier,
+      xp: sessionXpRules(session.recommendedLevel, session.questions, category === "__mistakes__"),
       questions: session.questions,
       practiceMode: mode || "",
       mistakeReviewCount: mistakeSelection.count,
@@ -268,6 +259,9 @@ function registerSessionRoutes(
     await database.pruneExpiredActiveSessions(userId, database.toIsoDate());
     const today = database.toIsoDate();
     const overview = getCourseOverview(language);
+    // The challenge is the same for everyone on a day, minus the words this learner
+    // marked "I knew this" on a flashcard.
+    const knownItemIds = await database.getKnownNotDueItemIds(userId, String(language).toLowerCase(), today);
     const candidateCategories = Array.isArray(overview)
       ? [...overview]
           .filter((entry: any) => Number(entry?.totalPhrases || 0) > 0)
@@ -292,6 +286,7 @@ function registerSessionRoutes(
         selfRatedLevel: "a1",
         dueItemIds: [],
         weakItemIds: [],
+        notDueItemIds: knownItemIds,
         count: 10,
         random: createSeededRandom(`${language}:${today}:${categoryId}:daily-session`, crypto),
         dailyMode: true
@@ -325,6 +320,7 @@ function registerSessionRoutes(
       language,
       recommendedLevel: selectedSession.recommendedLevel,
       difficultyMultiplier: selectedSession.difficultyMultiplier,
+      xp: sessionXpRules(selectedSession.recommendedLevel, selectedSession.questions),
       questions: selectedSession.questions,
       practiceMode: "",
       isDailyChallenge: true,
