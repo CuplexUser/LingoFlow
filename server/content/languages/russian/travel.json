@@ -77,8 +77,14 @@
     "difficulty": "a1",
     "prompt": "Ask: Where is the train station?",
     "correctAnswer": "Где находится железнодорожный вокзал?",
-    "hints": ["'Где находится' = where is (located)."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Где находится' = where is (located)."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Где вокзал?",
+      "Где находится вокзал?"
+    ]
   },
   {
     "id": "ru-tr-a1-s02",
@@ -121,9 +127,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Is there a metro nearby?",
-    "correctAnswer": "Здесь есть метро?",
-    "hints": ["'Здесь есть' = is there here — simple existence question."],
-    "exerciseType": "build_sentence"
+    "correctAnswer": "Здесь рядом есть метро?",
+    "hints": [
+      "'Рядом' = nearby; 'есть' = there is."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Рядом есть метро?",
+      "Здесь поблизости есть метро?"
+    ]
   },
   {
     "id": "ru-tr-a1-s07",
@@ -233,17 +245,29 @@
     "difficulty": "a2",
     "prompt": "Ask: Does this bus go to the city center?",
     "correctAnswer": "Этот автобус едет в центр города?",
-    "hints": ["Simple present-tense question — no inversion needed in Russian."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Simple present-tense question — no inversion needed in Russian."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Этот автобус идёт в центр города?",
+      "Этот автобус едет в центр?"
+    ]
   },
   {
     "id": "ru-tr-a2-s03",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to check in for my reservation.",
-    "correctAnswer": "Я хочу зарегистрироваться по своему бронированию.",
-    "hints": ["'Зарегистрироваться' = to check in (at a hotel or for a flight)."],
-    "exerciseType": "build_sentence"
+    "correctAnswer": "Я хотел бы заселиться, у меня бронь.",
+    "hints": [
+      "'Заселиться' = to check in at a hotel; 'бронь' = a booking (colloquial)."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я хотела бы заселиться, у меня бронь.",
+      "Я хочу зарегистрироваться по своему бронированию."
+    ]
   },
   {
     "id": "ru-tr-a2-s04",
@@ -260,8 +284,13 @@
     "difficulty": "a2",
     "prompt": "Say: I have two bags.",
     "correctAnswer": "У меня два чемодана.",
-    "hints": ["After 2, 3, 4 — use genitive singular: 'чемодана'."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "After 2, 3, 4 — use genitive singular: 'чемодана'."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "У меня две сумки."
+    ]
   },
   {
     "id": "ru-tr-a2-s06",
@@ -398,9 +427,14 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I lost my passport and need help immediately.",
-    "correctAnswer": "Я потерял паспорт и мне срочно нужна помощь.",
-    "hints": ["'Срочно' = urgently; 'нужна' agrees with feminine noun 'помощь'."],
-    "exerciseType": "build_sentence"
+    "correctAnswer": "Я потерял паспорт, и мне срочно нужна помощь.",
+    "hints": [
+      "'Срочно' = urgently; 'нужна' agrees with feminine noun 'помощь'."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я потеряла паспорт, и мне срочно нужна помощь."
+    ]
   },
   {
     "id": "ru-tr-b1-s03",
@@ -435,8 +469,15 @@
     "difficulty": "b1",
     "prompt": "Say: I booked the tickets online in advance.",
     "correctAnswer": "Я заранее купил билеты онлайн.",
-    "hints": ["'Заранее' = in advance; 'купил' = bought (perfective past)."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Заранее' = in advance; 'купил' = bought (perfective past)."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я заранее купила билеты онлайн.",
+      "Я заранее забронировал билеты онлайн.",
+      "Я заранее забронировала билеты онлайн."
+    ]
   },
   {
     "id": "ru-tr-b1-s07",
@@ -592,8 +633,13 @@
     "difficulty": "b2",
     "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
     "correctAnswer": "Я предпочёл бы более спокойный маршрут, даже если он займёт больше времени.",
-    "hints": ["'Предпочёл бы' = would prefer — conditional; 'даже если' = even if."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Предпочёл бы' = would prefer — conditional; 'даже если' = even if."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я предпочла бы более спокойный маршрут, даже если он займёт больше времени."
+    ]
   },
   {
     "id": "ru-tr-b2-s03",
@@ -619,8 +665,13 @@
     "difficulty": "b2",
     "prompt": "Say: Had I checked the schedule, I would not have missed the train.",
     "correctAnswer": "Если бы я проверил расписание, я бы не опоздал на поезд.",
-    "hints": ["Counterfactual past: 'если бы' + past + 'бы' in the result clause."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Counterfactual past: 'если бы' + past + 'бы' in the result clause."
+    ],
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Если бы я проверила расписание, я бы не опоздала на поезд."
+    ]
   },
   {
     "id": "ru-tr-b2-s06",
@@ -694,10 +745,12 @@
     "options": [
       "Чем раньше бронируешь, тем дешевле билеты.",
       "Билеты всегда стоят одинаково.",
-      "Если брони рано, билеты бесплатны.",
+      "Если бронируешь рано, билеты бесплатны.",
       "Чем позже едешь, тем лучше."
     ],
-    "hints": ["'Чем раньше... тем дешевле' = the earlier..., the cheaper."],
+    "hints": [
+      "'Чем раньше... тем дешевле' = the earlier..., the cheaper."
+    ],
     "exerciseType": "mc_sentence"
   },
   {

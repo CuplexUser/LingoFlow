@@ -6,7 +6,10 @@
     "prompt": "Say: I do not feel well today.",
     "correctAnswer": "Сегодня я плохо себя чувствую.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Чувствовать себя' = to feel (literally 'to feel oneself')."
+    ],
+    "acceptedAnswers": [
+      "Я плохо себя чувствую сегодня."
     ]
   },
   {
@@ -16,7 +19,7 @@
     "prompt": "Ask: Where is the nearest pharmacy?",
     "correctAnswer": "Где находится ближайшая аптека?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Ближайшая' = nearest; it agrees with feminine 'аптека'."
     ]
   },
   {
@@ -86,7 +89,7 @@
     "prompt": "Say: My throat hurts when I swallow.",
     "correctAnswer": "У меня болит горло, когда я глотаю.",
     "hints": [
-      "Practice this phrase out loud."
+      "'У меня болит' + body part; 'глотать' = to swallow."
     ]
   },
   {
@@ -159,7 +162,7 @@
     "prompt": "Say: I have a temperature.",
     "correctAnswer": "У меня температура.",
     "hints": [
-      "'У меня температура' is the natural way to say you have a fever in Russian."
+      "Russians simply say they 'have temperature' — no separate word for fever is needed."
     ]
   },
   {
@@ -186,7 +189,7 @@
     "prompt": "Say aloud: У меня болит голова.",
     "correctAnswer": "У меня болит голова.",
     "hints": [
-      "Stress: болИт, голова. The most common way to describe pain: 'У меня болит + body part (nominative)'."
+      "Stress: болИт, головА. The most common way to describe pain: 'У меня болит + body part (nominative)'."
     ],
     "exerciseType": "pronunciation"
   },
@@ -199,7 +202,11 @@
     "hints": [
       "'Простудиться' = to catch a cold (perfective, reflexive). Feminine: 'простудилась'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я простудилась.",
+      "У меня простуда."
+    ]
   },
   {
     "id": "ru-he-a1-8",
@@ -313,6 +320,10 @@
     "correctAnswer": "Врач велел мне отдыхать неделю и избегать стресса.",
     "hints": [
       "'Велеть + dative + infinitive' = to order/tell someone to do something. 'Избегать' + genitive = to avoid."
+    ],
+    "acceptedAnswers": [
+      "Врач сказал мне отдыхать неделю и избегать стресса.",
+      "Врач сказал, чтобы я отдыхал неделю и избегал стресса."
     ]
   },
   {

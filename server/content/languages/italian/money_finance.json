@@ -6,7 +6,11 @@
     "prompt": "Ask: How much does this cost?",
     "correctAnswer": "Quanto costa?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Quanto costa?' works on its own; add 'questo' to point at something."
+    ],
+    "acceptedAnswers": [
+      "Quanto costa questo?",
+      "Quanto costa questa cosa?"
     ]
   },
   {
@@ -16,7 +20,7 @@
     "prompt": "Say: I do not have enough money.",
     "correctAnswer": "Non ho abbastanza soldi.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Abbastanza' + noun = enough; 'soldi' (always plural) = money."
     ]
   },
   {
@@ -26,7 +30,11 @@
     "prompt": "Ask: Can I pay by card?",
     "correctAnswer": "Posso pagare con carta?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Pagare con la carta' = pay by card."
+    ],
+    "acceptedAnswers": [
+      "Posso pagare con la carta?",
+      "Si può pagare con la carta?"
     ]
   },
   {
@@ -88,6 +96,10 @@
     "correctAnswer": "Posso avere una ricevuta, per favore?",
     "hints": [
       "A receipt is proof that you paid."
+    ],
+    "acceptedAnswers": [
+      "Posso avere lo scontrino, per favore?",
+      "Mi può dare la ricevuta, per favore?"
     ]
   },
   {
@@ -95,9 +107,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I save a little money each month.",
-    "correctAnswer": "Risparmo un po' di soldi ogni mese.",
+    "correctAnswer": "Risparmio un po' di soldi ogni mese.",
     "hints": [
-      "'A little' is used with uncountable nouns."
+      "'Un po' di' + noun = a little; note the apostrophe in 'po''."
     ]
   },
   {
@@ -146,9 +158,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I spend too much money on eating out.",
-    "correctAnswer": "Ho speso troppi soldi per mangiare.",
+    "correctAnswer": "Spendo troppi soldi per mangiare fuori.",
     "hints": [
-      "'Spend money on' + noun/gerund."
+      "'Mangiare fuori' = to eat out."
+    ],
+    "acceptedAnswers": [
+      "Spendo troppi soldi al ristorante."
     ]
   },
   {
@@ -156,7 +171,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the current exchange rate for euros?",
-    "correctAnswer": "Qual è il tasso di cambio attuale per euro?",
+    "correctAnswer": "Qual è il tasso di cambio attuale dell'euro?",
     "hints": [
       "The exchange rate is how much one currency is worth in another."
     ]
@@ -169,6 +184,10 @@
     "correctAnswer": "Ho trasferito i soldi online stamattina.",
     "hints": [
       "'Transferred' = moved money from one account to another."
+    ],
+    "acceptedAnswers": [
+      "Stamattina ho fatto il bonifico online.",
+      "Ho fatto il bonifico online stamattina."
     ]
   },
   {
@@ -176,7 +195,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My rent comes out of my account on the first of the month.",
-    "correctAnswer": "Il mio affitto esce dal mio conto il primo del mese.",
+    "correctAnswer": "L'affitto mi viene addebitato sul conto il primo del mese.",
     "hints": [
       "'Comes out of' means is deducted from."
     ]
@@ -186,9 +205,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can I set up a direct debit for this payment?",
-    "correctAnswer": "Posso impostare un addebito diretto per questo pagamento?",
+    "correctAnswer": "Posso attivare l'addebito automatico per questo pagamento?",
     "hints": [
       "A direct debit is an automatic recurring bank payment."
+    ],
+    "acceptedAnswers": [
+      "Posso attivare la domiciliazione bancaria per questo pagamento?"
     ]
   },
   {
@@ -196,7 +218,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am trying to cut back on unnecessary spending.",
-    "correctAnswer": "Sto cercando di ridurre i costi inutili.",
+    "correctAnswer": "Sto cercando di ridurre le spese inutili.",
     "hints": [
       "'Cut back on' means reduce."
     ]
@@ -216,20 +238,26 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Do I need to pay any tax on this income?",
-    "correctAnswer": "Devo pagare una tassa su questo reddito?",
+    "correctAnswer": "Devo pagare delle tasse su questo reddito?",
     "hints": [
       "Income tax is paid on money you earn."
+    ],
+    "acceptedAnswers": [
+      "Devo pagare le tasse su questo reddito?"
     ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I set a budget for groceries every week.",
-    "correctAnswer": "Ho fissato un budget per la spesa ogni settimana.",
+    "correctAnswer": "Ogni settimana fisso un budget per la spesa.",
     "hints": [
       "Budget vocabulary."
     ],
-    "id": "it-mo-a2-49"
+    "id": "it-mo-a2-49",
+    "acceptedAnswers": [
+      "Fisso un budget per la spesa ogni settimana."
+    ]
   },
   {
     "level": "a2",
@@ -245,20 +273,26 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How much should I save each month?",
-    "correctAnswer": "Quanto devo risparmiare ogni mese?",
+    "prompt": "Quanto devo ___ ogni mese?",
+    "correctAnswer": "risparmiare",
     "hints": [
-      "Planning question."
+      "You want to ask how much to save."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-mo-a2-51"
+    "id": "it-mo-a2-51",
+    "clozeOptions": [
+      "risparmiare",
+      "spendere",
+      "guadagnare",
+      "prestare"
+    ]
   },
   {
     "id": "it-mf-b1-1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been trying to build up an emergency fund covering three months of expenses.",
-    "correctAnswer": "Sto cercando di costruire un fondo di emergenza per tre mesi di spese.",
+    "correctAnswer": "Sto cercando di mettere da parte un fondo di emergenza che copra tre mesi di spese.",
     "hints": [
       "'Build up' = accumulate gradually; an emergency fund is money set aside for unexpected costs."
     ]
@@ -268,9 +302,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would it be worth overpaying on my mortgage to reduce the term?",
-    "correctAnswer": "Vale la pena pagare troppo sul mio mutuo per ridurre il termine?",
+    "correctAnswer": "Converrebbe fare dei rimborsi anticipati sul mutuo per ridurne la durata?",
     "hints": [
-      "'Overpaying' = paying more than the minimum; 'term' = the length of the mortgage."
+      "'Rimborso anticipato' = paying more than required; 'durata' = the term of the loan."
     ]
   },
   {
@@ -278,7 +312,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am trying to diversify my income streams rather than relying solely on my salary.",
-    "correctAnswer": "Sto cercando di diversificare i miei flussi di reddito piuttosto che contare solo sul mio stipendio.",
+    "correctAnswer": "Sto cercando di diversificare le mie fonti di reddito invece di contare solo sullo stipendio.",
     "hints": [
       "'Diversify' = spread; 'income streams' = different sources of money."
     ]
@@ -288,7 +322,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Compound interest means that your savings grow faster the longer you keep them invested.",
-    "correctAnswer": "Compound interesse significa che i vostri risparmi crescono più velocemente più a lungo li tieni investiti.",
+    "correctAnswer": "Con l'interesse composto, i tuoi risparmi crescono tanto più velocemente quanto più a lungo li tieni investiti.",
     "hints": [
       "'Compound interest' = interest earned on both the original amount and previous interest."
     ]
@@ -298,7 +332,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What is the penalty for early repayment of this loan?",
-    "correctAnswer": "Qual è la penalità per il rimborso anticipato di questo prestito?",
+    "correctAnswer": "Qual è la penale per l'estinzione anticipata di questo prestito?",
     "hints": [
       "'Early repayment' = paying off a loan before the agreed end date."
     ]
@@ -308,9 +342,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I keep a monthly budget to track where my money is going.",
-    "correctAnswer": "Tengo un budget mensile per rintracciare dove stanno andando i miei soldi.",
+    "correctAnswer": "Tengo un budget mensile per sapere dove vanno a finire i miei soldi.",
     "hints": [
       "'Keep a budget' = maintain a record; 'track' = monitor."
+    ],
+    "acceptedAnswers": [
+      "Tengo un budget mensile per tenere traccia di dove vanno i miei soldi."
     ]
   },
   {
@@ -318,7 +355,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My pension contributions are deducted from my salary before tax.",
-    "correctAnswer": "I miei contributi pensionistici sono dedotti dal mio stipendio prima dell'imposta.",
+    "correctAnswer": "I miei contributi pensionistici vengono detratti dallo stipendio al lordo delle imposte.",
     "hints": [
       "'Deducted' = removed; 'before tax' = pre-tax; passive voice here."
     ]
@@ -328,18 +365,19 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks how you handled your debt after university.",
-    "correctAnswer": "Ho prioritizzato il pagamento del debito più alto interesse prima mantenendo un piccolo fondo di emergenza.",
+    "correctAnswer": "Ho ripagato prima il debito con l'interesse più alto, mantenendo un piccolo fondo di emergenza.",
     "hints": [
       "Give a practical, specific strategy."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I paid off the highest-interest debt first, while keeping a small emergency fund."
   },
   {
     "id": "it-mf-b1-9",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I reviewed my subscriptions and canceled the ones I was not using.",
-    "correctAnswer": "Ho esaminato i miei abbonamenti e ho cancellato quelli che non stavo usando.",
+    "correctAnswer": "Ho controllato i miei abbonamenti e ho disdetto quelli che non usavo.",
     "hints": [
       "'Reviewed' = went through carefully; 'subscriptions' = regular paid services."
     ]
@@ -348,18 +386,18 @@
     "id": "it-mf-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the difference between a stocks and shares ISA and a cash ISA?",
-    "correctAnswer": "Qual è la differenza tra le azioni e le azioni ISA e un ISA in contanti?",
+    "prompt": "Ask: What is the difference between a PIR and an ordinary savings account?",
+    "correctAnswer": "Qual è la differenza tra un PIR e un normale conto deposito?",
     "hints": [
-      "ISA = Individual Savings Account; a key UK financial product."
+      "PIR = Piano Individuale di Risparmio; 'conto deposito' = savings account."
     ],
-    "culturalNote": "ISAs (Individual Savings Accounts) are tax-efficient savings wrappers available to UK residents, allowing them to save or invest a fixed amount per year without paying tax on gains or interest."
+    "culturalNote": "PIR (Piani Individuali di Risparmio) are Italian tax-advantaged investment plans: if held for at least five years, gains are exempt from capital gains tax, within annual limits."
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I track my spending to avoid unnecessary expenses.",
-    "correctAnswer": "Ho tracciato la mia spesa per evitare spese inutili.",
+    "correctAnswer": "Tengo sotto controllo le mie spese per evitare quelle inutili.",
     "hints": [
       "Purpose clause at B1."
     ],
@@ -379,13 +417,19 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the safest way to build an emergency fund?",
-    "correctAnswer": "Qual è il modo più sicuro per costruire un fondo di emergenza?",
+    "prompt": "Qual è il modo più sicuro per ___ un fondo di emergenza?",
+    "correctAnswer": "costituire",
     "hints": [
-      "Practical finance question."
+      "'Costituire un fondo' = to build up a fund."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-mo-b1-61"
+    "id": "it-mo-b1-61",
+    "clozeOptions": [
+      "costituire",
+      "consumare",
+      "chiudere",
+      "prelevare"
+    ]
   },
   {
     "id": "it-mf-b2-1",
@@ -404,7 +448,7 @@
     "prompt": "Ask: To what extent do you think behavioral economics explains irrational financial decision-making?",
     "correctAnswer": "In che misura pensi che l'economia comportamentale spieghi il processo decisionale finanziario irrazionale?",
     "hints": [
-      "'Behavioural economics' studies how psychology affects economic choices."
+      "'Behavioral economics' studies how psychology affects economic choices."
     ]
   },
   {
@@ -422,7 +466,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The regulatory framework governing fintech innovation is struggling to keep pace with technological change.",
-    "correctAnswer": "Il quadro normativo che disciplina l'innovazione fintech sta lottando per tenere il passo con il cambiamento tecnologico.",
+    "correctAnswer": "Il quadro normativo che disciplina l'innovazione fintech fatica a stare al passo con il cambiamento tecnologico.",
     "hints": [
       "'Fintech' = financial technology; 'regulatory framework' = the rules and laws that govern an area."
     ]
@@ -431,8 +475,8 @@
     "id": "it-mf-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sovereign debt crises can destabilise entire regional economies if creditors lose confidence.",
-    "correctAnswer": "Le crisi del debito sovrano possono destabilizzare l'intera economia regionale se i creditori perdono fiducia.",
+    "prompt": "Say: Sovereign debt crises can destabilize entire regional economies if creditors lose confidence.",
+    "correctAnswer": "Le crisi del debito sovrano possono destabilizzare intere economie regionali se i creditori perdono fiducia.",
     "hints": [
       "'Sovereign debt' = money owed by a government; 'creditors' = those who lend money."
     ]
@@ -442,7 +486,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: What distinguishes value investing from growth investing as portfolio strategies?",
-    "correctAnswer": "Cosa distingue il valore che investe dalla crescita investendo come strategie di portafoglio?",
+    "correctAnswer": "Cosa distingue l'investimento value dall'investimento growth come strategie di portafoglio?",
     "hints": [
       "'Value investing' = buying undervalued assets; 'growth investing' = buying high-growth-potential companies."
     ]
@@ -452,7 +496,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Inflationary pressures have eroded real purchasing power, disproportionately affecting lower-income households.",
-    "correctAnswer": "Le pressioni inflazionistiche hanno eroso il potere d'acquisto reale, in modo sproporzionato che colpisce le famiglie a basso reddito.",
+    "correctAnswer": "Le pressioni inflazionistiche hanno eroso il potere d'acquisto reale, colpendo in modo sproporzionato le famiglie a basso reddito.",
     "hints": [
       "'Real purchasing power' = what money can actually buy; 'disproportionately' = more than one would expect."
     ]
@@ -472,7 +516,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Long-term financial stability depends on disciplined saving and diversified investments.",
-    "correctAnswer": "La stabilità finanziaria a lungo termine dipende dal risparmio disciplinato e dagli investimenti diversificati.",
+    "correctAnswer": "La stabilità finanziaria a lungo termine dipende da un risparmio disciplinato e da investimenti diversificati.",
     "hints": [
       "Formal financial wording."
     ],
@@ -481,23 +525,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Inflation erodes purchasing power when wages do not keep pace.",
-    "correctAnswer": "L'inflazione erode potere d'acquisto quando i salari non tengono il passo.",
+    "prompt": "L'inflazione erode il ___ d'acquisto quando i salari non tengono il passo.",
+    "correctAnswer": "potere",
     "hints": [
-      "Cause-effect sentence."
+      "'Potere d'acquisto' = purchasing power."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-mo-b2-70"
+    "id": "it-mo-b2-70",
+    "clozeOptions": [
+      "potere",
+      "punto",
+      "tempo",
+      "modo"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which policies are most effective in reducing household debt risk?",
-    "correctAnswer": "Quali politiche sono più efficaci nel ridurre il rischio di debito familiare?",
+    "prompt": "Dialogue: At a conference on household finances, you ask the panel which policies best reduce the risk of household over-indebtedness.",
+    "correctAnswer": "Quali politiche sono più efficaci per ridurre il rischio di sovraindebitamento delle famiglie?",
     "hints": [
       "Policy-level question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-mo-b2-71"
+    "id": "it-mo-b2-71",
+    "answerEnglish": "Which policies are most effective in reducing household debt risk?"
   }
 ]

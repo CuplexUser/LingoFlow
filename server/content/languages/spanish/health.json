@@ -6,7 +6,10 @@
     "prompt": "Say: I do not feel well.",
     "correctAnswer": "No me siento bien.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Sentirse' is reflexive: me siento = I feel."
+    ],
+    "acceptedAnswers": [
+      "No me encuentro bien."
     ]
   },
   {
@@ -16,7 +19,7 @@
     "prompt": "Ask: Where is the nearest hospital?",
     "correctAnswer": "¿Dónde está el hospital más cercano?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Más cercano' = nearest; it agrees with masculine 'hospital'."
     ]
   },
   {
@@ -26,7 +29,10 @@
     "prompt": "Say: I have a headache.",
     "correctAnswer": "Tengo dolor de cabeza.",
     "hints": [
-      "Practice this phrase out loud."
+      "Spanish 'has pain of head'; you can also say 'Me duele la cabeza'."
+    ],
+    "acceptedAnswers": [
+      "Me duele la cabeza."
     ]
   },
   {
@@ -47,7 +53,7 @@
     "prompt": "Ask: Is there a pharmacy nearby?",
     "correctAnswer": "¿Hay una farmacia cerca?",
     "hints": [
-      "A pharmacy is also called a chemist's."
+      "'Hay' = there is/are; 'cerca' = nearby."
     ]
   },
   {
@@ -69,7 +75,12 @@
     "hints": [
       "Think of who you visit when you are ill."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "médico",
+      "médica",
+      "doctora"
+    ]
   },
   {
     "id": "es-he-17",
@@ -79,6 +90,9 @@
     "correctAnswer": "Soy alérgico a la penicilina.",
     "hints": [
       "An important phrase in a medical emergency."
+    ],
+    "acceptedAnswers": [
+      "Soy alérgica a la penicilina."
     ]
   },
   {
@@ -89,6 +103,9 @@
     "correctAnswer": "¿Puedes llamar a una ambulancia?",
     "hints": [
       "Use 'can you' for urgent requests."
+    ],
+    "acceptedAnswers": [
+      "¿Puede llamar a una ambulancia?"
     ]
   },
   {
@@ -129,9 +146,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have had a sore throat for three days.",
-    "correctAnswer": "He tenido dolor de garganta durante tres días.",
+    "correctAnswer": "Llevo tres días con dolor de garganta.",
     "hints": [
-      "Use the present perfect for ongoing symptoms."
+      "'Llevar + time + con' or 'hace + time + que' for something still going on."
+    ],
+    "acceptedAnswers": [
+      "Hace tres días que me duele la garganta.",
+      "He tenido dolor de garganta durante tres días."
     ]
   },
   {
@@ -152,6 +173,10 @@
     "correctAnswer": "Necesito tomar estas tabletas dos veces al día.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Tengo que tomar estas pastillas dos veces al día.",
+      "Necesito tomar estas pastillas dos veces al día."
     ]
   },
   {
@@ -159,9 +184,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have been feeling dizzy since this morning.",
-    "correctAnswer": "Me he sentido mareado desde esta mañana.",
+    "correctAnswer": "Estoy mareado desde esta mañana.",
     "hints": [
       "Use 'since' for a specific starting point in the past."
+    ],
+    "acceptedAnswers": [
+      "Estoy mareada desde esta mañana.",
+      "Me he sentido mareado desde esta mañana.",
+      "Me he sentido mareada desde esta mañana."
     ]
   },
   {
@@ -179,9 +209,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I twisted my ankle while hiking.",
-    "correctAnswer": "Me torcí el tobillo mientras caminaba.",
+    "correctAnswer": "Me torcí el tobillo haciendo senderismo.",
     "hints": [
       "'While' links two actions happening at the same time."
+    ],
+    "acceptedAnswers": [
+      "Me torcí el tobillo mientras hacía senderismo."
     ]
   },
   {
@@ -209,7 +242,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The pain gets worse when I move.",
-    "correctAnswer": "El dolor empeora cuando me mudo.",
+    "correctAnswer": "El dolor empeora cuando me muevo.",
     "hints": [
       "Use 'gets worse' to describe worsening symptoms."
     ],
@@ -249,10 +282,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I started cooking healthier meals.",
-    "correctAnswer": "Comencé a cocinar comidas más saludables.",
+    "prompt": "Comencé a cocinar comidas más ___.",
+    "correctAnswer": "saludables",
     "hints": [
-      "Lifestyle improvement phrase."
+      "An adjective meaning 'good for your health'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-he-a2-51"
@@ -262,9 +295,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have a pre-existing condition that requires regular medication.",
-    "correctAnswer": "Tengo una condición preexistente que requiere medicación regular.",
+    "correctAnswer": "Tengo una enfermedad previa que requiere medicación regular.",
     "hints": [
       "'Pre-existing condition' means a health issue you already had before."
+    ],
+    "acceptedAnswers": [
+      "Tengo una enfermedad crónica que requiere medicación regular.",
+      "Tengo una condición preexistente que requiere medicación regular."
     ]
   },
   {
@@ -272,9 +309,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would it be safe to exercise with this condition?",
-    "correctAnswer": "¿Sería seguro ejercitar con esta condición?",
+    "correctAnswer": "¿Sería seguro hacer ejercicio con esta enfermedad?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "¿Sería seguro hacer ejercicio con esta condición?"
     ]
   },
   {
@@ -312,9 +352,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been following a low-sodium diet on my doctor's advice.",
-    "correctAnswer": "He estado siguiendo una dieta baja en sodio con el consejo de mi médico.",
+    "correctAnswer": "Sigo una dieta baja en sodio por consejo de mi médico.",
     "hints": [
       "Present perfect continuous shows an ongoing action started in the past."
+    ],
+    "acceptedAnswers": [
+      "He estado siguiendo una dieta baja en sodio por consejo de mi médico."
     ]
   },
   {
@@ -332,7 +375,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. The doctor asks about your sleep patterns.",
-    "correctAnswer": "Normalmente tengo alrededor de seis horas, pero he estado despertando en la noche últimamente.",
+    "correctAnswer": "Normalmente duermo unas seis horas, pero últimamente me despierto por la noche.",
     "hints": [
       "Give specific detail and use 'lately' for recent changes."
     ],
@@ -345,7 +388,7 @@
     "prompt": "Say: I am currently taking medication for high blood pressure.",
     "correctAnswer": "Actualmente estoy tomando medicamentos para la presión arterial alta.",
     "hints": [
-      "'Currently' emphasises something happening right now."
+      "'Actualmente' means 'currently' — not 'actually'."
     ]
   },
   {
@@ -382,10 +425,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I reduced sugar because it improved my energy.",
-    "correctAnswer": "Reduje el azúcar porque mejoró mi energía.",
+    "prompt": "Reduje el azúcar y ___ mi energía.",
+    "correctAnswer": "mejoró",
     "hints": [
-      "Cause-effect form."
+      "Preterite of 'mejorar' (to improve)."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-he-b1-61"
@@ -395,9 +438,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would appreciate a referral to a specialist for further investigation.",
-    "correctAnswer": "Agradecería que se remitiera a un especialista para su investigación.",
+    "correctAnswer": "Le agradecería que me derivara a un especialista para hacer más pruebas.",
     "hints": [
       "Formal, polite language for medical requests."
+    ],
+    "acceptedAnswers": [
+      "Agradecería que me remitieran a un especialista para hacer más pruebas."
     ]
   },
   {
@@ -435,7 +481,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Are there contraindications given my existing medication?",
-    "correctAnswer": "¿Hay contraindicaciones dada mi medicamento existente?",
+    "correctAnswer": "¿Hay contraindicaciones con la medicación que ya tomo?",
     "hints": [
       "'Contraindications' are reasons a treatment should not be used."
     ]
@@ -445,7 +491,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I want to explore non-invasive alternatives before committing to surgery.",
-    "correctAnswer": "Quiero explorar alternativas no invasivas antes de comprometerme a cirugía.",
+    "correctAnswer": "Quiero explorar alternativas no invasivas antes de decidirme por la cirugía.",
     "hints": [
       "'Non-invasive' means no cutting or entering the body."
     ]
@@ -455,7 +501,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The deterioration in my condition appears to correlate with increased stress levels.",
-    "correctAnswer": "El deterioro de mi condición parece correlacionarse con mayores niveles de estrés.",
+    "correctAnswer": "El empeoramiento de mi estado parece estar relacionado con el aumento del estrés.",
     "hints": [
       "'Deterioration' means worsening; 'correlate with' means linked to."
     ]
@@ -465,7 +511,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Would a preventive course of treatment be advisable given my family history?",
-    "correctAnswer": "¿Se aconsejará un curso preventivo de tratamiento dado mi historial familiar?",
+    "correctAnswer": "¿Sería aconsejable un tratamiento preventivo dados mis antecedentes familiares?",
     "hints": [
       "'Preventive' means aimed at stopping a problem before it starts."
     ]
@@ -474,7 +520,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Preventive care is more effective than reactive treatment.",
-    "correctAnswer": "La atención preventiva es más eficaz que el tratamiento reactiva.",
+    "correctAnswer": "La atención preventiva es más eficaz que el tratamiento reactivo.",
     "hints": [
       "Advanced health framing."
     ],
@@ -483,10 +529,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which policies can improve access to mental health care?",
-    "correctAnswer": "¿Qué políticas pueden mejorar el acceso a la atención de salud mental?",
+    "prompt": "¿Qué políticas pueden mejorar el ___ a la atención de salud mental?",
+    "correctAnswer": "acceso",
     "hints": [
-      "Public-health discussion prompt."
+      "A noun meaning 'access'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-he-b2-70"
@@ -494,7 +540,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sustainable routines matter more than short-term motivation.",
+    "prompt": "Choose the best response. A friend asks how to stay motivated to exercise.",
     "correctAnswer": "Las rutinas sostenibles importan más que la motivación a corto plazo.",
     "hints": [
       "Abstract comparison sentence."

@@ -43,7 +43,7 @@
     "prompt": "Say: I am saving money to buy a new laptop.",
     "correctAnswer": "Я откладываю деньги, чтобы купить новый ноутбук.",
     "hints": [
-      "Use present continuous + infinitive of purpose."
+      "'Откладывать деньги' = to save (put aside) money; 'чтобы' + infinitive = in order to."
     ]
   },
   {
@@ -80,7 +80,10 @@
     "prompt": "Say: I have set up a monthly budget to track my expenses.",
     "correctAnswer": "Я составил ежемесячный бюджет, чтобы отслеживать расходы.",
     "hints": [
-      "Use present perfect for a recent action with present relevance."
+      "Perfective past 'составил' for a completed action with a lasting result."
+    ],
+    "acceptedAnswers": [
+      "Я составила ежемесячный бюджет, чтобы отслеживать расходы."
     ]
   },
   {
@@ -107,7 +110,10 @@
     "prompt": "Say: If I had saved more last year, I could afford this holiday.",
     "correctAnswer": "Если бы я больше откладывал в прошлом году, я мог бы позволить себе этот отпуск.",
     "hints": [
-      "Use third conditional for past regret."
+      "Russian uses 'если бы' + past tense in both clauses for unreal conditions, past or present."
+    ],
+    "acceptedAnswers": [
+      "Если бы я больше откладывала в прошлом году, я могла бы позволить себе этот отпуск."
     ]
   },
   {
@@ -365,7 +371,7 @@
     "id": "ru-mo-a2-3",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Cloze: Я плачу за квартиру каждый месяц — это моя главная ____.",
+    "prompt": "Cloze: Я плачу за квартиру каждый месяц — это мой главный ____.",
     "correctAnswer": "расход",
     "hints": [
       "A regular cost or outgoing payment."
@@ -467,9 +473,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "What does 'invoice' mean?",
-    "correctAnswer": "счёт-фактура / накладная",
+    "correctAnswer": "счёт / счёт-фактура",
     "hints": [
-      "A document requesting payment for goods or services."
+      "A document requesting payment. In everyday speech 'счёт'; 'счёт-фактура' is the formal tax invoice."
     ],
     "exerciseType": "flashcard"
   },
@@ -523,13 +529,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Which phrase means 'to go into debt'?",
-    "correctAnswer": "залезть в долг",
+    "correctAnswer": "влезть в долги",
     "hints": [
       "A colloquial expression for borrowing beyond your means."
     ],
     "exerciseType": "multiple_choice",
     "options": [
-      "залезть в долг",
+      "влезть в долги",
       "сделать скидку",
       "открыть вклад",
       "снять деньги"
@@ -832,10 +838,10 @@
     "id": "ru-mo-b2-12",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Центральный банк принял решение оставить ключевую ____ ставку без изменений.",
-    "correctAnswer": "процентную",
+    "prompt": "Cloze: Центральный банк принял решение оставить ____ ставку без изменений.",
+    "correctAnswer": "ключевую",
     "hints": [
-      "Adjective agreeing with 'ставка' (rate) in accusative feminine."
+      "'Ключевая ставка' = the central bank's key policy rate; accusative feminine here."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -855,7 +861,7 @@
     "id": "ru-mo-b2-15",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the best translation: A bear market is characterised by sustained price declines.",
+    "prompt": "Choose the best translation: A bear market is characterized by sustained price declines.",
     "correctAnswer": "Медвежий рынок характеризуется устойчивым снижением цен.",
     "hints": [
       "'Медвежий рынок' = bear market; 'устойчивый' = sustained."
@@ -886,7 +892,7 @@
     "prompt": "Cloze: Грамотное ____ активами позволяет минимизировать налоговые обязательства.",
     "correctAnswer": "управление",
     "hints": [
-      "Instrumental noun meaning 'management' — used in formal financial language."
+      "A verbal noun meaning 'management', the subject of the sentence; 'управление' + instrumental (активами)."
     ],
     "exerciseType": "cloze_sentence"
   }

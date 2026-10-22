@@ -1,0 +1,1334 @@
+{
+  "language": "italian",
+  "category": "grammar",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:31:56.731Z",
+  "contentHash": "9acfc78fdf487349",
+  "summary": "This file is the English grammar course with the answers translated: most prompts are English fill-in-the-blanks about English grammar (to be, do-support, a/an, has/have, which/who, inversion), hints explain English rules, and cloze items show English sentences, so learners cannot practice Italian grammar. I rewrote each into the equivalent Italian exercise. Several answers are also wrong Italian: present perfect durations rendered as 'ho vissuto qui per', 'Se lo sapessi prima', 'sarebbe stata', 'Non prima era arrivata prima dell'incontro', 'condizioni meteorologiche povere', 'rotto il record', and 'E'' misspellings.",
+  "findings": [
+    {
+      "id": "it-gr-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'to be' with a full Italian answer; 'E'' is misspelled.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is a teacher.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "È un'insegnante.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Lei è un'insegnante.",
+            "È insegnante."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person of 'essere' is 'è'; 'un'insegnante' has an apostrophe because it is feminine."
+          ]
+        }
+      ],
+      "itemHash": "b6794c1502cdb826",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); 'Sono i miei amici' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The subject 'loro' is usually dropped: 'sono' already means 'they are'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono i miei amici.",
+            "Loro sono i miei amici."
+          ]
+        }
+      ],
+      "itemHash": "af69c1e124da546d",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-3",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'do not'; the hint teaches English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I do not like coffee.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non' goes before 'mi piace'; with 'piacere' the thing you like is the subject."
+          ]
+        }
+      ],
+      "itemHash": "095aad9c2507bfbc",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-13",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'are'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We are students.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First person plural of 'essere' is 'siamo'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Noi siamo studenti.",
+            "Siamo studentesse."
+          ]
+        }
+      ],
+      "itemHash": "9eb804de3812ecdb",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-14",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence testing the English -s ending.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Lui ___ inglese ogni giorno.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "studia",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "studia",
+            "studio",
+            "studi",
+            "studiano"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person singular of 'studiare' ends in -a."
+          ]
+        }
+      ],
+      "itemHash": "5a73c642c165e4c4",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains English 'there is/are'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'C'è' + singular, 'ci sono' + plural; 'sul' = su + il."
+          ]
+        }
+      ],
+      "itemHash": "602aba0d3fe909cd",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-16",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'do'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you like tea?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian questions keep statement order; only the intonation rises."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Le piace il tè?"
+          ]
+        }
+      ],
+      "itemHash": "77e068299b17fb31",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-17",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze tests English 'a/an'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Lei ha ___ ombrello.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "un",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "un",
+            "uno",
+            "una",
+            "un'"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ombrello' is masculine and starts with a vowel: 'un' (no apostrophe)."
+          ]
+        }
+      ],
+      "itemHash": "4003291664867fcf",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Only the feminine form is accepted; hint is about English.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Non sono stanco."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non' goes before the verb; 'stanco/stanca' agrees with the speaker."
+          ]
+        }
+      ],
+      "itemHash": "8407a1aa3e89184c",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-19",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'are'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The cats are sleeping.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I gatti stanno dormendo."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Simple present or 'stare' + gerund for an action in progress."
+          ]
+        }
+      ],
+      "itemHash": "25b663232990e3d5",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-a1-39",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about the English -s ending.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Va' is the third person singular of the irregular verb 'andare'."
+          ]
+        }
+      ],
+      "itemHash": "e9ab18e45013d889",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-a1-40",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about English 'are'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sono' = they are; 'felici' is the plural of 'felice'."
+          ]
+        }
+      ],
+      "itemHash": "1d4479589ef5985a",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-a1-41",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'e'' should be 'è'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Questa frase è corretta?",
+          "list": null
+        }
+      ],
+      "itemHash": "bc461f7de9e1e0cd",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'andata' is not accepted; hint is about English.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono andata al supermercato ieri.",
+            "Ieri sono andato al supermercato.",
+            "Ieri sono andata al supermercato."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Andare' takes 'essere' in the passato prossimo; the participle agrees with the subject."
+          ]
+        }
+      ],
+      "itemHash": "371977062dc98951",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'has'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She has been waiting for an hour.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Aspetta da un'ora.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sta aspettando da un'ora.",
+            "Lei aspetta da un'ora."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'da' for an action that is still going on."
+          ]
+        }
+      ],
+      "itemHash": "14788dec3c0ce928",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes the English conditional; the common present-tense variant is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Se' + present, then future (colloquially also present)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Se piove, restiamo dentro.",
+            "Se pioverà, resteremo dentro."
+          ]
+        }
+      ],
+      "itemHash": "c71f0344957631b4",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sabato scorso ___ andata al cinema.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sono",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sono",
+            "ho",
+            "ero",
+            "sarò"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Andare' forms the passato prossimo with 'essere'."
+          ]
+        }
+      ],
+      "itemHash": "60566c512e56c654",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-21",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'was/were'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: At seven this morning he was working.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Stamattina alle sette stava lavorando.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Stamattina alle sette lavorava."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Imperfect or 'stare' (imperfect) + gerund for an action in progress in the past."
+          ]
+        }
+      ],
+      "itemHash": "67e0c40089ed3a8f",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-22",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Abbiamo vissuto qui per cinque anni' implies we no longer live here; ongoing duration is present + 'da'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Viviamo qui da cinque anni.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Abitiamo qui da cinque anni."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'da' for a situation that started in the past and still continues."
+          ]
+        }
+      ],
+      "itemHash": "6d71c0c9c26c481a",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-23",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Questo libro è ___ interessante dell'altro.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "più",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "più",
+            "molto",
+            "tanto",
+            "troppo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Più ... di' = more ... than."
+          ]
+        }
+      ],
+      "itemHash": "2492c5f3a14cecd6",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-24",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'have/has'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Have you been to Paris?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sei stata a Parigi?",
+            "Sei mai stato a Parigi?",
+            "Sei mai stata a Parigi?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Essere stato a' + city = to have been to a place."
+          ]
+        }
+      ],
+      "itemHash": "b992a284f5dfa13c",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-25",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about English 'used to'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses the imperfect (suonava) for past habits."
+          ]
+        }
+      ],
+      "itemHash": "eb5055ff3c5e9d50",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-26",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: You should drink more water.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Dovresti' (conditional of 'dovere') + infinitive = you should."
+          ]
+        }
+      ],
+      "itemHash": "63f9d604662517f6",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-a2-49",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ho vissuto qui per due anni' means I no longer live here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vivo qui da due anni.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Abito qui da due anni."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'da' for duration up to now."
+          ]
+        }
+      ],
+      "itemHash": "0685e7f28830fc6f",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-a2-51",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks about English much/many and has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ho ___ amici a Roma.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "molti",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "molti",
+            "molto",
+            "molte",
+            "molta"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Before a noun, 'molto' agrees with it: 'molti amici'."
+          ]
+        }
+      ],
+      "itemHash": "c2469e8544f795f6",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes the English second conditional.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Se' + imperfect subjunctive (avessi), then present conditional (imparerei)."
+          ]
+        }
+      ],
+      "itemHash": "c74d4cd5219a4d77",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-8",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank; 'arrivera'' is misspelled.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: By the time she arrives, we will have finished dinner.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Quando arriverà, avremo già finito di cenare.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quando arriverà, avremo finito la cena."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Future perfect (avremo finito) for an action completed before a future moment."
+          ]
+        }
+      ],
+      "itemHash": "904336c72edf5f9a",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'la sensazione di stanchezza' is clumsy; hint explains the English gerund.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nonostante fosse stanca, ha continuato a lavorare.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Benché fosse stanca, ha continuato a lavorare.",
+            "Nonostante la stanchezza, ha continuato a lavorare."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nonostante' + subjunctive, or + a noun."
+          ]
+        }
+      ],
+      "itemHash": "c443fb8d49b33e13",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-27",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Il rapporto ___ scritto dalla squadra la settimana scorsa.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "è stato",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "è stato",
+            "è stata",
+            "ha scritto",
+            "sarà"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passive passato prossimo: 'essere' (passato prossimo) + past participle."
+          ]
+        }
+      ],
+      "itemHash": "28f0dd87ab4d369d",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-29",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank; 'praticare' is unnatural for practicing a language.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I wish I had more time to practice.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei avere più tempo per esercitarmi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Magari avessi più tempo per esercitarmi."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vorrei' + infinitive or 'magari' + imperfect subjunctive express a wish."
+          ]
+        }
+      ],
+      "itemHash": "bcdf687f626e2080",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-30",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'rotto il record' is a calque ('battere il record'); hint describes English inversion.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Non solo ha vinto la gara, ma ha anche battuto il record.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non solo ... ma anche' needs no inversion in Italian."
+          ]
+        }
+      ],
+      "itemHash": "e41afee20cdcd882",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-31",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank; 'E'' is misspelled.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is used to waking up early.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "È abituata a svegliarsi presto.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Essere abituato/a a' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "003ea012bf8970f5",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-32",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'condizioni meteorologiche povere' is a calque (poor = scarce/needy).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La riunione è stata annullata a causa del maltempo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La riunione è stata annullata a causa delle cattive condizioni meteorologiche."
+          ]
+        }
+      ],
+      "itemHash": "bbd8a7188c30ed0e",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-33",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze tests English who/which.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "La persona ___ ha chiamato non ha lasciato nessun messaggio.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "che",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "che",
+            "cui",
+            "quale",
+            "chi"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Che' is the relative pronoun for subjects and objects, people or things."
+          ]
+        }
+      ],
+      "itemHash": "2ccc2e37a2bc1d01",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-b1-59",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'allenarmi' is for sport; practicing a skill is 'esercitarmi'. Hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei avere più tempo per esercitarmi.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vorrei' + infinitive expresses a wish about the present."
+          ]
+        }
+      ],
+      "itemHash": "24cf554359f59dd7",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quando dovrei usare la forma ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "passiva",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "passiva",
+            "passivo",
+            "passive",
+            "passivi"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The adjective agrees with 'forma' (feminine singular)."
+          ]
+        }
+      ],
+      "itemHash": "7a58f7d07d66a463",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-10",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes English inversion.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive (avessi saputo) + past conditional (avrei preso)."
+          ]
+        }
+      ],
+      "itemHash": "bcc7fb9d421c5afe",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-11",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about inversion.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Rarely have I seen such attention to detail.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Raramente ho visto una tale attenzione ai dettagli.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Raramente ho visto tanta attenzione ai dettagli.",
+            "Di rado ho visto una tale attenzione ai dettagli."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian can front 'raramente' without changing the word order."
+          ]
+        }
+      ],
+      "itemHash": "b135c939112a5340",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-12",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'ultimately' is dropped; hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La proposta, redatta nel corso di diversi mesi, alla fine è stata respinta.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A past participle (redatta) can replace a whole relative clause."
+          ]
+        }
+      ],
+      "itemHash": "1034079e33a5c0d4",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "English fill-in-the-blank, and the answer 'Non prima era arrivata prima dell'incontro' is nonsense.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: No sooner had she arrived than the meeting began.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Era appena arrivata quando è iniziata la riunione.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Appena arrivata, è iniziata la riunione."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Appena' + trapassato prossimo (era arrivata) for something that had only just happened."
+          ]
+        }
+      ],
+      "itemHash": "301937ce35be0f3b",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-35",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Hint describes English; the subjunctive 'È ora che' structure is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "È ora che affrontiamo le questioni strutturali di fondo."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'È giunto il momento di' + infinitive, or 'È ora che' + subjunctive."
+          ]
+        }
+      ],
+      "itemHash": "1b2943659d550271",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-36",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence (with British 'analysed').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I dati devono essere ___ prima che si possano trarre conclusioni.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "analizzati",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "analizzati",
+            "analizzato",
+            "analizzate",
+            "analizzare"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The participle agrees with 'dati' (masculine plural)."
+          ]
+        }
+      ],
+      "itemHash": "75ede32c17b2f779",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-37",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'sarebbe stata' is past conditional; the hypothesis is about the present/future ('sarebbe').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Se dovesse candidarsi, sarebbe un'ottima candidata per il posto.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Se dovesse' + infinitive, then present conditional."
+          ]
+        }
+      ],
+      "itemHash": "2c2c93490c18a15e",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-38",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The more you practice, the more fluent you become.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Più ti eserciti, più diventi fluente."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Più ... più ...' with no article = the more ... the more ..."
+          ]
+        }
+      ],
+      "itemHash": "e76aafb8dba6bf92",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-b2-69",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Se lo sapessi prima' is the wrong tense for an unreal past condition.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Se l'avessi saputo prima, mi sarei preparato diversamente.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Se l'avessi saputo prima, mi sarei preparata diversamente."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive (avessi saputo) + past conditional (mi sarei preparato)."
+          ]
+        }
+      ],
+      "itemHash": "e9d096cd51d2c583",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'progetto' should be 'bozza' for draft.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Non solo ha finito in tempo, ___ ha anche migliorato la bozza.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ma",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ma",
+            "però",
+            "e",
+            "o"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non solo ... ma anche' = not only ... but also."
+          ]
+        }
+      ],
+      "itemHash": "309e0d4e050c67e4",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    },
+    {
+      "id": "it-gr-b2-71",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'affrontiamo una frase' means 'we tackle a sentence', not 'front a phrase'; no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: In grammar class, you ask your teacher about moving a phrase to the start of a sentence.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Come cambia l'enfasi quando mettiamo un elemento all'inizio della frase?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How does emphasis change when we move an element to the start of the sentence?",
+          "list": null
+        }
+      ],
+      "itemHash": "44cf80e2253d86ff",
+      "appliedAt": "2026-10-22T09:35:00.902Z"
+    }
+  ]
+}

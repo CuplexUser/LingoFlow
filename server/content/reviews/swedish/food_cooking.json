@@ -1,0 +1,760 @@
+{
+  "language": "swedish",
+  "category": "food_cooking",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:49:41.333Z",
+  "contentHash": "dda75ee0831ea482",
+  "summary": "Many restaurant and kitchen phrases are calques or wrong words a Swede would not use (huvudkurs, Är denna vegetarian?, föredrar te till kaffe, Tjänsten for service, marker for fries, bevisningen for provenance, Källa, friskare for healthier, surdough recept), plus a split compound and misspelled 'brunningen'. British leftovers (bill, chips, speciality, flavour), 'snälla' in orders, cloze items without blanks and roleplay/dialogue items without answerEnglish also need fixing.",
+  "findings": [
+    {
+      "id": "sv-fo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hungrig' agrees with the speaker; casually Swedes also say 'Jag är sugen på mat'."
+          ]
+        }
+      ],
+      "itemHash": "3f245ad61aa963a0",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Generic hint (lint confirmed); 'snälla' sounds like begging in a restaurant — Swedes say 'tack'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan jag få ett glas vatten, tack?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan jag få ett glas vatten?",
+            "Kan jag få ett glas vatten, snälla?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Kan jag få ...' + 'tack' is the polite way to order."
+          ]
+        }
+      ],
+      "itemHash": "cdb7b5ac12fc410c",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-3",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "Generic hint (lint confirmed); 'would like' is 'skulle vilja ha'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja ha en kaffe med mjölk.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag vill ha en kaffe med mjölk.",
+            "Kan jag få en kaffe med mjölk?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Skulle vilja ha' = would like (polite)."
+          ]
+        }
+      ],
+      "itemHash": "3e91241c5707e173",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'vegetarian' is the noun (a vegetarian person); the adjective is 'vegetarisk/-t'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Är det här vegetariskt?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Är den här rätten vegetarisk?"
+          ]
+        }
+      ],
+      "itemHash": "cca7e1207a2247a3",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'huvudkurs' is a calque; the main course is 'huvudrätt'. Hint uses British 'starter'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "huvudrätt",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after the appetizer ('förrätt')."
+          ]
+        }
+      ],
+      "itemHash": "4b0426d12287c6d1",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-19",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'föredra X till Y' is wrong; it is 'föredra X framför Y'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag föredrar te framför kaffe.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Föredra X framför Y' = prefer X to Y."
+          ]
+        }
+      ],
+      "itemHash": "0930519d7853fa87",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-a1-39",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'skulle vilja ha' fits 'would like'; 'en skål soppa' is the usual phrasing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja ha en skål soppa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag vill ha en skål soppa.",
+            "Jag vill ha en skål med soppa."
+          ]
+        }
+      ],
+      "itemHash": "69c2b8ea94bcab19",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-a1-40",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Hot-spicy food is usually 'stark'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Är den här rätten stark?",
+            "Är den här rätten kryddig?"
+          ]
+        }
+      ],
+      "itemHash": "31a71d568a138d3a",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Prompt uses British 'bill'; Swedes say 'notan' and 'tack', not 'snälla'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Could we have the check, please?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Kan vi få notan, tack?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan vi få räkningen, tack?",
+            "Kan vi få notan?"
+          ]
+        }
+      ],
+      "itemHash": "bc70cf6ca961dabd",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-22",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'speciality'; 'would like' = 'skulle vilja'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I would like to try the local specialty.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja prova den lokala specialiteten.",
+          "list": null
+        }
+      ],
+      "itemHash": "47a097ceec44c630",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-23",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'nära här' is a calque; Swedish says 'här i närheten'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan du rekommendera en bra restaurang här i närheten?",
+          "list": null
+        }
+      ],
+      "itemHash": "81d0f3b5d76c405f",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-24",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'lägger ... till min matlagning' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har alltid i vitlök och olivolja när jag lagar mat.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag använder alltid vitlök och olivolja när jag lagar mat."
+          ]
+        }
+      ],
+      "itemHash": "a11bb83616acb0e7",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-25",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Tjänsten' means a job/service product; restaurant service is 'servicen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Servicen här är utmärkt.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Bemötandet här är utmärkt."
+          ]
+        }
+      ],
+      "itemHash": "05e03b0d33d101de",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-26",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'marker' are game tokens; fries are 'pommes frites'. Prompt uses British 'chips'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Is it possible to swap the fries for a salad?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Går det att byta pommes frites mot sallad?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Är det möjligt att byta pommes frites mot sallad?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Byta X mot Y' = swap X for Y."
+          ]
+        }
+      ],
+      "itemHash": "e87c0f26de0f14ea",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-a2-49",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'försöker ett nytt recept' means attempt; trying out a recipe is 'prova'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag provar ett nytt recept i kväll.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag ska prova ett nytt recept ikväll."
+          ]
+        }
+      ],
+      "itemHash": "8f411db62b5bc4b6",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-a2-50",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Oven time is 'grädda', not 'baka'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur länge ska jag grädda den här tårtan?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hur länge ska tårtan stå i ugnen?",
+            "Hur länge ska jag baka den här tårtan?"
+          ]
+        }
+      ],
+      "itemHash": "c5228e65ab95b54f",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-a2-51",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Split compound 'familj restaurang' ('familjerestaurang'); the cloze item has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vi åt på en liten ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "familjerestaurang",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "familjerestaurang",
+            "familjerestaurangen",
+            "familjerestauranger",
+            "familj restaurang"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish writes compounds as one word, with a linking -e-."
+          ]
+        }
+      ],
+      "itemHash": "3364afbcf0a57166",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A diet in this sense is 'kost'; 'diet' suggests a slimming diet.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har nyligen börjat äta växtbaserad kost.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har nyligen börjat följa en växtbaserad kost."
+          ]
+        }
+      ],
+      "itemHash": "bf9ac812485c5caa",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'tillgodose ett alternativ' is stiff; a restaurant is asked to 'erbjuda' one.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Skulle ni kunna erbjuda ett glutenfritt alternativ?",
+          "list": null
+        }
+      ],
+      "itemHash": "191810f0b9d3ca84",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-30",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'flavour'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Develops the flavor' is a cooking technique description."
+          ]
+        }
+      ],
+      "itemHash": "644a5bae86611040",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-31",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Jag är värd för en middagsfest' is a calque; Swedes 'ha middagsbjudning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag ska ha middagsbjudning nästa lördag och behöver inspiration.",
+          "list": null
+        }
+      ],
+      "itemHash": "e93cb77bd27da6a8",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-33",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'en surdough recept jag har perfekt' is half English and ungrammatical; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ja, jag bakade det i morse – det är ett surdegsbröd som jag har finslipat receptet till.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ja, jag bakade det i morse – det är ett surdegsrecept som jag har fulländat."
+          ]
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Yes, I baked it this morning — it's a sourdough recipe I've perfected.",
+          "list": null
+        }
+      ],
+      "itemHash": "e996f8ecd2a9670c",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-b1-59",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'friskare' means less ill; healthier food is 'nyttigare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hemlagad mat är ofta billigare och nyttigare.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hemlagade måltider är ofta billigare och nyttigare."
+          ]
+        }
+      ],
+      "itemHash": "fbf74056e61e03fe",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'måltidspreppa' is not established Swedish (batch cooking = 'storkoka').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag började ___ för att spara tid under veckan.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "storkoka",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "storkoka",
+            "storkokar",
+            "storkokade",
+            "storkokat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Storkoka' = cook large batches ahead; infinitive after 'började'."
+          ]
+        }
+      ],
+      "itemHash": "049c5e7ba24ed022",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Samspelet av kryddor' should be 'Samspelet mellan kryddorna'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Samspelet mellan kryddorna i den här curryn skapar en exceptionellt nyanserad smakprofil.",
+          "list": null
+        }
+      ],
+      "itemHash": "71fbfcddc677933e",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The Swedish term is 'fermentering'; 'samtida kök' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Fermentering har fått en anmärkningsvärd renässans i dagens matlagning.",
+          "list": null
+        }
+      ],
+      "itemHash": "355517c2e9826bde",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'bevisningen' means evidence (in court); provenance is 'ursprunget'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur påverkar ingrediensernas ursprung den färdiga rätten?",
+          "list": null
+        }
+      ],
+      "itemHash": "2c91df71be18aefe",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Källa' is a noun (source) used as a verb; culturalNote uses British 'emphasising'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Att välja säsongens lokalt odlade råvaror är både ett ekologiskt och ett kulinariskt val.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "Choosing 'närproducerat' (locally produced) food has become a strong trend in Sweden, emphasizing shorter supply chains and fresher ingredients.",
+          "list": null
+        }
+      ],
+      "itemHash": "63f8887c4cd7925f",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-35",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A tasting menu is 'avsmakningsmeny'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kockens avsmakningsmeny är en övning i återhållsamhet och precision.",
+          "list": null
+        }
+      ],
+      "itemHash": "e6f5c7cbdd5db978",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-36",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Tastes used as nouns take neuter forms ('sött, surt, salt och beskt').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Umami beskrivs ofta som den femte smaken, vid sidan av sött, surt, salt och beskt.",
+          "list": null
+        }
+      ],
+      "itemHash": "51422b12d15015e8",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-37",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Missing 'att', and 'utspädd' is the wrong form; 'urvattnat' is the idiom.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Skulle du säga att fusionsmatens framväxt har berikat eller urvattnat de kulinariska traditionerna?",
+          "list": null
+        }
+      ],
+      "itemHash": "ecf8c96c640cf6df",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-38",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'brunningen' should be 'bryningen'; 'djupet av smak' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Maillardreaktionen – bryningen av proteiner vid upphettning – är grundläggande för att ge djup åt smaken.",
+          "list": null
+        }
+      ],
+      "itemHash": "59bb0fa38ccd0293",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; food waste is usually 'matsvinn'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hur kan städer minska ___ i hela livsmedelskedjan?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "matsvinnet",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "matsvinnet",
+            "matsvinn",
+            "matsvinnets",
+            "matsvinnen"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Matsvinn' = food waste; definite form here."
+          ]
+        }
+      ],
+      "itemHash": "578501c41cf846e6",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    },
+    {
+      "id": "sv-fo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'beror på' means 'is caused by'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend says they plan to cut out carbs completely. Share your view.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "En balanserad kost bygger på variation snarare än strikta begränsningar.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "A balanced diet depends on variety rather than strict restriction.",
+          "list": null
+        }
+      ],
+      "itemHash": "8fc656234724f579",
+      "appliedAt": "2026-10-22T10:00:53.906Z"
+    }
+  ]
+}

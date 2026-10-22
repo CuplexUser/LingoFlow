@@ -4,18 +4,22 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a person who reports the news",
-    "correctAnswer": "journalist",
+    "correctAnswer": "der Journalist",
     "hints": [
       "They write or broadcast the news."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Journalist",
+      "die Journalistin"
+    ]
   },
   {
     "id": "de-nm-a1-2",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I read the news every morning.",
-    "correctAnswer": "Ich habe die Nachrichten jeden Morgen gelesen.",
+    "correctAnswer": "Ich lese jeden Morgen die Nachrichten.",
     "hints": [
       "A simple daily habit."
     ]
@@ -28,6 +32,10 @@
     "correctAnswer": "Hast du von dem Erdbeben gehört?",
     "hints": [
       "Simple past to ask about recent news."
+    ],
+    "acceptedAnswers": [
+      "Hast du vom Erdbeben gehört?",
+      "Haben Sie von dem Erdbeben gehört?"
     ]
   },
   {
@@ -35,9 +43,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: The news is on television at six.",
-    "correctAnswer": "Die Nachrichten sind im Fernsehen um sechs.",
+    "correctAnswer": "Die Nachrichten kommen um sechs im Fernsehen.",
     "hints": [
       "State when a TV program is broadcast."
+    ],
+    "acceptedAnswers": [
+      "Die Nachrichten laufen um sechs im Fernsehen."
     ]
   },
   {
@@ -55,11 +66,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a daily printed publication with news and articles",
-    "correctAnswer": "zeitung",
+    "correctAnswer": "die Zeitung",
     "hints": [
       "You can read it in print or online."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Zeitung",
+      "die Tageszeitung"
+    ]
   },
   {
     "id": "de-nm-a1-7",
@@ -76,9 +91,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I do not watch much television.",
-    "correctAnswer": "Ich sehe nicht viel Fernsehen.",
+    "correctAnswer": "Ich sehe nicht viel fern.",
     "hints": [
-      "'Much' with uncountable nouns in negatives."
+      "'Fernsehen' is separable: ich sehe ... fern."
+    ],
+    "acceptedAnswers": [
+      "Ich schaue nicht viel Fernsehen."
     ]
   },
   {
@@ -96,41 +114,53 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I get my news from the internet.",
-    "correctAnswer": "Ich bekomme meine Nachrichten aus dem Internet.",
+    "correctAnswer": "Ich informiere mich im Internet.",
     "hints": [
       "State where you access information."
+    ],
+    "acceptedAnswers": [
+      "Ich lese die Nachrichten im Internet."
     ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: This story is about the weather.",
-    "correctAnswer": "Diese Geschichte geht um das Wetter.",
+    "correctAnswer": "In diesem Bericht geht es um das Wetter.",
     "hints": [
       "Topic sentence."
     ],
     "exerciseType": "build_sentence",
-    "id": "de-ne-a1-40"
+    "id": "de-ne-a1-40",
+    "acceptedAnswers": [
+      "In dieser Meldung geht es um das Wetter."
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where do you get your news?",
-    "correctAnswer": "Wo bekommen Sie Ihre Nachrichten?",
+    "correctAnswer": "Wie informieren Sie sich über das Weltgeschehen?",
     "hints": [
       "Common media question."
     ],
     "exerciseType": "flashcard",
-    "id": "de-ne-a1-41"
+    "id": "de-ne-a1-41",
+    "acceptedAnswers": [
+      "Wo informierst du dich?"
+    ]
   },
   {
     "id": "de-nm-a2-1",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: According to the report, the economy grew by two per cent last year.",
-    "correctAnswer": "Laut dem Bericht stieg die Wirtschaft im letzten Jahr um zwei Prozent.",
+    "prompt": "Say: According to the report, the economy grew by two percent last year.",
+    "correctAnswer": "Laut dem Bericht ist die Wirtschaft im letzten Jahr um zwei Prozent gewachsen.",
     "hints": [
       "'According to' introduces a cited source."
+    ],
+    "acceptedAnswers": [
+      "Laut Bericht wuchs die Wirtschaft letztes Jahr um zwei Prozent."
     ]
   },
   {
@@ -138,7 +168,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Have you been following the election coverage?",
-    "correctAnswer": "Haben Sie die Wahlabdeckung verfolgt?",
+    "correctAnswer": "Haben Sie die Berichterstattung über die Wahl verfolgt?",
     "hints": [
       "'Coverage' means the reporting of an event by media."
     ]
@@ -158,7 +188,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I prefer listening to podcasts over reading print media.",
-    "correctAnswer": "Ich höre lieber Podcasts beim Lesen von Printmedien.",
+    "correctAnswer": "Ich höre lieber Podcasts, als Printmedien zu lesen.",
     "hints": [
       "'Over' here means 'rather than'."
     ]
@@ -168,7 +198,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Which news outlet do you trust the most?",
-    "correctAnswer": "Welche News-Outlet vertrauen Sie am meisten?",
+    "correctAnswer": "Welchem Nachrichtenmedium vertrauen Sie am meisten?",
     "hints": [
       "'Outlet' here means a media organization or website."
     ]
@@ -178,7 +208,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: There was a breaking news story about the floods.",
-    "correctAnswer": "Es gab eine brechende Nachricht über die Überschwemmungen.",
+    "correctAnswer": "Es gab eine Eilmeldung über die Überschwemmungen.",
     "hints": [
       "'Breaking news' refers to a developing, urgent story."
     ]
@@ -188,7 +218,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Social media is now the main source of news for many young people.",
-    "correctAnswer": "Social Media ist heute die Hauptquelle für viele junge Menschen.",
+    "correctAnswer": "Soziale Medien sind heute für viele junge Menschen die wichtigste Nachrichtenquelle.",
     "hints": [
       "'Source' means where information comes from."
     ]
@@ -218,7 +248,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I canceled my newspaper subscription and switched to an online news app.",
-    "correctAnswer": "Ich habe mein Zeitungsabonnement abgesagt und auf eine Online-Nachrichten-App umgestellt.",
+    "correctAnswer": "Ich habe mein Zeitungsabo gekündigt und bin auf eine Nachrichten-App umgestiegen.",
     "hints": [
       "Two completed past actions joined by 'and'."
     ]
@@ -227,7 +257,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I follow local news on my phone.",
-    "correctAnswer": "Ich folge lokalen Nachrichten auf meinem Handy.",
+    "correctAnswer": "Ich verfolge die lokalen Nachrichten auf meinem Handy.",
     "hints": [
       "Use 'follow' for ongoing updates."
     ],
@@ -237,20 +267,23 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I prefer short videos to long articles.",
-    "correctAnswer": "Ich bevorzuge kurze Videos zu langen Artikeln.",
+    "correctAnswer": "Ich mag kurze Videos lieber als lange Artikel.",
     "hints": [
       "Comparison pattern."
     ],
     "exerciseType": "build_sentence",
-    "id": "de-ne-a2-50"
+    "id": "de-ne-a2-50",
+    "acceptedAnswers": [
+      "Ich ziehe kurze Videos langen Artikeln vor."
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Did you hear about this event yesterday?",
-    "correctAnswer": "Hast du gestern von dieser Veranstaltung gehört?",
+    "prompt": "Hast du gestern von dieser Veranstaltung ___?",
+    "correctAnswer": "gehört",
     "hints": [
-      "Past simple in context."
+      "Past participle of 'hören'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-ne-a2-51"
@@ -280,9 +313,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Media bias can affect the way events are framed and interpreted by the public.",
-    "correctAnswer": "Medienbias kann die Art und Weise beeinflussen, wie Ereignisse von der Öffentlichkeit gerahmt und interpretiert werden.",
+    "correctAnswer": "Einseitige Berichterstattung kann beeinflussen, wie Ereignisse dargestellt und von der Öffentlichkeit interpretiert werden.",
     "hints": [
-      "'Framed' means presented from a particular angle; 'bias' means favouring one view."
+      "'Framed' means presented from a particular angle; 'bias' means favoring one view."
     ]
   },
   {
@@ -290,7 +323,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I try to cross-reference stories across several different news sources before forming an opinion.",
-    "correctAnswer": "Ich versuche, über verschiedene Nachrichtenquellen hinweg Geschichten zu erzählen, bevor ich eine Meinung forme.",
+    "correctAnswer": "Ich versuche, Meldungen mit mehreren Nachrichtenquellen abzugleichen, bevor ich mir eine Meinung bilde.",
     "hints": [
       "'Cross-reference' means check the same information in multiple places."
     ]
@@ -310,7 +343,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: To what extent do you think sensationalist headlines distort public perception?",
-    "correctAnswer": "Inwiefern glauben Sie, dass sensationelle Schlagzeilen die öffentliche Wahrnehmung verzerren?",
+    "correctAnswer": "Inwiefern glauben Sie, dass reißerische Schlagzeilen die öffentliche Wahrnehmung verzerren?",
     "hints": [
       "'Sensationalist' = exaggerated for shock; 'distort' = misrepresent."
     ]
@@ -320,7 +353,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The editorial team decided to hold the story until they had more concrete evidence.",
-    "correctAnswer": "Das Redaktionsteam entschied sich, die Geschichte zu halten, bis sie konkretere Beweise hatten.",
+    "correctAnswer": "Die Redaktion beschloss, die Meldung zurückzuhalten, bis es handfestere Beweise gab.",
     "hints": [
       "'Hold a story' = delay publishing; 'concrete evidence' = solid proof."
     ]
@@ -330,7 +363,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Citizen journalism has grown significantly with the rise of smartphone technology.",
-    "correctAnswer": "Citizen Journalism ist mit dem Anstieg der Smartphone-Technologie deutlich gewachsen.",
+    "correctAnswer": "Der Bürgerjournalismus hat mit dem Siegeszug des Smartphones deutlich zugenommen.",
     "hints": [
       "'Citizen journalism' = non-professional reporting by members of the public."
     ]
@@ -379,10 +412,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Why do people share articles without reading them?",
-    "correctAnswer": "Warum teilen die Menschen Artikel, ohne sie zu lesen?",
+    "prompt": "Warum teilen Menschen Artikel, ___ sie zu lesen?",
+    "correctAnswer": "ohne",
     "hints": [
-      "Discussion question."
+      "'___ ... zu' + infinitive = without doing something."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-ne-b1-61"
@@ -392,7 +425,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The erosion of local news coverage has significant consequences for civic engagement and democratic accountability.",
-    "correctAnswer": "Die Erosion der lokalen Nachrichtenübermittlung hat erhebliche Konsequenzen für das zivile Engagement und die demokratische Rechenschaftspflicht.",
+    "correctAnswer": "Der Rückgang der Lokalberichterstattung hat erhebliche Folgen für das bürgerschaftliche Engagement und die demokratische Kontrolle.",
     "hints": [
       "'Erosion' = gradual loss; 'civic engagement' = participation in public life."
     ]
@@ -402,7 +435,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Algorithmic curation of news feeds creates echo chambers that reinforce existing beliefs.",
-    "correctAnswer": "Algorithmische Heilung von Nachrichtenfeeds schafft Echokammern, die bestehende Überzeugungen verstärken.",
+    "correctAnswer": "Die algorithmische Auswahl von Nachrichtenfeeds schafft Echokammern, die bestehende Überzeugungen verstärken.",
     "hints": [
       "'Algorithmic curation' = automated selection; 'echo chambers' = spaces where views are only confirmed."
     ]
@@ -412,7 +445,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: How has the 24-hour news cycle altered journalistic standards and public discourse?",
-    "correctAnswer": "Wie verändert der 24-Stunden-Nachrichtenzyklus journalistische Standards und öffentliche Diskurse?",
+    "correctAnswer": "Wie hat der 24-Stunden-Nachrichtenzyklus journalistische Standards und den öffentlichen Diskurs verändert?",
     "hints": [
       "'Journalistic standards' = quality and ethics of reporting; 'public discourse' = open societal discussion."
     ]
@@ -422,7 +455,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Investigative journalism serves a vital democratic function by holding power to account.",
-    "correctAnswer": "Der investigative Journalismus dient einer vitalen demokratischen Funktion, indem er die Macht zur Rechenschaft hält.",
+    "correctAnswer": "Investigativer Journalismus erfüllt eine wichtige demokratische Funktion, indem er die Mächtigen zur Rechenschaft zieht.",
     "hints": [
       "'Holding power to account' means making those with authority answerable for their actions."
     ]
@@ -432,7 +465,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The conflation of opinion and fact in commentary pieces has blurred important epistemic boundaries.",
-    "correctAnswer": "Die Konfilation von Meinung und Tatsache in Kommentarstücken hat wichtige epistemische Grenzen verschwommen.",
+    "correctAnswer": "Die Vermischung von Meinung und Fakten in Kommentaren hat wichtige erkenntnistheoretische Grenzen verwischt.",
     "hints": [
       "'Conflation' = treating two different things as the same; 'epistemic' = relating to knowledge."
     ]
@@ -442,7 +475,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Is state media ever compatible with genuine editorial independence?",
-    "correctAnswer": "Ist staatliche Medien jemals mit echter redaktioneller Unabhängigkeit kompatibel?",
+    "correctAnswer": "Sind staatliche Medien jemals mit echter redaktioneller Unabhängigkeit vereinbar?",
     "hints": [
       "'State media' = media owned or funded by the government; 'editorial independence' = freedom to report without interference."
     ]
@@ -462,7 +495,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The paywalling of quality journalism raises important questions about information equity.",
-    "correctAnswer": "Die Paywalling von Qualitätsjournalismus stellt wichtige Fragen zum Informationsequity.",
+    "correctAnswer": "Dass Qualitätsjournalismus hinter Bezahlschranken verschwindet, wirft wichtige Fragen zur Informationsgerechtigkeit auf.",
     "hints": [
       "'Paywalling' = requiring payment to access content; 'equity' = fairness of access."
     ]
@@ -471,7 +504,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Responsible journalism requires transparent sourcing and context.",
-    "correctAnswer": "Verantwortlicher Journalismus erfordert transparente Beschaffung und Kontext.",
+    "correctAnswer": "Verantwortungsvoller Journalismus erfordert transparente Quellenangaben und Kontext.",
     "hints": [
       "Academic register."
     ],
@@ -480,10 +513,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sensational headlines can distort public understanding of complex issues.",
-    "correctAnswer": "Sensational Schlagzeilen können das öffentliche Verständnis komplexer Probleme verzerren.",
+    "prompt": "Reißerische Schlagzeilen können das öffentliche Verständnis komplexer Themen ___.",
+    "correctAnswer": "verzerren",
     "hints": [
-      "High-level media vocabulary."
+      "A verb meaning 'to distort'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-ne-b2-70"
@@ -491,7 +524,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should platforms balance free expression and misinformation control?",
+    "prompt": "Choose the best response. A friend says social networks should simply delete anything false.",
     "correctAnswer": "Wie sollten Plattformen freie Meinungsäußerung und Fehlinformationskontrolle ausgleichen?",
     "hints": [
       "Debate-oriented framing."

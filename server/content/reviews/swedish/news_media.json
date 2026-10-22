@@ -1,0 +1,725 @@
+{
+  "language": "swedish",
+  "category": "news_media",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:55:22.482Z",
+  "contentHash": "e4c1287d01fb2ee9",
+  "summary": "Many news and media items are calques or wrong words that a Swede would not use (nyhetsuttag = electrical outlet, valtäckningen, gav en presskonferens, härdning for curation, hålla makten till konto, Sammanflationen, Utbetalningen for paywalling, inköp for sourcing), plus duplicated flashcard answers and an A1 habit in the past tense. English 'Media bias' remains, the file has cloze items without blanks, and the dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "sv-nm-a1-1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Duplicated answer ('journalisten journalist').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "journalist",
+          "list": null
+        }
+      ],
+      "itemHash": "44fe6f32b51ccf30",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A daily habit is translated in the past tense ('läste').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag läser nyheterna varje morgon.",
+          "list": null
+        }
+      ],
+      "itemHash": "df49a1404268e106",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The perfect 'Har du hört' is the more natural question and is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Har du hört om jordbävningen?"
+          ]
+        }
+      ],
+      "itemHash": "605930170f6b0629",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Nyheten' is a single news item and 'vid sex' is unidiomatic for a broadcast time.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nyheterna sänds på tv klockan sex.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nyheterna går på tv klockan sex."
+          ]
+        }
+      ],
+      "itemHash": "6052fbb7efef89df",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-5",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Vad är i nyheterna' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vad står det i nyheterna i dag?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vad händer i nyheterna idag?"
+          ]
+        }
+      ],
+      "itemHash": "2700e9bedab605c7",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Duplicated answer ('tidningstidning').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "dagstidning",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Often just 'tidning'; you can read it in print or online."
+          ]
+        }
+      ],
+      "itemHash": "0b82babb4e6ccfbe",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Word order: Swedes say 'tittar inte så mycket på tv'. Hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag tittar inte så mycket på tv.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Inte så mycket' = not much; 'titta på' = watch."
+          ]
+        }
+      ],
+      "itemHash": "f9f0ffefda9fd595",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A newspaper's front page is usually 'förstasidan'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Är det här på förstasidan?",
+            "Är det här på framsidan?"
+          ]
+        }
+      ],
+      "itemHash": "e7c2544b08b5711a",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a1-10",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Jag får mina nyheter från' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag läser nyheterna på internet.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag tar del av nyheterna på nätet."
+          ]
+        }
+      ],
+      "itemHash": "dbacd0b0ceb9a175",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-a1-40",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A news story is an 'artikel' or 'nyhet', not a 'historia'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Den här artikeln handlar om vädret.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Den här nyheten handlar om vädret."
+          ]
+        }
+      ],
+      "itemHash": "0f064c2e245bbdfe",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-a1-41",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Var får du dina nyheter?' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Var läser du nyheter?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Var tar du del av nyheter?"
+          ]
+        }
+      ],
+      "itemHash": "c065d76aa37c16b5",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-1",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'per cent'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: According to the report, the economy grew by two percent last year.",
+          "list": null
+        }
+      ],
+      "itemHash": "60e6128b8c148c8a",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'valtäckningen' is a calque; media coverage of an election is 'valbevakningen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Har du följt valbevakningen?",
+          "list": null
+        }
+      ],
+      "itemHash": "02bf3b9eb167de29",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A press conference is 'hållen', not 'given'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Statsministern höll en presskonferens i morse.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Premiärministern höll en presskonferens i morse."
+          ]
+        }
+      ],
+      "itemHash": "0bab121fd9293c7b",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'föredra ... över' is wrong; it is 'framför'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag föredrar att lyssna på poddar framför att läsa tryckta medier.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag lyssnar hellre på poddar än läser tryckta medier."
+          ]
+        }
+      ],
+      "itemHash": "50a7eb48be08c170",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'nyhetsuttag' means a news electrical outlet; a news outlet is 'nyhetsmedium'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vilket nyhetsmedium litar du mest på?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vilken nyhetskanal litar du mest på?"
+          ]
+        }
+      ],
+      "itemHash": "8c2f734ae9c86274",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'nyhetshistoria' is a calque and 'breaking' is lost.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Det kom en nyhetsflash om översvämningarna.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Det kom ett senaste nytt-inslag om översvämningarna."
+          ]
+        }
+      ],
+      "itemHash": "b6284af3832fe30c",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "An investigative journalist is a 'grävande journalist'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Artikeln skrevs av en grävande journalist.",
+          "list": null
+        }
+      ],
+      "itemHash": "de1689da44572c74",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-a2-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'avbröt min tidningsabonnemang' has the wrong verb and gender; subscriptions are 'sagts upp'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag sa upp min tidningsprenumeration och bytte till en nyhetsapp.",
+          "list": null
+        }
+      ],
+      "itemHash": "7d178099b42316f9",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-a2-49",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Swedes say 'på mobilen'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag följer lokala nyheter på mobilen."
+          ]
+        }
+      ],
+      "itemHash": "49a60e6d5475973b",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-a2-50",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'föredra ... till' is wrong; it is 'framför'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag föredrar korta videor framför långa artiklar.",
+          "list": null
+        }
+      ],
+      "itemHash": "685307c44c67ec1a",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "___ du om den här händelsen i går?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hörde",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "Hörde",
+            "Hör",
+            "Hört",
+            "Höra"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past tense of 'höra'; questions start with the verb."
+          ]
+        }
+      ],
+      "itemHash": "a75320ff31c73f6f",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Media bias' is left in English and 'inramas' is a calque; hint uses British 'favouring'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mediernas vinkling kan påverka hur händelser framställs och tolkas av allmänheten.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Framed' means presented from a particular angle; 'bias' means favoring one view."
+          ]
+        }
+      ],
+      "itemHash": "d646a274bb691393",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'korsreferens historier över' is nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag försöker jämföra uppgifter från flera olika nyhetskällor innan jag bildar mig en uppfattning.",
+          "list": null
+        }
+      ],
+      "itemHash": "d9c6c784714a71a3",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b1-7",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'hålla historien' is a calque of 'hold the story'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Redaktionen bestämde sig för att vänta med publiceringen tills de hade mer konkreta bevis.",
+          "list": null
+        }
+      ],
+      "itemHash": "78d28f23aba03b0e",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'en veckovis politisk tidskrift' is stiff; Swedish says 'en politisk veckotidning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag prenumererar på två kvalitetstidningar och en politisk veckotidning.",
+          "list": null
+        }
+      ],
+      "itemHash": "d16792bc4cff18de",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Varför delar människor artiklar utan att ___ dem?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "läsa",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "läsa",
+            "läser",
+            "läst",
+            "läste"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'utan att'."
+          ]
+        }
+      ],
+      "itemHash": "896a6e75f835647c",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'ansvarsskyldighet' is a calque; democratic accountability is 'ansvarsutkrävande'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Urholkningen av den lokala nyhetsbevakningen får betydande konsekvenser för medborgerligt engagemang och demokratiskt ansvarsutkrävande.",
+          "list": null
+        }
+      ],
+      "itemHash": "e910223deedd86bd",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'härdning' means hardening; 'eko-kammare' should be one word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Algoritmiskt urval i nyhetsflöden skapar ekokammare som förstärker befintliga övertygelser.",
+          "list": null
+        }
+      ],
+      "itemHash": "fb0a91bcf1dab8db",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'den 24-timmars nyhetscykeln' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur har nyhetsflödet dygnet runt förändrat journalistiska normer och det offentliga samtalet?",
+          "list": null
+        }
+      ],
+      "itemHash": "6573fc435298bef2",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'hålla makten till konto' is nonsense; 'tjänar en funktion' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Grävande journalistik fyller en viktig demokratisk funktion genom att granska makten och utkräva ansvar.",
+          "list": null
+        }
+      ],
+      "itemHash": "95a8db7a095ed160",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Sammanflationen' is not a word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sammanblandningen av åsikter och fakta i krönikor har suddat ut viktiga kunskapsgränser.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sammanblandningen av åsikter och fakta i kommentarer har suddat ut viktiga epistemiska gränser."
+          ]
+        }
+      ],
+      "itemHash": "974fe77e0b9e9ebf",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-nm-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Utbetalningen' means a payout; paywalling is locking content behind 'betalväggar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Att kvalitetsjournalistik låses bakom betalväggar väcker viktiga frågor om rättvis tillgång till information.",
+          "list": null
+        }
+      ],
+      "itemHash": "863fe6a92d275074",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'inköp' means purchasing; sourcing in journalism is 'källhantering'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ansvarsfull journalistik kräver öppen källhantering och sammanhang.",
+          "list": null
+        }
+      ],
+      "itemHash": "8ef6a38c6d5d5778",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sensationella rubriker kan ___ allmänhetens förståelse av komplexa frågor.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "förvränga",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "förvränga",
+            "förvränger",
+            "förvrängde",
+            "förvrängt"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'kan'."
+          ]
+        }
+      ],
+      "itemHash": "78aad4dbc8f96239",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    },
+    {
+      "id": "sv-ne-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'felinformationskontroll' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a panel debate on social media, you ask the speakers how platforms should balance free expression and fighting misinformation.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hur ska plattformar väga yttrandefriheten mot kampen mot desinformation?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should platforms balance free expression and the fight against misinformation?",
+          "list": null
+        }
+      ],
+      "itemHash": "6073421dbc2d7f63",
+      "appliedAt": "2026-10-22T10:00:54.989Z"
+    }
+  ]
+}

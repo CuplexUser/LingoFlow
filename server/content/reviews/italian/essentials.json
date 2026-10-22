@@ -1,0 +1,908 @@
+{
+  "language": "italian",
+  "category": "essentials",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:23:19.908Z",
+  "contentHash": "5112bd6fe7defb1a",
+  "summary": "Basic phrases are mostly correct, but this file is heavily machine-translated: six cloze items are still English sentences ('I ___ from Spain'), four more have no blank, and four flashcards translate infinitives with a stray preposition ('per scusarsi', 'a lamentarsi', 'a parafrasi'). Several B1–B2 answers teach wrong Italian (duration with 'ho aspettato per', 'da settimane' with the passato prossimo, 'Nuance', 'verbose', 'riformare'), 'dov'e'' is misspelled, and roleplay/dialogue items lack answerEnglish or a situation.",
+  "findings": [
+    {
+      "id": "it-es-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the common 'come va' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Come stai?' is informal; to a stranger you would say 'Come sta?'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ciao, come va?"
+          ]
+        }
+      ],
+      "itemHash": "0b775d51831adf8e",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint (lint confirmed). 'vostro' assumes several helpers; singular 'tuo'/'suo' and the bare 'per l'aiuto' are not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Grazie mille per' + noun; 'tuo' (informal), 'suo' (formal) or 'vostro' (plural)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Grazie mille per il tuo aiuto.",
+            "Grazie mille per il suo aiuto.",
+            "Grazie mille per l'aiuto."
+          ]
+        }
+      ],
+      "itemHash": "260e1bafe8ff44a7",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non' goes directly before the verb; 'frase' = sentence."
+          ]
+        }
+      ],
+      "itemHash": "f1d93286e8fdb7c3",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the shorter 'Scusi' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mi scusi' is the polite way to get a stranger's attention."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Scusi, dov'è il bagno?",
+            "Scusa, dov'è il bagno?"
+          ]
+        }
+      ],
+      "itemHash": "5712336b3d4a071e",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a1-8",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish, and the prompt quotes the question in English instead of Italian.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone says: Come stai?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I'm fine, thanks.",
+          "list": null
+        }
+      ],
+      "itemHash": "8e631cf34b619368",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a1-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English, and the answer 'io sono' duplicates the subject.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Io ___ spagnolo.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sono",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sono",
+            "sei",
+            "è",
+            "siamo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First person of 'essere' (to be)."
+          ]
+        }
+      ],
+      "itemHash": "87379bd5130fa9e7",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a1-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Informal 'Ciao, a dopo!' is the most natural rendering and is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ciao, a dopo!",
+            "Arrivederci, a più tardi!"
+          ]
+        }
+      ],
+      "itemHash": "6478e95ee244e4bd",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a1-53",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Formal 'Può' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Può ripeterlo, per favore?",
+            "Puoi ripetere, per favore?",
+            "Può ripetere, per favore?"
+          ]
+        }
+      ],
+      "itemHash": "4966ecd6348dfee6",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Formal 'Può' is not accepted; hint is generic.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Può parlare più lentamente, per favore?",
+            "Potrebbe parlare più lentamente, per favore?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Più lentamente' = more slowly; use 'Può' with a stranger."
+          ]
+        }
+      ],
+      "itemHash": "424e3a5592086c90",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-5",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Leftover from the English course ('learning English'); with 'ogni giorno' the simple present is more natural.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I am learning Italian every day.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sto imparando l'italiano ogni giorno.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Imparo l'italiano ogni giorno.",
+            "Studio l'italiano ogni giorno."
+          ]
+        }
+      ],
+      "itemHash": "1bfedb35d59ec418",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ieri sono ___ a scuola.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "andata"
+          ]
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "andato",
+            "andare",
+            "vado",
+            "andando"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'andare'; with 'essere' it agrees with the subject."
+          ]
+        }
+      ],
+      "itemHash": "860fe23718fd2552",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'dov'e'' uses an apostrophe instead of the accent (dov'è); roleplay has no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi scusi, dov'è l'uscita?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Excuse me, where is the exit?",
+          "list": null
+        }
+      ],
+      "itemHash": "421657614fdc2944",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a2-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'per scusarsi' means 'in order to apologize'; the infinitive is 'scusarsi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "scusarsi",
+          "list": null
+        }
+      ],
+      "itemHash": "c893b3b76b334819",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a2-12",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Lei ___ inglese e francese.",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "parla",
+            "parlo",
+            "parli",
+            "parlano"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person singular of 'parlare'."
+          ]
+        }
+      ],
+      "itemHash": "ecb2eaa8900e1667",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-a2-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'rivedo nuove parole di notte' is unnatural (one 'ripassa' vocabulary 'la sera').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Di solito ___ le parole nuove la sera.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ripasso",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ripasso",
+            "ripassi",
+            "ripassa",
+            "ripassiamo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First person of 'ripassare' (to review)."
+          ]
+        }
+      ],
+      "itemHash": "3f0c30f31b8e78b7",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-4",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'walked' (on foot) is dropped; feminine form not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Anche se pioveva, siamo andati al parco a piedi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Anche se pioveva, siamo andate al parco a piedi.",
+            "Benché piovesse, siamo andati al parco a piedi."
+          ]
+        }
+      ],
+      "itemHash": "888c749f05679aab",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English and tests the English present perfect continuous.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vivo qui ___ tre anni.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "da",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "da",
+            "per",
+            "fa",
+            "tra"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses the present tense + 'da' for something that started in the past and is still going on."
+          ]
+        }
+      ],
+      "itemHash": "2a2a894323c9ffc8",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-6",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn doesn't say which word is being explained and has no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A classmate asks: «Puoi spiegarmi la parola 'articolare'?»",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Sure, it means to express something clearly.",
+          "list": null
+        }
+      ],
+      "itemHash": "91c200baf87bc614",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'dov'e'' should be 'dov'è'; the polite 'Potrebbe' is not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Puoi dirmi dov'è l'ufficio postale?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Potrebbe dirmi dov'è l'ufficio postale?",
+            "Mi può dire dov'è l'ufficio postale?"
+          ]
+        }
+      ],
+      "itemHash": "77de86e88d90c299",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "An ongoing wait is 'Aspetto da venti minuti'; 'Ho aspettato per' means a finished wait. Hint describes English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Aspetto da venti minuti.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses the present tense + 'da' for an action that is still going on."
+          ]
+        }
+      ],
+      "itemHash": "857bf9b8c7a7e397",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'a lamentarsi' has a stray preposition; the infinitive is 'lamentarsi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "lamentarsi",
+          "list": null
+        }
+      ],
+      "itemHash": "dc8005b80cd28fd2",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'da settimane' requires the present tense; 'praticare' is also unnatural for practicing an expression.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi esercito con questa espressione da settimane.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pratico questa espressione da settimane."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'da' for an action still going on."
+          ]
+        }
+      ],
+      "itemHash": "247b8d35412fedd6",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'ho perso un dettaglio' is a calque of 'missed'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ho capito l'idea, ma mi è ___ un dettaglio.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sfuggito",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sfuggito",
+            "sfuggita",
+            "sfuggiti",
+            "sfuggire"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mi è sfuggito' = I missed it; the participle agrees with 'dettaglio'."
+          ]
+        }
+      ],
+      "itemHash": "a3af527e52c5b9da",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b1-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'piu'' should be 'più'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: Your Italian tutor asks what you are working on at the moment.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sto cercando di parlare in modo più naturale nelle conversazioni.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I'm trying to sound more natural in conversations.",
+          "list": null
+        }
+      ],
+      "itemHash": "9914e92b159347f3",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Adjective before the noun ('chiari argomenti') is marked; the neutral order is 'argomenti chiari'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Posso spiegare la mia opinione con argomenti chiari.",
+          "list": null
+        }
+      ],
+      "itemHash": "b72513386a4037a2",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'naturalmente' usually means 'of course'; 'in modo naturale' is clearer.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Voglio parlare in modo naturale, non solo corretto.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Voglio parlare in modo naturale, non solo correttamente."
+          ]
+        }
+      ],
+      "itemHash": "b1da9616176a74e0",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-4",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English; 'di più' is not how Italian forms 'the more... the more'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Più ti eserciti, ___ diventi sicuro di te.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "più",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "più",
+            "meno",
+            "molto",
+            "tanto"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Più ... più ...' = the more ... the more ..."
+          ]
+        }
+      ],
+      "itemHash": "961f7a92eb13cbda",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-5",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "'avrei parlato' loses 'spoken up'; hint describes English inversion.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Se avessi saputo la risposta, sarei intervenuto.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Se avessi saputo la risposta, sarei intervenuta.",
+            "Se avessi saputo la risposta, avrei parlato."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive (se avessi saputo) + past conditional."
+          ]
+        }
+      ],
+      "itemHash": "88a68b3d5e814895",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-6",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no answerEnglish.",
+      "fix": [
+        {
+          "field": "answerEnglish",
+          "text": "I apologize for the confusion; let me clarify what I meant.",
+          "list": null
+        }
+      ],
+      "itemHash": "54e86e19d76db307",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'a parafrasi' is not a verb; 'to paraphrase' is 'parafrasare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "parafrasare",
+          "list": null
+        }
+      ],
+      "itemHash": "81fd3de89aabb0a5",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Nuance' is left in English; Italian 'sfumatura'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La sfumatura è ciò che distingue un linguaggio adeguato da un parlato davvero fluente.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Le sfumature sono ciò che distingue un linguaggio adeguato da un parlato davvero fluente."
+          ]
+        }
+      ],
+      "itemHash": "36d30bada4ac5530",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'verbose' is English (Italian 'prolisso') and 'lo stesso di' is wrong.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Essere eloquenti non significa essere prolissi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Essere eloquente non è la stessa cosa che essere prolisso."
+          ]
+        }
+      ],
+      "itemHash": "4904fa8ad92956ff",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-77",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'la maggior parte del tempo' is a calque; Italian says 'il più delle volte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il più delle volte riesco a dedurre il significato dal contesto.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Posso dedurre il significato dal contesto il più delle volte."
+          ]
+        }
+      ],
+      "itemHash": "71d81bb401779dc7",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-78",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Potrebbe chiarire la ___ di quell'espressione?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sfumatura",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sfumatura",
+            "sfuriata",
+            "sfilata",
+            "sfera"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'nuance'."
+          ]
+        }
+      ],
+      "itemHash": "84c1d819d273fa0b",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-79",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'fiducioso' means hopeful, not confident in one's skills.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: Your Italian teacher asks how you feel about your speaking skills now.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Mi sento sicuro, anche se faccio ancora qualche errore ogni tanto.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi sento sicura, anche se faccio ancora qualche errore ogni tanto."
+          ]
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I feel confident, although I still make occasional mistakes.",
+          "list": null
+        }
+      ],
+      "itemHash": "e3fc19619a8e65bc",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    },
+    {
+      "id": "it-es-b2-80",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'riformare' means to reform; 'reformulate' is 'riformulare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Preferirei riformulare la frase piuttosto che tradurla direttamente.",
+          "list": null
+        }
+      ],
+      "itemHash": "08d8fa7ae1ca6175",
+      "appliedAt": "2026-10-22T09:34:58.351Z"
+    }
+  ]
+}

@@ -17,7 +17,7 @@
     "prompt": "Say: I love visiting old buildings.",
     "correctAnswer": "Adoro visitare vecchi edifici.",
     "hints": [
-      "'Love' + gerund for a strong preference."
+      "'Adorare' + infinitive = to love doing something."
     ]
   },
   {
@@ -38,6 +38,10 @@
     "correctAnswer": "Questo è un festival tradizionale.",
     "hints": [
       "'Traditional' means part of a long custom."
+    ],
+    "acceptedAnswers": [
+      "Questa è una festa tradizionale.",
+      "È una festa tradizionale."
     ]
   },
   {
@@ -89,6 +93,11 @@
     "correctAnswer": "Sono andato a teatro lo scorso fine settimana.",
     "hints": [
       "Simple past for a recent visit."
+    ],
+    "acceptedAnswers": [
+      "Sono andata a teatro lo scorso fine settimana.",
+      "Il fine settimana scorso sono andato a teatro.",
+      "Il fine settimana scorso sono andata a teatro."
     ]
   },
   {
@@ -99,6 +108,10 @@
     "correctAnswer": "Questo dipinto è bellissimo.",
     "hints": [
       "A simple opinion about a work of art."
+    ],
+    "acceptedAnswers": [
+      "Questo dipinto è bello.",
+      "Questo quadro è bellissimo."
     ]
   },
   {
@@ -140,7 +153,11 @@
     "prompt": "Say: The castle was built in the twelfth century.",
     "correctAnswer": "Il castello fu costruito nel XII secolo.",
     "hints": [
-      "Passive past simple for a historical fact."
+      "Passato remoto (fu costruito) or passato prossimo (è stato costruito) for historical facts."
+    ],
+    "acceptedAnswers": [
+      "Il castello è stato costruito nel XII secolo.",
+      "Il castello è stato costruito nel dodicesimo secolo."
     ]
   },
   {
@@ -158,10 +175,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Every year, the town holds a traditional food festival in July.",
-    "correctAnswer": "Ogni anno, la città detiene un tradizionale festival gastronomico a luglio.",
+    "correctAnswer": "Ogni anno, a luglio, il paese organizza una sagra tradizionale.",
     "hints": [
       "Use present simple for regular events."
-    ]
+    ],
+    "acceptedAnswers": [
+      "Ogni anno la città organizza un festival gastronomico tradizionale a luglio."
+    ],
+    "culturalNote": "A 'sagra' is a local Italian food festival celebrating a typical product, such as chestnuts, truffles or a local wine."
   },
   {
     "id": "it-ch-a2-4",
@@ -188,9 +209,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The museum has an impressive collection of Roman artifacts.",
-    "correctAnswer": "Il museo ha una impressionante collezione di manufatti romani.",
+    "correctAnswer": "Il museo ha un'impressionante collezione di reperti romani.",
     "hints": [
-      "'Artefacts' are objects made or used by people in the past."
+      "'Artifacts' are objects made or used by people in the past; Italian often says 'reperti'."
     ]
   },
   {
@@ -198,9 +219,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The local folk music here is quite different from what I am used to.",
-    "correctAnswer": "La musica folk locale qui è molto diversa da quello che sono abituato.",
+    "correctAnswer": "La musica popolare di qui è piuttosto diversa da quella a cui sono abituato.",
     "hints": [
       "'I am used to' means accustomed to."
+    ],
+    "acceptedAnswers": [
+      "La musica popolare di qui è piuttosto diversa da quella a cui sono abituata."
     ]
   },
   {
@@ -208,9 +232,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the story behind this tradition?",
-    "correctAnswer": "Qual è la storia dietro questa tradizione?",
+    "correctAnswer": "Qual è l'origine di questa tradizione?",
     "hints": [
       "Ask about the origin or explanation."
+    ],
+    "acceptedAnswers": [
+      "Da dove nasce questa tradizione?"
     ]
   },
   {
@@ -221,19 +248,26 @@
     "correctAnswer": "Abbiamo partecipato alla serata di apertura di una nuova mostra alla galleria.",
     "hints": [
       "'Attended' = went to; 'opening night' = the first evening."
+    ],
+    "acceptedAnswers": [
+      "Abbiamo partecipato all'inaugurazione di una nuova mostra alla galleria.",
+      "Siamo andati al vernissage di una nuova mostra alla galleria."
     ]
   },
   {
     "id": "it-ch-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Shakespeare wrote thirty-seven plays during his lifetime.",
-    "correctAnswer": "Shakespeare scrisse trentasette opere durante la sua vita.",
+    "prompt": "Say: Dante wrote the Divine Comedy in the early fourteenth century.",
+    "correctAnswer": "Dante scrisse la Divina Commedia all'inizio del Trecento.",
     "hints": [
-      "Past simple for a completed historical fact.",
-      "Shakespeare is considered the greatest writer in the English language."
+      "Passato remoto for historical facts; 'il Trecento' = the 1300s."
     ],
-    "culturalNote": "William Shakespeare (1564–1616) is considered the greatest writer in the English language. His works are still performed in theaters worldwide."
+    "culturalNote": "Dante Alighieri (1265–1321) is called the father of the Italian language; his Divine Comedy helped make the Florentine dialect the basis of modern Italian.",
+    "acceptedAnswers": [
+      "Dante ha scritto la Divina Commedia all'inizio del Trecento.",
+      "Dante scrisse la Divina Commedia all'inizio del XIV secolo."
+    ]
   },
   {
     "level": "a2",
@@ -249,30 +283,39 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I learned about this country in school.",
-    "correctAnswer": "Ho saputo di questo paese a scuola.",
+    "correctAnswer": "Ho studiato questo paese a scuola.",
     "hints": [
       "Past learning sentence."
     ],
     "exerciseType": "build_sentence",
-    "id": "it-cu-a2-50"
+    "id": "it-cu-a2-50",
+    "acceptedAnswers": [
+      "A scuola ho imparato molto su questo paese."
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Why do people celebrate this holiday?",
-    "correctAnswer": "Perché la gente festeggia questa vacanza?",
+    "prompt": "Perché la gente festeggia questa ___?",
+    "correctAnswer": "festa",
     "hints": [
-      "History/culture curiosity."
+      "A holiday you celebrate is 'una festa'; 'vacanza' is time off."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-cu-a2-51"
+    "id": "it-cu-a2-51",
+    "clozeOptions": [
+      "festa",
+      "vacanza",
+      "ferie",
+      "stagione"
+    ]
   },
   {
     "id": "it-ch-b1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Cultural heritage shapes national identity in ways that are often invisible to those within the culture.",
-    "correctAnswer": "Il patrimonio culturale forma l'identità nazionale in modi che sono spesso invisibili a quelli all'interno della cultura.",
+    "correctAnswer": "Il patrimonio culturale plasma l'identità nazionale in modi spesso invisibili a chi ne fa parte.",
     "hints": [
       "'Shapes' = influences; 'invisible to' = not easily seen by."
     ]
@@ -284,7 +327,7 @@
     "prompt": "Ask: Do you think colonialism has left a lasting impact on contemporary culture?",
     "correctAnswer": "Pensi che il colonialismo abbia lasciato un impatto duraturo sulla cultura contemporanea?",
     "hints": [
-      "'Colonialism' = the practice of colonising other countries; 'lasting impact' = long-term effect."
+      "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
     ]
   },
   {
@@ -292,9 +335,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The industrial revolution fundamentally altered the structure of society and the nature of work.",
-    "correctAnswer": "La rivoluzione industriale altera fondamentalmente la struttura della società e la natura del lavoro.",
+    "correctAnswer": "La rivoluzione industriale ha cambiato radicalmente la struttura della società e la natura del lavoro.",
     "hints": [
       "'Fundamentally altered' = changed at a basic level."
+    ],
+    "acceptedAnswers": [
+      "La rivoluzione industriale cambiò radicalmente la struttura della società e la natura del lavoro."
     ]
   },
   {
@@ -302,9 +348,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I visited the archaeological site and was struck by the scale of the ancient ruins.",
-    "correctAnswer": "Ho visitato il sito archeologico ed è stato colpito dalla scala delle antiche rovine.",
+    "correctAnswer": "Ho visitato il sito archeologico e sono rimasto colpito dalla grandezza delle antiche rovine.",
     "hints": [
       "'Was struck by' = was impressed by; 'archaeological site' = a place of historical excavation."
+    ],
+    "acceptedAnswers": [
+      "Ho visitato il sito archeologico e sono rimasta colpita dalla grandezza delle antiche rovine."
     ]
   },
   {
@@ -312,7 +361,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Oral traditions have played a crucial role in preserving history where written records were absent.",
-    "correctAnswer": "Le tradizioni orali hanno svolto un ruolo cruciale nel preservare la storia dove i documenti scritti erano assenti.",
+    "correctAnswer": "Le tradizioni orali hanno svolto un ruolo cruciale nel preservare la storia laddove mancavano documenti scritti.",
     "hints": [
       "'Oral traditions' = stories passed down verbally; 'preserving' = keeping alive."
     ]
@@ -322,7 +371,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How does a country reconcile pride in its history with acknowledgement of past wrongs?",
-    "correctAnswer": "Come fa un paese a riconciliare l'orgoglio nella sua storia con il riconoscimento di errori passati?",
+    "correctAnswer": "Come fa un paese a conciliare l'orgoglio per la propria storia con il riconoscimento degli errori del passato?",
     "hints": [
       "'Reconcile' = bring into harmony; a discussion about national identity and responsibility."
     ]
@@ -331,10 +380,10 @@
     "id": "it-ch-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The Renaissance was characterised by a renewed interest in classical antiquity and humanist philosophy.",
+    "prompt": "Say: The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
     "correctAnswer": "Il Rinascimento è stato caratterizzato da un rinnovato interesse per l'antichità classica e la filosofia umanista.",
     "hints": [
-      "'Characterised by' = defined or typified by; 'antiquity' = ancient times.",
+      "'Characterized by' = defined or typified by; 'antiquity' = ancient times.",
       "'Humanist' thought placed humans, not God, at the center of intellectual life."
     ],
     "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought."
@@ -343,7 +392,7 @@
     "id": "it-ch-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Globalisation has accelerated cultural exchange but also threatened the survival of minority languages.",
+    "prompt": "Say: Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
     "correctAnswer": "La globalizzazione ha accelerato lo scambio culturale, ma ha anche minacciato la sopravvivenza delle lingue minoritarie.",
     "hints": [
       "'Accelerated' = sped up; 'minority languages' = languages spoken by fewer people."
@@ -354,11 +403,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Someone asks what you found most moving during a museum visit.",
-    "correctAnswer": "Le lettere e i diari personali mi hanno dato un senso molto più forte di quello che la vita era realmente come al momento.",
+    "correctAnswer": "Le lettere e i diari personali mi hanno fatto capire molto meglio com'era davvero la vita a quell'epoca.",
     "hints": [
       "Ground your response in specific artifacts; use 'gave me a sense of'."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "The letters and personal diaries gave me a much stronger sense of what life was really like back then."
   },
   {
     "id": "it-ch-b1-10",
@@ -394,13 +444,19 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which historical period do you find most fascinating?",
-    "correctAnswer": "Quale periodo storico trovi più affascinante?",
+    "prompt": "Quale periodo storico trovi più ___?",
+    "correctAnswer": "affascinante",
     "hints": [
-      "Opinion prompt."
+      "Singular adjective agreeing with 'periodo'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-cu-b1-61"
+    "id": "it-cu-b1-61",
+    "clozeOptions": [
+      "affascinante",
+      "affascinanti",
+      "affascinato",
+      "affascinare"
+    ]
   },
   {
     "id": "it-ch-b2",
@@ -418,7 +474,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: To what extent does national mythology construct a selective and self-serving version of historical events?",
-    "correctAnswer": "In che misura la mitologia nazionale costruisce una versione selettiva e meritevole di eventi storici?",
+    "correctAnswer": "In che misura la mitologia nazionale costruisce una versione selettiva e di comodo degli eventi storici?",
     "hints": [
       "'National mythology' = the stories a nation tells about itself; 'self-serving' = benefiting those in power."
     ]
@@ -428,9 +484,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Enlightenment represented a fundamental epistemic shift that placed reason above religious authority.",
-    "correctAnswer": "L'illuminismo rappresentava un cambiamento epistemico fondamentale che poneva la ragione sopra l'autorità religiosa.",
+    "correctAnswer": "L'Illuminismo rappresentò un cambiamento epistemico fondamentale che pose la ragione al di sopra dell'autorità religiosa.",
     "hints": [
-      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritised rationality over faith."
+      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritized rationality over faith."
+    ],
+    "acceptedAnswers": [
+      "L'Illuminismo ha rappresentato un cambiamento epistemico fondamentale che ha posto la ragione al di sopra dell'autorità religiosa."
     ]
   },
   {
@@ -438,7 +497,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Cultural appropriation raises difficult questions about ownership, power, and the boundaries of artistic borrowing.",
-    "correctAnswer": "Lo stanziamento culturale pone domande difficili sulla proprietà, il potere e i confini del prestito artistico.",
+    "correctAnswer": "L'appropriazione culturale solleva domande difficili sulla proprietà, sul potere e sui limiti del prestito artistico.",
     "hints": [
       "'Cultural appropriation' = adopting elements of another culture, often without consent or understanding."
     ]
@@ -448,7 +507,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The concept of a Western canon has been challenged by scholars arguing for a more globally inclusive literary tradition.",
-    "correctAnswer": "Il concetto di un canone occidentale è stato sfidato dagli studiosi che sostengono una tradizione letteraria più globale.",
+    "correctAnswer": "Il concetto di canone occidentale è stato messo in discussione da studiosi che sostengono una tradizione letteraria più inclusiva a livello globale.",
     "hints": [
       "'Canon' = an authoritative list of great works; 'inclusive' = welcoming of diverse perspectives."
     ]
@@ -458,7 +517,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: How do commemorative practices shape collective memory and influence political identity?",
-    "correctAnswer": "Come le pratiche commemorative modellano la memoria collettiva e influenzano l'identità politica?",
+    "correctAnswer": "In che modo le pratiche commemorative plasmano la memoria collettiva e influenzano l'identità politica?",
     "hints": [
       "'Commemorative practices' = rituals of remembrance; 'collective memory' = shared historical understanding."
     ]
@@ -468,7 +527,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Historiography — the study of how history is written — reveals as much about the historian's era as about the events described.",
-    "correctAnswer": "La storiografia — lo studio di come la storia è scritta — rivela tanto l'era dello storico quanto gli eventi descritti.",
+    "correctAnswer": "La storiografia — lo studio di come viene scritta la storia — rivela tanto sull'epoca dello storico quanto sugli eventi descritti.",
     "hints": [
       "'Historiography' = the study of historical writing; 'era' = time period."
     ]
@@ -478,7 +537,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The commodification of cultural heritage through mass tourism can simultaneously preserve and undermine it.",
-    "correctAnswer": "La commodificazione del patrimonio culturale attraverso il turismo di massa può contemporaneamente preservarlo e minarlo.",
+    "correctAnswer": "La mercificazione del patrimonio culturale attraverso il turismo di massa può al tempo stesso preservarlo e minarlo.",
     "hints": [
       "'Commodification' = turning into a product; 'simultaneously' = at the same time; 'undermine' = weaken."
     ]
@@ -496,24 +555,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Cultural heritage can strengthen social cohesion across generations.",
-    "correctAnswer": "Il patrimonio culturale può rafforzare la coesione sociale attraverso le generazioni.",
+    "prompt": "Il patrimonio culturale può rafforzare la ___ sociale attraverso le generazioni.",
+    "correctAnswer": "coesione",
     "hints": [
-      "Advanced abstract wording."
+      "The word for 'cohesion' (people holding together)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-cu-b2-70"
+    "id": "it-cu-b2-70",
+    "clozeOptions": [
+      "coesione",
+      "coerenza",
+      "collisione",
+      "coalizione"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should societies balance preservation with modernization?",
-    "correctAnswer": "Come dovrebbero le società bilanciare la conservazione con l'ammodernamento?",
+    "prompt": "Dialogue: At a town meeting about renovating the historic center, you ask how societies should balance preservation with modernization.",
+    "correctAnswer": "Come dovrebbero le società conciliare la tutela del patrimonio con la modernizzazione?",
     "hints": [
       "Complex policy-style question."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Cultural references vary by region and period.",
-    "id": "it-cu-b2-71"
+    "id": "it-cu-b2-71",
+    "answerEnglish": "How should societies balance preservation with modernization?"
   }
 ]

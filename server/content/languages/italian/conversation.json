@@ -6,7 +6,10 @@
     "prompt": "Ask: What is your name?",
     "correctAnswer": "Come ti chiami?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Chiamarsi' is reflexive: 'Come ti chiami?' (informal), 'Come si chiama?' (formal)."
+    ],
+    "acceptedAnswers": [
+      "Come si chiama?"
     ]
   },
   {
@@ -16,7 +19,11 @@
     "prompt": "Say: My name is Alex and I am from the United States.",
     "correctAnswer": "Mi chiamo Alex e vengo dagli Stati Uniti.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Venire da' + country: 'dagli Stati Uniti' (da + gli)."
+    ],
+    "acceptedAnswers": [
+      "Mi chiamo Alex e sono degli Stati Uniti.",
+      "Sono Alex e vengo dagli Stati Uniti."
     ]
   },
   {
@@ -26,7 +33,12 @@
     "prompt": "Ask: Where are you from?",
     "correctAnswer": "Da dove vieni?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Da dove vieni?' or 'Di dove sei?'; formal: 'Da dove viene?'."
+    ],
+    "acceptedAnswers": [
+      "Di dove sei?",
+      "Da dove viene?",
+      "Di dov'è?"
     ]
   },
   {
@@ -45,7 +57,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "goodbye",
-    "correctAnswer": "addio",
+    "correctAnswer": "arrivederci",
     "hints": [
       "A word you say when leaving."
     ],
@@ -67,23 +79,30 @@
     "id": "it-cv-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best response. Someone says: Hello!",
+    "prompt": "Choose the best response. Someone says: Ciao!",
     "correctAnswer": "Ciao, come stai?",
     "hints": [
       "Reply with a friendly greeting."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "Hi, how are you?"
   },
   {
     "id": "it-cv-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "I ___ a student.",
-    "correctAnswer": "io sono",
+    "prompt": "Io ___ uno studente.",
+    "correctAnswer": "sono",
     "hints": [
-      "Use the correct form of 'to be'."
+      "First person of 'essere' (to be)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "sono",
+      "sei",
+      "è",
+      "siete"
+    ]
   },
   {
     "id": "it-cv-a1-9",
@@ -101,9 +120,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I like music and films.",
-    "correctAnswer": "Mi piace la musica e i film.",
+    "correctAnswer": "Mi piacciono la musica e i film.",
     "hints": [
-      "Share your interests simply."
+      "'Piacere' agrees with what is liked: two things → 'piacciono'."
     ]
   },
   {
@@ -165,9 +184,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: It is nice to meet you in person.",
-    "correctAnswer": "E' un piacere conoscerti di persona.",
+    "correctAnswer": "È un piacere conoscerti di persona.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "È un piacere conoscerla di persona.",
+      "Che piacere conoscerti di persona."
     ]
   },
   {
@@ -185,9 +208,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I usually spend my evenings reading or walking.",
-    "correctAnswer": "Di solito passo le mie serate a leggere o a camminare.",
+    "correctAnswer": "Di solito passo le serate a leggere o a passeggiare.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Di solito passo le mie serate a leggere o a passeggiare.",
+      "Di solito passo le serate a leggere o a fare una passeggiata."
     ]
   },
   {
@@ -200,29 +227,39 @@
       "Use the past tense.",
       "Talk about when you arrived."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Mi sono trasferito qui due anni fa."
+    ]
   },
   {
     "id": "it-cv-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "She ___ three languages fluently.",
+    "prompt": "Lei ___ correntemente tre lingue.",
     "correctAnswer": "parla",
     "hints": [
-      "Use the correct present tense form."
+      "Third person singular of 'parlare'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "parla",
+      "parlo",
+      "parli",
+      "parlano"
+    ]
   },
   {
     "id": "it-cv-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the best response. Someone asks: What do you do for a living?",
+    "prompt": "Choose the best response. Someone asks: Che lavoro fai?",
     "correctAnswer": "Lavoro come ingegnere.",
     "hints": [
       "Answer with your job."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I work as an engineer."
   },
   {
     "id": "it-cv-a2-7",
@@ -240,7 +277,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I visited my grandparents last summer.",
-    "correctAnswer": "Ho visitato i miei nonni l'estate scorsa.",
+    "correctAnswer": "L'estate scorsa sono andato a trovare i miei nonni.",
     "hints": [
       "Use the past tense for a completed event."
     ],
@@ -285,7 +322,7 @@
     "prompt": "Say: How long have you lived here?",
     "correctAnswer": "Da quanto vivi qui?",
     "hints": [
-      "Use present perfect for duration."
+      "Italian uses the present tense + 'da quanto' for duration up to now."
     ],
     "exerciseType": "build_sentence"
   },
@@ -293,40 +330,54 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am sorry, I did not catch that.",
-    "correctAnswer": "Mi dispiace, non l'ho preso.",
+    "correctAnswer": "Mi dispiace, non ho capito.",
     "hints": [
       "Polite repair phrase."
     ],
-    "id": "it-co-a2-57"
+    "id": "it-co-a2-57",
+    "acceptedAnswers": [
+      "Scusa, non ho sentito bene.",
+      "Mi dispiace, non ho sentito bene."
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Could you speak a little slower?",
-    "correctAnswer": "Puoi parlare un po' piu' piano?",
+    "correctAnswer": "Puoi parlare un po' più piano?",
     "hints": [
       "Useful listening support."
     ],
     "exerciseType": "build_sentence",
-    "id": "it-co-a2-58"
+    "id": "it-co-a2-58",
+    "acceptedAnswers": [
+      "Può parlare un po' più piano?",
+      "Puoi parlare un po' più lentamente?"
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: What do you usually do after work?",
-    "correctAnswer": "Cosa fai di solito dopo il lavoro?",
+    "prompt": "Cosa fai di ___ dopo il lavoro?",
+    "correctAnswer": "solito",
     "hints": [
-      "Routine question pattern."
+      "'Di solito' = usually."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-co-a2-59"
+    "id": "it-co-a2-59",
+    "clozeOptions": [
+      "solito",
+      "spesso",
+      "sempre",
+      "mai"
+    ]
   },
   {
     "id": "it-co-5",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I enjoy talking about books and current events.",
-    "correctAnswer": "Mi piace parlare di libri ed eventi attuali.",
+    "correctAnswer": "Mi piace parlare di libri e di attualità.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -336,7 +387,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: In my opinion, consistency is more important than intensity.",
-    "correctAnswer": "A mio parere, la consistenza è più importante dell'intensità.",
+    "correctAnswer": "A mio parere, la costanza è più importante dell'intensità.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -356,22 +407,31 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I used to be very shy, but I have become more outgoing.",
-    "correctAnswer": "Ero molto timida, ma sono diventata piu' in uscita.",
+    "correctAnswer": "Ero molto timida, ma sono diventata più estroversa.",
     "hints": [
-      "Contrast past and present with 'used to' and present perfect."
+      "Imperfect (ero) for a past state; passato prossimo (sono diventata) for the change."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Ero molto timido, ma sono diventato più estroverso."
+    ]
   },
   {
     "id": "it-cv-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "I would have joined you if I ___ free.",
-    "correctAnswer": "stato",
+    "prompt": "Mi sarei unito a voi se ___ stato libero.",
+    "correctAnswer": "fossi",
     "hints": [
-      "Use the third conditional."
+      "Past subjunctive (se fossi stato) + past conditional (mi sarei unito)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "fossi",
+      "ero",
+      "sarei",
+      "sono"
+    ]
   },
   {
     "id": "it-cv-b1-6",
@@ -383,14 +443,14 @@
       "Express a balanced opinion."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "In many English-speaking cultures, softening criticism with a positive remark first is considered polite."
+    "answerEnglish": "I think it's interesting, although I have some concerns."
   },
   {
     "id": "it-cv-b1-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We should catch up more often.",
-    "correctAnswer": "Dovremmo recuperare più spesso.",
+    "correctAnswer": "Dovremmo sentirci più spesso.",
     "hints": [
       "'Catch up' means to talk and share news."
     ],
@@ -401,9 +461,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been meaning to call you all week.",
-    "correctAnswer": "Volevo chiamarti per tutta la settimana.",
+    "correctAnswer": "È tutta la settimana che volevo chiamarti.",
     "hints": [
-      "Use present perfect continuous for an ongoing intention."
+      "'È tutta la settimana che' + imperfect for an intention lasting up to now."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -423,7 +483,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "to interrupt",
-    "correctAnswer": "per interrompere",
+    "correctAnswer": "interrompere",
     "hints": [
       "To stop someone while they are speaking."
     ],
@@ -434,9 +494,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: However, I see your point and I partially agree.",
-    "correctAnswer": "Tuttavia, vedo il suo punto e sono in parte d'accordo.",
+    "correctAnswer": "Tuttavia, capisco il tuo punto di vista e sono in parte d'accordo.",
     "hints": [
       "Use 'however' to introduce a different perspective."
+    ],
+    "acceptedAnswers": [
+      "Tuttavia, capisco il suo punto di vista e sono in parte d'accordo."
     ]
   },
   {
@@ -454,42 +517,60 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I see your point, but I have a different opinion.",
-    "correctAnswer": "Capisco il suo punto, ma ho un'opinione diversa.",
+    "correctAnswer": "Capisco il tuo punto di vista, ma ho un'opinione diversa.",
     "hints": [
       "Balanced disagreement."
     ],
-    "id": "it-co-b1-65"
+    "id": "it-co-b1-65",
+    "acceptedAnswers": [
+      "Capisco il suo punto di vista, ma ho un'opinione diversa."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What made you decide that?",
-    "correctAnswer": "Cosa ti ha fatto decidere?",
+    "correctAnswer": "Cosa ti ha fatto prendere questa decisione?",
     "hints": [
       "Follow-up question."
     ],
     "exerciseType": "build_sentence",
-    "id": "it-co-b1-66"
+    "id": "it-co-b1-66",
+    "acceptedAnswers": [
+      "Cosa ti ha spinto a decidere così?"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I felt nervous at first, then I relaxed.",
-    "correctAnswer": "All'inizio mi sentivo nervoso, poi mi sono rilassato.",
+    "prompt": "All'inizio mi sentivo nervoso, poi mi sono ___.",
+    "correctAnswer": "rilassato",
     "hints": [
-      "Story transition phrase."
+      "Past participle of 'rilassarsi', agreeing with the subject."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-co-b1-67"
+    "id": "it-co-b1-67",
+    "acceptedAnswers": [
+      "rilassata"
+    ],
+    "clozeOptions": [
+      "rilassato",
+      "rilassare",
+      "rilasso",
+      "rilassando"
+    ]
   },
   {
     "id": "it-co-7",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-    "correctAnswer": "Ero timido, ma ora esprimo le mie idee con fiducia.",
+    "correctAnswer": "Ero timido, ma ora esprimo le mie idee con sicurezza.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Ero timida, ma ora esprimo le mie idee con sicurezza."
     ]
   },
   {
@@ -500,6 +581,10 @@
     "correctAnswer": "Anche se non siamo d'accordo, rispetto la tua prospettiva.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Anche se non siamo d'accordo, rispetto il tuo punto di vista.",
+      "Anche se non siamo d'accordo, rispetto il suo punto di vista."
     ]
   },
   {
@@ -527,32 +612,38 @@
     "id": "it-cv-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Had she ___ more clearly, the misunderstanding would not have occurred.",
+    "prompt": "Se avesse ___ più chiaramente, il malinteso non ci sarebbe stato.",
     "correctAnswer": "comunicato",
     "hints": [
-      "Use the past participle in an inverted conditional."
+      "Past subjunctive: 'avesse' + past participle."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "comunicato",
+      "comunicare",
+      "comunicava",
+      "comunichi"
+    ]
   },
   {
     "id": "it-cv-b2-6",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Choose the best response. A colleague says something you strongly disagree with.",
-    "correctAnswer": "Vedo da dove vieni, ma ho un'altra opinione su questo.",
+    "correctAnswer": "Capisco il tuo punto di vista, ma la penso diversamente.",
     "hints": [
       "Disagree diplomatically.",
       "Consider the register."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Acknowledging the other person's viewpoint before disagreeing is valued in professional English."
+    "answerEnglish": "I see where you're coming from, but I see it differently."
   },
   {
     "id": "it-cv-b2-7",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Meaningful dialogue requires active listening and genuine curiosity.",
-    "correctAnswer": "Il dialogo significativo richiede un ascolto attivo e una vera curiosità.",
+    "correctAnswer": "Un dialogo autentico richiede un ascolto attivo e una vera curiosità.",
     "hints": [
       "Focus on natural phrasing and word order."
     ],
@@ -565,7 +656,7 @@
     "prompt": "Say: I would have phrased it differently had I known the context.",
     "correctAnswer": "L'avrei detto diversamente se avessi saputo il contesto.",
     "hints": [
-      "Use inverted third conditional for a formal tone."
+      "Past conditional (l'avrei detto) + past subjunctive (se avessi saputo)."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -573,8 +664,8 @@
     "id": "it-cv-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "nuance / bias / tone / register",
-    "correctAnswer": "nuance",
+    "prompt": "sfumatura / pregiudizio / tono / registro",
+    "correctAnswer": "sfumatura",
     "hints": [
       "Which word means a subtle difference in meaning?"
     ],
@@ -584,8 +675,8 @@
     "id": "it-cv-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "to empathise",
-    "correctAnswer": "per empatizzare",
+    "prompt": "to empathize",
+    "correctAnswer": "empatizzare",
     "hints": [
       "To understand and share another person's feelings."
     ],
@@ -596,9 +687,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The crux of the matter is that we need clearer communication.",
-    "correctAnswer": "Il crox della questione è che abbiamo bisogno di una comunicazione più chiara.",
+    "correctAnswer": "Il nocciolo della questione è che abbiamo bisogno di una comunicazione più chiara.",
     "hints": [
-      "'The crux of the matter' is an idiomatic expression meaning the central point."
+      "'Il nocciolo della questione' (literally 'the pit of the question') = the crux of the matter."
     ]
   },
   {
@@ -616,32 +707,43 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Let me rephrase that to make my point clearer.",
-    "correctAnswer": "Permettetemi di riformulare questo per rendere il mio punto più chiaro.",
+    "correctAnswer": "Mi permetta di riformulare per spiegarmi meglio.",
     "hints": [
       "Advanced conversation control."
     ],
-    "id": "it-co-b2-73"
+    "id": "it-co-b2-73",
+    "acceptedAnswers": [
+      "Lasciami riformulare per spiegarmi meglio.",
+      "Permettetemi di riformulare per spiegarmi meglio."
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Would you mind elaborating on that argument?",
-    "correctAnswer": "Ti dispiacerebbe elaborare questo argomento?",
+    "prompt": "Ti dispiacerebbe ___ questo argomento?",
+    "correctAnswer": "approfondire",
     "hints": [
-      "Formal discussion prompt."
+      "'Ti dispiacerebbe' + infinitive."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-co-b2-74"
+    "id": "it-co-b2-74",
+    "clozeOptions": [
+      "approfondire",
+      "approfondisci",
+      "approfondito",
+      "approfondendo"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I appreciate the nuance in your explanation.",
+    "prompt": "Dialogue: A colleague has just explained a subtle point in a meeting. Thank them.",
     "correctAnswer": "Apprezzo la sfumatura della sua spiegazione.",
     "hints": [
       "High-level feedback phrase."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-co-b2-75"
+    "id": "it-co-b2-75",
+    "answerEnglish": "I appreciate the nuance in your explanation."
   }
 ]

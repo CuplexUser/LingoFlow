@@ -1,0 +1,645 @@
+{
+  "language": "italian",
+  "category": "food_cooking",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:30:14.063Z",
+  "contentHash": "c2a181ac27ef80cc",
+  "summary": "Restaurant basics are mostly correct, but several key food phrases are mistranslated (corso principale, tengo a for 'tend to', esagerato for overcooked, ricetta acida for sourdough, soddisfare un'opzione, alla mia cucina) and one B2 sentence keeps the English word 'Sourcing'. British leftovers (bill, chips, speciality, flavour, emphasising), 'E'' misspellings, missing subjunctive, cloze items without blanks and roleplay/dialogue items without answerEnglish also need fixing.",
+  "findings": [
+    {
+      "id": "it-fo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian says 'I have hunger': 'avere fame'."
+          ]
+        }
+      ],
+      "itemHash": "08705fc6e7fa3a76",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Un bicchiere d'acqua' = a glass of water; 'd'' replaces 'di' before a vowel."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Potrei avere un bicchiere d'acqua, per favore?",
+            "Mi porta un bicchiere d'acqua, per favore?"
+          ]
+        }
+      ],
+      "itemHash": "3bf5d237355fd2b1",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint (lint confirmed); the standard Italian orders for coffee with milk are not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vorrei' = I would like. In a bar, coffee with a drop of milk is 'un caffè macchiato'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vorrei un caffè con il latte.",
+            "Vorrei un caffè macchiato.",
+            "Vorrei un caffellatte."
+          ]
+        }
+      ],
+      "itemHash": "e571a4160cb11780",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-13",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'E'' should be 'È'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È vegetariano?",
+          "list": null
+        }
+      ],
+      "itemHash": "bf5049bb9a99cfc3",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'corso principale' is a calque; Italian menus say 'secondo (piatto)' or 'piatto principale'. Hint uses British 'starter'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "secondo piatto",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after the pasta or rice course (il primo)."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "A traditional Italian meal runs antipasto (appetizer), primo (pasta, rice or soup), secondo (meat or fish) with a contorno (side dish), then dolce (dessert).",
+          "list": null
+        }
+      ],
+      "itemHash": "c391e6341df35be6",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-a1-39",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "In Italy soup is usually served 'un piatto di'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vorrei un piatto di zuppa.",
+            "Vorrei una zuppa."
+          ]
+        }
+      ],
+      "itemHash": "f0277a48f2a70af5",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'noci' are walnuts; nuts in general are 'frutta a guscio'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Questo piatto contiene frutta a guscio?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Noci' = walnuts; for any kind of nut, ask about 'frutta a guscio'."
+          ]
+        }
+      ],
+      "itemHash": "e9111671882decf2",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-6",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'bill'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Could we have the check, please?",
+          "list": null
+        }
+      ],
+      "itemHash": "7fa474b4c7f923d7",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-22",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'speciality'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I would like to try the local specialty.",
+          "list": null
+        }
+      ],
+      "itemHash": "baa070871ee50004",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-23",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Singular tu/Lei forms are not accepted; 'consigliarmi' is more natural.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Puoi consigliarmi un buon ristorante qui vicino?",
+            "Può consigliarmi un buon ristorante qui vicino?",
+            "Potete consigliarmi un buon ristorante qui vicino?"
+          ]
+        }
+      ],
+      "itemHash": "a305261da3379104",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-24",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'alla mia cucina' means 'to my kitchen'; 'to my cooking' is 'quando cucino'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quando cucino aggiungo sempre aglio e olio d'oliva.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Aggiungo sempre aglio e olio d'oliva quando cucino."
+          ]
+        }
+      ],
+      "itemHash": "251938f6f8fbb8e7",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-26",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'sostituire X per Y' should be 'sostituire X con Y'; prompt uses British 'chips'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Is it possible to swap the fries for a salad?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "È possibile sostituire le patatine con l'insalata?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sostituire X con Y' = replace X with Y."
+          ]
+        }
+      ],
+      "itemHash": "e06d4f5b525668e8",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-a2-50",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Duration needs 'per quanto tempo'; 'quanto dovrei cuocere' reads as 'how much'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Per quanto tempo devo cuocere questa torta?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quanto tempo devo cuocere questa torta?",
+            "Per quanto tempo dovrei cuocere questa torta?"
+          ]
+        }
+      ],
+      "itemHash": "7d0821415ebb3edb",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Abbiamo ___ in un piccolo ristorante di famiglia.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "mangiato",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "mangiato",
+            "mangiare",
+            "mangiamo",
+            "mangiando"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle after 'abbiamo'."
+          ]
+        }
+      ],
+      "itemHash": "ef239be9d9e57d28",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'dieta a base di piante' is a calque; Italian says 'dieta vegetale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Di recente ho iniziato a seguire una dieta vegetale.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Recentemente ho iniziato a seguire un'alimentazione vegetale."
+          ]
+        }
+      ],
+      "itemHash": "d360fcd9a5427f83",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-27",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Tengo a' means 'I care about'; 'I tend to' is 'Tendo a'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tendo a sperimentare cucine diverse quando cucino a casa.",
+          "list": null
+        }
+      ],
+      "itemHash": "b490449eeffafc27",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'esagerato' means exaggerated; overcooked is 'un po' troppo cotto'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È un po' troppo cotto, ma il sapore è comunque molto buono.",
+          "list": null
+        }
+      ],
+      "itemHash": "6be29b3d074595c7",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-29",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'soddisfare un'opzione' is meaningless; the question is whether they can prepare a gluten-free option.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Potreste preparare un'opzione senza glutine?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sareste in grado di preparare un'opzione senza glutine?"
+          ]
+        }
+      ],
+      "itemHash": "21e98ed30148b103",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-30",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'much better' is dropped; hint uses British 'flavour'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La cottura lenta a fuoco basso esalta molto meglio il sapore.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'A fuoco basso' = on a low heat; 'esaltare il sapore' = bring out the flavor."
+          ]
+        }
+      ],
+      "itemHash": "45f352fc21bd31b1",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-31",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Sto ospitando una cena di sabato prossimo' is a calque with a wrong preposition.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sabato prossimo organizzo una cena a casa mia e ho bisogno di ispirazione.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses the present tense for planned future events."
+          ]
+        }
+      ],
+      "itemHash": "42d77ee05d896c21",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-32",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Trovo che' requires the subjunctive: 'faccia'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Trovo che marinare la carne per tutta la notte faccia una differenza notevole.",
+          "list": null
+        }
+      ],
+      "itemHash": "3bd7e2febabc767a",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Bread isn't 'cucinato', and 'ricetta acida' means a sour recipe, not sourdough; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sì, l'ho fatto io stamattina: è un pane con lievito madre che ho perfezionato.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Yes, I made it this morning — it's a sourdough recipe I've perfected.",
+          "list": null
+        }
+      ],
+      "itemHash": "fae3bb7027ce2d38",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ho iniziato a preparare i pasti in anticipo per ___ tempo durante la settimana.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "risparmiare",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "risparmiare",
+            "perdere",
+            "sprecare",
+            "spendere"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Risparmiare tempo' = to save time."
+          ]
+        }
+      ],
+      "itemHash": "54dcb1b1ad78016d",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'ha sperimentato un rinascimento' is a calque; Italian says 'ha vissuto una rinascita'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La fermentazione ha vissuto una notevole rinascita nella cucina contemporanea.",
+          "list": null
+        }
+      ],
+      "itemHash": "8651315bde9f6a35",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Sourcing' is left in English; the culturalNote uses British 'emphasising'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Scegliere prodotti di stagione e locali è una scelta sia ecologica sia gastronomica.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "In Italy, the 'chilometro zero' (zero-kilometer) movement promotes local, seasonal produce with shorter supply chains and fresher ingredients.",
+          "list": null
+        }
+      ],
+      "itemHash": "842e8e7377ba940b",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-36",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'insieme dolce' is missing the preposition ('insieme a'); 'umami' takes an article.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'umami è spesso descritto come il quinto gusto, insieme a dolce, acido, salato e amaro.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'umami è spesso descritto come il quinto gusto, insieme al dolce, all'aspro, al salato e all'amaro."
+          ]
+        }
+      ],
+      "itemHash": "a0c1a4e65aaa8feb",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-38",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'brunatura di proteine' is unidiomatic; Italian says 'imbrunimento delle proteine'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La reazione di Maillard — l'imbrunimento delle proteine con il calore — è fondamentale per sviluppare la profondità del sapore.",
+          "list": null
+        }
+      ],
+      "itemHash": "4445e5676161f949",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'rifiuti ... attraverso le catene' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Come possono le città ridurre lo ___ alimentare lungo tutta la filiera?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "spreco",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "spreco",
+            "sprecare",
+            "spreca",
+            "sprechi"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Spreco alimentare' = food waste."
+          ]
+        }
+      ],
+      "itemHash": "a5a94326e3ecd080",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    },
+    {
+      "id": "it-fo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend says they plan to cut out carbs completely. Share your view.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Una dieta equilibrata si basa sulla varietà più che su rigide restrizioni.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "A balanced diet depends on variety rather than strict restriction.",
+          "list": null
+        }
+      ],
+      "itemHash": "55acc103d8cb135a",
+      "appliedAt": "2026-10-22T09:35:00.580Z"
+    }
+  ]
+}

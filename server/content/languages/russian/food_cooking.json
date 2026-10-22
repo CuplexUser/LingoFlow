@@ -6,7 +6,11 @@
     "prompt": "Say: I would like a coffee and a sandwich.",
     "correctAnswer": "Я бы хотел кофе и сэндвич.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Я бы хотел(а)' = I would like. In a café you can also just say 'Мне, пожалуйста, ...'."
+    ],
+    "acceptedAnswers": [
+      "Я бы хотела кофе и сэндвич.",
+      "Мне, пожалуйста, кофе и сэндвич."
     ]
   },
   {
@@ -16,7 +20,7 @@
     "prompt": "Ask: Do you have vegetarian options?",
     "correctAnswer": "У вас есть вегетарианские блюда?",
     "hints": [
-      "Practice this phrase out loud."
+      "'У вас есть' = do you have; 'блюда' = dishes."
     ]
   },
   {
@@ -57,6 +61,9 @@
     "correctAnswer": "Я забыл один ингредиент, поэтому изменил рецепт.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Я забыла один ингредиент, поэтому изменила рецепт."
     ]
   },
   {
@@ -86,7 +93,7 @@
     "prompt": "Ask: Can I have water without ice?",
     "correctAnswer": "Можно мне воду без льда?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Без' + genitive: лёд → без льда."
     ]
   },
   {
@@ -94,9 +101,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I baked bread at home for the first time.",
-    "correctAnswer": "Я впервые испек хлеб дома.",
+    "correctAnswer": "Я впервые испёк хлеб дома.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Я впервые испекла хлеб дома."
     ]
   },
   {
@@ -314,6 +324,9 @@
     "correctAnswer": "Я мариновал курицу всю ночь перед тем, как жарить её на гриле.",
     "hints": [
       "Imperfective past 'мариновал' for the extended process. 'Перед тем, как + infinitive' = before doing."
+    ],
+    "acceptedAnswers": [
+      "Я мариновала курицу всю ночь перед тем, как жарить её на гриле."
     ]
   },
   {
@@ -433,7 +446,7 @@
     "prompt": "Say: The Maillard reaction is responsible for the browning and complex aromas that develop when meat is seared.",
     "correctAnswer": "Реакция Майяра отвечает за золотистую корочку и сложные ароматы, которые появляются при обжарке мяса.",
     "hints": [
-      "'Отвечать за' + accusative = to be responsible for. 'При обжарке' = during the searing (prepositional gerund noun)."
+      "'Отвечать за' + accusative = to be responsible for. 'При обжарке' = during searing ('при' + prepositional of a verbal noun)."
     ]
   },
   {
@@ -477,7 +490,7 @@
     "prompt": "Say: The growing interest in local and seasonal produce has reshaped how restaurants approach their menus.",
     "correctAnswer": "Растущий интерес к местным и сезонным продуктам изменил подход ресторанов к составлению меню.",
     "hints": [
-      "'Изменил подход к' + dative gerund noun = reshaped the approach to. 'Составление меню' = menu planning."
+      "'Подход к' + dative = approach to. 'Составление меню' (verbal noun) = menu planning."
     ]
   }
 ]

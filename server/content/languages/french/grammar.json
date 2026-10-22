@@ -3,10 +3,14 @@
     "id": "fr-gr-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'She ___ a teacher.' (to be)",
+    "prompt": "Say: She is a teacher.",
     "correctAnswer": "Elle est enseignante.",
     "hints": [
-      "Use the correct form of 'to be' for she."
+      "No article before professions after 'être'."
+    ],
+    "acceptedAnswers": [
+      "Elle est professeure.",
+      "Elle est prof."
     ]
   },
   {
@@ -16,37 +20,45 @@
     "prompt": "Say: They are my friends.",
     "correctAnswer": "Ce sont mes amis.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Ce sont' is used before a plural noun phrase."
+    ],
+    "acceptedAnswers": [
+      "Ce sont mes amies.",
+      "Ils sont mes amis."
     ]
   },
   {
     "id": "fr-gr-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'I ___ like coffee.' (not)",
+    "prompt": "Say: I don't like coffee.",
     "correctAnswer": "Je n'aime pas le café.",
     "hints": [
-      "For present simple negative, use 'do not'."
+      "'Ne ... pas' wraps the verb; 'ne' becomes 'n'' before a vowel."
     ]
   },
   {
     "id": "fr-gr-13",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'We ___ students.' (to be)",
-    "correctAnswer": "Nous sommes des étudiants.",
+    "prompt": "Say: We are students.",
+    "correctAnswer": "Nous sommes étudiants.",
     "hints": [
-      "'We' uses 'are'."
+      "No article before a role after 'être'."
+    ],
+    "acceptedAnswers": [
+      "Nous sommes étudiantes.",
+      "On est étudiants."
     ]
   },
   {
     "id": "fr-gr-14",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the correct form: 'He ___ English every day.' (study)",
-    "correctAnswer": "Il étudie l'anglais tous les jours.",
+    "prompt": "Il ___ l'anglais tous les jours. (étudier)",
+    "correctAnswer": "étudie",
     "hints": [
-      "Third person singular adds -s or -es to the verb."
+      "-er verbs end in -e in the 'il' form."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -57,27 +69,32 @@
     "prompt": "Say: There is a book on the table.",
     "correctAnswer": "Il y a un livre sur la table.",
     "hints": [
-      "Use 'there is' for one thing, 'there are' for more than one."
+      "'Il y a' = there is / there are — one form for both."
     ]
   },
   {
     "id": "fr-gr-16",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: '___ you like tea?' (to do)",
+    "prompt": "Ask: Do you like tea?",
     "correctAnswer": "Tu aimes le thé ?",
     "hints": [
-      "Yes/no questions in present simple use 'do'."
+      "French has no auxiliary 'do': use intonation, 'est-ce que' or inversion."
+    ],
+    "acceptedAnswers": [
+      "Est-ce que tu aimes le thé ?",
+      "Aimes-tu le thé ?",
+      "Vous aimez le thé ?"
     ]
   },
   {
     "id": "fr-gr-17",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the article: 'She has ___ umbrella.' (a/an)",
-    "correctAnswer": "Elle a un parapluie.",
+    "prompt": "Elle a ___ parapluie.",
+    "correctAnswer": "un",
     "hints": [
-      "Use 'an' before a vowel sound."
+      "'Parapluie' is masculine."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -88,7 +105,7 @@
     "prompt": "Say: I am not tired.",
     "correctAnswer": "Je ne suis pas fatigué.",
     "hints": [
-      "Negative of 'to be': add 'not'."
+      "'Ne ... pas' around the verb. Feminine: fatiguée."
     ],
     "exerciseType": "build_sentence"
   },
@@ -96,10 +113,10 @@
     "id": "fr-gr-19",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'The cats ___ sleeping.' (to be)",
+    "prompt": "Say: The cats are sleeping.",
     "correctAnswer": "Les chats dorment.",
     "hints": [
-      "Plural subject uses 'are' in the present continuous."
+      "French has no continuous tense: 'ils dorment' covers both."
     ]
   },
   {
@@ -108,7 +125,7 @@
     "prompt": "Say: She goes to school every day.",
     "correctAnswer": "Elle va à l'école tous les jours.",
     "hints": [
-      "Notice the -s in third person singular."
+      "'Aller' is irregular: elle va."
     ],
     "id": "fr-gr-a1-39"
   },
@@ -118,10 +135,14 @@
     "prompt": "Say: They are happy.",
     "correctAnswer": "Ils sont heureux.",
     "hints": [
-      "Use 'are' with 'they'."
+      "'Heureux' is the same in the masculine plural; feminine: heureuses."
     ],
     "exerciseType": "build_sentence",
-    "id": "fr-gr-a1-40"
+    "id": "fr-gr-a1-40",
+    "acceptedAnswers": [
+      "Elles sont heureuses.",
+      "Ils sont contents."
+    ]
   },
   {
     "level": "a1",
@@ -141,17 +162,21 @@
     "prompt": "Say: I went to the supermarket yesterday.",
     "correctAnswer": "Je suis allé au supermarché hier.",
     "hints": [
-      "'Went' is the irregular past tense of 'go'."
+      "'Aller' takes 'être' in the passé composé."
+    ],
+    "acceptedAnswers": [
+      "Je suis allée au supermarché hier.",
+      "Hier, je suis allé au supermarché."
     ]
   },
   {
     "id": "fr-gr-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'She ___ been waiting for an hour.' (have/has)",
+    "prompt": "Say: She has been waiting for an hour.",
     "correctAnswer": "Elle attend depuis une heure.",
     "hints": [
-      "Third person singular uses 'has' in perfect tenses."
+      "Present tense + 'depuis' for something still going on."
     ]
   },
   {
@@ -159,30 +184,36 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: If it rains, we will stay inside.",
-    "correctAnswer": "Si il pleut, nous resterons à l'intérieur.",
+    "correctAnswer": "S'il pleut, nous resterons à l'intérieur.",
     "hints": [
-      "First conditional: 'if' + present simple, 'will' + infinitive."
+      "'Si' + present, then the future. 'Si' becomes 's'' before 'il'."
     ]
   },
   {
     "id": "fr-gr-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct form: 'I ___ to the cinema last Saturday.' (go)",
-    "correctAnswer": "Je suis allé au cinéma samedi dernier.",
+    "prompt": "Samedi dernier, je ___ au cinéma.",
+    "correctAnswer": "suis allé",
     "hints": [
-      "Use the simple past for a completed past event."
+      "Passé composé of 'aller' with 'être'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "acceptedAnswers": [
+      "suis allée"
+    ]
   },
   {
     "id": "fr-gr-21",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'He ___ working at seven this morning.' (was/were)",
+    "prompt": "Say: He was working at seven this morning.",
     "correctAnswer": "Il travaillait à sept heures ce matin.",
     "hints": [
-      "He/she/it uses 'was' in past continuous."
+      "The imparfait describes an action in progress in the past."
+    ],
+    "acceptedAnswers": [
+      "Il était en train de travailler à sept heures ce matin."
     ]
   },
   {
@@ -192,17 +223,21 @@
     "prompt": "Say: We have lived here for five years.",
     "correctAnswer": "Nous vivons ici depuis cinq ans.",
     "hints": [
-      "Present perfect with 'for' expresses duration up to now."
+      "Present tense + 'depuis' for duration up to now."
+    ],
+    "acceptedAnswers": [
+      "Nous habitons ici depuis cinq ans.",
+      "Ça fait cinq ans qu'on habite ici."
     ]
   },
   {
     "id": "fr-gr-23",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct comparative: 'This book is ___ than the other one.' (interesting)",
-    "correctAnswer": "Ce livre est plus intéressant que l'autre.",
+    "prompt": "Ce livre est ___ intéressant que l'autre.",
+    "correctAnswer": "plus",
     "hints": [
-      "Long adjectives use 'more' for comparatives."
+      "'Plus ... que' = more ... than."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -210,10 +245,15 @@
     "id": "fr-gr-24",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: '___ you been to Paris?' (have/has)",
+    "prompt": "Ask: Have you been to Paris?",
     "correctAnswer": "Vous êtes allé à Paris ?",
     "hints": [
-      "Question form of present perfect with 'you'."
+      "'Déjà' = ever. French uses 'être allé' or 'avoir été'."
+    ],
+    "acceptedAnswers": [
+      "Vous êtes déjà allé à Paris ?",
+      "Tu es déjà allé à Paris ?",
+      "Avez-vous déjà été à Paris ?"
     ]
   },
   {
@@ -230,10 +270,13 @@
     "id": "fr-gr-26",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'You should ___ more water.' (drink)",
+    "prompt": "Say: You should drink more water.",
     "correctAnswer": "Tu devrais boire plus d'eau.",
     "hints": [
-      "'Should' is followed by the base infinitive."
+      "Conditional of 'devoir' + infinitive for advice."
+    ],
+    "acceptedAnswers": [
+      "Vous devriez boire plus d'eau."
     ]
   },
   {
@@ -260,10 +303,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Should I use much or many here?",
-    "correctAnswer": "Devrais-je en utiliser beaucoup ici ?",
+    "prompt": "J'ai ___ amis à Paris. (many)",
+    "correctAnswer": "beaucoup d'",
     "hints": [
-      "Countability grammar prompt."
+      "'Beaucoup de' never changes; 'de' elides before a vowel."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-gr-a2-51"
@@ -275,17 +318,17 @@
     "prompt": "Say: If I had more time, I would learn a third language.",
     "correctAnswer": "Si j'avais plus de temps, j'apprendrais une troisième langue.",
     "hints": [
-      "Second conditional: 'if' + past simple, 'would' + infinitive."
+      "'Si' + imparfait, then the conditional."
     ]
   },
   {
     "id": "fr-gr-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'By the time she arrives, we ___ finished dinner.' (will have)",
+    "prompt": "Say: By the time she arrives, we will have finished dinner.",
     "correctAnswer": "Quand elle arrivera, nous aurons fini le dîner.",
     "hints": [
-      "Future perfect for an action completed before a future point."
+      "French uses the future after 'quand'; future perfect in the main clause."
     ]
   },
   {
@@ -295,17 +338,17 @@
     "prompt": "Say: Despite feeling tired, she continued working.",
     "correctAnswer": "Malgré sa fatigue, elle a continué à travailler.",
     "hints": [
-      "'Despite' is followed by a noun or gerund (-ing form)."
+      "'Malgré' + noun: malgré sa fatigue."
     ]
   },
   {
     "id": "fr-gr-27",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct passive form: 'The report ___ by the team last week.' (write)",
-    "correctAnswer": "Le rapport a été rédigé par l'équipe la semaine dernière.",
+    "prompt": "Le rapport a ___ rédigé par l'équipe la semaine dernière.",
+    "correctAnswer": "été",
     "hints": [
-      "Passive past simple: was/were + past participle."
+      "Passive: être + participle, here in the passé composé."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -316,17 +359,20 @@
     "prompt": "Say: He told me that he had already sent the email.",
     "correctAnswer": "Il m'a dit qu'il avait déjà envoyé l'email.",
     "hints": [
-      "Reported speech shifts tense: 'has sent' → 'had sent'."
+      "Plus-que-parfait 'avait envoyé' in reported speech."
     ]
   },
   {
     "id": "fr-gr-29",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'I wish I ___ more time to practice.' (had/have)",
+    "prompt": "Say: I wish I had more time to practice.",
     "correctAnswer": "J'aimerais avoir plus de temps pour m'entraîner.",
     "hints": [
-      "'I wish' + past simple expresses a present regret."
+      "'J'aimerais' + infinitive, or 'si seulement j'avais...'."
+    ],
+    "acceptedAnswers": [
+      "Si seulement j'avais plus de temps pour m'entraîner !"
     ]
   },
   {
@@ -336,17 +382,17 @@
     "prompt": "Say: Not only did she win the race, but she also broke the record.",
     "correctAnswer": "Non seulement elle a gagné la course, mais elle a également battu le record.",
     "hints": [
-      "'Not only... but also' requires inversion after 'not only'."
+      "'Non seulement ..., mais ... aussi'; no inversion needed."
     ]
   },
   {
     "id": "fr-gr-31",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'She is used to ___ early.' (wake)",
-    "correctAnswer": "Elle se réveille tôt.",
+    "prompt": "Say: She is used to waking up early.",
+    "correctAnswer": "Elle a l'habitude de se réveiller tôt.",
     "hints": [
-      "'Be used to' is followed by the gerund (-ing)."
+      "'Avoir l'habitude de' + infinitive."
     ]
   },
   {
@@ -363,10 +409,10 @@
     "id": "fr-gr-33",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct relative pronoun: 'The person ___ called left no message.' (who/which)",
-    "correctAnswer": "La personne qui a appelé n'a laissé aucun message.",
+    "prompt": "La personne ___ a appelé n'a laissé aucun message.",
+    "correctAnswer": "qui",
     "hints": [
-      "Use 'who' for people; 'which' for things."
+      "'Qui' is the subject relative pronoun."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -394,10 +440,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: When should I use the passive voice?",
-    "correctAnswer": "Quand dois-je utiliser la voix passive ?",
+    "prompt": "Quand dois-je utiliser la voix ___ ?",
+    "correctAnswer": "passive",
     "hints": [
-      "Usage question."
+      "The opposite of the active voice."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-gr-b1-61"
@@ -409,17 +455,20 @@
     "prompt": "Say: Had I known about the delay, I would have taken an earlier train.",
     "correctAnswer": "Si j'avais su pour le retard, j'aurais pris un train plus tôt.",
     "hints": [
-      "Inverted third conditional: 'Had I...' replaces 'If I had...'"
+      "'Si' + plus-que-parfait, then conditionnel passé."
     ]
   },
   {
     "id": "fr-gr-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'Rarely ___ I see such attention to detail.' (have)",
+    "prompt": "Say: Rarely have I seen such attention to detail.",
     "correctAnswer": "J'ai rarement vu une telle attention au détail.",
     "hints": [
-      "Fronted negative adverbs require subject-auxiliary inversion."
+      "'Rarement' goes between the auxiliary and the participle."
+    ],
+    "acceptedAnswers": [
+      "J'ai rarement vu un tel souci du détail."
     ]
   },
   {
@@ -436,10 +485,13 @@
     "id": "fr-gr-34",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'No sooner ___ she arrived than the meeting began.' (had)",
+    "prompt": "Say: No sooner had she arrived than the meeting began.",
     "correctAnswer": "Dès qu'elle est arrivée, la réunion a commencé.",
     "hints": [
-      "'No sooner' triggers inversion; 'than' follows rather than 'when'."
+      "'Dès que' = as soon as; literary: 'À peine ... que'."
+    ],
+    "acceptedAnswers": [
+      "À peine était-elle arrivée que la réunion a commencé."
     ]
   },
   {
@@ -449,17 +501,20 @@
     "prompt": "Say: It is high time we addressed the underlying structural issues.",
     "correctAnswer": "Il est grand temps d'aborder les questions structurelles sous-jacentes.",
     "hints": [
-      "'It is high time' + past subjunctive expresses urgency."
+      "'Il est grand temps de' + infinitive, or 'que' + subjunctive."
+    ],
+    "acceptedAnswers": [
+      "Il est grand temps que nous abordions les problèmes structurels de fond."
     ]
   },
   {
     "id": "fr-gr-36",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the correct form: 'The data ___ analysed before any conclusions can be drawn.' (must be)",
-    "correctAnswer": "Les données doivent être analysées avant de pouvoir tirer des conclusions.",
+    "prompt": "Les données doivent être ___ avant de tirer des conclusions.",
+    "correctAnswer": "analysées",
     "hints": [
-      "Modal passive: modal + be + past participle."
+      "The participle agrees with 'les données' (feminine plural)."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -468,38 +523,44 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Were she to apply, she would be a strong candidate for the position.",
-    "correctAnswer": "Si elle postulait, elle serait une candidate forte pour le poste.",
+    "correctAnswer": "Si elle postulait, elle serait une excellente candidate pour le poste.",
     "hints": [
-      "Inverted conditional with 'were to' for formal, hypothetical situations."
+      "'Si' + imparfait, then the conditional."
     ]
   },
   {
     "id": "fr-gr-38",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'The more you practice, ___ you become.' (fluent)",
-    "correctAnswer": "Plus vous pratiquez, plus vous devenez fluide.",
+    "prompt": "Say: The more you practice, the more fluently you speak.",
+    "correctAnswer": "Plus vous pratiquez, plus vous parlez couramment.",
     "hints": [
-      "'The more... the more...' is a comparative structure expressing proportional change."
+      "'Plus ..., plus ...' with no article."
+    ],
+    "acceptedAnswers": [
+      "Plus tu pratiques, plus tu parles couramment."
     ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known earlier, I would have prepared differently.",
-    "correctAnswer": "Si j'avais su plus tôt, j'aurais préparé différemment.",
+    "correctAnswer": "Si je l'avais su plus tôt, je me serais préparé autrement.",
     "hints": [
       "Inverted third conditional."
     ],
-    "id": "fr-gr-b2-69"
+    "id": "fr-gr-b2-69",
+    "acceptedAnswers": [
+      "Si je l'avais su plus tôt, je me serais préparée autrement."
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Not only did she finish on time, but she also improved the draft.",
-    "correctAnswer": "Non seulement elle a terminé à l'heure, mais elle a aussi amélioré le projet.",
+    "prompt": "Non seulement elle a terminé à l'heure, ___ elle a aussi amélioré le brouillon.",
+    "correctAnswer": "mais",
     "hints": [
-      "Inversion after negative adverbials."
+      "'Non seulement ..., ___ ... aussi'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-gr-b2-70"
@@ -507,8 +568,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How does emphasis change when we front a phrase?",
-    "correctAnswer": "Comment l'accent change-t-il quand on fait une phrase ?",
+    "prompt": "Choose the best response. Your teacher moves a phrase to the start of your sentence and asks if you notice a difference.",
+    "correctAnswer": "Oui. Comment l'accent change-t-il quand on place un groupe de mots en tête de phrase ?",
     "hints": [
       "Advanced grammar awareness question."
     ],

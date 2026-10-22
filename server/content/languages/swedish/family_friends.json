@@ -6,7 +6,7 @@
     "prompt": "Say: I have two brothers and one sister.",
     "correctAnswer": "Jag har två bröder och en syster.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Bror' has the irregular plural 'bröder'; 'syster' → 'systrar'."
     ]
   },
   {
@@ -16,7 +16,10 @@
     "prompt": "Ask: Do you have any children?",
     "correctAnswer": "Har du några barn?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Barn' has the same form in singular and plural."
+    ],
+    "acceptedAnswers": [
+      "Har du barn?"
     ]
   },
   {
@@ -26,7 +29,10 @@
     "prompt": "Say: My parents live in the countryside.",
     "correctAnswer": "Mina föräldrar bor på landsbygden.",
     "hints": [
-      "Practice this phrase out loud."
+      "'På landet' is the everyday way to say 'in the countryside'."
+    ],
+    "acceptedAnswers": [
+      "Mina föräldrar bor på landet."
     ]
   },
   {
@@ -36,7 +42,12 @@
     "prompt": "Say: My grandmother is seventy years old.",
     "correctAnswer": "Min mormor är sjuttio år gammal.",
     "hints": [
-      "State age with 'is ... years old'."
+      "'Mormor' = mother's mother, 'farmor' = father's mother."
+    ],
+    "acceptedAnswers": [
+      "Min farmor är sjuttio år gammal.",
+      "Min mormor är sjuttio år.",
+      "Min farmor är sjuttio år."
     ]
   },
   {
@@ -76,9 +87,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My best friend's name is Sam.",
-    "correctAnswer": "Min bästa väns namn är Sam.",
+    "correctAnswer": "Min bästa vän heter Sam.",
     "hints": [
-      "Use the possessive apostrophe: friend's."
+      "'Heta' = to be called."
     ]
   },
   {
@@ -96,7 +107,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I have a dog and a cat at home.",
-    "correctAnswer": "Jag har en hund och katt hemma.",
+    "correctAnswer": "Jag har en hund och en katt hemma.",
     "hints": [
       "List two things joined with 'and'."
     ]
@@ -109,7 +120,12 @@
     "hints": [
       "Family routine phrase."
     ],
-    "id": "sv-fa-a1-39"
+    "id": "sv-fa-a1-39",
+    "acceptedAnswers": [
+      "Jag hälsar på mina morföräldrar på söndagar.",
+      "Jag hälsar på mina farföräldrar på söndagar.",
+      "Jag besöker mina farföräldrar på söndagar."
+    ]
   },
   {
     "level": "a1",
@@ -120,7 +136,11 @@
       "Basic family question."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-fa-a1-40"
+    "id": "sv-fa-a1-40",
+    "acceptedAnswers": [
+      "Har du några syskon?",
+      "Har du syskon?"
+    ]
   },
   {
     "level": "a1",
@@ -147,7 +167,7 @@
     "id": "sv-fa-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We usually meet up at the weekends.",
+    "prompt": "Say: We usually meet up on weekends.",
     "correctAnswer": "Vi brukar träffas på helgerna.",
     "hints": [
       "Pay attention to the sentence structure."
@@ -171,6 +191,9 @@
     "correctAnswer": "Mina föräldrar blev skilda när jag var tio.",
     "hints": [
       "'Got divorced' is the past tense phrase."
+    ],
+    "acceptedAnswers": [
+      "Mina föräldrar skilde sig när jag var tio."
     ]
   },
   {
@@ -178,9 +201,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Are you close to your siblings?",
-    "correctAnswer": "Är du nära dina syskon?",
+    "correctAnswer": "Står du dina syskon nära?",
     "hints": [
       "'Close' here means emotionally connected; siblings are brothers or sisters."
+    ],
+    "acceptedAnswers": [
+      "Har du en nära relation till dina syskon?"
     ]
   },
   {
@@ -188,9 +214,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We are a big family — there are seven of us.",
-    "correctAnswer": "Vi är en stor familj - det finns sju av oss.",
+    "correctAnswer": "Vi är en stor familj – vi är sju.",
     "hints": [
-      "Use 'there are' to state how many people."
+      "'Vi är' + number = there are (number) of us."
+    ],
+    "acceptedAnswers": [
+      "Vi är en stor familj, vi är sju stycken."
     ]
   },
   {
@@ -198,19 +227,22 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My friend moved abroad for work last year.",
-    "correctAnswer": "Min vän flyttade utomlands för arbete förra året.",
+    "correctAnswer": "Min vän flyttade utomlands för jobbets skull förra året.",
     "hints": [
       "'Moved abroad' means relocated to another country."
+    ],
+    "acceptedAnswers": [
+      "Min vän flyttade utomlands för att jobba förra året."
     ]
   },
   {
     "id": "sv-fa-24",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Do you get on well with your neighbors?",
-    "correctAnswer": "Går du bra med dina grannar?",
+    "prompt": "Ask: Do you get along well with your neighbors?",
+    "correctAnswer": "Kommer du bra överens med dina grannar?",
     "hints": [
-      "'Get on well with' means have a good relationship with."
+      "'Komma överens med' = to get along with."
     ]
   },
   {
@@ -257,22 +289,31 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I call my parents every evening.",
-    "correctAnswer": "Jag kallar mina föräldrar varje kväll.",
+    "prompt": "Jag ___ mina föräldrar varje kväll.",
+    "correctAnswer": "ringer",
     "hints": [
-      "Routine communication phrase."
+      "'Ringa' = to phone; 'kalla' means to name someone."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-fa-a2-51"
+    "id": "sv-fa-a2-51",
+    "clozeOptions": [
+      "ringer",
+      "kallar",
+      "ropar",
+      "talar"
+    ]
   },
   {
     "id": "sv-fa-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My sister and I do not always see eye to eye, but we support each other.",
-    "correctAnswer": "Min syster och jag ser inte alltid öga mot öga, men vi stöder varandra.",
+    "correctAnswer": "Min syster och jag är inte alltid överens, men vi stöttar varandra.",
     "hints": [
       "'See eye to eye' means agree."
+    ],
+    "acceptedAnswers": [
+      "Jag och min syster är inte alltid överens, men vi stöttar varandra."
     ]
   },
   {
@@ -300,9 +341,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My relationship with my parents has improved since I moved out.",
-    "correctAnswer": "Min relation med mina föräldrar har förbättrats sedan jag flyttade ut.",
+    "correctAnswer": "Min relation till mina föräldrar har blivit bättre sedan jag flyttade hemifrån.",
     "hints": [
       "Present perfect with 'since' for a change that started at a past point."
+    ],
+    "acceptedAnswers": [
+      "Mitt förhållande till mina föräldrar har förbättrats sedan jag flyttade hemifrån."
     ]
   },
   {
@@ -310,7 +354,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I try to keep in touch with old friends, even when life gets busy.",
-    "correctAnswer": "Jag försöker hålla kontakten med gamla vänner, även när livet blir upptagen.",
+    "correctAnswer": "Jag försöker hålla kontakten med gamla vänner, även när jag har mycket att göra.",
     "hints": [
       "'Keep in touch' means maintain contact."
     ]
@@ -322,7 +366,7 @@
     "prompt": "Say: My brother and I have very different personalities, but we have the same sense of humor.",
     "correctAnswer": "Min bror och jag har väldigt olika personligheter, men vi har samma humor.",
     "hints": [
-      "Contrast with 'but'; 'sense of humour' is the ability to find things funny."
+      "Contrast with 'men'; 'humor' covers 'sense of humor'."
     ]
   },
   {
@@ -330,18 +374,19 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks why you do not visit your family more often.",
-    "correctAnswer": "Vi lever ganska långt ifrån varandra och jag kämpar för att hitta tid kring arbetsåtaganden.",
+    "correctAnswer": "Vi bor ganska långt ifrån varandra, och jag har svårt att få tiden att räcka med jobbet.",
     "hints": [
       "Give a reason that combines distance and schedule."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "We live quite far apart, and I struggle to find time around work commitments."
   },
   {
     "id": "sv-fa-31",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Having grown up in a small town, I appreciate the close-knit community there.",
-    "correctAnswer": "Efter att ha vuxit upp i en liten stad uppskattar jag det närliggande samhället där.",
+    "correctAnswer": "Eftersom jag växte upp i en liten stad uppskattar jag den sammansvetsade gemenskapen där.",
     "hints": [
       "'Close-knit' means a tight, supportive community."
     ]
@@ -361,9 +406,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We grew apart after university, but we have recently reconnected.",
-    "correctAnswer": "Vi växte isär efter universitetet, men vi har nyligen återanslutit oss.",
+    "correctAnswer": "Vi gled isär efter universitetet, men vi har nyligen fått kontakt igen.",
     "hints": [
       "'Grew apart' means drifted away from each other over time."
+    ],
+    "acceptedAnswers": [
+      "Vi växte isär efter universitetet, men vi har nyligen fått kontakt igen."
     ]
   },
   {
@@ -390,22 +438,31 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Family traditions help us stay connected.",
-    "correctAnswer": "Familjstraditioner hjälper oss att hålla kontakten.",
+    "prompt": "Familjetraditioner hjälper oss att hålla ___.",
+    "correctAnswer": "ihop",
     "hints": [
-      "Community/family link."
+      "'Hålla ihop' = to stay close/stick together."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-fa-b1-61"
+    "id": "sv-fa-b1-61",
+    "clozeOptions": [
+      "ihop",
+      "upp",
+      "ut",
+      "emot"
+    ]
   },
   {
     "id": "sv-fa-10",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The dynamics within a blended family can be complex but deeply rewarding.",
-    "correctAnswer": "Dynamiken i en blandad familj kan vara komplex men djupt givande.",
+    "correctAnswer": "Dynamiken i en bonusfamilj kan vara komplex men djupt givande.",
     "hints": [
       "'Blended family' = step-parents or half-siblings; 'dynamics' = the way relationships work."
+    ],
+    "acceptedAnswers": [
+      "Dynamiken i en ombildad familj kan vara komplex men djupt givande."
     ]
   },
   {
@@ -413,9 +470,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I was raised to value loyalty and honesty above all else.",
-    "correctAnswer": "Jag växte upp för att värdera lojalitet och ärlighet framför allt.",
+    "correctAnswer": "Jag har uppfostrats till att värdera lojalitet och ärlighet över allt annat.",
     "hints": [
       "Passive 'was raised' refers to how your parents brought you up."
+    ],
+    "acceptedAnswers": [
+      "Jag har fått lära mig att värdera lojalitet och ärlighet över allt annat."
     ]
   },
   {
@@ -432,8 +492,8 @@
     "id": "sv-fa-34",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The expectation that adult children will look after ageing parents varies considerably across cultures.",
-    "correctAnswer": "Förväntningen att vuxna barn kommer att se efter åldrande föräldrar varierar kraftigt över kulturer.",
+    "prompt": "Say: The expectation that adult children will look after aging parents varies considerably across cultures.",
+    "correctAnswer": "Förväntningen att vuxna barn ska ta hand om sina åldrande föräldrar varierar kraftigt mellan olika kulturer.",
     "hints": [
       "'Varies considerably' means differs a lot; 'across cultures' means between different societies."
     ],
@@ -444,7 +504,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Maintaining long-distance friendships requires consistent effort and mutual commitment.",
-    "correctAnswer": "Att upprätthålla långdistans vänskap kräver konsekvent ansträngning och ömsesidigt engagemang.",
+    "correctAnswer": "Att upprätthålla en vänskap på distans kräver kontinuerlig ansträngning och ömsesidigt engagemang.",
     "hints": [
       "'Mutual commitment' means both people must put in effort."
     ]
@@ -454,7 +514,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The influence of one's upbringing on adult behavior is well-documented in psychology.",
-    "correctAnswer": "Inverkan av ens uppfostran på vuxenbeteende är väldokumenterad i psykologi.",
+    "correctAnswer": "Uppfostrans inverkan på beteendet i vuxen ålder är väldokumenterad inom psykologin.",
     "hints": [
       "'One's upbringing' = how you were raised; 'well-documented' = supported by evidence."
     ]
@@ -474,7 +534,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Chosen family — the network of friends who become like family — is increasingly valued in modern life.",
-    "correctAnswer": "Utvald familj - nätverket av vänner som blir som familj - värderas alltmer i det moderna livet.",
+    "correctAnswer": "Vald familj – nätverket av vänner som blir som en familj – värderas allt högre i dagens samhälle.",
     "hints": [
       "'Chosen family' refers to close friends who fill a family-like role."
     ]
@@ -483,7 +543,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Healthy boundaries can strengthen long-term relationships.",
-    "correctAnswer": "Friska gränser kan stärka långsiktiga relationer.",
+    "correctAnswer": "Sunda gränser kan stärka långsiktiga relationer.",
     "hints": [
       "Advanced relationship concept."
     ],
@@ -492,23 +552,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How do family expectations influence personal choices?",
-    "correctAnswer": "Hur påverkar familjeförväntningarna personliga val?",
+    "prompt": "Hur ___ familjens förväntningar personliga val?",
+    "correctAnswer": "påverkar",
     "hints": [
-      "Reflective high-level question."
+      "Present tense of 'påverka'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-fa-b2-70"
+    "id": "sv-fa-b2-70",
+    "clozeOptions": [
+      "påverkar",
+      "påverka",
+      "påverkade",
+      "påverkat"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Friendships evolve as people's priorities change.",
-    "correctAnswer": "Vänskap utvecklas när människors prioriteringar förändras.",
+    "prompt": "Dialogue: A friend is sad that she sees her school friends less often now. Respond thoughtfully.",
+    "correctAnswer": "Vänskap utvecklas i takt med att människors prioriteringar förändras.",
     "hints": [
       "Nuanced change-over-time sentence."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-fa-b2-71"
+    "id": "sv-fa-b2-71",
+    "answerEnglish": "Friendships evolve as people's priorities change."
   }
 ]

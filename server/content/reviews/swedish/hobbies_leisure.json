@@ -1,0 +1,712 @@
+{
+  "language": "swedish",
+  "category": "hobbies_leisure",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:52:15.498Z",
+  "contentHash": "e6541a55b32e072b",
+  "summary": "Many hobby sentences are calques or wrong idioms (gå vandring, går du cykling, rockklättring, gå för en körning, stänga av, konkurrenskraftig, tagit upp keramik och hittat det, Jag har menat att komma in i yoga), plus 'i min fritid', a duplicated flashcard answer, a split compound and 'självkänsla' for sense of self. Three B2 pronunciation items are A1 sentences, and the file has the usual cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-ho-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'att gå vandring' is ungrammatical; it is 'att vandra' or 'att gå på vandring'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "att vandra",
+          "list": null
+        }
+      ],
+      "itemHash": "540b74d92c077723",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a1-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Free time takes 'på': 'på min fritid', not 'i'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag gillar att måla på min fritid.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag tycker om att måla på fritiden."
+          ]
+        }
+      ],
+      "itemHash": "f1c28268f4f200f0",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The equally standard plural 'hobbys' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Har du några hobbys?",
+            "Har du någon hobby?"
+          ]
+        }
+      ],
+      "itemHash": "d3138ae695ad00b1",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Duplicated answer ('simma simning') mixing verb and noun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "simning",
+          "list": null
+        }
+      ],
+      "itemHash": "41f94204cb06832f",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Älska att' + infinitive = to love doing something."
+          ]
+        }
+      ],
+      "itemHash": "a529c57a95aad647",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a1-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'football'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I play soccer with my friends.",
+          "list": null
+        }
+      ],
+      "itemHash": "9bf6ba3603b84631",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a1-10",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'at weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What do you like to do on weekends?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vad gillar du att göra på helgerna?"
+          ]
+        }
+      ],
+      "itemHash": "631a207ecee6d018",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a1-39",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Habitual weekends are 'på helgerna' (definite).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag gillar att måla på helgerna.",
+          "list": null
+        }
+      ],
+      "itemHash": "c30c6bcb67160b7d",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a2",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'på lördag morgon' means this coming Saturday; a habit is 'på lördagsmorgnarna'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag spelar tennis på lördagsmorgnarna.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag spelar tennis på lördagsmornarna."
+          ]
+        }
+      ],
+      "itemHash": "e69124e02ebe2b38",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'vid poolen' means beside the pool; swimming in a pool is 'i simhallen' / 'i bassängen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag simmar i simhallen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag simmar i bassängen.",
+            "Jag simmar i poolen."
+          ]
+        }
+      ],
+      "itemHash": "d3f39264de28b5c5",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'lärt mig gitarren' is ungrammatical; it is 'lärt mig spela gitarr'. Hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har lärt mig spela gitarr i sex månader.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har spelat gitarr i sex månader."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Perfect tense + 'i' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "7663b1694807a92c",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'går du cykling' is a calque; the verb is 'cykla'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur ofta cyklar du?",
+          "list": null
+        }
+      ],
+      "itemHash": "b288a2986455fd92",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'rockklättring' is a calque; it is 'klättring' or 'bergsklättring'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Har du någonsin provat klättring?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Har du någonsin provat bergsklättring?"
+          ]
+        }
+      ],
+      "itemHash": "b782c5468ea16c5c",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a2-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Prompt uses British 'at the weekends'; hint explains English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I enjoy baking on weekends.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gilla att' + infinitive = to enjoy doing something."
+          ]
+        }
+      ],
+      "itemHash": "dfd7e4db22541f8d",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vilken hobby hjälper dig att ___ stressen?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "minska",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "minska",
+            "minskar",
+            "minskade",
+            "minskat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'hjälpa ... att'."
+          ]
+        }
+      ],
+      "itemHash": "f384eeeb8eba79f4",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'gå för en körning' is nonsense (a driving run); question in English; no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone asks: Vad brukar du göra efter jobbet?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag brukar måla eller gå ut och springa.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I usually paint or go for a run.",
+          "list": null
+        }
+      ],
+      "itemHash": "2a0234f23620952b",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-2",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Question in English and no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone asks: Vad gör du på helgerna?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag träffar vänner och spelar sällskapsspel.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I meet friends and play board games.",
+          "list": null
+        }
+      ],
+      "itemHash": "a3f714a4d171621e",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-3",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Question in English and no answerEnglish; the reply doesn't answer 'do you like'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone asks: Gillar du sport?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Ja, jag spelar fotboll ibland.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Yes, I sometimes play soccer.",
+          "list": null
+        }
+      ],
+      "itemHash": "9f7f2f6db20d60b6",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-5",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'tagit upp keramik' and 'hittat det terapeutiskt' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har nyligen börjat med keramik och tycker att det är väldigt terapeutiskt.",
+          "list": null
+        }
+      ],
+      "itemHash": "2ef4cf6f516db819",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'stänga av' means turn off a device; mentally switching off is 'koppla av'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vad gör du för att koppla av när du känner dig överväldigad?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vad gör du för att koppla bort allt när du känner dig överväldigad?"
+          ]
+        }
+      ],
+      "itemHash": "8baa9141b7ce9416",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'konkurrenskraftig' means economically competitive; a competitive person is 'tävlingsinriktad'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Även om jag inte är särskilt tävlingsinriktad tycker jag om den sociala sidan av lagsporter.",
+          "list": null
+        }
+      ],
+      "itemHash": "77aafd522aecf9f1",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-8",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'menat att komma in i yoga' is a word-for-word calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har tänkt börja med yoga i flera år men aldrig riktigt kommit igång.",
+          "list": null
+        }
+      ],
+      "itemHash": "4858129be4156d48",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'expandera mitt perspektiv' is a calque; the idiom is 'vidga mina vyer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Att resa är inte bara en hobby för mig – det är ett sätt att vidga mina vyer.",
+          "list": null
+        }
+      ],
+      "itemHash": "c26cba1038cb839b",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-10",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'hittat det' is a calque of 'find it'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har tränat inför ett halvmaraton och tycker att det är både utmanande och givande.",
+          "list": null
+        }
+      ],
+      "itemHash": "d18cb406c12d9cca",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'Hur är du motiverad' doesn't mean 'stay motivated'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hur håller du ___ uppe när du ägnar dig åt din hobby?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "motivationen",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "motivationen",
+            "motivation",
+            "motiverad",
+            "motivera"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hålla motivationen uppe' = stay motivated."
+          ]
+        }
+      ],
+      "itemHash": "7848d36279890114",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2 level.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Reading is what helps me unwind most after an exhausting week.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Det är läsningen som hjälper mig att varva ner mest efter en utmattande vecka.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A cleft sentence ('Det är ... som') puts emphasis on 'läsningen'."
+          ]
+        }
+      ],
+      "itemHash": "aac3fd2a78abced8",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2-2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2 level.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: If I hadn't practiced guitar every day, I would never have made so much progress.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Om jag inte hade övat på gitarr varje dag hade jag aldrig gjort så stora framsteg.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Om' + pluperfect, then 'hade' + supine for an unreal past."
+          ]
+        }
+      ],
+      "itemHash": "ddd993cea337c51e",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'i min fritid' should be 'på min fritid'; also an A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Painting allows me to express emotions I would struggle to put into words.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Målning låter mig uttrycka känslor som jag skulle ha svårt att sätta ord på.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sätta ord på' = put into words; 'skulle ha svårt att' = would struggle to."
+          ]
+        }
+      ],
+      "itemHash": "fd70588bfb48cc34",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'i ständig anslutning' drops 'the age of' and is not idiomatic.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Fritid har blivit ett alltmer omstritt begrepp i en tid av ständig uppkoppling.",
+          "list": null
+        }
+      ],
+      "itemHash": "909ceff8e0b2723b",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Split compound 'Amatör astronomi' should be 'Amatörastronomi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Amatörastronomi kräver tålamod, precision och en vilja att acceptera att de flesta nätter inte kommer att bjuda på något spektakulärt.",
+          "list": null
+        }
+      ],
+      "itemHash": "7b23d2a5f1df6818",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2-8",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'självkänsla' means self-esteem; 'sense of self' is 'identitet'. 'i den grad som' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Skillnaden mellan en hobby och en passion ligger i hur mycket den definierar din identitet.",
+          "list": null
+        }
+      ],
+      "itemHash": "c6bf803a14b2329a",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'färdighetsbyggande' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag föredrar hobbyer som kombinerar socialt umgänge med att ___ nya färdigheter.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "utveckla",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "utveckla",
+            "utvecklar",
+            "utvecklade",
+            "utvecklat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'att'."
+          ]
+        }
+      ],
+      "itemHash": "b0db8476cb82cfff",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    },
+    {
+      "id": "sv-ho-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend says every hobby should have a clear goal, like a race or an exhibition. Ask a follow-up question.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "To what extent should hobbies be goal-oriented?",
+          "list": null
+        }
+      ],
+      "itemHash": "a09d99e1525885dd",
+      "appliedAt": "2026-10-22T10:00:54.499Z"
+    }
+  ]
+}

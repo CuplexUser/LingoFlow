@@ -1,0 +1,508 @@
+{
+  "language": "italian",
+  "category": "science_technology",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:37:21.503Z",
+  "contentHash": "13752046c124e6a4",
+  "summary": "Everyday tech sentences at A1–A2 are mostly fine, but B1–B2 has many mistranslations that change the meaning (sta uscendo in for 'ushering in', sottolinea for 'underpinning', in quanto for 'as', non fosse riuscito for a laptop failing, affrontare for 'catch up with', divisione digitale, grandi modelli di lingua, interessati alla for 'concerned about'). The 'computer' lint is a false alarm; 'laptop' is better as 'portatile'. Plus cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "it-st-a1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Lint confirmed: 'laptop' is used, but the everyday Italian word is 'portatile'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "portatile",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Short for 'computer portatile'; 'laptop' is also heard."
+          ]
+        }
+      ],
+      "itemHash": "f835f5cbcd95b214",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday 'C'è il Wi-Fi qui?' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'è il Wi-Fi qui?",
+            "Qui c'è il Wi-Fi?"
+          ]
+        }
+      ],
+      "itemHash": "1920a4b0c9d43f2b",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-a1-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'e'' should be 'è'; 'phone' is dropped and a battery is 'scarica', not 'morta'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La batteria del telefono è scarica.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il telefono è scarico.",
+            "Ho il telefono scarico."
+          ]
+        }
+      ],
+      "itemHash": "40227ba44ae9fff2",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'storage' is English; Italian says 'spazio' or 'memoria'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho cancellato l'app perché occupava troppo spazio.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho eliminato l'applicazione perché occupava troppa memoria."
+          ]
+        }
+      ],
+      "itemHash": "bbf5ae66c43a6db3",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-a2-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Preferisco leggere libri fisici agli e-book' mixes structures; 'libri cartacei' is the usual term.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Preferisco i libri cartacei agli e-book.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Preferisco leggere libri cartacei piuttosto che e-book."
+          ]
+        }
+      ],
+      "itemHash": "b7febada2b9e4a92",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-sc-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; impersonal 'si utilizza' changes the question.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quale ___ usi per le riunioni online?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "strumento",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "strumento",
+            "mobile",
+            "veicolo",
+            "alimento"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'tool'."
+          ]
+        }
+      ],
+      "itemHash": "99fd59342684d4f4",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'preoccupata' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono preoccupata per la quantità di dati personali che le aziende tecnologiche raccolgono."
+          ]
+        }
+      ],
+      "itemHash": "5f594fba8fff6d6e",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'spostato molti lavori' means moved jobs elsewhere; 'ruoli in tecnologia' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'automazione ha eliminato molti posti di lavoro nell'industria, creando al contempo nuove figure nel settore tecnologico.",
+          "list": null
+        }
+      ],
+      "itemHash": "e1b51fb0e5ff84c7",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'comportamento di visualizzazione' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'algoritmo consiglia contenuti in base a ciò che hai guardato in precedenza.",
+          "list": null
+        }
+      ],
+      "itemHash": "9858aa3d6b9aaa71",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'migliorate nell'efficienza e nei costi' is clumsy.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nell'ultimo decennio le tecnologie per le energie rinnovabili sono migliorate notevolmente in termini di efficienza e di costi.",
+          "list": null
+        }
+      ],
+      "itemHash": "1fcfb3c1cac485ab",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'il paesaggio' is a calque of 'landscape'; Italian says 'il panorama'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Come potrebbe il calcolo quantistico cambiare il panorama della sicurezza dei dati?",
+          "list": null
+        }
+      ],
+      "itemHash": "a3d40b3d62fe372e",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-8",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'la mia qualità del sonno' should be 'la qualità del mio sonno'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cerco di limitare il tempo davanti allo schermo per proteggere la qualità del mio sonno.",
+          "list": null
+        }
+      ],
+      "itemHash": "e49c8fd497bb81ce",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt and hint use British 'democratised'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Open-source software has democratized access to powerful digital tools.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Open-source' = freely available code; 'democratized' = made available to everyone."
+          ]
+        }
+      ],
+      "itemHash": "60da829c04f6efb2",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'affrontare la tecnologia' means confront it, not catch up with it; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Credo che abbiano un potenziale reale, ma prima le norme di sicurezza devono mettersi al passo con la tecnologia.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I think they have real potential, but safety regulations need to catch up with the technology first.",
+          "list": null
+        }
+      ],
+      "itemHash": "f0efe22c4c1416b4",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-sc-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'non fosse riuscito' means 'had not succeeded'; a device that fails 'si guasta'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho fatto il backup dei miei file nel caso in cui il portatile si guastasse.",
+          "list": null
+        }
+      ],
+      "itemHash": "2b30a1e355116171",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-sc-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quali sono i ___ dell'utilizzo di software open source?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "vantaggi",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "vantaggi",
+            "vantaggio",
+            "vantaggiosi",
+            "avanzi"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Plural noun meaning 'benefits'."
+          ]
+        }
+      ],
+      "itemHash": "555d1dfd08cccd18",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sta uscendo in' means 'is going out into', not 'ushering in'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La convergenza tra IA, biotecnologie e scienza dei materiali sta inaugurando un nuovo paradigma industriale.",
+          "list": null
+        }
+      ],
+      "itemHash": "9ed71bd74ad7fef4",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'grandi modelli di lingua' is not the Italian term, and laws 'regolamentano', not 'regolano'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Come dovrebbero i governi regolamentare i grandi modelli linguistici per prevenirne gli abusi preservando l'innovazione?",
+          "list": null
+        }
+      ],
+      "itemHash": "401ef5e1c7977b5c",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'L'editing gene CRISPR' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'editing genetico con CRISPR solleva profonde questioni etiche sui limiti dell'intervento umano in biologia.",
+          "list": null
+        }
+      ],
+      "itemHash": "ba04838cd99fa3b9",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The established term is 'divario digitale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il divario digitale aggrava le disuguaglianze socioeconomiche esistenti limitando l'accesso all'istruzione e alle opportunità economiche.",
+          "list": null
+        }
+      ],
+      "itemHash": "d831b316d5efa837",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b2-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sottolinea' means 'underlines/emphasizes', not 'underpins'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il quadro etico alla base dello sviluppo dell'IA resta contestato negli ambienti accademici, aziendali e governativi.",
+          "list": null
+        }
+      ],
+      "itemHash": "63f477e81cd9f6d5",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-st-b2-8",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'interessati alla' means interested in, not worried about; 'post-quantum' should be 'post-quantistica'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La crittografia post-quantistica è ormai una priorità strategica per i governi preoccupati per la sicurezza dei dati a lungo termine.",
+          "list": null
+        }
+      ],
+      "itemHash": "70dd4597e38ee147",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-sc-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'in quanto' means 'because'; 'as (over time)' is 'man mano che'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le linee guida etiche dovrebbero evolversi man mano che i sistemi di intelligenza artificiale diventano più potenti.",
+          "list": null
+        }
+      ],
+      "itemHash": "de305256649f8be1",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-sc-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "L'automazione può aumentare la produttività e al tempo stesso ___ i mercati del lavoro.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "rimodellare",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "rimodellare",
+            "rimodella",
+            "rimodellato",
+            "rimodellando"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'può', parallel to 'aumentare'."
+          ]
+        }
+      ],
+      "itemHash": "3cedf00c78bb1a08",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    },
+    {
+      "id": "it-sc-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'regolatori' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a public debate on new technologies, you ask how regulators can encourage innovation without compromising public safety.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Come possono le autorità di regolamentazione incoraggiare l'innovazione senza compromettere la sicurezza pubblica?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How can regulators encourage innovation without compromising public safety?",
+          "list": null
+        }
+      ],
+      "itemHash": "8ef33765d1b703a5",
+      "appliedAt": "2026-10-22T10:00:51.533Z"
+    }
+  ]
+}

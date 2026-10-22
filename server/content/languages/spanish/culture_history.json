@@ -17,7 +17,7 @@
     "prompt": "Say: I love visiting old buildings.",
     "correctAnswer": "Me encanta visitar edificios antiguos.",
     "hints": [
-      "'Love' + gerund for a strong preference."
+      "'Encantar' + infinitive works like 'gustar'."
     ]
   },
   {
@@ -28,6 +28,10 @@
     "correctAnswer": "¿Este edificio es muy viejo?",
     "hints": [
       "A simple question about age."
+    ],
+    "acceptedAnswers": [
+      "¿Este edificio es muy antiguo?",
+      "¿Es muy antiguo este edificio?"
     ]
   },
   {
@@ -188,9 +192,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The museum has an impressive collection of Roman artifacts.",
-    "correctAnswer": "El museo tiene una impresionante colección de artefactos romanos.",
+    "correctAnswer": "El museo tiene una impresionante colección de piezas romanas.",
     "hints": [
-      "'Artefacts' are objects made or used by people in the past."
+      "'Piezas' = objects in a museum collection."
+    ],
+    "acceptedAnswers": [
+      "El museo tiene una impresionante colección de objetos romanos."
     ]
   },
   {
@@ -198,9 +205,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The local folk music here is quite different from what I am used to.",
-    "correctAnswer": "La música popular local aquí es muy diferente de lo que estoy acostumbrado.",
+    "correctAnswer": "La música folclórica de aquí es bastante diferente de aquello a lo que estoy acostumbrado.",
     "hints": [
       "'I am used to' means accustomed to."
+    ],
+    "acceptedAnswers": [
+      "La música popular de aquí es bastante distinta a la que estoy acostumbrado.",
+      "La música popular de aquí es bastante distinta a la que estoy acostumbrada."
     ]
   },
   {
@@ -218,7 +229,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We attended the opening night of a new exhibition at the gallery.",
-    "correctAnswer": "Asistieron a la noche de apertura de una nueva exposición en la galería.",
+    "correctAnswer": "Asistimos a la inauguración de una nueva exposición en la galería.",
     "hints": [
       "'Attended' = went to; 'opening night' = the first evening."
     ]
@@ -227,13 +238,12 @@
     "id": "es-ch-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Shakespeare wrote thirty-seven plays during his lifetime.",
-    "correctAnswer": "Shakespeare escribió treinta y siete obras durante su vida.",
+    "prompt": "Say: Cervantes published the first part of Don Quixote in 1605.",
+    "correctAnswer": "Cervantes publicó la primera parte del Quijote en 1605.",
     "hints": [
-      "Past simple for a completed historical fact.",
-      "Shakespeare is considered the greatest writer in the English language."
+      "Preterite 'publicó' for a completed historical fact."
     ],
-    "culturalNote": "William Shakespeare (1564–1616) is considered the greatest writer in the English language. His works are still performed in theaters worldwide."
+    "culturalNote": "Miguel de Cervantes (1547–1616) is considered the greatest writer in the Spanish language; 'Don Quijote' is often called the first modern novel."
   },
   {
     "level": "a2",
@@ -259,10 +269,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Why do people celebrate this holiday?",
-    "correctAnswer": "¿Por qué celebran estas vacaciones?",
+    "prompt": "¿Por qué la gente ___ esta fiesta?",
+    "correctAnswer": "celebra",
     "hints": [
-      "History/culture curiosity."
+      "'La gente' takes a singular verb."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-cu-a2-51"
@@ -284,7 +294,7 @@
     "prompt": "Ask: Do you think colonialism has left a lasting impact on contemporary culture?",
     "correctAnswer": "¿Crees que el colonialismo ha dejado un impacto duradero en la cultura contemporánea?",
     "hints": [
-      "'Colonialism' = the practice of colonising other countries; 'lasting impact' = long-term effect."
+      "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
     ]
   },
   {
@@ -302,7 +312,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I visited the archaeological site and was struck by the scale of the ancient ruins.",
-    "correctAnswer": "Visité el sitio arqueológico y fui golpeado por la escala de las ruinas antiguas.",
+    "correctAnswer": "Visité el yacimiento arqueológico y me impresionó la magnitud de las ruinas.",
     "hints": [
       "'Was struck by' = was impressed by; 'archaeological site' = a place of historical excavation."
     ]
@@ -322,7 +332,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How does a country reconcile pride in its history with acknowledgement of past wrongs?",
-    "correctAnswer": "¿Cómo un país concilia el orgullo de su historia con el reconocimiento de los errores pasados?",
+    "correctAnswer": "¿Cómo concilia un país el orgullo por su historia con el reconocimiento de los errores del pasado?",
     "hints": [
       "'Reconcile' = bring into harmony; a discussion about national identity and responsibility."
     ]
@@ -334,7 +344,7 @@
     "prompt": "Say: The Renaissance was characterised by a renewed interest in classical antiquity and humanist philosophy.",
     "correctAnswer": "El Renacimiento se caracterizó por un renovado interés por la antigüedad clásica y la filosofía humanista.",
     "hints": [
-      "'Characterised by' = defined or typified by; 'antiquity' = ancient times.",
+      "'Caracterizarse por' = to be characterized by; 'antigüedad' = ancient times.",
       "'Humanist' thought placed humans, not God, at the center of intellectual life."
     ],
     "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought."
@@ -354,7 +364,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Someone asks what you found most moving during a museum visit.",
-    "correctAnswer": "Las cartas y diarios personales me dieron un sentido mucho más fuerte de cómo era la vida en ese momento.",
+    "correctAnswer": "Las cartas y diarios personales me hicieron entender mucho mejor cómo era la vida en aquella época.",
     "hints": [
       "Ground your response in specific artifacts; use 'gave me a sense of'."
     ],
@@ -394,10 +404,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which historical period do you find most fascinating?",
-    "correctAnswer": "¿Qué periodo histórico encuentras más fascinante?",
+    "prompt": "¿Qué periodo histórico te ___ más fascinante?",
+    "correctAnswer": "parece",
     "hints": [
-      "Opinion prompt."
+      "'Parecer' = to seem, used with an indirect object pronoun."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-cu-b1-61"
@@ -407,7 +417,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The repatriation of colonial artifacts remains one of the most contentious debates in contemporary museum practice.",
-    "correctAnswer": "La repatriación de los artefactos coloniales sigue siendo uno de los debates más controvertidos en la práctica del museo contemporáneo.",
+    "correctAnswer": "La repatriación de piezas coloniales sigue siendo uno de los debates más polémicos de la museología actual.",
     "hints": [
       "'Repatriation' = returning objects to their country of origin; 'contentious' = causing debate."
     ],
@@ -418,7 +428,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: To what extent does national mythology construct a selective and self-serving version of historical events?",
-    "correctAnswer": "¿En qué medida la mitología nacional construye una versión selectiva y autoservadora de acontecimientos históricos?",
+    "correctAnswer": "¿Hasta qué punto construye la mitología nacional una versión selectiva e interesada de los acontecimientos históricos?",
     "hints": [
       "'National mythology' = the stories a nation tells about itself; 'self-serving' = benefiting those in power."
     ]
@@ -428,9 +438,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Enlightenment represented a fundamental epistemic shift that placed reason above religious authority.",
-    "correctAnswer": "La Ilustración representaba un cambio epistémico fundamental que situaba la razón por encima de la autoridad religiosa.",
+    "correctAnswer": "La Ilustración supuso un cambio epistémico fundamental que situó la razón por encima de la autoridad religiosa.",
     "hints": [
-      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritised rationality over faith."
+      "'Epistémico' = relating to knowledge; 'placed reason above' = prioritized rationality over faith."
     ]
   },
   {
@@ -448,7 +458,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The concept of a Western canon has been challenged by scholars arguing for a more globally inclusive literary tradition.",
-    "correctAnswer": "El concepto de un canon occidental ha sido desafiado por los eruditos que argumentan por una tradición literaria más globalmente incluyente.",
+    "correctAnswer": "El concepto de un canon occidental ha sido cuestionado por académicos que abogan por una tradición literaria más inclusiva a escala global.",
     "hints": [
       "'Canon' = an authoritative list of great works; 'inclusive' = welcoming of diverse perspectives."
     ]
@@ -496,10 +506,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Cultural heritage can strengthen social cohesion across generations.",
-    "correctAnswer": "El patrimonio cultural puede fortalecer la cohesión social a través de las generaciones.",
+    "prompt": "El patrimonio cultural puede fortalecer la ___ social entre generaciones.",
+    "correctAnswer": "cohesión",
     "hints": [
-      "Advanced abstract wording."
+      "A noun meaning 'the bonds that hold a group together'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-cu-b2-70"
@@ -507,13 +517,12 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should societies balance preservation with modernization?",
+    "prompt": "Choose the best response. City planners want to replace a historic market with a modern shopping center.",
     "correctAnswer": "¿Cómo deben las sociedades equilibrar la preservación con la modernización?",
     "hints": [
       "Complex policy-style question."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Cultural references vary by region and period.",
     "id": "es-cu-b2-71"
   }
 ]

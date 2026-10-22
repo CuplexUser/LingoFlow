@@ -15,9 +15,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: It is raining outside.",
-    "correctAnswer": "Det regnar utanför.",
+    "correctAnswer": "Det regnar ute.",
     "hints": [
-      "Use 'it is' for weather descriptions."
+      "Weather verbs take the dummy subject 'det': 'det regnar'."
     ]
   },
   {
@@ -25,9 +25,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: What is the weather like today?",
-    "correctAnswer": "Vad är vädret som idag?",
+    "correctAnswer": "Hur är vädret i dag?",
     "hints": [
-      "'What is it like' asks for a description."
+      "Swedes ask 'Hur är vädret?' (How is the weather?)."
+    ],
+    "acceptedAnswers": [
+      "Hur är vädret idag?",
+      "Vad är det för väder i dag?"
     ]
   },
   {
@@ -57,7 +61,7 @@
     "prompt": "Vocabulary: the coldest season of the year",
     "correctAnswer": "vinter",
     "hints": [
-      "It comes after autumn."
+      "It comes after fall."
     ],
     "exerciseType": "flashcard"
   },
@@ -99,6 +103,10 @@
     "correctAnswer": "Jag gick i skogen igår.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "acceptedAnswers": [
+      "Jag promenerade i skogen igår.",
+      "Jag tog en promenad i skogen igår."
     ]
   },
   {
@@ -158,9 +166,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The river has flooded after several days of heavy rain.",
-    "correctAnswer": "Floden har översvämmats efter flera dagar av kraftigt regn.",
+    "correctAnswer": "Floden har svämmat över efter flera dagars kraftigt regn.",
     "hints": [
       "Present perfect for a recent event with a visible result."
+    ],
+    "acceptedAnswers": [
+      "Ån har svämmat över efter flera dagars kraftigt regn."
     ]
   },
   {
@@ -170,7 +181,10 @@
     "prompt": "Say: I saw a family of deer in the park this morning.",
     "correctAnswer": "Jag såg en hjortfamilj i parken i morse.",
     "hints": [
-      "'Deer' is both singular and plural."
+      "'Hjort' = deer; the small deer common in Sweden is 'rådjur'."
+    ],
+    "acceptedAnswers": [
+      "Jag såg en familj rådjur i parken i morse."
     ]
   },
   {
@@ -188,7 +202,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The storm caused damage to several trees in the neighborhood.",
-    "correctAnswer": "Stormen orsakade skador på flera träd i grannskapet.",
+    "correctAnswer": "Stormen orsakade skador på flera träd i området.",
     "hints": [
       "'Caused damage to' = harmed or destroyed."
     ]
@@ -197,10 +211,13 @@
     "id": "sv-na-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I recycle my rubbish to help protect the environment.",
-    "correctAnswer": "Jag återvinner mitt skräp för att skydda miljön.",
+    "prompt": "Say: I recycle my trash to help protect the environment.",
+    "correctAnswer": "Jag källsorterar mina sopor för att hjälpa till att skydda miljön.",
     "hints": [
       "State an eco-friendly habit with purpose."
+    ],
+    "acceptedAnswers": [
+      "Jag återvinner mitt skräp för att hjälpa till att skydda miljön."
     ]
   },
   {
@@ -208,9 +225,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often do you go walking in the countryside?",
-    "correctAnswer": "Hur ofta går du på landsbygden?",
+    "correctAnswer": "Hur ofta går du ut och promenerar på landet?",
     "hints": [
       "'How often' asks about frequency."
+    ],
+    "acceptedAnswers": [
+      "Hur ofta tar du promenader på landet?"
     ]
   },
   {
@@ -228,9 +248,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We planted a vegetable garden in the spring.",
-    "correctAnswer": "Vi planterade en grönsaksträdgård på våren.",
+    "correctAnswer": "Vi anlade en köksträdgård i våras.",
     "hints": [
       "Simple past for a seasonal activity."
+    ],
+    "acceptedAnswers": [
+      "Vi planterade ett grönsaksland i våras."
     ]
   },
   {
@@ -257,20 +280,26 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can we protect wild animals?",
-    "correctAnswer": "Hur kan vi skydda vilda djur?",
+    "prompt": "Hur kan vi skydda ___ djur?",
+    "correctAnswer": "vilda",
     "hints": [
-      "Action-oriented question."
+      "Plural adjective agreeing with 'djur'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-na-a2-51"
+    "id": "sv-na-a2-51",
+    "clozeOptions": [
+      "vilda",
+      "vild",
+      "vilt",
+      "vildare"
+    ]
   },
   {
     "id": "sv-na-b1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Deforestation is one of the leading causes of habitat loss for many endangered species.",
-    "correctAnswer": "Avskogning är en av de ledande orsakerna till livsmiljöförlust för många hotade arter.",
+    "correctAnswer": "Avskogning är en av de främsta orsakerna till att många hotade arter förlorar sina livsmiljöer.",
     "hints": [
       "'Deforestation' = clearing forests; 'habitat loss' = destruction of animal living spaces."
     ]
@@ -290,7 +319,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What measures are being taken locally to protect pollinators such as bees?",
-    "correctAnswer": "Vilka åtgärder vidtas lokalt för att skydda pollinatorer som bin?",
+    "correctAnswer": "Vilka åtgärder vidtas lokalt för att skydda pollinerare som bin?",
     "hints": [
       "'Pollinators' = animals that help plants reproduce; 'measures' = actions taken."
     ]
@@ -300,7 +329,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Rewilding projects aim to restore natural ecosystems by reintroducing native species.",
-    "correctAnswer": "Rewilding projekt syftar till att återställa naturliga ekosystem genom att återinföra inhemska arter.",
+    "correctAnswer": "Projekt för återförvildning syftar till att återställa naturliga ekosystem genom att återinföra inhemska arter.",
     "hints": [
       "'Rewilding' = allowing nature to recover; 'native species' = animals or plants originally from an area."
     ]
@@ -320,7 +349,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Do you think urban green spaces have a measurable effect on mental health?",
-    "correctAnswer": "Tycker du att urbana grönområden har en mätbar effekt på mental hälsa?",
+    "correctAnswer": "Tycker du att grönområden i städer har en mätbar effekt på den psykiska hälsan?",
     "hints": [
       "'Green spaces' = parks and gardens; 'measurable effect' = a quantifiable impact."
     ]
@@ -340,19 +369,18 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was fortunate enough to witness a murmuration of starlings at dusk.",
-    "correctAnswer": "Jag hade turen att bevittna en mumlande stjärnbildning i skymningen.",
+    "correctAnswer": "Jag hade turen att få se en stor flock starar dansa i skymningen.",
     "hints": [
-      "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = at sunset.",
-      "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
+      "'Stare' (plural 'starar') = starling; Swedes describe their swirling flight as 'dansa'."
     ],
-    "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter."
+    "culturalNote": "In late summer and fall, huge flocks of starlings gather in southern Sweden, especially in Skåne, and perform swirling aerial displays before migrating."
   },
   {
     "id": "sv-na-b1-9",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Plastic pollution in the ocean poses a severe threat to marine life and food chains.",
-    "correctAnswer": "Plastföroreningar i havet utgör ett allvarligt hot mot marina liv och livsmedelskedjor.",
+    "correctAnswer": "Plastföroreningar i havet utgör ett allvarligt hot mot det marina livet och näringskedjorna.",
     "hints": [
       "'Poses a threat' = presents a danger; 'marine life' = living organisms in the sea."
     ]
@@ -362,11 +390,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks what you do to live more sustainably.",
-    "correctAnswer": "Jag försöker minska engångsplast, äta mindre kött och gå eller cykla istället för att köra.",
+    "correctAnswer": "Jag försöker dra ner på engångsplast, äta mindre kött och gå eller cykla i stället för att ta bilen.",
     "hints": [
       "List specific, concrete actions."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I try to cut down on single-use plastics, eat less meat, and walk or cycle instead of driving."
   },
   {
     "level": "b1",
@@ -392,20 +421,26 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What causes animal populations to decline?",
-    "correctAnswer": "Vad orsakar djurpopulationer att minska?",
+    "prompt": "Vad ___ djurpopulationer att minska?",
+    "correctAnswer": "får",
     "hints": [
-      "Scientific reasoning question."
+      "'Få något att' + infinitive = cause something to."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-na-b1-61"
+    "id": "sv-na-b1-61",
+    "clozeOptions": [
+      "får",
+      "gör",
+      "låter",
+      "ger"
+    ]
   },
   {
     "id": "sv-na-b2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The sixth mass extinction event, driven primarily by human activity, is already well underway.",
-    "correctAnswer": "Den sjätte massutrotningshändelsen, som främst drivs av mänsklig aktivitet, är redan på gång.",
+    "correctAnswer": "Det sjätte massutdöendet, främst orsakat av mänsklig aktivitet, är redan i full gång.",
     "hints": [
       "'Mass extinction' = widespread species die-off; 'well underway' = already in progress."
     ]
@@ -425,9 +460,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Tipping points in the climate system — such as the thawing of permafrost — could trigger irreversible feedback loops.",
-    "correctAnswer": "Tipspunkter i klimatsystemet - som tinaningen av permafrost - kan utlösa irreversibla återkopplingsslingor.",
+    "correctAnswer": "Tipppunkter i klimatsystemet – som att permafrosten tinar – kan utlösa oåterkalleliga återkopplingseffekter.",
     "hints": [
       "'Tipping points' = thresholds beyond which change becomes self-reinforcing; 'permafrost' = permanently frozen ground in Arctic regions."
+    ],
+    "acceptedAnswers": [
+      "Brytpunkter i klimatsystemet – som att permafrosten tinar – kan utlösa oåterkalleliga återkopplingseffekter."
     ]
   },
   {
@@ -435,7 +473,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Biodiversity loss undermines ecosystem services that underpin agricultural productivity and water security.",
-    "correctAnswer": "Förlust av biologisk mångfald undergräver ekosystemtjänster som ligger till grund för jordbruksproduktivitet och vattensäkerhet.",
+    "correctAnswer": "Förlusten av biologisk mångfald undergräver de ekosystemtjänster som jordbrukets produktivitet och vattenförsörjningen bygger på.",
     "hints": [
       "'Ecosystem services' = benefits humans receive from nature; 'underpin' = support from below."
     ]
@@ -445,7 +483,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The precautionary principle holds that a lack of scientific certainty should not delay protective environmental measures.",
-    "correctAnswer": "Försiktighetsprincipen anser att bristen på vetenskaplig säkerhet inte bör fördröja skyddsåtgärder.",
+    "correctAnswer": "Försiktighetsprincipen innebär att brist på vetenskaplig säkerhet inte ska fördröja miljöskyddande åtgärder.",
     "hints": [
       "'Precautionary principle' = act to prevent harm even without complete proof."
     ]
@@ -455,7 +493,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Can market mechanisms alone effectively address environmental externalities, or is state intervention necessary?",
-    "correctAnswer": "Kan marknadsmekanismer enbart effektivt hantera miljöexterna, eller är statligt ingripande nödvändigt?",
+    "correctAnswer": "Kan marknadsmekanismer på egen hand hantera externa miljöeffekter effektivt, eller krävs statliga ingripanden?",
     "hints": [
       "'Externalities' = costs or benefits not reflected in market prices; 'market mechanisms' = price signals and incentives."
     ]
@@ -465,7 +503,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Deep-sea ecosystems remain poorly understood, yet face increasing threats from resource extraction and warming oceans.",
-    "correctAnswer": "Djupa havsekosystem förblir dåligt förstådda, men möter ökande hot från resursutvinning och uppvärmning av oceaner.",
+    "correctAnswer": "Djuphavets ekosystem är fortfarande dåligt utforskade, men hotas allt mer av resursutvinning och varmare hav.",
     "hints": [
       "'Resource extraction' = mining or drilling; 'yet' here means 'but also'."
     ]
@@ -475,7 +513,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The philosophical tradition of deep ecology argues for an intrinsic value of nature independent of human utility.",
-    "correctAnswer": "Den filosofiska traditionen av djup ekologi argumenterar för ett inneboende värde av naturen oberoende av mänsklig nytta.",
+    "correctAnswer": "Djupekologin, som filosofisk tradition, hävdar att naturen har ett egenvärde oberoende av sin nytta för människan.",
     "hints": [
       "'Deep ecology' = a philosophy that values nature for its own sake; 'intrinsic value' = value in itself."
     ]
@@ -493,23 +531,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Conservation strategies must consider both ecology and local livelihoods.",
-    "correctAnswer": "Bevarandestrategier måste överväga både ekologi och lokal försörjning.",
+    "prompt": "Bevarandestrategier måste ta hänsyn till både ekologin och lokalbefolkningens ___.",
+    "correctAnswer": "försörjning",
     "hints": [
-      "Balanced policy sentence."
+      "A noun meaning 'livelihood'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-na-b2-70"
+    "id": "sv-na-b2-70",
+    "clozeOptions": [
+      "försörjning",
+      "försörja",
+      "försörjde",
+      "försörjer"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which environmental interventions deliver the greatest long-term impact?",
+    "prompt": "Dialogue: At a climate workshop, you ask the experts which environmental interventions have the greatest long-term impact.",
     "correctAnswer": "Vilka miljöinsatser ger störst långsiktig effekt?",
     "hints": [
       "Analytical question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-na-b2-71"
+    "id": "sv-na-b2-71",
+    "answerEnglish": "Which environmental interventions have the greatest long-term impact?"
   }
 ]

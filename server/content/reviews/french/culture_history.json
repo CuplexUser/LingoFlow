@@ -1,0 +1,611 @@
+{
+  "language": "french",
+  "category": "culture_history",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:20:55.077Z",
+  "contentHash": "1ee086a578217867",
+  "summary": "Solid overall, with most B2 sentences correct. The main problems are a few outright mistranslations (J'ai appris ce pays, ces vacances for a holiday, ce que la vie était en fait), a Shakespeare item carried over from the English course, British spellings in prompts and hints, and the usual unanswerable cloze items with no blank plus a dialogue_turn with no situation. The 'sculpture' lint warning is a false alarm.",
+  "findings": [
+    {
+      "id": "fr-ch-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes the English gerund; French uses 'adorer' + infinitive.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Adorer' + infinitive = to love doing something."
+          ]
+        }
+      ],
+      "itemHash": "b64e9fea40d42cad",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A traditional festival is usually 'une fête'; 'festival' suggests an arts or music event. Not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'est une fête traditionnelle."
+          ]
+        }
+      ],
+      "itemHash": "f071b2738b16a963",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine speaker form 'allée' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis allée au théâtre le week-end dernier."
+          ]
+        }
+      ],
+      "itemHash": "4ac1a5d6b701149a",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The direct translation 'beau' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ce tableau est beau.",
+            "Ce tableau est très beau."
+          ]
+        }
+      ],
+      "itemHash": "30a8d23c56fe0851",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'apprendre les coutumes' means memorizing them; 'learn about' is 'découvrir'. Hint explains English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je trouve fascinant de découvrir différentes coutumes et traditions.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je trouve fascinant d'en apprendre plus sur les différentes coutumes et traditions."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Trouver fascinant de' + infinitive expresses a reaction."
+          ]
+        }
+      ],
+      "itemHash": "98a1c8c0fff2cddf",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a2-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British spelling 'Artefacts'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Artifacts' are objects made or used by people in the past."
+          ]
+        }
+      ],
+      "itemHash": "0d5f9a07d0c752e2",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'habituée' is not accepted; 'locale ici' is redundant.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La musique folklorique d'ici est très différente de ce à quoi je suis habitué.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La musique folklorique d'ici est très différente de ce à quoi je suis habituée.",
+            "La musique folklorique locale est assez différente de ce à quoi je suis habitué.",
+            "La musique folklorique locale est assez différente de ce à quoi je suis habituée."
+          ]
+        }
+      ],
+      "itemHash": "18a6cb20a393712c",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'l'histoire derrière' is a calque; French asks about the 'origine'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quelle est l'origine de cette tradition ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "D'où vient cette tradition ?",
+            "Quelle est l'histoire de cette tradition ?"
+          ]
+        }
+      ],
+      "itemHash": "73a28316b0a114c9",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The French term for an exhibition opening, 'vernissage', is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nous avons assisté au vernissage d'une nouvelle exposition à la galerie."
+          ]
+        }
+      ],
+      "itemHash": "3ad76eca7941237a",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-a2-10",
+      "severity": "error",
+      "kind": "cultural-note",
+      "problem": "Leftover from the English course (Shakespeare as 'the greatest writer in the English language'), and 'de sa vie' is wrong for 'during his lifetime'. Rewritten to the French equivalent.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Molière wrote about thirty plays during his lifetime.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Molière a écrit une trentaine de pièces au cours de sa vie.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Une trentaine de' = about thirty; 'au cours de sa vie' = during his lifetime."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "Molière (1622–1673) is France's most celebrated playwright; French is often called 'la langue de Molière'. His comedies are still staged at the Comédie-Française.",
+          "list": null
+        }
+      ],
+      "itemHash": "1a9894b2b7e62f8e",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-cu-a2-50",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'J'ai appris ce pays' is ungrammatical; one learns 'des choses sur' a country or 'studies' it.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai étudié ce pays à l'école.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai appris des choses sur ce pays à l'école."
+          ]
+        }
+      ],
+      "itemHash": "32281f0d050578d4",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-cu-a2-51",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'vacances' means vacation, not a celebrated holiday; the cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Pourquoi les gens célèbrent-ils cette ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fête",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "fête",
+            "vacances",
+            "congé",
+            "saison"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A holiday you celebrate is 'une fête'; 'les vacances' is time off."
+          ]
+        }
+      ],
+      "itemHash": "f880a440c265f7a9",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'ceux qui vivent dans la culture' is a calque; French says 'ceux qui en font partie'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le patrimoine culturel façonne l'identité nationale de manière souvent invisible pour ceux qui en font partie.",
+          "list": null
+        }
+      ],
+      "itemHash": "e1080e5e81b54de7",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British spelling 'colonising'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
+          ]
+        }
+      ],
+      "itemHash": "cb6f232fcfdacf04",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'l'échelle' is a calque of 'scale'; French says 'l'ampleur'. Feminine 'frappée' is not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai visité le site archéologique et j'ai été frappé par l'ampleur des ruines antiques.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai visité le site archéologique et j'ai été frappée par l'ampleur des ruines antiques."
+          ]
+        }
+      ],
+      "itemHash": "93ccff5c1539ad70",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'où' right after 'l'histoire' reads as 'the history in which'; 'là où ... faisaient défaut' is clear.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les traditions orales ont joué un rôle crucial dans la préservation de l'histoire là où les documents écrits faisaient défaut.",
+          "list": null
+        }
+      ],
+      "itemHash": "a630c9634aae1021",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Bringing two things into harmony is 'concilier ... et'; 'réconcilier' is for people.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Comment un pays concilie-t-il la fierté de son histoire et la reconnaissance des torts du passé ?",
+          "list": null
+        }
+      ],
+      "itemHash": "a8c397bd65be0f57",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Past 'was characterized' is rendered in the present; 'l'Antiquité' takes a capital; prompt and hint use British 'characterised'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "La Renaissance s'est caractérisée par un intérêt renouvelé pour l'Antiquité classique et la philosophie humaniste.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La Renaissance se caractérisait par un intérêt renouvelé pour l'Antiquité classique et la philosophie humaniste.",
+            "La Renaissance se caractérise par un intérêt renouvelé pour l'Antiquité classique et la philosophie humaniste."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Characterized by' = defined or typified by; 'antiquity' = ancient times.",
+            "'Humanist' thought placed humans, not God, at the center of intellectual life."
+          ]
+        }
+      ],
+      "itemHash": "cb376155b3b6f3a6",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1-8",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British spelling 'Globalisation'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
+          "list": null
+        }
+      ],
+      "itemHash": "4942acf52f6031d6",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b1-9",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay item has no answerEnglish; 'ce que la vie était en fait' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les lettres et les journaux intimes m'ont donné une idée beaucoup plus juste de ce qu'était vraiment la vie à l'époque.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "The letters and personal diaries gave me a much stronger sense of what life was really like back then.",
+          "list": null
+        }
+      ],
+      "itemHash": "3c6c4767b3cb5a88",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-cu-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quelle période historique trouvez-vous la plus ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fascinante",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "fascinante",
+            "fascinant",
+            "fascinantes",
+            "fascinée"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The adjective agrees with 'période' (feminine singular)."
+          ]
+        }
+      ],
+      "itemHash": "77f79b18c902392b",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b2-2",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'égocentrique' means self-centered; 'self-serving' is 'complaisante' or 'intéressée'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dans quelle mesure la mythologie nationale construit-elle une version sélective et complaisante des événements historiques ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Dans quelle mesure la mythologie nationale construit-elle une version sélective et intéressée des événements historiques ?"
+          ]
+        }
+      ],
+      "itemHash": "6fd0203670a386c8",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b2-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British spelling 'prioritised'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Epistemic' = relating to knowledge; 'placed reason above' = prioritized rationality over faith."
+          ]
+        }
+      ],
+      "itemHash": "c9058c930da144dd",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-ch-b2-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'plus globale' drops 'inclusive'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le concept de canon occidental a été remis en question par des chercheurs qui plaident pour une tradition littéraire plus inclusive à l'échelle mondiale.",
+          "list": null
+        }
+      ],
+      "itemHash": "db29f00075628495",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-cu-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'une prise de conscience de la perspective' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Interpréter l'histoire exige d'être conscient des points de vue et des biais.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'interprétation de l'histoire exige d'être conscient des points de vue et des biais."
+          ]
+        }
+      ],
+      "itemHash": "364943e00d182de0",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-cu-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Le patrimoine culturel peut renforcer la ___ sociale au fil des générations.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "cohésion",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "cohésion",
+            "cohérence",
+            "collision",
+            "coalition"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The word for 'cohesion' (people holding together)."
+          ]
+        }
+      ],
+      "itemHash": "f4bfd46932ffd560",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    },
+    {
+      "id": "fr-cu-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn item has no situation or answerEnglish; the culturalNote is generic filler.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a town meeting about renovating the historic center, you ask how societies should balance preservation with modernization.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should societies balance preservation with modernization?",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "e0ae5cabece91cd8",
+      "appliedAt": "2026-10-22T09:34:57.851Z"
+    }
+  ]
+}

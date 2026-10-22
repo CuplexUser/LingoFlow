@@ -3,10 +3,10 @@
     "id": "sv-gr-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'She ___ a teacher.' (to be)",
+    "prompt": "Say: She is a teacher.",
     "correctAnswer": "Hon är lärare.",
     "hints": [
-      "Use the correct form of 'to be' for she."
+      "No article before a profession: 'Hon är lärare'."
     ]
   },
   {
@@ -16,39 +16,48 @@
     "prompt": "Say: They are my friends.",
     "correctAnswer": "De är mina vänner.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Är' has the same form for all persons; 'mina' agrees with the plural 'vänner'."
     ]
   },
   {
     "id": "sv-gr-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'I ___ like coffee.' (not)",
+    "prompt": "Say: I do not like coffee.",
     "correctAnswer": "Jag gillar inte kaffe.",
     "hints": [
-      "For present simple negative, use 'do not'."
+      "'Inte' comes right after the verb in a main clause."
+    ],
+    "acceptedAnswers": [
+      "Jag tycker inte om kaffe."
     ]
   },
   {
     "id": "sv-gr-13",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'We ___ students.' (to be)",
+    "prompt": "Say: We are students.",
     "correctAnswer": "Vi är studenter.",
     "hints": [
-      "'We' uses 'are'."
+      "'Är' is the same for every person; 'student' → 'studenter'."
     ]
   },
   {
     "id": "sv-gr-14",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the correct form: 'He ___ English every day.' (study)",
-    "correctAnswer": "Han studerar engelska varje dag.",
+    "prompt": "Han ___ engelska varje dag.",
+    "correctAnswer": "studerar",
     "hints": [
-      "Third person singular adds -s or -es to the verb."
+      "Swedish present tense ends in -r for every person."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "studerar",
+      "studera",
+      "studerat",
+      "studerande"
+    ]
   },
   {
     "id": "sv-gr-15",
@@ -57,29 +66,41 @@
     "prompt": "Say: There is a book on the table.",
     "correctAnswer": "Det finns en bok på bordet.",
     "hints": [
-      "Use 'there is' for one thing, 'there are' for more than one."
+      "'Det finns' = there is/are; for objects lying somewhere Swedes often say 'Det ligger'."
+    ],
+    "acceptedAnswers": [
+      "Det ligger en bok på bordet."
     ]
   },
   {
     "id": "sv-gr-16",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: '___ you like tea?' (to do)",
+    "prompt": "Ask: Do you like tea?",
     "correctAnswer": "Gillar du te?",
     "hints": [
-      "Yes/no questions in present simple use 'do'."
+      "Swedish yes/no questions start with the verb: 'Gillar du ...?'"
+    ],
+    "acceptedAnswers": [
+      "Tycker du om te?"
     ]
   },
   {
     "id": "sv-gr-17",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the article: 'She has ___ umbrella.' (a/an)",
-    "correctAnswer": "Hon har ett paraply.",
+    "prompt": "Hon har ___ paraply.",
+    "correctAnswer": "ett",
     "hints": [
-      "Use 'an' before a vowel sound."
+      "'Paraply' is an ett-word (neuter)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "ett",
+      "en",
+      "det",
+      "den"
+    ]
   },
   {
     "id": "sv-gr-18",
@@ -88,7 +109,7 @@
     "prompt": "Say: I am not tired.",
     "correctAnswer": "Jag är inte trött.",
     "hints": [
-      "Negative of 'to be': add 'not'."
+      "'Inte' follows the verb: 'Jag är inte'."
     ],
     "exerciseType": "build_sentence"
   },
@@ -96,10 +117,13 @@
     "id": "sv-gr-19",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'The cats ___ sleeping.' (to be)",
+    "prompt": "Say: The cats are sleeping.",
     "correctAnswer": "Katterna sover.",
     "hints": [
-      "Plural subject uses 'are' in the present continuous."
+      "Swedish uses the simple present for actions in progress."
+    ],
+    "acceptedAnswers": [
+      "Katterna ligger och sover."
     ]
   },
   {
@@ -108,7 +132,7 @@
     "prompt": "Say: She goes to school every day.",
     "correctAnswer": "Hon går till skolan varje dag.",
     "hints": [
-      "Notice the -s in third person singular."
+      "'Går' is the same for every person; 'till skolan' = to school."
     ],
     "id": "sv-gr-a1-39"
   },
@@ -118,16 +142,19 @@
     "prompt": "Say: They are happy.",
     "correctAnswer": "De är lyckliga.",
     "hints": [
-      "Use 'are' with 'they'."
+      "Adjectives take -a in the plural: 'glad' → 'glada'."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-gr-a1-40"
+    "id": "sv-gr-a1-40",
+    "acceptedAnswers": [
+      "De är glada."
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Is this sentence correct?",
-    "correctAnswer": "Är denna dom korrekt?",
+    "correctAnswer": "Är den här meningen korrekt?",
     "hints": [
       "Grammar-check question."
     ],
@@ -141,17 +168,24 @@
     "prompt": "Say: I went to the supermarket yesterday.",
     "correctAnswer": "Jag gick till stormarknaden igår.",
     "hints": [
-      "'Went' is the irregular past tense of 'go'."
+      "'Gick' is the irregular past tense of 'gå'."
+    ],
+    "acceptedAnswers": [
+      "Jag gick till mataffären igår.",
+      "Igår gick jag till affären."
     ]
   },
   {
     "id": "sv-gr-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'She ___ been waiting for an hour.' (have/has)",
-    "correctAnswer": "Hon har väntat en timme.",
+    "prompt": "Say: She has been waiting for an hour.",
+    "correctAnswer": "Hon har väntat i en timme.",
     "hints": [
-      "Third person singular uses 'has' in perfect tenses."
+      "Swedish uses the perfect (har väntat) for an action still going on."
+    ],
+    "acceptedAnswers": [
+      "Hon har väntat en timme."
     ]
   },
   {
@@ -159,30 +193,43 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: If it rains, we will stay inside.",
-    "correctAnswer": "Om det regnar kommer vi att stanna inom oss.",
+    "correctAnswer": "Om det regnar stannar vi inne.",
     "hints": [
-      "First conditional: 'if' + present simple, 'will' + infinitive."
+      "Swedish often uses the present for the future; note the inverted 'stannar vi'."
+    ],
+    "acceptedAnswers": [
+      "Om det regnar kommer vi att stanna inne."
     ]
   },
   {
     "id": "sv-gr-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct form: 'I ___ to the cinema last Saturday.' (go)",
-    "correctAnswer": "Jag åkte till bio i lördags.",
+    "prompt": "I lördags ___ jag på bio.",
+    "correctAnswer": "gick",
     "hints": [
-      "Use the simple past for a completed past event."
+      "Past tense of 'gå'; the verb comes second, so 'gick jag'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "gick",
+      "går",
+      "gått",
+      "gå"
+    ]
   },
   {
     "id": "sv-gr-21",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'He ___ working at seven this morning.' (was/were)",
-    "correctAnswer": "Han arbetade på sju i morse.",
+    "prompt": "Say: At seven this morning he was working.",
+    "correctAnswer": "Klockan sju i morse jobbade han.",
     "hints": [
-      "He/she/it uses 'was' in past continuous."
+      "Swedish has no continuous tense; use the past or 'höll på att'."
+    ],
+    "acceptedAnswers": [
+      "Han jobbade klockan sju i morse.",
+      "Klockan sju i morse höll han på att jobba."
     ]
   },
   {
@@ -192,28 +239,37 @@
     "prompt": "Say: We have lived here for five years.",
     "correctAnswer": "Vi har bott här i fem år.",
     "hints": [
-      "Present perfect with 'for' expresses duration up to now."
+      "Perfect tense (har bott) + 'i' for a duration up to now."
     ]
   },
   {
     "id": "sv-gr-23",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct comparative: 'This book is ___ than the other one.' (interesting)",
-    "correctAnswer": "Denna bok är mer intressant än den andra.",
+    "prompt": "Den här boken är ___ intressant än den andra.",
+    "correctAnswer": "mer",
     "hints": [
-      "Long adjectives use 'more' for comparatives."
+      "Long adjectives use 'mer' for the comparative."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "mer",
+      "mest",
+      "mycket",
+      "fler"
+    ]
   },
   {
     "id": "sv-gr-24",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: '___ you been to Paris?' (have/has)",
+    "prompt": "Ask: Have you been to Paris?",
     "correctAnswer": "Har du varit i Paris?",
     "hints": [
-      "Question form of present perfect with 'you'."
+      "'Har du varit i' + place = have you been to."
+    ],
+    "acceptedAnswers": [
+      "Har du någonsin varit i Paris?"
     ]
   },
   {
@@ -230,10 +286,13 @@
     "id": "sv-gr-26",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'You should ___ more water.' (drink)",
+    "prompt": "Say: You should drink more water.",
     "correctAnswer": "Du bör dricka mer vatten.",
     "hints": [
-      "'Should' is followed by the base infinitive."
+      "'Bör/borde' + infinitive without 'att'."
+    ],
+    "acceptedAnswers": [
+      "Du borde dricka mer vatten."
     ]
   },
   {
@@ -260,13 +319,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Should I use much or many here?",
-    "correctAnswer": "Ska jag använda mycket eller många här?",
+    "prompt": "Jag har ___ vänner i Stockholm.",
+    "correctAnswer": "många",
     "hints": [
-      "Countability grammar prompt."
+      "'Många' with countable nouns, 'mycket' with uncountable."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-gr-a2-51"
+    "id": "sv-gr-a2-51",
+    "clozeOptions": [
+      "många",
+      "mycket",
+      "mer",
+      "mest"
+    ]
   },
   {
     "id": "sv-gr-7",
@@ -275,17 +340,20 @@
     "prompt": "Say: If I had more time, I would learn a third language.",
     "correctAnswer": "Om jag hade mer tid skulle jag lära mig ett tredje språk.",
     "hints": [
-      "Second conditional: 'if' + past simple, 'would' + infinitive."
+      "'Om' + past tense, then 'skulle' + infinitive; note the inverted 'skulle jag'."
     ]
   },
   {
     "id": "sv-gr-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'By the time she arrives, we ___ finished dinner.' (will have)",
-    "correctAnswer": "När hon anländer har vi avslutat middagen.",
+    "prompt": "Say: By the time she arrives, we will have finished dinner.",
+    "correctAnswer": "När hon kommer har vi redan ätit klart.",
     "hints": [
-      "Future perfect for an action completed before a future point."
+      "Swedish often uses the present perfect for a future completed action."
+    ],
+    "acceptedAnswers": [
+      "När hon kommer kommer vi att ha ätit klart."
     ]
   },
   {
@@ -293,21 +361,30 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Despite feeling tired, she continued working.",
-    "correctAnswer": "Trots trötthet fortsatte hon att arbeta.",
+    "correctAnswer": "Trots att hon var trött fortsatte hon att arbeta.",
     "hints": [
-      "'Despite' is followed by a noun or gerund (-ing form)."
+      "'Trots att' + clause, or 'trots' + noun."
+    ],
+    "acceptedAnswers": [
+      "Trots tröttheten fortsatte hon att jobba."
     ]
   },
   {
     "id": "sv-gr-27",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct passive form: 'The report ___ by the team last week.' (write)",
-    "correctAnswer": "Rapporten skrevs av laget förra veckan.",
+    "prompt": "Rapporten ___ av teamet förra veckan.",
+    "correctAnswer": "skrevs",
     "hints": [
-      "Passive past simple: was/were + past participle."
+      "The s-passive in the past tense: 'skrev' + s."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "skrevs",
+      "skriver",
+      "skrivit",
+      "skrivs"
+    ]
   },
   {
     "id": "sv-gr-28",
@@ -323,10 +400,10 @@
     "id": "sv-gr-29",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'I wish I ___ more time to practice.' (had/have)",
-    "correctAnswer": "Jag önskar att jag hade mer tid att träna.",
+    "prompt": "Say: I wish I had more time to practice.",
+    "correctAnswer": "Jag önskar att jag hade mer tid att öva.",
     "hints": [
-      "'I wish' + past simple expresses a present regret."
+      "'Önska att' + past tense for an unreal present wish."
     ]
   },
   {
@@ -334,19 +411,22 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Not only did she win the race, but she also broke the record.",
-    "correctAnswer": "Inte bara vann hon loppet, men hon bröt också rekordet.",
+    "correctAnswer": "Hon vann inte bara loppet, utan slog också rekordet.",
     "hints": [
-      "'Not only... but also' requires inversion after 'not only'."
+      "'Inte bara ... utan också' = not only ... but also."
+    ],
+    "acceptedAnswers": [
+      "Inte nog med att hon vann loppet, hon slog också rekordet."
     ]
   },
   {
     "id": "sv-gr-31",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'She is used to ___ early.' (wake)",
-    "correctAnswer": "Hon används för att vakna tidigt.",
+    "prompt": "Say: She is used to waking up early.",
+    "correctAnswer": "Hon är van vid att vakna tidigt.",
     "hints": [
-      "'Be used to' is followed by the gerund (-ing)."
+      "'Vara van vid att' + infinitive = to be used to doing."
     ]
   },
   {
@@ -354,7 +434,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The meeting was canceled owing to the poor weather conditions.",
-    "correctAnswer": "Mötet avbröts på grund av dåliga väderförhållanden.",
+    "correctAnswer": "Mötet ställdes in på grund av de dåliga väderförhållandena.",
     "hints": [
       "'Owing to' is a formal way of saying 'because of'."
     ]
@@ -363,18 +443,24 @@
     "id": "sv-gr-33",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct relative pronoun: 'The person ___ called left no message.' (who/which)",
-    "correctAnswer": "Den som ringde lämnade inget meddelande.",
+    "prompt": "Personen ___ ringde lämnade inget meddelande.",
+    "correctAnswer": "som",
     "hints": [
-      "Use 'who' for people; 'which' for things."
+      "'Som' is the relative pronoun for both people and things."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "som",
+      "vilket",
+      "vars",
+      "vad"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I wish I had more time to practice.",
-    "correctAnswer": "Jag önskar att jag hade mer tid att träna.",
+    "correctAnswer": "Jag önskar att jag hade mer tid att öva.",
     "hints": [
       "Use past form after 'wish' for present unreal situations."
     ],
@@ -394,13 +480,19 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: When should I use the passive voice?",
-    "correctAnswer": "När ska jag använda den passiva rösten?",
+    "prompt": "När ska jag använda ___ form?",
+    "correctAnswer": "passiv",
     "hints": [
-      "Usage question."
+      "Indefinite common-gender adjective agreeing with 'form'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-gr-b1-61"
+    "id": "sv-gr-b1-61",
+    "clozeOptions": [
+      "passiv",
+      "passivt",
+      "passiva",
+      "passivet"
+    ]
   },
   {
     "id": "sv-gr-10",
@@ -416,10 +508,10 @@
     "id": "sv-gr-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'Rarely ___ I see such attention to detail.' (have)",
+    "prompt": "Say: Rarely have I seen such attention to detail.",
     "correctAnswer": "Sällan har jag sett en sådan uppmärksamhet på detaljer.",
     "hints": [
-      "Fronted negative adverbs require subject-auxiliary inversion."
+      "The verb comes second in Swedish: after 'Sällan' comes 'har jag'."
     ]
   },
   {
@@ -436,10 +528,10 @@
     "id": "sv-gr-34",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'No sooner ___ she arrived than the meeting began.' (had)",
-    "correctAnswer": "Inte förr hade hon kommit än mötet började.",
+    "prompt": "Say: No sooner had she arrived than the meeting began.",
+    "correctAnswer": "Hon hade knappt kommit förrän mötet började.",
     "hints": [
-      "'No sooner' triggers inversion; 'than' follows rather than 'when'."
+      "'Knappt ... förrän' = no sooner ... than."
     ]
   },
   {
@@ -449,38 +541,47 @@
     "prompt": "Say: It is high time we addressed the underlying structural issues.",
     "correctAnswer": "Det är hög tid att vi behandlar de underliggande strukturella frågorna.",
     "hints": [
-      "'It is high time' + past subjunctive expresses urgency."
+      "'Det är hög tid att' + clause; Swedish keeps normal tense here."
     ]
   },
   {
     "id": "sv-gr-36",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the correct form: 'The data ___ analysed before any conclusions can be drawn.' (must be)",
-    "correctAnswer": "Uppgifterna ska analyseras innan eventuella slutsatser kan dras.",
+    "prompt": "Uppgifterna måste ___ innan några slutsatser kan dras.",
+    "correctAnswer": "analyseras",
     "hints": [
-      "Modal passive: modal + be + past participle."
+      "Modal + s-passive infinitive."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "analyseras",
+      "analysera",
+      "analyserade",
+      "analyserat"
+    ]
   },
   {
     "id": "sv-gr-37",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Were she to apply, she would be a strong candidate for the position.",
-    "correctAnswer": "Om hon skulle ansöka, skulle hon vara en stark kandidat för positionen.",
+    "correctAnswer": "Om hon skulle söka tjänsten vore hon en stark kandidat.",
     "hints": [
       "Inverted conditional with 'were to' for formal, hypothetical situations."
+    ],
+    "acceptedAnswers": [
+      "Om hon sökte tjänsten skulle hon vara en stark kandidat."
     ]
   },
   {
     "id": "sv-gr-38",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'The more you practice, ___ you become.' (fluent)",
+    "prompt": "Say: The more you practice, the more fluent you become.",
     "correctAnswer": "Ju mer du övar, desto mer flytande blir du.",
     "hints": [
-      "'The more... the more...' is a comparative structure expressing proportional change."
+      "'Ju ... desto ...' = the more ... the more ..."
     ]
   },
   {
@@ -496,23 +597,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Not only did she finish on time, but she also improved the draft.",
-    "correctAnswer": "Hon avslutade inte bara i tid, men hon förbättrade också utkastet.",
+    "prompt": "Hon blev inte bara klar i tid, ___ hon förbättrade också utkastet.",
+    "correctAnswer": "utan",
     "hints": [
-      "Inversion after negative adverbials."
+      "'Inte bara ... utan också' = not only ... but also."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-gr-b2-70"
+    "id": "sv-gr-b2-70",
+    "clozeOptions": [
+      "utan",
+      "men",
+      "och",
+      "eller"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How does emphasis change when we front a phrase?",
-    "correctAnswer": "Hur ändras betoning när vi frontar en fras?",
+    "prompt": "Dialogue: In grammar class, you ask your teacher about moving a phrase to the start of a sentence.",
+    "correctAnswer": "Hur förändras betoningen när vi flyttar fram en fras till början av meningen?",
     "hints": [
       "Advanced grammar awareness question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-gr-b2-71"
+    "id": "sv-gr-b2-71",
+    "answerEnglish": "How does the emphasis change when we move a phrase to the start of the sentence?"
   }
 ]

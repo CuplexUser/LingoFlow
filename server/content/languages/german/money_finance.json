@@ -6,7 +6,7 @@
     "prompt": "Ask: How much does this cost?",
     "correctAnswer": "Wie viel kostet das?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Wie viel kostet...?' = how much does ... cost?"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "prompt": "Say: I do not have enough money.",
     "correctAnswer": "Ich habe nicht genug Geld.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Nicht genug' + noun = not enough."
     ]
   },
   {
@@ -26,7 +26,11 @@
     "prompt": "Ask: Can I pay by card?",
     "correctAnswer": "Kann ich mit der Karte bezahlen?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Mit (der) Karte zahlen' = to pay by card."
+    ],
+    "acceptedAnswers": [
+      "Kann ich mit Karte zahlen?",
+      "Kann ich mit Karte bezahlen?"
     ]
   },
   {
@@ -47,6 +51,10 @@
     "correctAnswer": "Akzeptieren Sie Bargeld?",
     "hints": [
       "A useful question when paying for something."
+    ],
+    "acceptedAnswers": [
+      "Kann ich bar bezahlen?",
+      "Nehmen Sie Bargeld?"
     ]
   },
   {
@@ -54,11 +62,16 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a card used to take money directly from your bank account",
-    "correctAnswer": "debitkarte",
+    "correctAnswer": "die Debitkarte",
     "hints": [
       "Different from a credit card."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Debitkarte",
+      "die EC-Karte",
+      "die Girocard"
+    ]
   },
   {
     "id": "de-mf-a1-7",
@@ -75,9 +88,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My salary is paid every month.",
-    "correctAnswer": "Mein Gehalt wird jeden Monat bezahlt.",
+    "correctAnswer": "Mein Gehalt wird jeden Monat ausgezahlt.",
     "hints": [
       "State how often you are paid."
+    ],
+    "acceptedAnswers": [
+      "Ich bekomme mein Gehalt jeden Monat."
     ]
   },
   {
@@ -85,9 +101,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Can I have a receipt, please?",
-    "correctAnswer": "Kann ich eine Quittung haben?",
+    "correctAnswer": "Kann ich bitte eine Quittung haben?",
     "hints": [
       "A receipt is proof that you paid."
+    ],
+    "acceptedAnswers": [
+      "Kann ich bitte den Kassenbon haben?"
     ]
   },
   {
@@ -95,9 +114,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I save a little money each month.",
-    "correctAnswer": "Ich rette jeden Monat etwas Geld.",
+    "correctAnswer": "Ich spare jeden Monat etwas Geld.",
     "hints": [
-      "'A little' is used with uncountable nouns."
+      "'Sparen' = to save (money); 'etwas' = a little."
     ]
   },
   {
@@ -146,7 +165,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I spend too much money on eating out.",
-    "correctAnswer": "Ich verbringe zu viel Geld beim Essen.",
+    "correctAnswer": "Ich gebe zu viel Geld fürs Essengehen aus.",
     "hints": [
       "'Spend money on' + noun/gerund."
     ]
@@ -166,7 +185,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I transferred the money online this morning.",
-    "correctAnswer": "Ich habe das Geld heute Morgen online transferiert.",
+    "correctAnswer": "Ich habe das Geld heute Morgen online überwiesen.",
     "hints": [
       "'Transferred' = moved money from one account to another."
     ]
@@ -176,7 +195,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My rent comes out of my account on the first of the month.",
-    "correctAnswer": "Meine Miete kommt aus meinem Konto auf dem ersten Monat.",
+    "correctAnswer": "Die Miete wird am Ersten des Monats von meinem Konto abgebucht.",
     "hints": [
       "'Comes out of' means is deducted from."
     ]
@@ -196,7 +215,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am trying to cut back on unnecessary spending.",
-    "correctAnswer": "Ich versuche, unnötige Ausgaben zurückzunehmen.",
+    "correctAnswer": "Ich versuche, unnötige Ausgaben einzuschränken.",
     "hints": [
       "'Cut back on' means reduce."
     ]
@@ -206,7 +225,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I took out a loan to buy my first car.",
-    "correctAnswer": "Ich habe mir einen Kredit genommen, um mein erstes Auto zu kaufen.",
+    "correctAnswer": "Ich habe einen Kredit aufgenommen, um mein erstes Auto zu kaufen.",
     "hints": [
       "'Take out a loan' means borrow money from a bank."
     ]
@@ -225,7 +244,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I set a budget for groceries every week.",
-    "correctAnswer": "Ich habe jede Woche ein Budget für Lebensmittel festgelegt.",
+    "correctAnswer": "Ich lege jede Woche ein Budget für Lebensmittel fest.",
     "hints": [
       "Budget vocabulary."
     ],
@@ -245,10 +264,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How much should I save each month?",
-    "correctAnswer": "Wie viel sollte ich jeden Monat sparen?",
+    "prompt": "Wie viel sollte ich jeden Monat ___?",
+    "correctAnswer": "sparen",
     "hints": [
-      "Planning question."
+      "The opposite of 'ausgeben'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-mo-a2-51"
@@ -258,7 +277,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been trying to build up an emergency fund covering three months of expenses.",
-    "correctAnswer": "Ich habe versucht, einen Notfallfonds zu errichten, der drei Monate der Ausgaben abdeckt.",
+    "correctAnswer": "Ich versuche seit einiger Zeit, einen Notgroschen aufzubauen, der die Ausgaben von drei Monaten abdeckt.",
     "hints": [
       "'Build up' = accumulate gradually; an emergency fund is money set aside for unexpected costs."
     ]
@@ -268,7 +287,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would it be worth overpaying on my mortgage to reduce the term?",
-    "correctAnswer": "Wäre es wert, meine Hypothek zu überzahlen, um den Begriff zu reduzieren?",
+    "correctAnswer": "Lohnt es sich, Sondertilgungen auf meine Hypothek zu leisten, um die Laufzeit zu verkürzen?",
     "hints": [
       "'Overpaying' = paying more than the minimum; 'term' = the length of the mortgage."
     ]
@@ -278,7 +297,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am trying to diversify my income streams rather than relying solely on my salary.",
-    "correctAnswer": "Ich versuche, meine Einkommensströme zu diversifizieren, anstatt sich allein auf mein Gehalt zu verlassen.",
+    "correctAnswer": "Ich versuche, mehrere Einkommensquellen aufzubauen, anstatt mich nur auf mein Gehalt zu verlassen.",
     "hints": [
       "'Diversify' = spread; 'income streams' = different sources of money."
     ]
@@ -288,7 +307,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Compound interest means that your savings grow faster the longer you keep them invested.",
-    "correctAnswer": "Verbundenes Interesse bedeutet, dass Ihre Einsparungen schneller wachsen, je länger Sie sie investiert haben.",
+    "correctAnswer": "Der Zinseszins bewirkt, dass Ihre Ersparnisse umso schneller wachsen, je länger Sie sie angelegt lassen.",
     "hints": [
       "'Compound interest' = interest earned on both the original amount and previous interest."
     ]
@@ -298,9 +317,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What is the penalty for early repayment of this loan?",
-    "correctAnswer": "Was ist die Strafe für die vorzeitige Rückzahlung dieses Darlehens?",
+    "correctAnswer": "Wie hoch ist die Vorfälligkeitsentschädigung für dieses Darlehen?",
     "hints": [
       "'Early repayment' = paying off a loan before the agreed end date."
+    ],
+    "acceptedAnswers": [
+      "Was kostet es, dieses Darlehen vorzeitig zurückzuzahlen?"
     ]
   },
   {
@@ -308,7 +330,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I keep a monthly budget to track where my money is going.",
-    "correctAnswer": "Ich behalte einen monatlichen Haushalt, um herauszufinden, wo mein Geld läuft.",
+    "correctAnswer": "Ich führe ein monatliches Haushaltsbuch, um zu sehen, wohin mein Geld fließt.",
     "hints": [
       "'Keep a budget' = maintain a record; 'track' = monitor."
     ]
@@ -318,7 +340,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My pension contributions are deducted from my salary before tax.",
-    "correctAnswer": "Meine Pensionsbeiträge werden vor Steuern von meinem Gehalt abgezogen.",
+    "correctAnswer": "Meine Rentenbeiträge werden vor Steuern von meinem Gehalt abgezogen.",
     "hints": [
       "'Deducted' = removed; 'before tax' = pre-tax; passive voice here."
     ]
@@ -328,7 +350,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks how you handled your debt after university.",
-    "correctAnswer": "Ich priorisierte die Zahlung der höchsten Zinsschulden zuerst unter Beibehaltung eines kleinen Notfallfonds.",
+    "correctAnswer": "Ich habe zuerst die Schulden mit den höchsten Zinsen abbezahlt und dabei einen kleinen Notgroschen behalten.",
     "hints": [
       "Give a practical, specific strategy."
     ],
@@ -339,7 +361,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I reviewed my subscriptions and canceled the ones I was not using.",
-    "correctAnswer": "Ich habe meine Abonnements überprüft und die, die ich nicht benutzt habe, gestrichen.",
+    "correctAnswer": "Ich habe meine Abos durchgesehen und die gekündigt, die ich nicht genutzt habe.",
     "hints": [
       "'Reviewed' = went through carefully; 'subscriptions' = regular paid services."
     ]
@@ -348,18 +370,17 @@
     "id": "de-mf-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the difference between a stocks and shares ISA and a cash ISA?",
-    "correctAnswer": "Was ist der Unterschied zwischen Aktien und Aktien ISA und einer Bar ISA?",
+    "prompt": "Ask: What is the difference between a savings account and a securities account?",
+    "correctAnswer": "Was ist der Unterschied zwischen einem Sparkonto und einem Depot?",
     "hints": [
-      "ISA = Individual Savings Account; a key UK financial product."
-    ],
-    "culturalNote": "ISAs (Individual Savings Accounts) are tax-efficient savings wrappers available to UK residents, allowing them to save or invest a fixed amount per year without paying tax on gains or interest."
+      "'Depot' = securities/brokerage account."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I track my spending to avoid unnecessary expenses.",
-    "correctAnswer": "Ich spüre meine Ausgaben, um unnötige Ausgaben zu vermeiden.",
+    "correctAnswer": "Ich behalte meine Ausgaben im Blick, um unnötige Kosten zu vermeiden.",
     "hints": [
       "Purpose clause at B1."
     ],
@@ -369,7 +390,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Interest rates affect how much people borrow.",
-    "correctAnswer": "Zinssätze beeinflussen, wie viele Menschen sich leihen.",
+    "correctAnswer": "Die Zinssätze beeinflussen, wie viel Geld sich die Leute leihen.",
     "hints": [
       "Common finance concept."
     ],
@@ -379,13 +400,16 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the safest way to build an emergency fund?",
-    "correctAnswer": "Was ist der sicherste Weg, um einen Notfallfonds aufzubauen?",
+    "prompt": "Wie baut man am sichersten einen ___ auf?",
+    "correctAnswer": "Notgroschen",
     "hints": [
-      "Practical finance question."
+      "Money set aside for emergencies."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-mo-b1-61"
+    "id": "de-mo-b1-61",
+    "acceptedAnswers": [
+      "Notfallfonds"
+    ]
   },
   {
     "id": "de-mf-b2-1",
@@ -402,9 +426,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: To what extent do you think behavioral economics explains irrational financial decision-making?",
-    "correctAnswer": "Wie weit denken Sie, erklärt Verhaltensökonomie irrationale Finanzentscheidungen?",
+    "correctAnswer": "Inwieweit erklärt die Verhaltensökonomie Ihrer Meinung nach irrationale Finanzentscheidungen?",
     "hints": [
-      "'Behavioural economics' studies how psychology affects economic choices."
+      "'Verhaltensökonomie' (behavioral economics) studies how psychology affects economic choices."
     ]
   },
   {
@@ -412,7 +436,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Quantitative easing involves central banks increasing the money supply to stimulate economic activity.",
-    "correctAnswer": "Quantitative Leasing beinhaltet Zentralbanken, die die Geldversorgung erhöhen, um die Wirtschaftstätigkeit zu stimulieren.",
+    "correctAnswer": "Bei der quantitativen Lockerung erhöhen Zentralbanken die Geldmenge, um die Wirtschaft anzukurbeln.",
     "hints": [
       "'Quantitative easing' = QE; a monetary policy tool used in financial crises."
     ]
@@ -432,7 +456,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Sovereign debt crises can destabilise entire regional economies if creditors lose confidence.",
-    "correctAnswer": "Souveräne Schuldenkrisen können ganze regionale Volkswirtschaften destabilisieren, wenn Gläubiger Vertrauen verlieren.",
+    "correctAnswer": "Staatsschuldenkrisen können ganze Regionalwirtschaften destabilisieren, wenn die Gläubiger das Vertrauen verlieren.",
     "hints": [
       "'Sovereign debt' = money owed by a government; 'creditors' = those who lend money."
     ]
@@ -442,7 +466,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: What distinguishes value investing from growth investing as portfolio strategies?",
-    "correctAnswer": "Was zeichnet Wertinvestitionen von Wachstumsinvestitionen als Portfoliostrategien aus?",
+    "correctAnswer": "Was unterscheidet Value-Investing von Growth-Investing als Anlagestrategien?",
     "hints": [
       "'Value investing' = buying undervalued assets; 'growth investing' = buying high-growth-potential companies."
     ]
@@ -452,7 +476,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Inflationary pressures have eroded real purchasing power, disproportionately affecting lower-income households.",
-    "correctAnswer": "Die Inflationsdrücke haben die reale Kaufkraft erodiert, die unverhältnismäßig weniger Einkommenshaushalte beeinflusst.",
+    "correctAnswer": "Der Inflationsdruck hat die reale Kaufkraft geschmälert und trifft Haushalte mit niedrigem Einkommen überproportional.",
     "hints": [
       "'Real purchasing power' = what money can actually buy; 'disproportionately' = more than one would expect."
     ]
@@ -472,7 +496,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Long-term financial stability depends on disciplined saving and diversified investments.",
-    "correctAnswer": "Die langfristige Finanzstabilität hängt von disziplinierten Einsparungen und diversifizierten Investitionen ab.",
+    "correctAnswer": "Langfristige finanzielle Stabilität hängt von diszipliniertem Sparen und breit gestreuten Anlagen ab.",
     "hints": [
       "Formal financial wording."
     ],
@@ -481,10 +505,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Inflation erodes purchasing power when wages do not keep pace.",
-    "correctAnswer": "Die Inflation erodiert die Kaufkraft, wenn die Löhne nicht Schritt halten.",
+    "prompt": "Die Inflation schmälert die ___, wenn die Löhne nicht Schritt halten.",
+    "correctAnswer": "Kaufkraft",
     "hints": [
-      "Cause-effect sentence."
+      "A compound noun: 'buying' + 'power'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-mo-b2-70"
@@ -492,8 +516,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which policies are most effective in reducing household debt risk?",
-    "correctAnswer": "Welche Politiken sind am wirksamsten bei der Verringerung des Haushaltsschuldenrisikos?",
+    "prompt": "Choose the best response. In a seminar, someone says household debt is a private matter, not a policy issue.",
+    "correctAnswer": "Welche Maßnahmen sind am wirksamsten, um das Risiko der Haushaltsverschuldung zu senken?",
     "hints": [
       "Policy-level question."
     ],

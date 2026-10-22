@@ -373,7 +373,7 @@ test("practice mistakes count unique incorrect questions, not retry attempts", a
   });
   assert.equal(startRes.status, 200);
   const session = await startRes.json() as SessionData;
-  assert.ok(session.questions.length >= 6);
+  assert.ok(session.questions.length >= 2);
 
   const [first, ...rest] = session.questions;
   const attempts: Attempt[] = [

@@ -3,10 +3,10 @@
     "id": "de-gr-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'She ___ a teacher.' (to be)",
+    "prompt": "Say: She is a teacher.",
     "correctAnswer": "Sie ist Lehrerin.",
     "hints": [
-      "Use the correct form of 'to be' for she."
+      "No article before professions; feminine -in: Lehrerin."
     ]
   },
   {
@@ -16,37 +16,47 @@
     "prompt": "Say: They are my friends.",
     "correctAnswer": "Sie sind meine Freunde.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Sie sind' = they are; context tells you it isn't formal 'you'."
+    ],
+    "acceptedAnswers": [
+      "Das sind meine Freunde."
     ]
   },
   {
     "id": "de-gr-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'I ___ like coffee.' (not)",
+    "prompt": "Say: I don't like coffee.",
     "correctAnswer": "Ich mag keinen Kaffee.",
     "hints": [
-      "For present simple negative, use 'do not'."
+      "Negate a noun with 'kein': keinen Kaffee (accusative)."
+    ],
+    "acceptedAnswers": [
+      "Ich mag Kaffee nicht."
     ]
   },
   {
     "id": "de-gr-13",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'We ___ students.' (to be)",
+    "prompt": "Say: We are students.",
     "correctAnswer": "Wir sind Studenten.",
     "hints": [
-      "'We' uses 'are'."
+      "'Wir sind' = we are; no article before roles."
+    ],
+    "acceptedAnswers": [
+      "Wir sind Studentinnen.",
+      "Wir sind Schüler."
     ]
   },
   {
     "id": "de-gr-14",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the correct form: 'He ___ English every day.' (study)",
-    "correctAnswer": "Er studiert jeden Tag Englisch.",
+    "prompt": "Er ___ jeden Tag Englisch. (lernen)",
+    "correctAnswer": "lernt",
     "hints": [
-      "Third person singular adds -s or -es to the verb."
+      "Third person singular ends in -t."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -55,29 +65,37 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: There is a book on the table.",
-    "correctAnswer": "Es gibt ein Buch auf dem Tisch.",
+    "correctAnswer": "Auf dem Tisch liegt ein Buch.",
     "hints": [
-      "Use 'there is' for one thing, 'there are' for more than one."
+      "German often uses 'liegen' or 'stehen' for where things are."
+    ],
+    "acceptedAnswers": [
+      "Es gibt ein Buch auf dem Tisch.",
+      "Ein Buch liegt auf dem Tisch."
     ]
   },
   {
     "id": "de-gr-16",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: '___ you like tea?' (to do)",
+    "prompt": "Ask: Do you like tea?",
     "correctAnswer": "Magst du Tee?",
     "hints": [
-      "Yes/no questions in present simple use 'do'."
+      "German has no auxiliary 'do': start the question with the verb."
+    ],
+    "acceptedAnswers": [
+      "Trinkst du gern Tee?",
+      "Mögen Sie Tee?"
     ]
   },
   {
     "id": "de-gr-17",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the article: 'She has ___ umbrella.' (a/an)",
-    "correctAnswer": "Sie hat einen Schirm.",
+    "prompt": "Sie hat ___ Schirm.",
+    "correctAnswer": "einen",
     "hints": [
-      "Use 'an' before a vowel sound."
+      "Masculine accusative of 'ein'."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -88,7 +106,7 @@
     "prompt": "Say: I am not tired.",
     "correctAnswer": "Ich bin nicht müde.",
     "hints": [
-      "Negative of 'to be': add 'not'."
+      "'Nicht' goes before the adjective."
     ],
     "exerciseType": "build_sentence"
   },
@@ -96,10 +114,10 @@
     "id": "de-gr-19",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'The cats ___ sleeping.' (to be)",
+    "prompt": "Say: The cats are sleeping.",
     "correctAnswer": "Die Katzen schlafen.",
     "hints": [
-      "Plural subject uses 'are' in the present continuous."
+      "German has no continuous tense: 'schlafen' covers 'sleep' and 'are sleeping'."
     ]
   },
   {
@@ -108,7 +126,7 @@
     "prompt": "Say: She goes to school every day.",
     "correctAnswer": "Sie geht jeden Tag zur Schule.",
     "hints": [
-      "Notice the -s in third person singular."
+      "'Zur Schule' = zu + der Schule."
     ],
     "id": "de-gr-a1-39"
   },
@@ -118,10 +136,13 @@
     "prompt": "Say: They are happy.",
     "correctAnswer": "Sie sind glücklich.",
     "hints": [
-      "Use 'are' with 'they'."
+      "'Sie sind' = they are."
     ],
     "exerciseType": "build_sentence",
-    "id": "de-gr-a1-40"
+    "id": "de-gr-a1-40",
+    "acceptedAnswers": [
+      "Sie sind froh."
+    ]
   },
   {
     "level": "a1",
@@ -141,17 +162,24 @@
     "prompt": "Say: I went to the supermarket yesterday.",
     "correctAnswer": "Ich bin gestern in den Supermarkt gegangen.",
     "hints": [
-      "'Went' is the irregular past tense of 'go'."
+      "'Gehen' forms its Perfekt with 'sein': bin gegangen."
+    ],
+    "acceptedAnswers": [
+      "Gestern bin ich in den Supermarkt gegangen.",
+      "Ich war gestern im Supermarkt."
     ]
   },
   {
     "id": "de-gr-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'She ___ been waiting for an hour.' (have/has)",
-    "correctAnswer": "Sie hat eine Stunde gewartet.",
+    "prompt": "Say: She has been waiting for an hour.",
+    "correctAnswer": "Sie wartet seit einer Stunde.",
     "hints": [
-      "Third person singular uses 'has' in perfect tenses."
+      "Present tense + 'seit' for something still going on."
+    ],
+    "acceptedAnswers": [
+      "Sie wartet schon eine Stunde."
     ]
   },
   {
@@ -161,17 +189,17 @@
     "prompt": "Say: If it rains, we will stay inside.",
     "correctAnswer": "Wenn es regnet, bleiben wir drinnen.",
     "hints": [
-      "First conditional: 'if' + present simple, 'will' + infinitive."
+      "'Wenn' sends the verb to the end; German uses the present for the future."
     ]
   },
   {
     "id": "de-gr-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct form: 'I ___ to the cinema last Saturday.' (go)",
-    "correctAnswer": "Ich ging letztes Samstag ins Kino.",
+    "prompt": "Letzten Samstag ___ ich ins Kino.",
+    "correctAnswer": "ging",
     "hints": [
-      "Use the simple past for a completed past event."
+      "Simple past of 'gehen'; verb second after the time phrase."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -179,10 +207,13 @@
     "id": "de-gr-21",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'He ___ working at seven this morning.' (was/were)",
+    "prompt": "Say: He was working at seven this morning.",
     "correctAnswer": "Er hat heute Morgen um sieben gearbeitet.",
     "hints": [
-      "He/she/it uses 'was' in past continuous."
+      "German has no continuous tense; the Perfekt does the job."
+    ],
+    "acceptedAnswers": [
+      "Heute Morgen um sieben war er bei der Arbeit."
     ]
   },
   {
@@ -190,19 +221,22 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We have lived here for five years.",
-    "correctAnswer": "Wir haben hier fünf Jahre gelebt.",
+    "correctAnswer": "Wir wohnen seit fünf Jahren hier.",
     "hints": [
-      "Present perfect with 'for' expresses duration up to now."
+      "Present tense + 'seit' + dative for duration up to now."
+    ],
+    "acceptedAnswers": [
+      "Wir leben seit fünf Jahren hier."
     ]
   },
   {
     "id": "de-gr-23",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct comparative: 'This book is ___ than the other one.' (interesting)",
-    "correctAnswer": "Dieses Buch ist interessanter als das andere.",
+    "prompt": "Dieses Buch ist ___ als das andere. (interessant)",
+    "correctAnswer": "interessanter",
     "hints": [
-      "Long adjectives use 'more' for comparatives."
+      "German adds -er to every adjective, long or short."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -210,10 +244,14 @@
     "id": "de-gr-24",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: '___ you been to Paris?' (have/has)",
+    "prompt": "Ask: Have you been to Paris?",
     "correctAnswer": "Warst du schon in Paris?",
     "hints": [
-      "Question form of present perfect with 'you'."
+      "'Schon' = ever/already; 'warst' is the simple past of 'sein'."
+    ],
+    "acceptedAnswers": [
+      "Bist du schon mal in Paris gewesen?",
+      "Waren Sie schon in Paris?"
     ]
   },
   {
@@ -221,30 +259,39 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: She used to play the piano when she was young.",
-    "correctAnswer": "Als sie jung war, spielte sie das Klavier.",
+    "correctAnswer": "Als sie jung war, spielte sie früher Klavier.",
     "hints": [
-      "'Used to' expresses a past habit that no longer continues."
+      "'Früher' expresses 'used to'; no article with instruments."
+    ],
+    "acceptedAnswers": [
+      "Früher, als sie jung war, hat sie Klavier gespielt."
     ]
   },
   {
     "id": "de-gr-26",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'You should ___ more water.' (drink)",
+    "prompt": "Say: You should drink more water.",
     "correctAnswer": "Du solltest mehr Wasser trinken.",
     "hints": [
-      "'Should' is followed by the base infinitive."
+      "'Solltest' + infinitive at the end."
+    ],
+    "acceptedAnswers": [
+      "Sie sollten mehr Wasser trinken."
     ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have lived here for two years.",
-    "correctAnswer": "Ich habe zwei Jahre hier gelebt.",
+    "correctAnswer": "Ich wohne seit zwei Jahren hier.",
     "hints": [
-      "Present perfect for duration."
+      "Present tense + 'seit' for duration up to now."
     ],
-    "id": "de-gr-a2-49"
+    "id": "de-gr-a2-49",
+    "acceptedAnswers": [
+      "Ich lebe seit zwei Jahren hier."
+    ]
   },
   {
     "level": "a2",
@@ -260,10 +307,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Should I use much or many here?",
-    "correctAnswer": "Soll ich hier viel oder viele benutzen?",
+    "prompt": "Ich habe ___ Freunde in Berlin. (viel)",
+    "correctAnswer": "viele",
     "hints": [
-      "Countability grammar prompt."
+      "'Viel' takes a plural ending before a plural noun."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-gr-a2-51"
@@ -275,17 +322,21 @@
     "prompt": "Say: If I had more time, I would learn a third language.",
     "correctAnswer": "Wenn ich mehr Zeit hätte, würde ich eine dritte Sprache lernen.",
     "hints": [
-      "Second conditional: 'if' + past simple, 'would' + infinitive."
+      "'Wenn' + Konjunktiv II (hätte), then 'würde' + infinitive."
     ]
   },
   {
     "id": "de-gr-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'By the time she arrives, we ___ finished dinner.' (will have)",
-    "correctAnswer": "Wenn sie ankommt, haben wir das Abendessen fertig.",
+    "prompt": "Say: By the time she arrives, we will have finished dinner.",
+    "correctAnswer": "Bis sie ankommt, werden wir mit dem Abendessen fertig sein.",
     "hints": [
-      "Future perfect for an action completed before a future point."
+      "'Bis' = by the time; 'fertig sein mit' = to be finished with."
+    ],
+    "acceptedAnswers": [
+      "Bis sie ankommt, haben wir schon gegessen.",
+      "Bis sie ankommt, werden wir schon zu Abend gegessen haben."
     ]
   },
   {
@@ -295,17 +346,20 @@
     "prompt": "Say: Despite feeling tired, she continued working.",
     "correctAnswer": "Obwohl sie müde war, arbeitete sie weiter.",
     "hints": [
-      "'Despite' is followed by a noun or gerund (-ing form)."
+      "'Obwohl' sends the verb to the end of its clause."
+    ],
+    "acceptedAnswers": [
+      "Trotz ihrer Müdigkeit arbeitete sie weiter."
     ]
   },
   {
     "id": "de-gr-27",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct passive form: 'The report ___ by the team last week.' (write)",
-    "correctAnswer": "Der Bericht wurde letzte Woche vom Team geschrieben.",
+    "prompt": "Der Bericht ___ letzte Woche vom Team geschrieben.",
+    "correctAnswer": "wurde",
     "hints": [
-      "Passive past simple: was/were + past participle."
+      "Passive: werden + participle, here in the simple past."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -314,19 +368,23 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: He told me that he had already sent the email.",
-    "correctAnswer": "Er sagte mir, dass er bereits die E-Mail geschickt hatte.",
+    "correctAnswer": "Er sagte mir, dass er die E-Mail bereits geschickt hatte.",
     "hints": [
-      "Reported speech shifts tense: 'has sent' → 'had sent'."
+      "Pluperfect: hatte + participle at the end of the 'dass' clause."
     ]
   },
   {
     "id": "de-gr-29",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'I wish I ___ more time to practice.' (had/have)",
-    "correctAnswer": "Ich wünschte, ich hätte mehr Zeit zu üben.",
+    "prompt": "Say: I wish I had more time to practice.",
+    "correctAnswer": "Ich wünschte, ich hätte mehr Zeit zum Üben.",
     "hints": [
-      "'I wish' + past simple expresses a present regret."
+      "'Ich wünschte' + Konjunktiv II."
+    ],
+    "acceptedAnswers": [
+      "Ich wünschte, ich hätte mehr Zeit zu üben.",
+      "Wenn ich nur mehr Zeit zum Üben hätte!"
     ]
   },
   {
@@ -336,17 +394,21 @@
     "prompt": "Say: Not only did she win the race, but she also broke the record.",
     "correctAnswer": "Sie hat nicht nur das Rennen gewonnen, sondern auch den Rekord gebrochen.",
     "hints": [
-      "'Not only... but also' requires inversion after 'not only'."
+      "'Nicht nur..., sondern auch...'. A record is 'gebrochen' or 'aufgestellt'."
     ]
   },
   {
     "id": "de-gr-31",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'She is used to ___ early.' (wake)",
-    "correctAnswer": "Sie wird früher aufwachen.",
+    "prompt": "Say: She is used to waking up early.",
+    "correctAnswer": "Sie ist es gewohnt, früh aufzuwachen.",
     "hints": [
-      "'Be used to' is followed by the gerund (-ing)."
+      "'Es gewohnt sein, ... zu' + infinitive."
+    ],
+    "acceptedAnswers": [
+      "Sie ist es gewohnt, früh aufzustehen.",
+      "Sie ist gewohnt, früh aufzustehen."
     ]
   },
   {
@@ -363,10 +425,10 @@
     "id": "de-gr-33",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct relative pronoun: 'The person ___ called left no message.' (who/which)",
-    "correctAnswer": "Die Person, die angerufen hat, hat keine Nachricht hinterlassen.",
+    "prompt": "Die Person, ___ angerufen hat, hat keine Nachricht hinterlassen.",
+    "correctAnswer": "die",
     "hints": [
-      "Use 'who' for people; 'which' for things."
+      "The relative pronoun agrees with 'die Person' (feminine, nominative)."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -394,10 +456,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: When should I use the passive voice?",
-    "correctAnswer": "Wann sollte ich die passive Stimme verwenden?",
+    "prompt": "Wann sollte ich das ___ verwenden?",
+    "correctAnswer": "Passiv",
     "hints": [
-      "Usage question."
+      "The German grammar term for the passive voice (neuter)."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-gr-b1-61"
@@ -407,19 +469,22 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known about the delay, I would have taken an earlier train.",
-    "correctAnswer": "Hätte ich die Verzögerung gewusst, hätte ich einen früheren Zug genommen.",
+    "correctAnswer": "Hätte ich von der Verspätung gewusst, hätte ich einen früheren Zug genommen.",
     "hints": [
-      "Inverted third conditional: 'Had I...' replaces 'If I had...'"
+      "Verb-first 'Hätte ich...' replaces 'wenn ich ... hätte'."
     ]
   },
   {
     "id": "de-gr-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'Rarely ___ I see such attention to detail.' (have)",
-    "correctAnswer": "Selten habe ich diese Liebe zum Detail gesehen.",
+    "prompt": "Say: Rarely have I seen such attention to detail.",
+    "correctAnswer": "Selten habe ich so viel Liebe zum Detail gesehen.",
     "hints": [
-      "Fronted negative adverbs require subject-auxiliary inversion."
+      "German puts the verb second after any fronted adverb."
+    ],
+    "acceptedAnswers": [
+      "Selten habe ich diese Liebe zum Detail gesehen."
     ]
   },
   {
@@ -436,10 +501,10 @@
     "id": "de-gr-34",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'No sooner ___ she arrived than the meeting began.' (had)",
-    "correctAnswer": "Früher kam sie nicht an, als das Treffen begann.",
+    "prompt": "Say: No sooner had she arrived than the meeting began.",
+    "correctAnswer": "Kaum war sie angekommen, begann die Besprechung.",
     "hints": [
-      "'No sooner' triggers inversion; 'than' follows rather than 'when'."
+      "'Kaum' + verb-first clause = no sooner."
     ]
   },
   {
@@ -449,17 +514,17 @@
     "prompt": "Say: It is high time we addressed the underlying structural issues.",
     "correctAnswer": "Es ist höchste Zeit, dass wir uns mit den zugrunde liegenden strukturellen Fragen befassen.",
     "hints": [
-      "'It is high time' + past subjunctive expresses urgency."
+      "'Es ist höchste Zeit, dass' + indicative."
     ]
   },
   {
     "id": "de-gr-36",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the correct form: 'The data ___ analysed before any conclusions can be drawn.' (must be)",
-    "correctAnswer": "Die Daten müssen analysiert werden, bevor Schlussfolgerungen gezogen werden können.",
+    "prompt": "Die Daten müssen ___ werden, bevor man Schlussfolgerungen ziehen kann.",
+    "correctAnswer": "analysiert",
     "hints": [
-      "Modal passive: modal + be + past participle."
+      "Modal passive: modal + participle + werden."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -468,7 +533,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Were she to apply, she would be a strong candidate for the position.",
-    "correctAnswer": "Würde sie sich bewerben, wäre sie ein starker Kandidat für die Position.",
+    "correctAnswer": "Würde sie sich bewerben, wäre sie eine starke Kandidatin für die Stelle.",
     "hints": [
       "Inverted conditional with 'were to' for formal, hypothetical situations."
     ]
@@ -477,17 +542,21 @@
     "id": "de-gr-38",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'The more you practice, ___ you become.' (fluent)",
-    "correctAnswer": "Je mehr Sie praktizieren, desto fließender werden Sie.",
+    "prompt": "Say: The more you practice, the more fluent you become.",
+    "correctAnswer": "Je mehr du übst, desto fließender wirst du.",
     "hints": [
-      "'The more... the more...' is a comparative structure expressing proportional change."
+      "'Je ... desto' with verb-final, then verb-second."
+    ],
+    "acceptedAnswers": [
+      "Je mehr Sie üben, desto fließender werden Sie.",
+      "Je mehr du übst, umso fließender sprichst du."
     ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known earlier, I would have prepared differently.",
-    "correctAnswer": "Hätte ich es früher gewusst, hätte ich anders vorbereitet.",
+    "correctAnswer": "Hätte ich es früher gewusst, hätte ich mich anders vorbereitet.",
     "hints": [
       "Inverted third conditional."
     ],
@@ -496,10 +565,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Not only did she finish on time, but she also improved the draft.",
-    "correctAnswer": "Nicht nur, dass sie pünktlich fertig war, sondern sie hat auch den Entwurf verbessert.",
+    "prompt": "Sie war nicht nur pünktlich fertig, ___ hat auch den Entwurf verbessert.",
+    "correctAnswer": "sondern",
     "hints": [
-      "Inversion after negative adverbials."
+      "'Nicht nur ... ___ auch' = not only ... but also."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-gr-b2-70"
@@ -507,8 +576,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How does emphasis change when we front a phrase?",
-    "correctAnswer": "Wie ändert sich die Betonung, wenn wir einen Satz stellen?",
+    "prompt": "Choose the best response. Your teacher moves a phrase to the start of your sentence and asks if you notice a difference.",
+    "correctAnswer": "Ja. Wie verändert sich die Betonung, wenn wir einen Satzteil an den Anfang stellen?",
     "hints": [
       "Advanced grammar awareness question."
     ],

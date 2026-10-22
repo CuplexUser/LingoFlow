@@ -17,7 +17,11 @@
     "prompt": "Say: It is raining outside.",
     "correctAnswer": "Está lloviendo afuera.",
     "hints": [
-      "Use 'it is' for weather descriptions."
+      "'Estar' + gerund for weather happening now; Spanish has no subject 'it'."
+    ],
+    "acceptedAnswers": [
+      "Está lloviendo fuera.",
+      "Está lloviendo."
     ]
   },
   {
@@ -25,9 +29,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: What is the weather like today?",
-    "correctAnswer": "¿Cómo es el tiempo hoy?",
+    "correctAnswer": "¿Qué tiempo hace hoy?",
     "hints": [
-      "'What is it like' asks for a description."
+      "Weather uses 'hacer': ¿qué tiempo hace?"
+    ],
+    "acceptedAnswers": [
+      "¿Cómo está el tiempo hoy?"
     ]
   },
   {
@@ -48,6 +55,9 @@
     "correctAnswer": "Hay muchas aves en el jardín.",
     "hints": [
       "'There are' for plural things."
+    ],
+    "acceptedAnswers": [
+      "Hay muchos pájaros en el jardín."
     ]
   },
   {
@@ -68,7 +78,11 @@
     "prompt": "Say: The sun is shining today.",
     "correctAnswer": "El sol brilla hoy.",
     "hints": [
-      "Present continuous for current weather."
+      "Spanish often says 'hace sol' (it is sunny)."
+    ],
+    "acceptedAnswers": [
+      "Hoy hace sol.",
+      "Hoy brilla el sol."
     ]
   },
   {
@@ -96,9 +110,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I walked in the forest yesterday.",
-    "correctAnswer": "Estuve en el bosque ayer.",
+    "correctAnswer": "Ayer caminé por el bosque.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "acceptedAnswers": [
+      "Ayer di un paseo por el bosque.",
+      "Caminé por el bosque ayer."
     ]
   },
   {
@@ -120,7 +138,10 @@
       "Basic description."
     ],
     "exerciseType": "build_sentence",
-    "id": "es-na-a1-40"
+    "id": "es-na-a1-40",
+    "acceptedAnswers": [
+      "El bosque está muy tranquilo."
+    ]
   },
   {
     "level": "a1",
@@ -138,9 +159,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: It has been unusually warm for this time of year.",
-    "correctAnswer": "Ha sido inusualmente cálido para esta época del año.",
+    "correctAnswer": "Ha hecho un calor inusual para esta época del año.",
     "hints": [
       "Present perfect for a situation up to now; 'unusually' suggests contrast with normal."
+    ],
+    "acceptedAnswers": [
+      "Está haciendo un calor poco habitual para esta época del año."
     ]
   },
   {
@@ -148,7 +172,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the best time of year to see the northern lights?",
-    "correctAnswer": "¿Cuál es la mejor época del año para ver las luces del norte?",
+    "correctAnswer": "¿Cuál es la mejor época del año para ver la aurora boreal?",
     "hints": [
       "A question about natural phenomena and timing."
     ]
@@ -158,7 +182,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The river has flooded after several days of heavy rain.",
-    "correctAnswer": "El río ha inundado después de varios días de lluvia pesada.",
+    "correctAnswer": "El río se ha desbordado después de varios días de lluvias intensas.",
     "hints": [
       "Present perfect for a recent event with a visible result."
     ]
@@ -170,7 +194,7 @@
     "prompt": "Say: I saw a family of deer in the park this morning.",
     "correctAnswer": "Vi una familia de ciervos en el parque esta mañana.",
     "hints": [
-      "'Deer' is both singular and plural."
+      "'Ciervo' = deer; plural 'ciervos'."
     ]
   },
   {
@@ -197,7 +221,7 @@
     "id": "es-na-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I recycle my rubbish to help protect the environment.",
+    "prompt": "Say: I recycle my trash to help protect the environment.",
     "correctAnswer": "Reciclo mi basura para ayudar a proteger el medio ambiente.",
     "hints": [
       "State an eco-friendly habit with purpose."
@@ -208,9 +232,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often do you go walking in the countryside?",
-    "correctAnswer": "¿Con qué frecuencia vas caminando por el campo?",
+    "correctAnswer": "¿Cada cuánto sales a caminar por el campo?",
     "hints": [
       "'How often' asks about frequency."
+    ],
+    "acceptedAnswers": [
+      "¿Con qué frecuencia sales a caminar por el campo?"
     ]
   },
   {
@@ -257,10 +284,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can we protect wild animals?",
-    "correctAnswer": "¿Cómo podemos proteger a los animales salvajes?",
+    "prompt": "¿Cómo podemos ___ a los animales salvajes?",
+    "correctAnswer": "proteger",
     "hints": [
-      "Action-oriented question."
+      "A verb meaning 'to keep safe'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-na-a2-51"
@@ -300,7 +327,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Rewilding projects aim to restore natural ecosystems by reintroducing native species.",
-    "correctAnswer": "Los proyectos de reorganización tienen por objeto restaurar los ecosistemas naturales reintroduciendo especies nativas.",
+    "correctAnswer": "Los proyectos de renaturalización buscan restaurar los ecosistemas naturales reintroduciendo especies autóctonas.",
     "hints": [
       "'Rewilding' = allowing nature to recover; 'native species' = animals or plants originally from an area."
     ]
@@ -340,10 +367,10 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was fortunate enough to witness a murmuration of starlings at dusk.",
-    "correctAnswer": "Tuve la suerte de presenciar un murmullo de estelares al atardecer.",
+    "correctAnswer": "Tuve la suerte de ver la danza de una bandada de estorninos al atardecer.",
     "hints": [
-      "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = at sunset.",
-      "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
+      "'Estornino' = starling; Spanish describes a murmuration as the 'danza' of a flock.",
+      "'Al atardecer' = at dusk."
     ],
     "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter."
   },
@@ -362,7 +389,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks what you do to live more sustainably.",
-    "correctAnswer": "Intento reducir los plásticos de uso único, comer menos carne, y caminar o ciclo en lugar de conducir.",
+    "correctAnswer": "Intento reducir los plásticos de un solo uso, comer menos carne e ir a pie o en bici en lugar de en coche.",
     "hints": [
       "List specific, concrete actions."
     ],
@@ -392,10 +419,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What causes animal populations to decline?",
-    "correctAnswer": "¿Qué hace que las poblaciones animales declinen?",
+    "prompt": "¿Qué hace que las poblaciones de animales ___?",
+    "correctAnswer": "disminuyan",
     "hints": [
-      "Scientific reasoning question."
+      "'Hacer que' + present subjunctive."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-na-b1-61"
@@ -425,7 +452,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Tipping points in the climate system — such as the thawing of permafrost — could trigger irreversible feedback loops.",
-    "correctAnswer": "Los puntos de inflexión en el sistema climático, como la descongelación de la permafrost, podrían provocar lazos de retroalimentación irreversibles.",
+    "correctAnswer": "Los puntos de inflexión del sistema climático, como el deshielo del permafrost, podrían desencadenar bucles de retroalimentación irreversibles.",
     "hints": [
       "'Tipping points' = thresholds beyond which change becomes self-reinforcing; 'permafrost' = permanently frozen ground in Arctic regions."
     ]
@@ -455,7 +482,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Can market mechanisms alone effectively address environmental externalities, or is state intervention necessary?",
-    "correctAnswer": "¿Pueden los mecanismos de mercado por sí solo abordar eficazmente las externalidades ambientales, o es necesaria la intervención estatal?",
+    "correctAnswer": "¿Pueden los mecanismos de mercado por sí solos abordar eficazmente las externalidades ambientales, o es necesaria la intervención estatal?",
     "hints": [
       "'Externalities' = costs or benefits not reflected in market prices; 'market mechanisms' = price signals and incentives."
     ]
@@ -475,7 +502,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The philosophical tradition of deep ecology argues for an intrinsic value of nature independent of human utility.",
-    "correctAnswer": "La tradición filosófica de la ecología profunda argumenta por un valor intrínseco de la naturaleza independiente de la utilidad humana.",
+    "correctAnswer": "La tradición filosófica de la ecología profunda defiende un valor intrínseco de la naturaleza, independiente de su utilidad para el ser humano.",
     "hints": [
       "'Deep ecology' = a philosophy that values nature for its own sake; 'intrinsic value' = value in itself."
     ]
@@ -493,10 +520,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Conservation strategies must consider both ecology and local livelihoods.",
-    "correctAnswer": "Las estrategias de conservación deben considerar la ecología y los medios de vida locales.",
+    "prompt": "Las estrategias de conservación deben tener en cuenta tanto la ecología como los medios de ___ locales.",
+    "correctAnswer": "vida",
     "hints": [
-      "Balanced policy sentence."
+      "'Medios de ___' = livelihoods."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-na-b2-70"
@@ -504,7 +531,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which environmental interventions deliver the greatest long-term impact?",
+    "prompt": "Choose the best response. A council member asks where the environmental budget should go.",
     "correctAnswer": "¿Qué intervenciones ambientales ofrecen el mayor impacto a largo plazo?",
     "hints": [
       "Analytical question."

@@ -1,0 +1,679 @@
+{
+  "language": "italian",
+  "category": "family_friends",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:29:09.759Z",
+  "contentHash": "754ae2c148d95036",
+  "summary": "Basic family vocabulary is fine, but idioms and relationship phrases were translated word for word into wrong or meaningless Italian (non vediamo sempre gli occhi, siamo cresciuti for 'grew apart', elevato a valorizzare, vai bene con, sei vicino ai tuoi fratelli, la mia più vecchia amica). Also several apostrophe-for-accent misspellings, a dropped 'eightieth', the usual cloze items without blanks, and roleplay/dialogue items lacking answerEnglish or a situation.",
+  "findings": [
+    {
+      "id": "it-fa-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Fratelli' (plural) = brothers; 'sorella' = sister."
+          ]
+        }
+      ],
+      "itemHash": "f20c84408f99cc8c",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); formal and article-less variants not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Figli' covers sons and daughters together."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hai figli?",
+            "Ha figli?",
+            "Ha dei figli?"
+          ]
+        }
+      ],
+      "itemHash": "85df0a8af6110cfa",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'In campagna' = in the countryside (no article)."
+          ]
+        }
+      ],
+      "itemHash": "da617723e8374188",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-14",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'E'' should be 'È'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È tua sorella?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Lei è tua sorella?"
+          ]
+        }
+      ],
+      "itemHash": "0974a7ee607b27a2",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-17",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about the English possessive apostrophe; feminine form not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Chiamarsi' (to be called) is reflexive: 'si chiama'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La mia migliore amica si chiama Sam."
+          ]
+        }
+      ],
+      "itemHash": "6de56c06fee15349",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-a1-41",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'e'' should be 'è'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il mio amico è molto gentile.",
+          "list": null
+        }
+      ],
+      "itemHash": "dde20016e583a7b6",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Prompt uses British 'at the weekends'; friends 'si vedono' rather than 'si incontrano'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We usually meet up on weekends.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Di solito ci vediamo nel fine settimana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Di solito ci incontriamo nei fine settimana.",
+            "Di solito ci vediamo nei fine settimana."
+          ]
+        }
+      ],
+      "itemHash": "a184d299e89e9841",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-21",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Sei vicino' means physically near; emotionally close is 'legato'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sei legato ai tuoi fratelli?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sei legata ai tuoi fratelli?",
+            "Hai un bel rapporto con i tuoi fratelli?"
+          ]
+        }
+      ],
+      "itemHash": "fb8bff565e4a5773",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-22",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'ci sono sette di noi' is a calque; Italian says 'siamo in sette'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Siamo una famiglia numerosa: siamo in sette.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Siamo una famiglia grande: siamo in sette."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Essere in' + number = there are (number) of us."
+          ]
+        }
+      ],
+      "itemHash": "b080952edbac7cea",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-23",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'si e'' should be 'si è'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il mio amico si è trasferito all'estero per lavoro l'anno scorso.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La mia amica si è trasferita all'estero per lavoro l'anno scorso.",
+            "Il mio amico si è trasferito all'estero per lavoro lo scorso anno."
+          ]
+        }
+      ],
+      "itemHash": "310f739efdfd4db6",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-24",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vai bene con' is not Italian; 'get along with' is 'andare d'accordo con'. Prompt uses British 'get on'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you get along well with your neighbors?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Vai d'accordo con i tuoi vicini?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Andare d'accordo con' = to get along with."
+          ]
+        }
+      ],
+      "itemHash": "6cc4b7f3af1c99d6",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-25",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'eightieth' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Lo scorso fine settimana abbiamo festeggiato gli ottant'anni di mio nonno.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Abbiamo festeggiato l'ottantesimo compleanno di mio nonno lo scorso fine settimana."
+          ]
+        }
+      ],
+      "itemHash": "64b87eb6e42fd2f5",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-26",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'la mia più vecchia amica' means my oldest-aged friend — exactly what the hint warns against.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È la mia amica di più lunga data: ci conosciamo dai tempi della scuola.",
+          "list": null
+        }
+      ],
+      "itemHash": "59fde7f2f7176526",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ogni sera ___ i miei genitori.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "chiamo",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "chiamo",
+            "chiami",
+            "chiama",
+            "chiamano"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First person of 'chiamare'."
+          ]
+        }
+      ],
+      "itemHash": "baefa05a975f6f42",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'non vediamo sempre gli occhi' is a nonsense calque of 'see eye to eye'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Io e mia sorella non siamo sempre d'accordo, ma ci sosteniamo a vicenda.",
+          "list": null
+        }
+      ],
+      "itemHash": "ddf30f113643616f",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-27",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'moved out' (from the parents' home) is 'sono andato a vivere da solo'; feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il mio rapporto con i miei genitori è migliorato da quando sono andato a vivere da solo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il mio rapporto con i miei genitori è migliorato da quando sono andata a vivere da sola.",
+            "Il mio rapporto con i miei genitori è migliorato da quando mi sono trasferito."
+          ]
+        }
+      ],
+      "itemHash": "e5ff6a571914eb86",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-28",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'tenere in contatto con' is wrong ('rimanere in contatto'), and 'la vita si fa occupata' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cerco di rimanere in contatto con i vecchi amici, anche quando sono molto impegnato.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cerco di rimanere in contatto con i vecchi amici, anche quando sono molto impegnata."
+          ]
+        }
+      ],
+      "itemHash": "7980ac9c9a25a8dc",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-29",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'humour'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Contrast with 'but'; 'sense of humor' is the ability to find things funny."
+          ]
+        }
+      ],
+      "itemHash": "ca15bee3c95eaabf",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-30",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'io lotta per trovare il tempo intorno impegni' is ungrammatical nonsense; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Viviamo piuttosto lontano e faccio fatica a trovare il tempo con tutti gli impegni di lavoro.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "We live quite far away, and I struggle to find time around work commitments.",
+          "list": null
+        }
+      ],
+      "itemHash": "8f3c1f5956c53203",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'comunità vicina' means a nearby community; close-knit is 'unita'. 'there' is dropped; feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Essendo cresciuto in un piccolo paese, apprezzo la comunità unita che c'è lì.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Essendo cresciuta in un piccolo paese, apprezzo la comunità unita che c'è lì."
+          ]
+        }
+      ],
+      "itemHash": "cf0556844fa582fe",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-32",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "The impersonal 'si' turns a personal question into a general one.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Come riesci a bilanciare il tempo tra la famiglia e la vita sociale?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Come bilanci il tempo tra la famiglia e la vita sociale?"
+          ]
+        }
+      ],
+      "itemHash": "5332f570bfdc6100",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Siamo cresciuti' means 'we grew up', and 'ricollegato' is not used for people.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ci siamo persi di vista dopo l'università, ma di recente ci siamo ritrovati.",
+          "list": null
+        }
+      ],
+      "itemHash": "0307f9848ef91717",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-b1-59",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "A general statement needs the definite article: 'Le buone amicizie'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le buone amicizie richiedono fiducia e una comunicazione sincera.",
+          "list": null
+        }
+      ],
+      "itemHash": "2effb1da2ab2a73b",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'connessi' is a calque for staying close.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Le tradizioni familiari ci aiutano a rimanere ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "uniti",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "uniti",
+            "unite",
+            "unito",
+            "unire"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The adjective agrees with 'ci' (us, mixed group: masculine plural)."
+          ]
+        }
+      ],
+      "itemHash": "8338c0da52946dca",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'famiglia mescolata' is not used; a blended family is 'famiglia allargata'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le dinamiche all'interno di una famiglia allargata possono essere complesse ma profondamente gratificanti.",
+          "list": null
+        }
+      ],
+      "itemHash": "1d4618e9a674a8a2",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'elevato a valorizzare' means 'elevated to valorize' — nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi hanno educato a dare valore alla lealtà e all'onestà sopra ogni cosa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi hanno educata a dare valore alla lealtà e all'onestà sopra ogni cosa.",
+            "Sono stato educato a dare valore alla lealtà e all'onestà sopra ogni cosa."
+          ]
+        }
+      ],
+      "itemHash": "242346a8569b2b0c",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'bambini adulti', 'si occuperanno dopo l'invecchiamento' and 'attraverso le culture' are nonsense calques; prompt uses British 'ageing'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The expectation that adult children will look after aging parents varies considerably across cultures.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "L'aspettativa che i figli adulti si prendano cura dei genitori anziani varia notevolmente da una cultura all'altra.",
+          "list": null
+        }
+      ],
+      "itemHash": "5bcd0e584616c683",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'confini sani' is a calque; Italian speaks of 'limiti sani'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Porre dei limiti sani può rafforzare le relazioni a lungo termine.",
+          "list": null
+        }
+      ],
+      "itemHash": "ffe22d32efb74c3d",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Come ___ le aspettative familiari sulle scelte personali?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "influiscono",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "influiscono",
+            "influisce",
+            "influiscano",
+            "influire"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person plural of 'influire', agreeing with 'aspettative'."
+          ]
+        }
+      ],
+      "itemHash": "deafc2cf679ebe5e",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    },
+    {
+      "id": "it-fa-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'mentre' should be 'man mano che' for 'as'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend is sad that she sees her school friends less often now. Respond thoughtfully.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Le amicizie si evolvono man mano che cambiano le priorità delle persone.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Friendships evolve as people's priorities change.",
+          "list": null
+        }
+      ],
+      "itemHash": "cbe5ce8ddedfd0f5",
+      "appliedAt": "2026-10-22T09:35:00.277Z"
+    }
+  ]
+}

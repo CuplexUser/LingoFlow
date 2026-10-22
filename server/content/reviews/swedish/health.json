@@ -1,0 +1,654 @@
+{
+  "language": "swedish",
+  "category": "health",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:47:08.906Z",
+  "contentHash": "fea12d3b21b228d4",
+  "summary": "A1 health phrases are mostly correct, but several A2–B2 items teach wrong Swedish: 'throat' dropped, 'göra ett möte' for booking a doctor's appointment, 'ska' for should, missing perfect tense with 'sedan', 'hänvisning' instead of 'remiss', 'begår operation', 'låg-sodium diet', a reflexive mismatch, and English possessives on body parts. Plus British hint leftovers, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-he-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Må' describes how you feel; 'inte' follows the verb."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag mår dåligt."
+          ]
+        }
+      ],
+      "itemHash": "f642606e15a7d1ce",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Närmaste' takes no article; buildings 'ligger' somewhere."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Var ligger närmaste sjukhus?"
+          ]
+        }
+      ],
+      "itemHash": "934676b0f982b645",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); 'Jag har ont i huvudet' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Huvudvärk' = headache; also 'ha ont i' + body part."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har ont i huvudet."
+          ]
+        }
+      ],
+      "itemHash": "125d64a4b048c054",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-14",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'chemist's'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish pharmacies are called 'apotek'; 'i närheten' = nearby."
+          ]
+        }
+      ],
+      "itemHash": "7872540ed66db338",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The standard 'Jag har ont i magen' is not accepted; hint is about English.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har ont i magen."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Göra ont' = to hurt; or 'ha ont i' + body part."
+          ]
+        }
+      ],
+      "itemHash": "ef7db443427a8c6e",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'throat' is dropped ('ont i tre dagar').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har haft ont i halsen i tre dagar.",
+          "list": null
+        }
+      ],
+      "itemHash": "16de435bf09e096e",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'göra ett möte' means to hold a meeting; a doctor's appointment is 'få en tid'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan jag få en tid hos läkaren i dag?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan jag boka en tid hos läkaren idag?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'En tid hos läkaren' = a doctor's appointment."
+          ]
+        }
+      ],
+      "itemHash": "833c30c01537591e",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-20",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "With 'sedan' + a starting point, Swedish requires the perfect tense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har känt mig yr sedan i morse.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har varit yr sedan i morse."
+          ]
+        }
+      ],
+      "itemHash": "7db5d491510a99a4",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-22",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Jag vred min fotled' is a calque; Swedes say 'stukade foten'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag stukade foten när jag var ute och vandrade.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag vrickade foten när jag vandrade."
+          ]
+        }
+      ],
+      "itemHash": "224c845cb2373636",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-23",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "A prescription is 'recept på', not 'för'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Behöver jag recept på det här läkemedlet?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Behöver man recept på den här medicinen?"
+          ]
+        }
+      ],
+      "itemHash": "868d020cbcd89bb5",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-24",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Swedish uses the definite form for body parts, not a possessive ('på armen').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har utslag på armen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Body parts usually take the definite form: 'på armen', not 'på min arm'."
+          ]
+        }
+      ],
+      "itemHash": "117b5ac662262302",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-a2-49",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'ska' means 'will/am going to'; 'should' is 'borde'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag borde sova mer på vardagarna.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag borde sova mer under veckan."
+          ]
+        }
+      ],
+      "itemHash": "894e7fa2d0c9164d",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag började laga ___ måltider.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "hälsosammare",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "hälsosammare",
+            "hälsosam",
+            "hälsosammast",
+            "hälsa"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Comparative form: 'healthier'."
+          ]
+        }
+      ],
+      "itemHash": "2a7938f3b2babd08",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'redan existerande tillstånd' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har en sjukdom sedan tidigare som kräver regelbunden medicinering.",
+          "list": null
+        }
+      ],
+      "itemHash": "680abb7118f30651",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'en andra åsikt' is a calque; Swedish healthcare uses 'en ny bedömning' (or 'second opinion'). 'would like' = 'skulle vilja'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja få en ny bedömning innan jag bestämmer mig för en operation.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag skulle vilja ha en second opinion innan jag bestämmer mig för operation."
+          ]
+        }
+      ],
+      "itemHash": "ede66d1897694e63",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-28",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Medicines 'börjar verka', not 'fungera'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur länge ska jag vänta innan antibiotikan börjar verka?",
+          "list": null
+        }
+      ],
+      "itemHash": "29a5b294c04cf092",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-29",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'låg-sodium diet' is half English; 'på min läkares råd' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har ätit saltfattig kost på inrådan av min läkare.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har följt en saltfattig diet på läkarens inrådan."
+          ]
+        }
+      ],
+      "itemHash": "3ccb53e00ec5a8ce",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'fluktuerat' is uncommon in everyday Swedish; blood pressure 'svänger'. 'oroligt för att' reads as 'worried in order to'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag är orolig över att mitt blodtryck har svängt.",
+          "list": null
+        }
+      ],
+      "itemHash": "0053fb6db22e275d",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-31",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish; 'få runt sex timmar' lacks 'sova'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag brukar sova runt sex timmar, men på sistone har jag vaknat på nätterna.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I usually get about six hours, but lately I've been waking up at night.",
+          "list": null
+        }
+      ],
+      "itemHash": "338b5a32aa6677e4",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-32",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'emphasises'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'För närvarande' = currently; medicine is taken 'mot' a condition."
+          ]
+        }
+      ],
+      "itemHash": "2ed2ae122a49b252",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-b1-60",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The reflexive must match 'dig': 'att återhämta dig', not 'sig'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vad hjälper dig att återhämta dig efter en tuff vecka?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vad hjälper dig att återhämta dig efter en svår vecka?"
+          ]
+        }
+      ],
+      "itemHash": "306fb57a32e5b51a",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'förbättrade min energi' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag drog ner på ___ och fick mer energi.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sockret",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sockret",
+            "socker",
+            "sockrets",
+            "sockren"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Dra ner på' + definite noun = cut down on."
+          ]
+        }
+      ],
+      "itemHash": "51b56912120b52e6",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A medical referral in Swedish is 'remiss', not 'hänvisning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle uppskatta en remiss till en specialist för vidare utredning.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Remiss' = a doctor's referral to a specialist."
+          ]
+        }
+      ],
+      "itemHash": "582ba358812c707c",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'lämna detta obehandlat' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vilka blir de långsiktiga konsekvenserna om det inte behandlas?",
+          "list": null
+        }
+      ],
+      "itemHash": "1e7c5990f3f55cf2",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A medical procedure is 'ingrepp', not 'förfarande'; 'would like' = 'skulle vilja'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja diskutera risker och fördelar innan jag samtycker till ingreppet.",
+          "list": null
+        }
+      ],
+      "itemHash": "4ddfdaf93d827142",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-34",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Beviset' is singular and the adverb placement 'förbättrar signifikant resultaten' is wrong.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Forskningen tyder på att tidiga insatser avsevärt förbättrar resultaten.",
+          "list": null
+        }
+      ],
+      "itemHash": "ba6080b225b244b1",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-36",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'begår operation' means 'commit (a crime) surgery'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag vill undersöka icke-invasiva alternativ innan jag bestämmer mig för en operation.",
+          "list": null
+        }
+      ],
+      "itemHash": "070bd31c86f2aa17",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-38",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'familjehistoria' is a calque; medically it is 'ärftlighet'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Skulle en förebyggande behandling vara tillrådlig med tanke på ärftligheten i min familj?",
+          "list": null
+        }
+      ],
+      "itemHash": "4d847589a94db966",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'psykisk vård' should be 'psykiatrisk vård'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vilka åtgärder kan förbättra tillgången till ___ vård?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "psykiatrisk",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "psykiatrisk",
+            "psykiatriska",
+            "psykiatriskt",
+            "psykiater"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Common-gender indefinite adjective agreeing with 'vård'."
+          ]
+        }
+      ],
+      "itemHash": "3d56f208960130c1",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    },
+    {
+      "id": "sv-he-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend says they keep starting new fitness plans and giving up. Give your view.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Sustainable routines matter more than short-term motivation.",
+          "list": null
+        }
+      ],
+      "itemHash": "80abc037905c2692",
+      "appliedAt": "2026-10-22T10:00:53.426Z"
+    }
+  ]
+}

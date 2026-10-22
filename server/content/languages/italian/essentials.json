@@ -6,7 +6,10 @@
     "prompt": "Say: Hello, how are you?",
     "correctAnswer": "Ciao, come stai?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Come stai?' is informal; to a stranger you would say 'Come sta?'."
+    ],
+    "acceptedAnswers": [
+      "Ciao, come va?"
     ]
   },
   {
@@ -16,7 +19,12 @@
     "prompt": "Say: Thank you very much for your help.",
     "correctAnswer": "Grazie mille per il vostro aiuto.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Grazie mille per' + noun; 'tuo' (informal), 'suo' (formal) or 'vostro' (plural)."
+    ],
+    "acceptedAnswers": [
+      "Grazie mille per il tuo aiuto.",
+      "Grazie mille per il suo aiuto.",
+      "Grazie mille per l'aiuto."
     ]
   },
   {
@@ -26,7 +34,7 @@
     "prompt": "Say: I do not understand this sentence.",
     "correctAnswer": "Non capisco questa frase.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Non' goes directly before the verb; 'frase' = sentence."
     ]
   },
   {
@@ -36,7 +44,11 @@
     "prompt": "Say: Excuse me, where is the bathroom?",
     "correctAnswer": "Mi scusi, dov'è il bagno?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Mi scusi' is the polite way to get a stranger's attention."
+    ],
+    "acceptedAnswers": [
+      "Scusi, dov'è il bagno?",
+      "Scusa, dov'è il bagno?"
     ]
   },
   {
@@ -77,12 +89,13 @@
     "id": "it-es-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best response. Someone says: How are you?",
+    "prompt": "Choose the best response. Someone says: Come stai?",
     "correctAnswer": "Sto bene, grazie.",
     "hints": [
       "Pick a polite reply."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I'm fine, thanks."
   },
   {
     "id": "it-es-a1-9",
@@ -99,12 +112,18 @@
     "id": "it-es-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "I ___ from Spain.",
-    "correctAnswer": "io sono",
+    "prompt": "Io ___ spagnolo.",
+    "correctAnswer": "sono",
     "hints": [
-      "Use the correct form of 'to be'."
+      "First person of 'essere' (to be)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "sono",
+      "sei",
+      "è",
+      "siamo"
+    ]
   },
   {
     "id": "it-es-a1-11",
@@ -114,6 +133,10 @@
     "correctAnswer": "Arrivederci, a dopo!",
     "hints": [
       "A common farewell."
+    ],
+    "acceptedAnswers": [
+      "Ciao, a dopo!",
+      "Arrivederci, a più tardi!"
     ]
   },
   {
@@ -167,7 +190,12 @@
     "hints": [
       "A polite clarification request."
     ],
-    "id": "it-es-a1-53"
+    "id": "it-es-a1-53",
+    "acceptedAnswers": [
+      "Può ripeterlo, per favore?",
+      "Puoi ripetere, per favore?",
+      "Può ripetere, per favore?"
+    ]
   },
   {
     "level": "a1",
@@ -209,17 +237,25 @@
     "prompt": "Say: Could you speak more slowly, please?",
     "correctAnswer": "Puoi parlare più lentamente, per favore?",
     "hints": [
-      "Pay attention to the sentence structure."
+      "'Più lentamente' = more slowly; use 'Può' with a stranger."
+    ],
+    "acceptedAnswers": [
+      "Può parlare più lentamente, per favore?",
+      "Potrebbe parlare più lentamente, per favore?"
     ]
   },
   {
     "id": "it-es-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am learning English every day.",
-    "correctAnswer": "Sto imparando l'inglese ogni giorno.",
+    "prompt": "Say: I am learning Italian every day.",
+    "correctAnswer": "Sto imparando l'italiano ogni giorno.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Imparo l'italiano ogni giorno.",
+      "Studio l'italiano ogni giorno."
     ]
   },
   {
@@ -248,12 +284,21 @@
     "id": "it-es-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "I ___ to school yesterday.",
+    "prompt": "Ieri sono ___ a scuola.",
     "correctAnswer": "andato",
     "hints": [
-      "Use the past tense of 'go'."
+      "Past participle of 'andare'; with 'essere' it agrees with the subject."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "acceptedAnswers": [
+      "andata"
+    ],
+    "clozeOptions": [
+      "andato",
+      "andare",
+      "vado",
+      "andando"
+    ]
   },
   {
     "id": "it-es-a2-6",
@@ -271,11 +316,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Choose the best response. You are lost in a shop.",
-    "correctAnswer": "Mi scusi, dov'e' l'uscita?",
+    "correctAnswer": "Mi scusi, dov'è l'uscita?",
     "hints": [
       "Ask politely for help."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "Excuse me, where is the exit?"
   },
   {
     "id": "it-es-a2-8",
@@ -304,7 +350,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "to apologize",
-    "correctAnswer": "per scusarsi",
+    "correctAnswer": "scusarsi",
     "hints": [
       "To say you are sorry for something."
     ],
@@ -324,12 +370,18 @@
     "id": "it-es-a2-12",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "She ___ English and French.",
+    "prompt": "Lei ___ inglese e francese.",
     "correctAnswer": "parla",
     "hints": [
-      "Use the correct present tense form."
+      "Third person singular of 'parlare'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "parla",
+      "parlo",
+      "parli",
+      "parlano"
+    ]
   },
   {
     "level": "a2",
@@ -355,13 +407,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I usually review new words at night.",
-    "correctAnswer": "Di solito rivedo nuove parole di notte.",
+    "prompt": "Di solito ___ le parole nuove la sera.",
+    "correctAnswer": "ripasso",
     "hints": [
-      "Use adverbs with routine verbs."
+      "First person of 'ripassare' (to review)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-es-a2-63"
+    "id": "it-es-a2-63",
+    "clozeOptions": [
+      "ripasso",
+      "ripassi",
+      "ripassa",
+      "ripassiamo"
+    ]
   },
   {
     "level": "a2",
@@ -409,33 +467,44 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Although it was raining, we walked to the park.",
-    "correctAnswer": "Anche se pioveva, siamo andati al parco.",
+    "correctAnswer": "Anche se pioveva, siamo andati al parco a piedi.",
     "hints": [
       "Connect two ideas with 'although'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Anche se pioveva, siamo andate al parco a piedi.",
+      "Benché piovesse, siamo andati al parco a piedi."
+    ]
   },
   {
     "id": "it-es-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "I have ___ living here for three years.",
-    "correctAnswer": "stato",
+    "prompt": "Vivo qui ___ tre anni.",
+    "correctAnswer": "da",
     "hints": [
-      "Use present perfect continuous."
+      "Italian uses the present tense + 'da' for something that started in the past and is still going on."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "da",
+      "per",
+      "fa",
+      "tra"
+    ]
   },
   {
     "id": "it-es-b1-6",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Someone asks: Can you explain this word?",
+    "prompt": "Dialogue: A classmate asks: «Puoi spiegarmi la parola 'articolare'?»",
     "correctAnswer": "Certo, significa esprimere chiaramente qualcosa.",
     "hints": [
       "Give a helpful explanation."
     ],
-    "exerciseType": "dialogue_turn"
+    "exerciseType": "dialogue_turn",
+    "answerEnglish": "Sure, it means to express something clearly."
   },
   {
     "id": "it-es-b1-7",
@@ -453,11 +522,15 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Could you tell me where the post office is?",
-    "correctAnswer": "Puoi dirmi dov'e' l'ufficio postale?",
+    "correctAnswer": "Puoi dirmi dov'è l'ufficio postale?",
     "hints": [
       "Use an indirect question for politeness."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Potrebbe dirmi dov'è l'ufficio postale?",
+      "Mi può dire dov'è l'ufficio postale?"
+    ]
   },
   {
     "id": "it-es-b1-9",
@@ -485,10 +558,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been waiting for twenty minutes.",
-    "correctAnswer": "Ho aspettato per venti minuti.",
+    "correctAnswer": "Aspetto da venti minuti.",
     "hints": [
-      "Use present perfect continuous for duration.",
-      "Connect the two ideas."
+      "Italian uses the present tense + 'da' for an action that is still going on."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -497,7 +569,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "to complain",
-    "correctAnswer": "a lamentarsi",
+    "correctAnswer": "lamentarsi",
     "hints": [
       "To express dissatisfaction about something."
     ],
@@ -507,11 +579,14 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been practicing this expression for weeks.",
-    "correctAnswer": "Ho praticato questa espressione da settimane.",
+    "correctAnswer": "Mi esercito con questa espressione da settimane.",
     "hints": [
-      "Present perfect continuous for duration."
+      "Present tense + 'da' for an action still going on."
     ],
-    "id": "it-es-b1-69"
+    "id": "it-es-b1-69",
+    "acceptedAnswers": [
+      "Pratico questa espressione da settimane."
+    ]
   },
   {
     "level": "b1",
@@ -527,31 +602,38 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I understood the idea but missed one detail.",
-    "correctAnswer": "Ho capito l'idea ma ho perso un dettaglio.",
+    "prompt": "Ho capito l'idea, ma mi è ___ un dettaglio.",
+    "correctAnswer": "sfuggito",
     "hints": [
-      "Natural reflection sentence."
+      "'Mi è sfuggito' = I missed it; the participle agrees with 'dettaglio'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-es-b1-71"
+    "id": "it-es-b1-71",
+    "clozeOptions": [
+      "sfuggito",
+      "sfuggita",
+      "sfuggiti",
+      "sfuggire"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I am trying to sound more natural in conversations.",
-    "correctAnswer": "Sto cercando di sembrare piu' naturale nelle conversazioni.",
+    "prompt": "Dialogue: Your Italian tutor asks what you are working on at the moment.",
+    "correctAnswer": "Sto cercando di parlare in modo più naturale nelle conversazioni.",
     "hints": [
       "Goal-focused phrasing."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-es-b1-72"
+    "id": "it-es-b1-72",
+    "answerEnglish": "I'm trying to sound more natural in conversations."
   },
   {
     "id": "it-es-8",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I can explain my opinion with clear arguments.",
-    "correctAnswer": "Posso spiegare la mia opinione con chiari argomenti.",
+    "correctAnswer": "Posso spiegare la mia opinione con argomenti chiari.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -561,9 +643,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I want to speak naturally, not only correctly.",
-    "correctAnswer": "Voglio parlare naturalmente, non solo correttamente.",
+    "correctAnswer": "Voglio parlare in modo naturale, non solo corretto.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Voglio parlare in modo naturale, non solo correttamente."
     ]
   },
   {
@@ -581,23 +666,33 @@
     "id": "it-es-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "The more you practice, the ___ confident you become.",
-    "correctAnswer": "di più",
+    "prompt": "Più ti eserciti, ___ diventi sicuro di te.",
+    "correctAnswer": "più",
     "hints": [
-      "Use the comparative structure 'the more... the more...'."
+      "'Più ... più ...' = the more ... the more ..."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "più",
+      "meno",
+      "molto",
+      "tanto"
+    ]
   },
   {
     "id": "it-es-b2-5",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known the answer, I would have spoken up.",
-    "correctAnswer": "Se avessi saputo la risposta, avrei parlato.",
+    "correctAnswer": "Se avessi saputo la risposta, sarei intervenuto.",
     "hints": [
-      "Use inverted third conditional."
+      "Past subjunctive (se avessi saputo) + past conditional."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Se avessi saputo la risposta, sarei intervenuta.",
+      "Se avessi saputo la risposta, avrei parlato."
+    ]
   },
   {
     "id": "it-es-b2-6",
@@ -608,7 +703,8 @@
     "hints": [
       "Respond professionally and politely."
     ],
-    "exerciseType": "dialogue_turn"
+    "exerciseType": "dialogue_turn",
+    "answerEnglish": "I apologize for the confusion; let me clarify what I meant."
   },
   {
     "id": "it-es-b2-7",
@@ -658,7 +754,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "to paraphrase",
-    "correctAnswer": "a parafrasi",
+    "correctAnswer": "parafrasare",
     "hints": [
       "To express the same idea using different words."
     ],
@@ -669,9 +765,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Nuance is what separates adequate language from truly fluent speech.",
-    "correctAnswer": "Nuance è ciò che separa il linguaggio adeguato dal discorso veramente fluente.",
+    "correctAnswer": "La sfumatura è ciò che distingue un linguaggio adeguato da un parlato davvero fluente.",
     "hints": [
       "Consider the register."
+    ],
+    "acceptedAnswers": [
+      "Le sfumature sono ciò che distingue un linguaggio adeguato da un parlato davvero fluente."
     ]
   },
   {
@@ -679,49 +778,65 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Being articulate is not the same as being verbose.",
-    "correctAnswer": "Essere articolato non è lo stesso di essere verbose.",
+    "correctAnswer": "Essere eloquenti non significa essere prolissi.",
     "hints": [
       "Focus on natural phrasing and word order."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Essere eloquente non è la stessa cosa che essere prolisso."
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I can infer the meaning from context most of the time.",
-    "correctAnswer": "Posso dedurre il significato dal contesto la maggior parte del tempo.",
+    "correctAnswer": "Il più delle volte riesco a dedurre il significato dal contesto.",
     "hints": [
       "Academic-style phrasing."
     ],
-    "id": "it-es-b2-77"
+    "id": "it-es-b2-77",
+    "acceptedAnswers": [
+      "Posso dedurre il significato dal contesto il più delle volte."
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify the nuance of that expression?",
-    "correctAnswer": "Potrebbe chiarire la sfumatura di quell'espressione?",
+    "prompt": "Potrebbe chiarire la ___ di quell'espressione?",
+    "correctAnswer": "sfumatura",
     "hints": [
-      "Useful for advanced accuracy."
+      "A noun meaning 'nuance'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-es-b2-78"
+    "id": "it-es-b2-78",
+    "clozeOptions": [
+      "sfumatura",
+      "sfuriata",
+      "sfilata",
+      "sfera"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I am confident, although I still make occasional mistakes.",
-    "correctAnswer": "Sono fiducioso, anche se faccio ancora errori occasionali.",
+    "prompt": "Dialogue: Your Italian teacher asks how you feel about your speaking skills now.",
+    "correctAnswer": "Mi sento sicuro, anche se faccio ancora qualche errore ogni tanto.",
     "hints": [
       "Use concession for balanced statements."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-es-b2-79"
+    "id": "it-es-b2-79",
+    "acceptedAnswers": [
+      "Mi sento sicura, anche se faccio ancora qualche errore ogni tanto."
+    ],
+    "answerEnglish": "I feel confident, although I still make occasional mistakes."
   },
   {
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would rather reformulate the sentence than translate it directly.",
-    "correctAnswer": "Preferirei riformare la frase piuttosto che tradurla direttamente.",
+    "correctAnswer": "Preferirei riformulare la frase piuttosto che tradurla direttamente.",
     "hints": [
       "Shows advanced strategy."
     ],

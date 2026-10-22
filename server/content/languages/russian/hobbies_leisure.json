@@ -224,7 +224,9 @@
     "difficulty": "a2",
     "prompt": "Say: Yesterday I went for a walk in the park.",
     "correctAnswer": "Вчера я гулял в парке.",
-    "hints": ["Put the time word first for emphasis."],
+    "hints": [
+      "Time words like 'вчера' usually open a neutral Russian sentence."
+    ],
     "exerciseType": "build_sentence"
   },
   {
@@ -372,7 +374,9 @@
     "difficulty": "b1",
     "prompt": "Say: I relax by reading books.",
     "correctAnswer": "Я расслабляюсь, читая книги.",
-    "hints": ["Use the present active participle 'читая' (by reading)."],
+    "hints": [
+      "Use the verbal adverb (деепричастие) 'читая' = by reading, while reading."
+    ],
     "exerciseType": "build_sentence"
   },
   {
@@ -565,8 +569,10 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Consistency matters more than intensity when developing a new skill.",
-    "correctAnswer": "При освоении нового навыка системность важнее интенсивности.",
-    "hints": ["'При + verbal noun' sets up the context clause."],
+    "correctAnswer": "При освоении нового навыка регулярность важнее интенсивности.",
+    "hints": [
+      "'При + verbal noun' sets up the context clause."
+    ],
     "exerciseType": "build_sentence"
   },
   {
@@ -583,8 +589,10 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Leisure that challenges you mentally is more rewarding than passive entertainment.",
-    "correctAnswer": "Досуг, который умственно нагружает, приносит больше удовлетворения, чем пассивное развлечение.",
-    "hints": ["Use a relative clause with 'который' and a comparative 'больше... чем'."],
+    "correctAnswer": "Досуг, который требует умственных усилий, приносит больше удовлетворения, чем пассивные развлечения.",
+    "hints": [
+      "Use a relative clause with 'который' and a comparative 'больше... чем'."
+    ],
     "exerciseType": "build_sentence"
   },
   {
@@ -636,9 +644,11 @@
     "id": "ru-ho-b2-c03",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Чем больше времени я уделяю рисованию, тем ____ я становлюсь.",
+    "prompt": "Cloze: Чем больше времени я уделяю рисованию, тем ____ у меня получается.",
     "correctAnswer": "лучше",
-    "hints": ["'Чем больше... тем...' = the more... the..."],
+    "hints": [
+      "'Чем больше... тем...' = the more... the..."
+    ],
     "exerciseType": "cloze_sentence"
   },
   {

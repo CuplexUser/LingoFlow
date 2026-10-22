@@ -16,7 +16,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 1",
-    "correctAnswer": "eine",
+    "correctAnswer": "eins",
     "hints": [
       "There is only ___ sun in our solar system."
     ]
@@ -29,13 +29,13 @@
     "prompt": "Which word means the number 2?",
     "correctAnswer": "zwei",
     "options": [
-      "roheisen",
+      "zwölf",
       "zwei",
-      "auch",
-      "bis"
+      "drei",
+      "zehn"
     ],
     "hints": [
-      "Watch out — English has three words that sound alike: 'to', 'too', and ___!"
+      "Pronounced 'tsvai'. On the phone Germans often say 'zwo' so it isn't confused with 'drei'."
     ]
   },
   {
@@ -46,7 +46,7 @@
     "prompt": "Vocabulary: the number 3",
     "correctAnswer": "drei",
     "hints": [
-      "Good things come in ___s — so they say."
+      "Germans say 'Aller guten Dinge sind ___' — all good things come in threes."
     ]
   },
   {
@@ -68,10 +68,10 @@
     "prompt": "Which is the correct spelling of 5?",
     "correctAnswer": "fünf",
     "options": [
-      "fichte",
+      "funf",
       "fünf",
-      "fiv",
-      "fünftel"
+      "fümf",
+      "fünv"
     ],
     "hints": [
       "You have ___ fingers on one hand."
@@ -83,7 +83,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 6",
-    "correctAnswer": "6",
+    "correctAnswer": "sechs",
     "hints": [
       "A standard die has ___ sides."
     ]
@@ -104,10 +104,10 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "A spider has how many legs? Spell the number.",
+    "prompt": "A spider has how many legs? Choose the German number word.",
     "correctAnswer": "acht",
     "options": [
-      "6",
+      "sechs",
       "sieben",
       "acht",
       "neun"
@@ -124,7 +124,7 @@
     "prompt": "Vocabulary: the number 9",
     "correctAnswer": "neun",
     "hints": [
-      "A cat has ___ lives — at least according to the saying."
+      "Count on: sieben, acht, ___, zehn."
     ]
   },
   {
@@ -143,7 +143,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A week has ___ days.",
+    "prompt": "Complete: Eine Woche hat ___ Tage.",
     "correctAnswer": "sieben",
     "hints": [
       "Monday through Sunday."
@@ -154,12 +154,12 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does '+' mean in English?",
+    "prompt": "What is '+' called in German math?",
     "correctAnswer": "plus",
     "options": [
       "minus",
       "plus",
-      "zeiten",
+      "mal",
       "gleich"
     ],
     "hints": [
@@ -195,7 +195,12 @@
     "prompt": "Read this calculation aloud: 2 + 3 = 5",
     "correctAnswer": "Zwei plus drei sind fünf.",
     "hints": [
-      "Use: plus, equals."
+      "Use: plus, and 'ist', 'sind' or 'ist gleich' for equals."
+    ],
+    "acceptedAnswers": [
+      "Zwei plus drei ist fünf.",
+      "Zwei plus drei ist gleich fünf.",
+      "Zwei plus drei gleich fünf."
     ]
   },
   {
@@ -217,7 +222,7 @@
     "prompt": "How do you read '5 + 5'?",
     "correctAnswer": "fünf plus fünf",
     "options": [
-      "fünf und fünf",
+      "fünf durch fünf",
       "fünf plus fünf",
       "fünfmal fünf",
       "fünf minus fünf"
@@ -243,7 +248,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 12",
-    "correctAnswer": "12",
+    "correctAnswer": "zwölf",
     "hints": [
       "A year has ___ months."
     ]
@@ -253,16 +258,16 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "Which number is 'thirteen'?",
-    "correctAnswer": "13)",
+    "prompt": "Which number is 'dreizehn'?",
+    "correctAnswer": "13",
     "options": [
       "12",
-      "13)",
+      "13",
       "14",
       "30"
     ],
     "hints": [
-      "Watch out — 'thirteen' (13) and 'thirty' (30) sound similar!"
+      "drei + zehn. Don't confuse it with dreißig (30)."
     ]
   },
   {
@@ -270,7 +275,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: I have ___ fingers on each hand.",
+    "prompt": "Complete: Ich habe an jeder Hand ___ Finger.",
     "correctAnswer": "fünf",
     "hints": [
       "Count them!"
@@ -292,16 +297,16 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you spell 50?",
-    "correctAnswer": "50",
+    "prompt": "How do you write 50 in German?",
+    "correctAnswer": "fünfzig",
     "options": [
       "fünfundzwanzig",
-      "50",
-      "15",
+      "fünfzig",
+      "fünfzehn",
       "fünftel"
     ],
     "hints": [
-      "It's not 'fivety' — the 'v' disappears when you make the ten!"
+      "fünf + -zig. Don't confuse it with fünfzehn (15)."
     ]
   },
   {
@@ -310,9 +315,12 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 100",
-    "correctAnswer": "100",
+    "correctAnswer": "hundert",
     "hints": [
       "A century is also ___ years."
+    ],
+    "acceptedAnswers": [
+      "einhundert"
     ]
   },
   {
@@ -332,11 +340,11 @@
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
     "prompt": "What does '×' mean in math?",
-    "correctAnswer": "zeiten",
+    "correctAnswer": "mal",
     "options": [
       "plus",
       "minus",
-      "zeiten",
+      "mal",
       "geteilt durch"
     ],
     "hints": [
@@ -361,7 +369,13 @@
     "prompt": "Read this calculation aloud: 3 × 4 = 12",
     "correctAnswer": "Dreimal vier sind zwölf.",
     "hints": [
-      "Use: times, equals."
+      "Use: mal (times), and 'ist' or 'sind' for equals."
+    ],
+    "acceptedAnswers": [
+      "Dreimal vier ist zwölf.",
+      "Drei mal vier ist zwölf.",
+      "Drei mal vier ist gleich zwölf.",
+      "Drei mal vier sind zwölf."
     ]
   },
   {
@@ -384,12 +398,12 @@
     "correctAnswer": "fünfundzwanzig",
     "options": [
       "fünfundzwanzig",
-      "zwei fünf",
-      "20",
-      "fünfundzwanzig"
+      "zweiundfünfzig",
+      "fünfzwanzig",
+      "zwanzigfünf"
     ],
     "hints": [
-      "Compound numbers between 21 and 99 use a hyphen."
+      "German says the units first: fünf-und-zwanzig, written as one word."
     ]
   },
   {
@@ -397,7 +411,7 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: There are ___ hours in a day.",
+    "prompt": "Complete: Ein Tag hat ___ Stunden.",
     "correctAnswer": "vierundzwanzig",
     "hints": [
       "Not twenty-five, not twenty-three — exactly in between."
@@ -409,7 +423,7 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 1,000,000",
-    "correctAnswer": "eine million",
+    "correctAnswer": "eine Million",
     "hints": [
       "A lottery jackpot is often worth several ___."
     ]
@@ -420,12 +434,12 @@
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
     "prompt": "Which of these means twelve?",
-    "correctAnswer": "ein dutzend",
+    "correctAnswer": "ein Dutzend",
     "options": [
-      "ein paar",
-      "ein dutzend",
-      "eine partitur",
-      "brutto"
+      "ein Paar",
+      "ein Dutzend",
+      "ein Viertel",
+      "ein Zehntel"
     ],
     "hints": [
       "Eggs are typically sold in this quantity."
@@ -435,10 +449,10 @@
     "id": "de-num-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you say the year '1999' in English?",
-    "correctAnswer": "neunzehn neunundneunzig",
+    "prompt": "How do you say the year 1999 in German?",
+    "correctAnswer": "neunzehnhundertneunundneunzig",
     "hints": [
-      "Years before 2000 are read as two pairs: 19 + 99."
+      "German reads years before 2000 with 'hundert': neunzehn-hundert-neunundneunzig, written as one word."
     ]
   },
   {
@@ -446,8 +460,8 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A ___ of eggs means twelve eggs.",
-    "correctAnswer": "dutzend",
+    "prompt": "Complete: Ein ___ Eier sind zwölf Eier.",
+    "correctAnswer": "Dutzend",
     "hints": [
       "Bakers and recipe writers love this word."
     ]
@@ -458,15 +472,15 @@
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
     "prompt": "How do you write 37 in words?",
-    "correctAnswer": "30-seven",
+    "correctAnswer": "siebenunddreißig",
     "options": [
       "drei-sieben",
       "dreißig sieben",
-      "30-seven",
-      "thirtseven"
+      "siebenunddreißig",
+      "dreißigsieben"
     ],
     "hints": [
-      "Compound numbers 21–99 use a hyphen in formal English."
+      "Units first, then 'und', then the tens — all one word."
     ]
   },
   {
@@ -488,7 +502,7 @@
     "prompt": "Ordinal number: 2nd",
     "correctAnswer": "zweite",
     "hints": [
-      "The runner-up. Also means 'a unit of time'."
+      "The runner-up finishes in this place."
     ]
   },
   {
@@ -501,11 +515,11 @@
     "options": [
       "drei",
       "dritte",
-      "drei",
+      "dreite",
       "drittens"
     ],
     "hints": [
-      "The first three ordinals are irregular: first, second, ___"
+      "Irregular: erste, zweite, ___ (not 'dreite')."
     ]
   },
   {
@@ -513,8 +527,8 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She finished in ___ place — just one step off the podium.",
-    "correctAnswer": "vgl",
+    "prompt": "Complete: Sie landete auf dem ___ Platz — knapp am Podest vorbei.",
+    "correctAnswer": "vierten",
     "hints": [
       "One step after the third-place bronze medal."
     ]
@@ -523,10 +537,13 @@
     "id": "de-num-a2-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you read the phone number 555-0199 in English?",
-    "correctAnswer": "fünf fünf fünf, null eine neun neun",
+    "prompt": "How do you read the phone number 555-0199 in German?",
+    "correctAnswer": "fünf fünf fünf, null eins neun neun",
     "hints": [
-      "Phone numbers are said digit by digit. 0 is 'zero' or 'oh'."
+      "Phone numbers are said digit by digit. 0 is 'null'."
+    ],
+    "acceptedAnswers": [
+      "fünf fünf fünf null eins neun neun"
     ]
   },
   {
@@ -535,9 +552,14 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary: 1/2",
-    "correctAnswer": "eine hälfte",
+    "correctAnswer": "eine Hälfte",
     "hints": [
       "Cut a pizza into two equal slices — each is ___."
+    ],
+    "acceptedAnswers": [
+      "die Hälfte",
+      "ein Halb",
+      "einhalb"
     ]
   },
   {
@@ -546,9 +568,12 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary: 1/4",
-    "correctAnswer": "viertel",
+    "correctAnswer": "ein Viertel",
     "hints": [
-      "Four equal parts. Also what 25 cents is called in the US."
+      "Four equal parts. Fifteen minutes is eine ___stunde."
+    ],
+    "acceptedAnswers": [
+      "Viertel"
     ]
   },
   {
@@ -557,11 +582,11 @@
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
     "prompt": "How do you say the fraction 2/3?",
-    "correctAnswer": "zwei drittel",
+    "correctAnswer": "zwei Drittel",
     "options": [
       "zwei drei",
       "zweites drittes",
-      "zwei drittel",
+      "zwei Drittel",
       "zwei bis drei"
     ],
     "hints": [
@@ -573,10 +598,10 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ of the class passed the test — thirty out of forty students.",
-    "correctAnswer": "drei viertel",
+    "prompt": "Complete: ___ der Klasse haben den Test bestanden — dreißig von vierzig Schülern.",
+    "correctAnswer": "Drei Viertel",
     "hints": [
-      "30 out of 40 = 75%. That's three ___."
+      "30 von 40 = 75 %."
     ]
   },
   {
@@ -585,7 +610,7 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the symbol '%'",
-    "correctAnswer": "prozent",
+    "correctAnswer": "Prozent",
     "hints": [
       "From Latin 'per centum': out of a hundred."
     ]
@@ -595,9 +620,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say '20% off' as a full sentence.",
-    "correctAnswer": "Es gibt zwanzig Prozent.",
+    "correctAnswer": "Es gibt zwanzig Prozent Rabatt.",
     "hints": [
-      "Say the number first, then 'per cent'."
+      "'Rabatt' = discount. Number, then Prozent, then Rabatt."
+    ],
+    "acceptedAnswers": [
+      "Zwanzig Prozent Rabatt.",
+      "Es gibt 20 Prozent Rabatt."
     ]
   },
   {
@@ -606,12 +635,12 @@
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
     "prompt": "Which phrase means 'around 100 people'?",
-    "correctAnswer": "etwa hundert menschen",
+    "correctAnswer": "etwa hundert Menschen",
     "options": [
-      "genau hundert menschen",
-      "etwa hundert menschen",
-      "kaum hundert menschen",
-      "über hundert menschen"
+      "genau hundert Menschen",
+      "etwa hundert Menschen",
+      "kaum hundert Menschen",
+      "über hundert Menschen"
     ],
     "hints": [
       "'About' signals an approximation, not an exact count."
@@ -623,9 +652,12 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the result of an addition",
-    "correctAnswer": "summe",
+    "correctAnswer": "die Summe",
     "hints": [
       "What do you get when you add two numbers together?"
+    ],
+    "acceptedAnswers": [
+      "Summe"
     ]
   },
   {
@@ -634,9 +666,12 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the result of subtraction",
-    "correctAnswer": "differenz",
+    "correctAnswer": "die Differenz",
     "hints": [
       "The ___ between 10 and 6 is 4."
+    ],
+    "acceptedAnswers": [
+      "Differenz"
     ]
   },
   {
@@ -644,16 +679,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "What is the 'product' of 4 and 5?",
+    "prompt": "What is the 'Produkt' of 4 and 5?",
     "correctAnswer": "20",
     "options": [
-      "ANHANG",
+      "9",
       "1",
       "20",
       "45"
     ],
     "hints": [
-      "'Product' is the result of multiplication."
+      "'Produkt' is the result of multiplication."
     ]
   },
   {
@@ -661,8 +696,8 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: We need to ___ the bill three ways — about twenty euros each.",
-    "correctAnswer": "teil",
+    "prompt": "Complete: Wir müssen die Rechnung durch drei ___ — etwa zwanzig Euro pro Person.",
+    "correctAnswer": "teilen",
     "hints": [
       "Divide equally between friends at a restaurant."
     ]
@@ -675,7 +710,11 @@
     "prompt": "Vocabulary: a more formal word for 'about' or 'roughly'",
     "correctAnswer": "etwa",
     "hints": [
-      "'The project costs ___ ten thousand euros.'"
+      "'Das Projekt kostet ___ zehntausend Euro.'"
+    ],
+    "acceptedAnswers": [
+      "ungefähr",
+      "circa"
     ]
   },
   {
@@ -683,9 +722,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "How do you say the decimal 3.5 out loud?",
-    "correctAnswer": "drei punkte fünf",
+    "correctAnswer": "drei Komma fünf",
     "hints": [
-      "Decimals use 'point', then each digit is read individually."
+      "German uses a decimal comma, read 'Komma'."
     ]
   },
   {
@@ -710,10 +749,15 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: He's ___ — he just turned 35 last week.",
-    "correctAnswer": "in seinen dreißiger jahren",
+    "prompt": "Complete: Er ist ___ — er ist letzte Woche 35 geworden.",
+    "correctAnswer": "Mitte dreißig",
     "hints": [
-      "Use 'in his/her ___s' to express a decade of someone's age."
+      "German says 'Anfang / Mitte / Ende dreißig' for early, mid and late thirties."
+    ],
+    "acceptedAnswers": [
+      "Mitte 30",
+      "in den Dreißigern",
+      "in seinen Dreißigern"
     ]
   },
   {
@@ -721,16 +765,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'a pair of shoes' mean?",
-    "correctAnswer": "zwei schuhe",
+    "prompt": "How do you say 'a pair of shoes' in German?",
+    "correctAnswer": "ein Paar Schuhe",
     "options": [
-      "ein schuh",
-      "zwei schuhe",
-      "ein paar schuhe",
-      "viele schuhe"
+      "ein Schuh",
+      "ein Paar Schuhe",
+      "ein paar Schuhe",
+      "viele Schuhe"
     ],
     "hints": [
-      "Always two — one for each foot."
+      "Capital P: 'ein Paar' = a pair; lowercase 'ein paar' = a few."
     ]
   },
   {
@@ -739,9 +783,12 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Number vocabulary: the opposite of 'odd' numbers",
-    "correctAnswer": "sogar",
+    "correctAnswer": "gerade",
     "hints": [
       "2, 4, 6, 8 — these are ___ numbers. They can be divided by 2 exactly."
+    ],
+    "acceptedAnswers": [
+      "gerade Zahlen"
     ]
   },
   {
@@ -749,20 +796,28 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The ticket costs ___ euros, give or take a few cents.",
+    "prompt": "Complete: Das Ticket kostet ___ Euro, ein paar Cent mehr oder weniger.",
     "correctAnswer": "etwa zwanzig",
     "hints": [
       "'Give or take' signals an approximation. Use 'roughly' + number."
+    ],
+    "acceptedAnswers": [
+      "ungefähr zwanzig",
+      "circa zwanzig"
     ]
   },
   {
     "id": "de-num-b1-19",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "How do you say 'double the price' using 'twice'?",
-    "correctAnswer": "doppelter preis",
+    "prompt": "How do you say 'double the price' in German?",
+    "correctAnswer": "der doppelte Preis",
     "hints": [
-      "'Double' and 'twice' are often interchangeable."
+      "doppelt = double; 'zweimal so teuer' = twice as expensive."
+    ],
+    "acceptedAnswers": [
+      "doppelter Preis",
+      "das Doppelte"
     ]
   },
   {
@@ -770,16 +825,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you say 2,500,000 in the most natural spoken English?",
-    "correctAnswer": "zweieinhalb millionen",
+    "prompt": "How do you say 2,500,000 in the most natural spoken German?",
+    "correctAnswer": "zweieinhalb Millionen",
     "options": [
-      "250.000",
-      "zwei punkte fünf millionen",
-      "zweieinhalb millionen",
-      "zwei millionen fünfhundert"
+      "zweihundertfünfzigtausend",
+      "zwei Punkt fünf Millionen",
+      "zweieinhalb Millionen",
+      "zwei Millionen fünfhundert"
     ],
     "hints": [
-      "'Two and a half million' flows most naturally in speech."
+      "'Zweieinhalb' = two and a half."
     ]
   },
   {
@@ -787,10 +842,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "flashcard",
-    "prompt": "Idiom: 'to be at sixes and sevens'",
-    "correctAnswer": "in einem zustand der verwirrung oder störung sein",
+    "prompt": "Idiom: 'in private, just the two of us'",
+    "correctAnswer": "unter vier Augen",
     "hints": [
-      "Nothing to do with actual numbers — it's about total chaos!"
+      "Literally 'under four eyes'."
     ]
   },
   {
@@ -798,16 +853,16 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does the idiom 'on cloud nine' mean?",
-    "correctAnswer": "sehr glücklich",
+    "prompt": "How do you say 'on cloud nine' in German?",
+    "correctAnswer": "auf Wolke sieben",
     "options": [
-      "extrem hoch",
-      "sehr glücklich",
-      "extrem verwirrt",
-      "extrem müde"
+      "auf Wolke neun",
+      "auf Wolke sieben",
+      "auf Wolke drei",
+      "über den Wolken"
     ],
     "hints": [
-      "The nine just emphasizes how far above the ground you feel."
+      "Germans float two clouds lower than English speakers."
     ]
   },
   {
@@ -815,10 +870,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The business plan just doesn't ___ up — the costs are way too high.",
-    "correctAnswer": "hinzufügen",
+    "prompt": "Complete: Die Rechnung geht einfach nicht ___ — die Kosten sind viel zu hoch.",
+    "correctAnswer": "auf",
     "hints": [
-      "'The numbers don't ___ up' means something is wrong or suspicious."
+      "'Die Rechnung geht nicht auf' = the numbers don't add up."
     ]
   },
   {
@@ -827,9 +882,12 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to go fifty-fifty'",
-    "correctAnswer": "die kosten oder den gewinn zwischen zwei personen zu teilen",
+    "correctAnswer": "halbe-halbe machen",
     "hints": [
-      "50% each. Used when splitting a bill or sharing a reward."
+      "Literally 'make half-half'. 'Fifty-fifty machen' is also common."
+    ],
+    "acceptedAnswers": [
+      "fifty-fifty machen"
     ]
   },
   {
@@ -837,16 +895,16 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'the odds are against us' mean?",
-    "correctAnswer": "es ist unwahrscheinlich, dass wir erfolg haben",
+    "prompt": "Which German sentence means 'the odds are against us'?",
+    "correctAnswer": "Die Chancen stehen schlecht für uns.",
     "options": [
-      "wir brauchen mehr menschen",
-      "die zahlen sind falsch",
-      "es ist unwahrscheinlich, dass wir erfolg haben",
-      "der wettbewerb ist fair"
+      "Wir brauchen mehr Leute.",
+      "Die Zahlen sind falsch.",
+      "Die Chancen stehen schlecht für uns.",
+      "Der Wettbewerb ist fair."
     ],
     "hints": [
-      "'Odds' here means probability, not the mathematical odd/even."
+      "'Chancen' = odds, chances."
     ]
   },
   {
@@ -854,8 +912,8 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She's the ___ suspect — the detective is focused on her.",
-    "correctAnswer": "nummer eins",
+    "prompt": "Complete: Sie ist die Verdächtige ___ — die Kommissarin konzentriert sich ganz auf sie.",
+    "correctAnswer": "Nummer eins",
     "hints": [
       "To be 'number ___' means to be first or most important."
     ]
@@ -866,9 +924,12 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the result of dividing two numbers",
-    "correctAnswer": "quotient",
+    "correctAnswer": "der Quotient",
     "hints": [
-      "Sum, difference, product, ___ — the four basic math results."
+      "Summe, Differenz, Produkt, ___."
+    ],
+    "acceptedAnswers": [
+      "Quotient"
     ]
   },
   {
@@ -876,13 +937,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What is 'a round number'?",
-    "correctAnswer": "eine zahl, die in null endet, die einfach mit",
+    "prompt": "What is a 'runde Zahl'?",
+    "correctAnswer": "eine Zahl, die auf Null endet und leicht zu merken ist",
     "options": [
-      "eine kreiszahl in der geometrie",
-      "eine zahl, die in null endet, die einfach mit",
-      "jede nummer",
-      "jeder perfekte quadrat"
+      "eine Kreiszahl in der Geometrie",
+      "eine Zahl, die auf Null endet und leicht zu merken ist",
+      "jede beliebige Zahl",
+      "jede Quadratzahl"
     ],
     "hints": [
       "100, 50, 1000 are 'round'. 47 and 83 are not."
@@ -903,10 +964,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ would get me back on a plane after that experience.",
-    "correctAnswer": "Kein Geldbetrag",
+    "prompt": "Complete: ___ Pferde bringen mich nach dieser Erfahrung wieder in ein Flugzeug.",
+    "correctAnswer": "Keine zehn",
     "hints": [
-      "'No ___ of money' means nothing can buy or persuade you."
+      "German idiom: 'not even ten horses' — nothing could make me do it."
     ]
   },
   {
@@ -914,13 +975,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'to zero in on something' mean?",
-    "correctAnswer": "genau auf etwas zu konzentrieren",
+    "prompt": "Which German phrase means 'to zero in on something'?",
+    "correctAnswer": "sich genau auf etwas konzentrieren",
     "options": [
-      "um etwas zu ignorieren",
-      "um etwas auf null zu setzen",
-      "genau auf etwas zu konzentrieren",
-      "bis zu null zählen"
+      "etwas ignorieren",
+      "etwas auf null setzen",
+      "sich genau auf etwas konzentrieren",
+      "bis null zählen"
     ],
     "hints": [
       "Think of a camera lens zooming in on one target."
@@ -932,9 +993,12 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to count on someone'",
-    "correctAnswer": "auf jemanden verlassen oder vertrauen",
+    "correctAnswer": "auf jemanden zählen",
     "hints": [
-      "'You can always ___ on me.' A phrase of dependability."
+      "Same image as English: 'Du kannst immer auf mich zählen.'"
+    ],
+    "acceptedAnswers": [
+      "sich auf jemanden verlassen"
     ]
   },
   {
@@ -942,10 +1006,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: After years of budget cuts, the charity runs on a ___ budget.",
-    "correctAnswer": "schuhe",
+    "prompt": "Complete: Nach Jahren der Kürzungen läuft die Hilfsorganisation nur noch auf ___.",
+    "correctAnswer": "Sparflamme",
     "hints": [
-      "A '___ budget' means operating with almost no money at all."
+      "'Auf Sparflamme' = on a low flame — running on almost no money."
     ]
   },
   {
@@ -953,13 +1017,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "Which of these is a 'factor' of 12?",
-    "correctAnswer": "ANHANG",
+    "prompt": "Which of these is a 'Teiler' (factor) of 12?",
+    "correctAnswer": "4",
     "options": [
       "5",
-      "ANHANG",
+      "4",
       "7",
-      "ANHANG"
+      "9"
     ],
     "hints": [
       "A factor divides the number exactly, with no remainder."

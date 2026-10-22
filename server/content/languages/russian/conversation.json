@@ -6,7 +6,10 @@
     "prompt": "Ask: What is your name?",
     "correctAnswer": "Как тебя зовут?",
     "hints": [
-      "Practice this phrase out loud."
+      "Literally 'How do they call you?'. Formal: 'Как вас зовут?'"
+    ],
+    "acceptedAnswers": [
+      "Как вас зовут?"
     ]
   },
   {
@@ -16,7 +19,7 @@
     "prompt": "Say: My name is Alex and I am from the United States.",
     "correctAnswer": "Меня зовут Алекс, и я из США.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Из' + genitive = from. 'США' is the abbreviation for the USA."
     ]
   },
   {
@@ -26,7 +29,10 @@
     "prompt": "Ask: Where are you from?",
     "correctAnswer": "Откуда вы?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Откуда' = from where. No verb needed."
+    ],
+    "acceptedAnswers": [
+      "Откуда ты?"
     ]
   },
   {
@@ -47,6 +53,10 @@
     "correctAnswer": "Я в порядке, спасибо.",
     "hints": [
       "A standard polite reply to 'How are you?'."
+    ],
+    "acceptedAnswers": [
+      "Хорошо, спасибо.",
+      "У меня всё хорошо, спасибо."
     ]
   },
   {
@@ -109,7 +119,12 @@
     "hints": [
       "'Рад' is the short-form adjective for masculine; use 'рада' for feminine."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Рада с тобой познакомиться.",
+      "Рад познакомиться.",
+      "Рада познакомиться."
+    ]
   },
   {
     "id": "ru-cv-a1-12",
@@ -246,7 +261,10 @@
     "hints": [
       "Use 'назад' for time ago. 'Переехать' is the perfective verb for to move."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я переехала в Москву три года назад."
+    ]
   },
   {
     "id": "ru-cv-a2-12",
@@ -308,6 +326,9 @@
     "correctAnswer": "Я согласен с тобой, но вижу это иначе.",
     "hints": [
       "'Согласен' is the short-form adjective agreeing with masculine subject."
+    ],
+    "acceptedAnswers": [
+      "Я согласна с тобой, но вижу это иначе."
     ]
   },
   {
@@ -346,9 +367,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I find small talk difficult but necessary.",
-    "correctAnswer": "Я считаю светские разговоры трудными, но необходимыми.",
+    "correctAnswer": "Мне трудно даются светские беседы, но они необходимы.",
     "hints": [
-      "'Считать + instrumental' = to consider something as something."
+      "'Даваться трудно' = to come hard to someone. 'Светская беседа' = small talk."
+    ],
+    "acceptedAnswers": [
+      "Я считаю светские разговоры трудными, но необходимыми."
     ]
   },
   {
@@ -371,6 +395,9 @@
     "correctAnswer": "Это хорошее замечание, о котором я не подумал.",
     "hints": [
       "'О котором' is a relative clause in the prepositional case."
+    ],
+    "acceptedAnswers": [
+      "Это хорошее замечание, о котором я не подумала."
     ]
   },
   {
@@ -382,7 +409,10 @@
     "hints": [
       "'Бы + past tense' forms the conditional. 'Наедине' means privately or one-on-one."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я бы предпочла обсудить это наедине."
+    ]
   },
   {
     "id": "ru-cv-b1-12",
@@ -399,7 +429,7 @@
     "id": "ru-cv-b1-13",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "собеседник",
+    "prompt": "Vocabulary: conversation partner",
     "correctAnswer": "собеседник",
     "hints": [
       "A person you are talking with; a conversation partner."
@@ -414,6 +444,9 @@
     "correctAnswer": "Раньше я был застенчивым, но теперь уверенно выражаю свои мысли.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Раньше я была застенчивой, но теперь уверенно выражаю свои мысли."
     ]
   },
   {
@@ -455,7 +488,10 @@
     "hints": [
       "'Склонен + infinitive' = to tend to. Short-form adjective agrees with subject."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Я склонна больше слушать, чем говорить в групповых дискуссиях."
+    ]
   },
   {
     "id": "ru-cv-b2-6",
@@ -481,10 +517,10 @@
     "id": "ru-cv-b2-8",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: Я не хотел обидеть тебя — это было ___ намерения.",
-    "correctAnswer": "без",
+    "prompt": "Fill in the blank: Я не хотел тебя обидеть — я сказал это без ___.",
+    "correctAnswer": "умысла",
     "hints": [
-      "'Без' + genitive = without. 'Без намерения' = without intention."
+      "'Без умысла' = without ill intent, unintentionally. 'Без' takes the genitive."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -503,7 +539,7 @@
     "id": "ru-cv-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "красноречие",
+    "prompt": "Vocabulary: eloquence",
     "correctAnswer": "красноречие",
     "hints": [
       "Eloquence; the art of speaking fluently and persuasively."
@@ -623,7 +659,11 @@
     "hints": [
       "A useful filler phrase to buy thinking time. 'Секунду' is accusative for a brief moment."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Дайте подумать.",
+      "Дай мне подумать секунду."
+    ]
   },
   {
     "id": "ru-co-a2-3",
@@ -637,7 +677,7 @@
     "exerciseType": "cloze_sentence",
     "clozeOptions": [
       "понял",
-      "слышал",
+      "встретил",
       "видел",
       "знал"
     ]
@@ -685,7 +725,10 @@
     "hints": [
       "'Кстати' = by the way. A natural way to shift topic in casual speech."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Кстати, где ты купила эту куртку?"
+    ]
   },
   {
     "id": "ru-co-b1-1",
@@ -695,6 +738,9 @@
     "correctAnswer": "Я не хотел тебя перебивать.",
     "hints": [
       "'Перебивать' = to interrupt (imperfective). Use past tense of 'хотеть' with negation."
+    ],
+    "acceptedAnswers": [
+      "Я не хотела тебя перебивать."
     ]
   },
   {
@@ -756,7 +802,10 @@
     "hints": [
       "'Выразить мысль' = to express a thought. 'Не уверен, что' introduces doubt."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Я не уверена, что ясно выразила свою мысль."
+    ]
   },
   {
     "id": "ru-co-b1-7",
@@ -785,9 +834,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I have the impression that we are talking past each other.",
-    "correctAnswer": "У меня ощущение, что мы говорим о разном.",
+    "correctAnswer": "У меня такое ощущение, что мы говорим о разном.",
     "hints": [
       "'Говорить о разном' literally means 'to talk about different things' — the natural Russian idiom for talking past each other."
+    ],
+    "acceptedAnswers": [
+      "У меня ощущение, что мы говорим о разном."
     ]
   },
   {
@@ -815,6 +867,9 @@
     "correctAnswer": "Я имею в виду не то, что не согласен, а то, что мне нужно больше информации.",
     "hints": [
       "Use 'иметь в виду не то, что … а то, что …' for a precise clarification."
+    ],
+    "acceptedAnswers": [
+      "Я имею в виду не то, что не согласна, а то, что мне нужно больше информации."
     ]
   },
   {

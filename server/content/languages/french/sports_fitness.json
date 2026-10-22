@@ -8,7 +8,12 @@
     "hints": [
       "It is the most popular sport in the world."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "le football",
+      "le foot",
+      "foot"
+    ]
   },
   {
     "id": "fr-sf-a1-2",
@@ -17,7 +22,10 @@
     "prompt": "Say: I go running every morning.",
     "correctAnswer": "Je cours tous les matins.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Courir' = to run; 'tous les matins' = every morning."
+    ],
+    "acceptedAnswers": [
+      "Je vais courir tous les matins."
     ]
   },
   {
@@ -37,7 +45,7 @@
     "prompt": "Say: I like swimming in the sea.",
     "correctAnswer": "J'aime nager dans la mer.",
     "hints": [
-      "'Like' + gerund for enjoyment."
+      "'Aimer' + infinitive."
     ]
   },
   {
@@ -55,9 +63,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where is the gym?",
-    "correctAnswer": "Où est le gymnase ?",
+    "correctAnswer": "Où est la salle de sport ?",
     "hints": [
       "A useful question when at a hotel or leisure center."
+    ],
+    "acceptedAnswers": [
+      "Où est la salle de gym ?",
+      "Où est le gymnase ?"
     ]
   },
   {
@@ -65,7 +77,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I walk to work every day.",
-    "correctAnswer": "Je marche au travail tous les jours.",
+    "correctAnswer": "Je vais au travail à pied tous les jours.",
     "hints": [
       "State a daily physical activity."
     ]
@@ -75,11 +87,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: moving on two wheels",
-    "correctAnswer": "à vélo",
+    "correctAnswer": "le vélo",
     "hints": [
       "You use a bicycle."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "le cyclisme",
+      "faire du vélo"
+    ]
   },
   {
     "id": "fr-sf-a1-9",
@@ -89,6 +105,9 @@
     "correctAnswer": "Je ne suis pas très sportif.",
     "hints": [
       "An honest statement about your fitness habits."
+    ],
+    "acceptedAnswers": [
+      "Je ne suis pas très sportive."
     ]
   },
   {
@@ -96,20 +115,26 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: How many times a week do you exercise?",
-    "correctAnswer": "Combien de fois par semaine exercez-vous?",
+    "correctAnswer": "Combien de fois par semaine faites-vous du sport ?",
     "hints": [
       "Use 'how many times' for frequency."
+    ],
+    "acceptedAnswers": [
+      "Tu fais du sport combien de fois par semaine ?"
     ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I go running in the morning.",
-    "correctAnswer": "Je cours demain matin.",
+    "correctAnswer": "Je cours le matin.",
     "hints": [
       "Daily routine sentence."
     ],
-    "id": "fr-sp-a1-39"
+    "id": "fr-sp-a1-39",
+    "acceptedAnswers": [
+      "Je vais courir le matin."
+    ]
   },
   {
     "level": "a1",
@@ -126,19 +151,22 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Do you play any team sports?",
-    "correctAnswer": "Tu joues au sport d'équipe ?",
+    "correctAnswer": "Tu pratiques un sport d'équipe ?",
     "hints": [
       "Basic sports question."
     ],
     "exerciseType": "flashcard",
-    "id": "fr-sp-a1-41"
+    "id": "fr-sp-a1-41",
+    "acceptedAnswers": [
+      "Tu fais un sport d'équipe ?"
+    ]
   },
   {
     "id": "fr-sf-a2-1",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have been going to the gym three times a week.",
-    "correctAnswer": "J'ai été à la gym trois fois par semaine.",
+    "correctAnswer": "Ces derniers temps, je vais à la salle de sport trois fois par semaine.",
     "hints": [
       "Present perfect continuous for an ongoing routine."
     ]
@@ -148,9 +176,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Would you like to join me for a run on Sunday?",
-    "correctAnswer": "Voulez-vous vous joindre à moi pour une course dimanche ?",
+    "correctAnswer": "Tu veux venir courir avec moi dimanche ?",
     "hints": [
       "'Would you like to' is a polite invitation."
+    ],
+    "acceptedAnswers": [
+      "Voulez-vous venir courir avec moi dimanche ?"
     ]
   },
   {
@@ -158,9 +189,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I pulled a muscle during my workout yesterday.",
-    "correctAnswer": "J'ai tiré un muscle pendant mon entraînement hier.",
+    "correctAnswer": "Je me suis froissé un muscle pendant mon entraînement hier.",
     "hints": [
       "'Pulled a muscle' is the phrase for a mild muscle injury."
+    ],
+    "acceptedAnswers": [
+      "Je me suis fait une élongation hier à l'entraînement."
     ]
   },
   {
@@ -168,7 +202,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I need to warm up before I start training.",
-    "correctAnswer": "Je dois me réchauffer avant de m'entraîner.",
+    "correctAnswer": "Je dois m'échauffer avant de commencer l'entraînement.",
     "hints": [
       "'Warm up' means gentle exercise before main activity."
     ]
@@ -188,9 +222,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I signed up for a half-marathon next month.",
-    "correctAnswer": "J'ai signé un demi-marathon le mois prochain.",
+    "correctAnswer": "Je me suis inscrit à un semi-marathon le mois prochain.",
     "hints": [
       "'Signed up for' means registered for."
+    ],
+    "acceptedAnswers": [
+      "Je me suis inscrite à un semi-marathon le mois prochain."
     ]
   },
   {
@@ -218,7 +255,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: She won the gold medal in the hundred meters.",
-    "correctAnswer": "Elle a remporté la médaille d'or au cent mètres.",
+    "correctAnswer": "Elle a remporté la médaille d'or sur 100 mètres.",
     "hints": [
       "Past simple for completed achievement."
     ]
@@ -247,7 +284,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Stretching helps prevent injuries.",
-    "correctAnswer": "L'étirement aide à prévenir les blessures.",
+    "correctAnswer": "Les étirements aident à prévenir les blessures.",
     "hints": [
       "General truth form."
     ],
@@ -257,10 +294,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How long is your usual workout?",
-    "correctAnswer": "Combien de temps dure votre entraînement habituel ?",
+    "prompt": "Combien de temps ___ votre entraînement habituel ?",
+    "correctAnswer": "dure",
     "hints": [
-      "Useful gym conversation."
+      "'Durer' = to last."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-sp-a2-51"
@@ -270,7 +307,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Consistency is more important than intensity when building a fitness habit.",
-    "correctAnswer": "La cohérence est plus importante que l'intensité lors de la construction d'une habitude de fitness.",
+    "correctAnswer": "Pour prendre l'habitude de faire du sport, la régularité compte plus que l'intensité.",
     "hints": [
       "'Consistency' means doing something regularly; 'intensity' means how hard you work."
     ]
@@ -280,7 +317,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been training five days a week and can already see improvements in my stamina.",
-    "correctAnswer": "Je me suis entraîné cinq jours par semaine et je peux déjà voir des améliorations dans mon endurance.",
+    "correctAnswer": "Je m'entraîne cinq jours par semaine depuis un moment et je vois déjà des progrès en endurance.",
     "hints": [
       "'Stamina' means the ability to sustain effort; present perfect continuous for ongoing."
     ]
@@ -290,7 +327,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Do you think competitive sport teaches important life skills?",
-    "correctAnswer": "Pensez-vous que le sport de compétition enseigne d'importantes compétences de vie?",
+    "correctAnswer": "Pensez-vous que le sport de compétition apprend des choses importantes pour la vie ?",
     "hints": [
       "A discussion question about the value of sport."
     ]
@@ -300,7 +337,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I had to take three weeks off training due to an overuse injury.",
-    "correctAnswer": "J'ai dû prendre trois semaines d'entraînement à cause d'une blessure à surutilisation.",
+    "correctAnswer": "J'ai dû arrêter l'entraînement pendant trois semaines à cause d'une blessure de surmenage.",
     "hints": [
       "'Overuse injury' comes from too much repetitive activity."
     ]
@@ -310,7 +347,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My personal trainer recommended incorporating strength work alongside my cardio routine.",
-    "correctAnswer": "Mon entraîneur personnel a recommandé d'intégrer le travail de force à mon cardio routine.",
+    "correctAnswer": "Mon coach personnel m'a conseillé d'ajouter du renforcement musculaire à mes séances de cardio.",
     "hints": [
       "'Incorporating' means adding in; 'cardio' = cardiovascular exercise."
     ]
@@ -361,7 +398,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Have you found that exercising regularly has changed how you feel day to day?",
-    "correctAnswer": "Avez - vous constaté que l'exercice a changé régulièrement votre façon de vous sentir au jour le jour?",
+    "correctAnswer": "Avez-vous remarqué que faire du sport régulièrement a changé votre façon de vous sentir au quotidien ?",
     "hints": [
       "'Day to day' means in daily life; present perfect asks about experience."
     ]
@@ -380,23 +417,30 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I switched to cycling because it is easier on my knees.",
-    "correctAnswer": "Je suis passé au vélo parce que c'est plus facile à genoux.",
+    "correctAnswer": "Je suis passé au vélo parce que ça ménage mes genoux.",
     "hints": [
       "Explain reason with 'because'."
     ],
     "exerciseType": "build_sentence",
-    "id": "fr-sp-b1-60"
+    "id": "fr-sp-b1-60",
+    "acceptedAnswers": [
+      "Je suis passée au vélo parce que ça ménage mes genoux."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What strategy do you use to stay consistent with training?",
-    "correctAnswer": "Quelle stratégie utilisez-vous pour rester cohérent avec la formation?",
+    "prompt": "Quelle stratégie utilisez-vous pour être ___ dans votre entraînement ?",
+    "correctAnswer": "régulier",
     "hints": [
-      "Reflective sports question."
+      "An adjective meaning 'consistent, steady'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-sp-b1-61"
+    "id": "fr-sp-b1-61",
+    "acceptedAnswers": [
+      "régulière",
+      "assidu"
+    ]
   },
   {
     "id": "fr-sf-b2-1",
@@ -453,7 +497,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Maintaining work-life-fitness balance in a sedentary profession requires deliberate effort and planning.",
-    "correctAnswer": "Le maintien d'un équilibre entre le travail et la vie personnelle dans une profession sédentaire exige un effort délibéré et une planification.",
+    "correctAnswer": "Dans un métier sédentaire, trouver l'équilibre entre travail, vie privée et sport demande des efforts délibérés et de l'organisation.",
     "hints": [
       "'Sedentary' = involving a lot of sitting; 'deliberate' = intentional."
     ]
@@ -463,7 +507,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: How do you think technology is reshaping the spectator experience in modern sport?",
-    "correctAnswer": "Comment pensez-vous que la technologie remodele l'expérience des spectateurs dans le sport moderne?",
+    "correctAnswer": "Selon vous, comment la technologie transforme-t-elle l'expérience des spectateurs dans le sport moderne ?",
     "hints": [
       "'Reshaping' = changing the form of; 'spectator' = someone who watches."
     ]
@@ -482,7 +526,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: A balanced training plan reduces the risk of overtraining.",
-    "correctAnswer": "Un plan de formation équilibré réduit le risque de surformation.",
+    "correctAnswer": "Un plan d'entraînement équilibré réduit le risque de surentraînement.",
     "hints": [
       "Formal fitness vocabulary."
     ],
@@ -491,10 +535,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Performance improves when recovery is treated as part of training.",
-    "correctAnswer": "Le rendement s'améliore lorsque la récupération est traitée comme faisant partie de la formation.",
+    "prompt": "Les performances s'améliorent quand la ___ est considérée comme une partie de l'entraînement.",
+    "correctAnswer": "récupération",
     "hints": [
-      "Passive form at B2."
+      "The rest period that lets the body recover."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-sp-b2-70"
@@ -502,7 +546,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can athletes maintain motivation during long off-seasons?",
+    "prompt": "Choose the best response. A coach says her athletes lose focus between seasons.",
     "correctAnswer": "Comment les athlètes peuvent-ils maintenir leur motivation pendant de longues périodes hors saison?",
     "hints": [
       "Complex question pattern."

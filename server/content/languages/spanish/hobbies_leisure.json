@@ -3,8 +3,8 @@
     "id": "es-ho-a1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "To read books",
-    "correctAnswer": "para leer libros",
+    "prompt": "Vocabulary: to read books",
+    "correctAnswer": "leer libros",
     "hints": [
       "Think about a quiet hobby."
     ],
@@ -15,23 +15,30 @@
     "id": "es-ho-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "To go hiking",
-    "correctAnswer": "para ir de excursión",
+    "prompt": "Vocabulary: to go hiking",
+    "correctAnswer": "hacer senderismo",
     "hints": [
       "An outdoor hobby."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "ir de excursión",
+      "ir de caminata"
+    ]
   },
   {
     "id": "es-ho-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "To play chess",
-    "correctAnswer": "para jugar ajedrez",
+    "prompt": "Vocabulary: to play chess",
+    "correctAnswer": "jugar al ajedrez",
     "hints": [
       "A strategy board game."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "jugar ajedrez"
+    ]
   },
   {
     "id": "es-ho-a1-4",
@@ -48,9 +55,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My hobby is cooking.",
-    "correctAnswer": "Mi hobby está cocinando.",
+    "correctAnswer": "Mi hobby es cocinar.",
     "hints": [
-      "State your hobby with 'my hobby is'."
+      "Spanish uses the infinitive, not a gerund, as a noun: 'cocinar'."
+    ],
+    "acceptedAnswers": [
+      "Mi pasatiempo es cocinar.",
+      "Mi afición es la cocina."
     ]
   },
   {
@@ -61,6 +72,11 @@
     "correctAnswer": "¿Tienes hobbies?",
     "hints": [
       "A common get-to-know-you question."
+    ],
+    "acceptedAnswers": [
+      "¿Tienes algún hobby?",
+      "¿Tienes algún pasatiempo?",
+      "¿Tienes pasatiempos?"
     ]
   },
   {
@@ -81,7 +97,7 @@
     "prompt": "Say: I love listening to music.",
     "correctAnswer": "Me encanta escuchar música.",
     "hints": [
-      "'Love' + gerund expresses strong enjoyment."
+      "'Encantar' works like 'gustar' and is followed by an infinitive."
     ]
   },
   {
@@ -92,6 +108,9 @@
     "correctAnswer": "Juego fútbol con mis amigos.",
     "hints": [
       "State an activity and who you do it with."
+    ],
+    "acceptedAnswers": [
+      "Juego al fútbol con mis amigos."
     ]
   },
   {
@@ -141,11 +160,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I play tennis on Saturday mornings.",
-    "correctAnswer": "Toco tenis los sábados por la mañana.",
+    "correctAnswer": "Juego al tenis los sábados por la mañana.",
     "hints": [
-      "Use the present tense."
+      "'Jugar (a)' for sports, 'tocar' for instruments."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Juego tenis los sábados por la mañana."
+    ]
   },
   {
     "id": "es-ho-a2-2",
@@ -163,7 +185,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I swim at the pool.",
-    "correctAnswer": "Nadaré en la piscina.",
+    "correctAnswer": "Nado en la piscina.",
     "hints": [
       "A short activity sentence."
     ],
@@ -174,9 +196,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have been learning the guitar for six months.",
-    "correctAnswer": "He estado aprendiendo la guitarra durante seis meses.",
+    "correctAnswer": "Llevo seis meses aprendiendo a tocar la guitarra.",
     "hints": [
-      "Present perfect continuous for an ongoing activity."
+      "'Llevar' + time + gerund."
+    ],
+    "acceptedAnswers": [
+      "He estado aprendiendo a tocar la guitarra durante seis meses."
     ]
   },
   {
@@ -184,9 +209,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often do you go cycling?",
-    "correctAnswer": "¿Con qué frecuencia vas a ciclismo?",
+    "correctAnswer": "¿Cada cuánto sales en bici?",
     "hints": [
       "Use 'how often do you' to ask about frequency."
+    ],
+    "acceptedAnswers": [
+      "¿Con qué frecuencia montas en bici?",
+      "¿Con qué frecuencia sales en bicicleta?"
     ]
   },
   {
@@ -194,9 +223,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I joined a book club last year.",
-    "correctAnswer": "Me uní a un club de libros el año pasado.",
+    "correctAnswer": "El año pasado me uní a un club de lectura.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "acceptedAnswers": [
+      "Me uní a un club de lectura el año pasado."
     ]
   },
   {
@@ -214,19 +246,22 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Have you ever tried rock climbing?",
-    "correctAnswer": "¿Alguna vez has intentado escalar roca?",
+    "correctAnswer": "¿Alguna vez has probado la escalada?",
     "hints": [
       "'Have you ever tried' asks about life experience."
+    ],
+    "acceptedAnswers": [
+      "¿Has probado alguna vez a escalar?"
     ]
   },
   {
     "id": "es-ho-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I enjoy baking at the weekends.",
+    "prompt": "Say: I enjoy baking on weekends.",
     "correctAnswer": "Me gusta hornear los fines de semana.",
     "hints": [
-      "'Enjoy' is followed by the gerund (-ing)."
+      "'Me gusta' + infinitive; 'hornear' = to bake."
     ]
   },
   {
@@ -234,7 +269,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I started jogging to keep fit.",
-    "correctAnswer": "Empecé a correr para seguir en forma.",
+    "correctAnswer": "Empecé a correr para mantenerme en forma.",
     "hints": [
       "'To keep fit' expresses purpose."
     ]
@@ -263,10 +298,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Which hobby helps you reduce stress?",
-    "correctAnswer": "¿Qué pasatiempo le ayuda a reducir el estrés?",
+    "prompt": "¿Qué pasatiempo te ayuda a reducir el ___?",
+    "correctAnswer": "estrés",
     "hints": [
-      "Useful for conversation practice."
+      "The feeling of pressure and worry."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-ho-a2-51"
@@ -287,7 +322,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. What do you do on weekends?",
-    "correctAnswer": "Conozco amigos y juego.",
+    "correctAnswer": "Quedo con amigos y jugamos a algo.",
     "hints": [
       "A friendly, natural answer."
     ],
@@ -302,14 +337,17 @@
     "hints": [
       "Answer with a frequency word."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "acceptedAnswers": [
+      "Sí, a veces juego al fútbol."
+    ]
   },
   {
     "id": "es-ho-b1-4",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I find that gardening is a good way to unwind after a stressful day.",
-    "correctAnswer": "Encuentro que la jardinería es una buena manera de relajarse después de un día estresante.",
+    "correctAnswer": "Me parece que la jardinería es una buena forma de desconectar después de un día estresante.",
     "hints": [
       "'I find that' introduces a personal observation; 'unwind' means relax."
     ]
@@ -319,7 +357,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently taken up pottery and find it very therapeutic.",
-    "correctAnswer": "Recientemente he tomado cerámica y lo he encontrado muy terapéutico.",
+    "correctAnswer": "Hace poco empecé con la cerámica y me resulta muy terapéutica.",
     "hints": [
       "'Taken up' means started a new hobby; 'therapeutic' means calming and healing."
     ]
@@ -329,9 +367,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What do you do to switch off when you are feeling overwhelmed?",
-    "correctAnswer": "¿Qué haces para apagarte cuando te sientes abrumado?",
+    "correctAnswer": "¿Qué haces para desconectar cuando te sientes abrumado?",
     "hints": [
       "'Switch off' means mentally disconnect from stress."
+    ],
+    "acceptedAnswers": [
+      "¿Qué haces para desconectar cuando te sientes abrumada?"
     ]
   },
   {
@@ -342,6 +383,9 @@
     "correctAnswer": "Aunque no soy muy competitivo, disfruto del lado social de los deportes de equipo.",
     "hints": [
       "'Although' introduces a contrast."
+    ],
+    "acceptedAnswers": [
+      "Aunque no soy muy competitiva, disfruto del lado social de los deportes de equipo."
     ]
   },
   {
@@ -349,7 +393,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been meaning to get into yoga for years but never quite managed it.",
-    "correctAnswer": "He querido entrar en yoga durante años pero nunca lo he conseguido.",
+    "correctAnswer": "Llevo años queriendo empezar con el yoga, pero nunca lo he conseguido.",
     "hints": [
       "'Been meaning to' = intended to but not done; 'get into' = start doing regularly."
     ]
@@ -359,7 +403,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Traveling is not just a hobby for me — it is a way of expanding my perspective.",
-    "correctAnswer": "Viajar no es sólo un pasatiempo para mí, es una manera de ampliar mi perspectiva.",
+    "correctAnswer": "Viajar no es solo un pasatiempo para mí: es una manera de ampliar mi perspectiva.",
     "hints": [
       "'Not just... but' contrasts a simple description with a deeper meaning."
     ]
@@ -369,7 +413,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been training for a half-marathon and find it both challenging and rewarding.",
-    "correctAnswer": "He estado entrenando por medio maratón y lo encuentro desafiante y gratificante.",
+    "correctAnswer": "Llevo un tiempo entrenando para una media maratón y me resulta exigente y gratificante a la vez.",
     "hints": [
       "'Both... and...' links two contrasting qualities."
     ]
@@ -378,11 +422,14 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I joined a local book club to meet new people.",
-    "correctAnswer": "Me uní a un club local para conocer gente nueva.",
+    "correctAnswer": "Me uní a un club de lectura del barrio para conocer gente nueva.",
     "hints": [
       "Purpose clause with 'to'."
     ],
-    "id": "es-ho-b1-59"
+    "id": "es-ho-b1-59",
+    "acceptedAnswers": [
+      "Me uní a un club de lectura local para conocer gente nueva."
+    ]
   },
   {
     "level": "b1",
@@ -398,10 +445,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: How do you stay motivated when practicing your hobby?",
-    "correctAnswer": "¿Cómo te mantienes motivado cuando practicas tu pasatiempo?",
+    "prompt": "¿Cómo te mantienes ___ cuando practicas tu pasatiempo?",
+    "correctAnswer": "motivado",
     "hints": [
-      "Open question form."
+      "An adjective meaning 'eager to keep going'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-ho-b1-61"
@@ -410,10 +457,10 @@
     "id": "es-ho-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I relax by reading books.",
-    "correctAnswer": "Me relajo leyendo libros.",
+    "prompt": "Say: Nothing helps me unwind like losing myself in a good book.",
+    "correctAnswer": "Nada me ayuda a desconectar tanto como perderme en un buen libro.",
     "hints": [
-      "Use a reflective tone."
+      "'Perderse en' = to lose yourself in."
     ],
     "exerciseType": "pronunciation"
   },
@@ -421,21 +468,24 @@
     "id": "es-ho-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I practice guitar every day.",
-    "correctAnswer": "Practico guitarra todos los días.",
+    "prompt": "Say: I make a point of practicing guitar every day, however busy I am.",
+    "correctAnswer": "Procuro practicar la guitarra todos los días, por muy ocupado que esté.",
     "hints": [
-      "A clear daily habit."
+      "'Por muy' + adjective + 'que' + subjunctive = however ... I am."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Procuro practicar la guitarra todos los días, por muy ocupada que esté."
+    ]
   },
   {
     "id": "es-ho-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I enjoy painting in my free time.",
-    "correctAnswer": "Me gusta pintar en mi tiempo libre.",
+    "prompt": "Say: Painting lets me express things I struggle to put into words.",
+    "correctAnswer": "Pintar me permite expresar cosas que me cuesta poner en palabras.",
     "hints": [
-      "A common hobby phrase."
+      "'Me cuesta' + infinitive = I struggle to."
     ],
     "exerciseType": "pronunciation"
   },
@@ -454,7 +504,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I have always been drawn to solitary pursuits, which is perhaps why I gravitated towards writing.",
-    "correctAnswer": "Siempre he sido atraído a persecuciones solitarias, que es quizás por lo que he gravitado hacia la escritura.",
+    "correctAnswer": "Siempre me han atraído las actividades solitarias; quizá por eso acabé dedicándome a la escritura.",
     "hints": [
       "'Drawn to' means attracted to; 'gravitated towards' means naturally moved towards."
     ]
@@ -485,7 +535,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The distinction between a hobby and a passion lies in the degree to which it defines your sense of self.",
-    "correctAnswer": "La distinción entre un hobby y una pasión reside en el grado en que define su sentido de sí mismo.",
+    "correctAnswer": "La diferencia entre un hobby y una pasión está en hasta qué punto define tu identidad.",
     "hints": [
       "'Lies in' means is found in or depends on; 'sense of self' is your identity."
     ]
@@ -503,10 +553,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I prefer hobbies that combine social interaction with skill-building.",
-    "correctAnswer": "Prefiero pasatiempos que combinan la interacción social con el desarrollo de habilidades.",
+    "prompt": "Prefiero pasatiempos que combinen la ___ social con el desarrollo de habilidades.",
+    "correctAnswer": "interacción",
     "hints": [
-      "Complex noun phrase."
+      "A noun meaning 'contact and communication'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-ho-b2-70"
@@ -514,7 +564,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: To what extent should hobbies be goal-oriented?",
+    "prompt": "Choose the best response. A friend says every hobby should lead to a measurable achievement.",
     "correctAnswer": "¿En qué medida deben orientarse los hobbies hacia objetivos?",
     "hints": [
       "Formal discussion prompt."

@@ -16,7 +16,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 1",
-    "correctAnswer": "une",
+    "correctAnswer": "un",
     "hints": [
       "There is only ___ sun in our solar system."
     ]
@@ -29,13 +29,13 @@
     "prompt": "Which word means the number 2?",
     "correctAnswer": "deux",
     "options": [
-      "remorquage",
+      "douze",
       "deux",
-      "aussi",
-      "à"
+      "trois",
+      "dix"
     ],
     "hints": [
-      "Watch out — English has three words that sound alike: 'to', 'too', and ___!"
+      "The x is silent unless a vowel follows: deux amis."
     ]
   },
   {
@@ -46,7 +46,7 @@
     "prompt": "Vocabulary: the number 3",
     "correctAnswer": "trois",
     "hints": [
-      "Good things come in ___s — so they say."
+      "French says 'Jamais deux sans ___' — bad luck comes in threes."
     ]
   },
   {
@@ -68,10 +68,10 @@
     "prompt": "Which is the correct spelling of 5?",
     "correctAnswer": "cinq",
     "options": [
-      "fife",
+      "cinque",
       "cinq",
-      "fiv",
-      "5 r"
+      "sinq",
+      "cing"
     ],
     "hints": [
       "You have ___ fingers on one hand."
@@ -143,7 +143,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A week has ___ days.",
+    "prompt": "Complete: Il y a ___ jours dans une semaine.",
     "correctAnswer": "sept",
     "hints": [
       "Monday through Sunday."
@@ -154,12 +154,12 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does '+' mean in English?",
+    "prompt": "What is '+' called in French math?",
     "correctAnswer": "plus",
     "options": [
       "moins",
       "plus",
-      "heures",
+      "fois",
       "égale"
     ],
     "hints": [
@@ -195,7 +195,12 @@
     "prompt": "Read this calculation aloud: 2 + 3 = 5",
     "correctAnswer": "Deux plus trois égale cinq.",
     "hints": [
-      "Use: plus, equals."
+      "Use: plus, and 'égale' or 'font' for equals."
+    ],
+    "acceptedAnswers": [
+      "Deux plus trois font cinq.",
+      "Deux plus trois égalent cinq.",
+      "Deux plus trois est égal à cinq."
     ]
   },
   {
@@ -217,7 +222,7 @@
     "prompt": "How do you read '5 + 5'?",
     "correctAnswer": "cinq plus cinq",
     "options": [
-      "cinq et cinq",
+      "cinq divisé par cinq",
       "cinq plus cinq",
       "cinq fois cinq",
       "cinq moins cinq"
@@ -232,7 +237,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 11",
-    "correctAnswer": "11",
+    "correctAnswer": "onze",
     "hints": [
       "A football team has ___ players on the pitch."
     ]
@@ -253,7 +258,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "Which number is 'thirteen'?",
+    "prompt": "Which number is 'treize'?",
     "correctAnswer": "13",
     "options": [
       "12",
@@ -262,7 +267,7 @@
       "30"
     ],
     "hints": [
-      "Watch out — 'thirteen' (13) and 'thirty' (30) sound similar!"
+      "Don't confuse treize (13) with trente (30)."
     ]
   },
   {
@@ -270,7 +275,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: I have ___ fingers on each hand.",
+    "prompt": "Complete: J'ai ___ doigts à chaque main.",
     "correctAnswer": "cinq",
     "hints": [
       "Count them!"
@@ -292,16 +297,16 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you spell 50?",
-    "correctAnswer": "50",
+    "prompt": "How do you write 50 in French?",
+    "correctAnswer": "cinquante",
     "options": [
-      "50",
-      "50",
-      "fiftey",
-      "cinquième"
+      "cinquante",
+      "quinze",
+      "cinquième",
+      "cinq-dix"
     ],
     "hints": [
-      "It's not 'fivety' — the 'v' disappears when you make the ten!"
+      "Built on cinq. Don't confuse it with quinze (15)."
     ]
   },
   {
@@ -332,11 +337,11 @@
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
     "prompt": "What does '×' mean in math?",
-    "correctAnswer": "heures",
+    "correctAnswer": "fois",
     "options": [
       "plus",
       "moins",
-      "heures",
+      "fois",
       "divisé par"
     ],
     "hints": [
@@ -361,7 +366,11 @@
     "prompt": "Read this calculation aloud: 3 × 4 = 12",
     "correctAnswer": "Trois fois quatre égale douze.",
     "hints": [
-      "Use: times, equals."
+      "Use: fois (times), and 'égale' or 'font' for equals."
+    ],
+    "acceptedAnswers": [
+      "Trois fois quatre font douze.",
+      "Trois fois quatre égalent douze."
     ]
   },
   {
@@ -385,11 +394,11 @@
     "options": [
       "vingt-cinq",
       "deux cinq",
-      "vingt-cinq",
-      "5 et 20 ans"
+      "vingt et cinq",
+      "cinq-vingt"
     ],
     "hints": [
-      "Compound numbers between 21 and 99 use a hyphen."
+      "Tens, hyphen, units: vingt-cinq. Only 21, 31, 41… use 'et' (vingt et un)."
     ]
   },
   {
@@ -397,7 +406,7 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: There are ___ hours in a day.",
+    "prompt": "Complete: Il y a ___ heures dans une journée.",
     "correctAnswer": "vingt-quatre",
     "hints": [
       "Not twenty-five, not twenty-three — exactly in between."
@@ -422,10 +431,10 @@
     "prompt": "Which of these means twelve?",
     "correctAnswer": "une douzaine",
     "options": [
-      "un couple",
+      "une paire",
       "une douzaine",
-      "un score",
-      "a montant brut"
+      "une dizaine",
+      "une centaine"
     ],
     "hints": [
       "Eggs are typically sold in this quantity."
@@ -435,10 +444,14 @@
     "id": "fr-num-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you say the year '1999' in English?",
-    "correctAnswer": "19 99",
+    "prompt": "How do you say the year 1999 in French?",
+    "correctAnswer": "mille neuf cent quatre-vingt-dix-neuf",
     "hints": [
-      "Years before 2000 are read as two pairs: 19 + 99."
+      "French reads the whole number: mille neuf cent… and 99 is quatre-vingt-dix-neuf (4 × 20 + 19)."
+    ],
+    "acceptedAnswers": [
+      "dix-neuf cent quatre-vingt-dix-neuf",
+      "mil neuf cent quatre-vingt-dix-neuf"
     ]
   },
   {
@@ -446,7 +459,7 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A ___ of eggs means twelve eggs.",
+    "prompt": "Complete: Une ___ d'œufs, c'est douze œufs.",
     "correctAnswer": "douzaine",
     "hints": [
       "Bakers and recipe writers love this word."
@@ -458,15 +471,15 @@
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
     "prompt": "How do you write 37 in words?",
-    "correctAnswer": "37",
+    "correctAnswer": "trente-sept",
     "options": [
       "trois-sept",
       "trente-sept",
-      "37",
-      "sept"
+      "trente et sept",
+      "sept-trente"
     ],
     "hints": [
-      "Compound numbers 21–99 use a hyphen in formal English."
+      "Tens, hyphen, units: trente-sept."
     ]
   },
   {
@@ -475,9 +488,12 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Ordinal number: 1st",
-    "correctAnswer": "première",
+    "correctAnswer": "premier",
     "hints": [
       "The winner of a race finishes in this place."
+    ],
+    "acceptedAnswers": [
+      "première"
     ]
   },
   {
@@ -488,7 +504,11 @@
     "prompt": "Ordinal number: 2nd",
     "correctAnswer": "deuxième",
     "hints": [
-      "The runner-up. Also means 'a unit of time'."
+      "The runner-up. 'Second' is a synonym — and 'une seconde' is also a unit of time."
+    ],
+    "acceptedAnswers": [
+      "second",
+      "seconde"
     ]
   },
   {
@@ -501,11 +521,11 @@
     "options": [
       "trois",
       "troisième",
-      "troisième",
+      "trentième",
       "troisièmement"
     ],
     "hints": [
-      "The first three ordinals are irregular: first, second, ___"
+      "Add -ième to the number: trois → ___. Only 'premier' is irregular."
     ]
   },
   {
@@ -513,7 +533,7 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She finished in ___ place — just one step off the podium.",
+    "prompt": "Complete: Elle a terminé ___ — juste au pied du podium.",
     "correctAnswer": "quatrième",
     "hints": [
       "One step after the third-place bronze medal."
@@ -523,10 +543,13 @@
     "id": "fr-num-a2-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you read the phone number 555-0199 in English?",
+    "prompt": "How do you read the phone number 555-0199 in French, digit by digit?",
     "correctAnswer": "cinq cinq cinq, zéro un neuf neuf",
     "hints": [
-      "Phone numbers are said digit by digit. 0 is 'zero' or 'oh'."
+      "0 is 'zéro'. French numbers are normally read in pairs, but this one goes digit by digit."
+    ],
+    "acceptedAnswers": [
+      "cinq cinq cinq zéro un neuf neuf"
     ]
   },
   {
@@ -535,9 +558,14 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary: 1/2",
-    "correctAnswer": "moitié",
+    "correctAnswer": "une moitié",
     "hints": [
       "Cut a pizza into two equal slices — each is ___."
+    ],
+    "acceptedAnswers": [
+      "la moitié",
+      "moitié",
+      "un demi"
     ]
   },
   {
@@ -548,7 +576,7 @@
     "prompt": "Fraction vocabulary: 1/4",
     "correctAnswer": "un quart",
     "hints": [
-      "Four equal parts. Also what 25 cents is called in the US."
+      "Four equal parts. 'Un quart d'heure' is fifteen minutes."
     ]
   },
   {
@@ -562,10 +590,10 @@
       "deux trois",
       "deuxième troisième",
       "deux tiers",
-      "deux sur trois"
+      "deux tierces"
     ],
     "hints": [
-      "For fractions, the bottom number uses an ordinal form."
+      "Halves, thirds and quarters are special: demi, tiers, quart. From 1/5 on, use the ordinal: deux cinquièmes."
     ]
   },
   {
@@ -573,10 +601,13 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ of the class passed the test — thirty out of forty students.",
-    "correctAnswer": "trois quarts",
+    "prompt": "Complete: ___ de la classe ont réussi l'examen — trente élèves sur quarante.",
+    "correctAnswer": "Les trois quarts",
     "hints": [
-      "30 out of 40 = 75%. That's three ___."
+      "30 sur 40 = 75 %."
+    ],
+    "acceptedAnswers": [
+      "trois quarts"
     ]
   },
   {
@@ -585,9 +616,12 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the symbol '%'",
-    "correctAnswer": "pourcentage",
+    "correctAnswer": "pour cent",
     "hints": [
       "From Latin 'per centum': out of a hundred."
+    ],
+    "acceptedAnswers": [
+      "pourcent"
     ]
   },
   {
@@ -597,7 +631,12 @@
     "prompt": "Say '20% off' as a full sentence.",
     "correctAnswer": "Il y a 20 % de réduction.",
     "hints": [
-      "Say the number first, then 'per cent'."
+      "'Réduction' or 'remise' = discount."
+    ],
+    "acceptedAnswers": [
+      "Il y a vingt pour cent de réduction.",
+      "20 % de réduction.",
+      "Il y a 20 % de remise."
     ]
   },
   {
@@ -623,9 +662,12 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the result of an addition",
-    "correctAnswer": "montant",
+    "correctAnswer": "la somme",
     "hints": [
       "What do you get when you add two numbers together?"
+    ],
+    "acceptedAnswers": [
+      "somme"
     ]
   },
   {
@@ -661,10 +703,13 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: We need to ___ the bill three ways — about twenty euros each.",
-    "correctAnswer": "fractionné",
+    "prompt": "Complete: Il faut ___ l'addition en trois — environ vingt euros chacun.",
+    "correctAnswer": "partager",
     "hints": [
       "Divide equally between friends at a restaurant."
+    ],
+    "acceptedAnswers": [
+      "diviser"
     ]
   },
   {
@@ -683,9 +728,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "How do you say the decimal 3.5 out loud?",
-    "correctAnswer": "trois points cinq",
+    "correctAnswer": "trois virgule cinq",
     "hints": [
-      "Decimals use 'point', then each digit is read individually."
+      "French uses a decimal comma, read 'virgule'."
     ]
   },
   {
@@ -710,10 +755,10 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: He's ___ — he just turned 35 last week.",
-    "correctAnswer": "dans sa trentaine",
+    "prompt": "Complete: Il a la ___ — il a eu trente-cinq ans la semaine dernière.",
+    "correctAnswer": "trentaine",
     "hints": [
-      "Use 'in his/her ___s' to express a decade of someone's age."
+      "'Avoir la trentaine' = to be in one's thirties."
     ]
   },
   {
@@ -721,16 +766,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'a pair of shoes' mean?",
-    "correctAnswer": "deux chaussures",
+    "prompt": "How do you say 'a pair of shoes' in French?",
+    "correctAnswer": "une paire de chaussures",
     "options": [
       "une chaussure",
-      "deux chaussures",
+      "une paire de chaussures",
       "quelques chaussures",
       "de nombreuses chaussures"
     ],
     "hints": [
-      "Always two — one for each foot."
+      "'Une paire' = a pair."
     ]
   },
   {
@@ -739,9 +784,13 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Number vocabulary: the opposite of 'odd' numbers",
-    "correctAnswer": "même",
+    "correctAnswer": "pairs",
     "hints": [
       "2, 4, 6, 8 — these are ___ numbers. They can be divided by 2 exactly."
+    ],
+    "acceptedAnswers": [
+      "nombres pairs",
+      "pair"
     ]
   },
   {
@@ -749,10 +798,13 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The ticket costs ___ euros, give or take a few cents.",
+    "prompt": "Complete: Le billet coûte ___ euros, à quelques centimes près.",
     "correctAnswer": "environ vingt",
     "hints": [
       "'Give or take' signals an approximation. Use 'roughly' + number."
+    ],
+    "acceptedAnswers": [
+      "à peu près vingt"
     ]
   },
   {
@@ -763,6 +815,9 @@
     "correctAnswer": "deux fois le prix",
     "hints": [
       "'Double' and 'twice' are often interchangeable."
+    ],
+    "acceptedAnswers": [
+      "le double du prix"
     ]
   },
   {
@@ -770,7 +825,7 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you say 2,500,000 in the most natural spoken English?",
+    "prompt": "How do you say 2,500,000 in the most natural spoken French?",
     "correctAnswer": "deux millions et demi",
     "options": [
       "vingt-cinq cent mille",
@@ -779,7 +834,7 @@
       "deux millions cinq cents"
     ],
     "hints": [
-      "'Two and a half million' flows most naturally in speech."
+      "'Et demi' = and a half."
     ]
   },
   {
@@ -787,10 +842,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "flashcard",
-    "prompt": "Idiom: 'to be at sixes and sevens'",
-    "correctAnswer": "être dans un état de confusion ou de désordre",
+    "prompt": "Idiom: 'to be dressed to the nines'",
+    "correctAnswer": "être sur son trente-et-un",
     "hints": [
-      "Nothing to do with actual numbers — it's about total chaos!"
+      "Literally 'to be on one's thirty-one'."
     ]
   },
   {
@@ -798,16 +853,16 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does the idiom 'on cloud nine' mean?",
-    "correctAnswer": "extrêmement heureux",
+    "prompt": "How do you say 'on cloud nine' in French?",
+    "correctAnswer": "au septième ciel",
     "options": [
-      "extrêmement haut",
-      "extrêmement heureux",
-      "extrêmement confus",
-      "extrêmement fatigué"
+      "au neuvième ciel",
+      "au septième ciel",
+      "dans les nuages",
+      "au troisième étage"
     ],
     "hints": [
-      "The nine just emphasizes how far above the ground you feel."
+      "French happiness lives two levels lower: the seventh heaven. 'Dans les nuages' means daydreaming."
     ]
   },
   {
@@ -815,10 +870,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The business plan just doesn't ___ up — the costs are way too high.",
-    "correctAnswer": "ajouter",
+    "prompt": "Complete: Le compte n'y ___ pas — les coûts sont bien trop élevés.",
+    "correctAnswer": "est",
     "hints": [
-      "'The numbers don't ___ up' means something is wrong or suspicious."
+      "'Le compte n'y est pas' = the numbers don't add up."
     ]
   },
   {
@@ -827,9 +882,13 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to go fifty-fifty'",
-    "correctAnswer": "partager le coût ou le bénéfice à égalité entre deux personnes",
+    "correctAnswer": "faire moitié-moitié",
     "hints": [
       "50% each. Used when splitting a bill or sharing a reward."
+    ],
+    "acceptedAnswers": [
+      "faire fifty-fifty",
+      "partager moitié-moitié"
     ]
   },
   {
@@ -837,16 +896,16 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'the odds are against us' mean?",
-    "correctAnswer": "il est peu probable que nous réussirons",
+    "prompt": "Which French sentence means 'the odds are against us'?",
+    "correctAnswer": "Nous avons peu de chances de réussir.",
     "options": [
-      "nous avons besoin de plus de gens",
-      "les chiffres sont faux",
-      "il est peu probable que nous réussirons",
-      "la concurrence est équitable"
+      "Nous avons besoin de plus de monde.",
+      "Les chiffres sont faux.",
+      "Nous avons peu de chances de réussir.",
+      "La concurrence est équitable."
     ],
     "hints": [
-      "'Odds' here means probability, not the mathematical odd/even."
+      "'Chances' = odds."
     ]
   },
   {
@@ -854,7 +913,7 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She's the ___ suspect — the detective is focused on her.",
+    "prompt": "Complete: C'est la suspecte ___ — l'inspecteur ne s'intéresse qu'à elle.",
     "correctAnswer": "numéro un",
     "hints": [
       "To be 'number ___' means to be first or most important."
@@ -868,7 +927,7 @@
     "prompt": "Math vocabulary: the result of dividing two numbers",
     "correctAnswer": "quotient",
     "hints": [
-      "Sum, difference, product, ___ — the four basic math results."
+      "Somme, différence, produit, ___."
     ]
   },
   {
@@ -876,13 +935,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What is 'a round number'?",
-    "correctAnswer": "un nombre se terminant par zéro qui est facile à travailler avec",
+    "prompt": "What is 'un nombre rond'?",
+    "correctAnswer": "un nombre qui se termine par zéro et qui est facile à manipuler",
     "options": [
-      "un numéro circulaire en géométrie",
-      "un nombre se terminant par zéro qui est facile à travailler avec",
-      "nombre pair",
-      "tout carré parfait"
+      "un nombre circulaire en géométrie",
+      "un nombre qui se termine par zéro et qui est facile à manipuler",
+      "un nombre pair",
+      "un carré parfait"
     ],
     "hints": [
       "100, 50, 1000 are 'round'. 47 and 83 are not."
@@ -903,10 +962,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ would get me back on a plane after that experience.",
-    "correctAnswer": "Pas de montant",
+    "prompt": "Complete: ___ je ne reprendrais l'avion après cette expérience.",
+    "correctAnswer": "Pour rien au monde",
     "hints": [
-      "'No ___ of money' means nothing can buy or persuade you."
+      "'Not for anything in the world' — nothing could persuade you."
     ]
   },
   {
@@ -914,13 +973,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'to zero in on something' mean?",
-    "correctAnswer": "de se concentrer précisément sur quelque chose",
+    "prompt": "Which French phrase means 'to zero in on something'?",
+    "correctAnswer": "se concentrer précisément sur quelque chose",
     "options": [
-      "pour ignorer quelque chose",
-      "pour remettre quelque chose à zéro",
-      "de se concentrer précisément sur quelque chose",
-      "pour compter jusqu'à zéro"
+      "ignorer quelque chose",
+      "remettre quelque chose à zéro",
+      "se concentrer précisément sur quelque chose",
+      "compter jusqu'à zéro"
     ],
     "hints": [
       "Think of a camera lens zooming in on one target."
@@ -932,9 +991,9 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to count on someone'",
-    "correctAnswer": "compter sur quelqu'un ou faire confiance à quelqu'un",
+    "correctAnswer": "compter sur quelqu'un",
     "hints": [
-      "'You can always ___ on me.' A phrase of dependability."
+      "Same image as English: 'Tu peux toujours compter sur moi.'"
     ]
   },
   {
@@ -942,10 +1001,14 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: After years of budget cuts, the charity runs on a ___ budget.",
-    "correctAnswer": "chaussures",
+    "prompt": "Complete: Après des années de coupes, l'association fonctionne avec un budget très ___.",
+    "correctAnswer": "serré",
     "hints": [
-      "A '___ budget' means operating with almost no money at all."
+      "'Un budget serré' = a tight budget."
+    ],
+    "acceptedAnswers": [
+      "réduit",
+      "limité"
     ]
   },
   {

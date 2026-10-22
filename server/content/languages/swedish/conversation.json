@@ -4,9 +4,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: What is your name?",
-    "correctAnswer": "Vad är ditt namn?",
+    "correctAnswer": "Vad heter du?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Heta' = to be called: 'Vad heter du?' is the standard question."
     ]
   },
   {
@@ -16,7 +16,10 @@
     "prompt": "Say: My name is Alex and I am from the United States.",
     "correctAnswer": "Jag heter Alex och jag är från USA.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Jag heter' + name; 'från USA' = from the United States."
+    ],
+    "acceptedAnswers": [
+      "Jag heter Alex och kommer från USA."
     ]
   },
   {
@@ -26,7 +29,11 @@
     "prompt": "Ask: Where are you from?",
     "correctAnswer": "Var är du ifrån?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Var kommer du ifrån?' is the standard form; 'ifrån' goes at the end."
+    ],
+    "acceptedAnswers": [
+      "Var kommer du ifrån?",
+      "Varifrån kommer du?"
     ]
   },
   {
@@ -38,14 +45,18 @@
     "hints": [
       "A friendly greeting."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Kul att träffas.",
+      "Trevligt att träffas."
+    ]
   },
   {
     "id": "sv-cv-a1-5",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "goodbye",
-    "correctAnswer": "farväl",
+    "correctAnswer": "hej då",
     "hints": [
       "A word you say when leaving."
     ],
@@ -67,23 +78,30 @@
     "id": "sv-cv-a1-7",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the best response. Someone says: Hello!",
-    "correctAnswer": "Hej, hur är du?",
+    "prompt": "Choose the best response. Someone says: Hej!",
+    "correctAnswer": "Hej, hur mår du?",
     "hints": [
       "Reply with a friendly greeting."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "Hi, how are you?"
   },
   {
     "id": "sv-cv-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "I ___ a student.",
-    "correctAnswer": "är jag",
+    "prompt": "Jag ___ student.",
+    "correctAnswer": "är",
     "hints": [
-      "Use the correct form of 'to be'."
+      "Swedish drops the article before a profession: 'Jag är student'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "är",
+      "har",
+      "heter",
+      "bor"
+    ]
   },
   {
     "id": "sv-cv-a1-9",
@@ -122,11 +140,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: See you tomorrow!",
-    "correctAnswer": "Se dig imorgon!",
+    "correctAnswer": "Vi ses i morgon!",
     "hints": [
       "A casual farewell."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Vi ses imorgon!"
+    ]
   },
   {
     "level": "a1",
@@ -136,18 +157,25 @@
     "hints": [
       "Polite first-meeting phrase."
     ],
-    "id": "sv-co-a1-49"
+    "id": "sv-co-a1-49",
+    "acceptedAnswers": [
+      "Trevligt att träffas.",
+      "Kul att träffas."
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: How are you today?",
-    "correctAnswer": "Hur är du idag?",
+    "correctAnswer": "Hur mår du idag?",
     "hints": [
       "Common opener."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-co-a1-50"
+    "id": "sv-co-a1-50",
+    "acceptedAnswers": [
+      "Hur mår du i dag?"
+    ]
   },
   {
     "level": "a1",
@@ -168,6 +196,10 @@
     "correctAnswer": "Det är trevligt att träffa dig personligen.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Kul att träffas på riktigt.",
+      "Trevligt att träffas på riktigt."
     ]
   },
   {
@@ -185,9 +217,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I usually spend my evenings reading or walking.",
-    "correctAnswer": "Jag brukar tillbringa mina kvällar att läsa eller gå.",
+    "correctAnswer": "Jag brukar ägna kvällarna åt att läsa eller ta promenader.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "På kvällarna brukar jag läsa eller promenera."
     ]
   },
   {
@@ -206,23 +241,30 @@
     "id": "sv-cv-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "She ___ three languages fluently.",
+    "prompt": "Hon ___ tre språk flytande.",
     "correctAnswer": "talar",
     "hints": [
-      "Use the correct present tense form."
+      "Present tense of 'tala' ends in -r."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "talar",
+      "tala",
+      "talat",
+      "talande"
+    ]
   },
   {
     "id": "sv-cv-a2-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the best response. Someone asks: What do you do for a living?",
+    "prompt": "Choose the best response. Someone asks: Vad jobbar du med?",
     "correctAnswer": "Jag jobbar som ingenjör.",
     "hints": [
       "Answer with your job."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I work as an engineer."
   },
   {
     "id": "sv-cv-a2-7",
@@ -233,7 +275,11 @@
     "hints": [
       "Ask about someone's family."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Har du några syskon?",
+      "Har du syskon?"
+    ]
   },
   {
     "id": "sv-cv-a2-8",
@@ -242,7 +288,7 @@
     "prompt": "Say: I visited my grandparents last summer.",
     "correctAnswer": "Jag besökte mina morföräldrar i somras.",
     "hints": [
-      "Use the past tense for a completed event."
+      "Swedish distinguishes 'morföräldrar' (mother's parents) and 'farföräldrar' (father's parents)."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -293,11 +339,15 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am sorry, I did not catch that.",
-    "correctAnswer": "Jag är ledsen, jag har inte fångat det.",
+    "correctAnswer": "Förlåt, jag hörde inte vad du sa.",
     "hints": [
       "Polite repair phrase."
     ],
-    "id": "sv-co-a2-57"
+    "id": "sv-co-a2-57",
+    "acceptedAnswers": [
+      "Ursäkta, jag uppfattade inte det.",
+      "Förlåt, jag uppfattade inte det."
+    ]
   },
   {
     "level": "a2",
@@ -313,13 +363,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: What do you usually do after work?",
-    "correctAnswer": "Vad brukar du göra efter jobbet?",
+    "prompt": "Vad ___ du göra efter jobbet?",
+    "correctAnswer": "brukar",
     "hints": [
-      "Routine question pattern."
+      "'Bruka' + infinitive = usually do something; present tense here."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-co-a2-59"
+    "id": "sv-co-a2-59",
+    "clozeOptions": [
+      "brukar",
+      "bruka",
+      "brukade",
+      "brukat"
+    ]
   },
   {
     "id": "sv-co-5",
@@ -336,9 +392,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: In my opinion, consistency is more important than intensity.",
-    "correctAnswer": "Enligt min mening är konsistens viktigare än intensitet.",
+    "correctAnswer": "Enligt mig är kontinuitet viktigare än intensitet.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Enligt min mening är regelbundenhet viktigare än intensitet.",
+      "Jag tycker att kontinuitet är viktigare än intensitet."
     ]
   },
   {
@@ -356,41 +416,51 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I used to be very shy, but I have become more outgoing.",
-    "correctAnswer": "Jag brukade vara väldigt blyg, men jag har blivit mer utåtriktad.",
+    "correctAnswer": "Förr var jag väldigt blyg, men jag har blivit mer utåtriktad.",
     "hints": [
-      "Contrast past and present with 'used to' and present perfect."
+      "'Förr' + past tense = used to; perfect tense for the change up to now."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Jag var väldigt blyg förr, men jag har blivit mer utåtriktad.",
+      "Jag brukade vara väldigt blyg, men jag har blivit mer utåtriktad."
+    ]
   },
   {
     "id": "sv-cv-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "I would have joined you if I ___ free.",
-    "correctAnswer": "hade varit",
+    "prompt": "Jag hade följt med er om jag ___ varit ledig.",
+    "correctAnswer": "hade",
     "hints": [
-      "Use the third conditional."
+      "Unreal past: 'om' + pluperfect (hade varit)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "hade",
+      "har",
+      "skulle",
+      "var"
+    ]
   },
   {
     "id": "sv-cv-b1-6",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Your friend asks: What do you think about this idea?",
-    "correctAnswer": "Jag tycker att det är intressant, även om jag har några problem.",
+    "correctAnswer": "Jag tycker att den är intressant, även om jag har en del invändningar.",
     "hints": [
       "Express a balanced opinion."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "In many English-speaking cultures, softening criticism with a positive remark first is considered polite."
+    "answerEnglish": "I think it's interesting, although I have some concerns."
   },
   {
     "id": "sv-cv-b1-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We should catch up more often.",
-    "correctAnswer": "Vi borde fånga upp oftare.",
+    "correctAnswer": "Vi borde ses oftare.",
     "hints": [
       "'Catch up' means to talk and share news."
     ],
@@ -401,9 +471,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been meaning to call you all week.",
-    "correctAnswer": "Jag har menat att ringa dig hela veckan.",
+    "correctAnswer": "Jag har tänkt ringa dig hela veckan.",
     "hints": [
-      "Use present perfect continuous for an ongoing intention."
+      "'Ha tänkt' + infinitive = to have been meaning to."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -434,9 +504,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: However, I see your point and I partially agree.",
-    "correctAnswer": "Men jag ser din poäng och jag är delvis överens.",
+    "correctAnswer": "Men jag förstår hur du menar och håller delvis med.",
     "hints": [
       "Use 'however' to introduce a different perspective."
+    ],
+    "acceptedAnswers": [
+      "Men jag ser din poäng och håller delvis med."
     ]
   },
   {
@@ -444,11 +517,15 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Could we change the subject, please?",
-    "correctAnswer": "Kan vi ändra ämnet, snälla?",
+    "correctAnswer": "Kan vi byta ämne?",
     "hints": [
       "A polite way to redirect a conversation."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Kan vi byta ämne, tack?",
+      "Kan vi prata om något annat?"
+    ]
   },
   {
     "level": "b1",
@@ -458,13 +535,17 @@
     "hints": [
       "Balanced disagreement."
     ],
-    "id": "sv-co-b1-65"
+    "id": "sv-co-b1-65",
+    "acceptedAnswers": [
+      "Jag förstår hur du menar, men jag har en annan åsikt.",
+      "Jag förstår hur du tänker, men jag tycker annorlunda."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What made you decide that?",
-    "correctAnswer": "Vad fick dig att bestämma det?",
+    "correctAnswer": "Vad fick dig att bestämma dig för det?",
     "hints": [
       "Follow-up question."
     ],
@@ -474,22 +555,31 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I felt nervous at first, then I relaxed.",
-    "correctAnswer": "Jag kände mig nervös i början, sedan slappnade jag av.",
+    "prompt": "Jag kände mig nervös i början, sedan ___ jag av.",
+    "correctAnswer": "slappnade",
     "hints": [
-      "Story transition phrase."
+      "Past tense of 'slappna av', parallel to 'kände'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-co-b1-67"
+    "id": "sv-co-b1-67",
+    "clozeOptions": [
+      "slappnade",
+      "slappnar",
+      "slappnat",
+      "slappna"
+    ]
   },
   {
     "id": "sv-co-7",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-    "correctAnswer": "Jag brukade vara blyg, men nu uttrycker jag mina idéer säkert.",
+    "correctAnswer": "Förr var jag blyg, men nu uttrycker jag mina idéer med självförtroende.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Jag var blyg förr, men nu uttrycker jag mina idéer med självförtroende."
     ]
   },
   {
@@ -497,9 +587,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Although we disagree, I respect your perspective.",
-    "correctAnswer": "Även om vi inte håller med respekterar jag ditt perspektiv.",
+    "correctAnswer": "Även om vi inte är överens respekterar jag ditt perspektiv.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Även om vi inte håller med varandra respekterar jag din syn på saken."
     ]
   },
   {
@@ -527,25 +620,31 @@
     "id": "sv-cv-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Had she ___ more clearly, the misunderstanding would not have occurred.",
-    "correctAnswer": "kommunicerade",
+    "prompt": "Om hon hade ___ tydligare hade missförståndet inte uppstått.",
+    "correctAnswer": "kommunicerat",
     "hints": [
-      "Use the past participle in an inverted conditional."
+      "Supine after 'hade' (pluperfect)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "kommunicerat",
+      "kommunicerade",
+      "kommunicera",
+      "kommunicerar"
+    ]
   },
   {
     "id": "sv-cv-b2-6",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Choose the best response. A colleague says something you strongly disagree with.",
-    "correctAnswer": "Jag ser var du kommer ifrån, men jag har en annan ta på det här.",
+    "correctAnswer": "Jag förstår hur du tänker, men jag ser annorlunda på det.",
     "hints": [
       "Disagree diplomatically.",
       "Consider the register."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Acknowledging the other person's viewpoint before disagreeing is valued in professional English."
+    "answerEnglish": "I see where you're coming from, but I see it differently."
   },
   {
     "id": "sv-cv-b2-7",
@@ -563,18 +662,21 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would have phrased it differently had I known the context.",
-    "correctAnswer": "Jag skulle ha uttryckt det annorlunda hade jag känt sammanhanget.",
+    "correctAnswer": "Jag skulle ha uttryckt det annorlunda om jag hade känt till sammanhanget.",
     "hints": [
-      "Use inverted third conditional for a formal tone."
+      "'Känna till' = know about; 'om' + pluperfect for an unreal past."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "acceptedAnswers": [
+      "Jag hade uttryckt det annorlunda om jag hade känt till sammanhanget."
+    ]
   },
   {
     "id": "sv-cv-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "nuance / bias / tone / register",
-    "correctAnswer": "nuance",
+    "prompt": "nyans / fördom / ton / register",
+    "correctAnswer": "nyans",
     "hints": [
       "Which word means a subtle difference in meaning?"
     ],
@@ -584,8 +686,8 @@
     "id": "sv-cv-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "to empathise",
-    "correctAnswer": "att empati",
+    "prompt": "to empathize",
+    "correctAnswer": "att känna empati",
     "hints": [
       "To understand and share another person's feelings."
     ],
@@ -596,9 +698,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The crux of the matter is that we need clearer communication.",
-    "correctAnswer": "Ryxan i frågan är att vi behöver tydligare kommunikation.",
+    "correctAnswer": "Kärnan i frågan är att vi behöver tydligare kommunikation.",
     "hints": [
-      "'The crux of the matter' is an idiomatic expression meaning the central point."
+      "'Kärnan' (the core) = the crux."
     ]
   },
   {
@@ -606,17 +708,20 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Rather than argue, let us try to find common ground.",
-    "correctAnswer": "I stället för att argumentera, låt oss försöka hitta gemensam mark.",
+    "correctAnswer": "I stället för att bråka kan vi försöka hitta en gemensam grund.",
     "hints": [
       "Use 'rather than' to present an alternative."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Istället för att bråka, låt oss försöka hitta en gemensam grund."
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Let me rephrase that to make my point clearer.",
-    "correctAnswer": "Låt mig upprepa att göra min poäng tydligare.",
+    "correctAnswer": "Låt mig formulera om det så att det blir tydligare.",
     "hints": [
       "Advanced conversation control."
     ],
@@ -625,23 +730,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Would you mind elaborating on that argument?",
-    "correctAnswer": "Skulle du tänka dig att utveckla det argumentet?",
+    "prompt": "Skulle du kunna ___ det argumentet?",
+    "correctAnswer": "utveckla",
     "hints": [
-      "Formal discussion prompt."
+      "Infinitive after 'skulle du kunna'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-co-b2-74"
+    "id": "sv-co-b2-74",
+    "clozeOptions": [
+      "utveckla",
+      "utvecklar",
+      "utvecklade",
+      "utvecklat"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I appreciate the nuance in your explanation.",
+    "prompt": "Dialogue: A colleague has just explained a subtle point in a meeting. Thank them.",
     "correctAnswer": "Jag uppskattar nyansen i din förklaring.",
     "hints": [
       "High-level feedback phrase."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-co-b2-75"
+    "id": "sv-co-b2-75",
+    "answerEnglish": "I appreciate the nuance in your explanation."
   }
 ]

@@ -6,7 +6,11 @@
     "prompt": "Say: I do not feel well.",
     "correctAnswer": "Ich fühle mich nicht gut.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Sich fühlen' is reflexive: ich fühle mich."
+    ],
+    "acceptedAnswers": [
+      "Mir geht es nicht gut.",
+      "Mir geht's nicht gut."
     ]
   },
   {
@@ -16,7 +20,10 @@
     "prompt": "Ask: Where is the nearest hospital?",
     "correctAnswer": "Wo ist das nächstgelegene Krankenhaus?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Das Krankenhaus' = hospital; 'nächste' = nearest."
+    ],
+    "acceptedAnswers": [
+      "Wo ist das nächste Krankenhaus?"
     ]
   },
   {
@@ -26,7 +33,10 @@
     "prompt": "Say: I have a headache.",
     "correctAnswer": "Ich habe Kopfschmerzen.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Kopfschmerzen' is plural; no article."
+    ],
+    "acceptedAnswers": [
+      "Mir tut der Kopf weh."
     ]
   },
   {
@@ -47,7 +57,7 @@
     "prompt": "Ask: Is there a pharmacy nearby?",
     "correctAnswer": "Gibt es eine Apotheke in der Nähe?",
     "hints": [
-      "A pharmacy is also called a chemist's."
+      "'Gibt es' = is there; 'in der Nähe' = nearby."
     ]
   },
   {
@@ -58,6 +68,10 @@
     "correctAnswer": "Mein Magen tut weh.",
     "hints": [
       "'Hurts' is the verb for pain."
+    ],
+    "acceptedAnswers": [
+      "Ich habe Bauchschmerzen.",
+      "Mir tut der Bauch weh."
     ]
   },
   {
@@ -65,20 +79,28 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a person who treats sick people",
-    "correctAnswer": "arzt",
+    "correctAnswer": "der Arzt",
     "hints": [
       "Think of who you visit when you are ill."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Arzt",
+      "die Ärztin"
+    ]
   },
   {
     "id": "de-he-17",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I am allergic to penicillin.",
-    "correctAnswer": "Ich bin allergisch auf Penicillin.",
+    "correctAnswer": "Ich bin allergisch gegen Penicillin.",
     "hints": [
       "An important phrase in a medical emergency."
+    ],
+    "acceptedAnswers": [
+      "Ich bin allergisch auf Penicillin.",
+      "Ich habe eine Penicillinallergie."
     ]
   },
   {
@@ -89,6 +111,9 @@
     "correctAnswer": "Kannst du einen Krankenwagen rufen?",
     "hints": [
       "Use 'can you' for urgent requests."
+    ],
+    "acceptedAnswers": [
+      "Können Sie einen Krankenwagen rufen?"
     ]
   },
   {
@@ -129,9 +154,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have had a sore throat for three days.",
-    "correctAnswer": "Ich hatte drei Tage lang eine Halsschmerzen.",
+    "correctAnswer": "Ich habe seit drei Tagen Halsschmerzen.",
     "hints": [
-      "Use the present perfect for ongoing symptoms."
+      "Present tense + 'seit' for something still going on."
     ]
   },
   {
@@ -139,9 +164,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can I make an appointment with the doctor today?",
-    "correctAnswer": "Kann ich heute mit dem Arzt einen Termin vereinbaren?",
+    "correctAnswer": "Kann ich heute einen Termin beim Arzt bekommen?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Kann ich heute einen Termin beim Arzt vereinbaren?"
     ]
   },
   {
@@ -179,7 +207,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I twisted my ankle while hiking.",
-    "correctAnswer": "Ich verdrehte meinen Knöchel beim Wandern.",
+    "correctAnswer": "Ich habe mir beim Wandern den Knöchel verstaucht.",
     "hints": [
       "'While' links two actions happening at the same time."
     ]
@@ -199,7 +227,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have a rash on my arm.",
-    "correctAnswer": "Ich habe einen Ausschlag auf meinem Arm.",
+    "correctAnswer": "Ich habe einen Ausschlag am Arm.",
     "hints": [
       "Describe the symptom and its location."
     ]
@@ -209,7 +237,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The pain gets worse when I move.",
-    "correctAnswer": "Der Schmerz wird schlimmer, wenn ich gehe.",
+    "correctAnswer": "Der Schmerz wird schlimmer, wenn ich mich bewege.",
     "hints": [
       "Use 'gets worse' to describe worsening symptoms."
     ],
@@ -249,10 +277,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I started cooking healthier meals.",
-    "correctAnswer": "Ich habe gesündere Mahlzeiten gekocht.",
+    "prompt": "Ich habe angefangen, ___ Mahlzeiten zu kochen.",
+    "correctAnswer": "gesündere",
     "hints": [
-      "Lifestyle improvement phrase."
+      "Comparative of 'gesund', with an adjective ending."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-he-a2-51"
@@ -262,7 +290,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have a pre-existing condition that requires regular medication.",
-    "correctAnswer": "Ich habe eine vorbestehende Bedingung, die regelmäßige Medikamente erfordert.",
+    "correctAnswer": "Ich habe eine Vorerkrankung, die regelmäßige Medikamente erfordert.",
     "hints": [
       "'Pre-existing condition' means a health issue you already had before."
     ]
@@ -272,7 +300,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would it be safe to exercise with this condition?",
-    "correctAnswer": "Würde es sicher sein, mit dieser Bedingung zu trainieren?",
+    "correctAnswer": "Wäre es sicher, mit dieser Erkrankung Sport zu treiben?",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -282,7 +310,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like a second opinion before deciding on surgery.",
-    "correctAnswer": "Ich möchte eine zweite Meinung vor der Entscheidung über die Operation.",
+    "correctAnswer": "Ich hätte gern eine zweite Meinung, bevor ich mich für eine Operation entscheide.",
     "hints": [
       "'A second opinion' means consulting another doctor."
     ]
@@ -292,7 +320,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The symptoms started gradually and have been getting worse.",
-    "correctAnswer": "Die Symptome begannen allmählich und wurden immer schlimmer.",
+    "correctAnswer": "Die Symptome haben allmählich begonnen und werden immer schlimmer.",
     "hints": [
       "Use present perfect continuous for an ongoing trend."
     ]
@@ -302,9 +330,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How long should I wait before the antibiotics start working?",
-    "correctAnswer": "Wie lange sollte ich warten, bevor die Antibiotika arbeiten?",
+    "correctAnswer": "Wie lange dauert es, bis die Antibiotika wirken?",
     "hints": [
       "Use 'should I' for advice-seeking questions."
+    ],
+    "acceptedAnswers": [
+      "Wie lange sollte ich warten, bis die Antibiotika wirken?"
     ]
   },
   {
@@ -312,7 +343,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been following a low-sodium diet on my doctor's advice.",
-    "correctAnswer": "Ich folge einer Low-Natrium-Diät auf den Rat meines Arztes.",
+    "correctAnswer": "Auf Anraten meines Arztes ernähre ich mich natriumarm.",
     "hints": [
       "Present perfect continuous shows an ongoing action started in the past."
     ]
@@ -332,7 +363,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. The doctor asks about your sleep patterns.",
-    "correctAnswer": "Ich bekomme in der Regel etwa sechs Stunden, aber ich habe in letzter Zeit aufgewacht.",
+    "correctAnswer": "Ich schlafe meistens etwa sechs Stunden, aber in letzter Zeit wache ich nachts oft auf.",
     "hints": [
       "Give specific detail and use 'lately' for recent changes."
     ],
@@ -345,7 +376,7 @@
     "prompt": "Say: I am currently taking medication for high blood pressure.",
     "correctAnswer": "Ich nehme derzeit Medikamente gegen Bluthochdruck.",
     "hints": [
-      "'Currently' emphasises something happening right now."
+      "'Derzeit' = currently; medicine 'gegen' a condition."
     ]
   },
   {
@@ -382,10 +413,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I reduced sugar because it improved my energy.",
-    "correctAnswer": "Ich habe Zucker reduziert, weil es meine Energie verbessert hat.",
+    "prompt": "Ich habe weniger Zucker gegessen, und das hat meine Energie ___.",
+    "correctAnswer": "verbessert",
     "hints": [
-      "Cause-effect form."
+      "Past participle of 'verbessern'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-he-b1-61"
@@ -395,7 +426,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would appreciate a referral to a specialist for further investigation.",
-    "correctAnswer": "Ich möchte einen Verweis auf einen Spezialisten für weitere Untersuchungen begrüßen.",
+    "correctAnswer": "Ich wäre für eine Überweisung zu einem Facharzt für weitere Untersuchungen dankbar.",
     "hints": [
       "Formal, polite language for medical requests."
     ]
@@ -405,7 +436,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: What are the long-term implications of leaving this untreated?",
-    "correctAnswer": "Was sind die langfristigen Auswirkungen, die dieses unbehandelt zu lassen?",
+    "correctAnswer": "Welche langfristigen Folgen hat es, wenn man das unbehandelt lässt?",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -415,7 +446,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would like to discuss the risks and benefits before consenting to the procedure.",
-    "correctAnswer": "Ich möchte die Risiken und Vorteile vor der Einwilligung zum Verfahren diskutieren.",
+    "correctAnswer": "Ich möchte die Risiken und Vorteile besprechen, bevor ich in den Eingriff einwillige.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -425,7 +456,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The evidence suggests that early intervention significantly improves outcomes.",
-    "correctAnswer": "Die Beweise legen nahe, dass die Frühintervention die Ergebnisse deutlich verbessert.",
+    "correctAnswer": "Die Datenlage deutet darauf hin, dass eine frühe Intervention die Ergebnisse deutlich verbessert.",
     "hints": [
       "Formal, evidence-based language typical of medical discussions."
     ]
@@ -435,7 +466,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Are there contraindications given my existing medication?",
-    "correctAnswer": "Gibt es Kontraindikationen, die meine vorhandenen Medikamente gegeben haben?",
+    "correctAnswer": "Gibt es Kontraindikationen mit den Medikamenten, die ich bereits nehme?",
     "hints": [
       "'Contraindications' are reasons a treatment should not be used."
     ]
@@ -445,7 +476,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I want to explore non-invasive alternatives before committing to surgery.",
-    "correctAnswer": "Ich möchte nicht-invasive Alternativen erkunden, bevor ich mich an die Operation bin.",
+    "correctAnswer": "Ich möchte nicht-invasive Alternativen prüfen, bevor ich mich für eine Operation entscheide.",
     "hints": [
       "'Non-invasive' means no cutting or entering the body."
     ]
@@ -465,7 +496,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Would a preventive course of treatment be advisable given my family history?",
-    "correctAnswer": "Wäre ein vorbeugender Behandlungsverlauf angesichts meiner Familiengeschichte sinnvoll?",
+    "correctAnswer": "Wäre angesichts meiner familiären Vorbelastung eine vorbeugende Behandlung ratsam?",
     "hints": [
       "'Preventive' means aimed at stopping a problem before it starts."
     ]
@@ -474,7 +505,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Preventive care is more effective than reactive treatment.",
-    "correctAnswer": "Präventive Pflege ist wirksamer als reaktive Behandlung.",
+    "correctAnswer": "Vorsorge ist wirksamer als eine reaktive Behandlung.",
     "hints": [
       "Advanced health framing."
     ],
@@ -483,10 +514,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which policies can improve access to mental health care?",
-    "correctAnswer": "Welche Maßnahmen können den Zugang zur psychischen Gesundheitsversorgung verbessern?",
+    "prompt": "Welche Maßnahmen können den ___ zur psychischen Gesundheitsversorgung verbessern?",
+    "correctAnswer": "Zugang",
     "hints": [
-      "Public-health discussion prompt."
+      "A masculine noun meaning 'access'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-he-b2-70"
@@ -494,8 +525,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sustainable routines matter more than short-term motivation.",
-    "correctAnswer": "Nachhaltige Routinen sind mehr als kurzfristige Motivation.",
+    "prompt": "Choose the best response. A friend asks how to stay motivated to exercise.",
+    "correctAnswer": "Nachhaltige Routinen sind wichtiger als kurzfristige Motivation.",
     "hints": [
       "Abstract comparison sentence."
     ],

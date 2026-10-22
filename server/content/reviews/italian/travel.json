@@ -1,0 +1,740 @@
+{
+  "language": "italian",
+  "category": "travel",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:25:53.589Z",
+  "contentHash": "5c60bf6daeff2578",
+  "summary": "This is one of the weakest files so far: core travel vocabulary is mistranslated throughout (piattaforma for platform, controllare for check in, scambiare soldi, posto per le finestre, gambe del viaggio, cambiamento for a change of trains, connessione for a connection), and two B2 items are nonsense ('rendere la mia connessione con i minuti da risparmiare', 'sgomberare i costumi'). The it-tr-27 'reads like Spanish' lint is a false alarm.",
+  "findings": [
+    {
+      "id": "it-tr-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'La stazione' on its own usually means the train station; 'dov'è' = where is."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Dov'è la stazione dei treni?",
+            "Dov'è la stazione ferroviaria?"
+          ]
+        }
+      ],
+      "itemHash": "40dbcefa5b3f726d",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Quanto costa' + singular noun; 'quanto costano' for plural."
+          ]
+        }
+      ],
+      "itemHash": "f8faa12f51c2a66a",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A train platform is 'binario'; 'piattaforma' is an oil rig or digital platform. Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Da quale binario parte il treno?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Da che binario parte il treno?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Binario' = platform/track at a train station."
+          ]
+        }
+      ],
+      "itemHash": "69ce3247b23096ed",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-15",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'E'' should be 'È'; hint describes English inversion, which Italian doesn't use.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È l'autobus giusto per l'aeroporto?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Questo è l'autobus giusto per l'aeroporto?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian yes/no questions keep statement word order; only the intonation rises."
+          ]
+        }
+      ],
+      "itemHash": "243bb4f04129c1bc",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-19",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'persa' and the common 'Mi sono perso/a' are not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono persa.",
+            "Mi sono perso.",
+            "Mi sono persa."
+          ]
+        }
+      ],
+      "itemHash": "b55f62f6ab5ded42",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-a1-40",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'citta'' should be 'città'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi serve un biglietto per il centro città.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi serve un biglietto per il centro della città.",
+            "Mi serve un biglietto per il centro."
+          ]
+        }
+      ],
+      "itemHash": "5fad4b1d333ff82b",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'camera', the standard hotel word, is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho bisogno di una camera per due notti.",
+            "Mi serve una camera per due notti."
+          ]
+        }
+      ],
+      "itemHash": "16a137bbbadfdfd5",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday 'va in centro' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Questo autobus va in centro?"
+          ]
+        }
+      ],
+      "itemHash": "ba247ef838d76c66",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'controllare la prenotazione' means verify the booking; checking in is 'fare il check-in'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei fare il check-in, ho una prenotazione.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vorrei fare il check-in per la mia prenotazione."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Fare il check-in' = to check in at a hotel or airport."
+          ]
+        }
+      ],
+      "itemHash": "0cb900a951555d54",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'scambiare' means swap; exchanging money is 'cambiare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei cambiare dei soldi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vorrei cambiare un po' di soldi.",
+            "Vorrei cambiare del denaro."
+          ]
+        }
+      ],
+      "itemHash": "ae22a803ad2e88ea",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-23",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'funziona' means 'works/operates'; the frequency of a shuttle is asked with 'ogni quanto passa'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ogni quanto passa la navetta per l'aeroporto?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ogni quanto parte la navetta per l'aeroporto?"
+          ]
+        }
+      ],
+      "itemHash": "330f0eb8c6c944bf",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-24",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'borse da controllare' means bags to inspect; checked luggage is 'bagagli da imbarcare/spedire'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho due bagagli da imbarcare.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho due valigie da imbarcare.",
+            "Ho due bagagli da spedire."
+          ]
+        }
+      ],
+      "itemHash": "4c3f79a538ebaac7",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-25",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'un posto per le finestre' means a place for the windows; a window seat is 'posto vicino al finestrino'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Posso avere un posto vicino al finestrino?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Posso avere un posto lato finestrino?",
+            "Potrei avere un posto vicino al finestrino?"
+          ]
+        }
+      ],
+      "itemHash": "601b78d6d559af94",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-a2-50",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vorrei controllare' means 'I would like to check/verify'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei fare il check-in, per favore.",
+          "list": null
+        }
+      ],
+      "itemHash": "2118c78cf447a015",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-a2-52",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'il pass' is not Italian for a boarding pass.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Stamattina ho perso la ___ d'imbarco.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "carta",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "carta",
+            "porta",
+            "sala",
+            "fila"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Carta d'imbarco' = boarding pass; 'porta d'imbarco' is the gate."
+          ]
+        }
+      ],
+      "itemHash": "1f0690deeabbe8fd",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-27",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'consigliare' is the usual verb for recommending; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi chiedevo se potesse consigliarmi un buon ristorante locale.",
+            "Mi chiedevo se potessi consigliarmi un buon ristorante del posto."
+          ]
+        }
+      ],
+      "itemHash": "13cd71e17101a987",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'le gambe del viaggio' is a literal calque of 'legs'; Italian speaks of 'andata e ritorno' or 'tratte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "C'è uno sconto se prenoto andata e ritorno insieme?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'è uno sconto se prenoto entrambe le tratte insieme?"
+          ]
+        }
+      ],
+      "itemHash": "b7f364bc97d60c26",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-29",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'cambiamento' means a change in general; a change of trains is 'un cambio'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il viaggio dura circa tre ore con un cambio.",
+          "list": null
+        }
+      ],
+      "itemHash": "54c0feb3663847d3",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-30",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'leggera' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Preferisco viaggiare leggera quando possibile.",
+            "Quando possibile, preferisco viaggiare leggero."
+          ]
+        }
+      ],
+      "itemHash": "ea811eb94c4ca6be",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-32",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'prenotare' loses the 're-' of rebooking.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho dovuto riprenotare a una tariffa più alta dopo la cancellazione del mio volo originale.",
+          "list": null
+        }
+      ],
+      "itemHash": "40900917c95d0f35",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-33",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish; 'si può controllare' is impersonal and odd when addressing the clerk.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho un'e-mail di conferma: può ricontrollare, per favore?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I have a confirmation email — could you check again, please?",
+          "list": null
+        }
+      ],
+      "itemHash": "3d0082d5fe811fa3",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-b1-61",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'è meglio per' is unidiomatic; Italian says 'è il migliore per'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Qual è il quartiere migliore per il cibo locale?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quale quartiere è il migliore per il cibo locale?"
+          ]
+        }
+      ],
+      "itemHash": "620fb6c586ccfd6d",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-b1-62",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Viaggiare da solo mi ha ___ a diventare più indipendente.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "aiutato",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "aiutata"
+          ]
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "aiutato",
+            "aiutare",
+            "aiuta",
+            "aiutando"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'aiutare' after 'ha'."
+          ]
+        }
+      ],
+      "itemHash": "b2ddca1814d85105",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Formal 'Potrebbe consigliarmi' (natural with a stranger) is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Potrebbe consigliarmi un quartiere sicuro vicino al centro?",
+            "Potresti consigliarmi un quartiere sicuro vicino al centro?"
+          ]
+        }
+      ],
+      "itemHash": "bd8b5e3df44c7cbd",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A transit connection is 'coincidenza' or 'collegamento'; 'connessione' is for internet.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "C'è un collegamento più veloce se cambio linea una volta?",
+          "list": null
+        }
+      ],
+      "itemHash": "0eb959e4f39a2646",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'rendere la mia connessione con i minuti da risparmiare' is a word-for-word nonsense translation.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nonostante i ritardi, sono riuscito a prendere la coincidenza con qualche minuto di margine.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nonostante i ritardi, sono riuscita a prendere la coincidenza con qualche minuto di margine."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Prendere la coincidenza' = make a connection; 'con qualche minuto di margine' = with minutes to spare."
+          ]
+        }
+      ],
+      "itemHash": "15c1a75fb3343e9e",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-35",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'classe di tariffa' is a calque; Italian says 'classe tariffaria'. 'Illustrare' fits 'outline' better.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Potrebbe illustrarmi le condizioni di cancellazione e rimborso per questa classe tariffaria?",
+          "list": null
+        }
+      ],
+      "itemHash": "b5c993196f184ccc",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-36",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Sono stato addebitato' is ungrammatical (the fee is charged to someone); 'tassa' is a tax, not a fee.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi è stato addebitato ingiustamente un supplemento per bagaglio in eccesso e vorrei contestarlo.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mi è stato addebitato' = I was charged (literally 'it was charged to me')."
+          ]
+        }
+      ],
+      "itemHash": "1ee05dbcb270140c",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-38",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Preferisco i treni sui voli' is ungrammatical ('preferire A a B'), and 'I tend to' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tendo a preferire il treno all'aereo per i viaggi sotto le cinque ore.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tendo a preferire i treni agli aerei per i viaggi sotto le cinque ore."
+          ]
+        }
+      ],
+      "itemHash": "a18cf8f8f80d0fd1",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-39",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Nonsense translation: 'deposito' (warehouse), 'sgomberare i costumi' (clear out the costumes), 'da' missing its accent.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Lo scalo mi dà il tempo appena sufficiente per passare la dogana e riconsegnare i bagagli.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Scalo' = layover; 'passare la dogana' = clear customs.",
+            "'Riconsegnare i bagagli' = recheck your luggage."
+          ]
+        }
+      ],
+      "itemHash": "3cf8dbe583aa34dc",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Come può il turismo sostenere le comunità locali senza ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "danneggiarle",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "danneggiarle",
+            "danneggiarli",
+            "danneggiarla",
+            "danneggiarlo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The object pronoun agrees with 'comunità' (feminine plural)."
+          ]
+        }
+      ],
+      "itemHash": "a68e1008f0504cb2",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    },
+    {
+      "id": "it-tr-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'pianificato contingenze' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend asks how you managed when your connecting flight was late.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Avevo previsto un piano B nel caso in cui i voli fossero in ritardo.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I had planned contingencies in case flights were delayed.",
+          "list": null
+        }
+      ],
+      "itemHash": "53666e8cd5fd2068",
+      "appliedAt": "2026-10-22T09:34:59.096Z"
+    }
+  ]
+}

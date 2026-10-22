@@ -1,0 +1,715 @@
+{
+  "language": "swedish",
+  "category": "culture_history",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:59:02.052Z",
+  "contentHash": "6ca35ab019e3ac33",
+  "summary": "Many culture items teach wrong Swedish or wrong facts: '1200-talet' for the twelfth century, 'semester' for a holiday/festival, 'bokstäverna' for letters, 'orsak' for reason, 'Kulturanpassning', 'självbetjänande', 'modifiering', 'Reatrieringen', 'Orala traditioner', 'öppningsnatten', plus agreement and tense errors. A Shakespeare item is carried over from the English course (replaced with Strindberg), and the file has British leftovers, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-ch-a1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Duplicated answer ('museet museum').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "museum",
+          "list": null
+        }
+      ],
+      "itemHash": "727e0a46c55f5015",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Älska att' + infinitive = to love doing something."
+          ]
+        }
+      ],
+      "itemHash": "fb594823d7179a44",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A traditional celebration is usually 'högtid' or 'fest'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Det här är en traditionell högtid.",
+            "Det här är en traditionell fest."
+          ]
+        }
+      ],
+      "itemHash": "18cf2042af19c4a3",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'semester' means vacation; a national holiday is 'nationaldagen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "När är nationaldagen?",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "Sweden's National Day is June 6, a public holiday since 2005.",
+          "list": null
+        }
+      ],
+      "itemHash": "a57b8404ee419c26",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a1-9",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "Going to see a play is 'gå på teater'; 'gå till teatern' means walking to the building.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag gick på teater förra helgen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Förra helgen gick jag på teater."
+          ]
+        }
+      ],
+      "itemHash": "3c40b628fd4df895",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-cu-a1-41",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday 'Vad heter ...?' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vad heter den här festivalen?",
+            "Vad heter den här högtiden?"
+          ]
+        }
+      ],
+      "itemHash": "fbb537cbe75ca634",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'1200-talet' is the thirteenth century; the twelfth century is '1100-talet'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Slottet byggdes på 1100-talet.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish counts centuries by their hundreds: the 1100s = '1100-talet' (the twelfth century)."
+          ]
+        }
+      ],
+      "itemHash": "134ebe17011ab211",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A small town is 'orten'; a festival is 'anordnas'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Varje år i juli anordnar orten en traditionell matfestival.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Varje år har staden en traditionell matfestival i juli."
+          ]
+        }
+      ],
+      "itemHash": "524d77230eda8dde",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'värda att besöka' is a calque; Swedish says 'värda ett besök'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Finns det några historiska platser i närheten som är värda ett besök?",
+          "list": null
+        }
+      ],
+      "itemHash": "58f6eabfc1b455bb",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a2-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'Artefacts'; 'föremål' is the everyday museum word.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Artifacts' are objects made or used by people in the past; museums often say 'föremål'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Museet har en imponerande samling romerska föremål."
+          ]
+        }
+      ],
+      "itemHash": "3b1159257e78fd12",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a2-7",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'helt annorlunda' means completely different; 'quite' is 'ganska'. 'lokala ... här' is redundant.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Folkmusiken här är ganska annorlunda än den jag är van vid.",
+          "list": null
+        }
+      ],
+      "itemHash": "fec20120a6f79783",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a2-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'öppningsnatten' is a calque; an exhibition opening is a 'vernissage'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi var på vernissagen för en ny utställning på galleriet.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vernissage' = the opening of an art exhibition."
+          ]
+        }
+      ],
+      "itemHash": "aaf14bafac0950ff",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-a2-10",
+      "severity": "error",
+      "kind": "cultural-note",
+      "problem": "Leftover from the English course (Shakespeare as 'the greatest writer in English'). Rewritten to the Swedish equivalent.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Strindberg wrote more than sixty plays during his lifetime.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Strindberg skrev fler än sextio pjäser under sin livstid.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past tense for a historical fact; 'fler än' = more than."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "August Strindberg (1849–1912) is Sweden's most famous playwright; his plays, such as 'Fröken Julie' (Miss Julie), are still performed worldwide.",
+          "list": null
+        }
+      ],
+      "itemHash": "4d0d545e87c94262",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-cu-a2-51",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'semester' means vacation; the cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Varför firar folk den här ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "högtiden",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "högtiden",
+            "semestern",
+            "ledigheten",
+            "säsongen"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A celebrated holiday is a 'högtid'; 'semester' is a vacation."
+          ]
+        }
+      ],
+      "itemHash": "337e46e4f617cf81",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'för dem inom kulturen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kulturarvet formar den nationella identiteten på sätt som ofta är osynliga för dem som är en del av kulturen.",
+          "list": null
+        }
+      ],
+      "itemHash": "6becb42605c2b5a2",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'colonising'; 'bestående avtryck' is more idiomatic than 'inverkan'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Colonialism' = the practice of colonizing other countries; 'bestående avtryck' = lasting impact."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tror du att kolonialismen har lämnat bestående avtryck i den samtida kulturen?"
+          ]
+        }
+      ],
+      "itemHash": "b093277912f7a9b7",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Orala traditioner' is a calque; it is 'muntliga traditioner'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Muntliga traditioner har spelat en avgörande roll för att bevara historien där skriftliga källor saknades.",
+          "list": null
+        }
+      ],
+      "itemHash": "85f502b564b2b09c",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'försonar ... med' is used for people; ideas are 'förenade'. 'stolthet i' should be 'stolthet över'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur förenar ett land stoltheten över sin historia med erkännandet av tidigare orätter?",
+          "list": null
+        }
+      ],
+      "itemHash": "d40c5f6044624f97",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'klassisk antiken' has wrong agreement ('den klassiska antiken'); prompt and hint use British 'characterised'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Renässansen präglades av ett förnyat intresse för den klassiska antiken och humanistisk filosofi.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Characterized by' = defined or typified by; 'antiquity' = ancient times.",
+            "'Humanist' thought placed humans, not God, at the center of intellectual life."
+          ]
+        }
+      ],
+      "itemHash": "08ef6c5925c282e8",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Tense mismatch ('har påskyndat ... men hotade'); prompt uses British 'Globalisation'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Globaliseringen har påskyndat kulturutbytet men också hotat minoritetsspråkens överlevnad.",
+          "list": null
+        }
+      ],
+      "itemHash": "fb87b2a2f2031920",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'bokstäverna' are letters of the alphabet; personal letters are 'breven'. No answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "De personliga breven och dagböckerna gav mig en mycket starkare känsla för hur livet verkligen var på den tiden.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "The personal letters and diaries gave me a much stronger sense of what life was really like back then.",
+          "list": null
+        }
+      ],
+      "itemHash": "5087c668007461be",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b1-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Partitionen' is a calque; Swedish says 'delningen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Delningen av den indiska subkontinenten 1947 fick djupa och bestående konsekvenser för miljontals familjer.",
+          "list": null
+        }
+      ],
+      "itemHash": "9edfbe71e296dca9",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-cu-b1-60",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'gemenskapsidentitet' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Lokala traditioner hjälper till att bevara den lokala identiteten.",
+          "list": null
+        }
+      ],
+      "itemHash": "ddec0cda9d610b10",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-cu-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'finner du' is stiff.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vilken historisk period tycker du är mest ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fascinerande",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "fascinerande",
+            "fascinerad",
+            "fascination",
+            "fascinera"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective ending in -ande (invariable)."
+          ]
+        }
+      ],
+      "itemHash": "0de920d6c51d5a7e",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Reatrieringen' is misspelled; 'artefakter' is formal.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Återlämnandet av koloniala föremål är fortfarande en av de mest omstridda frågorna inom dagens museivärld.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Repatrieringen av koloniala artefakter är fortfarande en av de mest omstridda debatterna i modern museipraxis."
+          ]
+        }
+      ],
+      "itemHash": "e723d62b8bedd2ec",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'självbetjänande' means self-service; 'self-serving' is 'tillrättalagd' or 'självgod'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I vilken utsträckning skapar den nationella mytologin en selektiv och tillrättalagd bild av historiska händelser?",
+          "list": null
+        }
+      ],
+      "itemHash": "23355eed40fca48a",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'orsak' means cause; 'reason' in this sense is 'förnuftet'. Hint uses British 'prioritised'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Upplysningen innebar ett grundläggande kunskapsteoretiskt skifte som satte förnuftet över den religiösa auktoriteten.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Förnuftet' = reason; 'placed reason above' = prioritized rationality over faith."
+          ]
+        }
+      ],
+      "itemHash": "629b7939549d3891",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Kulturanpassning' means cultural adaptation; appropriation is 'kulturell appropriering'. 'upplåning' means borrowing money.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kulturell appropriering väcker svåra frågor om ägande, makt och gränserna för konstnärliga lån.",
+          "list": null
+        }
+      ],
+      "itemHash": "ae24b1d714950d5a",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'minnesmetoder' means memory techniques; commemorative practices are 'minnesritualer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur formar minnesritualer det kollektiva minnet och påverkar den politiska identiteten?",
+          "list": null
+        }
+      ],
+      "itemHash": "6dcf22e31bbd611b",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The study of how history is written is 'historiografi'; 'historieskrivning' is the writing itself.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Historiografi – studiet av hur historia skrivs – avslöjar lika mycket om historikerns tid som om de händelser som beskrivs.",
+          "list": null
+        }
+      ],
+      "itemHash": "68591f462dd26715",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-ch-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'modifiering' means modification; commodification is 'kommersialisering'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kommersialiseringen av kulturarvet genom massturism kan samtidigt bevara och underminera det.",
+          "list": null
+        }
+      ],
+      "itemHash": "ef2759ad05df84b2",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-cu-b2-69",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Tolkande historia' means 'interpretive history'; the subject must be 'Att tolka historia'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Att tolka historia kräver medvetenhet om perspektiv och partiskhet.",
+          "list": null
+        }
+      ],
+      "itemHash": "d55fa42f6298836d",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-cu-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Kulturarv kan stärka den sociala ___ över generationerna.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sammanhållningen",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sammanhållningen",
+            "sammanhållning",
+            "samhället",
+            "samarbetet"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Definite form after 'den sociala'."
+          ]
+        }
+      ],
+      "itemHash": "390ed18ac1249bb3",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    },
+    {
+      "id": "sv-cu-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; the culturalNote is generic filler.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a town meeting about renovating the historic center, you ask how societies should balance preservation with modernization.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hur bör samhällen väga bevarande mot modernisering?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should societies balance preservation with modernization?",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "f3513000455d0c45",
+      "appliedAt": "2026-10-22T10:00:55.826Z"
+    }
+  ]
+}

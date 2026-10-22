@@ -1,0 +1,1002 @@
+{
+  "language": "swedish",
+  "category": "essentials",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:41:01.359Z",
+  "contentHash": "fc48332d8d518a65",
+  "summary": "Many core phrases are word-for-word translations that a Swede would not say (Hej, hur är du?; Mitt namn är; Hej, se dig senare; badrummet for a public restroom; 'snälla snälla' for please; Jag är ledsen for sorry). Six cloze items are still English sentences and four more have no blank, several B2 items leave English words in or use the wrong verb (Nuance, verbose, till parafras, betona, reformera), and roleplay/dialogue items lack answerEnglish or a situation.",
+  "findings": [
+    {
+      "id": "sv-es-1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Hur är du?' asks what you are like, not how you are; generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hej, hur mår du?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hej, hur är det?",
+            "Hej, hur är läget?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hur mår du?' asks about well-being; 'Hur är det?' is more casual."
+          ]
+        }
+      ],
+      "itemHash": "428c7fa47dc54912",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the common 'för hjälpen' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Tack så mycket för' + noun; Swedes often say 'hjälpen' instead of 'din hjälp'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tack så mycket för hjälpen.",
+            "Stort tack för hjälpen."
+          ]
+        }
+      ],
+      "itemHash": "4005b53049c7ec67",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the more spoken 'den här meningen' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Inte' comes right after the verb in a main clause."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag förstår inte den här meningen."
+          ]
+        }
+      ],
+      "itemHash": "324f004560d3ab0b",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'badrummet' is a home bathroom with a bath; a public restroom is 'toaletten'. Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ursäkta, var är toaletten?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ursäkta mig, var är toaletten?",
+            "Ursäkta, var ligger toaletten?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "In public places ask for 'toaletten'; 'badrum' is the room with a bath at home."
+          ]
+        }
+      ],
+      "itemHash": "3c3dbf4613cb14ee",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-5",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Mitt namn är' is a stiff calque; Swedes introduce themselves with 'Jag heter'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag heter Anna.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Jag heter' (literally 'I am called') is the standard way to give your name."
+          ]
+        }
+      ],
+      "itemHash": "39359593ab17fb75",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'snälla snälla' is duplicated; Swedish has no exact 'please' — requests usually end with 'tack', and 'snälla' is pleading.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "snälla",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Snälla' is used when pleading; in shops Swedes usually just add 'tack' to a request."
+          ]
+        }
+      ],
+      "itemHash": "64e857f44245d424",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-8",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay quotes the question in English and has no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone says: Hur mår du?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I'm fine, thanks.",
+          "list": null
+        }
+      ],
+      "itemHash": "388454c60cbc2bb1",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English, and the answer 'är jag' has the wrong word order.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag ___ från Spanien.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "är",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "är",
+            "har",
+            "heter",
+            "bor"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vara' (to be) has the same form for every person: 'jag är'."
+          ]
+        }
+      ],
+      "itemHash": "beeb2cf5f7e024f4",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'se dig senare' is a calque; the Swedish farewell is 'vi ses'. 'Hej' alone also means hello.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hej då, vi ses!",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hej då, vi ses senare!",
+            "Vi ses sen!"
+          ]
+        }
+      ],
+      "itemHash": "8528d2658af6e501",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-13",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The subject 'jag' is missing; 'snälla' sounds pleading.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag behöver hjälp, tack.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag behöver hjälp, snälla."
+          ]
+        }
+      ],
+      "itemHash": "4c55f884f48053e4",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-15",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Jag är ledsen' means 'I am sad'; an apology for not knowing is 'Förlåt' / 'Tyvärr'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tyvärr, jag vet inte.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Förlåt, jag vet inte.",
+            "Tyvärr, det vet jag inte."
+          ]
+        }
+      ],
+      "itemHash": "f5a22b44b73e0298",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a1-53",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'snälla' sounds pleading here; the natural request without it is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan du upprepa det?",
+            "Kan du säga det igen?"
+          ]
+        }
+      ],
+      "itemHash": "cb594a627d5f5681",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Natural variants without 'snälla' are not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan du prata lite långsammare?",
+            "Kan du prata långsammare?"
+          ]
+        }
+      ],
+      "itemHash": "9e1a07e30a273369",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-5",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Leftover from the English course ('learning English').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I am learning Swedish every day.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag lär mig svenska varje dag.",
+          "list": null
+        }
+      ],
+      "itemHash": "1d94f88072e1bd9b",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag ___ till skolan i går.",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "gick",
+            "går",
+            "gått",
+            "gå"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past tense (preteritum) of 'gå'."
+          ]
+        }
+      ],
+      "itemHash": "72d6b00f58c84538",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a2-7",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish.",
+      "fix": [
+        {
+          "field": "answerEnglish",
+          "text": "Excuse me, where is the exit?",
+          "list": null
+        }
+      ],
+      "itemHash": "951b68a0e2131296",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a2-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Forgetting something by accident is usually 'glömde'; 'lämnade' suggests on purpose.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag glömde min väska på bussen.",
+            "Jag glömde väskan på bussen."
+          ]
+        }
+      ],
+      "itemHash": "fc6cb6e56d310316",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a2-12",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hon ___ engelska och franska.",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "talar",
+            "tala",
+            "talat",
+            "talande"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense of 'tala' ends in -r."
+          ]
+        }
+      ],
+      "itemHash": "4a994b6774bda7e1",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a2-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'se nya ord på natten' means 'see new words in the night'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag brukar ___ nya ord på kvällen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "repetera",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "repetera",
+            "repeterar",
+            "repeterade",
+            "repeterat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Brukar' is followed by an infinitive."
+          ]
+        }
+      ],
+      "itemHash": "672ebc48757085e8",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-a2-64",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Jag glömde nästan att' is a calque; Swedes say 'Jag höll på att glömma'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag höll på att glömma att skicka meddelandet.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hålla på att' + infinitive = almost do something."
+          ]
+        }
+      ],
+      "itemHash": "3aa251214fc15aec",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-7",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'would like' is 'skulle vilja'; 'vill' is 'want'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja förbättra mitt uttal.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag vill förbättra mitt uttal."
+          ]
+        }
+      ],
+      "itemHash": "96916dd5ce3a6b61",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'praxis' means established custom; practice in the sense of training is 'övning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag förstår idén, men jag behöver öva mer.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag förstår idén, men jag behöver mer övning."
+          ]
+        }
+      ],
+      "itemHash": "e8828a6f639f18b0",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b1-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English and tests the English present perfect continuous.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag har ___ här i tre år.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "bott",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "bott",
+            "bor",
+            "bodde",
+            "bo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Supine of 'bo' after 'har'."
+          ]
+        }
+      ],
+      "itemHash": "50755f5ef74048fe",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b1-6",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn doesn't say which word is explained; no answerEnglish; missing comma after 'Visst'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A classmate asks: »Kan du förklara ordet 'formulera'?»",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Visst, det betyder att uttrycka något tydligt.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Sure, it means to express something clearly.",
+          "list": null
+        }
+      ],
+      "itemHash": "7c2f62156423b7ca",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Location of a building is 'ligger', not 'är'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan du säga var postkontoret ligger?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan du berätta var postkontoret ligger?",
+            "Kan du säga var posten ligger?"
+          ]
+        }
+      ],
+      "itemHash": "feb13e07ae2a7d36",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b1-11",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hints describe English; the variant with 'i' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish uses the perfect tense (har väntat) for an action that is still going on."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har väntat i tjugo minuter."
+          ]
+        }
+      ],
+      "itemHash": "448215067c1d8446",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b1-69",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'öva' needs 'på' with an object like this.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har övat på det här uttrycket i flera veckor.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har övat på detta uttryck i veckor."
+          ]
+        }
+      ],
+      "itemHash": "d81f73ff8781bdf5",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b1-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag förstod idén men ___ en detalj.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "missade",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "missade",
+            "missar",
+            "missat",
+            "missa"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past tense, parallel to 'förstod'."
+          ]
+        }
+      ],
+      "itemHash": "ecd49d3139fc9972",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b1-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; after 'låta' the adjective 'naturlig' is needed, not the adverb.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: Your Swedish tutor asks what you are working on at the moment.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag försöker låta mer naturlig när jag pratar.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag försöker låta mer naturlig i samtal."
+          ]
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I'm trying to sound more natural when I speak.",
+          "list": null
+        }
+      ],
+      "itemHash": "0a2f433100bd7fdd",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "One adapts something 'efter' a situation; 'din ton' reads as a specific person's tone.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Det är avgörande att anpassa tonen efter situationen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Det är viktigt att anpassa tonen efter situationen."
+          ]
+        }
+      ],
+      "itemHash": "352d7e9c19e00635",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-4",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ju mer du övar, desto ___ självsäker blir du.",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "mer",
+            "mest",
+            "mycket",
+            "fler"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ju ... desto ...' = the more ... the more ..."
+          ]
+        }
+      ],
+      "itemHash": "f9b595b0eba7a35a",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Knowing an answer is 'veta', not 'känna'; 'talat' loses 'spoken up'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hade jag vetat svaret hade jag sagt något.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Om jag hade vetat svaret skulle jag ha sagt något."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish can drop 'om' and invert: 'Hade jag vetat ...'."
+          ]
+        }
+      ],
+      "itemHash": "ae2d48a7c2841e11",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-6",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no answerEnglish.",
+      "fix": [
+        {
+          "field": "answerEnglish",
+          "text": "I apologize for the confusion; let me clarify what I meant.",
+          "list": null
+        }
+      ],
+      "itemHash": "60333950fcce2836",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'betona' means emphasize; rephrase is 'omformulera'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle hellre omformulera frågan än ge ett vilseledande svar.",
+          "list": null
+        }
+      ],
+      "itemHash": "e8a38a004f75d86a",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'till parafras' means 'to a paraphrase'; the verb is 'att parafrasera'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "att parafrasera",
+          "list": null
+        }
+      ],
+      "itemHash": "34fd397024f56db4",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Nuance' is left in English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nyanser är det som skiljer ett godtagbart språk från ett verkligt flytande tal.",
+          "list": null
+        }
+      ],
+      "itemHash": "91fd3ed7a2e1ee8e",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'verbose' is left in English and 'artikulerad' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Att vara vältalig är inte samma sak som att vara mångordig.",
+          "list": null
+        }
+      ],
+      "itemHash": "b045b5d5217eab5b",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-77",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'dra slutsatsen från sammanhanget' lacks an object and is unidiomatic.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag kan oftast lista ut betydelsen utifrån sammanhanget.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "För det mesta kan jag förstå betydelsen av sammanhanget."
+          ]
+        }
+      ],
+      "itemHash": "4866df69e2640639",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-78",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Kan du förklara ___ i det uttrycket?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "nyansen",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "nyansen",
+            "nyans",
+            "nyanser",
+            "nyanserna"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Definite singular of 'nyans'."
+          ]
+        }
+      ],
+      "itemHash": "767ca42ba443f428",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-79",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'tillfälliga misstag' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: Your Swedish teacher asks how you feel about your speaking skills now.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag känner mig säker, även om jag fortfarande gör fel ibland.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I feel confident, although I still make occasional mistakes.",
+          "list": null
+        }
+      ],
+      "itemHash": "13ae81254e76fe85",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    },
+    {
+      "id": "sv-es-b2-80",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'reformera' means to reform; reformulate is 'omformulera'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle hellre omformulera meningen än översätta den direkt.",
+          "list": null
+        }
+      ],
+      "itemHash": "8d2ae0c2818117b8",
+      "appliedAt": "2026-10-22T10:00:52.221Z"
+    }
+  ]
+}

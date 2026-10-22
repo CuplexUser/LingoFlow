@@ -1,0 +1,793 @@
+{
+  "language": "french",
+  "category": "news_media",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:17:14.825Z",
+  "contentHash": "321f94921de7113b",
+  "summary": "Mostly machine-translated with several serious mistranslations at B1–B2 (guérison for 'curation', approvisionnement for 'sourcing', sensuels for 'sensational', tenir l'histoire, encadrés for 'framed', cloisonnement for 'paywalling'). Three cloze items have no blank and the dialogue_turn has no situation; several answers use 'nouvelles' where French says 'infos/actualité/s'informer'.",
+  "findings": [
+    {
+      "id": "fr-nm-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Habit in the present ('I read every morning') is translated with the passé composé 'J'ai lu'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je lis les nouvelles tous les matins.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je lis les infos tous les matins.",
+            "Je lis l'actualité tous les matins."
+          ]
+        }
+      ],
+      "itemHash": "3f0390a6ad5e949b",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Informal tu form not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu as entendu parler du tremblement de terre ?",
+            "Avez-vous entendu parler du tremblement de terre ?"
+          ]
+        }
+      ],
+      "itemHash": "b63e0dbf36367f40",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'dans les infos' is unidiomatic; French says 'aux infos'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Qu'y a-t-il aux infos aujourd'hui ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Qu'est-ce qu'il y a aux infos aujourd'hui ?",
+            "Qu'est-ce qu'il y a dans l'actualité aujourd'hui ?"
+          ]
+        }
+      ],
+      "itemHash": "b05ddd1614ec7b0e",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains English 'much' instead of the French structure; the common 'télé' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ne ... pas beaucoup' = not much; the article 'la' stays after 'regarder'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je ne regarde pas beaucoup la télé."
+          ]
+        }
+      ],
+      "itemHash": "8cef52fec6d388af",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The standard newspaper term 'à la une' (front page) is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'est à la une ?",
+            "Est-ce en première page ?"
+          ]
+        }
+      ],
+      "itemHash": "7697258d0c57f8fc",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a1-10",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'J'ai mes nouvelles' is a calque and 'nouvelles' here suggests personal news; French uses 's'informer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je m'informe sur Internet.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis l'actualité sur Internet.",
+            "Je lis les infos sur Internet."
+          ]
+        }
+      ],
+      "itemHash": "ed4928da6b14a240",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-a1-40",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'histoire' is not used for a news story and 'temps' is ambiguous (time/weather); 'article ... météo' is natural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cet article parle de la météo.",
+          "list": null
+        }
+      ],
+      "itemHash": "aed5022202a72720",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-a1-41",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Où as-tu eu tes nouvelles ?' is past tense and means personal news; the question asks about a habit.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Où est-ce que tu t'informes ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Où t'informes-tu ?",
+            "Où est-ce que vous vous informez ?"
+          ]
+        }
+      ],
+      "itemHash": "0d78e7dcfb0924fb",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "An economy 'progresse', it doesn't 'augmenter'; the English prompt uses British 'per cent'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: According to the report, the economy grew by two percent last year.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Selon le rapport, l'économie a progressé de 2 % l'an dernier.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Selon le rapport, l'économie a progressé de deux pour cent l'an dernier.",
+            "Selon le rapport, l'économie a progressé de 2 % l'année dernière.",
+            "D'après le rapport, l'économie a progressé de 2 % l'an dernier."
+          ]
+        }
+      ],
+      "itemHash": "52f5838649002a7d",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a2-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The more natural 'couverture des élections' and the tu form are not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Avez-vous suivi la couverture des élections ?",
+            "Tu as suivi la couverture des élections ?"
+          ]
+        }
+      ],
+      "itemHash": "34f2c0b2e0f4ea49",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'point de presse' means a press briefing, and the sentence lacks the preposition required by 'avoir confiance en'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "En quel média avez-vous le plus confiance ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "À quel média faites-vous le plus confiance ?",
+            "À quel média fais-tu le plus confiance ?",
+            "En quel média as-tu le plus confiance ?"
+          ]
+        }
+      ],
+      "itemHash": "413462d117a5ac80",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Breaking' is dropped, which the hint says is the point of the item.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il y a eu une information de dernière minute sur les inondations.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il y avait une information de dernière minute sur les inondations."
+          ]
+        }
+      ],
+      "itemHash": "06516afd266ad109",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'Les réseaux sociaux' is the everyday French term and is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Les réseaux sociaux sont maintenant la principale source d'information pour de nombreux jeunes.",
+            "Les réseaux sociaux sont désormais la principale source d'information de nombreux jeunes."
+          ]
+        }
+      ],
+      "itemHash": "288c15055fef66de",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-a2-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'application de nouvelles' is a calque ('application d'actualités'), and the feminine 'passée' is not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai annulé mon abonnement au journal et je suis passé à une application d'actualités en ligne.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai annulé mon abonnement au journal et je suis passée à une application d'actualités en ligne.",
+            "J'ai résilié mon abonnement au journal et je suis passé à une application d'actualités en ligne.",
+            "J'ai résilié mon abonnement au journal et je suis passée à une application d'actualités en ligne."
+          ]
+        }
+      ],
+      "itemHash": "a7fa82a3dae99044",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-a2-49",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'nouvelles locales' is less idiomatic than 'l'actualité locale' / 'les infos locales'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je suis l'actualité locale sur mon téléphone.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis les infos locales sur mon téléphone.",
+            "Je suis les nouvelles locales sur mon téléphone."
+          ]
+        }
+      ],
+      "itemHash": "32e60bde32779e2b",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt, so it cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Avez-vous entendu ___ de cet événement hier ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "parler",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "parler",
+            "dire",
+            "écouter",
+            "voir"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Entendre parler de' means 'to hear about'."
+          ]
+        }
+      ],
+      "itemHash": "f416aa8ccf83a90c",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'distinguer A et B' is ungrammatical; it is 'distinguer A de B' or 'faire la distinction entre A et B'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il est de plus en plus difficile de distinguer le journalisme crédible de la désinformation.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il est de plus en plus difficile de faire la distinction entre le journalisme crédible et la désinformation."
+          ]
+        }
+      ],
+      "itemHash": "4b9b124b98a6004a",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'source de nouvelles' is a calque; French says 'source d'information'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Comment évaluez-vous la fiabilité d'une source d'information ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Comment évalues-tu la fiabilité d'une source d'information ?"
+          ]
+        }
+      ],
+      "itemHash": "4167932d6a2ae20f",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'encadrés' means supervised/physically framed, not presented from an angle; hint uses British 'favouring'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les biais médiatiques peuvent influer sur la façon dont les événements sont présentés et interprétés par le public.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Le biais des médias peut influer sur la façon dont les événements sont présentés et interprétés par le public."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Framed' means presented from a particular angle; 'bias' means favoring one view."
+          ]
+        }
+      ],
+      "itemHash": "7902229fa5aaf675",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-4",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'faire des références croisées' is a calque; the French verb for cross-checking information is 'recouper'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'essaie de recouper les informations de plusieurs sources avant de me faire une opinion.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Recouper' = cross-check the same information in several places."
+          ]
+        }
+      ],
+      "itemHash": "ad0d5c385da7a17b",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-6",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'sensationnels' means amazing; 'sensationnalistes' is the word for sensationalist.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dans quelle mesure pensez-vous que les titres sensationnalistes faussent la perception du public ?",
+          "list": null
+        }
+      ],
+      "itemHash": "fe5273dff42ff9d0",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'tenir l'histoire' does not mean hold back a story, and 'ils' does not agree with 'l'équipe'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La rédaction a décidé de retarder la publication de l'article jusqu'à ce qu'elle ait des preuves plus concrètes.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'équipe de rédaction a décidé de retarder la publication de l'article jusqu'à ce qu'elle ait des preuves plus concrètes.",
+            "La rédaction a décidé de différer la publication de l'article jusqu'à ce qu'elle dispose de preuves plus concrètes."
+          ]
+        }
+      ],
+      "itemHash": "cf7d2ca2d3b6dcf0",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'la technologie smartphone' is clumsy; French says 'l'essor des smartphones'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le journalisme citoyen s'est considérablement développé avec l'essor des smartphones.",
+          "list": null
+        }
+      ],
+      "itemHash": "027386bad402aa61",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-9",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Je m'abonne' means 'I am subscribing (now)'; a current subscription is 'je suis abonné(e)'. Feminine form missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je suis abonné à deux journaux de qualité et à un magazine politique hebdomadaire.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis abonnée à deux journaux de qualité et à un magazine politique hebdomadaire."
+          ]
+        }
+      ],
+      "itemHash": "ba1e994c757ec6c6",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The indicative after 'pensez-vous que' and the tu form are equally correct and not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pensez-vous que la presse a trop ou trop peu de liberté dans votre pays ?",
+            "Penses-tu que la presse ait trop ou trop peu de liberté dans ton pays ?"
+          ]
+        }
+      ],
+      "itemHash": "42bb681ae3882342",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank, and 'partagent - ils' is mis-spaced.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Pourquoi les gens partagent-ils des articles sans les ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "lire",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "lire",
+            "acheter",
+            "écrire",
+            "traduire"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sans' is followed by an infinitive."
+          ]
+        }
+      ],
+      "itemHash": "9818648bcbd0be3f",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'guérison' means healing, not curation; 'flux d'informations' should be 'fils d'actualité'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La curation algorithmique des fils d'actualité crée des chambres d'écho qui renforcent les croyances existantes.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La sélection algorithmique des fils d'actualité crée des chambres d'écho qui renforcent les croyances existantes."
+          ]
+        }
+      ],
+      "itemHash": "076d77f45a494d6c",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'en tenant le pouvoir de rendre des comptes' is ungrammatical; the idiom is 'obliger le pouvoir à rendre des comptes'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le journalisme d'enquête remplit une fonction démocratique essentielle en obligeant le pouvoir à rendre des comptes.",
+          "list": null
+        }
+      ],
+      "itemHash": "22d8b15caeb5e92d",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'conflation' is not a French word in this sense; French uses 'confusion entre'. 'commentaires' should be 'articles d'opinion'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La confusion entre opinion et faits dans les articles d'opinion a brouillé d'importantes frontières épistémiques.",
+          "list": null
+        }
+      ],
+      "itemHash": "465ac754aadf3247",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b2-6",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'ever' is dropped, turning a skeptical question into a plain yes/no question.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les médias d'État peuvent-ils jamais être compatibles avec une véritable indépendance éditoriale ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Les médias d'État sont-ils compatibles avec une véritable indépendance éditoriale ?"
+          ]
+        }
+      ],
+      "itemHash": "6471b570521920e5",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b2-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'La technologie Deepfake' is capitalized and unidiomatic; French says 'la technologie des deepfakes' (officially 'hypertrucage').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La technologie des deepfakes pose un défi sans précédent à la vérification des preuves vidéo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'hypertrucage pose un défi sans précédent à la vérification des preuves vidéo."
+          ]
+        }
+      ],
+      "itemHash": "2896cdd155854ca5",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-nm-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Le cloisonnement de la qualité du journalisme' means compartmentalizing the quality of journalism, not putting quality journalism behind a paywall.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La mise sous paywall du journalisme de qualité soulève des questions importantes sur l'équité de l'accès à l'information.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Le recours au paywall pour le journalisme de qualité soulève des questions importantes sur l'équité de l'accès à l'information."
+          ]
+        }
+      ],
+      "itemHash": "ca57be0f9b79177e",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'approvisionnement' means supply of goods, not citing sources.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Un journalisme responsable exige des sources et un contexte transparents.",
+          "list": null
+        }
+      ],
+      "itemHash": "17a1e3fb8cc3525c",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-b2-70",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sensuels' means sensual; also the cloze item has no blank and cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Les titres sensationnalistes peuvent ___ la compréhension publique des questions complexes.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fausser",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "fausser",
+            "enrichir",
+            "approfondir",
+            "faciliter"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to distort'."
+          ]
+        }
+      ],
+      "itemHash": "5452cf576a684655",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    },
+    {
+      "id": "fr-ne-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn item has no situation and no answerEnglish; 'plates-formes' is the pre-1990 spelling.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a panel debate on social media, you ask the speakers how platforms should balance free expression and fighting misinformation.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Comment les plateformes devraient-elles équilibrer la liberté d'expression et la lutte contre la désinformation ?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should platforms balance free expression and the fight against misinformation?",
+          "list": null
+        }
+      ],
+      "itemHash": "a19ec530af125b71",
+      "appliedAt": "2026-10-22T09:34:56.904Z"
+    }
+  ]
+}

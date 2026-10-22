@@ -17,7 +17,7 @@
     "prompt": "Say: I love visiting old buildings.",
     "correctAnswer": "J'adore visiter de vieux bâtiments.",
     "hints": [
-      "'Love' + gerund for a strong preference."
+      "'Adorer' + infinitive = to love doing something."
     ]
   },
   {
@@ -38,6 +38,9 @@
     "correctAnswer": "C'est un festival traditionnel.",
     "hints": [
       "'Traditional' means part of a long custom."
+    ],
+    "acceptedAnswers": [
+      "C'est une fête traditionnelle."
     ]
   },
   {
@@ -89,6 +92,9 @@
     "correctAnswer": "Je suis allé au théâtre le week-end dernier.",
     "hints": [
       "Simple past for a recent visit."
+    ],
+    "acceptedAnswers": [
+      "Je suis allée au théâtre le week-end dernier."
     ]
   },
   {
@@ -99,6 +105,10 @@
     "correctAnswer": "Ce tableau est magnifique.",
     "hints": [
       "A simple opinion about a work of art."
+    ],
+    "acceptedAnswers": [
+      "Ce tableau est beau.",
+      "Ce tableau est très beau."
     ]
   },
   {
@@ -168,9 +178,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I find it fascinating to learn about different customs and traditions.",
-    "correctAnswer": "Je trouve fascinant d'apprendre les différentes coutumes et traditions.",
+    "correctAnswer": "Je trouve fascinant de découvrir différentes coutumes et traditions.",
     "hints": [
-      "'I find it + adjective + to' expresses a reaction."
+      "'Trouver fascinant de' + infinitive expresses a reaction."
+    ],
+    "acceptedAnswers": [
+      "Je trouve fascinant d'en apprendre plus sur les différentes coutumes et traditions."
     ]
   },
   {
@@ -190,7 +203,7 @@
     "prompt": "Say: The museum has an impressive collection of Roman artifacts.",
     "correctAnswer": "Le musée possède une impressionnante collection d'objets romains.",
     "hints": [
-      "'Artefacts' are objects made or used by people in the past."
+      "'Artifacts' are objects made or used by people in the past."
     ]
   },
   {
@@ -198,9 +211,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The local folk music here is quite different from what I am used to.",
-    "correctAnswer": "La musique folklorique locale ici est très différente de ce à quoi je suis habitué.",
+    "correctAnswer": "La musique folklorique d'ici est très différente de ce à quoi je suis habitué.",
     "hints": [
       "'I am used to' means accustomed to."
+    ],
+    "acceptedAnswers": [
+      "La musique folklorique d'ici est très différente de ce à quoi je suis habituée.",
+      "La musique folklorique locale est assez différente de ce à quoi je suis habitué.",
+      "La musique folklorique locale est assez différente de ce à quoi je suis habituée."
     ]
   },
   {
@@ -208,9 +226,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the story behind this tradition?",
-    "correctAnswer": "Quelle est l'histoire derrière cette tradition ?",
+    "correctAnswer": "Quelle est l'origine de cette tradition ?",
     "hints": [
       "Ask about the origin or explanation."
+    ],
+    "acceptedAnswers": [
+      "D'où vient cette tradition ?",
+      "Quelle est l'histoire de cette tradition ?"
     ]
   },
   {
@@ -221,19 +243,21 @@
     "correctAnswer": "Nous avons assisté à la soirée d'ouverture d'une nouvelle exposition à la galerie.",
     "hints": [
       "'Attended' = went to; 'opening night' = the first evening."
+    ],
+    "acceptedAnswers": [
+      "Nous avons assisté au vernissage d'une nouvelle exposition à la galerie."
     ]
   },
   {
     "id": "fr-ch-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Shakespeare wrote thirty-seven plays during his lifetime.",
-    "correctAnswer": "Shakespeare a écrit trente-sept pièces de sa vie.",
+    "prompt": "Say: Molière wrote about thirty plays during his lifetime.",
+    "correctAnswer": "Molière a écrit une trentaine de pièces au cours de sa vie.",
     "hints": [
-      "Past simple for a completed historical fact.",
-      "Shakespeare is considered the greatest writer in the English language."
+      "'Une trentaine de' = about thirty; 'au cours de sa vie' = during his lifetime."
     ],
-    "culturalNote": "William Shakespeare (1564–1616) is considered the greatest writer in the English language. His works are still performed in theaters worldwide."
+    "culturalNote": "Molière (1622–1673) is France's most celebrated playwright; French is often called 'la langue de Molière'. His comedies are still staged at the Comédie-Française."
   },
   {
     "level": "a2",
@@ -249,30 +273,39 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I learned about this country in school.",
-    "correctAnswer": "J'ai appris ce pays à l'école.",
+    "correctAnswer": "J'ai étudié ce pays à l'école.",
     "hints": [
       "Past learning sentence."
     ],
     "exerciseType": "build_sentence",
-    "id": "fr-cu-a2-50"
+    "id": "fr-cu-a2-50",
+    "acceptedAnswers": [
+      "J'ai appris des choses sur ce pays à l'école."
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Why do people celebrate this holiday?",
-    "correctAnswer": "Pourquoi les gens célèbrent ces vacances ?",
+    "prompt": "Pourquoi les gens célèbrent-ils cette ___ ?",
+    "correctAnswer": "fête",
     "hints": [
-      "History/culture curiosity."
+      "A holiday you celebrate is 'une fête'; 'les vacances' is time off."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-cu-a2-51"
+    "id": "fr-cu-a2-51",
+    "clozeOptions": [
+      "fête",
+      "vacances",
+      "congé",
+      "saison"
+    ]
   },
   {
     "id": "fr-ch-b1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Cultural heritage shapes national identity in ways that are often invisible to those within the culture.",
-    "correctAnswer": "Le patrimoine culturel façonne l'identité nationale de manière souvent invisible pour ceux qui vivent dans la culture.",
+    "correctAnswer": "Le patrimoine culturel façonne l'identité nationale de manière souvent invisible pour ceux qui en font partie.",
     "hints": [
       "'Shapes' = influences; 'invisible to' = not easily seen by."
     ]
@@ -284,7 +317,7 @@
     "prompt": "Ask: Do you think colonialism has left a lasting impact on contemporary culture?",
     "correctAnswer": "Pensez-vous que le colonialisme a laissé un impact durable sur la culture contemporaine?",
     "hints": [
-      "'Colonialism' = the practice of colonising other countries; 'lasting impact' = long-term effect."
+      "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
     ]
   },
   {
@@ -302,9 +335,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I visited the archaeological site and was struck by the scale of the ancient ruins.",
-    "correctAnswer": "J'ai visité le site archéologique et j'ai été frappé par l'échelle des ruines anciennes.",
+    "correctAnswer": "J'ai visité le site archéologique et j'ai été frappé par l'ampleur des ruines antiques.",
     "hints": [
       "'Was struck by' = was impressed by; 'archaeological site' = a place of historical excavation."
+    ],
+    "acceptedAnswers": [
+      "J'ai visité le site archéologique et j'ai été frappée par l'ampleur des ruines antiques."
     ]
   },
   {
@@ -312,7 +348,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Oral traditions have played a crucial role in preserving history where written records were absent.",
-    "correctAnswer": "Les traditions orales ont joué un rôle crucial dans la préservation de l'histoire où les documents écrits étaient absents.",
+    "correctAnswer": "Les traditions orales ont joué un rôle crucial dans la préservation de l'histoire là où les documents écrits faisaient défaut.",
     "hints": [
       "'Oral traditions' = stories passed down verbally; 'preserving' = keeping alive."
     ]
@@ -322,7 +358,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How does a country reconcile pride in its history with acknowledgement of past wrongs?",
-    "correctAnswer": "Comment un pays réconcilie-t-il la fierté de son histoire avec la reconnaissance des torts du passé?",
+    "correctAnswer": "Comment un pays concilie-t-il la fierté de son histoire et la reconnaissance des torts du passé ?",
     "hints": [
       "'Reconcile' = bring into harmony; a discussion about national identity and responsibility."
     ]
@@ -331,19 +367,23 @@
     "id": "fr-ch-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The Renaissance was characterised by a renewed interest in classical antiquity and humanist philosophy.",
-    "correctAnswer": "La Renaissance se caractérise par un intérêt renouvelé pour l'antiquité classique et la philosophie humaniste.",
+    "prompt": "Say: The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
+    "correctAnswer": "La Renaissance s'est caractérisée par un intérêt renouvelé pour l'Antiquité classique et la philosophie humaniste.",
     "hints": [
-      "'Characterised by' = defined or typified by; 'antiquity' = ancient times.",
+      "'Characterized by' = defined or typified by; 'antiquity' = ancient times.",
       "'Humanist' thought placed humans, not God, at the center of intellectual life."
     ],
-    "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought."
+    "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought.",
+    "acceptedAnswers": [
+      "La Renaissance se caractérisait par un intérêt renouvelé pour l'Antiquité classique et la philosophie humaniste.",
+      "La Renaissance se caractérise par un intérêt renouvelé pour l'Antiquité classique et la philosophie humaniste."
+    ]
   },
   {
     "id": "fr-ch-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Globalisation has accelerated cultural exchange but also threatened the survival of minority languages.",
+    "prompt": "Say: Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
     "correctAnswer": "La mondialisation a accéléré les échanges culturels mais a également menacé la survie des langues minoritaires.",
     "hints": [
       "'Accelerated' = sped up; 'minority languages' = languages spoken by fewer people."
@@ -354,11 +394,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Someone asks what you found most moving during a museum visit.",
-    "correctAnswer": "Les lettres et les journaux personnels m'ont donné un sens beaucoup plus fort de ce que la vie était en fait à l'époque.",
+    "correctAnswer": "Les lettres et les journaux intimes m'ont donné une idée beaucoup plus juste de ce qu'était vraiment la vie à l'époque.",
     "hints": [
       "Ground your response in specific artifacts; use 'gave me a sense of'."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "The letters and personal diaries gave me a much stronger sense of what life was really like back then."
   },
   {
     "id": "fr-ch-b1-10",
@@ -394,13 +435,19 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which historical period do you find most fascinating?",
-    "correctAnswer": "Quelle période historique trouvez-vous la plus fascinante?",
+    "prompt": "Quelle période historique trouvez-vous la plus ___ ?",
+    "correctAnswer": "fascinante",
     "hints": [
-      "Opinion prompt."
+      "The adjective agrees with 'période' (feminine singular)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-cu-b1-61"
+    "id": "fr-cu-b1-61",
+    "clozeOptions": [
+      "fascinante",
+      "fascinant",
+      "fascinantes",
+      "fascinée"
+    ]
   },
   {
     "id": "fr-ch-b2",
@@ -418,9 +465,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: To what extent does national mythology construct a selective and self-serving version of historical events?",
-    "correctAnswer": "Dans quelle mesure la mythologie nationale construit-elle une version sélective et égocentrique des événements historiques?",
+    "correctAnswer": "Dans quelle mesure la mythologie nationale construit-elle une version sélective et complaisante des événements historiques ?",
     "hints": [
       "'National mythology' = the stories a nation tells about itself; 'self-serving' = benefiting those in power."
+    ],
+    "acceptedAnswers": [
+      "Dans quelle mesure la mythologie nationale construit-elle une version sélective et intéressée des événements historiques ?"
     ]
   },
   {
@@ -430,7 +480,7 @@
     "prompt": "Say: The Enlightenment represented a fundamental epistemic shift that placed reason above religious authority.",
     "correctAnswer": "Les Lumières représentaient un changement épistémique fondamental qui plaçait la raison au-dessus de l'autorité religieuse.",
     "hints": [
-      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritised rationality over faith."
+      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritized rationality over faith."
     ]
   },
   {
@@ -448,7 +498,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The concept of a Western canon has been challenged by scholars arguing for a more globally inclusive literary tradition.",
-    "correctAnswer": "Le concept de canon occidental a été remis en question par des chercheurs qui plaident pour une tradition littéraire plus globale.",
+    "correctAnswer": "Le concept de canon occidental a été remis en question par des chercheurs qui plaident pour une tradition littéraire plus inclusive à l'échelle mondiale.",
     "hints": [
       "'Canon' = an authoritative list of great works; 'inclusive' = welcoming of diverse perspectives."
     ]
@@ -487,33 +537,42 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Interpreting history requires awareness of perspective and bias.",
-    "correctAnswer": "L'interprétation de l'histoire exige une prise de conscience de la perspective et des préjugés.",
+    "correctAnswer": "Interpréter l'histoire exige d'être conscient des points de vue et des biais.",
     "hints": [
       "Analytical framing."
     ],
-    "id": "fr-cu-b2-69"
+    "id": "fr-cu-b2-69",
+    "acceptedAnswers": [
+      "L'interprétation de l'histoire exige d'être conscient des points de vue et des biais."
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Cultural heritage can strengthen social cohesion across generations.",
-    "correctAnswer": "Le patrimoine culturel peut renforcer la cohésion sociale au fil des générations.",
+    "prompt": "Le patrimoine culturel peut renforcer la ___ sociale au fil des générations.",
+    "correctAnswer": "cohésion",
     "hints": [
-      "Advanced abstract wording."
+      "The word for 'cohesion' (people holding together)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-cu-b2-70"
+    "id": "fr-cu-b2-70",
+    "clozeOptions": [
+      "cohésion",
+      "cohérence",
+      "collision",
+      "coalition"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should societies balance preservation with modernization?",
+    "prompt": "Dialogue: At a town meeting about renovating the historic center, you ask how societies should balance preservation with modernization.",
     "correctAnswer": "Comment les sociétés devraient-elles concilier préservation et modernisation?",
     "hints": [
       "Complex policy-style question."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Cultural references vary by region and period.",
-    "id": "fr-cu-b2-71"
+    "id": "fr-cu-b2-71",
+    "answerEnglish": "How should societies balance preservation with modernization?"
   }
 ]

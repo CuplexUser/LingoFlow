@@ -6,7 +6,7 @@
     "prompt": "Ask: Where is the train station?",
     "correctAnswer": "Wo ist der Bahnhof?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Der Bahnhof' = train station; 'wo ist' = where is."
     ]
   },
   {
@@ -16,7 +16,11 @@
     "prompt": "Ask: How much does this ticket cost?",
     "correctAnswer": "Wie viel kostet das Ticket?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Wie viel kostet...?' = how much does ... cost?"
+    ],
+    "acceptedAnswers": [
+      "Wie viel kostet dieses Ticket?",
+      "Wie viel kostet die Fahrkarte?"
     ]
   },
   {
@@ -24,9 +28,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Which platform does the train leave from?",
-    "correctAnswer": "Welche Plattform verlässt der Zug?",
+    "correctAnswer": "Von welchem Gleis fährt der Zug ab?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Gleis' = platform/track; 'abfahren' = to depart."
     ]
   },
   {
@@ -58,7 +62,7 @@
     "prompt": "Ask: Is this the right bus for the airport?",
     "correctAnswer": "Ist das der richtige Bus für den Flughafen?",
     "hints": [
-      "Yes/no question — invert 'is' and subject."
+      "Yes/no questions start with the verb in German."
     ]
   },
   {
@@ -66,11 +70,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the place where planes take off and land",
-    "correctAnswer": "flughafen",
+    "correctAnswer": "der Flughafen",
     "hints": [
       "Think of where you go to catch a flight."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Flughafen"
+    ]
   },
   {
     "id": "de-tr-17",
@@ -97,11 +104,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I am lost.",
-    "correctAnswer": "Ich bin verloren.",
+    "correctAnswer": "Ich habe mich verlaufen.",
     "hints": [
-      "A short, important phrase for travelers."
+      "'Sich verlaufen' = to get lost on foot."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Ich habe mich verirrt."
+    ]
   },
   {
     "level": "a1",
@@ -149,9 +159,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to check in for my reservation.",
-    "correctAnswer": "Ich möchte nach meiner Reservierung einchecken.",
+    "correctAnswer": "Ich möchte einchecken, ich habe eine Reservierung.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Ich habe reserviert und möchte einchecken."
     ]
   },
   {
@@ -159,18 +172,21 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to exchange some money.",
-    "correctAnswer": "Ich möchte etwas Geld austauschen.",
+    "correctAnswer": "Ich möchte etwas Geld wechseln.",
     "hints": [
       "Use 'I would like to' for polite requests."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Ich möchte etwas Geld umtauschen."
+    ]
   },
   {
     "id": "de-tr-21",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Are there any guided tours of the old town?",
-    "correctAnswer": "Gibt es Führungen in der Altstadt?",
+    "correctAnswer": "Gibt es Führungen durch die Altstadt?",
     "hints": [
       "Use 'are there any' to ask about availability."
     ]
@@ -190,7 +206,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often does the airport shuttle run?",
-    "correctAnswer": "Wie oft läuft der Flughafentransfer?",
+    "correctAnswer": "Wie oft fährt der Flughafen-Shuttle?",
     "hints": [
       "Use 'how often' to ask about frequency."
     ]
@@ -200,18 +216,21 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have two bags to check in.",
-    "correctAnswer": "Ich habe zwei Taschen zum Einchecken.",
+    "correctAnswer": "Ich habe zwei Gepäckstücke zum Aufgeben.",
     "hints": [
       "State what you have, then add the purpose."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Ich möchte zwei Taschen aufgeben."
+    ]
   },
   {
     "id": "de-tr-25",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can I get a window seat?",
-    "correctAnswer": "Kann ich einen Fenstersitz bekommen?",
+    "correctAnswer": "Kann ich einen Fensterplatz bekommen?",
     "hints": [
       "A simple 'can I' request."
     ]
@@ -221,9 +240,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The check-out time is eleven o'clock.",
-    "correctAnswer": "Die Check-out-Zeit beträgt elf Uhr.",
+    "correctAnswer": "Der Check-out ist um elf Uhr.",
     "hints": [
       "State the time clearly."
+    ],
+    "acceptedAnswers": [
+      "Das Zimmer muss bis elf Uhr geräumt werden."
     ]
   },
   {
@@ -250,10 +272,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I lost my boarding pass this morning.",
-    "correctAnswer": "Ich habe heute Morgen meinen Vorstand verloren.",
+    "prompt": "Ich habe heute Morgen meine ___ verloren.",
+    "correctAnswer": "Bordkarte",
     "hints": [
-      "Problem report sentence."
+      "'Bordkarte' = boarding pass (feminine)."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-tr-a2-52"
@@ -293,7 +315,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was wondering if you could recommend a good local restaurant.",
-    "correctAnswer": "Ich fragte mich, ob Sie ein gutes lokales Restaurant empfehlen könnten.",
+    "correctAnswer": "Könnten Sie mir vielleicht ein gutes Restaurant hier in der Gegend empfehlen?",
     "hints": [
       "Use 'I was wondering if' for polite, indirect requests."
     ]
@@ -303,7 +325,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Is there a discount if I book both legs of the journey together?",
-    "correctAnswer": "Gibt es einen Rabatt, wenn ich beide Beine der Reise zusammen buchen?",
+    "correctAnswer": "Gibt es einen Rabatt, wenn ich Hin- und Rückfahrt zusammen buche?",
     "hints": [
       "Conditional question using 'if'."
     ]
@@ -313,7 +335,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The journey takes about three hours with one change.",
-    "correctAnswer": "Die Fahrt dauert etwa drei Stunden mit einem Wechsel.",
+    "correctAnswer": "Die Fahrt dauert etwa drei Stunden mit einmal Umsteigen.",
     "hints": [
       "Use 'about' for an approximation."
     ],
@@ -324,7 +346,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I prefer to travel light whenever possible.",
-    "correctAnswer": "Ich fahre lieber, wenn möglich.",
+    "correctAnswer": "Wenn möglich, reise ich mit leichtem Gepäck.",
     "hints": [
       "'Travel light' is an idiom for packing minimally."
     ]
@@ -344,7 +366,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I had to rebook at a higher fare after my original flight was canceled.",
-    "correctAnswer": "Ich musste einen höheren Tarif buchen, nachdem mein ursprünglicher Flug abgesagt wurde.",
+    "correctAnswer": "Ich musste zu einem höheren Tarif umbuchen, nachdem mein ursprünglicher Flug gestrichen worden war.",
     "hints": [
       "Use 'had to' for past obligation."
     ]
@@ -374,7 +396,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Which neighborhood is best for local food?",
-    "correctAnswer": "Welche Nachbarschaft ist am besten für lokale Küche?",
+    "correctAnswer": "Welches Viertel ist am besten für regionale Küche?",
     "hints": [
       "Recommendation question."
     ],
@@ -384,10 +406,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Traveling alone helped me become more independent.",
-    "correctAnswer": "Alleinreisen half mir, unabhängiger zu werden.",
+    "prompt": "Alleinreisen hat mir geholfen, ___ zu werden.",
+    "correctAnswer": "unabhängiger",
     "hints": [
-      "Reflection sentence."
+      "Comparative of 'unabhängig' (independent)."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-tr-b1-62"
@@ -397,7 +419,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Could you recommend a safe neighborhood near downtown?",
-    "correctAnswer": "Könnten Sie eine sichere Nachbarschaft in der Nähe der Innenstadt empfehlen?",
+    "correctAnswer": "Könnten Sie mir ein sicheres Viertel in der Nähe der Innenstadt empfehlen?",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -417,7 +439,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Is there a faster connection if I change lines once?",
-    "correctAnswer": "Gibt es eine schnellere Verbindung, wenn ich einmal Zeilen ändere?",
+    "correctAnswer": "Gibt es eine schnellere Verbindung, wenn ich einmal umsteige?",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -427,7 +449,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Despite the delays, I managed to make my connection with minutes to spare.",
-    "correctAnswer": "Trotz der Verzögerungen gelang es mir, meine Verbindung mit Minuten zu ersparen.",
+    "correctAnswer": "Trotz der Verspätungen habe ich meinen Anschluss mit ein paar Minuten Puffer erreicht.",
     "hints": [
       "'Despite' introduces a concession; 'with minutes to spare' is idiomatic."
     ]
@@ -447,7 +469,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I was unfairly charged an excess baggage fee and would like to dispute it.",
-    "correctAnswer": "Ich wurde ungerechterweise mit einer Übergepäckgebühr belastet und möchte es bestreiten.",
+    "correctAnswer": "Mir wurde zu Unrecht eine Übergepäckgebühr berechnet, und ich möchte sie anfechten.",
     "hints": [
       "Passive voice for what happened to you; 'dispute' means formally challenge."
     ]
@@ -468,7 +490,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I tend to prefer trains over flights for journeys under five hours.",
-    "correctAnswer": "Ich neige dazu, Züge über Flüge für Reisen unter fünf Stunden zu bevorzugen.",
+    "correctAnswer": "Bei Reisen unter fünf Stunden nehme ich meistens lieber den Zug als das Flugzeug.",
     "hints": [
       "'I tend to' softens a personal preference naturally."
     ]
@@ -478,7 +500,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The layover gives me just enough time to clear customs and recheck my luggage.",
-    "correctAnswer": "Die Überstellung gibt mir genug Zeit, um die Bräuche zu löschen und mein Gepäck wieder zu überprüfen.",
+    "correctAnswer": "Der Zwischenstopp gibt mir gerade genug Zeit, um durch den Zoll zu gehen und mein Gepäck neu aufzugeben.",
     "hints": [
       "'Clear customs' and 'recheck luggage' are standard travel phrases.",
       "A layover is a stop between flights."
@@ -489,7 +511,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Efficient public transport made the entire trip more sustainable.",
-    "correctAnswer": "Effiziente öffentliche Verkehrsmittel machten die gesamte Reise nachhaltig.",
+    "correctAnswer": "Effiziente öffentliche Verkehrsmittel machten die gesamte Reise nachhaltiger.",
     "hints": [
       "B2 travel perspective."
     ],
@@ -498,10 +520,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can tourism support local communities without harming them?",
-    "correctAnswer": "Wie kann der Tourismus lokale Gemeinschaften unterstützen, ohne sie zu verletzen?",
+    "prompt": "Wie kann der Tourismus lokale Gemeinschaften unterstützen, ohne ihnen zu ___?",
+    "correctAnswer": "schaden",
     "hints": [
-      "Complex travel ethics question."
+      "'Schaden' + dative = to harm."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-tr-b2-71"
@@ -509,8 +531,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I planned contingencies in case flights were delayed.",
-    "correctAnswer": "Ich habe Kontingenzen geplant, falls die Flüge verzögert wurden.",
+    "prompt": "Choose the best response. A friend asks how you managed a trip with several tight flight connections.",
+    "correctAnswer": "Ich hatte einen Plan B für den Fall, dass die Flüge Verspätung haben.",
     "hints": [
       "Advanced planning phrase."
     ],

@@ -6,7 +6,7 @@
     "prompt": "Say: I am hungry.",
     "correctAnswer": "Jag är hungrig.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Hungrig' agrees with the speaker; casually Swedes also say 'Jag är sugen på mat'."
     ]
   },
   {
@@ -14,9 +14,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Can I have a glass of water, please?",
-    "correctAnswer": "Kan jag få ett glas vatten, snälla?",
+    "correctAnswer": "Kan jag få ett glas vatten, tack?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Kan jag få ...' + 'tack' is the polite way to order."
+    ],
+    "acceptedAnswers": [
+      "Kan jag få ett glas vatten?",
+      "Kan jag få ett glas vatten, snälla?"
     ]
   },
   {
@@ -24,9 +28,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I would like a coffee with milk.",
-    "correctAnswer": "Jag vill ha en kaffe med mjölk.",
+    "correctAnswer": "Jag skulle vilja ha en kaffe med mjölk.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Skulle vilja ha' = would like (polite)."
+    ],
+    "acceptedAnswers": [
+      "Jag vill ha en kaffe med mjölk.",
+      "Kan jag få en kaffe med mjölk?"
     ]
   },
   {
@@ -34,9 +42,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Is this vegetarian?",
-    "correctAnswer": "Är denna vegetarian?",
+    "correctAnswer": "Är det här vegetariskt?",
     "hints": [
       "A short, useful restaurant question."
+    ],
+    "acceptedAnswers": [
+      "Är den här rätten vegetarisk?"
     ]
   },
   {
@@ -54,9 +65,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the main part of a meal, usually meat or fish",
-    "correctAnswer": "huvudkurs",
+    "correctAnswer": "huvudrätt",
     "hints": [
-      "It comes after the starter."
+      "It comes after the appetizer ('förrätt')."
     ],
     "exerciseType": "flashcard"
   },
@@ -96,20 +107,24 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I prefer tea to coffee.",
-    "correctAnswer": "Jag föredrar te till kaffe.",
+    "correctAnswer": "Jag föredrar te framför kaffe.",
     "hints": [
-      "Use 'prefer X to Y' to compare two things."
+      "'Föredra X framför Y' = prefer X to Y."
     ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I would like a bowl of soup.",
-    "correctAnswer": "Jag vill ha en skål med soppa.",
+    "correctAnswer": "Jag skulle vilja ha en skål soppa.",
     "hints": [
       "Simple ordering phrase."
     ],
-    "id": "sv-fo-a1-39"
+    "id": "sv-fo-a1-39",
+    "acceptedAnswers": [
+      "Jag vill ha en skål soppa.",
+      "Jag vill ha en skål med soppa."
+    ]
   },
   {
     "level": "a1",
@@ -120,7 +135,11 @@
       "Restaurant question."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-fo-a1-40"
+    "id": "sv-fo-a1-40",
+    "acceptedAnswers": [
+      "Är den här rätten stark?",
+      "Är den här rätten kryddig?"
+    ]
   },
   {
     "level": "a1",
@@ -157,10 +176,14 @@
     "id": "sv-fo-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Could we have the bill, please?",
-    "correctAnswer": "Kan vi få räkningen, snälla?",
+    "prompt": "Say: Could we have the check, please?",
+    "correctAnswer": "Kan vi få notan, tack?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Kan vi få räkningen, tack?",
+      "Kan vi få notan?"
     ]
   },
   {
@@ -187,8 +210,8 @@
     "id": "sv-fo-22",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I would like to try the local speciality.",
-    "correctAnswer": "Jag vill prova den lokala specialiteten.",
+    "prompt": "Say: I would like to try the local specialty.",
+    "correctAnswer": "Jag skulle vilja prova den lokala specialiteten.",
     "hints": [
       "'Would like to' for polite wishes."
     ]
@@ -198,7 +221,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can you recommend a good restaurant near here?",
-    "correctAnswer": "Kan du rekommendera en bra restaurang nära här?",
+    "correctAnswer": "Kan du rekommendera en bra restaurang här i närheten?",
     "hints": [
       "'Can you recommend' is a common way to ask for suggestions."
     ]
@@ -208,9 +231,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I always add garlic and olive oil to my cooking.",
-    "correctAnswer": "Jag lägger alltid vitlök och olivolja till min matlagning.",
+    "correctAnswer": "Jag har alltid i vitlök och olivolja när jag lagar mat.",
     "hints": [
       "'I always' expresses a regular habit."
+    ],
+    "acceptedAnswers": [
+      "Jag använder alltid vitlök och olivolja när jag lagar mat."
     ]
   },
   {
@@ -218,61 +244,83 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The service here is excellent.",
-    "correctAnswer": "Tjänsten här är utmärkt.",
+    "correctAnswer": "Servicen här är utmärkt.",
     "hints": [
       "A polite compliment about a restaurant."
+    ],
+    "acceptedAnswers": [
+      "Bemötandet här är utmärkt."
     ]
   },
   {
     "id": "sv-fo-26",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Is it possible to substitute the chips for salad?",
-    "correctAnswer": "Är det möjligt att ersätta marker för sallad?",
+    "prompt": "Ask: Is it possible to swap the fries for a salad?",
+    "correctAnswer": "Går det att byta pommes frites mot sallad?",
     "hints": [
-      "'Substitute X for Y' means replace X with Y."
+      "'Byta X mot Y' = swap X for Y."
+    ],
+    "acceptedAnswers": [
+      "Är det möjligt att byta pommes frites mot sallad?"
     ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am trying a new recipe tonight.",
-    "correctAnswer": "Jag försöker ett nytt recept ikväll.",
+    "correctAnswer": "Jag provar ett nytt recept i kväll.",
     "hints": [
       "Present continuous plan sentence."
     ],
-    "id": "sv-fo-a2-49"
+    "id": "sv-fo-a2-49",
+    "acceptedAnswers": [
+      "Jag ska prova ett nytt recept ikväll."
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How long should I bake this cake?",
-    "correctAnswer": "Hur länge ska jag baka denna tårta?",
+    "correctAnswer": "Hur länge ska jag grädda den här tårtan?",
     "hints": [
       "Cooking-time question."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-fo-a2-50"
+    "id": "sv-fo-a2-50",
+    "acceptedAnswers": [
+      "Hur länge ska tårtan stå i ugnen?",
+      "Hur länge ska jag baka den här tårtan?"
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We ate at a small family restaurant.",
-    "correctAnswer": "Vi åt på en liten familj restaurang.",
+    "prompt": "Vi åt på en liten ___.",
+    "correctAnswer": "familjerestaurang",
     "hints": [
-      "Past dining sentence."
+      "Swedish writes compounds as one word, with a linking -e-."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-fo-a2-51"
+    "id": "sv-fo-a2-51",
+    "clozeOptions": [
+      "familjerestaurang",
+      "familjerestaurangen",
+      "familjerestauranger",
+      "familj restaurang"
+    ]
   },
   {
     "id": "sv-fo-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently started following a plant-based diet.",
-    "correctAnswer": "Jag har nyligen börjat följa en växtbaserad diet.",
+    "correctAnswer": "Jag har nyligen börjat äta växtbaserad kost.",
     "hints": [
       "Present perfect with 'recently' for a recent change."
+    ],
+    "acceptedAnswers": [
+      "Jag har nyligen börjat följa en växtbaserad kost."
     ]
   },
   {
@@ -320,7 +368,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would you be able to cater for a gluten-free option?",
-    "correctAnswer": "Skulle du kunna tillgodose ett glutenfritt alternativ?",
+    "correctAnswer": "Skulle ni kunna erbjuda ett glutenfritt alternativ?",
     "hints": [
       "'Would you be able to' is very polite; 'cater for' means provide for."
     ]
@@ -332,7 +380,7 @@
     "prompt": "Say: Slow cooking on a low heat develops the flavor much better.",
     "correctAnswer": "Långsam matlagning på låg värme utvecklar smaken mycket bättre.",
     "hints": [
-      "'Develops the flavour' is a cooking technique description."
+      "'Develops the flavor' is a cooking technique description."
     ]
   },
   {
@@ -340,7 +388,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am hosting a dinner party next Saturday and need inspiration.",
-    "correctAnswer": "Jag är värd för en middagsfest nästa lördag och behöver inspiration.",
+    "correctAnswer": "Jag ska ha middagsbjudning nästa lördag och behöver inspiration.",
     "hints": [
       "Present continuous for a planned future event."
     ]
@@ -360,21 +408,28 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Your guest asks if you made the bread yourself.",
-    "correctAnswer": "Ja, jag bakade den i morse - det är en surdough recept jag har perfekt.",
+    "correctAnswer": "Ja, jag bakade det i morse – det är ett surdegsbröd som jag har finslipat receptet till.",
     "hints": [
       "Give a positive answer with a detail."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "acceptedAnswers": [
+      "Ja, jag bakade det i morse – det är ett surdegsrecept som jag har fulländat."
+    ],
+    "answerEnglish": "Yes, I baked it this morning — it's a sourdough recipe I've perfected."
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Homemade meals are often cheaper and healthier.",
-    "correctAnswer": "Hemlagade måltider är ofta billigare och friskare.",
+    "correctAnswer": "Hemlagad mat är ofta billigare och nyttigare.",
     "hints": [
       "Comparison sentence."
     ],
-    "id": "sv-fo-b1-59"
+    "id": "sv-fo-b1-59",
+    "acceptedAnswers": [
+      "Hemlagade måltider är ofta billigare och nyttigare."
+    ]
   },
   {
     "level": "b1",
@@ -390,20 +445,26 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I started meal-prepping to save time during the week.",
-    "correctAnswer": "Jag började måltidspreppa för att spara tid under veckan.",
+    "prompt": "Jag började ___ för att spara tid under veckan.",
+    "correctAnswer": "storkoka",
     "hints": [
-      "Purpose clause."
+      "'Storkoka' = cook large batches ahead; infinitive after 'började'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-fo-b1-61"
+    "id": "sv-fo-b1-61",
+    "clozeOptions": [
+      "storkoka",
+      "storkokar",
+      "storkokade",
+      "storkokat"
+    ]
   },
   {
     "id": "sv-fo-10",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The interplay of spices in this curry creates an exceptionally nuanced flavor profile.",
-    "correctAnswer": "Samspelet av kryddor i denna curry skapar en exceptionellt nyanserad smakprofil.",
+    "correctAnswer": "Samspelet mellan kryddorna i den här curryn skapar en exceptionellt nyanserad smakprofil.",
     "hints": [
       "'Interplay' means the interaction; 'nuanced' means subtle and complex."
     ]
@@ -413,7 +474,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Fermentation has experienced a remarkable renaissance in contemporary cuisine.",
-    "correctAnswer": "Fermentation har upplevt en anmärkningsvärd renässans i samtida kök.",
+    "correctAnswer": "Fermentering har fått en anmärkningsvärd renässans i dagens matlagning.",
     "hints": [
       "Focus on natural phrasing and word order.",
       "'Renaissance' means a revival of interest."
@@ -424,7 +485,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: How does the provenance of the ingredients affect the finished dish?",
-    "correctAnswer": "Hur påverkar bevisningen av ingredienserna den färdiga maträtten?",
+    "correctAnswer": "Hur påverkar ingrediensernas ursprung den färdiga rätten?",
     "hints": [
       "'Provenance' means the origin or source of something."
     ]
@@ -434,18 +495,18 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Sourcing seasonal, locally-grown produce is both an ecological and a culinary choice.",
-    "correctAnswer": "Källa säsongsbetonade, lokalt odlade produkter är både ett ekologiskt och ett kulinariskt val.",
+    "correctAnswer": "Att välja säsongens lokalt odlade råvaror är både ett ekologiskt och ett kulinariskt val.",
     "hints": [
       "'Sourcing' means finding and obtaining; 'culinary' relates to cooking."
     ],
-    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients."
+    "culturalNote": "Choosing 'närproducerat' (locally produced) food has become a strong trend in Sweden, emphasizing shorter supply chains and fresher ingredients."
   },
   {
     "id": "sv-fo-35",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The chef's tasting menu is an exercise in restraint and precision.",
-    "correctAnswer": "Kockens provningsmeny är en övning i återhållsamhet och precision.",
+    "correctAnswer": "Kockens avsmakningsmeny är en övning i återhållsamhet och precision.",
     "hints": [
       "'Restraint' here means not over-doing it; 'precision' means exactness."
     ]
@@ -455,7 +516,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Umami is often described as the fifth taste, alongside sweet, sour, salty, and bitter.",
-    "correctAnswer": "Umami beskrivs ofta som den femte smaken, tillsammans med söt, sur, salt och bitter.",
+    "correctAnswer": "Umami beskrivs ofta som den femte smaken, vid sidan av sött, surt, salt och beskt.",
     "hints": [
       "'Alongside' here means in addition to."
     ],
@@ -466,7 +527,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Would you say the rise of fusion cuisine has enriched or diluted culinary traditions?",
-    "correctAnswer": "Skulle du säga uppkomsten av fusionsmat har berikat eller utspädd kulinariska traditioner?",
+    "correctAnswer": "Skulle du säga att fusionsmatens framväxt har berikat eller urvattnat de kulinariska traditionerna?",
     "hints": [
       "'Enriched' means made richer; 'diluted' means weakened; it is a debate question."
     ]
@@ -476,7 +537,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Maillard reaction — the browning of proteins under heat — is fundamental to developing depth of flavor.",
-    "correctAnswer": "Maillardreaktionen - brunningen av proteiner under värme - är grundläggande för att utveckla djupet av smak.",
+    "correctAnswer": "Maillardreaktionen – bryningen av proteiner vid upphettning – är grundläggande för att ge djup åt smaken.",
     "hints": [
       "'Maillard reaction' = a chemical process that creates flavor compounds; 'fundamental' = essential."
     ],
@@ -495,23 +556,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can cities reduce food waste across supply chains?",
-    "correctAnswer": "Hur kan städer minska livsmedelsavfallet i försörjningskedjorna?",
+    "prompt": "Hur kan städer minska ___ i hela livsmedelskedjan?",
+    "correctAnswer": "matsvinnet",
     "hints": [
-      "Policy-level food question."
+      "'Matsvinn' = food waste; definite form here."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-fo-b2-70"
+    "id": "sv-fo-b2-70",
+    "clozeOptions": [
+      "matsvinnet",
+      "matsvinn",
+      "matsvinnets",
+      "matsvinnen"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: A balanced diet depends on variety rather than strict restriction.",
-    "correctAnswer": "En balanserad kost beror på variation snarare än strikt begränsning.",
+    "prompt": "Dialogue: A friend says they plan to cut out carbs completely. Share your view.",
+    "correctAnswer": "En balanserad kost bygger på variation snarare än strikta begränsningar.",
     "hints": [
       "B2 nutrition phrasing."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-fo-b2-71"
+    "id": "sv-fo-b2-71",
+    "answerEnglish": "A balanced diet depends on variety rather than strict restriction."
   }
 ]

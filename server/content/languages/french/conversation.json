@@ -6,7 +6,12 @@
     "prompt": "Ask: What is your name?",
     "correctAnswer": "Quel est votre nom ?",
     "hints": [
-      "Practice this phrase out loud."
+      "Literally 'How do you call yourself?' — s'appeler."
+    ],
+    "acceptedAnswers": [
+      "Comment vous appelez-vous ?",
+      "Comment tu t'appelles ?",
+      "Comment t'appelles-tu ?"
     ]
   },
   {
@@ -16,7 +21,7 @@
     "prompt": "Say: My name is Alex and I am from the United States.",
     "correctAnswer": "Je m'appelle Alex et je viens des États-Unis.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Venir de' + des (de + les) États-Unis."
     ]
   },
   {
@@ -26,7 +31,11 @@
     "prompt": "Ask: Where are you from?",
     "correctAnswer": "D'où venez-vous ?",
     "hints": [
-      "Practice this phrase out loud."
+      "'D'où' = from where; inverted verb in formal questions."
+    ],
+    "acceptedAnswers": [
+      "Tu viens d'où ?",
+      "D'où viens-tu ?"
     ]
   },
   {
@@ -38,7 +47,11 @@
     "hints": [
       "A friendly greeting."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Je suis heureuse de vous rencontrer.",
+      "Je suis heureux de faire votre connaissance."
+    ]
   },
   {
     "id": "fr-cv-a1-5",
@@ -78,10 +91,10 @@
     "id": "fr-cv-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "I ___ a student.",
-    "correctAnswer": "je suis",
+    "prompt": "Je ___ étudiant.",
+    "correctAnswer": "suis",
     "hints": [
-      "Use the correct form of 'to be'."
+      "First person of 'être'; no article before a role."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -122,7 +135,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: See you tomorrow!",
-    "correctAnswer": "A demain !",
+    "correctAnswer": "À demain !",
     "hints": [
       "A casual farewell."
     ],
@@ -153,12 +166,16 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I am from Sweden.",
-    "correctAnswer": "Je suis de Suède.",
+    "correctAnswer": "Je viens de Suède.",
     "hints": [
       "Simple personal information."
     ],
     "exerciseType": "flashcard",
-    "id": "fr-co-a1-51"
+    "id": "fr-co-a1-51",
+    "acceptedAnswers": [
+      "Je suis suédois.",
+      "Je suis suédoise."
+    ]
   },
   {
     "id": "fr-co-3",
@@ -185,7 +202,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I usually spend my evenings reading or walking.",
-    "correctAnswer": "Je passe habituellement mes soirées à lire ou à marcher.",
+    "correctAnswer": "D'habitude, je passe mes soirées à lire ou à me promener.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -206,10 +223,10 @@
     "id": "fr-cv-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "She ___ three languages fluently.",
+    "prompt": "Elle ___ couramment trois langues.",
     "correctAnswer": "parle",
     "hints": [
-      "Use the correct present tense form."
+      "Third person singular of 'parler'."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -222,7 +239,11 @@
     "hints": [
       "Answer with your job."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "acceptedAnswers": [
+      "Je travaille comme ingénieure.",
+      "Je suis ingénieur."
+    ]
   },
   {
     "id": "fr-cv-a2-7",
@@ -285,19 +306,27 @@
     "prompt": "Say: How long have you lived here?",
     "correctAnswer": "Depuis quand vivez-vous ici ?",
     "hints": [
-      "Use present perfect for duration."
+      "French uses the present + 'depuis' for something still going on."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Depuis combien de temps habitez-vous ici ?",
+      "Tu habites ici depuis quand ?"
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am sorry, I did not catch that.",
-    "correctAnswer": "Je suis désolé, je n'ai pas attrapé ça.",
+    "correctAnswer": "Désolé, je n'ai pas compris.",
     "hints": [
       "Polite repair phrase."
     ],
-    "id": "fr-co-a2-57"
+    "id": "fr-co-a2-57",
+    "acceptedAnswers": [
+      "Désolée, je n'ai pas compris.",
+      "Pardon, je n'ai pas saisi."
+    ]
   },
   {
     "level": "a2",
@@ -313,10 +342,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: What do you usually do after work?",
-    "correctAnswer": "Que faites-vous habituellement après le travail?",
+    "prompt": "Que faites-vous d'habitude ___ le travail ?",
+    "correctAnswer": "après",
     "hints": [
-      "Routine question pattern."
+      "A preposition meaning 'after'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-co-a2-59"
@@ -326,7 +355,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I enjoy talking about books and current events.",
-    "correctAnswer": "J'aime parler de livres et d'événements actuels.",
+    "correctAnswer": "J'aime parler de livres et de l'actualité.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -336,7 +365,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: In my opinion, consistency is more important than intensity.",
-    "correctAnswer": "À mon avis, la cohérence est plus importante que l'intensité.",
+    "correctAnswer": "À mon avis, la régularité est plus importante que l'intensité.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -346,9 +375,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What kind of topics do you enjoy discussing?",
-    "correctAnswer": "Quel genre de sujets aimez-vous discuter?",
+    "correctAnswer": "De quel genre de sujets aimez-vous discuter ?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "De quoi aimes-tu parler ?",
+      "De quels sujets aimez-vous parler ?"
     ]
   },
   {
@@ -356,20 +389,24 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I used to be very shy, but I have become more outgoing.",
-    "correctAnswer": "Avant, j'étais très timide, mais je suis devenu plus sortant.",
+    "correctAnswer": "Avant, j'étais très timide, mais je suis devenu plus sociable.",
     "hints": [
       "Contrast past and present with 'used to' and present perfect."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Avant, j'étais très timide, mais je suis devenue plus sociable.",
+      "Avant, j'étais très timide, mais je suis devenu plus ouvert."
+    ]
   },
   {
     "id": "fr-cv-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "I would have joined you if I ___ free.",
-    "correctAnswer": "a été",
+    "prompt": "Je me serais joint à vous si j'___ été libre.",
+    "correctAnswer": "avais",
     "hints": [
-      "Use the third conditional."
+      "'Si' + plus-que-parfait (avoir in the imperfect + participle)."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -378,23 +415,29 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Your friend asks: What do you think about this idea?",
-    "correctAnswer": "Je pense que c'est intéressant, bien que j'ai quelques inquiétudes.",
+    "correctAnswer": "Je trouve ça intéressant, même si j'ai quelques réserves.",
     "hints": [
       "Express a balanced opinion."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "In many English-speaking cultures, softening criticism with a positive remark first is considered polite."
+    "culturalNote": "In French, 'même si' takes the indicative while 'bien que' takes the subjunctive — a classic learner trap.",
+    "acceptedAnswers": [
+      "Je pense que c'est intéressant, bien que j'aie quelques inquiétudes."
+    ]
   },
   {
     "id": "fr-cv-b1-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We should catch up more often.",
-    "correctAnswer": "On devrait rattraper plus souvent.",
+    "correctAnswer": "On devrait se voir plus souvent.",
     "hints": [
       "'Catch up' means to talk and share news."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "On devrait se donner des nouvelles plus souvent."
+    ]
   },
   {
     "id": "fr-cv-b1-8",
@@ -403,9 +446,13 @@
     "prompt": "Say: I have been meaning to call you all week.",
     "correctAnswer": "Je voulais vous appeler toute la semaine.",
     "hints": [
-      "Use present perfect continuous for an ongoing intention."
+      "The imparfait 'je voulais' expresses an intention you had."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "acceptedAnswers": [
+      "Je voulais t'appeler toute la semaine.",
+      "Ça fait une semaine que je veux t'appeler."
+    ]
   },
   {
     "id": "fr-cv-b1-9",
@@ -423,11 +470,14 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "to interrupt",
-    "correctAnswer": "pour interrompre",
+    "correctAnswer": "interrompre",
     "hints": [
       "To stop someone while they are speaking."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "couper la parole"
+    ]
   },
   {
     "id": "fr-cv-b1-11",
@@ -469,18 +519,25 @@
       "Follow-up question."
     ],
     "exerciseType": "build_sentence",
-    "id": "fr-co-b1-66"
+    "id": "fr-co-b1-66",
+    "acceptedAnswers": [
+      "Qu'est-ce qui t'a fait prendre cette décision ?",
+      "Pourquoi avez-vous décidé cela ?"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I felt nervous at first, then I relaxed.",
-    "correctAnswer": "Je me sentais nerveux au début, puis je me suis détendu.",
+    "prompt": "J'étais nerveux au début, puis je me suis ___.",
+    "correctAnswer": "détendu",
     "hints": [
-      "Story transition phrase."
+      "Past participle of 'se détendre'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-co-b1-67"
+    "id": "fr-co-b1-67",
+    "acceptedAnswers": [
+      "détendue"
+    ]
   },
   {
     "id": "fr-co-7",
@@ -527,10 +584,10 @@
     "id": "fr-cv-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Had she ___ more clearly, the misunderstanding would not have occurred.",
-    "correctAnswer": "communiqué",
+    "prompt": "Si elle s'était ___ plus clairement, le malentendu n'aurait pas eu lieu.",
+    "correctAnswer": "exprimée",
     "hints": [
-      "Use the past participle in an inverted conditional."
+      "Past participle of 's'exprimer', agreeing with 'elle'."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -539,13 +596,13 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Choose the best response. A colleague says something you strongly disagree with.",
-    "correctAnswer": "Je vois d'où vous venez, mais j'ai une autre idée.",
+    "correctAnswer": "Je comprends votre point de vue, mais je ne suis pas d'accord.",
     "hints": [
       "Disagree diplomatically.",
       "Consider the register."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Acknowledging the other person's viewpoint before disagreeing is valued in professional English."
+    "culturalNote": "In French workplaces, a brief 'je comprends' before disagreeing keeps the tone courteous."
   },
   {
     "id": "fr-cv-b2-7",
@@ -573,7 +630,7 @@
     "id": "fr-cv-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "nuance / bias / tone / register",
+    "prompt": "nuance / parti pris / ton / registre",
     "correctAnswer": "nuance",
     "hints": [
       "Which word means a subtle difference in meaning?"
@@ -584,12 +641,16 @@
     "id": "fr-cv-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "to empathise",
-    "correctAnswer": "pour empathie",
+    "prompt": "to empathize",
+    "correctAnswer": "faire preuve d'empathie",
     "hints": [
       "To understand and share another person's feelings."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "compatir",
+      "se mettre à la place de quelqu'un"
+    ]
   },
   {
     "id": "fr-cv-b2-11",
@@ -606,7 +667,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Rather than argue, let us try to find common ground.",
-    "correctAnswer": "Plutôt que de discuter, essayons de trouver un terrain d'entente.",
+    "correctAnswer": "Plutôt que de nous disputer, essayons de trouver un terrain d'entente.",
     "hints": [
       "Use 'rather than' to present an alternative."
     ],
@@ -616,7 +677,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Let me rephrase that to make my point clearer.",
-    "correctAnswer": "Permettez-moi de le reformuler pour clarifier mon point.",
+    "correctAnswer": "Permettez-moi de reformuler pour que mon propos soit plus clair.",
     "hints": [
       "Advanced conversation control."
     ],
@@ -625,10 +686,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Would you mind elaborating on that argument?",
-    "correctAnswer": "Pourriez-vous développer cet argument ?",
+    "prompt": "Pourriez-vous ___ cet argument ?",
+    "correctAnswer": "développer",
     "hints": [
-      "Formal discussion prompt."
+      "A verb meaning 'to expand on'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-co-b2-74"
@@ -636,7 +697,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I appreciate the nuance in your explanation.",
+    "prompt": "Choose the best response. A colleague has just explained a complex issue very carefully.",
     "correctAnswer": "J'apprécie la nuance dans votre explication.",
     "hints": [
       "High-level feedback phrase."

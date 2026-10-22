@@ -1,0 +1,701 @@
+{
+  "language": "swedish",
+  "category": "family_friends",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:48:21.447Z",
+  "contentHash": "6dec0fce4b514796",
+  "summary": "Family vocabulary is fine, but many relationship phrases are English calques that teach wrong Swedish (ser inte öga mot öga, Går du bra med, Är du nära dina syskon, det finns sju av oss, kallar for phone, återanslutit oss, närliggande samhället, Friska gränser, livet blir upptagen). Also a misspelling (Familjstraditioner), a missing article, British leftovers, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-fa-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Bror' has the irregular plural 'bröder'; 'syster' → 'systrar'."
+          ]
+        }
+      ],
+      "itemHash": "f915e6902fa32c0d",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Barn' has the same form in singular and plural."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Har du barn?"
+          ]
+        }
+      ],
+      "itemHash": "4de4553862b57a8a",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the everyday 'på landet' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'På landet' is the everyday way to say 'in the countryside'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mina föräldrar bor på landet."
+          ]
+        }
+      ],
+      "itemHash": "eaf3455b5ba25afc",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-13",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'grandmother' could be 'farmor' too; not accepted. Hint is about English.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Min farmor är sjuttio år gammal.",
+            "Min mormor är sjuttio år.",
+            "Min farmor är sjuttio år."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mormor' = mother's mother, 'farmor' = father's mother."
+          ]
+        }
+      ],
+      "itemHash": "f3ba14119d37cfca",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-17",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Min bästa väns namn är' is a calque; Swedes say 'heter'. Hint is about the English apostrophe.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Min bästa vän heter Sam.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Heta' = to be called."
+          ]
+        }
+      ],
+      "itemHash": "584197aae344b720",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-19",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Each noun needs its own article: 'en hund och en katt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har en hund och en katt hemma.",
+          "list": null
+        }
+      ],
+      "itemHash": "acfb4b37c0029c71",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-a1-39",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Grandparents could be 'farföräldrar'; visiting people is usually 'hälsa på'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag hälsar på mina morföräldrar på söndagar.",
+            "Jag hälsar på mina farföräldrar på söndagar.",
+            "Jag besöker mina farföräldrar på söndagar."
+          ]
+        }
+      ],
+      "itemHash": "c6c7e188bf026620",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-a1-40",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'syskon' is the common word and is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Har du några syskon?",
+            "Har du syskon?"
+          ]
+        }
+      ],
+      "itemHash": "086a43f51a9b985b",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-5",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'at the weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We usually meet up on weekends.",
+          "list": null
+        }
+      ],
+      "itemHash": "90311d67c5ec2b96",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-20",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The most common phrasing 'skilde sig' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mina föräldrar skilde sig när jag var tio."
+          ]
+        }
+      ],
+      "itemHash": "6dcb9886b47d5e18",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-21",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Är du nära dina syskon?' is a calque; emotional closeness is 'stå någon nära'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Står du dina syskon nära?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Har du en nära relation till dina syskon?"
+          ]
+        }
+      ],
+      "itemHash": "01e4511877649d81",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-22",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'det finns sju av oss' is a calque; Swedish says 'vi är sju'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi är en stor familj – vi är sju.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vi är en stor familj, vi är sju stycken."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vi är' + number = there are (number) of us."
+          ]
+        }
+      ],
+      "itemHash": "c328d83c0acb3aa3",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-23",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'för arbete' is a calque; Swedes say 'för jobbets skull'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Min vän flyttade utomlands för jobbets skull förra året.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Min vän flyttade utomlands för att jobba förra året."
+          ]
+        }
+      ],
+      "itemHash": "3600ef8cbffc884b",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-24",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Går du bra med' is not Swedish; 'get along with' is 'komma överens med'. Prompt uses British 'get on'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you get along well with your neighbors?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Kommer du bra överens med dina grannar?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Komma överens med' = to get along with."
+          ]
+        }
+      ],
+      "itemHash": "02729e3f29f0604d",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-a2-51",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'kallar' means to call someone a name; phoning is 'ringa'. The cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag ___ mina föräldrar varje kväll.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ringer",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ringer",
+            "kallar",
+            "ropar",
+            "talar"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ringa' = to phone; 'kalla' means to name someone."
+          ]
+        }
+      ],
+      "itemHash": "3c3bc4143b82b45b",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ser inte alltid öga mot öga' is a calque (Swedish 'öga mot öga' means face to face).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Min syster och jag är inte alltid överens, men vi stöttar varandra.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag och min syster är inte alltid överens, men vi stöttar varandra."
+          ]
+        }
+      ],
+      "itemHash": "70fdb72d0aca8a92",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-27",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "A relationship is 'relation till', not 'med'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Min relation till mina föräldrar har blivit bättre sedan jag flyttade hemifrån.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mitt förhållande till mina föräldrar har förbättrats sedan jag flyttade hemifrån."
+          ]
+        }
+      ],
+      "itemHash": "f77764bd685aaf81",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-28",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'livet blir upptagen' is ungrammatical (agreement) and a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag försöker hålla kontakten med gamla vänner, även när jag har mycket att göra.",
+          "list": null
+        }
+      ],
+      "itemHash": "48d9888c4da284bc",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-29",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'humour'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Contrast with 'men'; 'humor' covers 'sense of humor'."
+          ]
+        }
+      ],
+      "itemHash": "48f5d89915f5ee6b",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-30",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'lever' should be 'bor', and 'kämpar för att hitta tid kring arbetsåtaganden' is a calque; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi bor ganska långt ifrån varandra, och jag har svårt att få tiden att räcka med jobbet.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "We live quite far apart, and I struggle to find time around work commitments.",
+          "list": null
+        }
+      ],
+      "itemHash": "14749df5e50ac66a",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'närliggande' means nearby; close-knit is 'sammansvetsad'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Eftersom jag växte upp i en liten stad uppskattar jag den sammansvetsade gemenskapen där.",
+          "list": null
+        }
+      ],
+      "itemHash": "f6448e43e2d8dbd1",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'återanslutit oss' is a technical calque (reconnect a device).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi gled isär efter universitetet, men vi har nyligen fått kontakt igen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vi växte isär efter universitetet, men vi har nyligen fått kontakt igen."
+          ]
+        }
+      ],
+      "itemHash": "a99a00f2ee987133",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-b1-61",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Familjstraditioner' is misspelled ('Familjetraditioner'); the cloze item has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Familjetraditioner hjälper oss att hålla ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ihop",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ihop",
+            "upp",
+            "ut",
+            "emot"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hålla ihop' = to stay close/stick together."
+          ]
+        }
+      ],
+      "itemHash": "7d01850653a22be5",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'blandad familj' is a calque; the Swedish term is 'bonusfamilj' or 'ombildad familj'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dynamiken i en bonusfamilj kan vara komplex men djupt givande.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Dynamiken i en ombildad familj kan vara komplex men djupt givande."
+          ]
+        }
+      ],
+      "itemHash": "794cd9175462bd79",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Jag växte upp för att värdera' means 'I grew up in order to value'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har uppfostrats till att värdera lojalitet och ärlighet över allt annat.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har fått lära mig att värdera lojalitet och ärlighet över allt annat."
+          ]
+        }
+      ],
+      "itemHash": "187b24c43e4eef88",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'se efter' means look after (supervise briefly), 'kommer att' is odd, and 'över kulturer' is a calque; British 'ageing' in prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The expectation that adult children will look after aging parents varies considerably across cultures.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Förväntningen att vuxna barn ska ta hand om sina åldrande föräldrar varierar kraftigt mellan olika kulturer.",
+          "list": null
+        }
+      ],
+      "itemHash": "61b70c62d418f4c1",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-35",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'långdistans vänskap' should be one compound or 'vänskap på distans'; 'konsekvent' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Att upprätthålla en vänskap på distans kräver kontinuerlig ansträngning och ömsesidigt engagemang.",
+          "list": null
+        }
+      ],
+      "itemHash": "23c37d4c3b99754d",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-36",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The 'Inverkan av ens' construction is stiff; 'inom psykologin' is idiomatic.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Uppfostrans inverkan på beteendet i vuxen ålder är väldokumenterad inom psykologin.",
+          "list": null
+        }
+      ],
+      "itemHash": "4c5f6808892b5777",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-38",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Utvald familj' means a selected/elite family; the term is 'vald familj'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vald familj – nätverket av vänner som blir som en familj – värderas allt högre i dagens samhälle.",
+          "list": null
+        }
+      ],
+      "itemHash": "38150e1125e4c454",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Friska' means healthy (not ill); healthy boundaries are 'sunda gränser'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sunda gränser kan stärka långsiktiga relationer.",
+          "list": null
+        }
+      ],
+      "itemHash": "ba59ea7702ba107c",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hur ___ familjens förväntningar personliga val?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "påverkar",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "påverkar",
+            "påverka",
+            "påverkade",
+            "påverkat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense of 'påverka'."
+          ]
+        }
+      ],
+      "itemHash": "7d9baeac813bab81",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    },
+    {
+      "id": "sv-fa-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'när' should be 'i takt med att' for 'as'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend is sad that she sees her school friends less often now. Respond thoughtfully.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Vänskap utvecklas i takt med att människors prioriteringar förändras.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Friendships evolve as people's priorities change.",
+          "list": null
+        }
+      ],
+      "itemHash": "958fb2b45fb0e2be",
+      "appliedAt": "2026-10-22T10:00:53.660Z"
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+{
+  "language": "french",
+  "category": "money_finance",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:18:29.683Z",
+  "contentHash": "58c41251661ffb8f",
+  "summary": "Basic items are mostly fine, but several answers are calques that a French speaker would not say (vient de mon compte, garder un budget, trop payer sur mon prêt) and the compound-interest sentence is ungrammatical. The UK ISA item is mistranslated into nonsense and needs a French equivalent; three cloze items have no blank and the dialogue_turn/roleplay items lack a situation or answerEnglish.",
+  "findings": [
+    {
+      "id": "fr-mf-a1-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); common variants not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Combien' + 'coûter'; 'ça' is the everyday word for 'this'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ça coûte combien ?",
+            "Combien est-ce que ça coûte ?",
+            "Combien coûte ceci ?"
+          ]
+        }
+      ],
+      "itemHash": "223062b5802f425f",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Pas assez de' + noun = not enough; 'de' becomes 'd'' before a vowel."
+          ]
+        }
+      ],
+      "itemHash": "c1880e0be372089b",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a1-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the everyday question forms are not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Payer par carte' = pay by card; 'puis-je' is the polite form of 'je peux'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je peux payer par carte ?",
+            "Est-ce que je peux payer par carte ?"
+          ]
+        }
+      ],
+      "itemHash": "bf4edf823f147771",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'l'argent' means money in general; cash is 'les espèces' (or 'le liquide').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Acceptez-vous les espèces ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vous acceptez les espèces ?",
+            "Vous acceptez le liquide ?",
+            "Est-ce que vous acceptez les espèces ?"
+          ]
+        }
+      ],
+      "itemHash": "118dc9129013a067",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A salary is 'versé', not 'payé'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mon salaire est versé chaque mois.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mon salaire est versé tous les mois.",
+            "Mon salaire est payé chaque mois."
+          ]
+        }
+      ],
+      "itemHash": "a0a41292142350c9",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a1-9",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'please' is dropped from the answer.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je peux avoir un reçu, s'il vous plaît ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Puis-je avoir un reçu, s'il vous plaît ?",
+            "Je peux avoir un ticket de caisse, s'il vous plaît ?"
+          ]
+        }
+      ],
+      "itemHash": "90337d736909588f",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a1-10",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'a little money' is dropped and the hint explains English grammar.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'économise un peu d'argent chaque mois.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'économise un peu d'argent tous les mois.",
+            "Je mets un peu d'argent de côté chaque mois."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Un peu de' + noun = a little; 'de' becomes 'd'' before a vowel."
+          ]
+        }
+      ],
+      "itemHash": "c03828cb68ab0f11",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a2-1",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'at the bank' is dropped; 'compte épargne' is also common.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai un compte d'épargne à la banque.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai un compte épargne à la banque.",
+            "J'ai un compte d'épargne."
+          ]
+        }
+      ],
+      "itemHash": "061e6a6840ea45e2",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'manger dehors' reads as eating outdoors; 'au restaurant' is the idiom. The hint explains English grammar.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je dépense trop d'argent au restaurant.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je dépense trop d'argent en restaurants.",
+            "Je dépense trop d'argent pour manger au restaurant."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Trop de' + noun = too much; 'au restaurant' = eating out."
+          ]
+        }
+      ],
+      "itemHash": "8760c07d36aebc58",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Mon loyer vient de mon compte' is a calque; the rent 'est prélevé sur' the account.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mon loyer est prélevé sur mon compte le premier du mois.",
+          "list": null
+        }
+      ],
+      "itemHash": "1675fa04a47b6e5c",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "One doesn't 'organiser' a direct debit; it is 'mettre en place un prélèvement automatique'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Puis-je mettre en place un prélèvement automatique pour ce paiement ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je peux mettre en place un prélèvement automatique pour ce paiement ?"
+          ]
+        }
+      ],
+      "itemHash": "b2c5f8797776f035",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-a2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The standard 'faire un emprunt' / 'contracter un prêt' are not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai fait un emprunt pour acheter ma première voiture.",
+            "J'ai contracté un prêt pour acheter ma première voiture."
+          ]
+        }
+      ],
+      "itemHash": "0f5a5860ae836bab",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mo-a2-49",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Weekly habit is translated with the passé composé; 'épicerie' for groceries is Quebec usage, France says 'les courses'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je fixe un budget pour les courses chaque semaine.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je fixe un budget pour l'épicerie chaque semaine.",
+            "Je fixe un budget courses toutes les semaines."
+          ]
+        }
+      ],
+      "itemHash": "a234c58e23085b2e",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Combien dois-je ___ chaque mois ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "économiser",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "économiser",
+            "dépenser",
+            "emprunter",
+            "gagner"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "You want to ask how much to save each month."
+          ]
+        }
+      ],
+      "itemHash": "ff983a08e9df5f03",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b1-1",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'have been trying' is an ongoing effort, rendered in French by the present; 'j'ai essayé' suggests a finished, failed attempt.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'essaie de constituer un fonds d'urgence couvrant trois mois de dépenses.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'essaie depuis un moment de constituer un fonds d'urgence couvrant trois mois de dépenses."
+          ]
+        }
+      ],
+      "itemHash": "749c55713c9e85bd",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b1-2",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'trop payer sur mon prêt hypothécaire pour réduire le terme' is a word-for-word calque; French speaks of 'remboursements anticipés' and the loan's 'durée'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Est-ce que ça vaudrait la peine de faire des remboursements anticipés sur mon prêt immobilier pour en réduire la durée ?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Remboursement anticipé' = paying more than required; 'durée' = the length of the loan."
+          ]
+        }
+      ],
+      "itemHash": "fb62d4d5fa5a64fc",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b1-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'plus rapidement que vous les gardez investis' is ungrammatical ('the longer' needs 'd'autant plus ... que') and 'investis' should agree with 'économies'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Grâce aux intérêts composés, vos économies augmentent d'autant plus vite que vous les gardez investies longtemps.",
+          "list": null
+        }
+      ],
+      "itemHash": "abdd365012f6eb9f",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b1-6",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'garder un budget' is a calque; the collocation is 'tenir un budget'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je tiens un budget mensuel pour savoir où va mon argent.",
+          "list": null
+        }
+      ],
+      "itemHash": "153f3a02887f57c7",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b1-8",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay item has no answerEnglish, and 'accordé la priorité au paiement de la dette à taux' is stiff.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai d'abord remboursé la dette au taux d'intérêt le plus élevé, tout en gardant un petit fonds d'urgence.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I paid off the highest-interest debt first, while keeping a small emergency fund.",
+          "list": null
+        }
+      ],
+      "itemHash": "96e167e220e84985",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b1-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "UK-only product; the answer is nonsense ('une action et une action ISA'). Rewritten to the French equivalents a learner would actually meet.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What is the difference between a Livret A and a life insurance savings plan?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Quelle est la différence entre un livret A et une assurance-vie ?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Livret A' = France's regulated savings account; 'assurance-vie' = a long-term savings and investment plan."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "The Livret A is a tax-free, state-regulated savings account available at any French bank, with a capped balance and an interest rate set by the government. The assurance-vie is France's most popular long-term savings product, with tax advantages after eight years.",
+          "list": null
+        }
+      ],
+      "itemHash": "b7d5e50c37acdf61",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank; 'construire un fonds' is a calque of 'build a fund' (French: 'constituer').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quel est le moyen le plus sûr de ___ un fonds d'urgence ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "constituer",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "constituer",
+            "dépenser",
+            "fermer",
+            "perdre"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Constituer un fonds' = to build up a fund."
+          ]
+        }
+      ],
+      "itemHash": "3526199d43019b45",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b2-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British spelling 'Behavioural'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Behavioral economics' studies how psychology affects economic choices."
+          ]
+        }
+      ],
+      "itemHash": "6849710640b527f1",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mf-b2-5",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British spelling 'destabilise'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Sovereign debt crises can destabilize entire regional economies if creditors lose confidence.",
+          "list": null
+        }
+      ],
+      "itemHash": "1a5756521924904b",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mo-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Definite articles sound off here; French uses 'd'une épargne ... et d'investissements ...'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La stabilité financière à long terme dépend d'une épargne disciplinée et d'investissements diversifiés.",
+          "list": null
+        }
+      ],
+      "itemHash": "d59cc763c19fe6a4",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "L'inflation ___ le pouvoir d'achat lorsque les salaires ne suivent pas le rythme.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "érode",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "érode",
+            "augmente",
+            "protège",
+            "stabilise"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'wears away'."
+          ]
+        }
+      ],
+      "itemHash": "5420c8bcbc66ee57",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    },
+    {
+      "id": "fr-mo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn item has no situation and no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a conference on household finances, you ask the panel which policies best reduce the risk of household over-indebtedness.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Which policies are most effective in reducing household debt risk?",
+          "list": null
+        }
+      ],
+      "itemHash": "ff9502ec39ec45bd",
+      "appliedAt": "2026-10-22T09:34:57.277Z"
+    }
+  ]
+}

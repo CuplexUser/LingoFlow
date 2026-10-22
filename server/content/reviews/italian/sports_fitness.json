@@ -1,0 +1,672 @@
+{
+  "language": "italian",
+  "category": "sports_fitness",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:34:06.665Z",
+  "contentHash": "c154da5b94864122",
+  "summary": "A1 sports vocabulary is mostly fine, but many sentences use 'formazione' (education) for athletic training and 'coerenza' for consistency, and several are machine-translation nonsense (è centrale a picco le prestazioni, sovraformazione, lesione di overuse, prendere tre settimane di allenamento, Hai scoperto che l'esercizio regolarmente è cambiato). Also 'domattina' for 'in the morning', 'La stretching', 'sedenaria', British spellings in prompts, plus cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "it-sf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Andare a' + infinitive: 'vado a correre' = I go running."
+          ]
+        }
+      ],
+      "itemHash": "4dee87accefdca7f",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Common variants are not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pratichi qualche sport?",
+            "Fa sport?"
+          ]
+        }
+      ],
+      "itemHash": "241df3782fb7093b",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mi piace' + infinitive; 'in mare' = in the sea (no article)."
+          ]
+        }
+      ],
+      "itemHash": "29647c6f033e7a61",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a1-7",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Cammino al lavoro' is a calque; Italian says 'vado al lavoro a piedi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vado al lavoro a piedi ogni giorno.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ogni giorno vado al lavoro a piedi."
+          ]
+        }
+      ],
+      "itemHash": "039a64fad9f42b1a",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'sportiva' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Non sono molto sportiva."
+          ]
+        }
+      ],
+      "itemHash": "4f7b49c7ade56af8",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a1-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'esercitarsi' means to practice a skill; physical exercise is 'fare attività fisica'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quante volte alla settimana fai attività fisica?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quante volte alla settimana fa attività fisica?",
+            "Quante volte a settimana fai sport?"
+          ]
+        }
+      ],
+      "itemHash": "f05e9200b4515fe2",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-a1-39",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'domattina' means tomorrow morning; a habit is 'la mattina'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vado a correre la mattina.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La mattina vado a correre."
+          ]
+        }
+      ],
+      "itemHash": "00ffa48949ba0b4a",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a2-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes the English present perfect continuous.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses the simple present for a current routine; add 'da un po'' for 'lately'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Da un po' vado in palestra tre volte a settimana.",
+            "Vado in palestra tre volte alla settimana."
+          ]
+        }
+      ],
+      "itemHash": "12448d7289a79f21",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ho tirato un muscolo' means I threw/pulled a muscle literally; the injury is 'mi sono stirato un muscolo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ieri mi sono stirato un muscolo durante l'allenamento.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ieri mi sono stirata un muscolo durante l'allenamento."
+          ]
+        }
+      ],
+      "itemHash": "5bb98b72cdcad712",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a2-4",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Before a vowel, 'a' becomes 'ad': 'ad allenarmi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Devo riscaldarmi prima di iniziare ad allenarmi.",
+          "list": null
+        }
+      ],
+      "itemHash": "6b80fef0ed1f6797",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-a2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'iscriversi' takes 'a', not 'per'; feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi sono iscritto a una mezza maratona per il mese prossimo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi sono iscritta a una mezza maratona per il mese prossimo."
+          ]
+        }
+      ],
+      "itemHash": "160a7e75d057c644",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-a2-50",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'stretching' is masculine and takes 'lo'; injuries are 'infortuni'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Lo stretching aiuta a prevenire gli infortuni.",
+          "list": null
+        }
+      ],
+      "itemHash": "0bd4254d70a8e78a",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'Quanto tempo è' is ungrammatical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quanto ___ di solito il tuo allenamento?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dura",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "dura",
+            "durano",
+            "durare",
+            "durato"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Durare' = to last; third person singular."
+          ]
+        }
+      ],
+      "itemHash": "5952476e52670482",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'coerenza' means logical consistency; regularity is 'costanza'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quando si costruisce un'abitudine sportiva, la costanza è più importante dell'intensità.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La costanza è più importante dell'intensità quando si costruisce un'abitudine di allenamento."
+          ]
+        }
+      ],
+      "itemHash": "c4148f2ab2054f05",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-2",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Ho corso' means 'I ran' and suggests a finished period; the prompt is about ongoing training.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi alleno cinque giorni alla settimana e vedo già dei miglioramenti nella mia resistenza.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses the present for an ongoing routine; 'resistenza' = stamina."
+          ]
+        }
+      ],
+      "itemHash": "96c5e5b0233685cf",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'abilità di vita' is a calque of 'life skills'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pensi che lo sport agonistico insegni competenze importanti per la vita?",
+          "list": null
+        }
+      ],
+      "itemHash": "d79b8f65fa8de342",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'prendere tre settimane di allenamento' means the opposite (take training); 'lesione di overuse' is half English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho dovuto sospendere gli allenamenti per tre settimane a causa di un infortunio da sovraccarico.",
+          "list": null
+        }
+      ],
+      "itemHash": "bb19d52200102f72",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'integrare ... insieme alla' is redundant and stiff.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il mio personal trainer mi ha consigliato di affiancare esercizi di forza alla mia routine di cardio.",
+          "list": null
+        }
+      ],
+      "itemHash": "b5a94e19eb8bcc33",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'di esercizio regolare' lacks the article and 'ben stabiliti' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I benefici dell'attività fisica regolare per la salute mentale sono ben documentati.",
+          "list": null
+        }
+      ],
+      "itemHash": "321d249d44ecd28a",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-7",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho iniziato per gestire lo stress, e poi è diventato qualcosa che mi piace davvero.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I started as a way to manage stress, and it became something I really enjoy.",
+          "list": null
+        }
+      ],
+      "itemHash": "bad6fbfe7763ee99",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'l'esercizio regolarmente è cambiato come ti senti' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hai notato che fare attività fisica regolarmente ha cambiato il modo in cui ti senti ogni giorno?",
+          "list": null
+        }
+      ],
+      "itemHash": "eead9af3f0189b14",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Sono passato in bicicletta' means 'I passed by on a bike'; 'più facile sulle ginocchia' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sono passato alla bicicletta perché affatica meno le ginocchia.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono passata alla bicicletta perché affatica meno le ginocchia."
+          ]
+        }
+      ],
+      "itemHash": "65100ffcd8a852d0",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'coerente con la formazione' means consistent with education.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quale strategia usi per allenarti con ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "costanza",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "costanza",
+            "coerenza",
+            "costante",
+            "costanze"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'consistency/regularity'."
+          ]
+        }
+      ],
+      "itemHash": "4b5553ac7fd6471e",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b2-1",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'elite' needs its accent ('élite'); 'pone domande circa' is stiff; prompt and hint use British 'commercialisation'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The commercialization of elite sport raises questions about its relationship with grassroots participation.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "La commercializzazione dello sport d'élite solleva interrogativi sul suo rapporto con la pratica di base.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Commercialization' = the process of making something about money; 'grassroots' = community level."
+          ]
+        }
+      ],
+      "itemHash": "94e0c1dd1dd1e396",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'è centrale a picco le prestazioni' is nonsense and 'formazione' means education; British 'Periodisation'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Periodization — the systematic planning of training cycles — is central to peak athletic performance.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "La periodizzazione — la pianificazione sistematica dei cicli di allenamento — è fondamentale per raggiungere il massimo rendimento atletico.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Periodization' = planned variation in training; 'peak performance' = best possible level."
+          ]
+        }
+      ],
+      "itemHash": "c073909aecf5c9de",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b2-4",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'come' after a verb like 'modificare' should be 'il modo in cui'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La diffusione della tecnologia indossabile ha cambiato radicalmente il modo in cui gli atleti monitorano le prestazioni.",
+          "list": null
+        }
+      ],
+      "itemHash": "5a01968e7028c86f",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b2-5",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'scandali doping' needs 'di'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gli scandali di doping hanno eroso la fiducia del pubblico nello sport agonistico, soprattutto ad alto livello.",
+          "list": null
+        }
+      ],
+      "itemHash": "eb31519f08ef5c90",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'sedenaria' is misspelled ('sedentaria'), and 'equilibrio di lavoro-vita-fitness' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In una professione sedentaria, conciliare lavoro, vita privata e attività fisica richiede impegno e pianificazione.",
+          "list": null
+        }
+      ],
+      "itemHash": "8d4e3e84d208dc04",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sf-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'a livello elite' and 'condizionamento fisico' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La resilienza psicologica richiesta ad alto livello è impegnativa quanto la preparazione fisica.",
+          "list": null
+        }
+      ],
+      "itemHash": "42c13e3a9f5f22ad",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'piano di formazione' means an education plan, and 'sovraformazione' is not a word (overtraining = 'sovrallenamento').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Un piano di allenamento equilibrato riduce il rischio di sovrallenamento.",
+          "list": null
+        }
+      ],
+      "itemHash": "b92666a8d1d733dc",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'formazione' should be 'allenamento'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Le prestazioni migliorano quando il ___ viene considerato parte dell'allenamento.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "recupero",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "recupero",
+            "risultato",
+            "record",
+            "riscatto"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'recovery'."
+          ]
+        }
+      ],
+      "itemHash": "08ab9f5d39c70916",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    },
+    {
+      "id": "it-sp-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'le lunghe fuori stagione' is ungrammatical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a coaching seminar, you ask about keeping athletes motivated between seasons.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Come possono gli atleti mantenere la motivazione durante i lunghi periodi di pausa?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How can athletes maintain motivation during long off-seasons?",
+          "list": null
+        }
+      ],
+      "itemHash": "f60c7dc66ebe27c3",
+      "appliedAt": "2026-10-22T09:35:01.620Z"
+    }
+  ]
+}

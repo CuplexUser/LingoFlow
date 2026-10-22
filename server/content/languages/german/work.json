@@ -6,7 +6,7 @@
     "prompt": "Say: I work in an office.",
     "correctAnswer": "Ich arbeite in einem Büro.",
     "hints": [
-      "Practice this phrase out loud."
+      "'In' + dative: in einem Büro."
     ]
   },
   {
@@ -16,7 +16,7 @@
     "prompt": "Say: My shift starts at nine o'clock.",
     "correctAnswer": "Meine Schicht beginnt um neun Uhr.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Die Schicht' = shift; 'um' + clock time."
     ]
   },
   {
@@ -26,7 +26,10 @@
     "prompt": "Say: I am the new employee.",
     "correctAnswer": "Ich bin der neue Mitarbeiter.",
     "hints": [
-      "Practice this phrase out loud."
+      "Feminine: die neue Mitarbeiterin."
+    ],
+    "acceptedAnswers": [
+      "Ich bin die neue Mitarbeiterin."
     ]
   },
   {
@@ -34,11 +37,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where is the meeting room?",
-    "correctAnswer": "Wo ist der Tagungsraum?",
+    "correctAnswer": "Wo ist der Besprechungsraum?",
     "hints": [
       "A useful first-day question."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Wo ist das Besprechungszimmer?"
+    ]
   },
   {
     "id": "de-wo-14",
@@ -55,20 +61,29 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a person who works for a company",
-    "correctAnswer": "mitarbeiter",
+    "correctAnswer": "der Mitarbeiter",
     "hints": [
       "The opposite is 'employer'."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Mitarbeiter",
+      "die Mitarbeiterin",
+      "der Angestellte"
+    ]
   },
   {
     "id": "de-wo-16",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My manager is very helpful.",
-    "correctAnswer": "Mein Manager ist sehr hilfreich.",
+    "correctAnswer": "Mein Chef ist sehr hilfsbereit.",
     "hints": [
       "A manager is your direct boss."
+    ],
+    "acceptedAnswers": [
+      "Meine Chefin ist sehr hilfsbereit.",
+      "Mein Manager ist sehr hilfsbereit."
     ]
   },
   {
@@ -76,9 +91,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: What time does the office open?",
-    "correctAnswer": "Wann öffnet sich das Büro?",
+    "correctAnswer": "Wann öffnet das Büro?",
     "hints": [
       "Use 'what time does' for asking about schedules."
+    ],
+    "acceptedAnswers": [
+      "Um wie viel Uhr macht das Büro auf?"
     ]
   },
   {
@@ -86,9 +104,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I work from home on Fridays.",
-    "correctAnswer": "Ich arbeite Freitag von zu Hause.",
+    "correctAnswer": "Ich arbeite freitags von zu Hause.",
     "hints": [
       "'Work from home' means remote working."
+    ],
+    "acceptedAnswers": [
+      "Freitags arbeite ich von zu Hause aus."
     ]
   },
   {
@@ -105,17 +126,21 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I start work at nine.",
-    "correctAnswer": "Ich beginne mit neun.",
+    "correctAnswer": "Ich fange um neun an zu arbeiten.",
     "hints": [
-      "Use present simple for routines."
+      "'Um' + clock time; 'anfangen' is separable."
     ],
-    "id": "de-wo-a1-41"
+    "id": "de-wo-a1-41",
+    "acceptedAnswers": [
+      "Ich beginne um neun mit der Arbeit.",
+      "Mein Arbeitstag beginnt um neun."
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where is the training room?",
-    "correctAnswer": "Wo ist der Trainingsraum?",
+    "correctAnswer": "Wo ist der Schulungsraum?",
     "hints": [
       "Use this on your first day."
     ],
@@ -126,9 +151,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the final approval before release",
-    "correctAnswer": "abzeichen",
+    "correctAnswer": "die Freigabe",
     "hints": [
-      "Hyphenated compound noun."
+      "From 'freigeben' (to release, approve)."
     ],
     "exerciseType": "flashcard",
     "id": "de-wo-a1-43"
@@ -159,12 +184,17 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: someone you report to",
-    "correctAnswer": "manager",
+    "correctAnswer": "der Vorgesetzte",
     "hints": [
       "A core workplace noun."
     ],
     "exerciseType": "flashcard",
-    "id": "de-wo-a1-48"
+    "id": "de-wo-a1-48",
+    "acceptedAnswers": [
+      "die Vorgesetzte",
+      "der Chef",
+      "die Chefin"
+    ]
   },
   {
     "id": "de-wo-3",
@@ -191,9 +221,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can we reschedule the meeting to Thursday?",
-    "correctAnswer": "Können wir das Treffen bis Donnerstag umstellen?",
+    "correctAnswer": "Können wir die Besprechung auf Donnerstag verschieben?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Können wir das Treffen auf Donnerstag verlegen?"
     ]
   },
   {
@@ -201,9 +234,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I will send you the updated version by end of day.",
-    "correctAnswer": "Ich schicke Ihnen die aktualisierte Version bis zum Ende des Tages.",
+    "correctAnswer": "Ich schicke Ihnen die aktualisierte Version bis heute Abend.",
     "hints": [
       "'By end of day' is a common work deadline phrase."
+    ],
+    "acceptedAnswers": [
+      "Ich schicke Ihnen die aktualisierte Version bis Feierabend."
     ]
   },
   {
@@ -211,7 +247,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Could you copy me in on that email?",
-    "correctAnswer": "Könnten Sie mich auf diese E-Mail kopieren?",
+    "correctAnswer": "Könnten Sie mich bei dieser E-Mail in CC setzen?",
     "hints": [
       "'Copy me in' means add you to the CC field."
     ]
@@ -231,9 +267,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Who should I contact about IT issues?",
-    "correctAnswer": "Wer sollte sich mit IT-Problemen in Verbindung setzen?",
+    "correctAnswer": "An wen wende ich mich bei IT-Problemen?",
     "hints": [
       "Use 'who should I' to ask who is responsible."
+    ],
+    "acceptedAnswers": [
+      "An wen sollte ich mich bei IT-Problemen wenden?"
     ]
   },
   {
@@ -251,7 +290,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Choose the best response. A colleague asks if you can attend a meeting tomorrow.",
-    "correctAnswer": "Ich bin am Morgen frei, aber ich habe einen Anruf am Nachmittag.",
+    "correctAnswer": "Vormittags bin ich frei, aber nachmittags habe ich ein Telefonat.",
     "hints": [
       "Give clear availability information."
     ],
@@ -291,10 +330,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am responsible for weekly updates.",
-    "correctAnswer": "Ich bin für wöchentliche Updates verantwortlich.",
+    "prompt": "Ich bin für die wöchentlichen Updates ___.",
+    "correctAnswer": "verantwortlich",
     "hints": [
-      "Use this to describe ownership."
+      "'Für etwas ___ sein' = to be responsible for something."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-wo-a2-53"
@@ -303,7 +342,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We finished the task ahead of schedule.",
-    "correctAnswer": "Wir haben die Aufgabe vor dem Zeitplan beendet.",
+    "correctAnswer": "Wir haben die Aufgabe früher als geplant abgeschlossen.",
     "hints": [
       "Good phrase for progress updates."
     ],
@@ -325,7 +364,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was not able to attend the conference call due to a scheduling conflict.",
-    "correctAnswer": "Ich konnte wegen eines schedulierenden Konflikts nicht an der Telefonkonferenz teilnehmen.",
+    "correctAnswer": "Ich konnte wegen einer Terminüberschneidung nicht an der Telefonkonferenz teilnehmen.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -345,7 +384,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would appreciate some feedback on my presentation.",
-    "correctAnswer": "Ich würde ein Feedback zu meiner Präsentation schätzen.",
+    "correctAnswer": "Ich würde mich über Feedback zu meiner Präsentation freuen.",
     "hints": [
       "'I would appreciate' is polite and professional."
     ]
@@ -355,7 +394,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Could we arrange a brief call to discuss the next steps?",
-    "correctAnswer": "Könnten wir einen kurzen Anruf arrangieren, um die nächsten Schritte zu diskutieren?",
+    "correctAnswer": "Könnten wir ein kurzes Telefonat vereinbaren, um die nächsten Schritte zu besprechen?",
     "hints": [
       "'Brief call' means a short telephone or video meeting."
     ]
@@ -385,7 +424,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Could you give me an update on where things stand with the client?",
-    "correctAnswer": "Könnten Sie mir ein Update geben, wo die Dinge mit dem Kunden stehen?",
+    "correctAnswer": "Könnten Sie mir sagen, wie der aktuelle Stand beim Kunden ist?",
     "hints": [
       "'Where things stand' means the current situation."
     ]
@@ -434,10 +473,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Can we move this deadline to next Wednesday?",
-    "correctAnswer": "Können wir diese Frist bis nächsten Mittwoch verschieben?",
+    "prompt": "Können wir diese Frist auf nächsten Mittwoch ___?",
+    "correctAnswer": "verschieben",
     "hints": [
-      "Direct but collaborative phrasing."
+      "'Auf' + day + 'verschieben' = to move to that day."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-wo-b1-63"
@@ -445,7 +484,7 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I need more context before I can approve this plan.",
+    "prompt": "Choose the best response. A colleague asks you to approve a plan you have barely seen.",
     "correctAnswer": "Ich brauche mehr Kontext, bevor ich diesen Plan billigen kann.",
     "hints": [
       "State dependency clearly."
@@ -458,7 +497,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would like to propose a restructuring of the project timeline.",
-    "correctAnswer": "Ich möchte eine Umstrukturierung der Projektzeitlinie vorschlagen.",
+    "correctAnswer": "Ich möchte eine Umstrukturierung des Projektzeitplans vorschlagen.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -468,7 +507,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The stakeholders have concerns about the projected return on investment.",
-    "correctAnswer": "Die Stakeholder haben Bedenken hinsichtlich der geplanten Investitionsrendite.",
+    "correctAnswer": "Die Stakeholder haben Bedenken hinsichtlich der prognostizierten Kapitalrendite.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -478,7 +517,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Following up on my previous email, I wanted to clarify the deliverables.",
-    "correctAnswer": "Im Anschluss an meine vorherige E-Mail wollte ich die Lieferungen klären.",
+    "correctAnswer": "Bezugnehmend auf meine letzte E-Mail möchte ich die Arbeitsergebnisse klären.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -488,7 +527,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: We need to align on priorities before committing resources to this initiative.",
-    "correctAnswer": "Wir müssen Prioritäten festlegen, bevor wir Mittel für diese Initiative einsetzen.",
+    "correctAnswer": "Wir müssen uns auf Prioritäten verständigen, bevor wir Mittel für diese Initiative einsetzen.",
     "hints": [
       "'Align on' means agree and coordinate on."
     ]
@@ -508,7 +547,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Have you factored in the opportunity cost of delaying the launch?",
-    "correctAnswer": "Haben Sie in der Gelegenheit Kosten für die Verzögerung der Start?",
+    "correctAnswer": "Haben Sie die Opportunitätskosten einer Verzögerung des Starts berücksichtigt?",
     "hints": [
       "'Factor in' means take into account; 'opportunity cost' is what you give up."
     ]
@@ -518,7 +557,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I recommend we pilot the solution with a small cohort before scaling.",
-    "correctAnswer": "Ich empfehle, die Lösung mit einem kleinen Kohort vor dem Skalieren zu pilotieren.",
+    "correctAnswer": "Ich empfehle, die Lösung zunächst mit einer kleinen Testgruppe zu erproben, bevor wir skalieren.",
     "hints": [
       "'Pilot' as a verb means to test; 'scaling' means expanding."
     ]
@@ -557,7 +596,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: We need to align deliverables with stakeholder expectations.",
-    "correctAnswer": "Wir müssen die Lieferungen mit den Erwartungen der Stakeholder ausrichten.",
+    "correctAnswer": "Wir müssen die Arbeitsergebnisse an den Erwartungen der Stakeholder ausrichten.",
     "hints": [
       "Use precise business vocabulary."
     ],
@@ -566,10 +605,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I suggest we document risks before final sign-off.",
-    "correctAnswer": "Ich schlage vor, dass wir Risiken vor der endgültigen Unterzeichnung dokumentieren.",
+    "prompt": "Ich schlage vor, dass wir die Risiken vor der endgültigen ___ dokumentieren.",
+    "correctAnswer": "Freigabe",
     "hints": [
-      "Strong phrasing for process quality."
+      "A noun meaning final approval (sign-off)."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-wo-b2-72"
@@ -577,8 +616,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should we mitigate potential delays in this rollout?",
-    "correctAnswer": "Wie sollen wir mögliche Verzögerungen in diesem Rollout mildern?",
+    "prompt": "Choose the best response. Your manager warns that the rollout may slip.",
+    "correctAnswer": "Wie können wir mögliche Verzögerungen bei diesem Rollout abfedern?",
     "hints": [
       "Use 'mitigate' for formal risk language."
     ],
@@ -589,7 +628,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: This proposal balances short-term impact with long-term sustainability.",
-    "correctAnswer": "Dieser Vorschlag bilanziert kurzfristige Auswirkungen mit langfristiger Nachhaltigkeit.",
+    "correctAnswer": "Dieser Vorschlag bringt kurzfristige Wirkung und langfristige Nachhaltigkeit in Einklang.",
     "hints": [
       "Contrast clauses raise sophistication."
     ],

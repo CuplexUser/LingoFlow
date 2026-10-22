@@ -6,7 +6,10 @@
     "prompt": "Say: I do not feel well.",
     "correctAnswer": "Jag mår inte bra.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Må' describes how you feel; 'inte' follows the verb."
+    ],
+    "acceptedAnswers": [
+      "Jag mår dåligt."
     ]
   },
   {
@@ -16,7 +19,10 @@
     "prompt": "Ask: Where is the nearest hospital?",
     "correctAnswer": "Var är närmaste sjukhus?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Närmaste' takes no article; buildings 'ligger' somewhere."
+    ],
+    "acceptedAnswers": [
+      "Var ligger närmaste sjukhus?"
     ]
   },
   {
@@ -26,7 +32,10 @@
     "prompt": "Say: I have a headache.",
     "correctAnswer": "Jag har huvudvärk.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Huvudvärk' = headache; also 'ha ont i' + body part."
+    ],
+    "acceptedAnswers": [
+      "Jag har ont i huvudet."
     ]
   },
   {
@@ -47,7 +56,7 @@
     "prompt": "Ask: Is there a pharmacy nearby?",
     "correctAnswer": "Finns det ett apotek i närheten?",
     "hints": [
-      "A pharmacy is also called a chemist's."
+      "Swedish pharmacies are called 'apotek'; 'i närheten' = nearby."
     ]
   },
   {
@@ -57,7 +66,10 @@
     "prompt": "Say: My stomach hurts.",
     "correctAnswer": "Min mage gör ont.",
     "hints": [
-      "'Hurts' is the verb for pain."
+      "'Göra ont' = to hurt; or 'ha ont i' + body part."
+    ],
+    "acceptedAnswers": [
+      "Jag har ont i magen."
     ]
   },
   {
@@ -129,7 +141,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have had a sore throat for three days.",
-    "correctAnswer": "Jag har haft ont i tre dagar.",
+    "correctAnswer": "Jag har haft ont i halsen i tre dagar.",
     "hints": [
       "Use the present perfect for ongoing symptoms."
     ]
@@ -139,9 +151,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can I make an appointment with the doctor today?",
-    "correctAnswer": "Kan jag göra ett möte med läkaren idag?",
+    "correctAnswer": "Kan jag få en tid hos läkaren i dag?",
     "hints": [
-      "Pay attention to the sentence structure."
+      "'En tid hos läkaren' = a doctor's appointment."
+    ],
+    "acceptedAnswers": [
+      "Kan jag boka en tid hos läkaren idag?"
     ]
   },
   {
@@ -159,9 +174,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have been feeling dizzy since this morning.",
-    "correctAnswer": "Jag känner mig yr sedan i morse.",
+    "correctAnswer": "Jag har känt mig yr sedan i morse.",
     "hints": [
       "Use 'since' for a specific starting point in the past."
+    ],
+    "acceptedAnswers": [
+      "Jag har varit yr sedan i morse."
     ]
   },
   {
@@ -179,9 +197,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I twisted my ankle while hiking.",
-    "correctAnswer": "Jag vred min fotled när jag vandrade.",
+    "correctAnswer": "Jag stukade foten när jag var ute och vandrade.",
     "hints": [
       "'While' links two actions happening at the same time."
+    ],
+    "acceptedAnswers": [
+      "Jag vrickade foten när jag vandrade."
     ]
   },
   {
@@ -189,9 +210,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Do I need a prescription for this medicine?",
-    "correctAnswer": "Behöver jag recept för detta läkemedel?",
+    "correctAnswer": "Behöver jag recept på det här läkemedlet?",
     "hints": [
       "Yes/no question with 'do I need'."
+    ],
+    "acceptedAnswers": [
+      "Behöver man recept på den här medicinen?"
     ]
   },
   {
@@ -199,9 +223,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have a rash on my arm.",
-    "correctAnswer": "Jag har ett utslag på min arm.",
+    "correctAnswer": "Jag har utslag på armen.",
     "hints": [
-      "Describe the symptom and its location."
+      "Body parts usually take the definite form: 'på armen', not 'på min arm'."
     ]
   },
   {
@@ -229,11 +253,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I should sleep more during the week.",
-    "correctAnswer": "Jag ska sova mer under veckan.",
+    "correctAnswer": "Jag borde sova mer på vardagarna.",
     "hints": [
       "Advice with 'should'."
     ],
-    "id": "sv-he-a2-49"
+    "id": "sv-he-a2-49",
+    "acceptedAnswers": [
+      "Jag borde sova mer under veckan."
+    ]
   },
   {
     "level": "a2",
@@ -249,20 +276,26 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I started cooking healthier meals.",
-    "correctAnswer": "Jag började laga hälsosammare måltider.",
+    "prompt": "Jag började laga ___ måltider.",
+    "correctAnswer": "hälsosammare",
     "hints": [
-      "Lifestyle improvement phrase."
+      "Comparative form: 'healthier'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-he-a2-51"
+    "id": "sv-he-a2-51",
+    "clozeOptions": [
+      "hälsosammare",
+      "hälsosam",
+      "hälsosammast",
+      "hälsa"
+    ]
   },
   {
     "id": "sv-he-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have a pre-existing condition that requires regular medication.",
-    "correctAnswer": "Jag har ett redan existerande tillstånd som kräver regelbunden medicinering.",
+    "correctAnswer": "Jag har en sjukdom sedan tidigare som kräver regelbunden medicinering.",
     "hints": [
       "'Pre-existing condition' means a health issue you already had before."
     ]
@@ -282,9 +315,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like a second opinion before deciding on surgery.",
-    "correctAnswer": "Jag vill ha en andra åsikt innan jag bestämmer mig för operation.",
+    "correctAnswer": "Jag skulle vilja få en ny bedömning innan jag bestämmer mig för en operation.",
     "hints": [
       "'A second opinion' means consulting another doctor."
+    ],
+    "acceptedAnswers": [
+      "Jag skulle vilja ha en second opinion innan jag bestämmer mig för operation."
     ]
   },
   {
@@ -302,7 +338,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How long should I wait before the antibiotics start working?",
-    "correctAnswer": "Hur länge ska jag vänta innan antibiotika börjar fungera?",
+    "correctAnswer": "Hur länge ska jag vänta innan antibiotikan börjar verka?",
     "hints": [
       "Use 'should I' for advice-seeking questions."
     ]
@@ -312,9 +348,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been following a low-sodium diet on my doctor's advice.",
-    "correctAnswer": "Jag har följt en låg-sodium diet på min läkares råd.",
+    "correctAnswer": "Jag har ätit saltfattig kost på inrådan av min läkare.",
     "hints": [
       "Present perfect continuous shows an ongoing action started in the past."
+    ],
+    "acceptedAnswers": [
+      "Jag har följt en saltfattig diet på läkarens inrådan."
     ]
   },
   {
@@ -322,7 +361,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am concerned that my blood pressure has been fluctuating.",
-    "correctAnswer": "Jag är orolig för att mitt blodtryck har fluktuerat.",
+    "correctAnswer": "Jag är orolig över att mitt blodtryck har svängt.",
     "hints": [
       "Express worry with 'I am concerned that'."
     ]
@@ -332,11 +371,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. The doctor asks about your sleep patterns.",
-    "correctAnswer": "Jag brukar få runt sex timmar, men jag har vaknat på natten på sistone.",
+    "correctAnswer": "Jag brukar sova runt sex timmar, men på sistone har jag vaknat på nätterna.",
     "hints": [
       "Give specific detail and use 'lately' for recent changes."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I usually get about six hours, but lately I've been waking up at night."
   },
   {
     "id": "sv-he-32",
@@ -345,7 +385,7 @@
     "prompt": "Say: I am currently taking medication for high blood pressure.",
     "correctAnswer": "Jag tar för närvarande medicin för högt blodtryck.",
     "hints": [
-      "'Currently' emphasises something happening right now."
+      "'För närvarande' = currently; medicine is taken 'mot' a condition."
     ]
   },
   {
@@ -372,32 +412,41 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What helps you recover after a difficult week?",
-    "correctAnswer": "Vad hjälper dig att återhämta sig efter en svår vecka?",
+    "correctAnswer": "Vad hjälper dig att återhämta dig efter en tuff vecka?",
     "hints": [
       "Coping strategy prompt."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-he-b1-60"
+    "id": "sv-he-b1-60",
+    "acceptedAnswers": [
+      "Vad hjälper dig att återhämta dig efter en svår vecka?"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I reduced sugar because it improved my energy.",
-    "correctAnswer": "Jag minskade socker eftersom det förbättrade min energi.",
+    "prompt": "Jag drog ner på ___ och fick mer energi.",
+    "correctAnswer": "sockret",
     "hints": [
-      "Cause-effect form."
+      "'Dra ner på' + definite noun = cut down on."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-he-b1-61"
+    "id": "sv-he-b1-61",
+    "clozeOptions": [
+      "sockret",
+      "socker",
+      "sockrets",
+      "sockren"
+    ]
   },
   {
     "id": "sv-he-10",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would appreciate a referral to a specialist for further investigation.",
-    "correctAnswer": "Jag skulle uppskatta en hänvisning till en specialist för vidare utredning.",
+    "correctAnswer": "Jag skulle uppskatta en remiss till en specialist för vidare utredning.",
     "hints": [
-      "Formal, polite language for medical requests."
+      "'Remiss' = a doctor's referral to a specialist."
     ]
   },
   {
@@ -405,7 +454,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: What are the long-term implications of leaving this untreated?",
-    "correctAnswer": "Vilka är de långsiktiga konsekvenserna av att lämna detta obehandlat?",
+    "correctAnswer": "Vilka blir de långsiktiga konsekvenserna om det inte behandlas?",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -415,7 +464,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would like to discuss the risks and benefits before consenting to the procedure.",
-    "correctAnswer": "Jag vill diskutera risker och fördelar innan jag samtycker till förfarandet.",
+    "correctAnswer": "Jag skulle vilja diskutera risker och fördelar innan jag samtycker till ingreppet.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -425,7 +474,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The evidence suggests that early intervention significantly improves outcomes.",
-    "correctAnswer": "Beviset tyder på att tidig intervention förbättrar signifikant resultaten.",
+    "correctAnswer": "Forskningen tyder på att tidiga insatser avsevärt förbättrar resultaten.",
     "hints": [
       "Formal, evidence-based language typical of medical discussions."
     ]
@@ -445,7 +494,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I want to explore non-invasive alternatives before committing to surgery.",
-    "correctAnswer": "Jag vill utforska icke-invasiva alternativ innan jag begår operation.",
+    "correctAnswer": "Jag vill undersöka icke-invasiva alternativ innan jag bestämmer mig för en operation.",
     "hints": [
       "'Non-invasive' means no cutting or entering the body."
     ]
@@ -465,7 +514,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Would a preventive course of treatment be advisable given my family history?",
-    "correctAnswer": "Skulle en förebyggande behandling vara tillrådlig med tanke på min familjehistoria?",
+    "correctAnswer": "Skulle en förebyggande behandling vara tillrådlig med tanke på ärftligheten i min familj?",
     "hints": [
       "'Preventive' means aimed at stopping a problem before it starts."
     ]
@@ -483,23 +532,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which policies can improve access to mental health care?",
-    "correctAnswer": "Vilka policyer kan förbättra tillgången till psykisk vård?",
+    "prompt": "Vilka åtgärder kan förbättra tillgången till ___ vård?",
+    "correctAnswer": "psykiatrisk",
     "hints": [
-      "Public-health discussion prompt."
+      "Common-gender indefinite adjective agreeing with 'vård'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-he-b2-70"
+    "id": "sv-he-b2-70",
+    "clozeOptions": [
+      "psykiatrisk",
+      "psykiatriska",
+      "psykiatriskt",
+      "psykiater"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sustainable routines matter more than short-term motivation.",
+    "prompt": "Dialogue: A friend says they keep starting new fitness plans and giving up. Give your view.",
     "correctAnswer": "Hållbara rutiner betyder mer än kortsiktig motivation.",
     "hints": [
       "Abstract comparison sentence."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-he-b2-71"
+    "id": "sv-he-b2-71",
+    "answerEnglish": "Sustainable routines matter more than short-term motivation."
   }
 ]

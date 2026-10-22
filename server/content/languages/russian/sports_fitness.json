@@ -116,9 +116,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Elite athletes must balance intense training with adequate recovery time.",
-    "correctAnswer": "Элитные спортсмены должны сочетать интенсивные тренировки с достаточным временем для восстановления.",
+    "correctAnswer": "Спортсмены высокого уровня должны сочетать интенсивные тренировки с достаточным временем для восстановления.",
     "hints": [
       "Use 'должны + infinitive' for obligation."
+    ],
+    "acceptedAnswers": [
+      "Элитные спортсмены должны сочетать интенсивные тренировки с достаточным временем для восстановления."
     ]
   },
   {
@@ -250,9 +253,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I stretched for ten minutes after my run.",
-    "correctAnswer": "Я растягивался десять минут после пробежки.",
+    "correctAnswer": "Я делал растяжку десять минут после пробежки.",
     "hints": [
-      "'Растягиваться' = to stretch (imperfective). 'После пробежки' = after a run (genitive)."
+      "'Делать растяжку' = to stretch (do stretching). 'После пробежки' = after a run (genitive)."
+    ],
+    "acceptedAnswers": [
+      "Я делала растяжку десять минут после пробежки.",
+      "Я растягивался десять минут после пробежки.",
+      "Я растягивалась десять минут после пробежки."
     ]
   },
   {
@@ -336,6 +344,9 @@
     "correctAnswer": "Я не ходил в бассейн с тех пор, как потянул мышцу.",
     "hints": [
       "'С тех пор, как' = since (the time that). 'Потянул мышцу' = pulled a muscle (perfective past)."
+    ],
+    "acceptedAnswers": [
+      "Я не ходила в бассейн с тех пор, как потянула мышцу."
     ]
   },
   {
@@ -434,7 +445,7 @@
     "id": "ru-sp-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Cloze: Высокоинтенсивные тренировки стимулируют выработку ___ — гормона, улучшающего настроение.",
+    "prompt": "Cloze: Высокоинтенсивные тренировки стимулируют выработку ___ — гормонов, улучшающих настроение.",
     "correctAnswer": "эндорфинов",
     "hints": [
       "'Эндорфины' = endorphins. Genitive plural after 'выработку' (production of)."
@@ -451,7 +462,7 @@
     "id": "ru-sp-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The commercialisation of sport has widened the gap between top clubs and the rest.",
+    "prompt": "Say: The commercialization of sports has widened the gap between top clubs and the rest.",
     "correctAnswer": "Коммерциализация спорта увеличила разрыв между топовыми клубами и остальными.",
     "hints": [
       "'Увеличить разрыв' = to widen the gap (perfective). 'Между' + instrumental for 'between'."

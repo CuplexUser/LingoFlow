@@ -1,0 +1,959 @@
+{
+  "language": "italian",
+  "category": "conversation",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:24:42.952Z",
+  "contentHash": "a8df06176af189ae",
+  "summary": "Many items are literal machine translations: English cloze sentences, English words in an mc_sentence, infinitive flashcards with 'per', and calques that are wrong in Italian (vedo il suo punto, vedo da dove vieni, recuperare for 'catch up', consistenza, in uscita, crox, non l'ho preso). Also 'addio' taught as everyday goodbye, apostrophe-for-accent misspellings, cultural notes about English speakers, and roleplay/dialogue items without answerEnglish or situation.",
+  "findings": [
+    {
+      "id": "it-co-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); formal form not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Chiamarsi' is reflexive: 'Come ti chiami?' (informal), 'Come si chiama?' (formal)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Come si chiama?"
+          ]
+        }
+      ],
+      "itemHash": "d09548da713df7b5",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Venire da' + country: 'dagli Stati Uniti' (da + gli)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi chiamo Alex e sono degli Stati Uniti.",
+            "Sono Alex e vengo dagli Stati Uniti."
+          ]
+        }
+      ],
+      "itemHash": "249c15c6096885d0",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); common variants not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Da dove vieni?' or 'Di dove sei?'; formal: 'Da dove viene?'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Di dove sei?",
+            "Da dove viene?",
+            "Di dov'è?"
+          ]
+        }
+      ],
+      "itemHash": "232942d99a389775",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'addio' is a final farewell (forever); everyday goodbye is 'arrivederci' or 'ciao'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "arrivederci",
+          "list": null
+        }
+      ],
+      "itemHash": "ee0fb482c077d6a9",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a1-7",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay quotes the greeting in English and has no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone says: Ciao!",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Hi, how are you?",
+          "list": null
+        }
+      ],
+      "itemHash": "baf150e881a3d136",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a1-8",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English; 'io sono' duplicates the subject.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Io ___ uno studente.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sono",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sono",
+            "sei",
+            "è",
+            "siete"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First person of 'essere' (to be)."
+          ]
+        }
+      ],
+      "itemHash": "779b7b3e696a0107",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "With a plural subject ('la musica e i film') the verb must be 'piacciono'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi piacciono la musica e i film.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Piacere' agrees with what is liked: two things → 'piacciono'."
+          ]
+        }
+      ],
+      "itemHash": "d041cd1f444d6341",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'E'' is a misspelling of 'È'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È un piacere conoscerti di persona.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "È un piacere conoscerla di persona.",
+            "Che piacere conoscerti di persona."
+          ]
+        }
+      ],
+      "itemHash": "f583850f8606f125",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Walking for leisure is 'passeggiare'; 'camminare' is the bare act of walking.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Di solito passo le serate a leggere o a passeggiare.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Di solito passo le mie serate a leggere o a passeggiare.",
+            "Di solito passo le serate a leggere o a fare una passeggiata."
+          ]
+        }
+      ],
+      "itemHash": "27ee20cd976be21e",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a2-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Only the feminine 'trasferita' is given; masculine is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi sono trasferito qui due anni fa."
+          ]
+        }
+      ],
+      "itemHash": "956d274b1512c201",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Lei ___ correntemente tre lingue.",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "parla",
+            "parlo",
+            "parli",
+            "parlano"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person singular of 'parlare'."
+          ]
+        }
+      ],
+      "itemHash": "7553ccdb37ef41d7",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a2-6",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay quotes the question in English and has no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone asks: Che lavoro fai?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I work as an engineer.",
+          "list": null
+        }
+      ],
+      "itemHash": "e068b902edfbd811",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Visiting people is 'andare a trovare'; 'visitare' is for places or doctors.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'estate scorsa sono andato a trovare i miei nonni.",
+          "list": null
+        }
+      ],
+      "itemHash": "91eba3aa2c0f7c87",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-a2-12",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes the English present perfect.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses the present tense + 'da quanto' for duration up to now."
+          ]
+        }
+      ],
+      "itemHash": "6d33b534e350090d",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-a2-57",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'non l'ho preso' means 'I didn't take/catch it' physically; 'catch' in the sense of hear is 'non ho capito / non ho sentito bene'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi dispiace, non ho capito.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Scusa, non ho sentito bene.",
+            "Mi dispiace, non ho sentito bene."
+          ]
+        }
+      ],
+      "itemHash": "d3b7f4f0e1a70995",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-a2-58",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'piu'' should be 'più'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Puoi parlare un po' più piano?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Può parlare un po' più piano?",
+            "Puoi parlare un po' più lentamente?"
+          ]
+        }
+      ],
+      "itemHash": "5580b39c78fa7d2b",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-a2-59",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cosa fai di ___ dopo il lavoro?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "solito",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "solito",
+            "spesso",
+            "sempre",
+            "mai"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Di solito' = usually."
+          ]
+        }
+      ],
+      "itemHash": "0e2e7cf418639c18",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'eventi attuali' is a calque; Italian says 'l'attualità'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi piace parlare di libri e di attualità.",
+          "list": null
+        }
+      ],
+      "itemHash": "3e7f719bf3823afa",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'consistenza' is a false friend (texture/thickness); 'consistency' is 'costanza'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "A mio parere, la costanza è più importante dell'intensità.",
+          "list": null
+        }
+      ],
+      "itemHash": "191423598d0e1776",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'più in uscita' is a nonsense calque of 'outgoing'; also 'piu'' misspelled and masculine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ero molto timida, ma sono diventata più estroversa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ero molto timido, ma sono diventato più estroverso."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Imperfect (ero) for a past state; passato prossimo (sono diventata) for the change."
+          ]
+        }
+      ],
+      "itemHash": "26b5a206c39a0dd8",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b1-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English, and 'stato' doesn't test the Italian conditional.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Mi sarei unito a voi se ___ stato libero.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fossi",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "fossi",
+            "ero",
+            "sarei",
+            "sono"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive (se fossi stato) + past conditional (mi sarei unito)."
+          ]
+        }
+      ],
+      "itemHash": "262242c408104912",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b1-6",
+      "severity": "error",
+      "kind": "cultural-note",
+      "problem": "No answerEnglish, and the culturalNote is about English-speaking cultures.",
+      "fix": [
+        {
+          "field": "answerEnglish",
+          "text": "I think it's interesting, although I have some concerns.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "79d15f125155b24b",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'recuperare' means to recover/make up for; catching up with friends is 'sentirsi' or 'vedersi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dovremmo sentirci più spesso.",
+          "list": null
+        }
+      ],
+      "itemHash": "d49eb1a644285b45",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'per tutta la settimana' doesn't convey 'have been meaning to'; Italian uses 'è tutta la settimana che'. Hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È tutta la settimana che volevo chiamarti.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'È tutta la settimana che' + imperfect for an intention lasting up to now."
+          ]
+        }
+      ],
+      "itemHash": "621cbb64c771ff8e",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'per interrompere' means 'in order to interrupt'; the infinitive is 'interrompere'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "interrompere",
+          "list": null
+        }
+      ],
+      "itemHash": "b3cd1380717858cc",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b1-11",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'vedo il suo punto' is a calque of 'I see your point'; Italian says 'capisco il tuo punto di vista'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tuttavia, capisco il tuo punto di vista e sono in parte d'accordo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tuttavia, capisco il suo punto di vista e sono in parte d'accordo."
+          ]
+        }
+      ],
+      "itemHash": "552f7aeb3604d14a",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-b1-65",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "Same calque 'capisco il suo punto'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Capisco il tuo punto di vista, ma ho un'opinione diversa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Capisco il suo punto di vista, ma ho un'opinione diversa."
+          ]
+        }
+      ],
+      "itemHash": "3d88ad5fe6d0ebd7",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-b1-66",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'that' is dropped, leaving 'decidere' without an object.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cosa ti ha fatto prendere questa decisione?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cosa ti ha spinto a decidere così?"
+          ]
+        }
+      ],
+      "itemHash": "7276ca7a38474f4c",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-b1-67",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "All'inizio mi sentivo nervoso, poi mi sono ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "rilassato",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "rilassata"
+          ]
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "rilassato",
+            "rilassare",
+            "rilasso",
+            "rilassando"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'rilassarsi', agreeing with the subject."
+          ]
+        }
+      ],
+      "itemHash": "88f6a54f77fcef80",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'con fiducia' means trustingly; 'confidently' is 'con sicurezza'. Feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ero timido, ma ora esprimo le mie idee con sicurezza.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ero timida, ma ora esprimo le mie idee con sicurezza."
+          ]
+        }
+      ],
+      "itemHash": "a1bb9fa6a44f1b1b",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'punto di vista', the usual phrase, is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Anche se non siamo d'accordo, rispetto il tuo punto di vista.",
+            "Anche se non siamo d'accordo, rispetto il suo punto di vista."
+          ]
+        }
+      ],
+      "itemHash": "e8760f4ab9b4da02",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Se avesse ___ più chiaramente, il malinteso non ci sarebbe stato.",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "comunicato",
+            "comunicare",
+            "comunicava",
+            "comunichi"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive: 'avesse' + past participle."
+          ]
+        }
+      ],
+      "itemHash": "04107b26edd77d86",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vedo da dove vieni' means 'I see where you're from'; no answerEnglish; culturalNote is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Capisco il tuo punto di vista, ma la penso diversamente.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I see where you're coming from, but I see it differently.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "701f8e549b8324ff",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'dialogo significativo' is a calque of 'meaningful'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Un dialogo autentico richiede un ascolto attivo e una vera curiosità.",
+          "list": null
+        }
+      ],
+      "itemHash": "46ceae08107e47d1",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b2-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes English inversion, which Italian doesn't use.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past conditional (l'avrei detto) + past subjunctive (se avessi saputo)."
+          ]
+        }
+      ],
+      "itemHash": "cd5999189e984be1",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b2-9",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "All four options are English words (lint confirmed).",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "sfumatura / pregiudizio / tono / registro",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sfumatura",
+          "list": null
+        }
+      ],
+      "itemHash": "624fe8eaeef8cb87",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b2-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'per empatizzare' has a stray preposition; British 'empathise' on the card.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "to empathize",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "empatizzare",
+          "list": null
+        }
+      ],
+      "itemHash": "bde2fbc26f3f854c",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-cv-b2-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'crox' is not a word; the idiom is 'il nocciolo della questione'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il nocciolo della questione è che abbiamo bisogno di una comunicazione più chiara.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Il nocciolo della questione' (literally 'the pit of the question') = the crux of the matter."
+          ]
+        }
+      ],
+      "itemHash": "a316a744952de455",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-b2-73",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'rendere il mio punto più chiaro' is a calque; plural 'Permettetemi' is odd for one listener.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi permetta di riformulare per spiegarmi meglio.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Lasciami riformulare per spiegarmi meglio.",
+            "Permettetemi di riformulare per spiegarmi meglio."
+          ]
+        }
+      ],
+      "itemHash": "6c6f46aa4a5a5028",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-b2-74",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'elaborare' is a calque of 'elaborate on'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ti dispiacerebbe ___ questo argomento?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "approfondire",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "approfondire",
+            "approfondisci",
+            "approfondito",
+            "approfondendo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ti dispiacerebbe' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "5343e340b09cca96",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    },
+    {
+      "id": "it-co-b2-75",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A colleague has just explained a subtle point in a meeting. Thank them.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I appreciate the nuance in your explanation.",
+          "list": null
+        }
+      ],
+      "itemHash": "da862c36594e3ade",
+      "appliedAt": "2026-10-22T09:34:58.698Z"
+    }
+  ]
+}

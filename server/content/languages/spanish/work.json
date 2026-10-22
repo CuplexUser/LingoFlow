@@ -6,7 +6,7 @@
     "prompt": "Say: I work in an office.",
     "correctAnswer": "Trabajo en una oficina.",
     "hints": [
-      "Practice this phrase out loud."
+      "Spanish drops the subject pronoun: 'Trabajo' already means 'I work'."
     ]
   },
   {
@@ -16,7 +16,10 @@
     "prompt": "Say: My shift starts at nine o'clock.",
     "correctAnswer": "Mi turno comienza a las nueve.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Turno' = shift; 'émpieza' or 'comienza' = starts."
+    ],
+    "acceptedAnswers": [
+      "Mi turno empieza a las nueve."
     ]
   },
   {
@@ -26,7 +29,10 @@
     "prompt": "Say: I am the new employee.",
     "correctAnswer": "Soy el nuevo empleado.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Ser' for identity; the adjective 'nuevo' can go before the noun."
+    ],
+    "acceptedAnswers": [
+      "Soy la nueva empleada."
     ]
   },
   {
@@ -66,9 +72,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My manager is very helpful.",
-    "correctAnswer": "Mi gerente es muy útil.",
+    "correctAnswer": "Mi jefe me ayuda mucho.",
     "hints": [
       "A manager is your direct boss."
+    ],
+    "acceptedAnswers": [
+      "Mi gerente me ayuda mucho.",
+      "Mi jefa me ayuda mucho.",
+      "Mi jefe es muy servicial."
     ]
   },
   {
@@ -115,12 +126,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where is the training room?",
-    "correctAnswer": "¿Dónde está la sala de entrenamiento?",
+    "correctAnswer": "¿Dónde está la sala de formación?",
     "hints": [
       "Use this on your first day."
     ],
     "exerciseType": "build_sentence",
-    "id": "es-wo-a1-42"
+    "id": "es-wo-a1-42",
+    "acceptedAnswers": [
+      "¿Dónde está la sala de capacitación?"
+    ]
   },
   {
     "level": "a1",
@@ -159,12 +173,17 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: someone you report to",
-    "correctAnswer": "manager",
+    "correctAnswer": "jefe",
     "hints": [
-      "A core workplace noun."
+      "Feminine: jefa. 'Gerente' is used for a manager in charge of a business or department."
     ],
     "exerciseType": "flashcard",
-    "id": "es-wo-a1-48"
+    "id": "es-wo-a1-48",
+    "acceptedAnswers": [
+      "jefa",
+      "gerente",
+      "el jefe"
+    ]
   },
   {
     "id": "es-wo-3",
@@ -191,9 +210,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can we reschedule the meeting to Thursday?",
-    "correctAnswer": "¿Podemos reprogramar la reunión hasta el jueves?",
+    "correctAnswer": "¿Podemos pasar la reunión al jueves?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "¿Podemos reprogramar la reunión para el jueves?",
+      "¿Podemos cambiar la reunión al jueves?"
     ]
   },
   {
@@ -224,6 +247,10 @@
     "correctAnswer": "Me gustaría tomar dos semanas de licencia anual en agosto.",
     "hints": [
       "'Annual leave' is the formal term for holiday days."
+    ],
+    "acceptedAnswers": [
+      "Me gustaría tomar dos semanas de vacaciones en agosto.",
+      "Me gustaría coger dos semanas de vacaciones en agosto."
     ]
   },
   {
@@ -251,7 +278,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Choose the best response. A colleague asks if you can attend a meeting tomorrow.",
-    "correctAnswer": "Soy libre por la mañana pero tengo una llamada por la tarde.",
+    "correctAnswer": "Estoy libre por la mañana, pero tengo una llamada por la tarde.",
     "hints": [
       "Give clear availability information."
     ],
@@ -291,10 +318,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am responsible for weekly updates.",
-    "correctAnswer": "Soy responsable de las actualizaciones semanales.",
+    "prompt": "Soy ___ de las actualizaciones semanales.",
+    "correctAnswer": "responsable",
     "hints": [
-      "Use this to describe ownership."
+      "'Ser ___ de' = to be in charge of."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-wo-a2-53"
@@ -303,7 +330,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We finished the task ahead of schedule.",
-    "correctAnswer": "Terminamos la tarea por adelantado.",
+    "correctAnswer": "Terminamos la tarea antes de lo previsto.",
     "hints": [
       "Good phrase for progress updates."
     ],
@@ -325,9 +352,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was not able to attend the conference call due to a scheduling conflict.",
-    "correctAnswer": "No pude asistir a la conferencia debido a un conflicto de programación.",
+    "correctAnswer": "No pude asistir a la llamada por un conflicto de horario.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "No pude asistir a la videoconferencia por un problema de agenda."
     ]
   },
   {
@@ -338,6 +368,9 @@
     "correctAnswer": "He estado trabajando en este proyecto durante tres meses.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Llevo tres meses trabajando en este proyecto."
     ]
   },
   {
@@ -385,7 +418,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Could you give me an update on where things stand with the client?",
-    "correctAnswer": "¿Podría darme una actualización sobre dónde están las cosas con el cliente?",
+    "correctAnswer": "¿Podría ponerme al día sobre cómo van las cosas con el cliente?",
     "hints": [
       "'Where things stand' means the current situation."
     ]
@@ -405,7 +438,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been given more responsibilities since my promotion.",
-    "correctAnswer": "Me han dado más responsabilidades desde mi promoción.",
+    "correctAnswer": "Me han dado más responsabilidades desde mi ascenso.",
     "hints": [
       "Passive present perfect; 'since my promotion' anchors the time."
     ]
@@ -424,7 +457,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like to propose a shorter meeting agenda.",
-    "correctAnswer": "Quisiera proponer un programa de reuniones más corto.",
+    "correctAnswer": "Quisiera proponer un orden del día más breve para la reunión.",
     "hints": [
       "Polite formal suggestion structure."
     ],
@@ -434,10 +467,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Can we move this deadline to next Wednesday?",
-    "correctAnswer": "¿Podemos pasar este plazo hasta el próximo miércoles?",
+    "prompt": "¿Podemos ___ este plazo al próximo miércoles?",
+    "correctAnswer": "aplazar",
     "hints": [
-      "Direct but collaborative phrasing."
+      "A verb meaning 'postpone'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-wo-b1-63"
@@ -445,8 +478,8 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I need more context before I can approve this plan.",
-    "correctAnswer": "Necesito más contexto antes de que pueda aprobar este plan.",
+    "prompt": "Choose the best response. A colleague asks you to approve a plan you have barely seen.",
+    "correctAnswer": "Necesito más contexto antes de poder aprobar este plan.",
     "hints": [
       "State dependency clearly."
     ],
@@ -478,7 +511,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Following up on my previous email, I wanted to clarify the deliverables.",
-    "correctAnswer": "Siguiendo mi correo electrónico anterior, quería aclarar los entregables.",
+    "correctAnswer": "En relación con mi correo anterior, quería aclarar los entregables.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -488,7 +521,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: We need to align on priorities before committing resources to this initiative.",
-    "correctAnswer": "Debemos alinearnos con las prioridades antes de comprometer recursos a esta iniciativa.",
+    "correctAnswer": "Debemos ponernos de acuerdo sobre las prioridades antes de comprometer recursos en esta iniciativa.",
     "hints": [
       "'Align on' means agree and coordinate on."
     ]
@@ -518,7 +551,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I recommend we pilot the solution with a small cohort before scaling.",
-    "correctAnswer": "Le recomiendo que piloteemos la solución con una pequeña cohorte antes de escalar.",
+    "correctAnswer": "Recomiendo que hagamos una prueba piloto con un grupo reducido antes de escalar.",
     "hints": [
       "'Pilot' as a verb means to test; 'scaling' means expanding."
     ]
@@ -566,10 +599,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I suggest we document risks before final sign-off.",
-    "correctAnswer": "Sugiero que documentemos los riesgos antes de la señal final.",
+    "prompt": "Sugiero que documentemos los riesgos antes del ___ final.",
+    "correctAnswer": "visto bueno",
     "hints": [
-      "Strong phrasing for process quality."
+      "A fixed phrase for approval, literally 'seen good'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-wo-b2-72"
@@ -577,7 +610,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should we mitigate potential delays in this rollout?",
+    "prompt": "Choose the best response. Your manager warns that the rollout may slip.",
     "correctAnswer": "¿Cómo debemos mitigar los posibles retrasos en este despliegue?",
     "hints": [
       "Use 'mitigate' for formal risk language."

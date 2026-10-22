@@ -1,0 +1,749 @@
+{
+  "language": "swedish",
+  "category": "money_finance",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:56:43.394Z",
+  "contentHash": "0d00f187282f2be8",
+  "summary": "Basic money phrases are mostly fine, but many items are calques that teach wrong Swedish financial terms (ATM, direktdebitering for autogiro, betala på min inteckning, Sammansatt intresse for ränta på ränta, straffet, Suveräna skuldkriser, avbröt for cancelling subscriptions, 'var' for 'vart'). The UK ISA item is nonsense and is rewritten with the Swedish ISK; there are also agreement and split-compound errors, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-mf-a1-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vad kostar det här?' is the most common everyday form."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vad kostar det här?",
+            "Hur mycket kostar det här?"
+          ]
+        }
+      ],
+      "itemHash": "c53ae9bf0993a27e",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Tillräckligt med' + noun = enough."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har inte tillräckligt pengar.",
+            "Jag har inte råd."
+          ]
+        }
+      ],
+      "itemHash": "8ae3b338e220826b",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a1-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Betala med kort' = pay by card."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Går det att betala med kort?"
+          ]
+        }
+      ],
+      "itemHash": "1c1710d2f5edc2cb",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Accepterar du' is stiff; in shops Swedes ask 'Tar ni kontanter?'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tar ni kontanter?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tar du kontanter?",
+            "Accepterar ni kontanter?"
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "Sweden is one of the most cashless countries in the world; many shops and cafés no longer accept cash.",
+          "list": null
+        }
+      ],
+      "itemHash": "9e9975ebc3419da5",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ATM' is English; Swedes say 'bankomat' or 'uttagsautomat'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag måste gå till bankomaten.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag behöver gå till en bankomat.",
+            "Jag måste gå till uttagsautomaten."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Bankomat' = ATM (originally a brand name, now the everyday word)."
+          ]
+        }
+      ],
+      "itemHash": "ca454ab211044b81",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Salary is 'betalas ut'; the most common phrasing is 'Jag får lön varje månad'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Lönen betalas ut varje månad.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag får lön varje månad.",
+            "Min lön betalas ut varje månad."
+          ]
+        }
+      ],
+      "itemHash": "1a511cf1dcb4f306",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'snälla' sounds like begging; requests in shops end with 'tack'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan jag få ett kvitto, tack?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan jag få kvitto?",
+            "Kan jag få ett kvitto, snälla?"
+          ]
+        }
+      ],
+      "itemHash": "de62739c4c7216d5",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'överförde ... online' is stiff; Swedes 'för över' via the internet bank.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag förde över pengarna via internetbanken i morse.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag överförde pengarna online i morse.",
+            "Jag swishade pengarna i morse."
+          ]
+        }
+      ],
+      "itemHash": "da7885193b012502",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a2-6",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Min hyra kommer från mitt konto' is a calque; rent 'dras från' the account.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hyran dras från mitt konto den första varje månad.",
+          "list": null
+        }
+      ],
+      "itemHash": "7a66c06304e2ee85",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-a2-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'direktdebitering' is a calque; the Swedish system is 'autogiro'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Can I set up automatic payments for this bill?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Kan jag betala den här räkningen via autogiro?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan jag lägga upp autogiro för den här betalningen?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Autogiro' = automatic recurring payment from your bank account."
+          ]
+        }
+      ],
+      "itemHash": "5e11b75f1d597a36",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mo-a2-49",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A weekly habit is in the past tense, and 'livsmedel' is formal for groceries.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag sätter en budget för matinköp varje vecka.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Varje vecka gör jag en budget för maten."
+          ]
+        }
+      ],
+      "itemHash": "842e073a3cbf3967",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hur mycket ska jag ___ varje månad?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "spara",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "spara",
+            "sparar",
+            "sparade",
+            "sparat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'ska'."
+          ]
+        }
+      ],
+      "itemHash": "3c70502792bf7c89",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Swedes usually call an emergency fund a 'buffert'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har försökt bygga upp en buffert som täcker tre månaders utgifter."
+          ]
+        }
+      ],
+      "itemHash": "d1e03669d091d052",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'betala på min inteckning för att minska termen' is a calque; Swedes 'amortera extra på bolånet'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Skulle det löna sig att amortera extra på bolånet för att korta löptiden?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Amortera' = pay down a loan; 'löptid' = the term of the loan."
+          ]
+        }
+      ],
+      "itemHash": "5a57d3b70e4c48c2",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'inkomstströmmar' is a calque; it is 'inkomstkällor'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag försöker sprida mina inkomstkällor i stället för att bara förlita mig på lönen.",
+          "list": null
+        }
+      ],
+      "itemHash": "010a9997466fd313",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Sammansatt intresse' means 'composite hobby'; compound interest is 'ränta på ränta'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ränta på ränta innebär att ditt sparande växer snabbare ju längre du låter det vara investerat.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ränta på ränta' (interest on interest) = compound interest."
+          ]
+        }
+      ],
+      "itemHash": "96b63cfa010e54b6",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'straffet' means punishment; a fee for early repayment is an 'avgift'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vad är avgiften för att lösa det här lånet i förtid?",
+          "list": null
+        }
+      ],
+      "itemHash": "b0d77256282cc846",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'var mina pengar går' needs 'vart' (direction); 'håller en budget' and 'spåra' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag gör en månadsbudget för att hålla koll på vart pengarna tar vägen.",
+          "list": null
+        }
+      ],
+      "itemHash": "0f22f20250cb1539",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'pensionsbidrag' is a calque; 'dras från ... före skatt' should be 'dras från bruttolönen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mina pensionsavsättningar dras från min bruttolön.",
+          "list": null
+        }
+      ],
+      "itemHash": "c152df5af1faa690",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-8",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish; 'högsta ränteskulden' is unidiomatic.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag betalade först av skulden med högst ränta, samtidigt som jag behöll en liten buffert.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I paid off the highest-interest debt first, while keeping a small emergency fund.",
+          "list": null
+        }
+      ],
+      "itemHash": "3c7aa883f037a9a0",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'avbröt' means interrupted; subscriptions are 'sagts upp'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag gick igenom mina prenumerationer och sa upp dem jag inte använde.",
+          "list": null
+        }
+      ],
+      "itemHash": "f520d0c868abbea3",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b1-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "UK-only product, and the answer is nonsense. Rewritten to the Swedish equivalent.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What is the difference between an ISK and an ordinary savings account?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Vad är skillnaden mellan ett ISK och ett vanligt sparkonto?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "ISK = investeringssparkonto, an investment savings account."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "The Swedish ISK (investeringssparkonto), introduced in 2012, is taxed with a flat standard rate based on the account's value instead of on actual gains, which makes it popular for saving in stocks and funds.",
+          "list": null
+        }
+      ],
+      "itemHash": "8a0770d7f4de92f5",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mo-b1-59",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'spårar' is a calque; Swedes 'håller koll på' spending.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag håller koll på mina utgifter för att undvika onödiga kostnader.",
+          "list": null
+        }
+      ],
+      "itemHash": "a668dfa74b6a762c",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vad är det säkraste sättet att bygga upp en ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "buffert",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "buffert",
+            "skuld",
+            "förlust",
+            "räkning"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Money set aside for unexpected costs."
+          ]
+        }
+      ],
+      "itemHash": "681439345d7ebb67",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b2-1",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'wealth' is dropped from 'ackumulation', and 'läskunnighet' means literacy in reading.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sambandet mellan ekonomisk kunnighet och långsiktig förmögenhetsuppbyggnad är väldokumenterat.",
+          "list": null
+        }
+      ],
+      "itemHash": "7c197d41cb3889a7",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b2-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'Behavioural'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Behavioral economics' studies how psychology affects economic choices."
+          ]
+        }
+      ],
+      "itemHash": "e1c492aa2def901d",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The Swedish term (used by the Riksbank) is 'kvantitativa lättnader'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kvantitativa lättnader innebär att centralbanker ökar penningmängden för att stimulera den ekonomiska aktiviteten.",
+          "list": null
+        }
+      ],
+      "itemHash": "4df80ef75a0d86b2",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Split compound 'fintech innovation'; 'kämpar för att' is a calque of 'struggling to'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Regelverket för innovation inom fintech har svårt att hålla jämna steg med den tekniska utvecklingen.",
+          "list": null
+        }
+      ],
+      "itemHash": "64a336cba83d8a59",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Suveräna skuldkriser' is a calque; it is 'statsskuldskriser'. Prompt uses British 'destabilise'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Sovereign debt crises can destabilize entire regional economies if creditors lose confidence.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Statsskuldskriser kan destabilisera hela regionala ekonomier om långivarna förlorar förtroendet.",
+          "list": null
+        }
+      ],
+      "itemHash": "9ab7b170605f91c2",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vad skiljer värdet från tillväxtinvesteringar' is nonsense ('the value').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vad skiljer värdeinvestering från tillväxtinvestering som portföljstrategier?",
+          "list": null
+        }
+      ],
+      "itemHash": "385fa9f984a44b9e",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mf-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'påverkar oproportionerligt lägre inkomsthushåll' has wrong tense and an odd compound.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Inflationstrycket har urholkat den reala köpkraften och drabbat hushåll med låga inkomster oproportionerligt hårt.",
+          "list": null
+        }
+      ],
+      "itemHash": "d4973dfcf68d5582",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mo-b2-69",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'disciplinerad sparande' has wrong agreement (ett-word); 'beror på' means 'is caused by'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Långsiktig finansiell stabilitet bygger på disciplinerat sparande och diversifierade investeringar.",
+          "list": null
+        }
+      ],
+      "itemHash": "8be662c54780c29e",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Inflationen urholkar ___ när lönerna inte håller jämna steg.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "köpkraften",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "köpkraften",
+            "köpkraft",
+            "köpkraftens",
+            "köpkrafter"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Definite form of 'köpkraft' (purchasing power)."
+          ]
+        }
+      ],
+      "itemHash": "3547ed8144311a52",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    },
+    {
+      "id": "sv-mo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'risken för hushållsskuld' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a conference on household finances, you ask the panel which policies best reduce the risk of household over-indebtedness.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Vilka åtgärder är mest effektiva för att minska risken för överskuldsättning bland hushållen?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Which policies are most effective in reducing household debt risk?",
+          "list": null
+        }
+      ],
+      "itemHash": "7f2a516c9491e84f",
+      "appliedAt": "2026-10-22T10:00:55.269Z"
+    }
+  ]
+}

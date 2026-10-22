@@ -6,7 +6,7 @@
     "prompt": "Say: I am hungry.",
     "correctAnswer": "Ich habe Hunger.",
     "hints": [
-      "Practice this phrase out loud."
+      "German 'has hunger': Hunger haben."
     ]
   },
   {
@@ -14,9 +14,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Can I have a glass of water, please?",
-    "correctAnswer": "Kann ich ein Glas Wasser haben?",
+    "correctAnswer": "Kann ich bitte ein Glas Wasser haben?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Bitte' usually goes after the verb and subject."
+    ],
+    "acceptedAnswers": [
+      "Könnte ich bitte ein Glas Wasser bekommen?",
+      "Ein Glas Wasser, bitte."
     ]
   },
   {
@@ -26,7 +30,7 @@
     "prompt": "Say: I would like a coffee with milk.",
     "correctAnswer": "Ich möchte einen Kaffee mit Milch.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Möchte' + accusative: einen Kaffee."
     ]
   },
   {
@@ -34,7 +38,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Is this vegetarian?",
-    "correctAnswer": "Ist das Vegetarier?",
+    "correctAnswer": "Ist das vegetarisch?",
     "hints": [
       "A short, useful restaurant question."
     ]
@@ -54,20 +58,27 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the main part of a meal, usually meat or fish",
-    "correctAnswer": "hauptkurs",
+    "correctAnswer": "das Hauptgericht",
     "hints": [
-      "It comes after the starter."
+      "It comes after the starter (die Vorspeise)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Hauptgericht",
+      "der Hauptgang"
+    ]
   },
   {
     "id": "de-fo-16",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: What is the soup of the day?",
-    "correctAnswer": "Was ist die Suppe des Tages?",
+    "correctAnswer": "Was ist die Tagessuppe?",
     "hints": [
       "A common restaurant question."
+    ],
+    "acceptedAnswers": [
+      "Welche Suppe gibt es heute?"
     ]
   },
   {
@@ -85,20 +96,27 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Can we see the menu?",
-    "correctAnswer": "Können wir das Menü sehen?",
+    "correctAnswer": "Können wir die Speisekarte sehen?",
     "hints": [
       "A polite first request in a restaurant."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Könnten wir bitte die Speisekarte haben?"
+    ]
   },
   {
     "id": "de-fo-19",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I prefer tea to coffee.",
-    "correctAnswer": "Ich bevorzuge Tee zum Kaffee.",
+    "correctAnswer": "Ich trinke lieber Tee als Kaffee.",
     "hints": [
-      "Use 'prefer X to Y' to compare two things."
+      "'Lieber ... als' = to prefer ... to."
+    ],
+    "acceptedAnswers": [
+      "Ich mag Tee lieber als Kaffee.",
+      "Ich ziehe Tee Kaffee vor."
     ]
   },
   {
@@ -148,9 +166,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I usually cook dinner at home in the evenings.",
-    "correctAnswer": "Ich koche normalerweise Abendessen zu Hause an den Abenden.",
+    "correctAnswer": "Abends koche ich normalerweise zu Hause.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Normalerweise koche ich abends zu Hause."
     ]
   },
   {
@@ -158,9 +179,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Could we have the bill, please?",
-    "correctAnswer": "Könnten wir die Rechnung haben?",
+    "correctAnswer": "Könnten wir bitte die Rechnung haben?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Wir möchten bitte zahlen.",
+      "Die Rechnung, bitte."
     ]
   },
   {
@@ -178,7 +203,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How long does it take to prepare this recipe?",
-    "correctAnswer": "Wie lange dauert es, dieses Rezept vorzubereiten?",
+    "correctAnswer": "Wie lange dauert es, dieses Gericht zuzubereiten?",
     "hints": [
       "Use 'how long does it take to' for time questions."
     ]
@@ -187,7 +212,7 @@
     "id": "de-fo-22",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I would like to try the local speciality.",
+    "prompt": "Say: I would like to try the local specialty.",
     "correctAnswer": "Ich möchte die lokale Spezialität ausprobieren.",
     "hints": [
       "'Would like to' for polite wishes."
@@ -198,7 +223,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can you recommend a good restaurant near here?",
-    "correctAnswer": "Können Sie hier ein gutes Restaurant empfehlen?",
+    "correctAnswer": "Können Sie ein gutes Restaurant hier in der Nähe empfehlen?",
     "hints": [
       "'Can you recommend' is a common way to ask for suggestions."
     ]
@@ -208,7 +233,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I always add garlic and olive oil to my cooking.",
-    "correctAnswer": "Ich füge immer Knoblauch und Olivenöl zum Kochen hinzu.",
+    "correctAnswer": "Beim Kochen nehme ich immer Knoblauch und Olivenöl.",
     "hints": [
       "'I always' expresses a regular habit."
     ]
@@ -228,16 +253,19 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Is it possible to substitute the chips for salad?",
-    "correctAnswer": "Ist es möglich, die Chips für Salat zu ersetzen?",
+    "correctAnswer": "Kann ich statt Pommes einen Salat bekommen?",
     "hints": [
-      "'Substitute X for Y' means replace X with Y."
+      "'Statt' + noun = instead of."
+    ],
+    "acceptedAnswers": [
+      "Kann ich die Pommes durch Salat ersetzen?"
     ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am trying a new recipe tonight.",
-    "correctAnswer": "Ich versuche heute ein neues Rezept.",
+    "correctAnswer": "Heute Abend probiere ich ein neues Rezept aus.",
     "hints": [
       "Present continuous plan sentence."
     ],
@@ -257,10 +285,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We ate at a small family restaurant.",
-    "correctAnswer": "Wir aßen in einem kleinen Familienrestaurant.",
+    "prompt": "Wir haben in einem kleinen ___ gegessen.",
+    "correctAnswer": "Familienrestaurant",
     "hints": [
-      "Past dining sentence."
+      "A compound noun: family + restaurant."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-fo-a2-51"
@@ -270,7 +298,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently started following a plant-based diet.",
-    "correctAnswer": "Ich habe kürzlich nach einer pflanzenbasierten Ernährung begonnen.",
+    "correctAnswer": "Ich habe vor Kurzem angefangen, mich pflanzlich zu ernähren.",
     "hints": [
       "Present perfect with 'recently' for a recent change."
     ]
@@ -280,7 +308,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The recipe calls for two cloves of garlic and a pinch of salt.",
-    "correctAnswer": "Das Rezept fordert zwei Knoblauchzehen und eine Prise Salz.",
+    "correctAnswer": "Für das Rezept braucht man zwei Knoblauchzehen und eine Prise Salz.",
     "hints": [
       "'Calls for' in a recipe context means 'requires'."
     ]
@@ -300,9 +328,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I tend to experiment with different cuisines when I cook at home.",
-    "correctAnswer": "Ich neige dazu, mit verschiedenen Küchen zu experimentieren, wenn ich zu Hause kochen.",
+    "correctAnswer": "Wenn ich zu Hause koche, experimentiere ich gern mit verschiedenen Küchen.",
     "hints": [
       "'I tend to' softens a personal habit."
+    ],
+    "acceptedAnswers": [
+      "Ich neige dazu, mit verschiedenen Küchen zu experimentieren, wenn ich zu Hause koche."
     ]
   },
   {
@@ -310,7 +341,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: This is slightly overcooked, but the flavor is still very good.",
-    "correctAnswer": "Dies ist leicht überkocht, aber der Geschmack ist noch sehr gut.",
+    "correctAnswer": "Das ist etwas zu lange gekocht, aber der Geschmack ist trotzdem sehr gut.",
     "hints": [
       "Soften a complaint with 'slightly' and follow up with a positive."
     ]
@@ -320,7 +351,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would you be able to cater for a gluten-free option?",
-    "correctAnswer": "Möchten Sie eine glutenfreie Option bieten?",
+    "correctAnswer": "Könnten Sie eine glutenfreie Variante anbieten?",
     "hints": [
       "'Would you be able to' is very polite; 'cater for' means provide for."
     ]
@@ -330,9 +361,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Slow cooking on a low heat develops the flavor much better.",
-    "correctAnswer": "Langsames Kochen auf niedriger Hitze entwickelt den Geschmack viel besser.",
+    "correctAnswer": "Langsames Garen bei schwacher Hitze entfaltet den Geschmack viel besser.",
     "hints": [
-      "'Develops the flavour' is a cooking technique description."
+      "'Den Geschmack entfalten' = to develop the flavor."
     ]
   },
   {
@@ -340,7 +371,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am hosting a dinner party next Saturday and need inspiration.",
-    "correctAnswer": "Ich hoste am nächsten Samstag eine Dinnerparty und brauche Inspiration.",
+    "correctAnswer": "Nächsten Samstag gebe ich eine Dinnerparty und brauche Inspiration.",
     "hints": [
       "Present continuous for a planned future event."
     ]
@@ -390,10 +421,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I started meal-prepping to save time during the week.",
-    "correctAnswer": "Ich fing an, während der Woche Zeit zu sparen.",
+    "prompt": "Ich habe angefangen, Mahlzeiten vorzukochen, um unter der Woche Zeit zu ___.",
+    "correctAnswer": "sparen",
     "hints": [
-      "Purpose clause."
+      "A verb meaning 'to save'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-fo-b1-61"
@@ -434,11 +465,11 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Sourcing seasonal, locally-grown produce is both an ecological and a culinary choice.",
-    "correctAnswer": "Saubere saisonale, lokal gezüchtete Produkte sind eine ökologische und kulinarische Wahl.",
+    "correctAnswer": "Saisonale Produkte aus der Region zu kaufen, ist sowohl eine ökologische als auch eine kulinarische Entscheidung.",
     "hints": [
       "'Sourcing' means finding and obtaining; 'culinary' relates to cooking."
     ],
-    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients."
+    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasizing shorter supply chains and fresher ingredients."
   },
   {
     "id": "de-fo-35",
@@ -495,10 +526,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can cities reduce food waste across supply chains?",
-    "correctAnswer": "Wie können Städte Lebensmittelabfälle über Lieferketten reduzieren?",
+    "prompt": "Wie können Städte die ___ entlang der Lieferketten reduzieren?",
+    "correctAnswer": "Lebensmittelverschwendung",
     "hints": [
-      "Policy-level food question."
+      "A compound noun for food waste."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-fo-b2-70"
@@ -506,7 +537,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: A balanced diet depends on variety rather than strict restriction.",
+    "prompt": "Choose the best response. A friend asks whether they should cut out carbs completely.",
     "correctAnswer": "Eine ausgewogene Ernährung hängt von der Vielfalt und nicht von der strengen Beschränkung ab.",
     "hints": [
       "B2 nutrition phrasing."

@@ -6,7 +6,12 @@
     "prompt": "Say: Hello, how are you?",
     "correctAnswer": "Bonjour, ça va ?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Ça va ?' is casual; formal: 'Comment allez-vous ?'"
+    ],
+    "acceptedAnswers": [
+      "Salut, ça va ?",
+      "Bonjour, comment allez-vous ?",
+      "Bonjour, comment vas-tu ?"
     ]
   },
   {
@@ -16,7 +21,11 @@
     "prompt": "Say: Thank you very much for your help.",
     "correctAnswer": "Merci beaucoup pour votre aide.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Votre' is formal, 'ton' informal."
+    ],
+    "acceptedAnswers": [
+      "Merci beaucoup pour ton aide.",
+      "Merci beaucoup de votre aide."
     ]
   },
   {
@@ -26,7 +35,7 @@
     "prompt": "Say: I do not understand this sentence.",
     "correctAnswer": "Je ne comprends pas cette phrase.",
     "hints": [
-      "Practice this phrase out loud."
+      "Negation wraps the verb: ne ... pas."
     ]
   },
   {
@@ -36,7 +45,7 @@
     "prompt": "Say: Excuse me, where is the bathroom?",
     "correctAnswer": "Excusez-moi, où sont les toilettes ?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Les toilettes' is always plural in French."
     ]
   },
   {
@@ -44,11 +53,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My name is Anna.",
-    "correctAnswer": "Mon nom est Anna.",
+    "correctAnswer": "Je m'appelle Anna.",
     "hints": [
       "A basic introduction."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Mon nom est Anna."
+    ]
   },
   {
     "id": "fr-es-a1-6",
@@ -99,21 +111,29 @@
     "id": "fr-es-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "I ___ from Spain.",
-    "correctAnswer": "je suis",
+    "prompt": "Je ___ d'Espagne.",
+    "correctAnswer": "viens",
     "hints": [
-      "Use the correct form of 'to be'."
+      "'Venir de' or 'être de' + place = to be from."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "acceptedAnswers": [
+      "suis"
+    ]
   },
   {
     "id": "fr-es-a1-11",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: Goodbye, see you later!",
-    "correctAnswer": "A tout à l'heure !",
+    "correctAnswer": "Au revoir, à tout à l'heure !",
     "hints": [
       "A common farewell."
+    ],
+    "acceptedAnswers": [
+      "À tout à l'heure !",
+      "Au revoir, à plus tard !",
+      "Salut, à plus !"
     ]
   },
   {
@@ -147,7 +167,12 @@
     "hints": [
       "A greeting when meeting someone new."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Enchanté.",
+      "Enchantée.",
+      "Ravie de vous rencontrer."
+    ]
   },
   {
     "id": "fr-es-a1-15",
@@ -157,17 +182,24 @@
     "correctAnswer": "Je suis désolé, je ne sais pas.",
     "hints": [
       "Practice admitting you do not know something."
+    ],
+    "acceptedAnswers": [
+      "Je suis désolée, je ne sais pas.",
+      "Désolé, je ne sais pas."
     ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: Could you repeat that, please?",
-    "correctAnswer": "Pourriez-vous répéter ?",
+    "correctAnswer": "Pourriez-vous répéter, s'il vous plaît ?",
     "hints": [
       "A polite clarification request."
     ],
-    "id": "fr-es-a1-53"
+    "id": "fr-es-a1-53",
+    "acceptedAnswers": [
+      "Tu peux répéter, s'il te plaît ?"
+    ]
   },
   {
     "level": "a1",
@@ -175,7 +207,7 @@
     "prompt": "Say: I am learning every day.",
     "correctAnswer": "J'apprends tous les jours.",
     "hints": [
-      "Present continuous can also work in context."
+      "French has no continuous tense: 'j'apprends' covers both."
     ],
     "exerciseType": "build_sentence",
     "id": "fr-es-a1-54"
@@ -248,12 +280,15 @@
     "id": "fr-es-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "I ___ to school yesterday.",
-    "correctAnswer": "est parti",
+    "prompt": "Hier, je ___ à l'école.",
+    "correctAnswer": "suis allé",
     "hints": [
-      "Use the past tense of 'go'."
+      "'Aller' forms the passé composé with 'être'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "acceptedAnswers": [
+      "suis allée"
+    ]
   },
   {
     "id": "fr-es-a2-6",
@@ -304,7 +339,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "to apologize",
-    "correctAnswer": "pour s'excuser",
+    "correctAnswer": "s'excuser",
     "hints": [
       "To say you are sorry for something."
     ],
@@ -324,10 +359,10 @@
     "id": "fr-es-a2-12",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "She ___ English and French.",
+    "prompt": "Elle ___ anglais et français.",
     "correctAnswer": "parle",
     "hints": [
-      "Use the correct present tense form."
+      "Third person singular of 'parler'."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -355,10 +390,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I usually review new words at night.",
-    "correctAnswer": "D'habitude, je passe en revue de nouveaux mots la nuit.",
+    "prompt": "D'habitude, je ___ les nouveaux mots le soir.",
+    "correctAnswer": "révise",
     "hints": [
-      "Use adverbs with routine verbs."
+      "'Réviser' = to review/go over."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-es-a2-63"
@@ -409,20 +444,24 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Although it was raining, we walked to the park.",
-    "correctAnswer": "Même s'il pleuvait, nous sommes allés au parc.",
+    "correctAnswer": "Même s'il pleuvait, nous sommes allés au parc à pied.",
     "hints": [
       "Connect two ideas with 'although'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Bien qu'il ait plu, nous sommes allés au parc à pied.",
+      "Même s'il pleuvait, nous sommes allés au parc."
+    ]
   },
   {
     "id": "fr-es-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "I have ___ living here for three years.",
-    "correctAnswer": "était",
+    "prompt": "J'___ ici depuis trois ans.",
+    "correctAnswer": "habite",
     "hints": [
-      "Use present perfect continuous."
+      "French uses the present + 'depuis' for something still going on."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -487,8 +526,7 @@
     "prompt": "Say: I have been waiting for twenty minutes.",
     "correctAnswer": "J'attends depuis vingt minutes.",
     "hints": [
-      "Use present perfect continuous for duration.",
-      "Connect the two ideas."
+      "Present tense + 'depuis' for something still going on."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -497,7 +535,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "to complain",
-    "correctAnswer": "de se plaindre",
+    "correctAnswer": "se plaindre",
     "hints": [
       "To express dissatisfaction about something."
     ],
@@ -507,7 +545,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been practicing this expression for weeks.",
-    "correctAnswer": "Je pratique cette expression depuis des semaines.",
+    "correctAnswer": "Je m'entraîne à utiliser cette expression depuis des semaines.",
     "hints": [
       "Present perfect continuous for duration."
     ],
@@ -527,24 +565,30 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I understood the idea but missed one detail.",
-    "correctAnswer": "J'ai compris l'idée mais j'ai raté un détail.",
+    "prompt": "J'ai compris l'idée, mais j'ai ___ un détail.",
+    "correctAnswer": "raté",
     "hints": [
-      "Natural reflection sentence."
+      "Past participle meaning 'missed'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-es-b1-71"
+    "id": "fr-es-b1-71",
+    "acceptedAnswers": [
+      "manqué"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I am trying to sound more natural in conversations.",
+    "prompt": "Choose the best response. Your tutor asks what you are working on at the moment.",
     "correctAnswer": "J'essaie de paraître plus naturel dans les conversations.",
     "hints": [
       "Goal-focused phrasing."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "fr-es-b1-72"
+    "id": "fr-es-b1-72",
+    "acceptedAnswers": [
+      "J'essaie de paraître plus naturelle dans les conversations."
+    ]
   },
   {
     "id": "fr-es-8",
@@ -571,7 +615,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: It is essential to adapt your tone to the situation.",
-    "correctAnswer": "Il est essentiel d'adapter votre ton à la situation.",
+    "correctAnswer": "Il est essentiel d'adapter son ton à la situation.",
     "hints": [
       "Consider the register.",
       "Focus on natural phrasing and word order."
@@ -581,10 +625,10 @@
     "id": "fr-es-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "The more you practice, the ___ confident you become.",
+    "prompt": "Plus tu pratiques, ___ tu prends confiance.",
     "correctAnswer": "plus",
     "hints": [
-      "Use the comparative structure 'the more... the more...'."
+      "'Plus ..., plus ...' = the more ..., the more ..."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -593,9 +637,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known the answer, I would have spoken up.",
-    "correctAnswer": "Si j'avais su la réponse, j'aurais parlé.",
+    "correctAnswer": "Si j'avais su la réponse, j'aurais pris la parole.",
     "hints": [
-      "Use inverted third conditional."
+      "'Si' + plus-que-parfait, then conditionnel passé."
     ],
     "exerciseType": "build_sentence"
   },
@@ -658,18 +702,21 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "to paraphrase",
-    "correctAnswer": "pour paraphraser",
+    "correctAnswer": "paraphraser",
     "hints": [
       "To express the same idea using different words."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "reformuler"
+    ]
   },
   {
     "id": "fr-es-b2-12",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Nuance is what separates adequate language from truly fluent speech.",
-    "correctAnswer": "La nuance est ce qui sépare un langage adéquat d'un langage vraiment couramment parlé.",
+    "correctAnswer": "La nuance est ce qui distingue un langage correct d'une expression vraiment fluide.",
     "hints": [
       "Consider the register."
     ]
@@ -679,7 +726,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Being articulate is not the same as being verbose.",
-    "correctAnswer": "Être articulé n'est pas la même chose qu'être verbeux.",
+    "correctAnswer": "S'exprimer avec aisance n'est pas la même chose qu'être verbeux.",
     "hints": [
       "Focus on natural phrasing and word order."
     ],
@@ -689,7 +736,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I can infer the meaning from context most of the time.",
-    "correctAnswer": "Je peux déduire le sens du contexte la plupart du temps.",
+    "correctAnswer": "La plupart du temps, je peux déduire le sens à partir du contexte.",
     "hints": [
       "Academic-style phrasing."
     ],
@@ -698,10 +745,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify the nuance of that expression?",
-    "correctAnswer": "Pourriez-vous clarifier la nuance de cette expression ?",
+    "prompt": "Pourriez-vous préciser la ___ de cette expression ?",
+    "correctAnswer": "nuance",
     "hints": [
-      "Useful for advanced accuracy."
+      "A fine shade of meaning."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-es-b2-78"
@@ -709,8 +756,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I am confident, although I still make occasional mistakes.",
-    "correctAnswer": "Je suis confiant, même si je fais des erreurs occasionnelles.",
+    "prompt": "Choose the best response. An interviewer asks how confident you feel speaking French.",
+    "correctAnswer": "J'ai confiance en moi, même si je fais encore des erreurs de temps en temps.",
     "hints": [
       "Use concession for balanced statements."
     ],

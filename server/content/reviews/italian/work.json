@@ -1,0 +1,722 @@
+{
+  "language": "italian",
+  "category": "work",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:27:00.914Z",
+  "contentHash": "9272b6a1b5aa9188",
+  "summary": "Basic workplace sentences are fine, but business-jargon items were machine-translated word by word into nonsense or wrong meanings (segnale-off, tempi di piombo, scagliare, decollo finale, consegnabili, sala di allenamento, mi sono dato, copiare su quell'email). There are also accent misspellings, British leftovers ('annual leave'), and the usual cloze items without blanks and roleplay/dialogue items lacking answerEnglish or a situation.",
+  "findings": [
+    {
+      "id": "it-wo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Lavorare in' + place; 'un ufficio' = an office."
+          ]
+        }
+      ],
+      "itemHash": "d9c65d61acdef123",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Alle' + hour for clock times: 'alle nove'."
+          ]
+        }
+      ],
+      "itemHash": "9154aa60a8e323a2",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint (lint confirmed); feminine and 'dipendente' forms not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Impiegato/impiegata' agrees with the speaker."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono la nuova impiegata.",
+            "Sono il nuovo dipendente.",
+            "Sono la nuova dipendente."
+          ]
+        }
+      ],
+      "itemHash": "1c1e86a285f14b58",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-16",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The native 'responsabile' / 'capo' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il mio responsabile è molto disponibile.",
+            "Il mio capo è molto disponibile."
+          ]
+        }
+      ],
+      "itemHash": "8cc9d212622fa5cd",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-a1-42",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sala di allenamento' is a gym/training hall for sport; a work training room is 'sala formazione'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dov'è la sala formazione?",
+          "list": null
+        }
+      ],
+      "itemHash": "b65683c63d65f625",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-a1-43",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'segnale-off' is not a word, and the hint is about English hyphenation.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "approvazione finale",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'final approval'; in offices you may also hear the English 'sign-off'."
+          ]
+        }
+      ],
+      "itemHash": "37dddb6de52cf20c",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-a1-48",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Lint confirmed: the back repeats the English word; the native term is 'responsabile'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "responsabile",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The person you report to; 'manager' is also used in Italian offices."
+          ]
+        }
+      ],
+      "itemHash": "473bac19813b4d37",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'venerdi'' should be 'venerdì'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Puoi mandarmi il rapporto entro venerdì?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Può mandarmi il rapporto entro venerdì?",
+            "Potresti mandarmi il rapporto entro venerdì?"
+          ]
+        }
+      ],
+      "itemHash": "15464bde5bb69f30",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'alle due di questo pomeriggio' is stiff; Italian says 'oggi pomeriggio alle due'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho una riunione oggi pomeriggio alle due.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Oggi pomeriggio alle due ho una riunione."
+          ]
+        }
+      ],
+      "itemHash": "7b99bbe12401b039",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'spostare la riunione' is the most common phrasing and is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Possiamo spostare la riunione a giovedì?",
+            "Possiamo rimandare la riunione a giovedì?"
+          ]
+        }
+      ],
+      "itemHash": "375801d82fc3cbd1",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-19",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The set phrase is 'entro fine giornata'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ti invierò la versione aggiornata entro fine giornata.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ti manderò la versione aggiornata entro fine giornata.",
+            "Ti invierò la versione aggiornata entro la fine della giornata."
+          ]
+        }
+      ],
+      "itemHash": "0425b787361da21a",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'copiare' means to copy (a text); putting someone in CC is 'mettere in copia'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Puoi mettermi in copia in quella mail?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi puoi mettere in copia in quell'e-mail?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mettere in copia' = add someone to the CC field."
+          ]
+        }
+      ],
+      "itemHash": "108eaf56e1542a1a",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-21",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'congedo annuale' isn't used; paid vacation is 'ferie'. Prompt uses British 'annual leave'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I would like to take two weeks of vacation in August.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei prendere due settimane di ferie ad agosto.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vorrei prendere due settimane di ferie in agosto."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Le ferie' (always plural) = paid vacation from work."
+          ]
+        }
+      ],
+      "itemHash": "046b0e3d5ae19f04",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-23",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A work deadline is 'la scadenza'; 'il termine' is less natural here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La scadenza è lunedì prossimo a mezzogiorno.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La scadenza è il prossimo lunedì a mezzogiorno."
+          ]
+        }
+      ],
+      "itemHash": "521a64730a9a16d4",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-24",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish; feminine 'libera' not accepted.",
+      "fix": [
+        {
+          "field": "answerEnglish",
+          "text": "I'm free tomorrow morning, but I have a call in the afternoon.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono libera domattina, ma ho una chiamata nel pomeriggio."
+          ]
+        }
+      ],
+      "itemHash": "8d7c06cfd9566a28",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-41",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'compiti' usually means homework; work tasks are 'attività' or 'incarichi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho finito le mie attività per oggi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho finito i miei compiti per oggi.",
+            "Per oggi ho finito."
+          ]
+        }
+      ],
+      "itemHash": "1b2a90a4e67fc6de",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-a2-53",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sono ___ degli aggiornamenti settimanali.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "responsabile",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "responsabile",
+            "responsabili",
+            "responsabilità",
+            "responsabilmente"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'in charge of'; singular after 'sono'."
+          ]
+        }
+      ],
+      "itemHash": "db73a1cf37f8cdfc",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-6",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'conflitto di pianificazione' is a calque; Italian says 'sovrapposizione di impegni'. Feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Non sono riuscito a partecipare alla teleconferenza per una sovrapposizione di impegni.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Non sono riuscita a partecipare alla teleconferenza per una sovrapposizione di impegni.",
+            "Non ho potuto partecipare alla call per una sovrapposizione di impegni."
+          ]
+        }
+      ],
+      "itemHash": "78ec41a29d45ce46",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-28",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'coordinare tra' is ungrammatical; 'coordinare' takes a direct object.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il mio ruolo consiste nel coordinare i team di vendita e di marketing.",
+          "list": null
+        }
+      ],
+      "itemHash": "b843c6ea1325f6a5",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-29",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'su dove le cose stanno' is a literal calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Potresti aggiornarmi su come stanno andando le cose con il cliente?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Potresti darmi un aggiornamento sulla situazione con il cliente?"
+          ]
+        }
+      ],
+      "itemHash": "f9792639cab82282",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-42",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Mi sono dato' means 'I gave myself'; the prompt is passive.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Da quando sono stato promosso mi hanno dato più responsabilità.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Da quando sono stata promossa mi hanno dato più responsabilità.",
+            "Dalla mia promozione mi sono state date più responsabilità."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian often uses an impersonal 'mi hanno dato' instead of the passive."
+          ]
+        }
+      ],
+      "itemHash": "729ca9fbf5e332f0",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-b1-62",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A meeting agenda is 'ordine del giorno'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei proporre un ordine del giorno più breve.",
+          "list": null
+        }
+      ],
+      "itemHash": "62b01c659bdf0d47",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-b1-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Possiamo ___ questa scadenza a mercoledì prossimo?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "spostare",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "spostare",
+            "sposare",
+            "spostata",
+            "spostando"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'possiamo'; it means 'to move'."
+          ]
+        }
+      ],
+      "itemHash": "4ce5d574b0c3b2bc",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-b1-64",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: Your colleague asks you to approve a project plan right away.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I need more context before I can approve this plan.",
+          "list": null
+        }
+      ],
+      "itemHash": "2dcef1128e1a5649",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'linea temporale' is a calque; a project timeline is 'tempistica' or 'cronoprogramma'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei proporre una revisione della tempistica del progetto.",
+          "list": null
+        }
+      ],
+      "itemHash": "5a95199e17022241",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'ritorno proiettato' and 'preoccupazioni circa' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gli stakeholder nutrono dubbi sul ritorno previsto dell'investimento.",
+          "list": null
+        }
+      ],
+      "itemHash": "378d3fef16698e2d",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'consegnabili' is not an Italian word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Facendo seguito alla mia e-mail precedente, volevo chiarire i risultati attesi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Facendo seguito alla mia e-mail precedente, volevo chiarire i deliverable."
+          ]
+        }
+      ],
+      "itemHash": "fe85830fb0f75296",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-31",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'impegnare le risorse a' takes 'in'; 'allinearci sulle priorità' renders 'align on'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dobbiamo allinearci sulle priorità prima di impegnare risorse in questa iniziativa.",
+          "list": null
+        }
+      ],
+      "itemHash": "c6ddc3aac5b35de4",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'pilotare' means to steer and 'scagliare' means to hurl; the sentence is nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Raccomando di testare la soluzione con un piccolo gruppo pilota prima di estenderla su larga scala.",
+          "list": null
+        }
+      ],
+      "itemHash": "c0a4f6ac1e0754d3",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-37",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'tempi di piombo' (lead the metal) is a nonsense calque; lead times are 'tempi di consegna'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il processo di approvvigionamento deve essere semplificato per ridurre i tempi di consegna.",
+          "list": null
+        }
+      ],
+      "itemHash": "d8e82c3ce103fe64",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-b2-72",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'decollo finale' means final takeoff; the cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Suggerisco di documentare i rischi prima dell'___ finale.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "approvazione",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "approvazione",
+            "approvare",
+            "approvato",
+            "approva"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'approval' (sign-off)."
+          ]
+        }
+      ],
+      "itemHash": "fbd62747961fe66a",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    },
+    {
+      "id": "it-wo-b2-73",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'dobbiamo' should be conditional 'dovremmo' for 'should'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: In a project meeting, you raise the risk of delays in the upcoming rollout.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Come dovremmo mitigare i potenziali ritardi in questo rollout?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should we mitigate potential delays in this rollout?",
+          "list": null
+        }
+      ],
+      "itemHash": "4b62a195479df04c",
+      "appliedAt": "2026-10-22T09:34:59.437Z"
+    }
+  ]
+}

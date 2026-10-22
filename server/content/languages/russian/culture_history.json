@@ -148,7 +148,7 @@
     "prompt": "a samovar",
     "correctAnswer": "самовар",
     "hints": [
-      "A traditional heated urn for brewing tea — a centrepiece of Russian hospitality."
+      "A traditional heated urn for brewing tea — a centerpiece of Russian hospitality."
     ],
     "exerciseType": "flashcard",
     "culturalNote": "The samovar has been an essential part of the Russian tea tradition for three centuries."
@@ -277,7 +277,10 @@
     "hints": [
       "'Посетил' is perfective past — a completed single visit."
     ],
-    "culturalNote": "The Tretyakov Gallery in Moscow holds the world's largest collection of Russian art."
+    "culturalNote": "The Tretyakov Gallery in Moscow holds the world's largest collection of Russian art.",
+    "acceptedAnswers": [
+      "Прошлым летом я посетила Третьяковскую галерею."
+    ]
   },
   {
     "id": "ru-ch-a2-6",
@@ -491,7 +494,7 @@
     "prompt": "a tradition",
     "correctAnswer": "традиция",
     "hints": [
-      "Match the cultural term."
+      "A custom passed down through generations. Feminine noun."
     ],
     "exerciseType": "matching"
   },
@@ -556,7 +559,7 @@
     "prompt": "Ask: What does this symbol represent in Russian culture?",
     "correctAnswer": "Что символизирует этот знак в русской культуре?",
     "hints": [
-      "'Символизировать' = to symbolise. 'В русской культуре' = prepositional case."
+      "'Символизировать' = to symbolize. 'В русской культуре' = prepositional case."
     ]
   },
   {
@@ -568,7 +571,7 @@
     "hints": [
       "Superlatives in Russian: 'самое глубокое' = the deepest (neuter adjective agreeing with 'озеро')."
     ],
-    "culturalNote": "Lake Baikal holds about 20% of the planet's fresh water and is a UNESCO World Heritage Site."
+    "culturalNote": "Lake Baikal holds about 20% of the world's unfrozen surface fresh water and is a UNESCO World Heritage Site."
   },
   {
     "id": "ru-ch-b1-11",
@@ -606,7 +609,7 @@
     "id": "ru-ch-b1-14",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: В 1961 году Гагарин первым ___ в открытый космос.",
+    "prompt": "Fill in the blank: В 1961 году Гагарин первым ___ в космос.",
     "correctAnswer": "полетел",
     "hints": [
       "Perfective past of 'лететь' — 'полетел' captures a single, completed journey."
@@ -653,7 +656,7 @@
       "'Высотка' = skyscraper (colloquial). 'Семь высоток' — genitive plural after the numeral."
     ],
     "exerciseType": "cloze_sentence",
-    "culturalNote": "The seven Stalinist skyscrapers (the 'Seven Sisters') were built in 1947–1953 and still shape Moscow's skyline today."
+    "culturalNote": "The seven Stalinist skyscrapers (the 'Seven Sisters') were built in 1947–1957 and still shape Moscow's skyline today."
   },
   {
     "id": "ru-ch-b1-18",
@@ -691,10 +694,10 @@
     "id": "ru-ch-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Could you explain this tradition to me?",
-    "correctAnswer": "Можешь объяснить мне эту традицию?",
+    "prompt": "Say: Could you explain to me where this tradition comes from and what it means today?",
+    "correctAnswer": "Не могли бы вы объяснить мне, откуда пошла эта традиция и что она значит сегодня?",
     "hints": [
-      "A polite question about local culture."
+      "'Не могли бы вы' = polite 'could you'; 'откуда пошла' = where it comes from."
     ],
     "exerciseType": "pronunciation"
   },
@@ -702,10 +705,10 @@
     "id": "ru-ch-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I love learning local history.",
-    "correctAnswer": "Мне нравится изучать местную историю.",
+    "prompt": "Say: Studying local history helps me understand how people here see the world.",
+    "correctAnswer": "Изучение местной истории помогает мне понять, как местные жители смотрят на мир.",
     "hints": [
-      "A positive statement."
+      "A verbal noun subject ('изучение') + 'помогать' + dative + infinitive."
     ],
     "exerciseType": "pronunciation"
   },
@@ -713,10 +716,10 @@
     "id": "ru-ch-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: This legend is popular here.",
-    "correctAnswer": "Эта легенда популярна здесь.",
+    "prompt": "Say: This legend is still passed down from generation to generation here.",
+    "correctAnswer": "Эту легенду здесь до сих пор передают из поколения в поколение.",
     "hints": [
-      "Use a natural tone."
+      "An impersonal 3rd-person plural ('передают') renders the English passive; 'до сих пор' = still."
     ],
     "exerciseType": "pronunciation"
   },
@@ -833,7 +836,7 @@
     "prompt": "Say: The Fabergé eggs represent the pinnacle of Russian imperial craftsmanship.",
     "correctAnswer": "Яйца Фаберже — вершина мастерства русских императорских ювелиров.",
     "hints": [
-      "'Вершина чего-то' = the pinnacle of something. 'Ювелиров' = genitive plural of 'ювелир' (jeweller)."
+      "'Вершина чего-то' = the pinnacle of something. 'Ювелиров' = genitive plural of 'ювелир' (jeweler)."
     ],
     "culturalNote": "Carl Fabergé created 50 imperial eggs for Alexander III and Nicholas II between 1885 and 1916."
   },
@@ -866,7 +869,7 @@
     "prompt": "Say: The concept of 'the Russian soul' is celebrated by some and contested by others.",
     "correctAnswer": "Концепция «русской души» одними прославляется, другими оспаривается.",
     "hints": [
-      "'Одними … другими' = by some … by others (instrumental). Two short-form passive participles in parallel."
+      "'Одними … другими' = by some … by others (instrumental). Two passive -ся verbs in parallel."
     ]
   }
 ]

@@ -6,7 +6,7 @@
     "prompt": "Say: I am hungry.",
     "correctAnswer": "J'ai faim.",
     "hints": [
-      "Practice this phrase out loud."
+      "French 'has hunger': avoir faim."
     ]
   },
   {
@@ -14,9 +14,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Can I have a glass of water, please?",
-    "correctAnswer": "Je peux avoir un verre d'eau ?",
+    "correctAnswer": "Je peux avoir un verre d'eau, s'il vous plaît ?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Je peux avoir...?' is a common, polite way to order."
+    ],
+    "acceptedAnswers": [
+      "Pourrais-je avoir un verre d'eau, s'il vous plaît ?",
+      "Un verre d'eau, s'il vous plaît."
     ]
   },
   {
@@ -26,7 +30,11 @@
     "prompt": "Say: I would like a coffee with milk.",
     "correctAnswer": "Je voudrais un café avec du lait.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Je voudrais' is the polite form of 'vouloir'."
+    ],
+    "acceptedAnswers": [
+      "Je voudrais un café au lait.",
+      "Je voudrais un café crème."
     ]
   },
   {
@@ -54,11 +62,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the main part of a meal, usually meat or fish",
-    "correctAnswer": "cours principal",
+    "correctAnswer": "le plat principal",
     "hints": [
-      "It comes after the starter."
+      "It comes after the starter ('l'entrée')."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "plat principal"
+    ]
   },
   {
     "id": "fr-fo-16",
@@ -89,7 +100,11 @@
     "hints": [
       "A polite first request in a restaurant."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "On peut voir la carte ?",
+      "Pourrions-nous voir la carte ?"
+    ]
   },
   {
     "id": "fr-fo-19",
@@ -158,9 +173,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Could we have the bill, please?",
-    "correctAnswer": "On peut avoir la facture, s'il vous plaît ?",
+    "correctAnswer": "On peut avoir l'addition, s'il vous plaît ?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "L'addition, s'il vous plaît.",
+      "Pourrions-nous avoir l'addition, s'il vous plaît ?"
     ]
   },
   {
@@ -187,10 +206,13 @@
     "id": "fr-fo-22",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I would like to try the local speciality.",
+    "prompt": "Say: I would like to try the local specialty.",
     "correctAnswer": "Je voudrais essayer la spécialité locale.",
     "hints": [
       "'Would like to' for polite wishes."
+    ],
+    "acceptedAnswers": [
+      "Je voudrais goûter la spécialité locale."
     ]
   },
   {
@@ -228,7 +250,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Is it possible to substitute the chips for salad?",
-    "correctAnswer": "Est-il possible de remplacer les chips par de la salade ?",
+    "correctAnswer": "Est-il possible de remplacer les frites par de la salade ?",
     "hints": [
       "'Substitute X for Y' means replace X with Y."
     ]
@@ -257,10 +279,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We ate at a small family restaurant.",
-    "correctAnswer": "Nous avons mangé dans un petit restaurant familial.",
+    "prompt": "Nous avons mangé dans un petit restaurant ___.",
+    "correctAnswer": "familial",
     "hints": [
-      "Past dining sentence."
+      "An adjective meaning 'family-run'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-fo-a2-51"
@@ -270,7 +292,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently started following a plant-based diet.",
-    "correctAnswer": "J'ai récemment commencé à suivre un régime à base de plantes.",
+    "correctAnswer": "J'ai récemment commencé à avoir une alimentation végétale.",
     "hints": [
       "Present perfect with 'recently' for a recent change."
     ]
@@ -320,7 +342,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would you be able to cater for a gluten-free option?",
-    "correctAnswer": "Seriez-vous en mesure de répondre à une option sans gluten?",
+    "correctAnswer": "Pourriez-vous proposer une option sans gluten ?",
     "hints": [
       "'Would you be able to' is very polite; 'cater for' means provide for."
     ]
@@ -332,7 +354,7 @@
     "prompt": "Say: Slow cooking on a low heat develops the flavor much better.",
     "correctAnswer": "La cuisson lente à feu doux développe le goût beaucoup mieux.",
     "hints": [
-      "'Develops the flavour' is a cooking technique description."
+      "'À feu doux' = on low heat."
     ]
   },
   {
@@ -350,7 +372,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I find that marinating the meat overnight makes a significant difference.",
-    "correctAnswer": "Je trouve que mariner la viande toute la nuit fait une différence importante.",
+    "correctAnswer": "Je trouve que faire mariner la viande toute la nuit fait toute la différence.",
     "hints": [
       "'I find that' introduces a personal discovery."
     ]
@@ -360,7 +382,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Your guest asks if you made the bread yourself.",
-    "correctAnswer": "Oui, je l'ai fait cuire ce matin — c'est une recette amère que j'ai perfectionnée.",
+    "correctAnswer": "Oui, je l'ai fait ce matin — c'est une recette au levain que j'ai peaufinée.",
     "hints": [
       "Give a positive answer with a detail."
     ],
@@ -390,10 +412,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I started meal-prepping to save time during the week.",
-    "correctAnswer": "J'ai commencé à préparer des repas pour gagner du temps pendant la semaine.",
+    "prompt": "J'ai commencé à préparer mes repas à l'avance pour ___ du temps pendant la semaine.",
+    "correctAnswer": "gagner",
     "hints": [
-      "Purpose clause."
+      "French 'wins' time where English saves it."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-fo-b1-61"
@@ -438,7 +460,7 @@
     "hints": [
       "'Sourcing' means finding and obtaining; 'culinary' relates to cooking."
     ],
-    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients."
+    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasizing shorter supply chains and fresher ingredients."
   },
   {
     "id": "fr-fo-35",
@@ -455,7 +477,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Umami is often described as the fifth taste, alongside sweet, sour, salty, and bitter.",
-    "correctAnswer": "Umami est souvent décrit comme le cinquième goût, à côté de doux, aigre, salé et amer.",
+    "correctAnswer": "L'umami est souvent décrit comme la cinquième saveur, aux côtés du sucré, de l'acide, du salé et de l'amer.",
     "hints": [
       "'Alongside' here means in addition to."
     ],
@@ -476,7 +498,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Maillard reaction — the browning of proteins under heat — is fundamental to developing depth of flavor.",
-    "correctAnswer": "La réaction de Maillard — le brunissement des protéines sous la chaleur — est fondamentale pour développer la profondeur de saveur.",
+    "correctAnswer": "La réaction de Maillard — le brunissement des protéines sous l'effet de la chaleur — est essentielle pour développer la profondeur des saveurs.",
     "hints": [
       "'Maillard reaction' = a chemical process that creates flavor compounds; 'fundamental' = essential."
     ],
@@ -495,10 +517,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can cities reduce food waste across supply chains?",
-    "correctAnswer": "Comment les villes peuvent-elles réduire le gaspillage alimentaire dans les chaînes d'approvisionnement?",
+    "prompt": "Comment les villes peuvent-elles réduire le ___ alimentaire dans les chaînes d'approvisionnement ?",
+    "correctAnswer": "gaspillage",
     "hints": [
-      "Policy-level food question."
+      "A noun meaning 'waste'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-fo-b2-70"
@@ -506,7 +528,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: A balanced diet depends on variety rather than strict restriction.",
+    "prompt": "Choose the best response. A friend asks whether they should cut out carbs completely.",
     "correctAnswer": "Une alimentation équilibrée dépend de la variété plutôt que d'une restriction stricte.",
     "hints": [
       "B2 nutrition phrasing."

@@ -1,0 +1,745 @@
+{
+  "language": "italian",
+  "category": "news_media",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:35:14.272Z",
+  "contentHash": "323ac9cc2143bd48",
+  "summary": "Many items are mistranslations that a native speaker would not accept, from A1 habits in the wrong tense (Ho letto la notizia ogni mattina) to B2 nonsense (camere ecologiche, tenendo il potere per conto, traversare le storie di riferimento, approvvigionamento, titoli sensibili). English words are left in ('media bias', 'paywalling', 'conflazione'), the subjunctive is missing after 'pensi che', 'E''/'piu'' are misspelled, and the file has the usual cloze items without blanks and a dialogue_turn without a situation.",
+  "findings": [
+    {
+      "id": "it-nm-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A daily habit is in the passato prossimo and 'la notizia' is singular.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Leggo le notizie ogni mattina.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ogni mattina leggo le notizie.",
+            "Leggo il giornale ogni mattina."
+          ]
+        }
+      ],
+      "itemHash": "6c67d4e2339c25a5",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Hear about' news is 'sentire parlare di'; formal form not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hai sentito parlare del terremoto?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hai sentito del terremoto?",
+            "Ha sentito parlare del terremoto?"
+          ]
+        }
+      ],
+      "itemHash": "6c49446933527f30",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'La notizia' is a single news item and 'e'' is misspelled; the TV news is 'il telegiornale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il telegiornale è alle sei.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il telegiornale va in onda alle sei.",
+            "Il tg è alle sei."
+          ]
+        }
+      ],
+      "itemHash": "67f8c071cca824be",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'nel notiziario' is stiff; Italians say 'al telegiornale' or ask about 'le notizie di oggi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quali sono le notizie di oggi?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cosa c'è al telegiornale oggi?",
+            "Cosa c'è nel notiziario oggi?"
+          ]
+        }
+      ],
+      "itemHash": "de41e3ef7c9757aa",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a1-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "A completed event needs the passato prossimo ('c'è stata'), not the imperfect.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ieri sera c'è stata una forte tempesta.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'è stata una grande tempesta ieri sera."
+          ]
+        }
+      ],
+      "itemHash": "504b85c96c779c09",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains English 'much'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non ... molto' = not much; Italian keeps the article: 'la televisione'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Non guardo molto la tv."
+          ]
+        }
+      ],
+      "itemHash": "d03df02ad7df3d26",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a1-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'E'' should be 'È'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È in prima pagina?",
+          "list": null
+        }
+      ],
+      "itemHash": "31fb9058d64d1c3b",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ho ricevuto le mie notizie' means 'I received my news' (past, personal news).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi informo su internet.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Leggo le notizie su internet."
+          ]
+        }
+      ],
+      "itemHash": "74fcfaf3974b6447",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-a1-40",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A news story is a 'notizia' or 'articolo', and 'tempo' is ambiguous (time/weather).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Questo articolo parla del meteo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Questa notizia riguarda il meteo.",
+            "Questa storia riguarda il tempo."
+          ]
+        }
+      ],
+      "itemHash": "1e3a65dd44a7c5df",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-a1-41",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Dove hai le tue notizie?' is a calque and doesn't mean where you get the news.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dove ti informi?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Dove leggi le notizie?"
+          ]
+        }
+      ],
+      "itemHash": "02944aa35792f853",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a2-1",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'per cent'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: According to the report, the economy grew by two percent last year.",
+          "list": null
+        }
+      ],
+      "itemHash": "7f845b9e2fbef107",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sulla lettura dei supporti di stampa' is a nonsense calque of 'over reading print media'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Preferisco ascoltare i podcast piuttosto che leggere la stampa cartacea.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Preferisco ascoltare podcast piuttosto che leggere i giornali."
+          ]
+        }
+      ],
+      "itemHash": "be56ea4cfd183cf7",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Quale notizia ti fidi di piu'?' is ungrammatical (needs 'di') and asks about a news item, not an outlet.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Di quale testata ti fidi di più?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Di quale mezzo d'informazione ti fidi di più?",
+            "Di quale testata si fida di più?"
+          ]
+        }
+      ],
+      "itemHash": "56cd1efdb54cacda",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'una storia di notizie' is meaningless and 'breaking' is lost.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "C'è stata una notizia dell'ultima ora sulle alluvioni.",
+          "list": null
+        }
+      ],
+      "itemHash": "3a1edae64e65d76b",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'giornalista d'inchiesta' is the usual term and is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'articolo è stato scritto da un giornalista d'inchiesta."
+          ]
+        }
+      ],
+      "itemHash": "9523cf3adf86b5fa",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-a2-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "One 'disdice' a subscription; feminine 'passata' not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho disdetto l'abbonamento al giornale e sono passato a un'app di notizie online.",
+            "Ho disdetto l'abbonamento al giornale e sono passata a un'app di notizie online.",
+            "Ho cancellato il mio abbonamento al giornale e sono passata a un'app di notizie online."
+          ]
+        }
+      ],
+      "itemHash": "7d787ef9443b4f41",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-a2-50",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Generic plural nouns after 'preferire' need the article.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Preferisco i video brevi agli articoli lunghi.",
+          "list": null
+        }
+      ],
+      "itemHash": "68a910ea0dd23f4c",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hai ___ di questo evento ieri?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "saputo",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "saputo",
+            "sapere",
+            "sai",
+            "sapevi"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sapere di' in the passato prossimo = to hear about."
+          ]
+        }
+      ],
+      "itemHash": "fdf0f959a3434ce8",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'I media bias' is English left in the sentence; hint uses British 'favouring'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I pregiudizi dei media possono influenzare il modo in cui gli eventi vengono presentati e interpretati dal pubblico.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Framed' means presented from a particular angle; 'bias' means favoring one view."
+          ]
+        }
+      ],
+      "itemHash": "5fd8573f8844d89e",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'traversare le storie di riferimento' is nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cerco di incrociare le notizie di diverse fonti prima di farmi un'opinione.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cerco di verificare le notizie su diverse fonti prima di farmi un'opinione."
+          ]
+        }
+      ],
+      "itemHash": "9e16b78854576656",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'pensi che' requires the subjunctive 'distorcano'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In che misura pensi che i titoli sensazionalistici distorcano la percezione pubblica?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "In che misura pensi che i titoli sensazionalisti distorcano la percezione pubblica?"
+          ]
+        }
+      ],
+      "itemHash": "4c85e51aa987cc88",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'tenere la storia' doesn't mean hold back publication, and 'avevano' should be subjunctive agreeing with 'redazione'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La redazione ha deciso di rinviare la pubblicazione finché non avesse prove più concrete.",
+          "list": null
+        }
+      ],
+      "itemHash": "7002a9666f2f82a8",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'l'ascesa della tecnologia smartphone' is a calque; 'giornalismo partecipativo' is also common.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il giornalismo partecipativo è cresciuto molto con la diffusione degli smartphone.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il giornalismo cittadino è cresciuto molto con la diffusione degli smartphone."
+          ]
+        }
+      ],
+      "itemHash": "6eaf62ee6913e0ac",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b1-9",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Mi abbono' means 'I am subscribing (now)'; a standing subscription is 'sono abbonato'. Missing 'a' before 'una rivista'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sono abbonato a due giornali di qualità e a una rivista politica settimanale.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono abbonata a due giornali di qualità e a una rivista politica settimanale."
+          ]
+        }
+      ],
+      "itemHash": "2caa9e5559cb6bdb",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Perché le persone condividono articoli senza ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "leggerli",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "leggerli",
+            "leggerle",
+            "leggerlo",
+            "leggere"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The pronoun refers to 'articoli' (masculine plural) and attaches to the infinitive."
+          ]
+        }
+      ],
+      "itemHash": "3d2b93638382e174",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'camere ecologiche' means ecological rooms; 'cura algoritmica' means algorithmic care.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La selezione algoritmica dei feed di notizie crea camere dell'eco che rafforzano le convinzioni esistenti.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La selezione algoritmica dei feed di notizie crea casse di risonanza che rafforzano le convinzioni esistenti."
+          ]
+        }
+      ],
+      "itemHash": "5000e3add847b5c0",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The comma splits the verb from its objects and the word order is garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In che modo l'informazione 24 ore su 24 ha cambiato gli standard giornalistici e il dibattito pubblico?",
+          "list": null
+        }
+      ],
+      "itemHash": "afc11c6b91b91d61",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'serve una funzione ... tenendo il potere per conto' is word-for-word nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il giornalismo d'inchiesta svolge una funzione democratica fondamentale chiamando il potere a rendere conto delle proprie azioni.",
+          "list": null
+        }
+      ],
+      "itemHash": "97f91465bc095613",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'conflazione' is not Italian; 'pezzi di commento' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La commistione tra opinioni e fatti negli articoli di commento ha offuscato importanti confini epistemici.",
+          "list": null
+        }
+      ],
+      "itemHash": "1f9afb44e85234cb",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'sempre' means 'always', reversing the skeptical 'ever'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I media statali possono mai essere compatibili con una vera indipendenza editoriale?",
+          "list": null
+        }
+      ],
+      "itemHash": "4af04e26b1dab362",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b2-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'Deepfake' shouldn't be capitalized; 'la tecnologia dei deepfake' is the natural phrasing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La tecnologia dei deepfake pone una sfida senza precedenti alla verifica delle prove video.",
+          "list": null
+        }
+      ],
+      "itemHash": "2f0913a536edb0b4",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-nm-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Il paywalling' is English; Italian uses 'paywall' as a noun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'introduzione dei paywall nel giornalismo di qualità solleva questioni importanti sull'equità dell'accesso all'informazione.",
+          "list": null
+        }
+      ],
+      "itemHash": "63d15bfc4183f1fa",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'approvvigionamento' means procurement of supplies, not citing sources.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il giornalismo responsabile richiede fonti trasparenti e un contesto adeguato.",
+          "list": null
+        }
+      ],
+      "itemHash": "bb23a3c6e5d4817a",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-b2-70",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sensibili' means sensitive; the cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I titoli sensazionalistici possono ___ la comprensione pubblica di problemi complessi.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "falsare",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "falsare",
+            "facilitare",
+            "arricchire",
+            "approfondire"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to distort'."
+          ]
+        }
+      ],
+      "itemHash": "5d34581fefb7ee0e",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    },
+    {
+      "id": "it-ne-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a panel debate on social media, you ask the speakers how platforms should balance free expression and fighting misinformation.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Come dovrebbero le piattaforme bilanciare la libertà di espressione e la lotta alla disinformazione?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should platforms balance free expression and the fight against misinformation?",
+          "list": null
+        }
+      ],
+      "itemHash": "c1e49402dcc65ccd",
+      "appliedAt": "2026-10-22T10:00:50.946Z"
+    }
+  ]
+}

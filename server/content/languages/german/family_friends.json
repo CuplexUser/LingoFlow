@@ -6,7 +6,7 @@
     "prompt": "Say: I have two brothers and one sister.",
     "correctAnswer": "Ich habe zwei Brüder und eine Schwester.",
     "hints": [
-      "Practice this phrase out loud."
+      "Plural of 'Bruder' takes an umlaut: Brüder."
     ]
   },
   {
@@ -16,7 +16,10 @@
     "prompt": "Ask: Do you have any children?",
     "correctAnswer": "Haben Sie Kinder?",
     "hints": [
-      "Practice this phrase out loud."
+      "German drops 'any' here. Informal: Hast du Kinder?"
+    ],
+    "acceptedAnswers": [
+      "Hast du Kinder?"
     ]
   },
   {
@@ -26,7 +29,10 @@
     "prompt": "Say: My parents live in the countryside.",
     "correctAnswer": "Meine Eltern leben auf dem Land.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Auf dem Land' = in the countryside."
+    ],
+    "acceptedAnswers": [
+      "Meine Eltern wohnen auf dem Land."
     ]
   },
   {
@@ -55,9 +61,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I live with my family.",
-    "correctAnswer": "Ich lebe mit meiner Familie.",
+    "correctAnswer": "Ich wohne bei meiner Familie.",
     "hints": [
       "A short, common phrase."
+    ],
+    "acceptedAnswers": [
+      "Ich lebe mit meiner Familie zusammen.",
+      "Ich wohne mit meiner Familie zusammen."
     ]
   },
   {
@@ -65,20 +75,29 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: your mother's mother",
-    "correctAnswer": "großmutter",
+    "correctAnswer": "die Großmutter",
     "hints": [
       "Think of the female relative two generations above you."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Großmutter",
+      "die Oma",
+      "Oma"
+    ]
   },
   {
     "id": "de-fa-17",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My best friend's name is Sam.",
-    "correctAnswer": "Der Name meines besten Freundes ist Sam.",
+    "correctAnswer": "Mein bester Freund heißt Sam.",
     "hints": [
-      "Use the possessive apostrophe: friend's."
+      "German uses 'heißen' for names."
+    ],
+    "acceptedAnswers": [
+      "Meine beste Freundin heißt Sam.",
+      "Der Name meines besten Freundes ist Sam."
     ]
   },
   {
@@ -105,22 +124,29 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I visit my grandparents on Sundays.",
-    "correctAnswer": "Ich besuche meine Großeltern am Sonntag.",
+    "correctAnswer": "Ich besuche sonntags meine Großeltern.",
     "hints": [
       "Family routine phrase."
     ],
-    "id": "de-fa-a1-39"
+    "id": "de-fa-a1-39",
+    "acceptedAnswers": [
+      "Sonntags besuche ich meine Großeltern."
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Do you have any brothers or sisters?",
-    "correctAnswer": "Haben Sie Brüder oder Schwestern?",
+    "correctAnswer": "Haben Sie Geschwister?",
     "hints": [
       "Basic family question."
     ],
     "exerciseType": "build_sentence",
-    "id": "de-fa-a1-40"
+    "id": "de-fa-a1-40",
+    "acceptedAnswers": [
+      "Hast du Geschwister?",
+      "Haben Sie Brüder oder Schwestern?"
+    ]
   },
   {
     "level": "a1",
@@ -140,7 +166,11 @@
     "prompt": "Say: My cousin is getting married next spring.",
     "correctAnswer": "Mein Cousin heiratet im nächsten Frühjahr.",
     "hints": [
-      "Present continuous for a planned future event."
+      "German uses the present tense for planned future events."
+    ],
+    "acceptedAnswers": [
+      "Meine Cousine heiratet im nächsten Frühjahr.",
+      "Mein Cousin heiratet nächsten Frühling."
     ]
   },
   {
@@ -161,6 +191,9 @@
     "correctAnswer": "Wie lange kennen Sie sich schon?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Wie lange kennt ihr euch schon?"
     ]
   },
   {
@@ -178,9 +211,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Are you close to your siblings?",
-    "correctAnswer": "Sind Sie in der Nähe Ihrer Geschwister?",
+    "correctAnswer": "Stehen Sie Ihren Geschwistern nahe?",
     "hints": [
       "'Close' here means emotionally connected; siblings are brothers or sisters."
+    ],
+    "acceptedAnswers": [
+      "Stehst du deinen Geschwistern nahe?",
+      "Hast du ein enges Verhältnis zu deinen Geschwistern?"
     ]
   },
   {
@@ -188,9 +225,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We are a big family — there are seven of us.",
-    "correctAnswer": "Wir sind eine große Familie — es gibt sieben von uns.",
+    "correctAnswer": "Wir sind eine große Familie – wir sind zu siebt.",
     "hints": [
-      "Use 'there are' to state how many people."
+      "'Zu siebt' = seven of us."
     ]
   },
   {
@@ -198,9 +235,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My friend moved abroad for work last year.",
-    "correctAnswer": "Mein Freund zog letztes Jahr ins Ausland.",
+    "correctAnswer": "Mein Freund ist letztes Jahr beruflich ins Ausland gezogen.",
     "hints": [
       "'Moved abroad' means relocated to another country."
+    ],
+    "acceptedAnswers": [
+      "Meine Freundin ist letztes Jahr beruflich ins Ausland gezogen."
     ]
   },
   {
@@ -208,9 +248,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Do you get on well with your neighbors?",
-    "correctAnswer": "Kommst du gut mit deinen Nachbarn?",
+    "correctAnswer": "Kommst du gut mit deinen Nachbarn aus?",
     "hints": [
       "'Get on well with' means have a good relationship with."
+    ],
+    "acceptedAnswers": [
+      "Verstehst du dich gut mit deinen Nachbarn?"
     ]
   },
   {
@@ -257,10 +300,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I call my parents every evening.",
-    "correctAnswer": "Ich rufe jeden Abend meine Eltern an.",
+    "prompt": "Ich rufe jeden Abend meine Eltern ___.",
+    "correctAnswer": "an",
     "hints": [
-      "Routine communication phrase."
+      "'Anrufen' is separable; the prefix goes to the end."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-fa-a2-51"
@@ -270,7 +313,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My sister and I do not always see eye to eye, but we support each other.",
-    "correctAnswer": "Meine Schwester und ich sehen nicht immer Auge zum Auge, sondern wir unterstützen uns gegenseitig.",
+    "correctAnswer": "Meine Schwester und ich sind nicht immer einer Meinung, aber wir unterstützen uns gegenseitig.",
     "hints": [
       "'See eye to eye' means agree."
     ]
@@ -290,7 +333,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What was it like growing up in a large family?",
-    "correctAnswer": "Wie war es in einer großen Familie aufgewachsen?",
+    "correctAnswer": "Wie war es, in einer großen Familie aufzuwachsen?",
     "hints": [
       "'What was it like' asks about the experience."
     ]
@@ -300,7 +343,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My relationship with my parents has improved since I moved out.",
-    "correctAnswer": "Meine Beziehung zu meinen Eltern hat sich seit meiner Abreise verbessert.",
+    "correctAnswer": "Meine Beziehung zu meinen Eltern hat sich verbessert, seit ich ausgezogen bin.",
     "hints": [
       "Present perfect with 'since' for a change that started at a past point."
     ]
@@ -310,7 +353,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I try to keep in touch with old friends, even when life gets busy.",
-    "correctAnswer": "Ich versuche, mit alten Freunden in Kontakt zu bleiben, auch wenn das Leben beschäftigt ist.",
+    "correctAnswer": "Ich versuche, mit alten Freunden in Kontakt zu bleiben, auch wenn viel los ist.",
     "hints": [
       "'Keep in touch' means maintain contact."
     ]
@@ -322,7 +365,7 @@
     "prompt": "Say: My brother and I have very different personalities, but we have the same sense of humor.",
     "correctAnswer": "Mein Bruder und ich haben sehr unterschiedliche Persönlichkeiten, aber wir haben denselben Sinn für Humor.",
     "hints": [
-      "Contrast with 'but'; 'sense of humour' is the ability to find things funny."
+      "Contrast with 'aber'; 'Sinn für Humor' = sense of humor."
     ]
   },
   {
@@ -330,7 +373,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks why you do not visit your family more often.",
-    "correctAnswer": "Wir leben ziemlich weit auseinander, und ich bemühe mich, Zeit rund um Arbeitsverpflichtungen zu finden.",
+    "correctAnswer": "Wir wohnen ziemlich weit voneinander entfernt, und neben der Arbeit finde ich kaum Zeit.",
     "hints": [
       "Give a reason that combines distance and schedule."
     ],
@@ -341,7 +384,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Having grown up in a small town, I appreciate the close-knit community there.",
-    "correctAnswer": "Nachdem ich in einer kleinen Stadt aufgewachsen bin, schätze ich die nahegelegene Gemeinschaft.",
+    "correctAnswer": "Da ich in einer Kleinstadt aufgewachsen bin, schätze ich die eng verbundene Gemeinschaft dort.",
     "hints": [
       "'Close-knit' means a tight, supportive community."
     ]
@@ -351,9 +394,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How do you balance time between your family and social life?",
-    "correctAnswer": "Wie können Sie Zeit zwischen Ihrer Familie und Ihrem sozialen Leben ausgleichen?",
+    "correctAnswer": "Wie teilen Sie Ihre Zeit zwischen Familie und Freundeskreis auf?",
     "hints": [
       "'Balance' here means manage both fairly."
+    ],
+    "acceptedAnswers": [
+      "Wie teilst du deine Zeit zwischen Familie und Freunden auf?"
     ]
   },
   {
@@ -361,9 +407,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We grew apart after university, but we have recently reconnected.",
-    "correctAnswer": "Wir wuchsen nach der Universität auseinander, aber wir haben uns erst kürzlich wieder angeschlossen.",
+    "correctAnswer": "Nach dem Studium haben wir uns aus den Augen verloren, aber vor Kurzem wieder Kontakt aufgenommen.",
     "hints": [
       "'Grew apart' means drifted away from each other over time."
+    ],
+    "acceptedAnswers": [
+      "Wir haben uns nach der Uni auseinandergelebt, aber kürzlich wieder Kontakt aufgenommen."
     ]
   },
   {
@@ -390,10 +439,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Family traditions help us stay connected.",
-    "correctAnswer": "Familientraditionen helfen uns, verbunden zu bleiben.",
+    "prompt": "Familientraditionen helfen uns, miteinander ___ zu bleiben.",
+    "correctAnswer": "verbunden",
     "hints": [
-      "Community/family link."
+      "A participle meaning 'connected'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-fa-b1-61"
@@ -403,7 +452,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The dynamics within a blended family can be complex but deeply rewarding.",
-    "correctAnswer": "Die Dynamik innerhalb einer gemischten Familie kann komplex, aber zutiefst lohnend sein.",
+    "correctAnswer": "Die Dynamik in einer Patchworkfamilie kann komplex, aber zutiefst bereichernd sein.",
     "hints": [
       "'Blended family' = step-parents or half-siblings; 'dynamics' = the way relationships work."
     ]
@@ -413,7 +462,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I was raised to value loyalty and honesty above all else.",
-    "correctAnswer": "Ich wurde auf Wert Loyalität und Ehrlichkeit vor allen anderen erhoben.",
+    "correctAnswer": "Ich wurde dazu erzogen, Loyalität und Ehrlichkeit über alles zu stellen.",
     "hints": [
       "Passive 'was raised' refers to how your parents brought you up."
     ]
@@ -432,8 +481,8 @@
     "id": "de-fa-34",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The expectation that adult children will look after ageing parents varies considerably across cultures.",
-    "correctAnswer": "Die Erwartung, dass erwachsene Kinder sich um ältere Eltern kümmern werden, variiert erheblich über die Kulturen.",
+    "prompt": "Say: The expectation that adult children will look after aging parents varies considerably across cultures.",
+    "correctAnswer": "Die Erwartung, dass erwachsene Kinder sich um ihre alternden Eltern kümmern, ist von Kultur zu Kultur sehr unterschiedlich.",
     "hints": [
       "'Varies considerably' means differs a lot; 'across cultures' means between different societies."
     ],
@@ -474,7 +523,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Chosen family — the network of friends who become like family — is increasingly valued in modern life.",
-    "correctAnswer": "Ausgewählte Familie — das Netzwerk von Freunden, die wie Familie werden — wird zunehmend im modernen Leben geschätzt.",
+    "correctAnswer": "Die Wahlfamilie – ein Netzwerk von Freunden, die wie Familie werden – wird im modernen Leben immer mehr geschätzt.",
     "hints": [
       "'Chosen family' refers to close friends who fill a family-like role."
     ]
@@ -492,10 +541,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How do family expectations influence personal choices?",
-    "correctAnswer": "Wie beeinflussen Familienerwartungen persönliche Entscheidungen?",
+    "prompt": "Wie ___ die Erwartungen der Familie persönliche Entscheidungen?",
+    "correctAnswer": "beeinflussen",
     "hints": [
-      "Reflective high-level question."
+      "A verb meaning 'to influence', third-person plural."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-fa-b2-70"
@@ -503,7 +552,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Friendships evolve as people's priorities change.",
+    "prompt": "Choose the best response. A friend is sad that you see each other less than before.",
     "correctAnswer": "Freundschaften entwickeln sich, wenn sich die Prioritäten der Menschen ändern.",
     "hints": [
       "Nuanced change-over-time sentence."

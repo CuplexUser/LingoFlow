@@ -6,7 +6,7 @@
     "prompt": "Say: I have two brothers and one sister.",
     "correctAnswer": "J'ai deux frères et une sœur.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Avoir' for family members: j'ai deux frères."
     ]
   },
   {
@@ -16,7 +16,11 @@
     "prompt": "Ask: Do you have any children?",
     "correctAnswer": "Vous avez des enfants ?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Des enfants' — French needs the article where English says 'any'."
+    ],
+    "acceptedAnswers": [
+      "Tu as des enfants ?",
+      "Avez-vous des enfants ?"
     ]
   },
   {
@@ -26,7 +30,10 @@
     "prompt": "Say: My parents live in the countryside.",
     "correctAnswer": "Mes parents vivent à la campagne.",
     "hints": [
-      "Practice this phrase out loud."
+      "'À la campagne' = in the countryside."
+    ],
+    "acceptedAnswers": [
+      "Mes parents habitent à la campagne."
     ]
   },
   {
@@ -36,7 +43,7 @@
     "prompt": "Say: My grandmother is seventy years old.",
     "correctAnswer": "Ma grand-mère a soixante-dix ans.",
     "hints": [
-      "State age with 'is ... years old'."
+      "French uses 'avoir' + ans: she 'has' seventy years."
     ]
   },
   {
@@ -78,7 +85,10 @@
     "prompt": "Say: My best friend's name is Sam.",
     "correctAnswer": "Mon meilleur ami s'appelle Sam.",
     "hints": [
-      "Use the possessive apostrophe: friend's."
+      "Use 's'appeler' for names."
+    ],
+    "acceptedAnswers": [
+      "Ma meilleure amie s'appelle Sam."
     ]
   },
   {
@@ -140,15 +150,19 @@
     "prompt": "Say: My cousin is getting married next spring.",
     "correctAnswer": "Mon cousin va se marier au printemps prochain.",
     "hints": [
-      "Present continuous for a planned future event."
+      "'Aller' + infinitive for a planned future event."
+    ],
+    "acceptedAnswers": [
+      "Ma cousine va se marier au printemps prochain.",
+      "Mon cousin se marie au printemps prochain."
     ]
   },
   {
     "id": "fr-fa-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We usually meet up at the weekends.",
-    "correctAnswer": "On se retrouve le week-end.",
+    "prompt": "Say: We usually meet up on weekends.",
+    "correctAnswer": "D'habitude, on se retrouve le week-end.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -191,6 +205,9 @@
     "correctAnswer": "Nous sommes une grande famille — nous sommes sept.",
     "hints": [
       "Use 'there are' to state how many people."
+    ],
+    "acceptedAnswers": [
+      "Nous sommes une famille nombreuse : nous sommes sept."
     ]
   },
   {
@@ -208,9 +225,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Do you get on well with your neighbors?",
-    "correctAnswer": "Tu te débrouilles bien avec tes voisins ?",
+    "correctAnswer": "Tu t'entends bien avec tes voisins ?",
     "hints": [
       "'Get on well with' means have a good relationship with."
+    ],
+    "acceptedAnswers": [
+      "Vous vous entendez bien avec vos voisins ?"
     ]
   },
   {
@@ -237,7 +257,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We celebrated my sister's birthday yesterday.",
-    "correctAnswer": "On a fêté l'anniversaire de ma soeur hier.",
+    "correctAnswer": "On a fêté l'anniversaire de ma sœur hier.",
     "hints": [
       "Past event sentence."
     ],
@@ -257,10 +277,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I call my parents every evening.",
-    "correctAnswer": "J'appelle mes parents tous les soirs.",
+    "prompt": "J'___ mes parents tous les soirs.",
+    "correctAnswer": "appelle",
     "hints": [
-      "Routine communication phrase."
+      "'Appeler' doubles its l: j'appelle."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-fa-a2-51"
@@ -270,7 +290,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My sister and I do not always see eye to eye, but we support each other.",
-    "correctAnswer": "Ma sœur et moi ne voyons pas toujours d'un œil à l'autre, mais nous nous soutenons mutuellement.",
+    "correctAnswer": "Ma sœur et moi ne sommes pas toujours d'accord, mais nous nous soutenons.",
     "hints": [
       "'See eye to eye' means agree."
     ]
@@ -300,7 +320,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My relationship with my parents has improved since I moved out.",
-    "correctAnswer": "Ma relation avec mes parents s'est améliorée depuis mon départ.",
+    "correctAnswer": "Ma relation avec mes parents s'est améliorée depuis que j'ai quitté la maison.",
     "hints": [
       "Present perfect with 'since' for a change that started at a past point."
     ]
@@ -310,9 +330,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I try to keep in touch with old friends, even when life gets busy.",
-    "correctAnswer": "J'essaie de rester en contact avec de vieux amis, même quand la vie est occupée.",
+    "correctAnswer": "J'essaie de rester en contact avec de vieux amis, même quand je suis débordé.",
     "hints": [
       "'Keep in touch' means maintain contact."
+    ],
+    "acceptedAnswers": [
+      "J'essaie de rester en contact avec de vieux amis, même quand je suis débordée."
     ]
   },
   {
@@ -322,7 +345,7 @@
     "prompt": "Say: My brother and I have very different personalities, but we have the same sense of humor.",
     "correctAnswer": "Mon frère et moi avons des personnalités très différentes, mais nous avons le même sens de l'humour.",
     "hints": [
-      "Contrast with 'but'; 'sense of humour' is the ability to find things funny."
+      "Contrast the two halves with 'mais'."
     ]
   },
   {
@@ -330,7 +353,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks why you do not visit your family more often.",
-    "correctAnswer": "Nous vivons très loin, et je lutte pour trouver du temps autour des engagements de travail.",
+    "correctAnswer": "Nous habitons très loin, et avec le travail j'ai du mal à trouver du temps.",
     "hints": [
       "Give a reason that combines distance and schedule."
     ],
@@ -341,7 +364,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Having grown up in a small town, I appreciate the close-knit community there.",
-    "correctAnswer": "Ayant grandi dans une petite ville, j'apprécie la communauté de près.",
+    "correctAnswer": "Ayant grandi dans une petite ville, j'apprécie la communauté très soudée qui y vit.",
     "hints": [
       "'Close-knit' means a tight, supportive community."
     ]
@@ -361,7 +384,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We grew apart after university, but we have recently reconnected.",
-    "correctAnswer": "Nous nous sommes séparés après l'université, mais nous avons récemment reconnecté.",
+    "correctAnswer": "Nous nous sommes perdus de vue après l'université, mais nous avons repris contact récemment.",
     "hints": [
       "'Grew apart' means drifted away from each other over time."
     ]
@@ -390,20 +413,24 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Family traditions help us stay connected.",
-    "correctAnswer": "Les traditions familiales nous aident à rester connectés.",
+    "prompt": "Les traditions familiales nous aident à rester ___.",
+    "correctAnswer": "unis",
     "hints": [
-      "Community/family link."
+      "An adjective meaning 'close together'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-fa-b1-61"
+    "id": "fr-fa-b1-61",
+    "acceptedAnswers": [
+      "proches",
+      "soudés"
+    ]
   },
   {
     "id": "fr-fa-10",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The dynamics within a blended family can be complex but deeply rewarding.",
-    "correctAnswer": "La dynamique au sein d'une famille mixte peut être complexe mais profondément enrichissante.",
+    "correctAnswer": "La dynamique au sein d'une famille recomposée peut être complexe, mais profondément enrichissante.",
     "hints": [
       "'Blended family' = step-parents or half-siblings; 'dynamics' = the way relationships work."
     ]
@@ -413,9 +440,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I was raised to value loyalty and honesty above all else.",
-    "correctAnswer": "J'ai été élevé à valoriser la loyauté et l'honnêteté avant tout.",
+    "correctAnswer": "On m'a appris à placer la loyauté et l'honnêteté au-dessus de tout.",
     "hints": [
       "Passive 'was raised' refers to how your parents brought you up."
+    ],
+    "acceptedAnswers": [
+      "J'ai été élevé dans le respect de la loyauté et de l'honnêteté avant tout."
     ]
   },
   {
@@ -483,7 +513,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Healthy boundaries can strengthen long-term relationships.",
-    "correctAnswer": "Des frontières saines peuvent renforcer les relations à long terme.",
+    "correctAnswer": "Des limites saines peuvent renforcer les relations à long terme.",
     "hints": [
       "Advanced relationship concept."
     ],
@@ -492,10 +522,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How do family expectations influence personal choices?",
-    "correctAnswer": "Comment les attentes familiales influencent-elles les choix personnels?",
+    "prompt": "Comment les attentes familiales ___-elles les choix personnels ?",
+    "correctAnswer": "influencent",
     "hints": [
-      "Reflective high-level question."
+      "A verb meaning 'to influence', in an inverted question."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-fa-b2-70"
@@ -503,7 +533,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Friendships evolve as people's priorities change.",
+    "prompt": "Choose the best response. A friend is sad that you see each other less than before.",
     "correctAnswer": "Les amitiés évoluent à mesure que les priorités des gens changent.",
     "hints": [
       "Nuanced change-over-time sentence."

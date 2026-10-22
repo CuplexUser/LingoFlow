@@ -29,13 +29,13 @@
     "prompt": "Which word means the number 2?",
     "correctAnswer": "due",
     "options": [
-      "tow",
+      "dodici",
       "due",
-      "troppo",
-      "a"
+      "tre",
+      "dieci"
     ],
     "hints": [
-      "Watch out — English has three words that sound alike: 'to', 'too', and ___!"
+      "Pronounced 'DOO-eh'. Don't confuse it with dodici (12)."
     ]
   },
   {
@@ -46,7 +46,7 @@
     "prompt": "Vocabulary: the number 3",
     "correctAnswer": "tre",
     "hints": [
-      "Good things come in ___s — so they say."
+      "Italians say 'Non c'è due senza ___' — things come in threes."
     ]
   },
   {
@@ -55,7 +55,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 4",
-    "correctAnswer": "4",
+    "correctAnswer": "quattro",
     "hints": [
       "A table has ___ legs."
     ]
@@ -66,12 +66,12 @@
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
     "prompt": "Which is the correct spelling of 5?",
-    "correctAnswer": "5",
+    "correctAnswer": "cinque",
     "options": [
-      "fico",
-      "5",
-      "- sì",
-      "5"
+      "cinqe",
+      "cinque",
+      "cingue",
+      "cinquie"
     ],
     "hints": [
       "You have ___ fingers on one hand."
@@ -83,7 +83,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 6",
-    "correctAnswer": "6",
+    "correctAnswer": "sei",
     "hints": [
       "A standard die has ___ sides."
     ]
@@ -94,7 +94,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 7",
-    "correctAnswer": "7",
+    "correctAnswer": "sette",
     "hints": [
       "There are ___ days in a week."
     ]
@@ -104,13 +104,13 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "A spider has how many legs? Spell the number.",
-    "correctAnswer": "8",
+    "prompt": "A spider has how many legs? Choose the Italian number word.",
+    "correctAnswer": "otto",
     "options": [
-      "6",
-      "7",
-      "8",
-      "no"
+      "sei",
+      "sette",
+      "otto",
+      "nove"
     ],
     "hints": [
       "More than an insect (6), fewer than ten."
@@ -122,9 +122,9 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 9",
-    "correctAnswer": "no",
+    "correctAnswer": "nove",
     "hints": [
-      "A cat has ___ lives — at least according to the saying."
+      "Count on: sette, otto, ___, dieci."
     ]
   },
   {
@@ -133,7 +133,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 10",
-    "correctAnswer": "10",
+    "correctAnswer": "dieci",
     "hints": [
       "You have ___ fingers in total."
     ]
@@ -143,8 +143,8 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A week has ___ days.",
-    "correctAnswer": "7",
+    "prompt": "Complete: Una settimana ha ___ giorni.",
+    "correctAnswer": "sette",
     "hints": [
       "Monday through Sunday."
     ]
@@ -154,12 +154,12 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does '+' mean in English?",
+    "prompt": "What is '+' called in Italian math?",
     "correctAnswer": "più",
     "options": [
       "meno",
       "più",
-      "volte",
+      "per",
       "uguale"
     ],
     "hints": [
@@ -193,9 +193,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Read this calculation aloud: 2 + 3 = 5",
-    "correctAnswer": "Due piu' tre sono cinque.",
+    "correctAnswer": "Due più tre fa cinque.",
     "hints": [
-      "Use: plus, equals."
+      "Use: più (plus), and 'fa' or 'uguale' for equals."
+    ],
+    "acceptedAnswers": [
+      "Due più tre uguale cinque.",
+      "Due più tre è uguale a cinque.",
+      "Due più tre sono cinque."
     ]
   },
   {
@@ -217,10 +222,10 @@
     "prompt": "How do you read '5 + 5'?",
     "correctAnswer": "cinque più cinque",
     "options": [
-      "5 e 5",
+      "cinque per cinque",
       "cinque più cinque",
-      "cinque volte",
-      "5 meno 5"
+      "cinque meno cinque",
+      "cinque diviso cinque"
     ],
     "hints": [
       "The + symbol is the key."
@@ -232,7 +237,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 11",
-    "correctAnswer": "11",
+    "correctAnswer": "undici",
     "hints": [
       "A football team has ___ players on the pitch."
     ]
@@ -243,7 +248,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 12",
-    "correctAnswer": "12",
+    "correctAnswer": "dodici",
     "hints": [
       "A year has ___ months."
     ]
@@ -253,7 +258,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "Which number is 'thirteen'?",
+    "prompt": "Which number is 'tredici'?",
     "correctAnswer": "13",
     "options": [
       "12",
@@ -262,7 +267,7 @@
       "30"
     ],
     "hints": [
-      "Watch out — 'thirteen' (13) and 'thirty' (30) sound similar!"
+      "tre + dici. Don't confuse it with trenta (30)."
     ]
   },
   {
@@ -270,8 +275,8 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: I have ___ fingers on each hand.",
-    "correctAnswer": "5",
+    "prompt": "Complete: Ho ___ dita in ogni mano.",
+    "correctAnswer": "cinque",
     "hints": [
       "Count them!"
     ]
@@ -292,16 +297,16 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you spell 50?",
-    "correctAnswer": "50",
+    "prompt": "How do you write 50 in Italian?",
+    "correctAnswer": "cinquanta",
     "options": [
-      "5",
-      "50",
-      "fifty",
+      "cinque",
+      "cinquanta",
+      "quindici",
       "quinto"
     ],
     "hints": [
-      "It's not 'fivety' — the 'v' disappears when you make the ten!"
+      "Built on cinque. Don't confuse it with quindici (15)."
     ]
   },
   {
@@ -310,7 +315,7 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 100",
-    "correctAnswer": "100",
+    "correctAnswer": "cento",
     "hints": [
       "A century is also ___ years."
     ]
@@ -332,12 +337,12 @@
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
     "prompt": "What does '×' mean in math?",
-    "correctAnswer": "volte",
+    "correctAnswer": "per",
     "options": [
       "più",
       "meno",
-      "volte",
-      "diviso per"
+      "per",
+      "diviso"
     ],
     "hints": [
       "It means multiplication."
@@ -359,9 +364,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Read this calculation aloud: 3 × 4 = 12",
-    "correctAnswer": "Tre volte quattro uguale a dodici.",
+    "correctAnswer": "Tre per quattro fa dodici.",
     "hints": [
-      "Use: times, equals."
+      "Use: per (times), and 'fa' or 'uguale' for equals."
+    ],
+    "acceptedAnswers": [
+      "Tre per quattro uguale dodici.",
+      "Tre per quattro è uguale a dodici."
     ]
   },
   {
@@ -370,7 +379,7 @@
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: 10 ÷ 2 = ___",
-    "correctAnswer": "5",
+    "correctAnswer": "cinque",
     "hints": [
       "Split ten into two equal groups."
     ]
@@ -384,12 +393,12 @@
     "correctAnswer": "venticinque",
     "options": [
       "venticinque",
-      "due",
-      "venticinque",
-      "5 e 20"
+      "ventecinque",
+      "cinqueventi",
+      "venti e cinque"
     ],
     "hints": [
-      "Compound numbers between 21 and 99 use a hyphen."
+      "Italian writes it as one word, no hyphen: venti + cinque."
     ]
   },
   {
@@ -397,7 +406,7 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: There are ___ hours in a day.",
+    "prompt": "Complete: In un giorno ci sono ___ ore.",
     "correctAnswer": "ventiquattro",
     "hints": [
       "Not twenty-five, not twenty-three — exactly in between."
@@ -424,8 +433,8 @@
     "options": [
       "un paio",
       "una dozzina",
-      "un punteggio",
-      "a)"
+      "una decina",
+      "un centinaio"
     ],
     "hints": [
       "Eggs are typically sold in this quantity."
@@ -435,10 +444,10 @@
     "id": "it-num-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you say the year '1999' in English?",
-    "correctAnswer": "diciannove novantanove",
+    "prompt": "How do you say the year 1999 in Italian?",
+    "correctAnswer": "millenovecentonovantanove",
     "hints": [
-      "Years before 2000 are read as two pairs: 19 + 99."
+      "Italian reads the whole number as one word: mille-novecento-novantanove."
     ]
   },
   {
@@ -446,8 +455,8 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A ___ of eggs means twelve eggs.",
-    "correctAnswer": "destinazione",
+    "prompt": "Complete: Una ___ di uova sono dodici uova.",
+    "correctAnswer": "dozzina",
     "hints": [
       "Bakers and recipe writers love this word."
     ]
@@ -462,11 +471,11 @@
     "options": [
       "tre-sette",
       "trentasette",
-      "trentasette",
-      "dispari"
+      "trentesette",
+      "settetrenta"
     ],
     "hints": [
-      "Compound numbers 21–99 use a hyphen in formal English."
+      "Tens + units in one word: trenta + sette."
     ]
   },
   {
@@ -486,7 +495,7 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Ordinal number: 2nd",
-    "correctAnswer": "2",
+    "correctAnswer": "secondo",
     "hints": [
       "The runner-up. Also means 'a unit of time'."
     ]
@@ -501,11 +510,11 @@
     "options": [
       "tre",
       "terzo",
-      "tre",
-      "terzo"
+      "treesimo",
+      "trentesimo"
     ],
     "hints": [
-      "The first three ordinals are irregular: first, second, ___"
+      "The first ten ordinals are irregular: primo, secondo, ___. From 11 on, add -esimo."
     ]
   },
   {
@@ -513,8 +522,8 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She finished in ___ place — just one step off the podium.",
-    "correctAnswer": "quarto",
+    "prompt": "Complete: È arrivata ___ — appena fuori dal podio.",
+    "correctAnswer": "quarta",
     "hints": [
       "One step after the third-place bronze medal."
     ]
@@ -523,10 +532,10 @@
     "id": "it-num-a2-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you read the phone number 555-0199 in English?",
-    "correctAnswer": "5 cinque cinque, zero uno nove nove",
+    "prompt": "How do you read the phone number 555-0199 in Italian?",
+    "correctAnswer": "cinque cinque cinque, zero uno nove nove",
     "hints": [
-      "Phone numbers are said digit by digit. 0 is 'zero' or 'oh'."
+      "Phone numbers are said digit by digit. 0 is 'zero'."
     ]
   },
   {
@@ -535,9 +544,14 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary: 1/2",
-    "correctAnswer": "mezzo",
+    "correctAnswer": "un mezzo",
     "hints": [
       "Cut a pizza into two equal slices — each is ___."
+    ],
+    "acceptedAnswers": [
+      "mezzo",
+      "una metà",
+      "metà"
     ]
   },
   {
@@ -548,7 +562,7 @@
     "prompt": "Fraction vocabulary: 1/4",
     "correctAnswer": "un quarto",
     "hints": [
-      "Four equal parts. Also what 25 cents is called in the US."
+      "Four equal parts. 'Un quarto d'ora' is fifteen minutes."
     ]
   },
   {
@@ -559,10 +573,10 @@
     "prompt": "How do you say the fraction 2/3?",
     "correctAnswer": "due terzi",
     "options": [
-      "due",
-      "3°",
+      "due tre",
+      "secondo terzo",
       "due terzi",
-      "due su tre"
+      "due terze"
     ],
     "hints": [
       "For fractions, the bottom number uses an ordinal form."
@@ -573,10 +587,10 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ of the class passed the test — thirty out of forty students.",
+    "prompt": "Complete: I ___ della classe hanno superato l'esame — trenta studenti su quaranta.",
     "correctAnswer": "tre quarti",
     "hints": [
-      "30 out of 40 = 75%. That's three ___."
+      "30 su 40 = 75%."
     ]
   },
   {
@@ -595,9 +609,15 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say '20% off' as a full sentence.",
-    "correctAnswer": "C'e' il venti percento di sconto.",
+    "correctAnswer": "C'è il venti per cento di sconto.",
     "hints": [
-      "Say the number first, then 'per cent'."
+      "'Sconto' = discount."
+    ],
+    "acceptedAnswers": [
+      "C'è il venti percento di sconto.",
+      "C'è il 20% di sconto.",
+      "C'è uno sconto del venti per cento.",
+      "Venti per cento di sconto."
     ]
   },
   {
@@ -661,8 +681,8 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: We need to ___ the bill three ways — about twenty euros each.",
-    "correctAnswer": "divisione",
+    "prompt": "Complete: Dobbiamo ___ il conto in tre — circa venti euro a testa.",
+    "correctAnswer": "dividere",
     "hints": [
       "Divide equally between friends at a restaurant."
     ]
@@ -683,9 +703,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "How do you say the decimal 3.5 out loud?",
-    "correctAnswer": "tre punti:",
+    "correctAnswer": "tre virgola cinque",
     "hints": [
-      "Decimals use 'point', then each digit is read individually."
+      "Italian uses a decimal comma, read 'virgola'."
     ]
   },
   {
@@ -698,7 +718,7 @@
     "options": [
       "al massimo dieci",
       "almeno dieci",
-      "dieci",
+      "a malapena dieci",
       "esattamente dieci"
     ],
     "hints": [
@@ -710,10 +730,13 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: He's ___ — he just turned 35 last week.",
-    "correctAnswer": "nei suoi anni trenta",
+    "prompt": "Complete: Ha ___ i trent'anni — ne ha compiuti trentacinque la settimana scorsa.",
+    "correctAnswer": "superato",
     "hints": [
-      "Use 'in his/her ___s' to express a decade of someone's age."
+      "'Ha superato i trent'anni' = he's past thirty."
+    ],
+    "acceptedAnswers": [
+      "passato"
     ]
   },
   {
@@ -721,16 +744,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'a pair of shoes' mean?",
-    "correctAnswer": "due scarpe",
+    "prompt": "How do you say 'a pair of shoes' in Italian?",
+    "correctAnswer": "un paio di scarpe",
     "options": [
       "una scarpa",
-      "due scarpe",
+      "un paio di scarpe",
       "poche scarpe",
       "tante scarpe"
     ],
     "hints": [
-      "Always two — one for each foot."
+      "'Un paio' = a pair. Its plural is irregular: due paia."
     ]
   },
   {
@@ -739,9 +762,12 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Number vocabulary: the opposite of 'odd' numbers",
-    "correctAnswer": "anche",
+    "correctAnswer": "pari",
     "hints": [
       "2, 4, 6, 8 — these are ___ numbers. They can be divided by 2 exactly."
+    ],
+    "acceptedAnswers": [
+      "numeri pari"
     ]
   },
   {
@@ -749,10 +775,13 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The ticket costs ___ euros, give or take a few cents.",
+    "prompt": "Complete: Il biglietto costa ___ euro, centesimo più centesimo meno.",
     "correctAnswer": "circa venti",
     "hints": [
       "'Give or take' signals an approximation. Use 'roughly' + number."
+    ],
+    "acceptedAnswers": [
+      "più o meno venti"
     ]
   },
   {
@@ -763,6 +792,9 @@
     "correctAnswer": "due volte il prezzo",
     "hints": [
       "'Double' and 'twice' are often interchangeable."
+    ],
+    "acceptedAnswers": [
+      "il doppio del prezzo"
     ]
   },
   {
@@ -770,16 +802,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you say 2,500,000 in the most natural spoken English?",
-    "correctAnswer": "2 e mezzo milione",
+    "prompt": "How do you say 2,500,000 in the most natural spoken Italian?",
+    "correctAnswer": "due milioni e mezzo",
     "options": [
       "venticinquecentomila",
-      "5 milioni di euro",
-      "2 e mezzo milione",
+      "cinque milioni",
+      "due milioni e mezzo",
       "due milioni cinquecento"
     ],
     "hints": [
-      "'Two and a half million' flows most naturally in speech."
+      "'E mezzo' = and a half, after the noun."
     ]
   },
   {
@@ -787,10 +819,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "flashcard",
-    "prompt": "Idiom: 'to be at sixes and sevens'",
-    "correctAnswer": "essere in uno stato di confusione o disordine",
+    "prompt": "Idiom: 'to bend over backwards for someone'",
+    "correctAnswer": "farsi in quattro",
     "hints": [
-      "Nothing to do with actual numbers — it's about total chaos!"
+      "Literally 'to make oneself into four'."
     ]
   },
   {
@@ -798,16 +830,16 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does the idiom 'on cloud nine' mean?",
-    "correctAnswer": "estremamente felice",
+    "prompt": "How do you say 'on cloud nine' in Italian?",
+    "correctAnswer": "al settimo cielo",
     "options": [
-      "estremamente elevato",
-      "estremamente felice",
-      "estremamente confuso",
-      "estremamente stanco"
+      "al nono cielo",
+      "al settimo cielo",
+      "tra le nuvole",
+      "al terzo piano"
     ],
     "hints": [
-      "The nine just emphasizes how far above the ground you feel."
+      "Italian happiness is the seventh heaven. 'Tra le nuvole' means daydreaming."
     ]
   },
   {
@@ -815,10 +847,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The business plan just doesn't ___ up — the costs are way too high.",
-    "correctAnswer": "aggiungere",
+    "prompt": "Complete: I conti non ___ — i costi sono troppo alti.",
+    "correctAnswer": "tornano",
     "hints": [
-      "'The numbers don't ___ up' means something is wrong or suspicious."
+      "'I conti non tornano' = the numbers don't add up."
     ]
   },
   {
@@ -827,9 +859,13 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to go fifty-fifty'",
-    "correctAnswer": "dividere il costo o il profitto allo stesso modo tra due persone",
+    "correctAnswer": "fare a metà",
     "hints": [
       "50% each. Used when splitting a bill or sharing a reward."
+    ],
+    "acceptedAnswers": [
+      "fare fifty-fifty",
+      "fare metà e metà"
     ]
   },
   {
@@ -837,13 +873,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'the odds are against us' mean?",
-    "correctAnswer": "è improbabile che riusciremo",
+    "prompt": "Which Italian sentence means 'the odds are against us'?",
+    "correctAnswer": "Abbiamo poche probabilità di farcela.",
     "options": [
-      "abbiamo bisogno di più persone",
-      "i numeri sono sbagliati",
-      "è improbabile che riusciremo",
-      "il concorso è giusto"
+      "Abbiamo bisogno di più persone.",
+      "I numeri sono sbagliati.",
+      "Abbiamo poche probabilità di farcela.",
+      "La gara è giusta."
     ],
     "hints": [
       "'Odds' here means probability, not the mathematical odd/even."
@@ -854,7 +890,7 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She's the ___ suspect — the detective is focused on her.",
+    "prompt": "Complete: È la sospettata ___ — l'ispettore si concentra solo su di lei.",
     "correctAnswer": "numero uno",
     "hints": [
       "To be 'number ___' means to be first or most important."
@@ -868,7 +904,7 @@
     "prompt": "Math vocabulary: the result of dividing two numbers",
     "correctAnswer": "quoziente",
     "hints": [
-      "Sum, difference, product, ___ — the four basic math results."
+      "Somma, differenza, prodotto, ___."
     ]
   },
   {
@@ -876,13 +912,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What is 'a round number'?",
-    "correctAnswer": "un numero che termina in zero che è facile da lavorare con",
+    "prompt": "What is 'un numero tondo'?",
+    "correctAnswer": "un numero che finisce con zero ed è facile da usare",
     "options": [
       "un numero circolare in geometria",
-      "un numero che termina in zero che è facile da lavorare con",
-      "qualsiasi numero",
-      "qualsiasi quadrato perfetto"
+      "un numero che finisce con zero ed è facile da usare",
+      "un numero qualsiasi",
+      "un quadrato perfetto"
     ],
     "hints": [
       "100, 50, 1000 are 'round'. 47 and 83 are not."
@@ -893,9 +929,13 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say this sentence: Two thirds of the respondents agreed with the proposal.",
-    "correctAnswer": "Due terzi degli intervistati concordati con la proposta.",
+    "correctAnswer": "Due terzi degli intervistati erano d'accordo con la proposta.",
     "hints": [
       "When 'two thirds of' precedes a plural noun, the verb is also plural."
+    ],
+    "acceptedAnswers": [
+      "Due terzi degli intervistati hanno approvato la proposta.",
+      "I due terzi degli intervistati erano d'accordo con la proposta."
     ]
   },
   {
@@ -903,10 +943,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ would get me back on a plane after that experience.",
+    "prompt": "Complete: ___ mi farebbe risalire su un aereo dopo quell'esperienza.",
     "correctAnswer": "Nessuna somma di denaro",
     "hints": [
       "'No ___ of money' means nothing can buy or persuade you."
+    ],
+    "acceptedAnswers": [
+      "Nessuna cifra"
     ]
   },
   {
@@ -914,13 +957,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'to zero in on something' mean?",
-    "correctAnswer": "per concentrarsi precisamente su qualcosa",
+    "prompt": "Which Italian phrase means 'to zero in on something'?",
+    "correctAnswer": "concentrarsi con precisione su qualcosa",
     "options": [
       "ignorare qualcosa",
-      "per resettare qualcosa a zero",
-      "per concentrarsi precisamente su qualcosa",
-      "per contare fino a zero"
+      "azzerare qualcosa",
+      "concentrarsi con precisione su qualcosa",
+      "contare fino a zero"
     ],
     "hints": [
       "Think of a camera lens zooming in on one target."
@@ -932,9 +975,12 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to count on someone'",
-    "correctAnswer": "affidarsi o fidarsi di qualcuno",
+    "correctAnswer": "contare su qualcuno",
     "hints": [
-      "'You can always ___ on me.' A phrase of dependability."
+      "Same image as English: 'Puoi sempre contare su di me.'"
+    ],
+    "acceptedAnswers": [
+      "fare affidamento su qualcuno"
     ]
   },
   {
@@ -942,10 +988,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: After years of budget cuts, the charity runs on a ___ budget.",
-    "correctAnswer": "scarpa stringa",
+    "prompt": "Complete: Dopo anni di tagli, l'associazione va avanti con ___ soldi.",
+    "correctAnswer": "quattro",
     "hints": [
-      "A '___ budget' means operating with almost no money at all."
+      "'Con quattro soldi' = on a shoestring, with very little money."
     ]
   },
   {

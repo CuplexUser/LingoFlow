@@ -4,7 +4,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a sport played with a round ball and two goals",
-    "correctAnswer": "fotboll fotboll",
+    "correctAnswer": "fotboll",
     "hints": [
       "It is the most popular sport in the world."
     ],
@@ -17,7 +17,10 @@
     "prompt": "Say: I go running every morning.",
     "correctAnswer": "Jag springer varje morgon.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Springa' = to run; 'varje morgon' = every morning."
+    ],
+    "acceptedAnswers": [
+      "Jag går ut och springer varje morgon."
     ]
   },
   {
@@ -28,6 +31,10 @@
     "correctAnswer": "Spelar du någon sport?",
     "hints": [
       "A common conversation starter."
+    ],
+    "acceptedAnswers": [
+      "Håller du på med någon sport?",
+      "Idrottar du?"
     ]
   },
   {
@@ -37,7 +44,7 @@
     "prompt": "Say: I like swimming in the sea.",
     "correctAnswer": "Jag gillar att simma i havet.",
     "hints": [
-      "'Like' + gerund for enjoyment."
+      "'Gilla att' + infinitive = to like doing something."
     ]
   },
   {
@@ -140,7 +147,10 @@
     "prompt": "Say: I have been going to the gym three times a week.",
     "correctAnswer": "Jag har gått till gymmet tre gånger i veckan.",
     "hints": [
-      "Present perfect continuous for an ongoing routine."
+      "Perfect tense for a routine that started earlier and still continues."
+    ],
+    "acceptedAnswers": [
+      "Jag har gått på gym tre gånger i veckan."
     ]
   },
   {
@@ -148,9 +158,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Would you like to join me for a run on Sunday?",
-    "correctAnswer": "Vill du gå med mig för en körning på söndag?",
+    "correctAnswer": "Vill du följa med och springa på söndag?",
     "hints": [
       "'Would you like to' is a polite invitation."
+    ],
+    "acceptedAnswers": [
+      "Vill du följa med mig ut och springa på söndag?"
     ]
   },
   {
@@ -158,9 +171,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I pulled a muscle during my workout yesterday.",
-    "correctAnswer": "Jag drog en muskel under min träning igår.",
+    "correctAnswer": "Jag sträckte en muskel när jag tränade igår.",
     "hints": [
       "'Pulled a muscle' is the phrase for a mild muscle injury."
+    ],
+    "acceptedAnswers": [
+      "Jag sträckte en muskel under träningen igår."
     ]
   },
   {
@@ -188,9 +204,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I signed up for a half-marathon next month.",
-    "correctAnswer": "Jag registrerade mig för ett halvmaraton nästa månad.",
+    "correctAnswer": "Jag har anmält mig till ett halvmaraton nästa månad.",
     "hints": [
       "'Signed up for' means registered for."
+    ],
+    "acceptedAnswers": [
+      "Jag anmälde mig till ett halvmaraton nästa månad."
     ]
   },
   {
@@ -208,9 +227,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How long does the yoga class last?",
-    "correctAnswer": "Hur länge håller yogaklassen?",
+    "correctAnswer": "Hur länge håller yogapasset på?",
     "hints": [
       "'How long does it last' asks about duration."
+    ],
+    "acceptedAnswers": [
+      "Hur långt är yogapasset?"
     ]
   },
   {
@@ -228,9 +250,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I prefer outdoor exercise to the gym.",
-    "correctAnswer": "Jag föredrar utomhus träning till gymmet.",
+    "correctAnswer": "Jag föredrar att träna utomhus framför på gym.",
     "hints": [
       "'Prefer X to Y' compares two options."
+    ],
+    "acceptedAnswers": [
+      "Jag föredrar utomhusträning framför gymmet."
     ]
   },
   {
@@ -257,22 +282,31 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How long is your usual workout?",
-    "correctAnswer": "Hur länge är din vanliga träning?",
+    "prompt": "Hur lång tid brukar ditt ___ ta?",
+    "correctAnswer": "träningspass",
     "hints": [
-      "Useful gym conversation."
+      "After 'ditt' the noun is indefinite: 'ditt träningspass'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-sp-a2-51"
+    "id": "sv-sp-a2-51",
+    "clozeOptions": [
+      "träningspass",
+      "träningspasset",
+      "träningspassen",
+      "tränare"
+    ]
   },
   {
     "id": "sv-sf-b1-1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Consistency is more important than intensity when building a fitness habit.",
-    "correctAnswer": "Konsekvens är viktigare än intensitet när man bygger en fitness vana.",
+    "correctAnswer": "Kontinuitet är viktigare än intensitet när man bygger upp en träningsvana.",
     "hints": [
       "'Consistency' means doing something regularly; 'intensity' means how hard you work."
+    ],
+    "acceptedAnswers": [
+      "Regelbundenhet är viktigare än intensitet när man bygger upp en träningsvana."
     ]
   },
   {
@@ -290,7 +324,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Do you think competitive sport teaches important life skills?",
-    "correctAnswer": "Tycker du att konkurrenskraftig sport lär viktiga livsförmågor?",
+    "correctAnswer": "Tycker du att tävlingsidrott lär ut viktiga färdigheter för livet?",
     "hints": [
       "A discussion question about the value of sport."
     ]
@@ -300,7 +334,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I had to take three weeks off training due to an overuse injury.",
-    "correctAnswer": "Jag var tvungen att ta tre veckor av träning på grund av en överanvändningsskada.",
+    "correctAnswer": "Jag var tvungen att göra ett uppehåll i träningen i tre veckor på grund av en överbelastningsskada.",
     "hints": [
       "'Overuse injury' comes from too much repetitive activity."
     ]
@@ -310,7 +344,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My personal trainer recommended incorporating strength work alongside my cardio routine.",
-    "correctAnswer": "Min personliga tränare rekommenderade att införliva styrka arbete tillsammans med min kardio rutin.",
+    "correctAnswer": "Min personliga tränare rekommenderade att jag kompletterar konditionsträningen med styrketräning.",
     "hints": [
       "'Incorporating' means adding in; 'cardio' = cardiovascular exercise."
     ]
@@ -320,7 +354,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The mental health benefits of regular exercise are well established.",
-    "correctAnswer": "De mentala hälsofördelarna med regelbunden motion är väl etablerade.",
+    "correctAnswer": "Fördelarna med regelbunden motion för den psykiska hälsan är väl belagda.",
     "hints": [
       "'Well established' = widely accepted based on evidence."
     ]
@@ -330,11 +364,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A colleague asks why you started running.",
-    "correctAnswer": "Jag började som ett sätt att hantera stress, och det blev något jag verkligen tycker om.",
+    "correctAnswer": "Jag började springa för att hantera stress, och nu är det något jag verkligen tycker om.",
     "hints": [
       "Give a reason and show how it evolved."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I started as a way to manage stress, and it became something I really enjoy."
   },
   {
     "id": "sv-sf-b1-8",
@@ -361,7 +396,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Have you found that exercising regularly has changed how you feel day to day?",
-    "correctAnswer": "Har du funnit att träning regelbundet har förändrat hur du känner dig dag för dag?",
+    "correctAnswer": "Har du märkt att regelbunden träning har förändrat hur du mår i vardagen?",
     "hints": [
       "'Day to day' means in daily life; present perfect asks about experience."
     ]
@@ -380,42 +415,51 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I switched to cycling because it is easier on my knees.",
-    "correctAnswer": "Jag bytte till cykling eftersom det är lättare på knäna.",
+    "correctAnswer": "Jag gick över till cykling eftersom det är skånsammare för knäna.",
     "hints": [
       "Explain reason with 'because'."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-sp-b1-60"
+    "id": "sv-sp-b1-60",
+    "acceptedAnswers": [
+      "Jag bytte till cykling eftersom det är skånsammare för knäna."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What strategy do you use to stay consistent with training?",
-    "correctAnswer": "Vilken strategi använder du för att hålla dig konsekvent med träning?",
+    "prompt": "Vilken strategi använder du för att träna ___?",
+    "correctAnswer": "regelbundet",
     "hints": [
-      "Reflective sports question."
+      "An adverb (-t ending) describing how you train."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-sp-b1-61"
+    "id": "sv-sp-b1-61",
+    "clozeOptions": [
+      "regelbundet",
+      "regelbunden",
+      "regelbundna",
+      "regel"
+    ]
   },
   {
     "id": "sv-sf-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The commercialisation of elite sport raises questions about its relationship with grassroots participation.",
-    "correctAnswer": "Kommersialiseringen av elitsport väcker frågor om dess förhållande till gräsrotsdeltagande.",
+    "prompt": "Say: The commercialization of elite sport raises questions about its relationship with grassroots participation.",
+    "correctAnswer": "Kommersialiseringen av elitidrotten väcker frågor om dess förhållande till breddidrotten.",
     "hints": [
-      "'Commercialisation' = the process of making something about money; 'grassroots' = community level."
+      "'Commercialization' = the process of making something about money; 'breddidrott' = grassroots sport."
     ]
   },
   {
     "id": "sv-sf-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Periodisation — the systematic planning of training cycles — is central to peak athletic performance.",
-    "correctAnswer": "Periodisering - systematisk planering av träningscykler - är central för topp idrottsprestanda.",
+    "prompt": "Say: Periodization — the systematic planning of training cycles — is central to peak athletic performance.",
+    "correctAnswer": "Periodisering – systematisk planering av träningscykler – är avgörande för idrottsliga toppprestationer.",
     "hints": [
-      "'Periodisation' = planned variation in training; 'peak performance' = best possible level."
+      "'Periodization' = planned variation in training; 'peak performance' = best possible level."
     ]
   },
   {
@@ -423,9 +467,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: To what extent does genetics predetermine athletic potential?",
-    "correctAnswer": "I vilken utsträckning förutbestämmer genetik atletisk potential?",
+    "correctAnswer": "I vilken utsträckning avgör generna den idrottsliga potentialen?",
     "hints": [
       "'To what extent' = how much; 'predetermine' = decide in advance."
+    ],
+    "acceptedAnswers": [
+      "I vilken utsträckning förutbestämmer genetiken idrottslig potential?"
     ]
   },
   {
@@ -443,7 +490,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Doping scandals have eroded public trust in competitive sport, particularly at the elite level.",
-    "correctAnswer": "Dopingskandaler har eroderat allmänhetens förtroende för konkurrenskraftig sport, särskilt på elitnivå.",
+    "correctAnswer": "Dopingskandaler har urholkat allmänhetens förtroende för tävlingsidrotten, särskilt på elitnivå.",
     "hints": [
       "'Eroded' = gradually worn away; 'doping' = use of banned performance-enhancing substances."
     ]
@@ -453,7 +500,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Maintaining work-life-fitness balance in a sedentary profession requires deliberate effort and planning.",
-    "correctAnswer": "Att upprätthålla balans mellan arbete och liv i stillasittande yrke kräver avsiktlig ansträngning och planering.",
+    "correctAnswer": "Att få ihop arbete, fritid och träning i ett stillasittande yrke kräver medveten ansträngning och planering.",
     "hints": [
       "'Sedentary' = involving a lot of sitting; 'deliberate' = intentional."
     ]
@@ -473,7 +520,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The psychological resilience required at elite level is as demanding as the physical conditioning.",
-    "correctAnswer": "Den psykologiska motståndskraft som krävs på elitnivå är lika krävande som den fysiska konditioneringen.",
+    "correctAnswer": "Den psykiska motståndskraft som krävs på elitnivå är lika krävande som den fysiska träningen.",
     "hints": [
       "'Resilience' = ability to bounce back from difficulty; 'conditioning' = physical training state."
     ]
@@ -491,23 +538,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Performance improves when recovery is treated as part of training.",
-    "correctAnswer": "Prestanda förbättras när återhämtning behandlas som en del av utbildningen.",
+    "prompt": "Prestationen förbättras när ___ behandlas som en del av träningen.",
+    "correctAnswer": "återhämtningen",
     "hints": [
-      "Passive form at B2."
+      "A noun meaning 'recovery', in the definite form."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-sp-b2-70"
+    "id": "sv-sp-b2-70",
+    "clozeOptions": [
+      "återhämtningen",
+      "återhämtning",
+      "återvinningen",
+      "återkomsten"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can athletes maintain motivation during long off-seasons?",
-    "correctAnswer": "Hur kan idrottare bibehålla motivation under långa lågsäsonger?",
+    "prompt": "Dialogue: At a coaching seminar, you ask about keeping athletes motivated between seasons.",
+    "correctAnswer": "Hur kan idrottare behålla motivationen under långa uppehåll mellan säsongerna?",
     "hints": [
       "Complex question pattern."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-sp-b2-71"
+    "id": "sv-sp-b2-71",
+    "answerEnglish": "How can athletes maintain motivation during long off-seasons?"
   }
 ]

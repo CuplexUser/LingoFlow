@@ -16,9 +16,12 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 1",
-    "correctAnswer": "en",
+    "correctAnswer": "ett",
     "hints": [
       "There is only ___ sun in our solar system."
+    ],
+    "acceptedAnswers": [
+      "en"
     ]
   },
   {
@@ -29,13 +32,13 @@
     "prompt": "Which word means the number 2?",
     "correctAnswer": "två",
     "options": [
-      "tow",
+      "tolv",
       "två",
-      "också för",
-      "för att"
+      "tre",
+      "tio"
     ],
     "hints": [
-      "Watch out — English has three words that sound alike: 'to', 'too', and ___!"
+      "Pronounced 'tvoh'. Don't confuse it with tolv (12)."
     ]
   },
   {
@@ -46,7 +49,7 @@
     "prompt": "Vocabulary: the number 3",
     "correctAnswer": "tre",
     "hints": [
-      "Good things come in ___s — so they say."
+      "Swedes say 'Alla goda ting är ___' — all good things come in threes."
     ]
   },
   {
@@ -66,12 +69,12 @@
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
     "prompt": "Which is the correct spelling of 5?",
-    "correctAnswer": "5",
+    "correctAnswer": "fem",
     "options": [
-      "fife",
-      "5",
-      "fiv",
-      "5r"
+      "fäm",
+      "fem",
+      "femm",
+      "fen"
     ],
     "hints": [
       "You have ___ fingers on one hand."
@@ -143,7 +146,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A week has ___ days.",
+    "prompt": "Complete: En vecka har ___ dagar.",
     "correctAnswer": "sju",
     "hints": [
       "Monday through Sunday."
@@ -154,13 +157,13 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does '+' mean in English?",
+    "prompt": "What is '+' called in Swedish math?",
     "correctAnswer": "plus",
     "options": [
       "minus",
       "plus",
       "gånger",
-      "lika"
+      "delat med"
     ],
     "hints": [
       "It means to add two numbers together."
@@ -183,7 +186,7 @@
     "difficulty": "a1",
     "exerciseType": "flashcard",
     "prompt": "Math symbol: =",
-    "correctAnswer": "lika",
+    "correctAnswer": "lika med",
     "hints": [
       "Both sides of the equation have the same value."
     ]
@@ -195,7 +198,11 @@
     "prompt": "Read this calculation aloud: 2 + 3 = 5",
     "correctAnswer": "Två plus tre är lika med fem.",
     "hints": [
-      "Use: plus, equals."
+      "Use: plus, and 'är lika med', 'är' or 'blir' for equals."
+    ],
+    "acceptedAnswers": [
+      "Två plus tre är fem.",
+      "Två plus tre blir fem."
     ]
   },
   {
@@ -217,10 +224,10 @@
     "prompt": "How do you read '5 + 5'?",
     "correctAnswer": "fem plus fem",
     "options": [
-      "fem och fem",
+      "fem delat med fem",
       "fem plus fem",
       "fem gånger fem",
-      "5 minus 5"
+      "fem minus fem"
     ],
     "hints": [
       "The + symbol is the key."
@@ -253,7 +260,7 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "multiple_choice",
-    "prompt": "Which number is 'thirteen'?",
+    "prompt": "Which number is 'tretton'?",
     "correctAnswer": "13",
     "options": [
       "12",
@@ -262,7 +269,7 @@
       "30"
     ],
     "hints": [
-      "Watch out — 'thirteen' (13) and 'thirty' (30) sound similar!"
+      "tre + -ton. Don't confuse it with trettio (30)."
     ]
   },
   {
@@ -270,8 +277,8 @@
     "level": "a1",
     "difficulty": "a1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: I have ___ fingers on each hand.",
-    "correctAnswer": "5",
+    "prompt": "Complete: Jag har ___ fingrar på varje hand.",
+    "correctAnswer": "fem",
     "hints": [
       "Count them!"
     ]
@@ -292,16 +299,16 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you spell 50?",
+    "prompt": "How do you write 50 in Swedish?",
     "correctAnswer": "femtio",
     "options": [
       "femtio",
-      "femtio",
-      "fiftey",
-      "femtio"
+      "femton",
+      "femte",
+      "fyrtio"
     ],
     "hints": [
-      "It's not 'fivety' — the 'v' disappears when you make the ten!"
+      "fem + -tio. Don't confuse it with femton (15)."
     ]
   },
   {
@@ -321,9 +328,13 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 1,000",
-    "correctAnswer": "tusen tusen",
+    "correctAnswer": "tusen",
     "hints": [
       "A millennium is a ___ years. A kilogram is a ___ grams."
+    ],
+    "acceptedAnswers": [
+      "ettusen",
+      "ett tusen"
     ]
   },
   {
@@ -337,7 +348,7 @@
       "plus",
       "minus",
       "gånger",
-      "delad av"
+      "delat med"
     ],
     "hints": [
       "It means multiplication."
@@ -349,9 +360,13 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Math symbol: ÷",
-    "correctAnswer": "delad av",
+    "correctAnswer": "delat med",
     "hints": [
       "You use this to split something into equal parts."
+    ],
+    "acceptedAnswers": [
+      "delat i",
+      "dividerat med"
     ]
   },
   {
@@ -359,9 +374,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Read this calculation aloud: 3 × 4 = 12",
-    "correctAnswer": "Tre gånger fyra motsvarar tolv.",
+    "correctAnswer": "Tre gånger fyra är tolv.",
     "hints": [
-      "Use: times, equals."
+      "Use: gånger (times), and 'är' or 'blir' for equals."
+    ],
+    "acceptedAnswers": [
+      "Tre gånger fyra är lika med tolv.",
+      "Tre gånger fyra blir tolv."
     ]
   },
   {
@@ -370,7 +389,7 @@
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: 10 ÷ 2 = ___",
-    "correctAnswer": "5",
+    "correctAnswer": "fem",
     "hints": [
       "Split ten into two equal groups."
     ]
@@ -385,11 +404,11 @@
     "options": [
       "tjugofem",
       "två fem",
-      "tjugofem",
-      "fem och tjugo"
+      "femtjugo",
+      "tjugofäm"
     ],
     "hints": [
-      "Compound numbers between 21 and 99 use a hyphen."
+      "Swedish writes it as one word, tens first: tjugo + fem."
     ]
   },
   {
@@ -397,7 +416,7 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: There are ___ hours in a day.",
+    "prompt": "Complete: Ett dygn har ___ timmar.",
     "correctAnswer": "tjugofyra",
     "hints": [
       "Not twenty-five, not twenty-three — exactly in between."
@@ -424,8 +443,8 @@
     "options": [
       "ett par",
       "ett dussin",
-      "en poäng",
-      "en grov"
+      "ett tjog",
+      "ett hundratal"
     ],
     "hints": [
       "Eggs are typically sold in this quantity."
@@ -435,10 +454,10 @@
     "id": "sv-num-a2-13",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you say the year '1999' in English?",
-    "correctAnswer": "nitton nittionio",
+    "prompt": "How do you say the year 1999 in Swedish?",
+    "correctAnswer": "nittonhundranittionio",
     "hints": [
-      "Years before 2000 are read as two pairs: 19 + 99."
+      "Swedish reads years with 'hundra': nitton-hundra-nittionio, written as one word."
     ]
   },
   {
@@ -446,8 +465,8 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: A ___ of eggs means twelve eggs.",
-    "correctAnswer": "dozen",
+    "prompt": "Complete: Ett ___ ägg är tolv ägg.",
+    "correctAnswer": "dussin",
     "hints": [
       "Bakers and recipe writers love this word."
     ]
@@ -463,10 +482,10 @@
       "tre sju",
       "trettio sju",
       "trettiosju",
-      "tretseven"
+      "sjutrettio"
     ],
     "hints": [
-      "Compound numbers 21–99 use a hyphen in formal English."
+      "Tens + units, one word: trettio + sju."
     ]
   },
   {
@@ -475,9 +494,12 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Ordinal number: 1st",
-    "correctAnswer": "först först",
+    "correctAnswer": "första",
     "hints": [
       "The winner of a race finishes in this place."
+    ],
+    "acceptedAnswers": [
+      "förste"
     ]
   },
   {
@@ -486,9 +508,12 @@
     "difficulty": "a2",
     "exerciseType": "flashcard",
     "prompt": "Ordinal number: 2nd",
-    "correctAnswer": "andra sekunden",
+    "correctAnswer": "andra",
     "hints": [
-      "The runner-up. Also means 'a unit of time'."
+      "The runner-up finishes in this place."
+    ],
+    "acceptedAnswers": [
+      "andre"
     ]
   },
   {
@@ -501,11 +526,11 @@
     "options": [
       "tre",
       "tredje",
-      "tre",
-      "tredjedelen"
+      "trede",
+      "tredjedel"
     ],
     "hints": [
-      "The first three ordinals are irregular: first, second, ___"
+      "första, andra, ___, fjärde."
     ]
   },
   {
@@ -513,7 +538,7 @@
     "level": "a2",
     "difficulty": "a2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She finished in ___ place — just one step off the podium.",
+    "prompt": "Complete: Hon kom på ___ plats — precis utanför pallen.",
     "correctAnswer": "fjärde",
     "hints": [
       "One step after the third-place bronze medal."
@@ -523,10 +548,10 @@
     "id": "sv-num-a2-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "How do you read the phone number 555-0199 in English?",
-    "correctAnswer": "fem fem, noll en nio nio",
+    "prompt": "How do you read the phone number 555-0199 in Swedish?",
+    "correctAnswer": "fem fem fem, noll ett nio nio",
     "hints": [
-      "Phone numbers are said digit by digit. 0 is 'zero' or 'oh'."
+      "Phone numbers are said digit by digit. 0 is 'noll', 1 is 'ett'."
     ]
   },
   {
@@ -546,9 +571,9 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary: 1/4",
-    "correctAnswer": "kvartal",
+    "correctAnswer": "en fjärdedel",
     "hints": [
-      "Four equal parts. Also what 25 cents is called in the US."
+      "Four equal parts. Fifteen minutes is 'en kvart'."
     ]
   },
   {
@@ -560,12 +585,12 @@
     "correctAnswer": "två tredjedelar",
     "options": [
       "två tre",
-      "tredje tredje tredje tredje",
+      "två treor",
       "två tredjedelar",
-      "två över tre"
+      "andra tredje"
     ],
     "hints": [
-      "For fractions, the bottom number uses an ordinal form."
+      "Fraction = ordinal + -del: tredje → tredjedel."
     ]
   },
   {
@@ -573,10 +598,10 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ of the class passed the test — thirty out of forty students.",
+    "prompt": "Complete: ___ av klassen klarade provet — trettio av fyrtio elever.",
     "correctAnswer": "tre fjärdedelar",
     "hints": [
-      "30 out of 40 = 75%. That's three ___."
+      "30 av 40 = 75 %."
     ]
   },
   {
@@ -595,9 +620,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say '20% off' as a full sentence.",
-    "correctAnswer": "Det finns tjugo procent av.",
+    "correctAnswer": "Det är tjugo procent rabatt.",
     "hints": [
-      "Say the number first, then 'per cent'."
+      "'Rabatt' = discount."
+    ],
+    "acceptedAnswers": [
+      "Tjugo procent rabatt.",
+      "Det är tjugo procents rabatt."
     ]
   },
   {
@@ -637,6 +666,10 @@
     "correctAnswer": "skillnad",
     "hints": [
       "The ___ between 10 and 6 is 4."
+    ],
+    "acceptedAnswers": [
+      "differens",
+      "skillnaden"
     ]
   },
   {
@@ -661,8 +694,8 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: We need to ___ the bill three ways — about twenty euros each.",
-    "correctAnswer": "splittrad",
+    "prompt": "Complete: Vi måste ___ på notan i tre — ungefär tjugo euro var.",
+    "correctAnswer": "dela",
     "hints": [
       "Divide equally between friends at a restaurant."
     ]
@@ -683,9 +716,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "How do you say the decimal 3.5 out loud?",
-    "correctAnswer": "tre punkt fem",
+    "correctAnswer": "tre komma fem",
     "hints": [
-      "Decimals use 'point', then each digit is read individually."
+      "Swedish uses a decimal comma, read 'komma'."
     ]
   },
   {
@@ -710,10 +743,13 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: He's ___ — he just turned 35 last week.",
-    "correctAnswer": "i hans trettio",
+    "prompt": "Complete: Han är i ___ — han fyllde trettiofem förra veckan.",
+    "correctAnswer": "trettioårsåldern",
     "hints": [
-      "Use 'in his/her ___s' to express a decade of someone's age."
+      "'I trettioårsåldern' = in one's thirties."
+    ],
+    "acceptedAnswers": [
+      "30-årsåldern"
     ]
   },
   {
@@ -721,16 +757,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'a pair of shoes' mean?",
-    "correctAnswer": "två skor",
+    "prompt": "How do you say 'a pair of shoes' in Swedish?",
+    "correctAnswer": "ett par skor",
     "options": [
       "en sko",
-      "två skor",
+      "ett par skor",
       "några skor",
       "många skor"
     ],
     "hints": [
-      "Always two — one for each foot."
+      "'Ett par' = a pair — though in speech it can also mean 'a few'."
     ]
   },
   {
@@ -739,9 +775,13 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Number vocabulary: the opposite of 'odd' numbers",
-    "correctAnswer": "även till och med",
+    "correctAnswer": "jämna",
     "hints": [
       "2, 4, 6, 8 — these are ___ numbers. They can be divided by 2 exactly."
+    ],
+    "acceptedAnswers": [
+      "jämna tal",
+      "jämn"
     ]
   },
   {
@@ -749,20 +789,28 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The ticket costs ___ euros, give or take a few cents.",
+    "prompt": "Complete: Biljetten kostar ___ euro, några cent hit eller dit.",
     "correctAnswer": "ungefär tjugo",
     "hints": [
       "'Give or take' signals an approximation. Use 'roughly' + number."
+    ],
+    "acceptedAnswers": [
+      "cirka tjugo",
+      "runt tjugo"
     ]
   },
   {
     "id": "sv-num-b1-19",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "How do you say 'double the price' using 'twice'?",
-    "correctAnswer": "två gånger priset",
+    "prompt": "How do you say 'double the price' in Swedish?",
+    "correctAnswer": "dubbla priset",
     "hints": [
-      "'Double' and 'twice' are often interchangeable."
+      "'Dubbla' = double; 'dubbelt så dyrt' = twice as expensive."
+    ],
+    "acceptedAnswers": [
+      "det dubbla priset",
+      "två gånger priset"
     ]
   },
   {
@@ -770,16 +818,16 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "multiple_choice",
-    "prompt": "How do you say 2,500,000 in the most natural spoken English?",
+    "prompt": "How do you say 2,500,000 in the most natural spoken Swedish?",
     "correctAnswer": "två och en halv miljon",
     "options": [
       "tjugofem hundra tusen",
       "två poäng fem miljoner",
       "två och en halv miljon",
-      "2 miljoner fem hundra"
+      "två miljoner femhundra"
     ],
     "hints": [
-      "'Two and a half million' flows most naturally in speech."
+      "'Två och en halv' = two and a half."
     ]
   },
   {
@@ -787,10 +835,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "flashcard",
-    "prompt": "Idiom: 'to be at sixes and sevens'",
-    "correctAnswer": "att vara i ett tillstånd av förvirring eller sjukdom",
+    "prompt": "Idiom: 'to kill two birds with one stone'",
+    "correctAnswer": "slå två flugor i en smäll",
     "hints": [
-      "Nothing to do with actual numbers — it's about total chaos!"
+      "Literally 'to hit two flies with one swat'."
     ]
   },
   {
@@ -798,16 +846,16 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does the idiom 'on cloud nine' mean?",
-    "correctAnswer": "extremt glad",
+    "prompt": "How do you say 'on cloud nine' in Swedish?",
+    "correctAnswer": "i sjunde himlen",
     "options": [
-      "extremt hög upp",
-      "extremt glad",
-      "extremt förvirrad",
-      "extremt trött"
+      "i nionde himlen",
+      "i sjunde himlen",
+      "uppe i det blå",
+      "på tredje våningen"
     ],
     "hints": [
-      "The nine just emphasizes how far above the ground you feel."
+      "Swedish happiness is the seventh heaven."
     ]
   },
   {
@@ -815,10 +863,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: The business plan just doesn't ___ up — the costs are way too high.",
-    "correctAnswer": "lägg till tillägg",
+    "prompt": "Complete: Kalkylen går inte ___ — kostnaderna är alldeles för höga.",
+    "correctAnswer": "ihop",
     "hints": [
-      "'The numbers don't ___ up' means something is wrong or suspicious."
+      "'Det går inte ihop' = it doesn't add up."
     ]
   },
   {
@@ -827,9 +875,13 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to go fifty-fifty'",
-    "correctAnswer": "dela kostnaden eller vinsten lika mellan två personer",
+    "correctAnswer": "dela lika",
     "hints": [
       "50% each. Used when splitting a bill or sharing a reward."
+    ],
+    "acceptedAnswers": [
+      "köra fifty-fifty",
+      "dela fifty-fifty"
     ]
   },
   {
@@ -837,16 +889,16 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'the odds are against us' mean?",
-    "correctAnswer": "det är osannolikt att vi kommer att lyckas",
+    "prompt": "Which Swedish sentence means 'the odds are against us'?",
+    "correctAnswer": "Oddsen är emot oss.",
     "options": [
-      "vi behöver fler människor",
-      "siffrorna är fel",
-      "det är osannolikt att vi kommer att lyckas",
-      "tävlingen är rättvis"
+      "Vi behöver fler människor.",
+      "Siffrorna är fel.",
+      "Oddsen är emot oss.",
+      "Tävlingen är rättvis."
     ],
     "hints": [
-      "'Odds' here means probability, not the mathematical odd/even."
+      "Swedish borrowed 'odds' from English."
     ]
   },
   {
@@ -854,7 +906,7 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: She's the ___ suspect — the detective is focused on her.",
+    "prompt": "Complete: Hon är misstänkt ___ — kommissarien fokuserar helt på henne.",
     "correctAnswer": "nummer ett",
     "hints": [
       "To be 'number ___' means to be first or most important."
@@ -866,9 +918,13 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the result of dividing two numbers",
-    "correctAnswer": "kvotient",
+    "correctAnswer": "kvot",
     "hints": [
-      "Sum, difference, product, ___ — the four basic math results."
+      "Summa, differens, produkt, ___."
+    ],
+    "acceptedAnswers": [
+      "kvoten",
+      "kvotient"
     ]
   },
   {
@@ -876,13 +932,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What is 'a round number'?",
-    "correctAnswer": "ett nummer som slutar i noll som är lätt att arbeta med",
+    "prompt": "What is 'ett runt tal'?",
+    "correctAnswer": "ett tal som slutar på noll och är lätt att räkna med",
     "options": [
-      "cirkulärt tal i geometri",
-      "ett nummer som slutar i noll som är lätt att arbeta med",
-      "eventuellt nummer",
-      "någon perfekt kvadrat"
+      "ett cirkeltal i geometri",
+      "ett tal som slutar på noll och är lätt att räkna med",
+      "vilket tal som helst",
+      "en perfekt kvadrat"
     ],
     "hints": [
       "100, 50, 1000 are 'round'. 47 and 83 are not."
@@ -896,6 +952,10 @@
     "correctAnswer": "Två tredjedelar av respondenterna gick med på förslaget.",
     "hints": [
       "When 'two thirds of' precedes a plural noun, the verb is also plural."
+    ],
+    "acceptedAnswers": [
+      "Två tredjedelar av de tillfrågade höll med om förslaget.",
+      "Två tredjedelar av respondenterna höll med om förslaget."
     ]
   },
   {
@@ -903,8 +963,8 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: ___ would get me back on a plane after that experience.",
-    "correctAnswer": "Ingen summa pengar",
+    "prompt": "Complete: ___ i världen skulle få mig att flyga igen efter den upplevelsen.",
+    "correctAnswer": "Inga pengar",
     "hints": [
       "'No ___ of money' means nothing can buy or persuade you."
     ]
@@ -914,13 +974,13 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
-    "prompt": "What does 'to zero in on something' mean?",
+    "prompt": "Which Swedish phrase means 'to zero in on something'?",
     "correctAnswer": "att fokusera just på något",
     "options": [
       "att ignorera något",
-      "återställ något till noll",
+      "att nollställa något",
       "att fokusera just på något",
-      "för att räkna ner till noll"
+      "att räkna ner till noll"
     ],
     "hints": [
       "Think of a camera lens zooming in on one target."
@@ -932,9 +992,13 @@
     "difficulty": "b2",
     "exerciseType": "flashcard",
     "prompt": "Idiom: 'to count on someone'",
-    "correctAnswer": "att lita på eller lita på någon",
+    "correctAnswer": "att räkna med någon",
     "hints": [
-      "'You can always ___ on me.' A phrase of dependability."
+      "'Du kan alltid räkna med mig.'"
+    ],
+    "acceptedAnswers": [
+      "att lita på någon",
+      "räkna med någon"
     ]
   },
   {
@@ -942,10 +1006,10 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: After years of budget cuts, the charity runs on a ___ budget.",
-    "correctAnswer": "skor",
+    "prompt": "Complete: Efter flera år av nedskärningar drivs organisationen på ___.",
+    "correctAnswer": "sparlåga",
     "hints": [
-      "A '___ budget' means operating with almost no money at all."
+      "'På sparlåga' = on a low flame — running on almost no money."
     ]
   },
   {
@@ -954,10 +1018,10 @@
     "difficulty": "b2",
     "exerciseType": "multiple_choice",
     "prompt": "Which of these is a 'factor' of 12?",
-    "correctAnswer": "4.4 4 4",
+    "correctAnswer": "4",
     "options": [
-      "5.5",
-      "4.4 4 4",
+      "5",
+      "4",
       "7",
       "9"
     ],

@@ -4,11 +4,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a building where you can see art or historical objects",
-    "correctAnswer": "museum",
+    "correctAnswer": "das Museum",
     "hints": [
       "Think of a place that preserves important objects."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Museum"
+    ]
   },
   {
     "id": "de-ch-a1-2",
@@ -17,7 +20,10 @@
     "prompt": "Say: I love visiting old buildings.",
     "correctAnswer": "Ich liebe es, alte Gebäude zu besuchen.",
     "hints": [
-      "'Love' + gerund for a strong preference."
+      "'Ich liebe es, ... zu' + infinitive; or simply verb + 'sehr gern'."
+    ],
+    "acceptedAnswers": [
+      "Ich besichtige sehr gern alte Gebäude."
     ]
   },
   {
@@ -45,7 +51,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: When is the national holiday?",
-    "correctAnswer": "Wann ist der Feiertag?",
+    "correctAnswer": "Wann ist der Nationalfeiertag?",
     "hints": [
       "A public day off to celebrate a country's history."
     ]
@@ -55,11 +61,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a piece of art made of stone or metal",
-    "correctAnswer": "skulpturen",
+    "correctAnswer": "die Skulptur",
     "hints": [
       "It is a three-dimensional work of art."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Skulptur",
+      "die Plastik"
+    ]
   },
   {
     "id": "de-ch-a1-7",
@@ -89,6 +99,10 @@
     "correctAnswer": "Ich ging letztes Wochenende ins Theater.",
     "hints": [
       "Simple past for a recent visit."
+    ],
+    "acceptedAnswers": [
+      "Ich bin letztes Wochenende ins Theater gegangen.",
+      "Letztes Wochenende war ich im Theater."
     ]
   },
   {
@@ -120,7 +134,11 @@
       "Past simple travel-culture link."
     ],
     "exerciseType": "build_sentence",
-    "id": "de-cu-a1-40"
+    "id": "de-cu-a1-40",
+    "acceptedAnswers": [
+      "Wir haben eine alte Burg besichtigt.",
+      "Wir besuchten eine alte Burg."
+    ]
   },
   {
     "level": "a1",
@@ -148,7 +166,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the significance of this monument?",
-    "correctAnswer": "Was ist die Bedeutung dieses Denkmals?",
+    "correctAnswer": "Welche Bedeutung hat dieses Denkmal?",
     "hints": [
       "'Significance' means importance or meaning."
     ]
@@ -168,7 +186,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I find it fascinating to learn about different customs and traditions.",
-    "correctAnswer": "Ich finde es faszinierend, über verschiedene Bräuche und Traditionen zu lernen.",
+    "correctAnswer": "Ich finde es faszinierend, etwas über andere Bräuche und Traditionen zu erfahren.",
     "hints": [
       "'I find it + adjective + to' expresses a reaction."
     ]
@@ -178,7 +196,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Are there any historical sites worth visiting nearby?",
-    "correctAnswer": "Gibt es historische Sehenswürdigkeiten in der Nähe zu besuchen?",
+    "correctAnswer": "Gibt es in der Nähe historische Stätten, die einen Besuch wert sind?",
     "hints": [
       "'Worth visiting' means deserving a visit."
     ]
@@ -190,7 +208,7 @@
     "prompt": "Say: The museum has an impressive collection of Roman artifacts.",
     "correctAnswer": "Das Museum verfügt über eine beeindruckende Sammlung römischer Artefakte.",
     "hints": [
-      "'Artefacts' are objects made or used by people in the past."
+      "'Artefakte' = artifacts, objects made or used by people in the past."
     ]
   },
   {
@@ -208,9 +226,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the story behind this tradition?",
-    "correctAnswer": "Was ist die Geschichte hinter dieser Tradition?",
+    "correctAnswer": "Was steckt hinter dieser Tradition?",
     "hints": [
       "Ask about the origin or explanation."
+    ],
+    "acceptedAnswers": [
+      "Woher kommt diese Tradition?"
     ]
   },
   {
@@ -218,22 +239,24 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We attended the opening night of a new exhibition at the gallery.",
-    "correctAnswer": "Wir besuchten die Eröffnungsnacht einer neuen Ausstellung in der Galerie.",
+    "correctAnswer": "Wir waren bei der Eröffnung einer neuen Ausstellung in der Galerie.",
     "hints": [
       "'Attended' = went to; 'opening night' = the first evening."
+    ],
+    "acceptedAnswers": [
+      "Wir waren bei der Vernissage einer neuen Ausstellung in der Galerie."
     ]
   },
   {
     "id": "de-ch-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Shakespeare wrote thirty-seven plays during his lifetime.",
-    "correctAnswer": "Shakespeare schrieb siebenunddreißig Stücke während seines Lebens.",
+    "prompt": "Say: Goethe worked on Faust for almost sixty years.",
+    "correctAnswer": "Goethe arbeitete fast sechzig Jahre lang am Faust.",
     "hints": [
-      "Past simple for a completed historical fact.",
-      "Shakespeare is considered the greatest writer in the English language."
+      "'Am' = an dem; 'arbeiten an' + dative."
     ],
-    "culturalNote": "William Shakespeare (1564–1616) is considered the greatest writer in the English language. His works are still performed in theaters worldwide."
+    "culturalNote": "Johann Wolfgang von Goethe (1749–1832) is Germany's most celebrated writer; he worked on 'Faust' from the 1770s until shortly before his death."
   },
   {
     "level": "a2",
@@ -249,7 +272,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I learned about this country in school.",
-    "correctAnswer": "Ich habe über dieses Land in der Schule gelernt.",
+    "correctAnswer": "Ich habe in der Schule etwas über dieses Land gelernt.",
     "hints": [
       "Past learning sentence."
     ],
@@ -259,10 +282,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Why do people celebrate this holiday?",
-    "correctAnswer": "Warum feiern die Menschen diesen Urlaub?",
+    "prompt": "Warum ___ die Menschen diesen Feiertag?",
+    "correctAnswer": "feiern",
     "hints": [
-      "History/culture curiosity."
+      "A verb meaning 'to celebrate'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-cu-a2-51"
@@ -272,7 +295,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Cultural heritage shapes national identity in ways that are often invisible to those within the culture.",
-    "correctAnswer": "Kulturelles Erbe prägt nationale Identität in Weisen, die für die Kultur oft unsichtbar sind.",
+    "correctAnswer": "Das kulturelle Erbe prägt die nationale Identität auf eine Weise, die für die Angehörigen dieser Kultur oft unsichtbar ist.",
     "hints": [
       "'Shapes' = influences; 'invisible to' = not easily seen by."
     ]
@@ -284,7 +307,7 @@
     "prompt": "Ask: Do you think colonialism has left a lasting impact on contemporary culture?",
     "correctAnswer": "Glaubst du, der Kolonialismus hat dauerhafte Auswirkungen auf die zeitgenössische Kultur hinterlassen?",
     "hints": [
-      "'Colonialism' = the practice of colonising other countries; 'lasting impact' = long-term effect."
+      "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
     ]
   },
   {
@@ -292,7 +315,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The industrial revolution fundamentally altered the structure of society and the nature of work.",
-    "correctAnswer": "Die industrielle Revolution veränderte die Struktur der Gesellschaft und die Natur der Arbeit grundlegend.",
+    "correctAnswer": "Die industrielle Revolution veränderte die Gesellschaftsstruktur und das Wesen der Arbeit grundlegend.",
     "hints": [
       "'Fundamentally altered' = changed at a basic level."
     ]
@@ -302,7 +325,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I visited the archaeological site and was struck by the scale of the ancient ruins.",
-    "correctAnswer": "Ich besuchte die archäologische Stätte und wurde von der Skala der alten Ruinen getroffen.",
+    "correctAnswer": "Ich besuchte die Ausgrabungsstätte und war beeindruckt vom Ausmaß der antiken Ruinen.",
     "hints": [
       "'Was struck by' = was impressed by; 'archaeological site' = a place of historical excavation."
     ]
@@ -322,7 +345,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How does a country reconcile pride in its history with acknowledgement of past wrongs?",
-    "correctAnswer": "Wie versöhnt ein Land den Stolz seiner Geschichte mit der Anerkennung vergangener Fehler?",
+    "correctAnswer": "Wie vereinbart ein Land den Stolz auf seine Geschichte mit der Anerkennung vergangenen Unrechts?",
     "hints": [
       "'Reconcile' = bring into harmony; a discussion about national identity and responsibility."
     ]
@@ -334,7 +357,7 @@
     "prompt": "Say: The Renaissance was characterised by a renewed interest in classical antiquity and humanist philosophy.",
     "correctAnswer": "Die Renaissance zeichnete sich durch ein erneutes Interesse an der klassischen Antike und humanistischen Philosophie aus.",
     "hints": [
-      "'Characterised by' = defined or typified by; 'antiquity' = ancient times.",
+      "'Sich auszeichnen durch' = to be characterized by; 'Antike' = antiquity.",
       "'Humanist' thought placed humans, not God, at the center of intellectual life."
     ],
     "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought."
@@ -354,7 +377,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Someone asks what you found most moving during a museum visit.",
-    "correctAnswer": "Die persönlichen Briefe und Tagebücher gaben mir ein viel stärkeres Gefühl, wie das Leben damals eigentlich war.",
+    "correctAnswer": "Durch die persönlichen Briefe und Tagebücher habe ich viel besser verstanden, wie das Leben damals wirklich war.",
     "hints": [
       "Ground your response in specific artifacts; use 'gave me a sense of'."
     ],
@@ -394,20 +417,24 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which historical period do you find most fascinating?",
-    "correctAnswer": "Welche historische Periode finden Sie am faszinierendsten?",
+    "prompt": "Welche historische ___ finden Sie am faszinierendsten?",
+    "correctAnswer": "Epoche",
     "hints": [
-      "Opinion prompt."
+      "A feminine noun for a historical period."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-cu-b1-61"
+    "id": "de-cu-b1-61",
+    "acceptedAnswers": [
+      "Periode",
+      "Zeit"
+    ]
   },
   {
     "id": "de-ch-b2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The repatriation of colonial artifacts remains one of the most contentious debates in contemporary museum practice.",
-    "correctAnswer": "Die Rückführung kolonialer Artefakte ist eine der bedeutungsvollsten Debatten in der zeitgenössischen Museumspraxis.",
+    "correctAnswer": "Die Rückgabe kolonialer Kulturgüter ist nach wie vor eine der umstrittensten Debatten der heutigen Museumsarbeit.",
     "hints": [
       "'Repatriation' = returning objects to their country of origin; 'contentious' = causing debate."
     ],
@@ -418,7 +445,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: To what extent does national mythology construct a selective and self-serving version of historical events?",
-    "correctAnswer": "Inwieweit konstruiert die nationale Mythologie eine selektive und selbsterhaltende Version historischer Ereignisse?",
+    "correctAnswer": "Inwieweit konstruiert die nationale Mythologie eine selektive und eigennützige Version historischer Ereignisse?",
     "hints": [
       "'National mythology' = the stories a nation tells about itself; 'self-serving' = benefiting those in power."
     ]
@@ -428,9 +455,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Enlightenment represented a fundamental epistemic shift that placed reason above religious authority.",
-    "correctAnswer": "Die Aufklärung stellte eine grundlegende epistemische Verschiebung dar, die über religiöse Autorität Grund legte.",
+    "correctAnswer": "Die Aufklärung bedeutete einen grundlegenden erkenntnistheoretischen Wandel, der die Vernunft über die religiöse Autorität stellte.",
     "hints": [
-      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritised rationality over faith."
+      "'Erkenntnistheoretisch' = epistemic; 'Vernunft' = reason."
     ]
   },
   {
@@ -438,7 +465,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Cultural appropriation raises difficult questions about ownership, power, and the boundaries of artistic borrowing.",
-    "correctAnswer": "Kulturelle Mittel stellen schwierige Fragen über Eigentum, Macht und Grenzen künstlerischer Anleihen.",
+    "correctAnswer": "Kulturelle Aneignung wirft schwierige Fragen nach Eigentum, Macht und den Grenzen künstlerischer Anleihen auf.",
     "hints": [
       "'Cultural appropriation' = adopting elements of another culture, often without consent or understanding."
     ]
@@ -448,7 +475,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The concept of a Western canon has been challenged by scholars arguing for a more globally inclusive literary tradition.",
-    "correctAnswer": "Das Konzept eines westlichen Kanons wurde von Wissenschaftlern herausgefordert, die sich für eine globaler inklusive literarische Tradition einsetzen.",
+    "correctAnswer": "Das Konzept eines westlichen Kanons wird von Wissenschaftlern infrage gestellt, die sich für eine globaler ausgerichtete literarische Tradition einsetzen.",
     "hints": [
       "'Canon' = an authoritative list of great works; 'inclusive' = welcoming of diverse perspectives."
     ]
@@ -468,7 +495,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Historiography — the study of how history is written — reveals as much about the historian's era as about the events described.",
-    "correctAnswer": "Historiographie — das Studium der Geschichte — zeigt so viel über die Zeit des Historikers wie über die beschriebenen Ereignisse.",
+    "correctAnswer": "Die Historiografie – die Lehre davon, wie Geschichte geschrieben wird – verrät ebenso viel über die Epoche des Historikers wie über die beschriebenen Ereignisse.",
     "hints": [
       "'Historiography' = the study of historical writing; 'era' = time period."
     ]
@@ -478,7 +505,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The commodification of cultural heritage through mass tourism can simultaneously preserve and undermine it.",
-    "correctAnswer": "Die Vergemeinschaftung des kulturellen Erbes durch den Massentourismus kann es gleichzeitig bewahren und untergraben.",
+    "correctAnswer": "Die Kommerzialisierung des kulturellen Erbes durch den Massentourismus kann es zugleich bewahren und untergraben.",
     "hints": [
       "'Commodification' = turning into a product; 'simultaneously' = at the same time; 'undermine' = weaken."
     ]
@@ -487,7 +514,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Interpreting history requires awareness of perspective and bias.",
-    "correctAnswer": "Die Interpretation der Geschichte erfordert das Bewusstsein für Perspektive und Bias.",
+    "correctAnswer": "Geschichte zu interpretieren erfordert ein Bewusstsein für Perspektive und Voreingenommenheit.",
     "hints": [
       "Analytical framing."
     ],
@@ -496,10 +523,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Cultural heritage can strengthen social cohesion across generations.",
-    "correctAnswer": "Das kulturelle Erbe kann den sozialen Zusammenhalt über Generationen hinweg stärken.",
+    "prompt": "Das kulturelle Erbe kann den sozialen ___ über Generationen hinweg stärken.",
+    "correctAnswer": "Zusammenhalt",
     "hints": [
-      "Advanced abstract wording."
+      "A masculine noun meaning 'cohesion'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-cu-b2-70"
@@ -507,13 +534,12 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should societies balance preservation with modernization?",
+    "prompt": "Choose the best response. City planners want to replace a historic market hall with a modern shopping center.",
     "correctAnswer": "Wie sollten die Gesellschaften die Erhaltung mit der Modernisierung ausgleichen?",
     "hints": [
       "Complex policy-style question."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Cultural references vary by region and period.",
     "id": "de-cu-b2-71"
   }
 ]

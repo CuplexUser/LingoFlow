@@ -6,7 +6,7 @@
     "prompt": "Say: I am hungry.",
     "correctAnswer": "Tengo hambre.",
     "hints": [
-      "Practice this phrase out loud."
+      "Spanish 'has hunger': tener + hambre."
     ]
   },
   {
@@ -16,7 +16,11 @@
     "prompt": "Ask: Can I have a glass of water, please?",
     "correctAnswer": "¿Puedo tomar un vaso de agua, por favor?",
     "hints": [
-      "Practice this phrase out loud."
+      "In a café, ask the waiter to bring it: '¿Me trae...?'"
+    ],
+    "acceptedAnswers": [
+      "¿Me trae un vaso de agua, por favor?",
+      "¿Me da un vaso de agua, por favor?"
     ]
   },
   {
@@ -26,7 +30,10 @@
     "prompt": "Say: I would like a coffee with milk.",
     "correctAnswer": "Me gustaría un café con leche.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Me gustaría' or 'quisiera' = I would like."
+    ],
+    "acceptedAnswers": [
+      "Quisiera un café con leche."
     ]
   },
   {
@@ -54,11 +61,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the main part of a meal, usually meat or fish",
-    "correctAnswer": "curso principal",
+    "correctAnswer": "plato principal",
     "hints": [
-      "It comes after the starter."
+      "It comes after the first course ('primer plato')."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "segundo plato",
+      "el plato principal"
+    ]
   },
   {
     "id": "es-fo-16",
@@ -105,11 +116,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I would like a bowl of soup.",
-    "correctAnswer": "Me gustaría un tazón de sopa.",
+    "correctAnswer": "Me gustaría un plato de sopa.",
     "hints": [
       "Simple ordering phrase."
     ],
-    "id": "es-fo-a1-39"
+    "id": "es-fo-a1-39",
+    "acceptedAnswers": [
+      "Quisiera un plato de sopa.",
+      "Me gustaría un tazón de sopa."
+    ]
   },
   {
     "level": "a1",
@@ -126,7 +141,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I cook rice for dinner.",
-    "correctAnswer": "Cocinaré arroz para cenar.",
+    "correctAnswer": "Cocino arroz para cenar.",
     "hints": [
       "Basic cooking routine."
     ],
@@ -158,9 +173,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Could we have the bill, please?",
-    "correctAnswer": "¿Podríamos tener la cuenta, por favor?",
+    "correctAnswer": "¿Nos trae la cuenta, por favor?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "¿Nos podría traer la cuenta, por favor?",
+      "La cuenta, por favor."
     ]
   },
   {
@@ -198,9 +217,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can you recommend a good restaurant near here?",
-    "correctAnswer": "¿Puede recomendar un buen restaurante cerca de aquí?",
+    "correctAnswer": "¿Puede recomendarme un buen restaurante cerca de aquí?",
     "hints": [
       "'Can you recommend' is a common way to ask for suggestions."
+    ],
+    "acceptedAnswers": [
+      "¿Me puede recomendar un buen restaurante cerca de aquí?"
     ]
   },
   {
@@ -208,9 +230,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I always add garlic and olive oil to my cooking.",
-    "correctAnswer": "Siempre agrego ajo y aceite de oliva a mi cocina.",
+    "correctAnswer": "Siempre le pongo ajo y aceite de oliva a todo lo que cocino.",
     "hints": [
       "'I always' expresses a regular habit."
+    ],
+    "acceptedAnswers": [
+      "Siempre añado ajo y aceite de oliva a mis platos."
     ]
   },
   {
@@ -228,16 +253,20 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Is it possible to substitute the chips for salad?",
-    "correctAnswer": "¿Es posible sustituir los chips de ensalada?",
+    "correctAnswer": "¿Se pueden cambiar las patatas fritas por ensalada?",
     "hints": [
-      "'Substitute X for Y' means replace X with Y."
+      "'Cambiar A por B' = swap A for B."
+    ],
+    "acceptedAnswers": [
+      "¿Es posible cambiar las papas fritas por ensalada?",
+      "¿Es posible sustituir las patatas fritas por ensalada?"
     ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am trying a new recipe tonight.",
-    "correctAnswer": "Estoy intentando una nueva receta esta noche.",
+    "correctAnswer": "Esta noche voy a probar una receta nueva.",
     "hints": [
       "Present continuous plan sentence."
     ],
@@ -257,10 +286,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We ate at a small family restaurant.",
-    "correctAnswer": "Comimos en un pequeño restaurante familiar.",
+    "prompt": "___ en un pequeño restaurante familiar.",
+    "correctAnswer": "Comimos",
     "hints": [
-      "Past dining sentence."
+      "Preterite of 'comer', 'we' form."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-fo-a2-51"
@@ -280,9 +309,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The recipe calls for two cloves of garlic and a pinch of salt.",
-    "correctAnswer": "La receta requiere dos coágulos de ajo y una pizca de sal.",
+    "correctAnswer": "La receta lleva dos dientes de ajo y una pizca de sal.",
     "hints": [
       "'Calls for' in a recipe context means 'requires'."
+    ],
+    "acceptedAnswers": [
+      "La receta requiere dos dientes de ajo y una pizca de sal."
     ]
   },
   {
@@ -300,9 +332,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I tend to experiment with different cuisines when I cook at home.",
-    "correctAnswer": "Tendré a experimentar con diferentes cocinas cuando cocino en casa.",
+    "correctAnswer": "Suelo experimentar con distintas cocinas cuando cocino en casa.",
     "hints": [
-      "'I tend to' softens a personal habit."
+      "'Soler' + infinitive = to tend to."
     ]
   },
   {
@@ -310,7 +342,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: This is slightly overcooked, but the flavor is still very good.",
-    "correctAnswer": "Esto es ligeramente sobrecocido, pero el sabor sigue siendo muy bueno.",
+    "correctAnswer": "Esto está un poco pasado, pero el sabor sigue siendo muy bueno.",
     "hints": [
       "Soften a complaint with 'slightly' and follow up with a positive."
     ]
@@ -320,7 +352,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would you be able to cater for a gluten-free option?",
-    "correctAnswer": "¿Sería capaz de atender una opción sin gluten?",
+    "correctAnswer": "¿Podrían ofrecer una opción sin gluten?",
     "hints": [
       "'Would you be able to' is very polite; 'cater for' means provide for."
     ]
@@ -330,9 +362,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Slow cooking on a low heat develops the flavor much better.",
-    "correctAnswer": "La cocina lenta a fuego lento desarrolla el sabor mucho mejor.",
+    "correctAnswer": "Cocinar a fuego lento desarrolla mucho mejor el sabor.",
     "hints": [
-      "'Develops the flavour' is a cooking technique description."
+      "'A fuego lento' = on low heat."
     ]
   },
   {
@@ -350,7 +382,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I find that marinating the meat overnight makes a significant difference.",
-    "correctAnswer": "Encuentro que marinar la carne durante la noche hace una diferencia significativa.",
+    "correctAnswer": "Me parece que marinar la carne toda la noche marca una gran diferencia.",
     "hints": [
       "'I find that' introduces a personal discovery."
     ]
@@ -360,7 +392,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Your guest asks if you made the bread yourself.",
-    "correctAnswer": "Sí, lo horneé esta mañana — es una receta agridulce que he estado perfeccionando.",
+    "correctAnswer": "Sí, lo hice esta mañana; es una receta de masa madre que he ido perfeccionando.",
     "hints": [
       "Give a positive answer with a detail."
     ],
@@ -390,10 +422,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I started meal-prepping to save time during the week.",
-    "correctAnswer": "Empecé a preparar comidas para ahorrar tiempo durante la semana.",
+    "prompt": "Empecé a preparar comidas para ___ tiempo durante la semana.",
+    "correctAnswer": "ahorrar",
     "hints": [
-      "Purpose clause."
+      "A verb meaning 'to save'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-fo-b1-61"
@@ -434,11 +466,11 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Sourcing seasonal, locally-grown produce is both an ecological and a culinary choice.",
-    "correctAnswer": "El cultivo de productos estacionales y cultivados localmente es una opción ecológica y culinaria.",
+    "correctAnswer": "Elegir productos de temporada y de cultivo local es una opción tanto ecológica como culinaria.",
     "hints": [
       "'Sourcing' means finding and obtaining; 'culinary' relates to cooking."
     ],
-    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients."
+    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasizing shorter supply chains and fresher ingredients."
   },
   {
     "id": "es-fo-35",
@@ -455,7 +487,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Umami is often described as the fifth taste, alongside sweet, sour, salty, and bitter.",
-    "correctAnswer": "Umami se describe a menudo como el quinto sabor, junto con dulce, amargo, salado y amargo.",
+    "correctAnswer": "El umami se describe a menudo como el quinto sabor, junto con el dulce, el ácido, el salado y el amargo.",
     "hints": [
       "'Alongside' here means in addition to."
     ],
@@ -476,7 +508,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Maillard reaction — the browning of proteins under heat — is fundamental to developing depth of flavor.",
-    "correctAnswer": "La reacción de Maillard —el marronamiento de proteínas bajo calor— es fundamental para desarrollar profundidad de sabor.",
+    "correctAnswer": "La reacción de Maillard —el dorado de las proteínas con el calor— es fundamental para desarrollar la profundidad del sabor.",
     "hints": [
       "'Maillard reaction' = a chemical process that creates flavor compounds; 'fundamental' = essential."
     ],
@@ -495,10 +527,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can cities reduce food waste across supply chains?",
-    "correctAnswer": "¿Cómo pueden las ciudades reducir los desechos alimentarios en cadenas de suministro?",
+    "prompt": "¿Cómo pueden las ciudades reducir el ___ de alimentos en las cadenas de suministro?",
+    "correctAnswer": "desperdicio",
     "hints": [
-      "Policy-level food question."
+      "A noun meaning 'waste'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-fo-b2-70"
@@ -506,7 +538,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: A balanced diet depends on variety rather than strict restriction.",
+    "prompt": "Choose the best response. A friend asks whether they should cut out carbs completely.",
     "correctAnswer": "Una dieta equilibrada depende de la variedad en lugar de restricción estricta.",
     "hints": [
       "B2 nutrition phrasing."

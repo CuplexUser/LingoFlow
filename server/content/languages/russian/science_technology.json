@@ -57,6 +57,11 @@
     "correctAnswer": "Я забыл свой пароль.",
     "hints": [
       "A very useful sentence."
+    ],
+    "acceptedAnswers": [
+      "Я забыла свой пароль.",
+      "Я забыл пароль.",
+      "Я забыла пароль."
     ]
   },
   {
@@ -98,10 +103,10 @@
     "id": "ru-st-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: We should discuss tech ethics.",
-    "correctAnswer": "Нужно обсудить этику технологий.",
+    "prompt": "Say: We should discuss the ethics of new technologies before they become widespread.",
+    "correctAnswer": "Нужно обсудить этику новых технологий, прежде чем они получат широкое распространение.",
     "hints": [
-      "A short thoughtful sentence."
+      "'Прежде чем' = before; 'получить широкое распространение' = to become widespread."
     ],
     "exerciseType": "pronunciation"
   },
@@ -109,10 +114,10 @@
     "id": "ru-st-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Data privacy matters to me.",
-    "correctAnswer": "Мне важна конфиденциальность данных.",
+    "prompt": "Say: Protecting my personal data matters more to me than convenience.",
+    "correctAnswer": "Защита моих персональных данных для меня важнее удобства.",
     "hints": [
-      "Talk about privacy."
+      "Comparative 'важнее' + genitive (удобства) = more important than convenience."
     ],
     "exerciseType": "pronunciation"
   },
@@ -120,10 +125,10 @@
     "id": "ru-st-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Please back up the files.",
-    "correctAnswer": "Сделай резервную копию файлов.",
+    "prompt": "Say: Don't forget to back up your files regularly, otherwise you may lose everything.",
+    "correctAnswer": "Не забывай регулярно делать резервные копии файлов, иначе можешь потерять всё.",
     "hints": [
-      "A helpful reminder."
+      "'Делать резервную копию' = to back up; 'иначе' = otherwise."
     ],
     "exerciseType": "pronunciation"
   },
@@ -226,7 +231,7 @@
     "prompt": "Say: My computer crashed and I lost all my files.",
     "correctAnswer": "Мой компьютер завис, и я потерял все файлы.",
     "hints": [
-      "'Зависнуть' = to crash/freeze (perfective). 'Потерял' = lost (perfective past, masculine)."
+      "'Зависнуть' = to freeze/crash (perfective). 'Потерял' = lost (masculine; feminine 'потеряла')."
     ],
     "exerciseType": "build_sentence"
   },
@@ -388,9 +393,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The proliferation of disinformation has been accelerated by algorithmic recommendation systems.",
-    "correctAnswer": "Распространение дезинформации ускорилось благодаря алгоритмическим системам рекомендаций.",
+    "correctAnswer": "Распространение дезинформации ускорилось из-за алгоритмических систем рекомендаций.",
     "hints": [
-      "'Благодаря' + dative = thanks to / as a result of (here used neutrally for cause). 'Ускорилось' = has accelerated (reflexive perfective)."
+      "'Из-за' + genitive = because of (for a negative cause). 'Ускорилось' = has accelerated (reflexive perfective)."
+    ],
+    "acceptedAnswers": [
+      "Распространение дезинформации ускорилось благодаря алгоритмическим системам рекомендаций."
     ]
   },
   {

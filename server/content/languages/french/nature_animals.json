@@ -17,7 +17,7 @@
     "prompt": "Say: It is raining outside.",
     "correctAnswer": "Il pleut dehors.",
     "hints": [
-      "Use 'it is' for weather descriptions."
+      "Weather verbs like 'pleuvoir' use impersonal 'il': 'il pleut'."
     ]
   },
   {
@@ -25,9 +25,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: What is the weather like today?",
-    "correctAnswer": "Quel est le temps aujourd'hui?",
+    "correctAnswer": "Quel temps fait-il aujourd'hui ?",
     "hints": [
-      "'What is it like' asks for a description."
+      "Weather questions use 'faire': 'Quel temps fait-il ?'"
+    ],
+    "acceptedAnswers": [
+      "Il fait quel temps aujourd'hui ?"
     ]
   },
   {
@@ -57,7 +60,7 @@
     "prompt": "Vocabulary: the coldest season of the year",
     "correctAnswer": "hiver",
     "hints": [
-      "It comes after autumn."
+      "It comes after fall."
     ],
     "exerciseType": "flashcard"
   },
@@ -79,6 +82,11 @@
     "correctAnswer": "Vous avez des animaux ?",
     "hints": [
       "A simple question about animals at home."
+    ],
+    "acceptedAnswers": [
+      "Vous avez des animaux de compagnie ?",
+      "Tu as des animaux ?",
+      "Tu as des animaux de compagnie ?"
     ]
   },
   {
@@ -99,6 +107,10 @@
     "correctAnswer": "J'ai marché dans la forêt hier.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "acceptedAnswers": [
+      "Je me suis promené dans la forêt hier.",
+      "Je me suis promenée dans la forêt hier."
     ]
   },
   {
@@ -138,9 +150,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: It has been unusually warm for this time of year.",
-    "correctAnswer": "Il a été exceptionnellement chaud pour cette période de l'année.",
+    "correctAnswer": "Il a fait exceptionnellement chaud pour cette période de l'année.",
     "hints": [
       "Present perfect for a situation up to now; 'unusually' suggests contrast with normal."
+    ],
+    "acceptedAnswers": [
+      "Il a fait anormalement chaud pour la saison.",
+      "Il a fait exceptionnellement chaud pour la saison."
     ]
   },
   {
@@ -148,7 +164,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the best time of year to see the northern lights?",
-    "correctAnswer": "Quel est le meilleur moment de l'année pour voir les lumières du Nord?",
+    "correctAnswer": "Quel est le meilleur moment de l'année pour voir les aurores boréales ?",
     "hints": [
       "A question about natural phenomena and timing."
     ]
@@ -158,9 +174,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The river has flooded after several days of heavy rain.",
-    "correctAnswer": "La rivière a inondé après plusieurs jours de fortes pluies.",
+    "correctAnswer": "La rivière a débordé après plusieurs jours de fortes pluies.",
     "hints": [
       "Present perfect for a recent event with a visible result."
+    ],
+    "acceptedAnswers": [
+      "La rivière est sortie de son lit après plusieurs jours de fortes pluies."
     ]
   },
   {
@@ -170,7 +189,7 @@
     "prompt": "Say: I saw a family of deer in the park this morning.",
     "correctAnswer": "J'ai vu une famille de cerfs dans le parc ce matin.",
     "hints": [
-      "'Deer' is both singular and plural."
+      "'Une famille de' + plural noun; 'cerf' has the regular plural 'cerfs'."
     ]
   },
   {
@@ -197,7 +216,7 @@
     "id": "fr-na-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I recycle my rubbish to help protect the environment.",
+    "prompt": "Say: I recycle my trash to help protect the environment.",
     "correctAnswer": "Je recycle mes déchets pour aider à protéger l'environnement.",
     "hints": [
       "State an eco-friendly habit with purpose."
@@ -208,9 +227,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often do you go walking in the countryside?",
-    "correctAnswer": "Vous allez souvent à la campagne ?",
+    "correctAnswer": "À quelle fréquence allez-vous vous promener à la campagne ?",
     "hints": [
       "'How often' asks about frequency."
+    ],
+    "acceptedAnswers": [
+      "Tous les combien allez-vous vous promener à la campagne ?",
+      "À quelle fréquence vas-tu te promener à la campagne ?"
     ]
   },
   {
@@ -257,13 +280,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can we protect wild animals?",
-    "correctAnswer": "Comment pouvons-nous protéger les animaux sauvages?",
+    "prompt": "Comment pouvons-nous protéger les animaux ___ ?",
+    "correctAnswer": "sauvages",
     "hints": [
-      "Action-oriented question."
+      "'Wild' — the adjective agrees with 'animaux' (masculine plural)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-na-a2-51"
+    "id": "fr-na-a2-51",
+    "clozeOptions": [
+      "sauvages",
+      "sauvage",
+      "domestiques",
+      "domestique"
+    ]
   },
   {
     "id": "fr-na-b1",
@@ -273,6 +302,9 @@
     "correctAnswer": "Le déboisement est l'une des principales causes de perte d'habitat pour de nombreuses espèces en voie de disparition.",
     "hints": [
       "'Deforestation' = clearing forests; 'habitat loss' = destruction of animal living spaces."
+    ],
+    "acceptedAnswers": [
+      "La déforestation est l'une des principales causes de perte d'habitat pour de nombreuses espèces en voie de disparition."
     ]
   },
   {
@@ -300,7 +332,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Rewilding projects aim to restore natural ecosystems by reintroducing native species.",
-    "correctAnswer": "Les projets de rétablissement visent à restaurer les écosystèmes naturels en réintroduisant des espèces indigènes.",
+    "correctAnswer": "Les projets de réensauvagement visent à restaurer les écosystèmes naturels en réintroduisant des espèces indigènes.",
     "hints": [
       "'Rewilding' = allowing nature to recover; 'native species' = animals or plants originally from an area."
     ]
@@ -323,6 +355,9 @@
     "correctAnswer": "Pensez-vous que les espaces verts urbains ont un effet mesurable sur la santé mentale?",
     "hints": [
       "'Green spaces' = parks and gardens; 'measurable effect' = a quantifiable impact."
+    ],
+    "acceptedAnswers": [
+      "Pensez-vous que les espaces verts urbains aient un effet mesurable sur la santé mentale ?"
     ]
   },
   {
@@ -340,12 +375,14 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was fortunate enough to witness a murmuration of starlings at dusk.",
-    "correctAnswer": "J'ai eu la chance d'assister à une murmure des étourneaux au crépuscule.",
+    "correctAnswer": "J'ai eu la chance d'assister à un ballet d'étourneaux au crépuscule.",
     "hints": [
-      "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = at sunset.",
-      "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
+      "French describes a murmuration as 'un ballet' or 'une nuée d'étourneaux'; 'au crépuscule' = at dusk."
     ],
-    "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter."
+    "culturalNote": "Huge swirling flocks of starlings can be seen across France and much of Europe in fall and winter, especially near reed beds and wetlands where the birds roost.",
+    "acceptedAnswers": [
+      "J'ai eu la chance d'assister à une nuée d'étourneaux au crépuscule."
+    ]
   },
   {
     "id": "fr-na-b1-9",
@@ -366,7 +403,8 @@
     "hints": [
       "List specific, concrete actions."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I try to cut down on single-use plastics, eat less meat, and walk or cycle instead of driving."
   },
   {
     "level": "b1",
@@ -392,22 +430,31 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What causes animal populations to decline?",
-    "correctAnswer": "Quelles sont les causes du déclin des populations animales?",
+    "prompt": "Quelles sont les causes du ___ des populations animales ?",
+    "correctAnswer": "déclin",
     "hints": [
-      "Scientific reasoning question."
+      "A noun meaning 'decline'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-na-b1-61"
+    "id": "fr-na-b1-61",
+    "clozeOptions": [
+      "déclin",
+      "déclic",
+      "décor",
+      "délai"
+    ]
   },
   {
     "id": "fr-na-b2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The sixth mass extinction event, driven primarily by human activity, is already well underway.",
-    "correctAnswer": "Le sixième phénomène d'extinction massive, principalement attribuable à l'activité humaine, est déjà bien avancé.",
+    "correctAnswer": "La sixième extinction de masse, principalement due à l'activité humaine, est déjà bien engagée.",
     "hints": [
       "'Mass extinction' = widespread species die-off; 'well underway' = already in progress."
+    ],
+    "acceptedAnswers": [
+      "La sixième extinction de masse, principalement attribuable à l'activité humaine, est déjà bien avancée."
     ]
   },
   {
@@ -493,23 +540,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Conservation strategies must consider both ecology and local livelihoods.",
-    "correctAnswer": "Les stratégies de conservation doivent tenir compte à la fois de l'écologie et des moyens de subsistance locaux.",
+    "prompt": "Les stratégies de conservation doivent tenir compte à la fois de l'écologie et des moyens de ___ locaux.",
+    "correctAnswer": "subsistance",
     "hints": [
-      "Balanced policy sentence."
+      "'Moyens de subsistance' = livelihoods."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-na-b2-70"
+    "id": "fr-na-b2-70",
+    "clozeOptions": [
+      "subsistance",
+      "transport",
+      "communication",
+      "paiement"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which environmental interventions deliver the greatest long-term impact?",
-    "correctAnswer": "Quelles sont les interventions environnementales qui produisent le plus grand impact à long terme?",
+    "prompt": "Dialogue: At a climate workshop, you ask the experts which environmental interventions have the greatest long-term impact.",
+    "correctAnswer": "Quelles sont les interventions environnementales qui ont le plus d'impact à long terme ?",
     "hints": [
       "Analytical question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "fr-na-b2-71"
+    "id": "fr-na-b2-71",
+    "answerEnglish": "Which environmental interventions have the greatest long-term impact?"
   }
 ]

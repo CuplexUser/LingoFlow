@@ -8,7 +8,11 @@
     "hints": [
       "You are probably using one right now."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "computadora",
+      "computador"
+    ]
   },
   {
     "id": "es-st-a1-2",
@@ -35,9 +39,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My phone battery is dead.",
-    "correctAnswer": "Mi batería de teléfono está muerta.",
+    "correctAnswer": "Mi móvil se ha quedado sin batería.",
     "hints": [
-      "'Dead' means empty or without power."
+      "Spanish says the phone 'ran out of battery': quedarse sin batería."
+    ],
+    "acceptedAnswers": [
+      "Me quedé sin batería en el teléfono.",
+      "Mi teléfono se quedó sin batería."
     ]
   },
   {
@@ -59,16 +67,24 @@
     "hints": [
       "It folds open and has a keyboard."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "laptop",
+      "ordenador portátil",
+      "computadora portátil"
+    ]
   },
   {
     "id": "es-st-a1-7",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I send emails for work.",
-    "correctAnswer": "Envié correos electrónicos para trabajar.",
+    "correctAnswer": "Envío correos electrónicos por trabajo.",
     "hints": [
       "A basic digital communication sentence."
+    ],
+    "acceptedAnswers": [
+      "Mando correos por trabajo."
     ]
   },
   {
@@ -76,7 +92,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: What is the password for the Wi-Fi?",
-    "correctAnswer": "¿Cuál es la contraseña para el Wi-Fi?",
+    "correctAnswer": "¿Cuál es la contraseña del wifi?",
     "hints": [
       "A very common modern question."
     ]
@@ -148,9 +164,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How do I reset my password?",
-    "correctAnswer": "¿Cómo reajusto mi contraseña?",
+    "correctAnswer": "¿Cómo restablezco mi contraseña?",
     "hints": [
       "A common digital question."
+    ],
+    "acceptedAnswers": [
+      "¿Cómo cambio mi contraseña?"
     ]
   },
   {
@@ -158,9 +177,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I backed up my files to the cloud.",
-    "correctAnswer": "Respaldé mis archivos a la nube.",
+    "correctAnswer": "Hice una copia de seguridad de mis archivos en la nube.",
     "hints": [
       "'Backed up' = saved a copy; 'the cloud' = online storage."
+    ],
+    "acceptedAnswers": [
+      "Respaldé mis archivos en la nube."
     ]
   },
   {
@@ -208,9 +230,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How do I enable two-factor authentication?",
-    "correctAnswer": "¿Cómo permito la autenticación de dos factores?",
+    "correctAnswer": "¿Cómo activo la autenticación en dos pasos?",
     "hints": [
       "Two-factor authentication adds an extra security step."
+    ],
+    "acceptedAnswers": [
+      "¿Cómo activo la autenticación de dos factores?"
     ]
   },
   {
@@ -218,9 +243,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I set up an automatic reminder on my phone.",
-    "correctAnswer": "Arreglé un recordatorio automático en mi teléfono.",
+    "correctAnswer": "Programé un recordatorio automático en mi teléfono.",
     "hints": [
       "'Set up' = configured; 'automatic reminder' = a scheduled alert."
+    ],
+    "acceptedAnswers": [
+      "Configuré un recordatorio automático en mi móvil."
     ]
   },
   {
@@ -257,10 +285,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Which tool do you use for online meetings?",
-    "correctAnswer": "¿Qué herramienta utiliza para reuniones en línea?",
+    "prompt": "¿Qué ___ usas para las reuniones en línea?",
+    "correctAnswer": "herramienta",
     "hints": [
-      "Functional question."
+      "A noun meaning 'tool'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-sc-a2-51"
@@ -300,9 +328,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Automation has displaced many manufacturing jobs, while creating new roles in tech.",
-    "correctAnswer": "La automatización ha desplazado muchos trabajos de fabricación, al tiempo que crea nuevos roles en tecnología.",
+    "correctAnswer": "La automatización ha eliminado muchos empleos industriales, pero ha creado nuevos puestos en tecnología.",
     "hints": [
       "'Displaced' = replaced or made redundant; contrast with 'while creating'."
+    ],
+    "acceptedAnswers": [
+      "La automatización ha desplazado muchos trabajos de fabricación, al tiempo que ha creado nuevos puestos en tecnología."
     ]
   },
   {
@@ -320,7 +351,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Renewable energy technologies have improved dramatically in efficiency and cost over the last decade.",
-    "correctAnswer": "Las tecnologías de energía renovable han mejorado drásticamente la eficiencia y el costo durante el último decenio.",
+    "correctAnswer": "Las tecnologías de energía renovable han mejorado muchísimo en eficiencia y coste en la última década.",
     "hints": [
       "Present perfect for change over a time period up to now."
     ]
@@ -330,7 +361,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How might quantum computing change the landscape of data security?",
-    "correctAnswer": "¿Cómo puede el cálculo cuántico cambiar el paisaje de la seguridad de los datos?",
+    "correctAnswer": "¿Cómo podría la computación cuántica cambiar el panorama de la seguridad de los datos?",
     "hints": [
       "'Landscape' here means the overall situation; 'quantum computing' uses quantum mechanics for computation."
     ]
@@ -340,7 +371,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I try to limit my screen time to protect my sleep quality.",
-    "correctAnswer": "Trato de limitar mi tiempo de pantalla para proteger mi calidad del sueño.",
+    "correctAnswer": "Trato de limitar mi tiempo frente a la pantalla para proteger la calidad de mi sueño.",
     "hints": [
       "'Screen time' = time spent looking at devices; 'limit' = set a maximum."
     ]
@@ -390,13 +421,16 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What are the benefits of using open-source software?",
-    "correctAnswer": "¿Cuáles son los beneficios de usar software de código abierto?",
+    "prompt": "¿Cuáles son las ___ de usar software de código abierto?",
+    "correctAnswer": "ventajas",
     "hints": [
-      "Topic question for discussion."
+      "A plural noun meaning 'advantages'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "es-sc-b1-61"
+    "id": "es-sc-b1-61",
+    "acceptedAnswers": [
+      "beneficios"
+    ]
   },
   {
     "id": "es-st-b2",
@@ -413,7 +447,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: How should governments regulate large language models to prevent misuse while preserving innovation?",
-    "correctAnswer": "¿Cómo deben los gobiernos regular los modelos de idiomas grandes para prevenir el uso indebido preservando la innovación?",
+    "correctAnswer": "¿Cómo deberían los gobiernos regular los grandes modelos de lenguaje para evitar su mal uso sin frenar la innovación?",
     "hints": [
       "'Large language models' = advanced AI systems; 'misuse' = harmful applications."
     ]
@@ -443,7 +477,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Epistemic challenges posed by deepfakes and synthetic media demand new frameworks for verifying information.",
-    "correctAnswer": "Los desafíos epistémicos planteados por los medios de comunicación profundos y sintéticos exigen nuevos marcos para verificar la información.",
+    "correctAnswer": "Los desafíos epistémicos que plantean los deepfakes y los medios sintéticos exigen nuevos marcos para verificar la información.",
     "hints": [
       "'Epistemic' = relating to knowledge; 'synthetic media' = AI-generated content."
     ]
@@ -473,7 +507,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Post-quantum cryptography is now a strategic priority for governments concerned about long-term data security.",
-    "correctAnswer": "La criptografía posquantum es ahora una prioridad estratégica para los gobiernos interesados en la seguridad de los datos a largo plazo.",
+    "correctAnswer": "La criptografía poscuántica es ahora una prioridad estratégica para los gobiernos preocupados por la seguridad de los datos a largo plazo.",
     "hints": [
       "'Post-quantum cryptography' = encryption designed to resist quantum computer attacks."
     ]
@@ -491,10 +525,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Automation can increase productivity while reshaping labor markets.",
-    "correctAnswer": "La automatización puede aumentar la productividad mientras que la remodelación de los mercados laborales.",
+    "prompt": "La automatización puede aumentar la ___ al tiempo que transforma los mercados laborales.",
+    "correctAnswer": "productividad",
     "hints": [
-      "Balanced argument sentence."
+      "A noun for how much work gets done in a given time."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-sc-b2-70"
@@ -502,7 +536,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can regulators encourage innovation without compromising public safety?",
+    "prompt": "Choose the best response. A panelist argues that tech regulation always kills innovation.",
     "correctAnswer": "¿Cómo pueden los reguladores fomentar la innovación sin comprometer la seguridad pública?",
     "hints": [
       "High-level question."

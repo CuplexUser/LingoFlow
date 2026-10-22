@@ -1,0 +1,637 @@
+{
+  "language": "swedish",
+  "category": "travel",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:44:40.221Z",
+  "contentHash": "363ef4ec9c67ebac",
+  "summary": "Core travel vocabulary is frequently wrong or calqued (plattform for a train track, fönstersäte, elva klockan, inom gångavstånd, båda benen på resan, en förändring for a change of trains, resa ljus), and the B2 items include several word-for-word nonsense sentences (med minuter att spara, rensa tullen, Layover, var orättvist debiterad en överskott). Plus a duplicated flashcard answer, cloze items without blanks and a roleplay/dialogue without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-tr-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); 'ligger' and plain 'stationen' are more natural and not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "For buildings Swedes often ask 'Var ligger ...?'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Var ligger tågstationen?",
+            "Var ligger stationen?"
+          ]
+        }
+      ],
+      "itemHash": "339433f29c125105",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the spoken 'den här biljetten' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hur mycket kostar' + noun; 'den här' is the everyday word for 'this'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hur mycket kostar den här biljetten?",
+            "Vad kostar den här biljetten?"
+          ]
+        }
+      ],
+      "itemHash": "68451cb65e115872",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Trains leave from a 'spår', and 'lämnar ... från' is a calque; generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Från vilket spår går tåget?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vilket spår går tåget från?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "At Swedish stations trains leave from a numbered 'spår' (track); trains 'går'."
+          ]
+        }
+      ],
+      "itemHash": "88452584b5c2169c",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-15",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "A bus goes 'till' a place; 'för flygplatsen' is wrong.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Är det här rätt buss till flygplatsen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Är detta rätt buss till flygplatsen?",
+            "Går den här bussen till flygplatsen?"
+          ]
+        }
+      ],
+      "itemHash": "13d6e1957134b4ab",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-16",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer is duplicated ('flygplats flygplats').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "flygplats",
+          "list": null
+        }
+      ],
+      "itemHash": "018472715fc9ab6d",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Duration of a stay is 'i två nätter'; 'för' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag behöver ett rum i två nätter.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag behöver ett rum för två nätter."
+          ]
+        }
+      ],
+      "itemHash": "18475666fc1e0ddb",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'checka in för min bokning' is a calque; 'would like' is 'skulle vilja'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja checka in, jag har en bokning.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag skulle vilja checka in. Jag har bokat ett rum."
+          ]
+        }
+      ],
+      "itemHash": "a94aba00dd20163a",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-20",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Currency exchange is 'växla'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag skulle vilja växla lite pengar."
+          ]
+        }
+      ],
+      "itemHash": "85dba02f41fb54e7",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-25",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A window seat on a plane or train is 'fönsterplats'; 'fönstersäte' is a window bench.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan jag få en fönsterplats?",
+          "list": null
+        }
+      ],
+      "itemHash": "d5457db7c2251558",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-26",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Clock times are 'klockan elva', not 'elva klockan'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Utcheckning är klockan elva.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Utcheckningstiden är klockan elva.",
+            "Man ska checka ut senast klockan elva."
+          ]
+        }
+      ],
+      "itemHash": "b5a4ebb8577b1679",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-a2-50",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'snälla' sounds like begging at a reception desk; 'tack' is natural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja checka in, tack.",
+          "list": null
+        }
+      ],
+      "itemHash": "6df0d8dcb00f546d",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-a2-52",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; misplacing something is 'tappa bort', not 'förlora'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag ___ bort mitt boardingkort i morse.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "tappade",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "tappade",
+            "tappar",
+            "tappat",
+            "tappa"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Tappa bort' = to lose (misplace); past tense here."
+          ]
+        }
+      ],
+      "itemHash": "b562871ccc15189c",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Losing a passport is 'tappa bort'; 'genast' is more natural than 'omedelbart'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har tappat bort mitt pass och behöver hjälp genast.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har tappat bort passet och behöver hjälp direkt.",
+            "Jag tappade bort mitt pass och behöver hjälp omedelbart."
+          ]
+        }
+      ],
+      "itemHash": "d76aa1dac1df8b3f",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The fixed phrase is 'på gångavstånd', not 'inom'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Museet ligger på gångavstånd från hotellet.",
+          "list": null
+        }
+      ],
+      "itemHash": "807f5813cc5ce599",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-27",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Polite request needs 'skulle kunna'; 'Jag undrar om du kunde' mixes tenses.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag undrar om du skulle kunna rekommendera en bra lokal restaurang.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag undrade om du kunde rekommendera en bra restaurang här i närheten."
+          ]
+        }
+      ],
+      "itemHash": "c17f29709b5b431c",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'båda benen på resan' is a literal calque of 'legs'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Får man rabatt om man bokar tur och retur samtidigt?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Finns det någon rabatt om jag bokar båda sträckorna samtidigt?"
+          ]
+        }
+      ],
+      "itemHash": "3f9d7fe6b8db60c8",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-29",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'förändring' is a change in general; a change of trains is 'byte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Resan tar ungefär tre timmar med ett byte.",
+          "list": null
+        }
+      ],
+      "itemHash": "3ce2a7c33a433feb",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-30",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'resa ljus' means 'travel bright'; the idiom is 'resa med lätt packning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag föredrar att resa med lätt packning när det går.",
+          "list": null
+        }
+      ],
+      "itemHash": "96ace0807421e41c",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-32",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'boka på en högre biljett' is meaningless and 'avbröts' means interrupted; cancelled flights 'ställs in'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag var tvungen att boka om till ett dyrare pris efter att mitt ursprungliga flyg ställts in.",
+          "list": null
+        }
+      ],
+      "itemHash": "e059b00c39367ec2",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-33",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'en bekräftelse e-post' is ungrammatical; 'vänligen' is stiff; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har ett bekräftelsemejl – kan du kolla igen?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I have a confirmation email — could you check again?",
+          "list": null
+        }
+      ],
+      "itemHash": "0ef5e0be936c1f96",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-b1-60",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A travel route is 'rutt' or 'färdväg'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi ändrade vår rutt på grund av vädret.",
+          "list": null
+        }
+      ],
+      "itemHash": "a0625462ff7a9dcf",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-b1-62",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Att resa ensam hjälpte mig att bli mer ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "självständig",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "självständig",
+            "självständiga",
+            "självständigt",
+            "självständighet"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Common-gender singular adjective agreeing with 'mig'."
+          ]
+        }
+      ],
+      "itemHash": "6fe1b289ff536aa9",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-8",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'would prefer' is conditional; a quiet route is 'lugnare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle föredra en lugnare väg, även om det tar längre tid.",
+          "list": null
+        }
+      ],
+      "itemHash": "51b9ed698b0276c3",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A transit connection is 'förbindelse'; 'anslutning' is a technical connection. 'byter linje' is singular.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Finns det en snabbare förbindelse om jag byter linje en gång?",
+          "list": null
+        }
+      ],
+      "itemHash": "b261ae626b903b64",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'göra min anslutning med minuter att spara' is word-for-word nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Trots förseningarna hann jag med anslutningen med några minuters marginal.",
+          "list": null
+        }
+      ],
+      "itemHash": "9fccd7834ebee4b9",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-36",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Jag var orättvist debiterad en överskott bagageavgift' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag debiterades orättvist en avgift för övervikt på bagaget och vill bestrida den.",
+          "list": null
+        }
+      ],
+      "itemHash": "cffa62bedb1034aa",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-38",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'föredra tåg över flygningar' is a calque, and 'journeys' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag föredrar oftast tåg framför flyg på resor under fem timmar.",
+          "list": null
+        }
+      ],
+      "itemHash": "248ae2af68430820",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-39",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Layover' is English and 'rensa tullen' (clean the customs) is nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mellanlandningen ger mig precis tillräckligt med tid för att gå igenom tullen och checka in bagaget igen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gå igenom tullen' = clear customs; 'mellanlandning' = layover."
+          ]
+        }
+      ],
+      "itemHash": "73e21f1c9cf1eb2f",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hur kan turismen stödja lokalsamhällen utan att ___ dem?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "skada",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "skada",
+            "skadar",
+            "skadade",
+            "skadat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'utan att'."
+          ]
+        }
+      ],
+      "itemHash": "f247e0de46eb9830",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    },
+    {
+      "id": "sv-tr-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'planerade beredskap' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend asks how you managed when your connecting flight was late.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag hade en reservplan ifall flygen skulle bli försenade.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I had contingency plans in case flights were delayed.",
+          "list": null
+        }
+      ],
+      "itemHash": "a8514b1f7234ca00",
+      "appliedAt": "2026-10-22T10:00:52.903Z"
+    }
+  ]
+}

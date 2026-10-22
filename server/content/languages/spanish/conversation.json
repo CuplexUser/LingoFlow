@@ -6,7 +6,11 @@
     "prompt": "Ask: What is your name?",
     "correctAnswer": "¿Cómo te llamas?",
     "hints": [
-      "Practice this phrase out loud."
+      "Literally 'How do you call yourself?' — reflexive 'llamarse'."
+    ],
+    "acceptedAnswers": [
+      "¿Cómo se llama usted?",
+      "¿Cómo se llama?"
     ]
   },
   {
@@ -16,7 +20,7 @@
     "prompt": "Say: My name is Alex and I am from the United States.",
     "correctAnswer": "Me llamo Alex y soy de Estados Unidos.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Ser de' + place for origin. 'Los Estados Unidos' is also correct."
     ]
   },
   {
@@ -26,7 +30,11 @@
     "prompt": "Ask: Where are you from?",
     "correctAnswer": "¿De dónde eres?",
     "hints": [
-      "Practice this phrase out loud."
+      "'De dónde' = from where; 'ser' for origin."
+    ],
+    "acceptedAnswers": [
+      "¿De dónde es usted?",
+      "¿De dónde es?"
     ]
   },
   {
@@ -36,7 +44,7 @@
     "prompt": "Say: I live in a big city.",
     "correctAnswer": "Vivo en una ciudad grande.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Grande' usually follows the noun when it means 'big'."
     ]
   },
   {
@@ -59,7 +67,10 @@
     "hints": [
       "Use 'me gusta' for things you like."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Me gustan la música y el deporte."
+    ]
   },
   {
     "id": "sp-cv-a1-7",
@@ -80,7 +91,7 @@
     "prompt": "Say: Do you speak English?",
     "correctAnswer": "¿Hablas inglés?",
     "hints": [
-      "Practice this phrase out loud."
+      "Informal 'tú' form; languages are lowercase in Spanish."
     ],
     "exerciseType": "pronunciation"
   },
@@ -98,10 +109,10 @@
     "id": "sp-cv-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "A friend / An enemy",
+    "prompt": "Vocabulary: a friend",
     "correctAnswer": "un amigo",
     "hints": [
-      "Which one is positive?"
+      "Feminine: una amiga."
     ],
     "exerciseType": "flashcard"
   },
@@ -124,7 +135,10 @@
     "hints": [
       "A common greeting phrase."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Encantada de conocerte."
+    ]
   },
   {
     "id": "sp-cv-a1-13",
@@ -279,9 +293,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I enjoy cooking on the weekends.",
-    "correctAnswer": "Disfruto cocinar los fines de semana.",
+    "correctAnswer": "Disfruto cocinando los fines de semana.",
     "hints": [
-      "Use 'disfrutar' followed by an infinitive."
+      "'Disfrutar' + gerund, or simply 'me gusta' + infinitive."
+    ],
+    "acceptedAnswers": [
+      "Me gusta cocinar los fines de semana.",
+      "Me encanta cocinar los fines de semana.",
+      "Disfruto cocinar los fines de semana."
     ]
   },
   {
@@ -366,7 +385,11 @@
     "prompt": "Ask: What is your job?",
     "correctAnswer": "¿A qué te dedicas?",
     "hints": [
-      "'¿A qué te dedicas?' is a natural way to ask someone's profession."
+      "Literally 'What do you dedicate yourself to?' — the natural way to ask about someone's job."
+    ],
+    "acceptedAnswers": [
+      "¿En qué trabajas?",
+      "¿Cuál es tu trabajo?"
     ]
   },
   {
@@ -384,9 +407,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I enjoy talking about books and current events.",
-    "correctAnswer": "Disfruto hablar sobre libros y temas actuales.",
+    "correctAnswer": "Me gusta hablar de libros y de temas de actualidad.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Disfruto hablando de libros y temas actuales.",
+      "Disfruto hablar sobre libros y temas actuales."
     ]
   },
   {
@@ -404,9 +431,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What kind of topics do you enjoy discussing?",
-    "correctAnswer": "¿Qué tipo de temas te gusta hablar?",
+    "correctAnswer": "¿De qué tipo de temas te gusta hablar?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "¿Qué tipo de temas te gusta tratar?",
+      "¿De qué temas te gusta hablar?"
     ]
   },
   {
@@ -417,6 +448,9 @@
     "correctAnswer": "Prefiero quedarme en casa esta noche porque estoy cansado.",
     "hints": [
       "Use 'preferir' with an infinitive."
+    ],
+    "acceptedAnswers": [
+      "Prefiero quedarme en casa esta noche porque estoy cansada."
     ]
   },
   {
@@ -532,6 +566,9 @@
     "correctAnswer": "No estoy seguro de si estoy de acuerdo con ese punto de vista.",
     "hints": [
       "Use 'no estoy seguro de si' for uncertainty."
+    ],
+    "acceptedAnswers": [
+      "No estoy segura de si estoy de acuerdo con ese punto de vista."
     ]
   },
   {
@@ -598,6 +635,11 @@
     "correctAnswer": "Para ser honesto, me cuesta hablar de mis sentimientos.",
     "hints": [
       "'Me cuesta' + infinitive expresses difficulty doing something."
+    ],
+    "acceptedAnswers": [
+      "Para ser honesta, me cuesta hablar de mis sentimientos.",
+      "Para serte sincero, me cuesta hablar de mis sentimientos.",
+      "La verdad es que me cuesta hablar de mis sentimientos."
     ]
   },
   {
@@ -608,6 +650,9 @@
     "correctAnswer": "Antes era tímido, pero ahora expreso mis ideas con confianza.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Antes era tímida, pero ahora expreso mis ideas con confianza."
     ]
   },
   {
@@ -761,7 +806,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known you were coming, I would have prepared more.",
-    "correctAnswer": "De haberlo sabido, me habría preparado más.",
+    "correctAnswer": "De haber sabido que venías, me habría preparado más.",
     "hints": [
       "Use 'de haber + participle' as a formal alternative to the third conditional."
     ],
@@ -771,7 +816,7 @@
     "id": "sp-cv-b2-17",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "matizar",
+    "prompt": "Vocabulary: to add nuance to (a statement or argument)",
     "correctAnswer": "matizar",
     "hints": [
       "To add nuance or subtlety to an argument or statement."
@@ -817,7 +862,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The way you phrase something can change the entire tone of a conversation.",
-    "correctAnswer": "La forma en que expresas algo puede cambiar el tono completo de una conversación.",
+    "correctAnswer": "La forma en que expresas algo puede cambiar todo el tono de una conversación.",
     "hints": [
       "'La forma en que' introduces a relative clause about how something is done."
     ]

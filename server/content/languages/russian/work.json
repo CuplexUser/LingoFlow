@@ -6,7 +6,7 @@
     "prompt": "Say: I work in a small software company.",
     "correctAnswer": "Я работаю в небольшой IT-компании.",
     "hints": [
-      "Practice this phrase out loud."
+      "'В' + prepositional for where you work. 'Небольшой' = small."
     ]
   },
   {
@@ -47,6 +47,9 @@
     "correctAnswer": "Я закончил черновик, но его ещё нужно доработать.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Я закончила черновик, но его ещё нужно доработать."
     ]
   },
   {
@@ -84,9 +87,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I am still learning the tools for this job.",
-    "correctAnswer": "Я все еще осваиваю инструменты для этой работы.",
+    "correctAnswer": "Я всё ещё осваиваю инструменты для этой работы.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Всё ещё' = still. 'Осваивать' = to get to grips with, to master."
     ]
   },
   {
@@ -104,7 +107,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I need clearer priorities before I can estimate the timeline.",
-    "correctAnswer": "Мне нужны более четкие приоритеты, прежде чем я смогу оценить сроки.",
+    "correctAnswer": "Мне нужны более чёткие приоритеты, прежде чем я смогу оценить сроки.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -126,7 +129,11 @@
     "prompt": "Say: I start work at eight o'clock.",
     "correctAnswer": "Я начинаю работать в восемь часов.",
     "hints": [
-      "Practice this phrase out loud."
+      "'В' + time: в восемь часов = at eight o'clock."
+    ],
+    "acceptedAnswers": [
+      "Я начинаю работу в восемь.",
+      "Я начинаю работать в восемь."
     ]
   },
   {
@@ -136,7 +143,11 @@
     "prompt": "Ask: Where is the meeting room?",
     "correctAnswer": "Где находится переговорная?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Переговорная' (from 'переговоры', talks) = meeting room."
+    ],
+    "acceptedAnswers": [
+      "Где переговорная?",
+      "Где находится переговорная комната?"
     ]
   },
   {
@@ -166,7 +177,7 @@
     "prompt": "Say: I work in the city center.",
     "correctAnswer": "Я работаю в центре города.",
     "hints": [
-      "Practice this phrase out loud."
+      "'В центре города' = in the city center (prepositional + genitive)."
     ]
   },
   {
@@ -249,7 +260,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We should clarify the priorities before we begin.",
-    "correctAnswer": "Нам следует уточнить приоритеты, прежде чем мы начнем.",
+    "correctAnswer": "Нам следует уточнить приоритеты, прежде чем мы начнём.",
     "hints": [
       "Use a modal for recommendation."
     ]
@@ -278,7 +289,7 @@
     "id": "ru-wo-28",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Cloze: We ____ the proposal yesterday.",
+    "prompt": "Cloze: Вчера мы ____ это предложение.",
     "correctAnswer": "обсудили",
     "hints": [
       "Use a past tense verb meaning 'discussed'."
@@ -410,6 +421,9 @@
     "correctAnswer": "Вчера я выполнил три задачи.",
     "hints": [
       "Use past tense and put time at the start for emphasis."
+    ],
+    "acceptedAnswers": [
+      "Вчера я выполнила три задачи."
     ]
   },
   {
@@ -466,7 +480,10 @@
     "hints": [
       "Use a comparison with 'чем'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Это упражнение оказалось труднее, чем я ожидала."
+    ]
   },
   {
     "id": "ru-wo-b1-1",

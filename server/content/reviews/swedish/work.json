@@ -1,0 +1,805 @@
+{
+  "language": "swedish",
+  "category": "work",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:45:58.344Z",
+  "contentHash": "c1c7019b41e97c88",
+  "summary": "Basic office sentences are fine, but several items use wrong words or calques that change the meaning (kampanj for promotion, träningsrummet, che manager, kopiera mig, vid middag for noon, begår resurser, slutskylt, möjlighetskostnad, var saker står). Some business-jargon items are anglicisms (piloterar, kohort, schemaläggningskonflikt), 'det' doesn't agree with 'risk', plus British leftovers, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-wo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedes work 'på' an office or workplace."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag arbetar på ett kontor."
+          ]
+        }
+      ],
+      "itemHash": "6578f987df872c0d",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); the common 'pass' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Klockan' + number for clock times; a work shift is also called 'pass'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mitt pass börjar klockan nio."
+          ]
+        }
+      ],
+      "itemHash": "340f1c6b31b8aa8a",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-12",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed); 'Jag är nyanställd' is the most common phrase.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "No article before a role after 'är': 'Jag är ny medarbetare'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag är nyanställd.",
+            "Jag är den nya medarbetaren."
+          ]
+        }
+      ],
+      "itemHash": "87ef98814242d6fc",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-a1-41",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Clock times take 'klockan' or 'vid', not 'på'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag börjar jobba klockan nio.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag börjar jobba vid nio.",
+            "Jag börjar jobba nio."
+          ]
+        }
+      ],
+      "itemHash": "2a858193694bd509",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-a1-42",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'träningsrummet' is a gym; a training room at work is 'utbildningsrummet'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Var är utbildningsrummet?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Var ligger utbildningsrummet?"
+          ]
+        }
+      ],
+      "itemHash": "77f43d39c09ad159",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-a1-43",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'final approval' is more precisely 'slutgodkännande'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "slutgodkännande",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Slut-' (final) + 'godkännande' (approval)."
+          ]
+        }
+      ],
+      "itemHash": "0d4f9241ab5a6a7e",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-a1-48",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'che manager' is garbled; the word is 'chef'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "chef",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish 'chef' means boss, not cook."
+          ]
+        }
+      ],
+      "itemHash": "d429e0bdbeb4a4bd",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-3",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'till fredag' is ambiguous (for Friday); 'by Friday' is 'senast på fredag'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan du skicka rapporten till mig senast på fredag?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan du skicka mig rapporten senast på fredag?",
+            "Kan du skicka rapporten senast fredag?"
+          ]
+        }
+      ],
+      "itemHash": "14cc607a93e36524",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Moving a meeting is 'flytta'; 'omplanera' is unidiomatic here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan vi flytta mötet till torsdag?",
+          "list": null
+        }
+      ],
+      "itemHash": "5ef644f4200480cb",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-19",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'i slutet av dagen' is a calque; Swedes say 'innan dagen är slut'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skickar den uppdaterade versionen innan dagen är slut.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag skickar den uppdaterade versionen till dig senast i eftermiddag."
+          ]
+        }
+      ],
+      "itemHash": "27505575a91d183f",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'kopiera mig' means to copy me; CC is 'sätta på kopia'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan du sätta mig på kopia i det mejlet?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan du ha med mig på kopia i det mejlet?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sätta någon på kopia' = add someone to the CC field."
+          ]
+        }
+      ],
+      "itemHash": "5eed2fc05ac4624f",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-21",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'årlig semester' is redundant and unnatural; prompt uses British 'annual leave'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I would like to take two weeks of vacation in August.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja ta två veckors semester i augusti.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Två veckors' uses the genitive -s for a length of time."
+          ]
+        }
+      ],
+      "itemHash": "a80187a261199985",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-23",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'vid middag' means at dinner; noon is 'klockan tolv' / 'mitt på dagen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Deadline är nästa måndag klockan tolv.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sista dagen är nästa måndag klockan tolv.",
+            "Tidsfristen går ut nästa måndag klockan tolv."
+          ]
+        }
+      ],
+      "itemHash": "145a450f4e773f80",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-24",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'fri' means free (unrestricted); available is 'ledig'. No answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag är ledig på förmiddagen, men jag har ett samtal på eftermiddagen.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I'm free in the morning, but I have a call in the afternoon.",
+          "list": null
+        }
+      ],
+      "itemHash": "00085be774f6c91a",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-41",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'avslutat mina uppgifter' is stiff; Swedes say 'jag är klar med'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag är klar med mina uppgifter för i dag.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har gjort klart mina uppgifter för idag."
+          ]
+        }
+      ],
+      "itemHash": "b3cd2d1646824e76",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-a2-53",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag är ___ för veckouppdateringarna.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ansvarig",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ansvarig",
+            "ansvariga",
+            "ansvarigt",
+            "ansvar"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Common-gender singular adjective after 'jag är'."
+          ]
+        }
+      ],
+      "itemHash": "1d5f6f2657e9839a",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-a2-54",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'före schemat' is a calque; it is 'före tidsplanen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi blev klara med uppgiften före tidsplanen.",
+          "list": null
+        }
+      ],
+      "itemHash": "711bdf8817b4cbb2",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'would like' is 'skulle vilja', and a meeting takes 'på'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja diskutera mina framsteg på vårt nästa möte.",
+          "list": null
+        }
+      ],
+      "itemHash": "761ec555a050f6ce",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-6",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'konferenssamtalet' and 'schemaläggningskonflikt' are calques no Swede would use.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag kunde inte vara med på telefonmötet eftersom jag var dubbelbokad.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag kunde inte delta i telefonmötet eftersom jag var dubbelbokad."
+          ]
+        }
+      ],
+      "itemHash": "49564eb152844902",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-29",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'var saker står' is a literal calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan du berätta hur det ligger till med kunden?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kan du uppdatera mig om läget med kunden?"
+          ]
+        }
+      ],
+      "itemHash": "27b2312586b6d977",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-30",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'risk' is a common-gender noun, so the pronoun is 'den', not 'det'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag vill flagga för en potentiell risk innan den blir ett problem.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag vill uppmärksamma en möjlig risk innan den blir ett problem."
+          ]
+        }
+      ],
+      "itemHash": "e78b9a19dfdcd128",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-42",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'kampanj' means a campaign; a promotion is 'befordran'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har fått mer ansvar sedan jag blev befordrad.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har fått mer ansvar sedan min befordran."
+          ]
+        }
+      ],
+      "itemHash": "0296c1cd280bfaac",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b1-61",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'distribution' means distribution; software deployment is 'driftsättning' or 'lansering'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi bör prioritera kundproblemet före driftsättningen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vi borde prioritera kundproblemet innan lanseringen."
+          ]
+        }
+      ],
+      "itemHash": "e25ea26feecc550f",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b1-62",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A meeting agenda is 'dagordning'; 'would like' is 'skulle vilja'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja föreslå en kortare dagordning.",
+          "list": null
+        }
+      ],
+      "itemHash": "ba926526f0499bee",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b1-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Kan vi ___ den här deadlinen till nästa onsdag?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "flytta",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "flytta",
+            "flyttar",
+            "flyttade",
+            "flyttat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive after 'kan vi'."
+          ]
+        }
+      ],
+      "itemHash": "1272d0819dc35ced",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b1-64",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'sammanhang' reads oddly here.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: Your colleague asks you to approve a project plan right away.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag behöver mer bakgrund innan jag kan godkänna den här planen.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I need more context before I can approve this plan.",
+          "list": null
+        }
+      ],
+      "itemHash": "9ceac48c9f740232",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A project timeline is 'tidsplan', not 'tidslinje'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skulle vilja föreslå en omstrukturering av projektets tidsplan.",
+          "list": null
+        }
+      ],
+      "itemHash": "3c8abdf54795141d",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'har oro över' is unidiomatic; 'stakeholders' is 'intressenterna'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Intressenterna är oroliga för den förväntade avkastningen på investeringen.",
+          "list": null
+        }
+      ],
+      "itemHash": "26eb46cc51feb05a",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Efter min tidigare e-post' doesn't convey 'following up on'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Som uppföljning på mitt tidigare mejl ville jag förtydliga vad som ska levereras.",
+          "list": null
+        }
+      ],
+      "itemHash": "857920a5dcb5764e",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'anpassa oss till' means adapt to, and 'begår resurser' means 'commit (a crime) resources'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi måste enas om prioriteringarna innan vi lägger resurser på det här initiativet.",
+          "list": null
+        }
+      ],
+      "itemHash": "3b5f93ad0e830869",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-32",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'för att följa' means 'in order to follow'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Styrelsen söker en övertygande berättelse som komplement till de finansiella prognoserna.",
+          "list": null
+        }
+      ],
+      "itemHash": "849c2f047b299636",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The Swedish term is 'alternativkostnad'; 'funderat på' means pondered, not factored in.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Har du tagit hänsyn till alternativkostnaden för att skjuta upp lanseringen?",
+          "list": null
+        }
+      ],
+      "itemHash": "f26dd637b68fedf6",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-34",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'piloterar', 'kohort' and 'skalar' are anglicisms; Swedish says 'pilottesta' and 'skala upp'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag rekommenderar att vi pilottestar lösningen med en liten grupp innan vi skalar upp.",
+          "list": null
+        }
+      ],
+      "itemHash": "02411680dcabe457",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b2-71",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'anpassa ... med' takes the wrong preposition; it is 'anpassa efter'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi måste anpassa leveranserna efter intressenternas förväntningar.",
+          "list": null
+        }
+      ],
+      "itemHash": "1ef9314cca90efd2",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b2-72",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'slutskylt' (final sign) is nonsense; the cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag föreslår att vi dokumenterar riskerna före det slutliga ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "godkännandet",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "godkännandet",
+            "godkännande",
+            "godkänna",
+            "godkänd"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Definite form after 'det slutliga'."
+          ]
+        }
+      ],
+      "itemHash": "a217361d12b65ac9",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b2-73",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: In a project meeting, you raise the risk of delays in the upcoming rollout.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hur bör vi minska risken för förseningar i den här utrullningen?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should we mitigate potential delays in this rollout?",
+          "list": null
+        }
+      ],
+      "itemHash": "0e8683e15f5a6abc",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    },
+    {
+      "id": "sv-wo-b2-74",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'balanserar ... med' is a calque; Swedish weighs one thing 'mot' another.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Det här förslaget väger kortsiktig effekt mot långsiktig hållbarhet.",
+          "list": null
+        }
+      ],
+      "itemHash": "c29cc34f03ee953d",
+      "appliedAt": "2026-10-22T10:00:53.140Z"
+    }
+  ]
+}

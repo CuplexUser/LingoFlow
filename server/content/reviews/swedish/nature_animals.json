@@ -1,0 +1,595 @@
+{
+  "language": "swedish",
+  "category": "nature_animals",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T10:00:15.985Z",
+  "contentHash": "d0c33af11d2939a9",
+  "summary": "Animal vocabulary is fine (the 'tiger' lint is a false alarm), but weather and nature phrases include calques (Vad är vädret som idag?, regnar utanför, Floden har översvämmats, går du på landsbygden) and several B1–B2 items have wrong words or misspellings (mumlande stjärnbildning for starlings, Rewilding projekt, Tipspunkter, tinaningen, miljöexterna, massutrotning, livsmedelskedjor). Plus British leftovers, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-na-a1-2",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'utanför' means outside of something; rain outdoors is 'ute'. Hint explains English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Det regnar ute.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Weather verbs take the dummy subject 'det': 'det regnar'."
+          ]
+        }
+      ],
+      "itemHash": "e5fc229dea43b794",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vad är vädret som idag?' is a word-for-word calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur är vädret i dag?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hur är vädret idag?",
+            "Vad är det för väder i dag?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedes ask 'Hur är vädret?' (How is the weather?)."
+          ]
+        }
+      ],
+      "itemHash": "5d6a7069d58d4e01",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a1-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses 'autumn' instead of US 'fall'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after fall."
+          ]
+        }
+      ],
+      "itemHash": "7a000ab444989538",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Walking for pleasure is usually 'promenerade' / 'tog en promenad'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag promenerade i skogen igår.",
+            "Jag tog en promenad i skogen igår."
+          ]
+        }
+      ],
+      "itemHash": "eecaa751257cbb1e",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Floden har översvämmats' means the river was flooded by something; a river that floods 'svämmar över'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Floden har svämmat över efter flera dagars kraftigt regn.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ån har svämmat över efter flera dagars kraftigt regn."
+          ]
+        }
+      ],
+      "itemHash": "ebda3028543accd0",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a2-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about English 'deer'; the deer seen in Swedish parks are usually 'rådjur'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hjort' = deer; the small deer common in Sweden is 'rådjur'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag såg en familj rådjur i parken i morse."
+          ]
+        }
+      ],
+      "itemHash": "2139b55874574dd7",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'grannskapet' is a calque; Swedes say 'området' or 'kvarteret'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Stormen orsakade skador på flera träd i området.",
+          "list": null
+        }
+      ],
+      "itemHash": "23f88ffc39610abf",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Prompt uses British 'rubbish'; Swedes say 'sopsortera' and 'help' is dropped.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I recycle my trash to help protect the environment.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag källsorterar mina sopor för att hjälpa till att skydda miljön.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag återvinner mitt skräp för att hjälpa till att skydda miljön."
+          ]
+        }
+      ],
+      "itemHash": "38559b2ede0ee98a",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a2-8",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Hur ofta går du på landsbygden' doesn't mean walking for pleasure.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur ofta går du ut och promenerar på landet?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hur ofta tar du promenader på landet?"
+          ]
+        }
+      ],
+      "itemHash": "24fb8620a2cf0d5d",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a2-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A vegetable garden is a 'köksträdgård'; a specific past spring is 'i våras'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vi anlade en köksträdgård i våras.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vi planterade ett grönsaksland i våras."
+          ]
+        }
+      ],
+      "itemHash": "2b31e424065188e0",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hur kan vi skydda ___ djur?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "vilda",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "vilda",
+            "vild",
+            "vilt",
+            "vildare"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Plural adjective agreeing with 'djur'."
+          ]
+        }
+      ],
+      "itemHash": "e62838c7d1230ca3",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'de ledande orsakerna' and 'livsmiljöförlust' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Avskogning är en av de främsta orsakerna till att många hotade arter förlorar sina livsmiljöer.",
+          "list": null
+        }
+      ],
+      "itemHash": "bb994d59f7ea35b7",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The Swedish term is 'pollinerare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vilka åtgärder vidtas lokalt för att skydda pollinerare som bin?",
+          "list": null
+        }
+      ],
+      "itemHash": "b4be4d78e7e78faf",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Rewilding projekt' is English and split; Swedish says 'återförvildning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Projekt för återförvildning syftar till att återställa naturliga ekosystem genom att återinföra inhemska arter.",
+          "list": null
+        }
+      ],
+      "itemHash": "11fda71d4df1a71a",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Swedish usually says 'psykisk hälsa'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tycker du att grönområden i städer har en mätbar effekt på den psykiska hälsan?",
+          "list": null
+        }
+      ],
+      "itemHash": "d5ae774a0aec92e2",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'en mumlande stjärnbildning' means 'a mumbling star formation'; starlings are 'starar'. Hints and note are about English and the UK.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag hade turen att få se en stor flock starar dansa i skymningen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Stare' (plural 'starar') = starling; Swedes describe their swirling flight as 'dansa'."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "In late summer and fall, huge flocks of starlings gather in southern Sweden, especially in Skåne, and perform swirling aerial displays before migrating.",
+          "list": null
+        }
+      ],
+      "itemHash": "26872b7af0f1b5ac",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'marina liv' lacks the definite form, and ecological food chains are 'näringskedjor', not 'livsmedelskedjor'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Plastföroreningar i havet utgör ett allvarligt hot mot det marina livet och näringskedjorna.",
+          "list": null
+        }
+      ],
+      "itemHash": "3e8321115769cc60",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1-10",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish; 'köra' needs 'bil'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag försöker dra ner på engångsplast, äta mindre kött och gå eller cykla i stället för att ta bilen.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I try to cut down on single-use plastics, eat less meat, and walk or cycle instead of driving.",
+          "list": null
+        }
+      ],
+      "itemHash": "92aa6c73f671440b",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'Vad orsakar ... att minska' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vad ___ djurpopulationer att minska?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "får",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "får",
+            "gör",
+            "låter",
+            "ger"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Få något att' + infinitive = cause something to."
+          ]
+        }
+      ],
+      "itemHash": "afa4977306c71d41",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'massutrotning' means mass extermination; the term is 'massutdöende'. 'well' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Det sjätte massutdöendet, främst orsakat av mänsklig aktivitet, är redan i full gång.",
+          "list": null
+        }
+      ],
+      "itemHash": "0d7862fb6bc4f0a9",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Tipspunkter' means tip points (as in tips); 'tinaningen' is misspelled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tipppunkter i klimatsystemet – som att permafrosten tinar – kan utlösa oåterkalleliga återkopplingseffekter.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Brytpunkter i klimatsystemet – som att permafrosten tinar – kan utlösa oåterkalleliga återkopplingseffekter."
+          ]
+        }
+      ],
+      "itemHash": "8c87aa37244dbb1b",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'vattensäkerhet' is a calque; Swedish speaks of 'vattenförsörjning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Förlusten av biologisk mångfald undergräver de ekosystemtjänster som jordbrukets produktivitet och vattenförsörjningen bygger på.",
+          "list": null
+        }
+      ],
+      "itemHash": "40ee1ba68509be1c",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "A principle doesn't 'anse'; 'environmental' is dropped from the measures.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Försiktighetsprincipen innebär att brist på vetenskaplig säkerhet inte ska fördröja miljöskyddande åtgärder.",
+          "list": null
+        }
+      ],
+      "itemHash": "dad7ce3d32071694",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'miljöexterna' is not a word; externalities are 'externa miljöeffekter'. Word order of 'enbart effektivt' is off.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kan marknadsmekanismer på egen hand hantera externa miljöeffekter effektivt, eller krävs statliga ingripanden?",
+          "list": null
+        }
+      ],
+      "itemHash": "fdd424d136f38b19",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Djupa havsekosystem' and 'möter ökande hot' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Djuphavets ekosystem är fortfarande dåligt utforskade, men hotas allt mer av resursutvinning och varmare hav.",
+          "list": null
+        }
+      ],
+      "itemHash": "7924c477b6b38d7e",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Den filosofiska traditionen av djup ekologi' is a calque; the movement is 'djupekologin'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Djupekologin, som filosofisk tradition, hävdar att naturen har ett egenvärde oberoende av sin nytta för människan.",
+          "list": null
+        }
+      ],
+      "itemHash": "3a247063ef434987",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'lokal försörjning' is vague.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Bevarandestrategier måste ta hänsyn till både ekologin och lokalbefolkningens ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "försörjning",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "försörjning",
+            "försörja",
+            "försörjde",
+            "försörjer"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'livelihood'."
+          ]
+        }
+      ],
+      "itemHash": "a24381b61dc1d25b",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    },
+    {
+      "id": "sv-na-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a climate workshop, you ask the experts which environmental interventions have the greatest long-term impact.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Which environmental interventions have the greatest long-term impact?",
+          "list": null
+        }
+      ],
+      "itemHash": "0044dc9e52f6c055",
+      "appliedAt": "2026-10-22T10:00:56.089Z"
+    }
+  ]
+}

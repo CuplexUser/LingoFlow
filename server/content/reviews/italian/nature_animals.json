@@ -1,0 +1,597 @@
+{
+  "language": "italian",
+  "category": "nature_animals",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:39:26.721Z",
+  "contentHash": "73118d1275155ff2",
+  "summary": "Animal vocabulary is fine, but weather basics are taught wrong (Qual è il tempo come oggi?, È stato insolitamente caldo, il fiume è inondato), and several items mistranslate key terms (luci del nord, ristrutturazione for rewilding, starlings/murmurazione left half in English, ciclo for cycling, guidato for 'driven'). One answer uses the wrong person ('Ricicli'), plus British leftovers, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "it-na-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains English 'it is'; 'Fuori piove' is the most natural form and not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Weather verbs like 'piovere' have no subject in Italian."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Fuori piove.",
+            "Piove fuori."
+          ]
+        }
+      ],
+      "itemHash": "5b405b4b5fd2b66a",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Qual è il tempo come oggi?' is ungrammatical; the fixed question is 'Che tempo fa oggi?'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Che tempo fa oggi?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Com'è il tempo oggi?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Weather questions use 'fare': 'Che tempo fa?'"
+          ]
+        }
+      ],
+      "itemHash": "a78fb2f68c8725d0",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'in giardino' (no article) is the most natural form and not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ci sono molti uccelli in giardino."
+          ]
+        }
+      ],
+      "itemHash": "f8fefca166a9ea81",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a1-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses 'autumn' instead of US 'fall'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after fall."
+          ]
+        }
+      ],
+      "itemHash": "d178dcc1471465ec",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a1-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday 'Oggi c'è il sole' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Oggi c'è il sole.",
+            "Oggi splende il sole."
+          ]
+        }
+      ],
+      "itemHash": "fc2860ce7bab080e",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Walking for pleasure in the woods is usually 'fare una passeggiata nel bosco'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ieri ho fatto una passeggiata nel bosco.",
+            "Ieri ho passeggiato nel bosco."
+          ]
+        }
+      ],
+      "itemHash": "597c69e259478674",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Weather temperature uses 'fare': 'Ha fatto caldo', not 'È stato caldo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ha fatto insolitamente caldo per questo periodo dell'anno.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ha fatto un caldo insolito per la stagione."
+          ]
+        }
+      ],
+      "itemHash": "78c44db877b1400d",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'le luci del nord' is a calque; the northern lights are 'l'aurora boreale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Qual è il periodo migliore dell'anno per vedere l'aurora boreale?",
+          "list": null
+        }
+      ],
+      "itemHash": "106d174c981490a1",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Il fiume è inondato' means the river was flooded by something; a river that floods 'esonda' or 'straripa'. 'pioggia pesante' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il fiume è esondato dopo diversi giorni di piogge intense.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il fiume è straripato dopo diversi giorni di piogge intense."
+          ]
+        }
+      ],
+      "itemHash": "b9fe88e7db4e4382",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a2-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about English 'deer'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Una famiglia di' + plural noun; 'cervo' → 'cervi'."
+          ]
+        }
+      ],
+      "itemHash": "48225a6630d8ee94",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Ricicli' is second person ('you recycle'); prompt uses British 'rubbish'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I recycle my trash to help protect the environment.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Riciclo i rifiuti per aiutare a proteggere l'ambiente.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Faccio la raccolta differenziata per aiutare a proteggere l'ambiente."
+          ]
+        }
+      ],
+      "itemHash": "4c498369aa0e7a5e",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'vai a camminare' is a calque; leisure walking is 'passeggiare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ogni quanto vai a passeggiare in campagna?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quante volte vai a fare passeggiate in campagna?"
+          ]
+        }
+      ],
+      "itemHash": "bea61021e844d09d",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Come possiamo proteggere gli animali ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "selvatici",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "selvatici",
+            "selvatiche",
+            "selvatico",
+            "selvatica"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wild' — agrees with 'animali' (masculine plural)."
+          ]
+        }
+      ],
+      "itemHash": "87b3c4d5b9809e9d",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine form not accepted; 'alimentazione' is more natural than 'dieta' here.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Recentemente sono diventata più consapevole dell'impatto della mia dieta sulle emissioni di carbonio.",
+            "Di recente sono diventato più consapevole dell'impatto della mia alimentazione sulle emissioni di carbonio.",
+            "Di recente sono diventata più consapevole dell'impatto della mia alimentazione sulle emissioni di carbonio."
+          ]
+        }
+      ],
+      "itemHash": "99ddd4e638750f70",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ristrutturazione' means building renovation; rewilding is 'rinaturalizzazione'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I progetti di rinaturalizzazione mirano a ripristinare gli ecosistemi naturali reintroducendo specie autoctone.",
+          "list": null
+        }
+      ],
+      "itemHash": "78870ee02521ee04",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b1-5",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'sono stati interrotti' means 'have been stopped' (and is not ongoing); 'modelli di migrazione' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le rotte migratorie degli uccelli vengono alterate dal cambiamento climatico.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I cambiamenti climatici stanno alterando le migrazioni degli uccelli."
+          ]
+        }
+      ],
+      "itemHash": "4fe2a7be74f49526",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'starlings' is left in English, 'murmurazione' and 'testimoniare' are calques; hints and note are about English and the UK.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho avuto la fortuna di assistere a un volo di storni al crepuscolo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono stato abbastanza fortunato da assistere a un volo di storni al tramonto.",
+            "Sono stata abbastanza fortunata da assistere a un volo di storni al tramonto."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Storni' = starlings; Italians describe their swirling flocks as 'il volo' or 'la danza degli storni'."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "Every fall and winter, huge flocks of starlings perform swirling aerial displays over Rome and other Italian cities before roosting for the night.",
+          "list": null
+        }
+      ],
+      "itemHash": "24b7028e6f34882c",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ciclo' means cycle (noun), not cycling; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cerco di ridurre la plastica monouso, mangiare meno carne e andare a piedi o in bici invece di usare la macchina.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I try to cut down on single-use plastics, eat less meat, and walk or cycle instead of driving.",
+          "list": null
+        }
+      ],
+      "itemHash": "c437b7680721bcc1",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cosa provoca il ___ delle popolazioni animali?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "declino",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "declino",
+            "declinare",
+            "decollo",
+            "decoro"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'decline'."
+          ]
+        }
+      ],
+      "itemHash": "156fd0bcc16dd5f1",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'guidato' means 'led/steered', not 'driven (caused)'; 'evento di estinzione' is a calque and 'well' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La sesta estinzione di massa, causata principalmente dall'attività umana, è già ben avviata.",
+          "list": null
+        }
+      ],
+      "itemHash": "dedabe7be8639098",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Inverting 'è l'innovazione' is unnatural; 'antropico' is the common term.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In che misura l'innovazione tecnologica è in grado di mitigare gli effetti del cambiamento climatico di origine antropica?",
+          "list": null
+        }
+      ],
+      "itemHash": "20d4ecd93fd31e55",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2-3",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'thawing' is dropped (only 'il permafrost'), and 'loop di feedback' is half English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I punti di non ritorno del sistema climatico — come lo scioglimento del permafrost — potrebbero innescare meccanismi di retroazione irreversibili.",
+          "list": null
+        }
+      ],
+      "itemHash": "708ddf7aac7920c6",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The established term is 'principio di precauzione', which 'stabilisce' rather than 'ritiene'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il principio di precauzione stabilisce che la mancanza di certezza scientifica non debba ritardare le misure di tutela ambientale.",
+          "list": null
+        }
+      ],
+      "itemHash": "b72ea8130fad55f6",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2-6",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'alone' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I meccanismi di mercato possono da soli affrontare efficacemente le esternalità ambientali, o è necessario l'intervento dello Stato?",
+          "list": null
+        }
+      ],
+      "itemHash": "9c11d455eddcba68",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'di mare profondo' and 'affrontano minacce' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gli ecosistemi degli abissi marini sono ancora poco conosciuti, eppure sono sempre più minacciati dall'estrazione di risorse e dal riscaldamento degli oceani.",
+          "list": null
+        }
+      ],
+      "itemHash": "c00e0ddd7cb85a85",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Le strategie di conservazione devono considerare sia l'ecologia sia i mezzi di ___ locali.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sussistenza",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sussistenza",
+            "trasporto",
+            "comunicazione",
+            "pagamento"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mezzi di sussistenza' = livelihoods."
+          ]
+        }
+      ],
+      "itemHash": "4d649dd319a59469",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    },
+    {
+      "id": "it-na-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'danno il massimo impatto' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a climate workshop, you ask the experts which environmental interventions have the greatest long-term impact.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Quali interventi ambientali hanno il maggiore impatto a lungo termine?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Which environmental interventions have the greatest long-term impact?",
+          "list": null
+        }
+      ],
+      "itemHash": "00e07553671d44e5",
+      "appliedAt": "2026-10-22T10:00:51.995Z"
+    }
+  ]
+}

@@ -1,0 +1,1152 @@
+{
+  "language": "swedish",
+  "category": "grammar",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:51:09.350Z",
+  "contentHash": "29370f71dea26e61",
+  "summary": "This file is the English grammar course with translated answers: prompts are English fill-in-the-blanks about English grammar (to be, do-support, a/an, has/have, who/which, inversion), hints explain English rules, and cloze items show English sentences. I rewrote each into the equivalent Swedish exercise. Several answers are also wrong Swedish: 'dom' for sentence, 'stanna inom oss', 'Hon används för att vakna', 'bröt rekordet', 'avbröts' for cancelled, 'men' instead of 'utan' after 'inte bara', and 'frontar'.",
+  "findings": [
+    {
+      "id": "sv-gr-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'to be' with a full Swedish answer.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is a teacher.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "No article before a profession: 'Hon är lärare'."
+          ]
+        }
+      ],
+      "itemHash": "e01d87ee95994c26",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Är' has the same form for all persons; 'mina' agrees with the plural 'vänner'."
+          ]
+        }
+      ],
+      "itemHash": "5d3f7ab15867ebdc",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-3",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'do not'; hint teaches English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I do not like coffee.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Inte' comes right after the verb in a main clause."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag tycker inte om kaffe."
+          ]
+        }
+      ],
+      "itemHash": "14527e33e4f3ae90",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-13",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'are'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We are students.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Är' is the same for every person; 'student' → 'studenter'."
+          ]
+        }
+      ],
+      "itemHash": "abb71ce86cd233b7",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-14",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence testing the English -s ending.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Han ___ engelska varje dag.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "studerar",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "studerar",
+            "studera",
+            "studerat",
+            "studerande"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish present tense ends in -r for every person."
+          ]
+        }
+      ],
+      "itemHash": "4c39c1270924561f",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains English 'there is/are'; 'ligger' is the natural Swedish verb here.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Det finns' = there is/are; for objects lying somewhere Swedes often say 'Det ligger'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Det ligger en bok på bordet."
+          ]
+        }
+      ],
+      "itemHash": "2948dba53b011148",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-16",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'do'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you like tea?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish yes/no questions start with the verb: 'Gillar du ...?'"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tycker du om te?"
+          ]
+        }
+      ],
+      "itemHash": "f00e5e246423d38a",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-17",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze tests English 'a/an'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hon har ___ paraply.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ett",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ett",
+            "en",
+            "det",
+            "den"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Paraply' is an ett-word (neuter)."
+          ]
+        }
+      ],
+      "itemHash": "a5e37c8592541cc1",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-18",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Inte' follows the verb: 'Jag är inte'."
+          ]
+        }
+      ],
+      "itemHash": "aa87cc62a1d84984",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-19",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'are'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The cats are sleeping.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish uses the simple present for actions in progress."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Katterna ligger och sover."
+          ]
+        }
+      ],
+      "itemHash": "abdcac2e412508d7",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-a1-39",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about the English -s ending.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Går' is the same for every person; 'till skolan' = to school."
+          ]
+        }
+      ],
+      "itemHash": "3c0a108cd0974b79",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-a1-40",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'glada' is the everyday word for happy; hint is about English.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "De är glada."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Adjectives take -a in the plural: 'glad' → 'glada'."
+          ]
+        }
+      ],
+      "itemHash": "0d77de6554f9f433",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-a1-41",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'dom' means verdict (or colloquial 'they'); a sentence is 'mening'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Är den här meningen korrekt?",
+          "list": null
+        }
+      ],
+      "itemHash": "a8c30709fe98183e",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'stormarknad' is a hypermarket; 'affären/mataffären' is everyday. Hint is about English.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag gick till mataffären igår.",
+            "Igår gick jag till affären."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gick' is the irregular past tense of 'gå'."
+          ]
+        }
+      ],
+      "itemHash": "eccf905ab16da94f",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'has'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She has been waiting for an hour.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hon har väntat i en timme.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hon har väntat en timme."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish uses the perfect (har väntat) for an action still going on."
+          ]
+        }
+      ],
+      "itemHash": "bb53c3ac6e693fa0",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'stanna inom oss' means 'stay within ourselves'; staying indoors is 'stanna inne'. Hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Om det regnar stannar vi inne.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Om det regnar kommer vi att stanna inne."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish often uses the present for the future; note the inverted 'stannar vi'."
+          ]
+        }
+      ],
+      "itemHash": "a7fd42baa0e6721d",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence; going to the movies is 'gå på bio'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I lördags ___ jag på bio.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "gick",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "gick",
+            "går",
+            "gått",
+            "gå"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past tense of 'gå'; the verb comes second, so 'gick jag'."
+          ]
+        }
+      ],
+      "itemHash": "10a0a054dfdf26ba",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-21",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank; 'på sju' is wrong for a clock time.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: At seven this morning he was working.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Klockan sju i morse jobbade han.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Han jobbade klockan sju i morse.",
+            "Klockan sju i morse höll han på att jobba."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish has no continuous tense; use the past or 'höll på att'."
+          ]
+        }
+      ],
+      "itemHash": "5f28b86b8d0307ca",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-22",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Perfect tense (har bott) + 'i' for a duration up to now."
+          ]
+        }
+      ],
+      "itemHash": "1d79c40b84f6085c",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-23",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Den här boken är ___ intressant än den andra.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "mer",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "mer",
+            "mest",
+            "mycket",
+            "fler"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Long adjectives use 'mer' for the comparative."
+          ]
+        }
+      ],
+      "itemHash": "60513e9c04f9763e",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-24",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about 'have/has'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Have you been to Paris?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Har du varit i' + place = have you been to."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Har du någonsin varit i Paris?"
+          ]
+        }
+      ],
+      "itemHash": "36502eb079d27ae3",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-26",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: You should drink more water.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Bör/borde' + infinitive without 'att'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Du borde dricka mer vatten."
+          ]
+        }
+      ],
+      "itemHash": "59388862054f5e0c",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-a2-51",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks about English much/many and has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Jag har ___ vänner i Stockholm.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "många",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "många",
+            "mycket",
+            "mer",
+            "mest"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Många' with countable nouns, 'mycket' with uncountable."
+          ]
+        }
+      ],
+      "itemHash": "2232a686773b3bbb",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes the English conditional.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Om' + past tense, then 'skulle' + infinitive; note the inverted 'skulle jag'."
+          ]
+        }
+      ],
+      "itemHash": "af523d67be273f0e",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-8",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank; 'avslutat middagen' is stiff.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: By the time she arrives, we will have finished dinner.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "När hon kommer har vi redan ätit klart.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "När hon kommer kommer vi att ha ätit klart."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish often uses the present perfect for a future completed action."
+          ]
+        }
+      ],
+      "itemHash": "93dc718631dbbd91",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Trots trötthet' is stiff; hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Trots att hon var trött fortsatte hon att arbeta.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Trots tröttheten fortsatte hon att jobba."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Trots att' + clause, or 'trots' + noun."
+          ]
+        }
+      ],
+      "itemHash": "623b93ef898dec46",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-27",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence; 'laget' is a sports team.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Rapporten ___ av teamet förra veckan.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "skrevs",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "skrevs",
+            "skriver",
+            "skrivit",
+            "skrivs"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The s-passive in the past tense: 'skrev' + s."
+          ]
+        }
+      ],
+      "itemHash": "e4913cd3eb2ceea5",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-29",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank; 'träna' is for sport, practicing a skill is 'öva'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I wish I had more time to practice.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Jag önskar att jag hade mer tid att öva.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Önska att' + past tense for an unreal present wish."
+          ]
+        }
+      ],
+      "itemHash": "8d5bf96ec522192f",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-30",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "After 'inte bara' Swedish uses 'utan', not 'men', and records are 'slås', not 'brytas'. Hint describes English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hon vann inte bara loppet, utan slog också rekordet.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Inte nog med att hon vann loppet, hon slog också rekordet."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Inte bara ... utan också' = not only ... but also."
+          ]
+        }
+      ],
+      "itemHash": "fd16e00e6f0a38d2",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "English fill-in-the-blank, and 'Hon används för att vakna' means 'She is used (as a tool) to wake'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is used to waking up early.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hon är van vid att vakna tidigt.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Vara van vid att' + infinitive = to be used to doing."
+          ]
+        }
+      ],
+      "itemHash": "38137b908631935f",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-32",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'avbröts' means interrupted; cancelled is 'ställdes in'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mötet ställdes in på grund av de dåliga väderförhållandena.",
+          "list": null
+        }
+      ],
+      "itemHash": "ba0c80af607d92fe",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-33",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze tests English who/which.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Personen ___ ringde lämnade inget meddelande.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "som",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "som",
+            "vilket",
+            "vars",
+            "vad"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Som' is the relative pronoun for both people and things."
+          ]
+        }
+      ],
+      "itemHash": "e51f56cdf91eba72",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-b1-59",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'träna' is for sport; practicing a skill is 'öva'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag önskar att jag hade mer tid att öva.",
+          "list": null
+        }
+      ],
+      "itemHash": "467414f78de7efcb",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'den passiva rösten' is a calque (passive form = 'passiv form').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "När ska jag använda ___ form?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "passiv",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "passiv",
+            "passivt",
+            "passiva",
+            "passivet"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Indefinite common-gender adjective agreeing with 'form'."
+          ]
+        }
+      ],
+      "itemHash": "700b6f8c05290e61",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-11",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank about inversion.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Rarely have I seen such attention to detail.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The verb comes second in Swedish: after 'Sällan' comes 'har jag'."
+          ]
+        }
+      ],
+      "itemHash": "e5abe5ae6f816cf0",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-34",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank; 'Inte förr hade hon kommit än' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: No sooner had she arrived than the meeting began.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hon hade knappt kommit förrän mötet började.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Knappt ... förrän' = no sooner ... than."
+          ]
+        }
+      ],
+      "itemHash": "7c135ec22e692f2d",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-35",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes the English subjunctive.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Det är hög tid att' + clause; Swedish keeps normal tense here."
+          ]
+        }
+      ],
+      "itemHash": "0d61b0d65942a1d2",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-36",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Cloze is an English sentence (with British 'analysed').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Uppgifterna måste ___ innan några slutsatser kan dras.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "analyseras",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "analyseras",
+            "analysera",
+            "analyserade",
+            "analyserat"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Modal + s-passive infinitive."
+          ]
+        }
+      ],
+      "itemHash": "86d9a4d4ec4a3174",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-37",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A job is a 'tjänst', not 'position'; 'vore' is the formal hypothetical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Om hon skulle söka tjänsten vore hon en stark kandidat.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Om hon sökte tjänsten skulle hon vara en stark kandidat."
+          ]
+        }
+      ],
+      "itemHash": "36d235a561da742b",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-38",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in-the-blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The more you practice, the more fluent you become.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ju ... desto ...' = the more ... the more ..."
+          ]
+        }
+      ],
+      "itemHash": "77159c22e6117f0e",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-b2-70",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "After 'inte bara' Swedish needs 'utan', not 'men'; the cloze item has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hon blev inte bara klar i tid, ___ hon förbättrade också utkastet.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "utan",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "utan",
+            "men",
+            "och",
+            "eller"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Inte bara ... utan också' = not only ... but also."
+          ]
+        }
+      ],
+      "itemHash": "807c666f398af670",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    },
+    {
+      "id": "sv-gr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "'frontar' is an anglicism; dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: In grammar class, you ask your teacher about moving a phrase to the start of a sentence.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hur förändras betoningen när vi flyttar fram en fras till början av meningen?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How does the emphasis change when we move a phrase to the start of the sentence?",
+          "list": null
+        }
+      ],
+      "itemHash": "850bbba00c9806bc",
+      "appliedAt": "2026-10-22T10:00:54.174Z"
+    }
+  ]
+}

@@ -6,7 +6,7 @@
     "prompt": "Say: I am hungry.",
     "correctAnswer": "Ho fame.",
     "hints": [
-      "Practice this phrase out loud."
+      "Italian says 'I have hunger': 'avere fame'."
     ]
   },
   {
@@ -16,7 +16,11 @@
     "prompt": "Ask: Can I have a glass of water, please?",
     "correctAnswer": "Posso avere un bicchiere d'acqua, per favore?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Un bicchiere d'acqua' = a glass of water; 'd'' replaces 'di' before a vowel."
+    ],
+    "acceptedAnswers": [
+      "Potrei avere un bicchiere d'acqua, per favore?",
+      "Mi porta un bicchiere d'acqua, per favore?"
     ]
   },
   {
@@ -26,7 +30,12 @@
     "prompt": "Say: I would like a coffee with milk.",
     "correctAnswer": "Vorrei un caffè con latte.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Vorrei' = I would like. In a bar, coffee with a drop of milk is 'un caffè macchiato'."
+    ],
+    "acceptedAnswers": [
+      "Vorrei un caffè con il latte.",
+      "Vorrei un caffè macchiato.",
+      "Vorrei un caffellatte."
     ]
   },
   {
@@ -34,7 +43,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Is this vegetarian?",
-    "correctAnswer": "E' vegetariano?",
+    "correctAnswer": "È vegetariano?",
     "hints": [
       "A short, useful restaurant question."
     ]
@@ -54,11 +63,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the main part of a meal, usually meat or fish",
-    "correctAnswer": "corso principale",
+    "correctAnswer": "secondo piatto",
     "hints": [
-      "It comes after the starter."
+      "It comes after the pasta or rice course (il primo)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "culturalNote": "A traditional Italian meal runs antipasto (appetizer), primo (pasta, rice or soup), secondo (meat or fish) with a contorno (side dish), then dolce (dessert)."
   },
   {
     "id": "it-fo-16",
@@ -109,7 +119,11 @@
     "hints": [
       "Simple ordering phrase."
     ],
-    "id": "it-fo-a1-39"
+    "id": "it-fo-a1-39",
+    "acceptedAnswers": [
+      "Vorrei un piatto di zuppa.",
+      "Vorrei una zuppa."
+    ]
   },
   {
     "level": "a1",
@@ -140,7 +154,10 @@
     "prompt": "Ask: Does this dish contain any nuts?",
     "correctAnswer": "Questo piatto contiene noci?",
     "hints": [
-      "Pay attention to the sentence structure."
+      "'Noci' = walnuts; for any kind of nut, ask about 'frutta a guscio'."
+    ],
+    "acceptedAnswers": [
+      "Questo piatto contiene frutta a guscio?"
     ]
   },
   {
@@ -157,7 +174,7 @@
     "id": "it-fo-6",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Could we have the bill, please?",
+    "prompt": "Say: Could we have the check, please?",
     "correctAnswer": "Possiamo avere il conto, per favore?",
     "hints": [
       "Pay attention to the sentence structure."
@@ -187,7 +204,7 @@
     "id": "it-fo-22",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I would like to try the local speciality.",
+    "prompt": "Say: I would like to try the local specialty.",
     "correctAnswer": "Vorrei provare la specialità locale.",
     "hints": [
       "'Would like to' for polite wishes."
@@ -201,6 +218,11 @@
     "correctAnswer": "Potete consigliare un buon ristorante qui vicino?",
     "hints": [
       "'Can you recommend' is a common way to ask for suggestions."
+    ],
+    "acceptedAnswers": [
+      "Puoi consigliarmi un buon ristorante qui vicino?",
+      "Può consigliarmi un buon ristorante qui vicino?",
+      "Potete consigliarmi un buon ristorante qui vicino?"
     ]
   },
   {
@@ -208,9 +230,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I always add garlic and olive oil to my cooking.",
-    "correctAnswer": "Aggiungo sempre l'aglio e l'olio d'oliva alla mia cucina.",
+    "correctAnswer": "Quando cucino aggiungo sempre aglio e olio d'oliva.",
     "hints": [
       "'I always' expresses a regular habit."
+    ],
+    "acceptedAnswers": [
+      "Aggiungo sempre aglio e olio d'oliva quando cucino."
     ]
   },
   {
@@ -227,10 +252,10 @@
     "id": "it-fo-26",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Is it possible to substitute the chips for salad?",
-    "correctAnswer": "È possibile sostituire le patatine per l'insalata?",
+    "prompt": "Ask: Is it possible to swap the fries for a salad?",
+    "correctAnswer": "È possibile sostituire le patatine con l'insalata?",
     "hints": [
-      "'Substitute X for Y' means replace X with Y."
+      "'Sostituire X con Y' = replace X with Y."
     ]
   },
   {
@@ -247,32 +272,45 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How long should I bake this cake?",
-    "correctAnswer": "Quanto dovrei cuocere questa torta?",
+    "correctAnswer": "Per quanto tempo devo cuocere questa torta?",
     "hints": [
       "Cooking-time question."
     ],
     "exerciseType": "build_sentence",
-    "id": "it-fo-a2-50"
+    "id": "it-fo-a2-50",
+    "acceptedAnswers": [
+      "Quanto tempo devo cuocere questa torta?",
+      "Per quanto tempo dovrei cuocere questa torta?"
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We ate at a small family restaurant.",
-    "correctAnswer": "Abbiamo mangiato in un piccolo ristorante di famiglia.",
+    "prompt": "Abbiamo ___ in un piccolo ristorante di famiglia.",
+    "correctAnswer": "mangiato",
     "hints": [
-      "Past dining sentence."
+      "Past participle after 'abbiamo'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-fo-a2-51"
+    "id": "it-fo-a2-51",
+    "clozeOptions": [
+      "mangiato",
+      "mangiare",
+      "mangiamo",
+      "mangiando"
+    ]
   },
   {
     "id": "it-fo-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently started following a plant-based diet.",
-    "correctAnswer": "Recentemente ho iniziato a seguire una dieta a base di piante.",
+    "correctAnswer": "Di recente ho iniziato a seguire una dieta vegetale.",
     "hints": [
       "Present perfect with 'recently' for a recent change."
+    ],
+    "acceptedAnswers": [
+      "Recentemente ho iniziato a seguire un'alimentazione vegetale."
     ]
   },
   {
@@ -300,7 +338,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I tend to experiment with different cuisines when I cook at home.",
-    "correctAnswer": "Tengo a sperimentare diverse cucine quando cucino a casa.",
+    "correctAnswer": "Tendo a sperimentare cucine diverse quando cucino a casa.",
     "hints": [
       "'I tend to' softens a personal habit."
     ]
@@ -310,7 +348,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: This is slightly overcooked, but the flavor is still very good.",
-    "correctAnswer": "Questo è leggermente esagerato, ma il sapore è ancora molto buono.",
+    "correctAnswer": "È un po' troppo cotto, ma il sapore è comunque molto buono.",
     "hints": [
       "Soften a complaint with 'slightly' and follow up with a positive."
     ]
@@ -320,9 +358,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would you be able to cater for a gluten-free option?",
-    "correctAnswer": "Saresti in grado di soddisfare un'opzione senza glutine?",
+    "correctAnswer": "Potreste preparare un'opzione senza glutine?",
     "hints": [
       "'Would you be able to' is very polite; 'cater for' means provide for."
+    ],
+    "acceptedAnswers": [
+      "Sareste in grado di preparare un'opzione senza glutine?"
     ]
   },
   {
@@ -330,9 +371,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Slow cooking on a low heat develops the flavor much better.",
-    "correctAnswer": "La cottura lenta a bassa temperatura migliora il sapore.",
+    "correctAnswer": "La cottura lenta a fuoco basso esalta molto meglio il sapore.",
     "hints": [
-      "'Develops the flavour' is a cooking technique description."
+      "'A fuoco basso' = on a low heat; 'esaltare il sapore' = bring out the flavor."
     ]
   },
   {
@@ -340,9 +381,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am hosting a dinner party next Saturday and need inspiration.",
-    "correctAnswer": "Sto ospitando una cena di sabato prossimo e ho bisogno di ispirazione.",
+    "correctAnswer": "Sabato prossimo organizzo una cena a casa mia e ho bisogno di ispirazione.",
     "hints": [
-      "Present continuous for a planned future event."
+      "Italian uses the present tense for planned future events."
     ]
   },
   {
@@ -350,7 +391,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I find that marinating the meat overnight makes a significant difference.",
-    "correctAnswer": "Trovo che marinare la carne durante la notte fa una differenza significativa.",
+    "correctAnswer": "Trovo che marinare la carne per tutta la notte faccia una differenza notevole.",
     "hints": [
       "'I find that' introduces a personal discovery."
     ]
@@ -360,11 +401,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Your guest asks if you made the bread yourself.",
-    "correctAnswer": "Sì, l'ho cucinato questa mattina — è una ricetta acida che ho perfezionato.",
+    "correctAnswer": "Sì, l'ho fatto io stamattina: è un pane con lievito madre che ho perfezionato.",
     "hints": [
       "Give a positive answer with a detail."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "Yes, I made it this morning — it's a sourdough recipe I've perfected."
   },
   {
     "level": "b1",
@@ -390,13 +432,19 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I started meal-prepping to save time during the week.",
-    "correctAnswer": "Ho iniziato a preparare i pasti per risparmiare tempo durante la settimana.",
+    "prompt": "Ho iniziato a preparare i pasti in anticipo per ___ tempo durante la settimana.",
+    "correctAnswer": "risparmiare",
     "hints": [
-      "Purpose clause."
+      "'Risparmiare tempo' = to save time."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-fo-b1-61"
+    "id": "it-fo-b1-61",
+    "clozeOptions": [
+      "risparmiare",
+      "perdere",
+      "sprecare",
+      "spendere"
+    ]
   },
   {
     "id": "it-fo-10",
@@ -413,7 +461,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Fermentation has experienced a remarkable renaissance in contemporary cuisine.",
-    "correctAnswer": "La fermentazione ha sperimentato un notevole rinascimento nella cucina contemporanea.",
+    "correctAnswer": "La fermentazione ha vissuto una notevole rinascita nella cucina contemporanea.",
     "hints": [
       "Focus on natural phrasing and word order.",
       "'Renaissance' means a revival of interest."
@@ -434,11 +482,11 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Sourcing seasonal, locally-grown produce is both an ecological and a culinary choice.",
-    "correctAnswer": "Sourcing prodotti stagionali e locali è sia una scelta ecologica che culinaria.",
+    "correctAnswer": "Scegliere prodotti di stagione e locali è una scelta sia ecologica sia gastronomica.",
     "hints": [
       "'Sourcing' means finding and obtaining; 'culinary' relates to cooking."
     ],
-    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients."
+    "culturalNote": "In Italy, the 'chilometro zero' (zero-kilometer) movement promotes local, seasonal produce with shorter supply chains and fresher ingredients."
   },
   {
     "id": "it-fo-35",
@@ -455,11 +503,14 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Umami is often described as the fifth taste, alongside sweet, sour, salty, and bitter.",
-    "correctAnswer": "Umami è spesso descritto come il quinto gusto, insieme dolce, aspro, salato e amaro.",
+    "correctAnswer": "L'umami è spesso descritto come il quinto gusto, insieme a dolce, acido, salato e amaro.",
     "hints": [
       "'Alongside' here means in addition to."
     ],
-    "culturalNote": "The concept of umami was identified by Japanese chemist Kikunae Ikeda in 1908 and is now widely recognized in global culinary science."
+    "culturalNote": "The concept of umami was identified by Japanese chemist Kikunae Ikeda in 1908 and is now widely recognized in global culinary science.",
+    "acceptedAnswers": [
+      "L'umami è spesso descritto come il quinto gusto, insieme al dolce, all'aspro, al salato e all'amaro."
+    ]
   },
   {
     "id": "it-fo-37",
@@ -476,7 +527,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Maillard reaction — the browning of proteins under heat — is fundamental to developing depth of flavor.",
-    "correctAnswer": "La reazione di Maillard — la brunatura di proteine sotto il calore — è fondamentale per sviluppare la profondità di sapore.",
+    "correctAnswer": "La reazione di Maillard — l'imbrunimento delle proteine con il calore — è fondamentale per sviluppare la profondità del sapore.",
     "hints": [
       "'Maillard reaction' = a chemical process that creates flavor compounds; 'fundamental' = essential."
     ],
@@ -495,23 +546,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can cities reduce food waste across supply chains?",
-    "correctAnswer": "Come possono le città ridurre i rifiuti alimentari attraverso le catene di approvvigionamento?",
+    "prompt": "Come possono le città ridurre lo ___ alimentare lungo tutta la filiera?",
+    "correctAnswer": "spreco",
     "hints": [
-      "Policy-level food question."
+      "'Spreco alimentare' = food waste."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-fo-b2-70"
+    "id": "it-fo-b2-70",
+    "clozeOptions": [
+      "spreco",
+      "sprecare",
+      "spreca",
+      "sprechi"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: A balanced diet depends on variety rather than strict restriction.",
-    "correctAnswer": "Una dieta equilibrata dipende dalla varietà piuttosto che dalla restrizione rigorosa.",
+    "prompt": "Dialogue: A friend says they plan to cut out carbs completely. Share your view.",
+    "correctAnswer": "Una dieta equilibrata si basa sulla varietà più che su rigide restrizioni.",
     "hints": [
       "B2 nutrition phrasing."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-fo-b2-71"
+    "id": "it-fo-b2-71",
+    "answerEnglish": "A balanced diet depends on variety rather than strict restriction."
   }
 ]

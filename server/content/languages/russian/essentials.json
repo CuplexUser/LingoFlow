@@ -6,7 +6,7 @@
     "prompt": "Say: Hello, how are you?",
     "correctAnswer": "Привет, как дела?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Привет' is informal; with strangers use 'Здравствуйте'."
     ]
   },
   {
@@ -16,7 +16,11 @@
     "prompt": "Say: Thank you very much for your help.",
     "correctAnswer": "Большое спасибо за твою помощь.",
     "hints": [
-      "Practice this phrase out loud."
+      "'За' + accusative = for (something)."
+    ],
+    "acceptedAnswers": [
+      "Большое спасибо за помощь.",
+      "Большое спасибо за вашу помощь."
     ]
   },
   {
@@ -26,7 +30,7 @@
     "prompt": "Say: I do not understand this sentence.",
     "correctAnswer": "Я не понимаю это предложение.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Не' goes right before the verb."
     ]
   },
   {
@@ -36,7 +40,10 @@
     "prompt": "Say: Excuse me, where is the bathroom?",
     "correctAnswer": "Извините, где находится туалет?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Извините' gets a stranger's attention politely."
+    ],
+    "acceptedAnswers": [
+      "Извините, где туалет?"
     ]
   },
   {
@@ -93,7 +100,10 @@
     "hints": [
       "A formal apology word."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Извините."
+    ]
   },
   {
     "id": "ru-es-a1-10",
@@ -186,7 +196,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Could you repeat that one more time?",
-    "correctAnswer": "Не могли бы вы повторить это еще раз?",
+    "correctAnswer": "Не могли бы вы повторить это ещё раз?",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -196,9 +206,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Could you write that down for me?",
-    "correctAnswer": "Не могли бы вы записать это для меня?",
+    "correctAnswer": "Не могли бы вы мне это записать?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Не могли бы вы записать мне это?"
     ]
   },
   {
@@ -233,7 +246,10 @@
       "Politely say you cannot help.",
       "Use the formal Вы register or a neutral phrase."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "acceptedAnswers": [
+      "Извините, я не знаю. Я не местная."
+    ]
   },
   {
     "id": "ru-es-a2-8",
@@ -319,6 +335,9 @@
     "hints": [
       "Use past tense of идти.",
       "Pay attention to the prefix по- for completed motion."
+    ],
+    "acceptedAnswers": [
+      "После работы я пошла в магазин."
     ]
   },
   {
@@ -329,6 +348,9 @@
     "correctAnswer": "Я сделал ошибку, но попробую снова.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Я сделала ошибку, но попробую снова."
     ]
   },
   {
@@ -339,6 +361,9 @@
     "correctAnswer": "Я хотел бы улучшить своё произношение.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Я хотела бы улучшить своё произношение."
     ]
   },
   {
@@ -389,7 +414,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been reading this book for a week and I really enjoy it.",
-    "correctAnswer": "Я читаю эту книгу уже неделю и она мне очень нравится.",
+    "correctAnswer": "Я читаю эту книгу уже неделю, и она мне очень нравится.",
     "hints": [
       "Russian uses present tense with уже for ongoing duration."
     ],
@@ -423,10 +448,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I used to think Russian was very difficult, but now I enjoy it.",
-    "correctAnswer": "Раньше я думал, что русский язык очень сложный, но теперь мне он нравится.",
+    "correctAnswer": "Раньше я думал, что русский язык очень сложный, но теперь он мне нравится.",
     "hints": [
       "Use раньше for 'used to'.",
       "Contrast past and present attitudes."
+    ],
+    "acceptedAnswers": [
+      "Раньше я думала, что русский язык очень сложный, но теперь он мне нравится."
     ]
   },
   {
@@ -477,9 +505,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I can explain my opinion with clear arguments.",
-    "correctAnswer": "Я могу объяснить своё мнение с ясными аргументами.",
+    "correctAnswer": "Я могу объяснить своё мнение, приводя ясные аргументы.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Я могу чётко аргументировать своё мнение."
     ]
   },
   {
@@ -554,6 +585,9 @@
     "hints": [
       "Use conditional бы with past tense for hypothetical statement.",
       "Genitive case after comparative: важнее заучивания."
+    ],
+    "acceptedAnswers": [
+      "Я бы утверждала, что контекст важнее заучивания правил."
     ]
   },
   {
@@ -619,6 +653,9 @@
     "correctAnswer": "Если бы не терпеливые учителя, я бы никогда не достиг этого уровня.",
     "hints": [
       "Use the counterfactual conditional: если бы не..."
+    ],
+    "acceptedAnswers": [
+      "Если бы не терпеливые учителя, я бы никогда не достигла этого уровня."
     ]
   },
   {
@@ -681,9 +718,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Where can I practice speaking?",
-    "correctAnswer": "Где я могу потренировать разговорную речь?",
+    "correctAnswer": "Где я могу попрактиковаться в разговорной речи?",
     "hints": [
       "Use могу + infinitive."
+    ],
+    "acceptedAnswers": [
+      "Где можно попрактиковаться в разговорной речи?"
     ]
   },
   {
@@ -782,9 +822,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Fluency improves when practice is consistent.",
-    "correctAnswer": "Беглость речи улучшается, когда практика становится системной.",
+    "correctAnswer": "Беглость речи улучшается, когда практика регулярная.",
     "hints": [
       "Use formal and concise structure."
+    ],
+    "acceptedAnswers": [
+      "Беглость речи улучшается при регулярной практике."
     ]
   },
   {

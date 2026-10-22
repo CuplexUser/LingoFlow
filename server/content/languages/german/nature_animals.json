@@ -4,11 +4,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a large wild cat with orange and black stripes",
-    "correctAnswer": "tiger",
+    "correctAnswer": "der Tiger",
     "hints": [
       "It lives in Asia and is endangered."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Tiger"
+    ]
   },
   {
     "id": "de-na-a1-2",
@@ -48,6 +51,9 @@
     "correctAnswer": "Es gibt viele Vögel im Garten.",
     "hints": [
       "'There are' for plural things."
+    ],
+    "acceptedAnswers": [
+      "Im Garten sind viele Vögel."
     ]
   },
   {
@@ -55,11 +61,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the coldest season of the year",
-    "correctAnswer": "winter",
+    "correctAnswer": "der Winter",
     "hints": [
       "It comes after autumn."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Winter"
+    ]
   },
   {
     "id": "de-na-a1-7",
@@ -68,7 +77,7 @@
     "prompt": "Say: The sun is shining today.",
     "correctAnswer": "Die Sonne scheint heute.",
     "hints": [
-      "Present continuous for current weather."
+      "German has no continuous tense: 'scheint' covers 'shines' and 'is shining'."
     ]
   },
   {
@@ -88,7 +97,7 @@
     "prompt": "Say: The cat is sleeping on the sofa.",
     "correctAnswer": "Die Katze schläft auf dem Sofa.",
     "hints": [
-      "Present continuous for an ongoing action."
+      "'Schlafen' changes its vowel: die Katze schläft. 'Auf dem Sofa' = dative (location)."
     ]
   },
   {
@@ -96,9 +105,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I walked in the forest yesterday.",
-    "correctAnswer": "Ich bin gestern in den Wald gegangen.",
+    "correctAnswer": "Ich bin gestern im Wald spazieren gegangen.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "acceptedAnswers": [
+      "Gestern bin ich im Wald spazieren gegangen."
     ]
   },
   {
@@ -138,9 +150,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: It has been unusually warm for this time of year.",
-    "correctAnswer": "Es war ungewöhnlich warm für diese Zeit des Jahres.",
+    "correctAnswer": "Es war ungewöhnlich warm für die Jahreszeit.",
     "hints": [
       "Present perfect for a situation up to now; 'unusually' suggests contrast with normal."
+    ],
+    "acceptedAnswers": [
+      "Für diese Jahreszeit ist es ungewöhnlich warm."
     ]
   },
   {
@@ -148,9 +163,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the best time of year to see the northern lights?",
-    "correctAnswer": "Was ist die beste Zeit des Jahres, um die Nordlichter zu sehen?",
+    "correctAnswer": "Wann ist die beste Jahreszeit, um Polarlichter zu sehen?",
     "hints": [
       "A question about natural phenomena and timing."
+    ],
+    "acceptedAnswers": [
+      "Wann sieht man am besten Nordlichter?"
     ]
   },
   {
@@ -158,7 +176,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The river has flooded after several days of heavy rain.",
-    "correctAnswer": "Der Fluss ist nach einigen Tagen starken Regens überschwemmt.",
+    "correctAnswer": "Der Fluss ist nach mehreren Tagen Starkregen über die Ufer getreten.",
     "hints": [
       "Present perfect for a recent event with a visible result."
     ]
@@ -170,7 +188,11 @@
     "prompt": "Say: I saw a family of deer in the park this morning.",
     "correctAnswer": "Ich sah heute Morgen eine Hirschfamilie im Park.",
     "hints": [
-      "'Deer' is both singular and plural."
+      "German forms a compound: Hirsch + Familie."
+    ],
+    "acceptedAnswers": [
+      "Ich habe heute Morgen eine Hirschfamilie im Park gesehen.",
+      "Heute Morgen habe ich im Park eine Rehfamilie gesehen."
     ]
   },
   {
@@ -197,7 +219,7 @@
     "id": "de-na-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I recycle my rubbish to help protect the environment.",
+    "prompt": "Say: I recycle my trash to help protect the environment.",
     "correctAnswer": "Ich recycele meinen Müll, um die Umwelt zu schützen.",
     "hints": [
       "State an eco-friendly habit with purpose."
@@ -208,9 +230,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often do you go walking in the countryside?",
-    "correctAnswer": "Wie oft gehen Sie in die Landschaft?",
+    "correctAnswer": "Wie oft gehen Sie auf dem Land spazieren?",
     "hints": [
       "'How often' asks about frequency."
+    ],
+    "acceptedAnswers": [
+      "Wie oft gehst du in der Natur wandern?"
     ]
   },
   {
@@ -257,10 +282,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How can we protect wild animals?",
-    "correctAnswer": "Wie können wir Wildtiere schützen?",
+    "prompt": "Wie können wir Wildtiere ___?",
+    "correctAnswer": "schützen",
     "hints": [
-      "Action-oriented question."
+      "A verb meaning 'to protect'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-na-a2-51"
@@ -270,7 +295,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Deforestation is one of the leading causes of habitat loss for many endangered species.",
-    "correctAnswer": "Deforestation ist eine der führenden Ursachen für den Verlust von Lebensraum für viele gefährdete Arten.",
+    "correctAnswer": "Die Abholzung ist eine der Hauptursachen für den Verlust von Lebensräumen vieler bedrohter Arten.",
     "hints": [
       "'Deforestation' = clearing forests; 'habitat loss' = destruction of animal living spaces."
     ]
@@ -280,7 +305,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently become more aware of the impact of my diet on carbon emissions.",
-    "correctAnswer": "Ich habe mich vor kurzem der Auswirkungen meiner Ernährung auf die Kohlenstoffemissionen bewusster geworden.",
+    "correctAnswer": "Mir ist vor Kurzem bewusster geworden, wie sich meine Ernährung auf die CO2-Emissionen auswirkt.",
     "hints": [
       "Present perfect with 'recently' for a new awareness."
     ]
@@ -310,7 +335,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The migration patterns of birds are being disrupted by climate change.",
-    "correctAnswer": "Die Migrationsmuster von Vögeln werden durch den Klimawandel gestört.",
+    "correctAnswer": "Das Zugverhalten der Vögel wird durch den Klimawandel gestört.",
     "hints": [
       "Passive present continuous for an ongoing process."
     ]
@@ -340,10 +365,10 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was fortunate enough to witness a murmuration of starlings at dusk.",
-    "correctAnswer": "Ich war glücklich genug, um eine Verwöhnung von Starlings in der Dämmerung zu erleben.",
+    "correctAnswer": "Ich hatte das Glück, in der Dämmerung einen riesigen Starenschwarm zu beobachten.",
     "hints": [
-      "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = at sunset.",
-      "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
+      "'Star' (plural 'Stare') = starling; German describes a murmuration as a 'Starenschwarm'.",
+      "'In der Dämmerung' = at dusk."
     ],
     "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter."
   },
@@ -362,7 +387,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks what you do to live more sustainably.",
-    "correctAnswer": "Ich versuche, Kunststoffe zu reduzieren, weniger Fleisch zu essen, zu gehen oder zu fahren, anstatt zu fahren.",
+    "correctAnswer": "Ich versuche, weniger Einwegplastik zu benutzen, weniger Fleisch zu essen und zu Fuß zu gehen oder Rad zu fahren, statt das Auto zu nehmen.",
     "hints": [
       "List specific, concrete actions."
     ],
@@ -392,10 +417,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What causes animal populations to decline?",
-    "correctAnswer": "Was führt zu einem Rückgang der Tierpopulationen?",
+    "prompt": "Was führt zu einem ___ der Tierpopulationen?",
+    "correctAnswer": "Rückgang",
     "hints": [
-      "Scientific reasoning question."
+      "A masculine noun meaning 'decline'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-na-b1-61"
@@ -405,7 +430,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The sixth mass extinction event, driven primarily by human activity, is already well underway.",
-    "correctAnswer": "Das sechste Massenauslöschungsereignis, das vor allem von menschlicher Aktivität angetrieben wird, ist bereits gut im Gange.",
+    "correctAnswer": "Das sechste Massenaussterben, das vor allem vom Menschen verursacht wird, ist bereits in vollem Gange.",
     "hints": [
       "'Mass extinction' = widespread species die-off; 'well underway' = already in progress."
     ]
@@ -425,7 +450,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Tipping points in the climate system — such as the thawing of permafrost — could trigger irreversible feedback loops.",
-    "correctAnswer": "Tipping-Punkte im Klimasystem – wie das Auftauen von Permafrost – könnten irreversible Feedback-Schleifen auslösen.",
+    "correctAnswer": "Kipppunkte im Klimasystem – etwa das Auftauen des Permafrosts – könnten unumkehrbare Rückkopplungsschleifen auslösen.",
     "hints": [
       "'Tipping points' = thresholds beyond which change becomes self-reinforcing; 'permafrost' = permanently frozen ground in Arctic regions."
     ]
@@ -445,7 +470,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The precautionary principle holds that a lack of scientific certainty should not delay protective environmental measures.",
-    "correctAnswer": "Das Vorsorgeprinzip besagt, dass ein Mangel an wissenschaftlicher Sicherheit die Schutzmaßnahmen der Umwelt nicht verzögern sollte.",
+    "correctAnswer": "Das Vorsorgeprinzip besagt, dass fehlende wissenschaftliche Gewissheit Umweltschutzmaßnahmen nicht verzögern darf.",
     "hints": [
       "'Precautionary principle' = act to prevent harm even without complete proof."
     ]
@@ -455,7 +480,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Can market mechanisms alone effectively address environmental externalities, or is state intervention necessary?",
-    "correctAnswer": "Können Marktmechanismen allein effektiv Umweltauswärtigkeiten angehen oder ist staatliche Intervention notwendig?",
+    "correctAnswer": "Können Marktmechanismen allein externe Umwelteffekte wirksam angehen, oder sind staatliche Eingriffe nötig?",
     "hints": [
       "'Externalities' = costs or benefits not reflected in market prices; 'market mechanisms' = price signals and incentives."
     ]
@@ -465,7 +490,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Deep-sea ecosystems remain poorly understood, yet face increasing threats from resource extraction and warming oceans.",
-    "correctAnswer": "Tiefsee-Ökosysteme bleiben schlecht verstanden, aber mit zunehmenden Bedrohungen von Ressourcengewinnung und wärmenden Ozeanen konfrontiert.",
+    "correctAnswer": "Tiefsee-Ökosysteme sind noch kaum erforscht, sind aber zunehmend durch Rohstoffabbau und die Erwärmung der Ozeane bedroht.",
     "hints": [
       "'Resource extraction' = mining or drilling; 'yet' here means 'but also'."
     ]
@@ -475,7 +500,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The philosophical tradition of deep ecology argues for an intrinsic value of nature independent of human utility.",
-    "correctAnswer": "Die philosophische Tradition der tiefen Ökologie argumentiert für einen intrinsischen Wert der Natur unabhängig von menschlichem Nutzen.",
+    "correctAnswer": "Die philosophische Tradition der Tiefenökologie plädiert für einen Eigenwert der Natur unabhängig von ihrem Nutzen für den Menschen.",
     "hints": [
       "'Deep ecology' = a philosophy that values nature for its own sake; 'intrinsic value' = value in itself."
     ]
@@ -493,10 +518,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Conservation strategies must consider both ecology and local livelihoods.",
-    "correctAnswer": "Die Erhaltungsstrategien müssen sowohl Ökologie als auch lokale Lebensgrundlagen berücksichtigen.",
+    "prompt": "Naturschutzstrategien müssen sowohl die Ökologie als auch die lokalen ___ berücksichtigen.",
+    "correctAnswer": "Lebensgrundlagen",
     "hints": [
-      "Balanced policy sentence."
+      "A plural noun meaning 'livelihoods'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-na-b2-70"
@@ -504,7 +529,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which environmental interventions deliver the greatest long-term impact?",
+    "prompt": "Choose the best response. A council member asks where the environmental budget should go.",
     "correctAnswer": "Welche Umweltinterventionen bieten die größten langfristigen Auswirkungen?",
     "hints": [
       "Analytical question."

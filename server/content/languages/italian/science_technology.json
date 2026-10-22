@@ -28,6 +28,10 @@
     "correctAnswer": "C'è la connessione Wi-Fi qui?",
     "hints": [
       "A very useful modern question."
+    ],
+    "acceptedAnswers": [
+      "C'è il Wi-Fi qui?",
+      "Qui c'è il Wi-Fi?"
     ]
   },
   {
@@ -35,9 +39,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My phone battery is dead.",
-    "correctAnswer": "La mia batteria e' morta.",
+    "correctAnswer": "La batteria del telefono è scarica.",
     "hints": [
       "'Dead' means empty or without power."
+    ],
+    "acceptedAnswers": [
+      "Il telefono è scarico.",
+      "Ho il telefono scarico."
     ]
   },
   {
@@ -55,9 +63,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a small computer you can carry",
-    "correctAnswer": "laptop",
+    "correctAnswer": "portatile",
     "hints": [
-      "It folds open and has a keyboard."
+      "Short for 'computer portatile'; 'laptop' is also heard."
     ],
     "exerciseType": "flashcard"
   },
@@ -188,9 +196,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I deleted the app because it was using too much storage.",
-    "correctAnswer": "Ho cancellato l'applicazione perché stava utilizzando troppo storage.",
+    "correctAnswer": "Ho cancellato l'app perché occupava troppo spazio.",
     "hints": [
       "'Deleted' = removed; 'storage' = space for files."
+    ],
+    "acceptedAnswers": [
+      "Ho eliminato l'applicazione perché occupava troppa memoria."
     ]
   },
   {
@@ -228,9 +239,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I prefer reading physical books to e-books.",
-    "correctAnswer": "Preferisco leggere libri fisici agli e-book.",
+    "correctAnswer": "Preferisco i libri cartacei agli e-book.",
     "hints": [
       "'Prefer X to Y' for comparing two things."
+    ],
+    "acceptedAnswers": [
+      "Preferisco leggere libri cartacei piuttosto che e-book."
     ]
   },
   {
@@ -257,13 +271,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Which tool do you use for online meetings?",
-    "correctAnswer": "Quale strumento si utilizza per incontri online?",
+    "prompt": "Quale ___ usi per le riunioni online?",
+    "correctAnswer": "strumento",
     "hints": [
-      "Functional question."
+      "A noun meaning 'tool'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-sc-a2-51"
+    "id": "it-sc-a2-51",
+    "clozeOptions": [
+      "strumento",
+      "mobile",
+      "veicolo",
+      "alimento"
+    ]
   },
   {
     "id": "it-st-b1",
@@ -283,6 +303,9 @@
     "correctAnswer": "Sono preoccupato per la quantità di dati personali che le aziende tecnologiche raccolgono.",
     "hints": [
       "'I am concerned about' expresses worry."
+    ],
+    "acceptedAnswers": [
+      "Sono preoccupata per la quantità di dati personali che le aziende tecnologiche raccolgono."
     ]
   },
   {
@@ -300,7 +323,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Automation has displaced many manufacturing jobs, while creating new roles in tech.",
-    "correctAnswer": "L'automazione ha spostato molti lavori di produzione, creando nuovi ruoli in tecnologia.",
+    "correctAnswer": "L'automazione ha eliminato molti posti di lavoro nell'industria, creando al contempo nuove figure nel settore tecnologico.",
     "hints": [
       "'Displaced' = replaced or made redundant; contrast with 'while creating'."
     ]
@@ -310,7 +333,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The algorithm recommends content based on your previous viewing behavior.",
-    "correctAnswer": "L'algoritmo raccomanda contenuti in base al comportamento di visualizzazione precedente.",
+    "correctAnswer": "L'algoritmo consiglia contenuti in base a ciò che hai guardato in precedenza.",
     "hints": [
       "'Algorithm' = a set of rules a computer follows; 'viewing behavior' = what you watch and when."
     ]
@@ -320,7 +343,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Renewable energy technologies have improved dramatically in efficiency and cost over the last decade.",
-    "correctAnswer": "Le tecnologie energetiche rinnovabili sono migliorate notevolmente nell'efficienza e nei costi nell'ultimo decennio.",
+    "correctAnswer": "Nell'ultimo decennio le tecnologie per le energie rinnovabili sono migliorate notevolmente in termini di efficienza e di costi.",
     "hints": [
       "Present perfect for change over a time period up to now."
     ]
@@ -330,7 +353,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How might quantum computing change the landscape of data security?",
-    "correctAnswer": "Come potrebbe il calcolo quantistico cambiare il paesaggio della sicurezza dei dati?",
+    "correctAnswer": "Come potrebbe il calcolo quantistico cambiare il panorama della sicurezza dei dati?",
     "hints": [
       "'Landscape' here means the overall situation; 'quantum computing' uses quantum mechanics for computation."
     ]
@@ -340,7 +363,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I try to limit my screen time to protect my sleep quality.",
-    "correctAnswer": "Cerco di limitare il mio tempo di schermo per proteggere la mia qualità del sonno.",
+    "correctAnswer": "Cerco di limitare il tempo davanti allo schermo per proteggere la qualità del mio sonno.",
     "hints": [
       "'Screen time' = time spent looking at devices; 'limit' = set a maximum."
     ]
@@ -349,10 +372,10 @@
     "id": "it-st-b1-9",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Open-source software has democratised access to powerful digital tools.",
+    "prompt": "Say: Open-source software has democratized access to powerful digital tools.",
     "correctAnswer": "Il software open source ha democratizzato l'accesso a potenti strumenti digitali.",
     "hints": [
-      "'Open-source' = freely available code; 'democratised' = made available to everyone."
+      "'Open-source' = freely available code; 'democratized' = made available to everyone."
     ]
   },
   {
@@ -360,11 +383,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Someone asks your opinion on self-driving cars.",
-    "correctAnswer": "Credo che abbiano un potenziale reale, ma le norme di sicurezza devono prima affrontare la tecnologia.",
+    "correctAnswer": "Credo che abbiano un potenziale reale, ma prima le norme di sicurezza devono mettersi al passo con la tecnologia.",
     "hints": [
       "Balance optimism with a practical concern."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I think they have real potential, but safety regulations need to catch up with the technology first."
   },
   {
     "level": "b1",
@@ -380,7 +404,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I backed up my files in case my laptop failed.",
-    "correctAnswer": "Ho eseguito il backup dei miei file nel caso il mio computer non fosse riuscito.",
+    "correctAnswer": "Ho fatto il backup dei miei file nel caso in cui il portatile si guastasse.",
     "hints": [
       "Risk-prevention phrasing."
     ],
@@ -390,20 +414,26 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What are the benefits of using open-source software?",
-    "correctAnswer": "Quali sono i vantaggi di utilizzare software open source?",
+    "prompt": "Quali sono i ___ dell'utilizzo di software open source?",
+    "correctAnswer": "vantaggi",
     "hints": [
-      "Topic question for discussion."
+      "Plural noun meaning 'benefits'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-sc-b1-61"
+    "id": "it-sc-b1-61",
+    "clozeOptions": [
+      "vantaggi",
+      "vantaggio",
+      "vantaggiosi",
+      "avanzi"
+    ]
   },
   {
     "id": "it-st-b2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The convergence of AI, biotechnology, and materials science is ushering in a new industrial paradigm.",
-    "correctAnswer": "La convergenza dell'AI, della biotecnologia e della scienza dei materiali sta uscendo in un nuovo paradigma industriale.",
+    "correctAnswer": "La convergenza tra IA, biotecnologie e scienza dei materiali sta inaugurando un nuovo paradigma industriale.",
     "hints": [
       "'Convergence' = coming together; 'ushering in' = introducing; 'paradigm' = a model or framework."
     ]
@@ -413,7 +443,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: How should governments regulate large language models to prevent misuse while preserving innovation?",
-    "correctAnswer": "Come dovrebbero i governi regolare grandi modelli di lingua per prevenire l'uso improprio preservando l'innovazione?",
+    "correctAnswer": "Come dovrebbero i governi regolamentare i grandi modelli linguistici per prevenirne gli abusi preservando l'innovazione?",
     "hints": [
       "'Large language models' = advanced AI systems; 'misuse' = harmful applications."
     ]
@@ -423,7 +453,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: CRISPR gene editing raises profound ethical questions about the boundaries of human intervention in biology.",
-    "correctAnswer": "L'editing gene CRISPR solleva profonde questioni etiche sui confini dell'intervento umano in biologia.",
+    "correctAnswer": "L'editing genetico con CRISPR solleva profonde questioni etiche sui limiti dell'intervento umano in biologia.",
     "hints": [
       "'CRISPR' = a gene-editing technology; 'profound' = deep and serious."
     ]
@@ -433,7 +463,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The digital divide exacerbates existing socioeconomic inequalities by limiting access to education and economic opportunity.",
-    "correctAnswer": "La divisione digitale aggrava le disuguaglianze socioeconomiche esistenti limitando l'accesso all'istruzione e all'opportunità economica.",
+    "correctAnswer": "Il divario digitale aggrava le disuguaglianze socioeconomiche esistenti limitando l'accesso all'istruzione e alle opportunità economiche.",
     "hints": [
       "'Exacerbates' = makes worse; 'digital divide' = gap between those with and without internet access."
     ]
@@ -463,7 +493,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The ethical framework underpinning AI development remains contested across academic, corporate, and governmental spheres.",
-    "correctAnswer": "Il quadro etico che sottolinea lo sviluppo dell'AI rimane contestato in tutte le sfere accademiche, aziendali e governative.",
+    "correctAnswer": "Il quadro etico alla base dello sviluppo dell'IA resta contestato negli ambienti accademici, aziendali e governativi.",
     "hints": [
       "'Underpinning' = supporting from beneath; 'contested' = debated."
     ]
@@ -473,7 +503,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Post-quantum cryptography is now a strategic priority for governments concerned about long-term data security.",
-    "correctAnswer": "La crittografia post-quantum è ora una priorità strategica per i governi interessati alla sicurezza dei dati a lungo termine.",
+    "correctAnswer": "La crittografia post-quantistica è ormai una priorità strategica per i governi preoccupati per la sicurezza dei dati a lungo termine.",
     "hints": [
       "'Post-quantum cryptography' = encryption designed to resist quantum computer attacks."
     ]
@@ -482,7 +512,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Ethical guidelines should evolve as artificial intelligence systems become more capable.",
-    "correctAnswer": "Le linee guida etiche dovrebbero evolversi in quanto i sistemi di intelligenza artificiale diventano più capaci.",
+    "correctAnswer": "Le linee guida etiche dovrebbero evolversi man mano che i sistemi di intelligenza artificiale diventano più potenti.",
     "hints": [
       "B2 policy-style sentence."
     ],
@@ -491,23 +521,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Automation can increase productivity while reshaping labor markets.",
-    "correctAnswer": "L'automazione può aumentare la produttività mentre rimodella i mercati del lavoro.",
+    "prompt": "L'automazione può aumentare la produttività e al tempo stesso ___ i mercati del lavoro.",
+    "correctAnswer": "rimodellare",
     "hints": [
-      "Balanced argument sentence."
+      "Infinitive after 'può', parallel to 'aumentare'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-sc-b2-70"
+    "id": "it-sc-b2-70",
+    "clozeOptions": [
+      "rimodellare",
+      "rimodella",
+      "rimodellato",
+      "rimodellando"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can regulators encourage innovation without compromising public safety?",
-    "correctAnswer": "Come possono i regolatori incoraggiare l'innovazione senza compromettere la sicurezza pubblica?",
+    "prompt": "Dialogue: At a public debate on new technologies, you ask how regulators can encourage innovation without compromising public safety.",
+    "correctAnswer": "Come possono le autorità di regolamentazione incoraggiare l'innovazione senza compromettere la sicurezza pubblica?",
     "hints": [
       "High-level question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-sc-b2-71"
+    "id": "it-sc-b2-71",
+    "answerEnglish": "How can regulators encourage innovation without compromising public safety?"
   }
 ]

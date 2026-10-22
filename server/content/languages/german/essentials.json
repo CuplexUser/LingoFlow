@@ -6,7 +6,12 @@
     "prompt": "Say: Hello, how are you?",
     "correctAnswer": "Hallo, wie geht's?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Wie geht's?' is informal; formally: 'Wie geht es Ihnen?'"
+    ],
+    "acceptedAnswers": [
+      "Hallo, wie geht es dir?",
+      "Hallo, wie geht es Ihnen?",
+      "Guten Tag, wie geht es Ihnen?"
     ]
   },
   {
@@ -16,7 +21,11 @@
     "prompt": "Say: Thank you very much for your help.",
     "correctAnswer": "Vielen Dank für Ihre Hilfe.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Danke für' + accusative. 'Ihre' is formal, 'deine' informal."
+    ],
+    "acceptedAnswers": [
+      "Vielen Dank für deine Hilfe.",
+      "Danke schön für Ihre Hilfe."
     ]
   },
   {
@@ -26,7 +35,7 @@
     "prompt": "Say: I do not understand this sentence.",
     "correctAnswer": "Ich verstehe diesen Satz nicht.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Nicht' goes at the end of the sentence here."
     ]
   },
   {
@@ -34,9 +43,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: Excuse me, where is the bathroom?",
-    "correctAnswer": "Entschuldigung, wo ist das Badezimmer?",
+    "correctAnswer": "Entschuldigung, wo ist die Toilette?",
     "hints": [
-      "Practice this phrase out loud."
+      "In a restaurant or shop, ask for 'die Toilette'."
+    ],
+    "acceptedAnswers": [
+      "Entschuldigung, wo ist das Badezimmer?",
+      "Entschuldigung, wo sind die Toiletten?"
     ]
   },
   {
@@ -99,10 +112,10 @@
     "id": "de-es-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "I ___ from Spain.",
-    "correctAnswer": "am",
+    "prompt": "Ich ___ aus Spanien.",
+    "correctAnswer": "komme",
     "hints": [
-      "Use the correct form of 'to be'."
+      "German says 'I come from': kommen + aus."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -111,9 +124,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: Goodbye, see you later!",
-    "correctAnswer": "Wiedersehen, bis später!",
+    "correctAnswer": "Tschüss, bis später!",
     "hints": [
       "A common farewell."
+    ],
+    "acceptedAnswers": [
+      "Auf Wiedersehen, bis später!",
+      "Wiedersehen, bis später!"
     ]
   },
   {
@@ -147,7 +164,11 @@
     "hints": [
       "A greeting when meeting someone new."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Schön, dich kennenzulernen.",
+      "Freut mich."
+    ]
   },
   {
     "id": "de-es-a1-15",
@@ -163,11 +184,14 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: Could you repeat that, please?",
-    "correctAnswer": "Könnten Sie das wiederholen?",
+    "correctAnswer": "Könnten Sie das bitte wiederholen?",
     "hints": [
       "A polite clarification request."
     ],
-    "id": "de-es-a1-53"
+    "id": "de-es-a1-53",
+    "acceptedAnswers": [
+      "Kannst du das bitte wiederholen?"
+    ]
   },
   {
     "level": "a1",
@@ -175,7 +199,7 @@
     "prompt": "Say: I am learning every day.",
     "correctAnswer": "Ich lerne jeden Tag.",
     "hints": [
-      "Present continuous can also work in context."
+      "German has no continuous tense: 'ich lerne' covers 'I learn' and 'I am learning'."
     ],
     "exerciseType": "build_sentence",
     "id": "de-es-a1-54"
@@ -210,6 +234,10 @@
     "correctAnswer": "Kannst du bitte langsamer reden?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Könnten Sie bitte langsamer sprechen?",
+      "Kannst du bitte langsamer sprechen?"
     ]
   },
   {
@@ -248,10 +276,10 @@
     "id": "de-es-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "I ___ to school yesterday.",
-    "correctAnswer": "ging hin",
+    "prompt": "Gestern ___ ich zur Schule.",
+    "correctAnswer": "ging",
     "hints": [
-      "Use the past tense of 'go'."
+      "Simple past of 'gehen'; verb in second position after 'Gestern'."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -304,7 +332,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "to apologize",
-    "correctAnswer": "sich zu entschuldigen",
+    "correctAnswer": "sich entschuldigen",
     "hints": [
       "To say you are sorry for something."
     ],
@@ -315,19 +343,22 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I left my bag on the bus.",
-    "correctAnswer": "Ich habe meine Tasche im Bus gelassen.",
+    "correctAnswer": "Ich habe meine Tasche im Bus liegen lassen.",
     "hints": [
       "Use the past tense of 'leave'."
+    ],
+    "acceptedAnswers": [
+      "Ich habe meine Tasche im Bus vergessen."
     ]
   },
   {
     "id": "de-es-a2-12",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "She ___ English and French.",
+    "prompt": "Sie ___ Englisch und Französisch.",
     "correctAnswer": "spricht",
     "hints": [
-      "Use the correct present tense form."
+      "'Sprechen' changes its vowel: ich spreche, sie spricht."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -355,10 +386,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I usually review new words at night.",
-    "correctAnswer": "Ich bewerte normalerweise neue Wörter in der Nacht.",
+    "prompt": "Ich ___ normalerweise abends neue Wörter.",
+    "correctAnswer": "wiederhole",
     "hints": [
-      "Use adverbs with routine verbs."
+      "'Wiederholen' = to review / go over again."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-es-a2-63"
@@ -409,20 +440,23 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Although it was raining, we walked to the park.",
-    "correctAnswer": "Obwohl es regnete, gingen wir zum Park.",
+    "correctAnswer": "Obwohl es regnete, gingen wir in den Park.",
     "hints": [
       "Connect two ideas with 'although'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Obwohl es geregnet hat, sind wir in den Park gegangen."
+    ]
   },
   {
     "id": "de-es-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "I have ___ living here for three years.",
-    "correctAnswer": "werdest ausgeschüttet haben",
+    "prompt": "Ich ___ seit drei Jahren hier.",
+    "correctAnswer": "wohne",
     "hints": [
-      "Use present perfect continuous."
+      "German uses the present tense with 'seit' for something still going on."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -485,10 +519,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been waiting for twenty minutes.",
-    "correctAnswer": "Ich habe auf zwanzig Minuten gewartet.",
+    "correctAnswer": "Ich warte seit zwanzig Minuten.",
     "hints": [
-      "Use present perfect continuous for duration.",
-      "Connect the two ideas."
+      "Present tense + 'seit' for something still going on."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -497,7 +530,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "to complain",
-    "correctAnswer": "zu beschweren",
+    "correctAnswer": "sich beschweren",
     "hints": [
       "To express dissatisfaction about something."
     ],
@@ -527,10 +560,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I understood the idea but missed one detail.",
-    "correctAnswer": "Ich habe die Idee verstanden, aber ein Detail verpasst.",
+    "prompt": "Ich habe die Idee verstanden, aber ein Detail ___.",
+    "correctAnswer": "verpasst",
     "hints": [
-      "Natural reflection sentence."
+      "Past participle of 'verpassen' (to miss)."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-es-b1-71"
@@ -538,7 +571,7 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I am trying to sound more natural in conversations.",
+    "prompt": "Choose the best response. Your tutor asks what you are working on at the moment.",
     "correctAnswer": "Ich versuche in Gesprächen natürlicher zu klingen.",
     "hints": [
       "Goal-focused phrasing."
@@ -571,31 +604,37 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: It is essential to adapt your tone to the situation.",
-    "correctAnswer": "Es ist wichtig, Ihren Ton an die Situation anzupassen.",
+    "correctAnswer": "Es ist unerlässlich, seinen Ton an die Situation anzupassen.",
     "hints": [
       "Consider the register.",
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Es ist wichtig, seinen Ton an die Situation anzupassen."
     ]
   },
   {
     "id": "de-es-b2-4",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "The more you practice, the ___ confident you become.",
-    "correctAnswer": "mehr",
+    "prompt": "Je mehr du übst, ___ selbstbewusster wirst du.",
+    "correctAnswer": "desto",
     "hints": [
-      "Use the comparative structure 'the more... the more...'."
+      "'Je ... desto/umso' = the more ... the more."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "acceptedAnswers": [
+      "umso"
+    ]
   },
   {
     "id": "de-es-b2-5",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known the answer, I would have spoken up.",
-    "correctAnswer": "Hätte ich die Antwort gewusst, hätte ich gesprochen.",
+    "correctAnswer": "Hätte ich die Antwort gewusst, hätte ich mich zu Wort gemeldet.",
     "hints": [
-      "Use inverted third conditional."
+      "Verb-first 'Hätte ich...' replaces 'wenn'; 'sich zu Wort melden' = to speak up."
     ],
     "exerciseType": "build_sentence"
   },
@@ -637,7 +676,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would rather rephrase the question than give a misleading answer.",
-    "correctAnswer": "Ich möchte lieber die Frage aufheben, als eine irreführende Antwort zu geben.",
+    "correctAnswer": "Ich würde die Frage lieber umformulieren, als eine irreführende Antwort zu geben.",
     "hints": [
       "Use 'would rather... than...' for preferences."
     ]
@@ -658,11 +697,14 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "to paraphrase",
-    "correctAnswer": "zu paraphrasen",
+    "correctAnswer": "paraphrasieren",
     "hints": [
       "To express the same idea using different words."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "umschreiben"
+    ]
   },
   {
     "id": "de-es-b2-12",
@@ -679,9 +721,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Being articulate is not the same as being verbose.",
-    "correctAnswer": "Artikulation ist nicht dasselbe wie Verbose zu sein.",
+    "correctAnswer": "Sich gewandt auszudrücken ist nicht dasselbe, wie weitschweifig zu sein.",
     "hints": [
-      "Focus on natural phrasing and word order."
+      "'Gewandt' = articulate; 'weitschweifig' = verbose."
     ],
     "exerciseType": "build_sentence"
   },
@@ -689,19 +731,19 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I can infer the meaning from context most of the time.",
-    "correctAnswer": "Ich kann die Bedeutung aus dem Kontext der meisten Zeit.",
+    "correctAnswer": "Ich kann die Bedeutung meistens aus dem Kontext erschließen.",
     "hints": [
-      "Academic-style phrasing."
+      "'Erschließen' = to infer; 'meistens' = most of the time."
     ],
     "id": "de-es-b2-77"
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Could you clarify the nuance of that expression?",
-    "correctAnswer": "Könnten Sie die Nuance dieses Ausdrucks klären?",
+    "prompt": "Könnten Sie die ___ dieses Ausdrucks erklären?",
+    "correctAnswer": "Nuance",
     "hints": [
-      "Useful for advanced accuracy."
+      "A fine shade of meaning."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-es-b2-78"
@@ -709,8 +751,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I am confident, although I still make occasional mistakes.",
-    "correctAnswer": "Ich bin zuversichtlich, obwohl ich immer noch gelegentliche Fehler mache.",
+    "prompt": "Choose the best response. An interviewer asks how confident you feel speaking German.",
+    "correctAnswer": "Ich bin zuversichtlich, obwohl ich gelegentlich noch Fehler mache.",
     "hints": [
       "Use concession for balanced statements."
     ],
@@ -721,7 +763,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would rather reformulate the sentence than translate it directly.",
-    "correctAnswer": "Ich würde lieber den Satz reformieren, als ihn direkt zu übersetzen.",
+    "correctAnswer": "Ich würde den Satz lieber umformulieren, als ihn direkt zu übersetzen.",
     "hints": [
       "Shows advanced strategy."
     ],

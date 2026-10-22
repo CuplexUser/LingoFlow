@@ -46,8 +46,8 @@ are `content_status`, `get_work_order`, `submit_review`, `list_findings` and `ap
   category.
 - `npm run review:content -- --findings --lang=german` lists open findings.
 - `npm run review:content -- --apply --lang=german [--category=work] [--severity=error]` writes the
-  fixes; items edited since their review are skipped. Check the `git diff`, then run
-  `npm run lint:content` and `npm run test`.
+  fixes; items edited since their review are skipped. `--apply-all` does the same for every course.
+  Check the `git diff`, then run `npm run lint:content` and `npm run test`.
 
 ## Baseline metrics
 

@@ -13,6 +13,8 @@
 //   npm run review:content -- --import                           …or paste it on stdin
 //   npm run review:content -- --findings --lang=german [--category=work] [--all]
 //   npm run review:content -- --apply --lang=german [--category=work] [--severity=error]
+//   npm run review:content -- --apply-all [--category=work] [--severity=error]
+//                                                                 …the same for every course
 
 const fs = require("node:fs");
 const {
@@ -57,11 +59,14 @@ function main(): string {
     return submitReview(extractJson(file ? fs.readFileSync(file, "utf8") : readStdin()));
   }
   if (flag("findings")) return listFindings(requireLanguage(), category, flag("all"));
-  if (flag("apply")) {
+  if (flag("apply") || flag("apply-all")) {
     if (severity && severity !== "error" && severity !== "improvement") {
       throw new WorkOrderError("--severity must be error or improvement.");
     }
-    return applyFixes(requireLanguage(), { category, severity });
+    const languages = flag("apply-all") ? LANGUAGES : [requireLanguage()];
+    return languages
+      .map((lang: string) => applyFixes(lang, { category, severity }))
+      .join("\n\n");
   }
   return status(language ? [language] : undefined);
 }

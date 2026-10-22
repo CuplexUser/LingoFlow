@@ -6,7 +6,7 @@
     "prompt": "Ask: How much does this cost?",
     "correctAnswer": "¿Cuánto cuesta esto?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Cuánto cuesta' = how much does it cost; 'esto' = this (thing)."
     ]
   },
   {
@@ -16,7 +16,7 @@
     "prompt": "Say: I do not have enough money.",
     "correctAnswer": "No tengo suficiente dinero.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Suficiente' goes before the noun; 'no' before the verb."
     ]
   },
   {
@@ -26,7 +26,7 @@
     "prompt": "Ask: Can I pay by card?",
     "correctAnswer": "¿Puedo pagar con tarjeta?",
     "hints": [
-      "Practice this phrase out loud."
+      "Pay 'con tarjeta' or 'en efectivo'."
     ]
   },
   {
@@ -44,9 +44,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Do you accept cash?",
-    "correctAnswer": "¿Aceptas efectivo?",
+    "correctAnswer": "¿Aceptan efectivo?",
     "hints": [
       "A useful question when paying for something."
+    ],
+    "acceptedAnswers": [
+      "¿Acepta efectivo?",
+      "¿Se puede pagar en efectivo?"
     ]
   },
   {
@@ -75,9 +79,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My salary is paid every month.",
-    "correctAnswer": "Mi salario se paga cada mes.",
+    "correctAnswer": "Me pagan el sueldo cada mes.",
     "hints": [
       "State how often you are paid."
+    ],
+    "acceptedAnswers": [
+      "Cobro mi sueldo cada mes.",
+      "Mi salario se paga cada mes."
     ]
   },
   {
@@ -85,9 +93,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Can I have a receipt, please?",
-    "correctAnswer": "¿Puedo recibir un recibo, por favor?",
+    "correctAnswer": "¿Me da el recibo, por favor?",
     "hints": [
       "A receipt is proof that you paid."
+    ],
+    "acceptedAnswers": [
+      "¿Me puede dar un recibo, por favor?",
+      "¿Me da el tique, por favor?"
     ]
   },
   {
@@ -98,6 +110,9 @@
     "correctAnswer": "Guardo un poco de dinero cada mes.",
     "hints": [
       "'A little' is used with uncountable nouns."
+    ],
+    "acceptedAnswers": [
+      "Ahorro un poco de dinero cada mes."
     ]
   },
   {
@@ -146,7 +161,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I spend too much money on eating out.",
-    "correctAnswer": "Gasto demasiado dinero para comer.",
+    "correctAnswer": "Gasto demasiado dinero en comer fuera.",
     "hints": [
       "'Spend money on' + noun/gerund."
     ]
@@ -156,9 +171,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What is the current exchange rate for euros?",
-    "correctAnswer": "¿Cuál es el tipo de cambio actual para euros?",
+    "correctAnswer": "¿Cuál es el tipo de cambio actual del euro?",
     "hints": [
       "The exchange rate is how much one currency is worth in another."
+    ],
+    "acceptedAnswers": [
+      "¿A cuánto está el euro hoy?"
     ]
   },
   {
@@ -169,6 +187,10 @@
     "correctAnswer": "He transferido el dinero en línea esta mañana.",
     "hints": [
       "'Transferred' = moved money from one account to another."
+    ],
+    "acceptedAnswers": [
+      "Transferí el dinero por internet esta mañana.",
+      "Esta mañana he hecho la transferencia por internet."
     ]
   },
   {
@@ -176,9 +198,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My rent comes out of my account on the first of the month.",
-    "correctAnswer": "Mi alquiler sale de mi cuenta el primero del mes.",
+    "correctAnswer": "El alquiler se me carga en la cuenta el día uno de cada mes.",
     "hints": [
       "'Comes out of' means is deducted from."
+    ],
+    "acceptedAnswers": [
+      "Mi alquiler sale de mi cuenta el día uno de cada mes."
     ]
   },
   {
@@ -186,9 +211,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can I set up a direct debit for this payment?",
-    "correctAnswer": "¿Puedo configurar un débito directo para este pago?",
+    "correctAnswer": "¿Puedo domiciliar este pago?",
     "hints": [
       "A direct debit is an automatic recurring bank payment."
+    ],
+    "acceptedAnswers": [
+      "¿Puedo poner este pago como débito automático?"
     ]
   },
   {
@@ -206,9 +234,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I took out a loan to buy my first car.",
-    "correctAnswer": "Tomé un préstamo para comprar mi primer auto.",
+    "correctAnswer": "Pedí un préstamo para comprar mi primer coche.",
     "hints": [
       "'Take out a loan' means borrow money from a bank."
+    ],
+    "acceptedAnswers": [
+      "Pedí un préstamo para comprar mi primer auto."
     ]
   },
   {
@@ -225,11 +256,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I set a budget for groceries every week.",
-    "correctAnswer": "Puse un presupuesto para comestibles cada semana.",
+    "correctAnswer": "Cada semana me pongo un presupuesto para la compra.",
     "hints": [
       "Budget vocabulary."
     ],
-    "id": "es-mo-a2-49"
+    "id": "es-mo-a2-49",
+    "acceptedAnswers": [
+      "Cada semana fijo un presupuesto para la compra."
+    ]
   },
   {
     "level": "a2",
@@ -245,10 +279,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How much should I save each month?",
-    "correctAnswer": "¿Cuánto debo ahorrar cada mes?",
+    "prompt": "¿Cuánto debo ___ cada mes?",
+    "correctAnswer": "ahorrar",
     "hints": [
-      "Planning question."
+      "The opposite of 'gastar'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-mo-a2-51"
@@ -258,7 +292,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been trying to build up an emergency fund covering three months of expenses.",
-    "correctAnswer": "He estado tratando de construir un fondo de emergencia que cubre tres meses de gastos.",
+    "correctAnswer": "Estoy intentando crear un fondo de emergencia que cubra tres meses de gastos.",
     "hints": [
       "'Build up' = accumulate gradually; an emergency fund is money set aside for unexpected costs."
     ]
@@ -268,7 +302,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would it be worth overpaying on my mortgage to reduce the term?",
-    "correctAnswer": "¿Vale la pena pagar sobre mi hipoteca para reducir el término?",
+    "correctAnswer": "¿Merece la pena amortizar parte de la hipoteca por adelantado para reducir el plazo?",
     "hints": [
       "'Overpaying' = paying more than the minimum; 'term' = the length of the mortgage."
     ]
@@ -278,7 +312,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am trying to diversify my income streams rather than relying solely on my salary.",
-    "correctAnswer": "Estoy tratando de diversificar mis corrientes de ingresos en lugar de depender únicamente de mi salario.",
+    "correctAnswer": "Estoy intentando diversificar mis fuentes de ingresos en lugar de depender solo de mi sueldo.",
     "hints": [
       "'Diversify' = spread; 'income streams' = different sources of money."
     ]
@@ -288,7 +322,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Compound interest means that your savings grow faster the longer you keep them invested.",
-    "correctAnswer": "Interés compuesto significa que tus ahorros crecen más rápido mientras más tiempo los mantengas invertidos.",
+    "correctAnswer": "El interés compuesto significa que tus ahorros crecen más rápido cuanto más tiempo los mantienes invertidos.",
     "hints": [
       "'Compound interest' = interest earned on both the original amount and previous interest."
     ]
@@ -298,9 +332,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What is the penalty for early repayment of this loan?",
-    "correctAnswer": "¿Cuál es la pena para el pago anticipado de este préstamo?",
+    "correctAnswer": "¿Cuál es la penalización por amortizar anticipadamente este préstamo?",
     "hints": [
       "'Early repayment' = paying off a loan before the agreed end date."
+    ],
+    "acceptedAnswers": [
+      "¿Cuál es la comisión por pago anticipado de este préstamo?"
     ]
   },
   {
@@ -308,7 +345,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I keep a monthly budget to track where my money is going.",
-    "correctAnswer": "Tengo un presupuesto mensual para rastrear adónde va mi dinero.",
+    "correctAnswer": "Llevo un presupuesto mensual para controlar en qué se me va el dinero.",
     "hints": [
       "'Keep a budget' = maintain a record; 'track' = monitor."
     ]
@@ -318,7 +355,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My pension contributions are deducted from my salary before tax.",
-    "correctAnswer": "Mis contribuciones de pensiones se deducen de mi salario antes del impuesto.",
+    "correctAnswer": "Mis aportaciones al plan de pensiones se descuentan de mi sueldo antes de impuestos.",
     "hints": [
       "'Deducted' = removed; 'before tax' = pre-tax; passive voice here."
     ]
@@ -328,7 +365,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks how you handled your debt after university.",
-    "correctAnswer": "Doy prioridad al pago de la deuda de mayor interés primero manteniendo un pequeño fondo de emergencia.",
+    "correctAnswer": "Prioricé pagar primero la deuda con el interés más alto, manteniendo un pequeño fondo de emergencia.",
     "hints": [
       "Give a practical, specific strategy."
     ],
@@ -348,18 +385,17 @@
     "id": "es-mf-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the difference between a stocks and shares ISA and a cash ISA?",
-    "correctAnswer": "¿Cuál es la diferencia entre las acciones y las acciones ISA y una ISA en efectivo?",
+    "prompt": "Ask: What is the difference between a savings account and an investment fund?",
+    "correctAnswer": "¿Cuál es la diferencia entre una cuenta de ahorro y un fondo de inversión?",
     "hints": [
-      "ISA = Individual Savings Account; a key UK financial product."
-    ],
-    "culturalNote": "ISAs (Individual Savings Accounts) are tax-efficient savings wrappers available to UK residents, allowing them to save or invest a fixed amount per year without paying tax on gains or interest."
+      "'Fondo de inversión' = investment fund."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I track my spending to avoid unnecessary expenses.",
-    "correctAnswer": "Rastreo mi gasto para evitar gastos innecesarios.",
+    "correctAnswer": "Controlo mis gastos para evitar los innecesarios.",
     "hints": [
       "Purpose clause at B1."
     ],
@@ -369,20 +405,23 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Interest rates affect how much people borrow.",
-    "correctAnswer": "Las tasas de interés afectan a cuánta gente presta.",
+    "correctAnswer": "Los tipos de interés influyen en cuánto dinero pide prestado la gente.",
     "hints": [
       "Common finance concept."
     ],
     "exerciseType": "build_sentence",
-    "id": "es-mo-b1-60"
+    "id": "es-mo-b1-60",
+    "acceptedAnswers": [
+      "Las tasas de interés afectan a cuánto dinero pide prestado la gente."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the safest way to build an emergency fund?",
-    "correctAnswer": "¿Cuál es la forma más segura de construir un fondo de emergencia?",
+    "prompt": "¿Cuál es la forma más segura de crear un fondo de ___?",
+    "correctAnswer": "emergencia",
     "hints": [
-      "Practical finance question."
+      "Money kept aside for unexpected problems."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-mo-b1-61"
@@ -404,7 +443,7 @@
     "prompt": "Ask: To what extent do you think behavioral economics explains irrational financial decision-making?",
     "correctAnswer": "¿En qué medida crees que la economía conductual explica la adopción de decisiones financieras irracionales?",
     "hints": [
-      "'Behavioural economics' studies how psychology affects economic choices."
+      "'Economía conductual' (behavioral economics) studies how psychology affects economic choices."
     ]
   },
   {
@@ -412,7 +451,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Quantitative easing involves central banks increasing the money supply to stimulate economic activity.",
-    "correctAnswer": "El alivio cuantitativo implica que los bancos centrales aumentan el suministro de dinero para estimular la actividad económica.",
+    "correctAnswer": "La flexibilización cuantitativa consiste en que los bancos centrales aumentan la oferta monetaria para estimular la actividad económica.",
     "hints": [
       "'Quantitative easing' = QE; a monetary policy tool used in financial crises."
     ]
@@ -442,7 +481,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: What distinguishes value investing from growth investing as portfolio strategies?",
-    "correctAnswer": "¿Qué distingue la inversión de valor de la inversión del crecimiento como estrategias de cartera?",
+    "correctAnswer": "¿Qué distingue la inversión en valor de la inversión en crecimiento como estrategias de cartera?",
     "hints": [
       "'Value investing' = buying undervalued assets; 'growth investing' = buying high-growth-potential companies."
     ]
@@ -462,7 +501,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: ESG criteria are increasingly influencing institutional investment decisions across asset classes.",
-    "correctAnswer": "Los criterios de la ESG influyen cada vez más en las decisiones de inversión institucional en las clases de activos.",
+    "correctAnswer": "Los criterios ESG influyen cada vez más en las decisiones de inversión institucional en todas las clases de activos.",
     "hints": [
       "ESG = Environmental, Social, Governance — factors for ethical investing."
     ],
@@ -481,10 +520,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Inflation erodes purchasing power when wages do not keep pace.",
-    "correctAnswer": "La inflación erosiona el poder adquisitivo cuando los salarios no mantienen el ritmo.",
+    "prompt": "La inflación erosiona el poder ___ cuando los salarios no siguen el ritmo.",
+    "correctAnswer": "adquisitivo",
     "hints": [
-      "Cause-effect sentence."
+      "'Poder ___' = purchasing power."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-mo-b2-70"
@@ -492,7 +531,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which policies are most effective in reducing household debt risk?",
+    "prompt": "Choose the best response. In a seminar, someone says household debt is a private matter, not a policy issue.",
     "correctAnswer": "¿Qué políticas son más eficaces para reducir el riesgo de deuda familiar?",
     "hints": [
       "Policy-level question."

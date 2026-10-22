@@ -6,7 +6,11 @@
     "prompt": "Ask: Where is the train station?",
     "correctAnswer": "Var är tågstationen?",
     "hints": [
-      "Practice this phrase out loud."
+      "For buildings Swedes often ask 'Var ligger ...?'."
+    ],
+    "acceptedAnswers": [
+      "Var ligger tågstationen?",
+      "Var ligger stationen?"
     ]
   },
   {
@@ -16,7 +20,11 @@
     "prompt": "Ask: How much does this ticket cost?",
     "correctAnswer": "Hur mycket kostar denna biljett?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Hur mycket kostar' + noun; 'den här' is the everyday word for 'this'."
+    ],
+    "acceptedAnswers": [
+      "Hur mycket kostar den här biljetten?",
+      "Vad kostar den här biljetten?"
     ]
   },
   {
@@ -24,9 +32,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Which platform does the train leave from?",
-    "correctAnswer": "Vilken plattform lämnar tåget från?",
+    "correctAnswer": "Från vilket spår går tåget?",
     "hints": [
-      "Practice this phrase out loud."
+      "At Swedish stations trains leave from a numbered 'spår' (track); trains 'går'."
+    ],
+    "acceptedAnswers": [
+      "Vilket spår går tåget från?"
     ]
   },
   {
@@ -56,9 +67,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Is this the right bus for the airport?",
-    "correctAnswer": "Är detta rätt buss för flygplatsen?",
+    "correctAnswer": "Är det här rätt buss till flygplatsen?",
     "hints": [
       "Yes/no question — invert 'is' and subject."
+    ],
+    "acceptedAnswers": [
+      "Är detta rätt buss till flygplatsen?",
+      "Går den här bussen till flygplatsen?"
     ]
   },
   {
@@ -66,7 +81,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the place where planes take off and land",
-    "correctAnswer": "flygplats flygplats",
+    "correctAnswer": "flygplats",
     "hints": [
       "Think of where you go to catch a flight."
     ],
@@ -129,9 +144,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I need a room for two nights.",
-    "correctAnswer": "Jag behöver ett rum för två nätter.",
+    "correctAnswer": "Jag behöver ett rum i två nätter.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Jag behöver ett rum för två nätter."
     ]
   },
   {
@@ -149,9 +167,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to check in for my reservation.",
-    "correctAnswer": "Jag vill checka in för min bokning.",
+    "correctAnswer": "Jag skulle vilja checka in, jag har en bokning.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Jag skulle vilja checka in. Jag har bokat ett rum."
     ]
   },
   {
@@ -163,7 +184,10 @@
     "hints": [
       "Use 'I would like to' for polite requests."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Jag skulle vilja växla lite pengar."
+    ]
   },
   {
     "id": "sv-tr-21",
@@ -211,7 +235,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can I get a window seat?",
-    "correctAnswer": "Kan jag få ett fönstersäte?",
+    "correctAnswer": "Kan jag få en fönsterplats?",
     "hints": [
       "A simple 'can I' request."
     ]
@@ -221,16 +245,20 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The check-out time is eleven o'clock.",
-    "correctAnswer": "Utcheckningstiden är elva klockan.",
+    "correctAnswer": "Utcheckning är klockan elva.",
     "hints": [
       "State the time clearly."
+    ],
+    "acceptedAnswers": [
+      "Utcheckningstiden är klockan elva.",
+      "Man ska checka ut senast klockan elva."
     ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to check in, please.",
-    "correctAnswer": "Jag skulle vilja checka in, snälla.",
+    "correctAnswer": "Jag skulle vilja checka in, tack.",
     "hints": [
       "Hotel check-in phrase."
     ],
@@ -250,13 +278,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I lost my boarding pass this morning.",
-    "correctAnswer": "Jag förlorade mitt boardingkort i morse.",
+    "prompt": "Jag ___ bort mitt boardingkort i morse.",
+    "correctAnswer": "tappade",
     "hints": [
-      "Problem report sentence."
+      "'Tappa bort' = to lose (misplace); past tense here."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-tr-a2-52"
+    "id": "sv-tr-a2-52",
+    "clozeOptions": [
+      "tappade",
+      "tappar",
+      "tappat",
+      "tappa"
+    ]
   },
   {
     "id": "sv-tr-5",
@@ -273,9 +307,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I lost my passport and need help immediately.",
-    "correctAnswer": "Jag förlorade mitt pass och behöver hjälp omedelbart.",
+    "correctAnswer": "Jag har tappat bort mitt pass och behöver hjälp genast.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Jag har tappat bort passet och behöver hjälp direkt.",
+      "Jag tappade bort mitt pass och behöver hjälp omedelbart."
     ]
   },
   {
@@ -283,7 +321,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The museum is within walking distance from the hotel.",
-    "correctAnswer": "Museet ligger inom gångavstånd från hotellet.",
+    "correctAnswer": "Museet ligger på gångavstånd från hotellet.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -293,9 +331,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was wondering if you could recommend a good local restaurant.",
-    "correctAnswer": "Jag undrar om du kunde rekommendera en bra lokal restaurang.",
+    "correctAnswer": "Jag undrar om du skulle kunna rekommendera en bra lokal restaurang.",
     "hints": [
       "Use 'I was wondering if' for polite, indirect requests."
+    ],
+    "acceptedAnswers": [
+      "Jag undrade om du kunde rekommendera en bra restaurang här i närheten."
     ]
   },
   {
@@ -303,9 +344,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Is there a discount if I book both legs of the journey together?",
-    "correctAnswer": "Finns det en rabatt om jag bokar båda benen på resan tillsammans?",
+    "correctAnswer": "Får man rabatt om man bokar tur och retur samtidigt?",
     "hints": [
       "Conditional question using 'if'."
+    ],
+    "acceptedAnswers": [
+      "Finns det någon rabatt om jag bokar båda sträckorna samtidigt?"
     ]
   },
   {
@@ -313,7 +357,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The journey takes about three hours with one change.",
-    "correctAnswer": "Resan tar ungefär tre timmar med en förändring.",
+    "correctAnswer": "Resan tar ungefär tre timmar med ett byte.",
     "hints": [
       "Use 'about' for an approximation."
     ],
@@ -324,7 +368,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I prefer to travel light whenever possible.",
-    "correctAnswer": "Jag föredrar att resa ljus när det är möjligt.",
+    "correctAnswer": "Jag föredrar att resa med lätt packning när det går.",
     "hints": [
       "'Travel light' is an idiom for packing minimally."
     ]
@@ -344,7 +388,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I had to rebook at a higher fare after my original flight was canceled.",
-    "correctAnswer": "Jag var tvungen att boka på en högre biljett efter att min ursprungliga flygning avbröts.",
+    "correctAnswer": "Jag var tvungen att boka om till ett dyrare pris efter att mitt ursprungliga flyg ställts in.",
     "hints": [
       "Use 'had to' for past obligation."
     ]
@@ -354,17 +398,18 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. The hotel says you haven't got a reservation.",
-    "correctAnswer": "Jag har en bekräftelse e-post - kan du kontrollera igen, vänligen?",
+    "correctAnswer": "Jag har ett bekräftelsemejl – kan du kolla igen?",
     "hints": [
       "Stay calm and polite; offer evidence."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I have a confirmation email — could you check again?"
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We changed our route because of the weather.",
-    "correctAnswer": "Vi ändrade vår väg på grund av vädret.",
+    "correctAnswer": "Vi ändrade vår rutt på grund av vädret.",
     "hints": [
       "Reason clause in travel context."
     ],
@@ -384,13 +429,19 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Traveling alone helped me become more independent.",
-    "correctAnswer": "Att resa ensam hjälpte mig att bli mer självständig.",
+    "prompt": "Att resa ensam hjälpte mig att bli mer ___.",
+    "correctAnswer": "självständig",
     "hints": [
-      "Reflection sentence."
+      "Common-gender singular adjective agreeing with 'mig'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-tr-b1-62"
+    "id": "sv-tr-b1-62",
+    "clozeOptions": [
+      "självständig",
+      "självständiga",
+      "självständigt",
+      "självständighet"
+    ]
   },
   {
     "id": "sv-tr-7",
@@ -407,7 +458,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would prefer a quieter route, even if it takes longer.",
-    "correctAnswer": "Jag föredrar en tystare väg, även om det tar längre tid.",
+    "correctAnswer": "Jag skulle föredra en lugnare väg, även om det tar längre tid.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -417,7 +468,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Is there a faster connection if I change lines once?",
-    "correctAnswer": "Finns det en snabbare anslutning om jag byter linjer en gång?",
+    "correctAnswer": "Finns det en snabbare förbindelse om jag byter linje en gång?",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -427,7 +478,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Despite the delays, I managed to make my connection with minutes to spare.",
-    "correctAnswer": "Trots förseningarna lyckades jag göra min anslutning med minuter att spara.",
+    "correctAnswer": "Trots förseningarna hann jag med anslutningen med några minuters marginal.",
     "hints": [
       "'Despite' introduces a concession; 'with minutes to spare' is idiomatic."
     ]
@@ -447,7 +498,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I was unfairly charged an excess baggage fee and would like to dispute it.",
-    "correctAnswer": "Jag var orättvist debiterad en överskott bagageavgift och skulle vilja bestrida det.",
+    "correctAnswer": "Jag debiterades orättvist en avgift för övervikt på bagaget och vill bestrida den.",
     "hints": [
       "Passive voice for what happened to you; 'dispute' means formally challenge."
     ]
@@ -468,7 +519,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I tend to prefer trains over flights for journeys under five hours.",
-    "correctAnswer": "Jag brukar föredra tåg över flygningar under fem timmar.",
+    "correctAnswer": "Jag föredrar oftast tåg framför flyg på resor under fem timmar.",
     "hints": [
       "'I tend to' softens a personal preference naturally."
     ]
@@ -478,10 +529,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The layover gives me just enough time to clear customs and recheck my luggage.",
-    "correctAnswer": "Layover ger mig tillräckligt med tid för att rensa tullen och kontrollera mitt bagage.",
+    "correctAnswer": "Mellanlandningen ger mig precis tillräckligt med tid för att gå igenom tullen och checka in bagaget igen.",
     "hints": [
-      "'Clear customs' and 'recheck luggage' are standard travel phrases.",
-      "A layover is a stop between flights."
+      "'Gå igenom tullen' = clear customs; 'mellanlandning' = layover."
     ],
     "culturalNote": "In the US and many countries, you must collect and recheck your luggage on international connections even if your final destination is domestic."
   },
@@ -498,23 +548,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can tourism support local communities without harming them?",
-    "correctAnswer": "Hur kan turismen stödja lokalsamhällen utan att skada dem?",
+    "prompt": "Hur kan turismen stödja lokalsamhällen utan att ___ dem?",
+    "correctAnswer": "skada",
     "hints": [
-      "Complex travel ethics question."
+      "Infinitive after 'utan att'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-tr-b2-71"
+    "id": "sv-tr-b2-71",
+    "clozeOptions": [
+      "skada",
+      "skadar",
+      "skadade",
+      "skadat"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I planned contingencies in case flights were delayed.",
-    "correctAnswer": "Jag planerade beredskap om flygningar försenades.",
+    "prompt": "Dialogue: A friend asks how you managed when your connecting flight was late.",
+    "correctAnswer": "Jag hade en reservplan ifall flygen skulle bli försenade.",
     "hints": [
       "Advanced planning phrase."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-tr-b2-72"
+    "id": "sv-tr-b2-72",
+    "answerEnglish": "I had contingency plans in case flights were delayed."
   }
 ]

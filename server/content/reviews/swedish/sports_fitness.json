@@ -1,0 +1,615 @@
+{
+  "language": "swedish",
+  "category": "sports_fitness",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:54:07.550Z",
+  "contentHash": "44b8c197a72390df",
+  "summary": "A1 sports vocabulary is fine apart from a duplicated flashcard answer, but A2–B2 is full of calques and wrong words (gå med mig för en körning, drog en muskel, yogaklassen, konsekvens for consistency, konkurrenskraftig sport, utbildningen for training, lättare på knäna, ta tre veckor av träning) and split compounds (fitness vana, styrka arbete, kardio rutin, topp idrottsprestanda). Plus British spellings, cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-sf-a1-1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer is duplicated ('fotboll fotboll').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "fotboll",
+          "list": null
+        }
+      ],
+      "itemHash": "e1d005a42e1ab104",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Springa' = to run; 'varje morgon' = every morning."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag går ut och springer varje morgon."
+          ]
+        }
+      ],
+      "itemHash": "8f0b6ad7534bacfb",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The idiomatic 'Håller du på med någon sport?' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Håller du på med någon sport?",
+            "Idrottar du?"
+          ]
+        }
+      ],
+      "itemHash": "ed814ebdd74d9a8a",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gilla att' + infinitive = to like doing something."
+          ]
+        }
+      ],
+      "itemHash": "f5e7487224532e97",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a2-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes English; the common 'gått på gym' is not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Perfect tense for a routine that started earlier and still continues."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag har gått på gym tre gånger i veckan."
+          ]
+        }
+      ],
+      "itemHash": "5e21fd5859579b39",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'gå med mig för en körning' is nonsense ('körning' = a drive).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vill du följa med och springa på söndag?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vill du följa med mig ut och springa på söndag?"
+          ]
+        }
+      ],
+      "itemHash": "19b89358e1cdd692",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'drog en muskel' is a calque; a pulled muscle is 'sträckte en muskel'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag sträckte en muskel när jag tränade igår.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag sträckte en muskel under träningen igår."
+          ]
+        }
+      ],
+      "itemHash": "5ddb6c62d43bf848",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "One 'anmäler sig till' a race; 'registrerade mig för' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag har anmält mig till ett halvmaraton nästa månad.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag anmälde mig till ett halvmaraton nästa månad."
+          ]
+        }
+      ],
+      "itemHash": "f4b7d5a57a7141e2",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'yogaklassen' is a school class; a session 'håller på'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur länge håller yogapasset på?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hur långt är yogapasset?"
+          ]
+        }
+      ],
+      "itemHash": "7b9e4a9715bc67b8",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-a2-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'utomhus träning till gymmet' has a split word and the wrong preposition ('framför').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag föredrar att träna utomhus framför på gym.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag föredrar utomhusträning framför gymmet."
+          ]
+        }
+      ],
+      "itemHash": "a7146f6f7bfcb662",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sp-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'Hur länge är din vanliga träning' is unidiomatic.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hur lång tid brukar ditt ___ ta?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "träningspass",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "träningspass",
+            "träningspasset",
+            "träningspassen",
+            "tränare"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "After 'ditt' the noun is indefinite: 'ditt träningspass'."
+          ]
+        }
+      ],
+      "itemHash": "e488c71de4f04864",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b1-1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Konsekvens' means consequence/logic; regularity is 'kontinuitet'. 'fitness vana' is a split compound.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kontinuitet är viktigare än intensitet när man bygger upp en träningsvana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Regelbundenhet är viktigare än intensitet när man bygger upp en träningsvana."
+          ]
+        }
+      ],
+      "itemHash": "87cfe5fc84e517a1",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'konkurrenskraftig sport' means economically competitive sport; 'livsförmågor' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tycker du att tävlingsidrott lär ut viktiga färdigheter för livet?",
+          "list": null
+        }
+      ],
+      "itemHash": "c75351eb74a87579",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ta tre veckor av träning' means the opposite; the injury is 'överbelastningsskada'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag var tvungen att göra ett uppehåll i träningen i tre veckor på grund av en överbelastningsskada.",
+          "list": null
+        }
+      ],
+      "itemHash": "a3764dea9511bb21",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b1-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Split compounds 'styrka arbete' and 'kardio rutin'; 'införliva ... tillsammans med' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Min personliga tränare rekommenderade att jag kompletterar konditionsträningen med styrketräning.",
+          "list": null
+        }
+      ],
+      "itemHash": "8bc8dd384f5ba169",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'mentala hälsofördelarna' and 'väl etablerade' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Fördelarna med regelbunden motion för den psykiska hälsan är väl belagda.",
+          "list": null
+        }
+      ],
+      "itemHash": "2d35b5d9429f877a",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b1-7",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish; 'Jag började som ett sätt' lacks an object.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag började springa för att hantera stress, och nu är det något jag verkligen tycker om.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I started as a way to manage stress, and it became something I really enjoy.",
+          "list": null
+        }
+      ],
+      "itemHash": "755abf7d3e89e7b1",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'funnit att träning regelbundet' is a calque with wrong word order.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Har du märkt att regelbunden träning har förändrat hur du mår i vardagen?",
+          "list": null
+        }
+      ],
+      "itemHash": "cbf4d8e6eb1c5e94",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sp-b1-60",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'lättare på knäna' is a calque; Swedes say 'skånsammare för knäna'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag gick över till cykling eftersom det är skånsammare för knäna.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag bytte till cykling eftersom det är skånsammare för knäna."
+          ]
+        }
+      ],
+      "itemHash": "580f822f32d35a1e",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sp-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'hålla dig konsekvent med träning' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vilken strategi använder du för att träna ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "regelbundet",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "regelbundet",
+            "regelbunden",
+            "regelbundna",
+            "regel"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adverb (-t ending) describing how you train."
+          ]
+        }
+      ],
+      "itemHash": "e9cef811648d2d69",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Prompt/hint use British 'commercialisation'; grassroots sport is 'breddidrotten'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The commercialization of elite sport raises questions about its relationship with grassroots participation.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Kommersialiseringen av elitidrotten väcker frågor om dess förhållande till breddidrotten.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Commercialization' = the process of making something about money; 'breddidrott' = grassroots sport."
+          ]
+        }
+      ],
+      "itemHash": "833c1bee7717b07d",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b2-2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Split compound 'topp idrottsprestanda'; prompt and hint use British 'Periodisation'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Periodization — the systematic planning of training cycles — is central to peak athletic performance.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Periodisering – systematisk planering av träningscykler – är avgörande för idrottsliga toppprestationer.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Periodization' = planned variation in training; 'peak performance' = best possible level."
+          ]
+        }
+      ],
+      "itemHash": "594e6a6070843b0a",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'atletisk' describes build; sporting potential is 'idrottslig potential'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I vilken utsträckning avgör generna den idrottsliga potentialen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I vilken utsträckning förutbestämmer genetiken idrottslig potential?"
+          ]
+        }
+      ],
+      "itemHash": "8239d28a342a3179",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'konkurrenskraftig sport' means economically competitive; it is 'tävlingsidrott'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dopingskandaler har urholkat allmänhetens förtroende för tävlingsidrotten, särskilt på elitnivå.",
+          "list": null
+        }
+      ],
+      "itemHash": "c60f23d5d9007f7d",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'fitness' is dropped and 'i stillasittande yrke' lacks an article.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Att få ihop arbete, fritid och träning i ett stillasittande yrke kräver medveten ansträngning och planering.",
+          "list": null
+        }
+      ],
+      "itemHash": "610af7954a613053",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sf-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'den fysiska konditioneringen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Den psykiska motståndskraft som krävs på elitnivå är lika krävande som den fysiska träningen.",
+          "list": null
+        }
+      ],
+      "itemHash": "fcc7ee502a89f919",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sp-b2-70",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'utbildningen' means education; the cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Prestationen förbättras när ___ behandlas som en del av träningen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "återhämtningen",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "återhämtningen",
+            "återhämtning",
+            "återvinningen",
+            "återkomsten"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'recovery', in the definite form."
+          ]
+        }
+      ],
+      "itemHash": "42fd056627123b55",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    },
+    {
+      "id": "sv-sp-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a coaching seminar, you ask about keeping athletes motivated between seasons.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hur kan idrottare behålla motivationen under långa uppehåll mellan säsongerna?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How can athletes maintain motivation during long off-seasons?",
+          "list": null
+        }
+      ],
+      "itemHash": "26b16f9601eb2cf8",
+      "appliedAt": "2026-10-22T10:00:54.765Z"
+    }
+  ]
+}

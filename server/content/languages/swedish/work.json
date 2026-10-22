@@ -6,7 +6,10 @@
     "prompt": "Say: I work in an office.",
     "correctAnswer": "Jag jobbar på ett kontor.",
     "hints": [
-      "Practice this phrase out loud."
+      "Swedes work 'på' an office or workplace."
+    ],
+    "acceptedAnswers": [
+      "Jag arbetar på ett kontor."
     ]
   },
   {
@@ -16,7 +19,10 @@
     "prompt": "Say: My shift starts at nine o'clock.",
     "correctAnswer": "Mitt skift börjar klockan nio.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Klockan' + number for clock times; a work shift is also called 'pass'."
+    ],
+    "acceptedAnswers": [
+      "Mitt pass börjar klockan nio."
     ]
   },
   {
@@ -26,7 +32,11 @@
     "prompt": "Say: I am the new employee.",
     "correctAnswer": "Jag är ny medarbetare.",
     "hints": [
-      "Practice this phrase out loud."
+      "No article before a role after 'är': 'Jag är ny medarbetare'."
+    ],
+    "acceptedAnswers": [
+      "Jag är nyanställd.",
+      "Jag är den nya medarbetaren."
     ]
   },
   {
@@ -105,30 +115,37 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I start work at nine.",
-    "correctAnswer": "Jag börjar jobba på nio.",
+    "correctAnswer": "Jag börjar jobba klockan nio.",
     "hints": [
       "Use present simple for routines."
     ],
-    "id": "sv-wo-a1-41"
+    "id": "sv-wo-a1-41",
+    "acceptedAnswers": [
+      "Jag börjar jobba vid nio.",
+      "Jag börjar jobba nio."
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where is the training room?",
-    "correctAnswer": "Var är träningsrummet?",
+    "correctAnswer": "Var är utbildningsrummet?",
     "hints": [
       "Use this on your first day."
     ],
     "exerciseType": "build_sentence",
-    "id": "sv-wo-a1-42"
+    "id": "sv-wo-a1-42",
+    "acceptedAnswers": [
+      "Var ligger utbildningsrummet?"
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the final approval before release",
-    "correctAnswer": "godkännande",
+    "correctAnswer": "slutgodkännande",
     "hints": [
-      "A noun formed from the verb 'godkänna' (to approve)."
+      "'Slut-' (final) + 'godkännande' (approval)."
     ],
     "exerciseType": "flashcard",
     "id": "sv-wo-a1-43"
@@ -159,9 +176,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: someone you report to",
-    "correctAnswer": "che manager",
+    "correctAnswer": "chef",
     "hints": [
-      "A core workplace noun."
+      "Swedish 'chef' means boss, not cook."
     ],
     "exerciseType": "flashcard",
     "id": "sv-wo-a1-48"
@@ -171,9 +188,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Could you send me the report by Friday?",
-    "correctAnswer": "Kan du skicka mig rapporten till fredag?",
+    "correctAnswer": "Kan du skicka rapporten till mig senast på fredag?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Kan du skicka mig rapporten senast på fredag?",
+      "Kan du skicka rapporten senast fredag?"
     ]
   },
   {
@@ -191,7 +212,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can we reschedule the meeting to Thursday?",
-    "correctAnswer": "Kan vi omplanera mötet till torsdag?",
+    "correctAnswer": "Kan vi flytta mötet till torsdag?",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -201,9 +222,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I will send you the updated version by end of day.",
-    "correctAnswer": "Jag skickar den uppdaterade versionen i slutet av dagen.",
+    "correctAnswer": "Jag skickar den uppdaterade versionen innan dagen är slut.",
     "hints": [
       "'By end of day' is a common work deadline phrase."
+    ],
+    "acceptedAnswers": [
+      "Jag skickar den uppdaterade versionen till dig senast i eftermiddag."
     ]
   },
   {
@@ -211,19 +235,22 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Could you copy me in on that email?",
-    "correctAnswer": "Kan du kopiera mig på det e-postmeddelandet?",
+    "correctAnswer": "Kan du sätta mig på kopia i det mejlet?",
     "hints": [
-      "'Copy me in' means add you to the CC field."
+      "'Sätta någon på kopia' = add someone to the CC field."
+    ],
+    "acceptedAnswers": [
+      "Kan du ha med mig på kopia i det mejlet?"
     ]
   },
   {
     "id": "sv-wo-21",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I would like to take two weeks of annual leave in August.",
-    "correctAnswer": "Jag skulle vilja ta två veckors årlig semester i augusti.",
+    "prompt": "Say: I would like to take two weeks of vacation in August.",
+    "correctAnswer": "Jag skulle vilja ta två veckors semester i augusti.",
     "hints": [
-      "'Annual leave' is the formal term for holiday days."
+      "'Två veckors' uses the genitive -s for a length of time."
     ]
   },
   {
@@ -241,9 +268,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The deadline is next Monday at noon.",
-    "correctAnswer": "Tidsfristen är nästa måndag vid middag.",
+    "correctAnswer": "Deadline är nästa måndag klockan tolv.",
     "hints": [
       "State the day and time clearly."
+    ],
+    "acceptedAnswers": [
+      "Sista dagen är nästa måndag klockan tolv.",
+      "Tidsfristen går ut nästa måndag klockan tolv."
     ]
   },
   {
@@ -251,20 +282,24 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Choose the best response. A colleague asks if you can attend a meeting tomorrow.",
-    "correctAnswer": "Jag är fri på morgonen men jag har ett samtal på eftermiddagen.",
+    "correctAnswer": "Jag är ledig på förmiddagen, men jag har ett samtal på eftermiddagen.",
     "hints": [
       "Give clear availability information."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I'm free in the morning, but I have a call in the afternoon."
   },
   {
     "id": "sv-wo-41",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have finished my tasks for today.",
-    "correctAnswer": "Jag har avslutat mina uppgifter för idag.",
+    "correctAnswer": "Jag är klar med mina uppgifter för i dag.",
     "hints": [
       "Present perfect for completed actions."
+    ],
+    "acceptedAnswers": [
+      "Jag har gjort klart mina uppgifter för idag."
     ]
   },
   {
@@ -291,19 +326,25 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am responsible for weekly updates.",
-    "correctAnswer": "Jag är ansvarig för veckouppdateringar.",
+    "prompt": "Jag är ___ för veckouppdateringarna.",
+    "correctAnswer": "ansvarig",
     "hints": [
-      "Use this to describe ownership."
+      "Common-gender singular adjective after 'jag är'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-wo-a2-53"
+    "id": "sv-wo-a2-53",
+    "clozeOptions": [
+      "ansvarig",
+      "ansvariga",
+      "ansvarigt",
+      "ansvar"
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We finished the task ahead of schedule.",
-    "correctAnswer": "Vi avslutade uppgiften före schemat.",
+    "correctAnswer": "Vi blev klara med uppgiften före tidsplanen.",
     "hints": [
       "Good phrase for progress updates."
     ],
@@ -315,7 +356,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like to discuss my progress at our next meeting.",
-    "correctAnswer": "Jag vill diskutera mina framsteg vid vårt nästa möte.",
+    "correctAnswer": "Jag skulle vilja diskutera mina framsteg på vårt nästa möte.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -325,9 +366,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was not able to attend the conference call due to a scheduling conflict.",
-    "correctAnswer": "Jag kunde inte delta i konferenssamtalet på grund av en schemaläggningskonflikt.",
+    "correctAnswer": "Jag kunde inte vara med på telefonmötet eftersom jag var dubbelbokad.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Jag kunde inte delta i telefonmötet eftersom jag var dubbelbokad."
     ]
   },
   {
@@ -385,9 +429,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Could you give me an update on where things stand with the client?",
-    "correctAnswer": "Kan du ge mig en uppdatering om var saker står med kunden?",
+    "correctAnswer": "Kan du berätta hur det ligger till med kunden?",
     "hints": [
       "'Where things stand' means the current situation."
+    ],
+    "acceptedAnswers": [
+      "Kan du uppdatera mig om läget med kunden?"
     ]
   },
   {
@@ -395,9 +442,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like to flag a potential risk before it becomes a problem.",
-    "correctAnswer": "Jag vill flagga en potentiell risk innan det blir ett problem.",
+    "correctAnswer": "Jag vill flagga för en potentiell risk innan den blir ett problem.",
     "hints": [
       "'Flag' in business means to highlight or draw attention to something."
+    ],
+    "acceptedAnswers": [
+      "Jag vill uppmärksamma en möjlig risk innan den blir ett problem."
     ]
   },
   {
@@ -405,26 +455,32 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been given more responsibilities since my promotion.",
-    "correctAnswer": "Jag har fått mer ansvar sedan min kampanj.",
+    "correctAnswer": "Jag har fått mer ansvar sedan jag blev befordrad.",
     "hints": [
       "Passive present perfect; 'since my promotion' anchors the time."
+    ],
+    "acceptedAnswers": [
+      "Jag har fått mer ansvar sedan min befordran."
     ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We should prioritize the customer issue before deployment.",
-    "correctAnswer": "Vi bör prioritera kundproblemet innan distribution.",
+    "correctAnswer": "Vi bör prioritera kundproblemet före driftsättningen.",
     "hints": [
       "Use 'should' for recommendations."
     ],
-    "id": "sv-wo-b1-61"
+    "id": "sv-wo-b1-61",
+    "acceptedAnswers": [
+      "Vi borde prioritera kundproblemet innan lanseringen."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like to propose a shorter meeting agenda.",
-    "correctAnswer": "Jag vill föreslå en kortare mötesagenda.",
+    "correctAnswer": "Jag skulle vilja föreslå en kortare dagordning.",
     "hints": [
       "Polite formal suggestion structure."
     ],
@@ -434,31 +490,38 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Can we move this deadline to next Wednesday?",
-    "correctAnswer": "Kan vi flytta denna deadline till nästa onsdag?",
+    "prompt": "Kan vi ___ den här deadlinen till nästa onsdag?",
+    "correctAnswer": "flytta",
     "hints": [
-      "Direct but collaborative phrasing."
+      "Infinitive after 'kan vi'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-wo-b1-63"
+    "id": "sv-wo-b1-63",
+    "clozeOptions": [
+      "flytta",
+      "flyttar",
+      "flyttade",
+      "flyttat"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I need more context before I can approve this plan.",
-    "correctAnswer": "Jag behöver mer sammanhang innan jag kan godkänna denna plan.",
+    "prompt": "Dialogue: Your colleague asks you to approve a project plan right away.",
+    "correctAnswer": "Jag behöver mer bakgrund innan jag kan godkänna den här planen.",
     "hints": [
       "State dependency clearly."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-wo-b1-64"
+    "id": "sv-wo-b1-64",
+    "answerEnglish": "I need more context before I can approve this plan."
   },
   {
     "id": "sv-wo-7",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would like to propose a restructuring of the project timeline.",
-    "correctAnswer": "Jag vill föreslå en omstrukturering av projektets tidslinje.",
+    "correctAnswer": "Jag skulle vilja föreslå en omstrukturering av projektets tidsplan.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -468,7 +531,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The stakeholders have concerns about the projected return on investment.",
-    "correctAnswer": "De berörda parterna har oro över den förväntade avkastningen på investeringen.",
+    "correctAnswer": "Intressenterna är oroliga för den förväntade avkastningen på investeringen.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -478,7 +541,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Following up on my previous email, I wanted to clarify the deliverables.",
-    "correctAnswer": "Efter min tidigare e-post ville jag klargöra leveranserna.",
+    "correctAnswer": "Som uppföljning på mitt tidigare mejl ville jag förtydliga vad som ska levereras.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -488,7 +551,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: We need to align on priorities before committing resources to this initiative.",
-    "correctAnswer": "Vi måste anpassa oss till prioriteringar innan vi begår resurser till detta initiativ.",
+    "correctAnswer": "Vi måste enas om prioriteringarna innan vi lägger resurser på det här initiativet.",
     "hints": [
       "'Align on' means agree and coordinate on."
     ]
@@ -498,7 +561,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The board is looking for a compelling narrative to accompany the financial projections.",
-    "correctAnswer": "Styrelsen letar efter en övertygande berättelse för att följa de finansiella prognoserna.",
+    "correctAnswer": "Styrelsen söker en övertygande berättelse som komplement till de finansiella prognoserna.",
     "hints": [
       "'Compelling narrative' means a persuasive story; 'projections' are forecasts."
     ]
@@ -508,7 +571,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Have you factored in the opportunity cost of delaying the launch?",
-    "correctAnswer": "Har du funderat på möjlighetskostnaden för att fördröja lanseringen?",
+    "correctAnswer": "Har du tagit hänsyn till alternativkostnaden för att skjuta upp lanseringen?",
     "hints": [
       "'Factor in' means take into account; 'opportunity cost' is what you give up."
     ]
@@ -518,7 +581,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I recommend we pilot the solution with a small cohort before scaling.",
-    "correctAnswer": "Jag rekommenderar att vi piloterar lösningen med en liten kohort innan vi skalar.",
+    "correctAnswer": "Jag rekommenderar att vi pilottestar lösningen med en liten grupp innan vi skalar upp.",
     "hints": [
       "'Pilot' as a verb means to test; 'scaling' means expanding."
     ]
@@ -557,7 +620,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: We need to align deliverables with stakeholder expectations.",
-    "correctAnswer": "Vi måste anpassa leveranser med intressenternas förväntningar.",
+    "correctAnswer": "Vi måste anpassa leveranserna efter intressenternas förväntningar.",
     "hints": [
       "Use precise business vocabulary."
     ],
@@ -566,30 +629,37 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I suggest we document risks before final sign-off.",
-    "correctAnswer": "Jag föreslår att vi dokumenterar risker före slutskylt.",
+    "prompt": "Jag föreslår att vi dokumenterar riskerna före det slutliga ___.",
+    "correctAnswer": "godkännandet",
     "hints": [
-      "Strong phrasing for process quality."
+      "Definite form after 'det slutliga'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-wo-b2-72"
+    "id": "sv-wo-b2-72",
+    "clozeOptions": [
+      "godkännandet",
+      "godkännande",
+      "godkänna",
+      "godkänd"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should we mitigate potential delays in this rollout?",
-    "correctAnswer": "Hur ska vi mildra potentiella förseningar i denna utrullning?",
+    "prompt": "Dialogue: In a project meeting, you raise the risk of delays in the upcoming rollout.",
+    "correctAnswer": "Hur bör vi minska risken för förseningar i den här utrullningen?",
     "hints": [
       "Use 'mitigate' for formal risk language."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-wo-b2-73"
+    "id": "sv-wo-b2-73",
+    "answerEnglish": "How should we mitigate potential delays in this rollout?"
   },
   {
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: This proposal balances short-term impact with long-term sustainability.",
-    "correctAnswer": "Detta förslag balanserar kortsiktiga effekter med långsiktig hållbarhet.",
+    "correctAnswer": "Det här förslaget väger kortsiktig effekt mot långsiktig hållbarhet.",
     "hints": [
       "Contrast clauses raise sophistication."
     ],

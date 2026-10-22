@@ -17,7 +17,7 @@
     "prompt": "Say: I go running every morning.",
     "correctAnswer": "Vado a correre ogni mattina.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Andare a' + infinitive: 'vado a correre' = I go running."
     ]
   },
   {
@@ -28,6 +28,10 @@
     "correctAnswer": "Fai sport?",
     "hints": [
       "A common conversation starter."
+    ],
+    "acceptedAnswers": [
+      "Pratichi qualche sport?",
+      "Fa sport?"
     ]
   },
   {
@@ -37,7 +41,7 @@
     "prompt": "Say: I like swimming in the sea.",
     "correctAnswer": "Mi piace nuotare in mare.",
     "hints": [
-      "'Like' + gerund for enjoyment."
+      "'Mi piace' + infinitive; 'in mare' = in the sea (no article)."
     ]
   },
   {
@@ -65,9 +69,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I walk to work every day.",
-    "correctAnswer": "Cammino al lavoro ogni giorno.",
+    "correctAnswer": "Vado al lavoro a piedi ogni giorno.",
     "hints": [
       "State a daily physical activity."
+    ],
+    "acceptedAnswers": [
+      "Ogni giorno vado al lavoro a piedi."
     ]
   },
   {
@@ -89,6 +96,9 @@
     "correctAnswer": "Non sono molto sportivo.",
     "hints": [
       "An honest statement about your fitness habits."
+    ],
+    "acceptedAnswers": [
+      "Non sono molto sportiva."
     ]
   },
   {
@@ -96,20 +106,27 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: How many times a week do you exercise?",
-    "correctAnswer": "Quante volte alla settimana si esercita?",
+    "correctAnswer": "Quante volte alla settimana fai attività fisica?",
     "hints": [
       "Use 'how many times' for frequency."
+    ],
+    "acceptedAnswers": [
+      "Quante volte alla settimana fa attività fisica?",
+      "Quante volte a settimana fai sport?"
     ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I go running in the morning.",
-    "correctAnswer": "Vado a correre domattina.",
+    "correctAnswer": "Vado a correre la mattina.",
     "hints": [
       "Daily routine sentence."
     ],
-    "id": "it-sp-a1-39"
+    "id": "it-sp-a1-39",
+    "acceptedAnswers": [
+      "La mattina vado a correre."
+    ]
   },
   {
     "level": "a1",
@@ -140,7 +157,11 @@
     "prompt": "Say: I have been going to the gym three times a week.",
     "correctAnswer": "Vado in palestra tre volte a settimana.",
     "hints": [
-      "Present perfect continuous for an ongoing routine."
+      "Italian uses the simple present for a current routine; add 'da un po'' for 'lately'."
+    ],
+    "acceptedAnswers": [
+      "Da un po' vado in palestra tre volte a settimana.",
+      "Vado in palestra tre volte alla settimana."
     ]
   },
   {
@@ -158,9 +179,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I pulled a muscle during my workout yesterday.",
-    "correctAnswer": "Ho tirato un muscolo durante il mio allenamento ieri.",
+    "correctAnswer": "Ieri mi sono stirato un muscolo durante l'allenamento.",
     "hints": [
       "'Pulled a muscle' is the phrase for a mild muscle injury."
+    ],
+    "acceptedAnswers": [
+      "Ieri mi sono stirata un muscolo durante l'allenamento."
     ]
   },
   {
@@ -168,7 +192,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I need to warm up before I start training.",
-    "correctAnswer": "Devo riscaldarmi prima di iniziare a allenarmi.",
+    "correctAnswer": "Devo riscaldarmi prima di iniziare ad allenarmi.",
     "hints": [
       "'Warm up' means gentle exercise before main activity."
     ]
@@ -188,9 +212,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I signed up for a half-marathon next month.",
-    "correctAnswer": "Mi sono iscritto per una mezza maratona il mese prossimo.",
+    "correctAnswer": "Mi sono iscritto a una mezza maratona per il mese prossimo.",
     "hints": [
       "'Signed up for' means registered for."
+    ],
+    "acceptedAnswers": [
+      "Mi sono iscritta a una mezza maratona per il mese prossimo."
     ]
   },
   {
@@ -247,7 +274,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Stretching helps prevent injuries.",
-    "correctAnswer": "La stretching aiuta a prevenire lesioni.",
+    "correctAnswer": "Lo stretching aiuta a prevenire gli infortuni.",
     "hints": [
       "General truth form."
     ],
@@ -257,22 +284,31 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How long is your usual workout?",
-    "correctAnswer": "Quanto tempo è il solito allenamento?",
+    "prompt": "Quanto ___ di solito il tuo allenamento?",
+    "correctAnswer": "dura",
     "hints": [
-      "Useful gym conversation."
+      "'Durare' = to last; third person singular."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-sp-a2-51"
+    "id": "it-sp-a2-51",
+    "clozeOptions": [
+      "dura",
+      "durano",
+      "durare",
+      "durato"
+    ]
   },
   {
     "id": "it-sf-b1-1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Consistency is more important than intensity when building a fitness habit.",
-    "correctAnswer": "La coerenza è più importante dell'intensità quando si costruisce un'abitudine di fitness.",
+    "correctAnswer": "Quando si costruisce un'abitudine sportiva, la costanza è più importante dell'intensità.",
     "hints": [
       "'Consistency' means doing something regularly; 'intensity' means how hard you work."
+    ],
+    "acceptedAnswers": [
+      "La costanza è più importante dell'intensità quando si costruisce un'abitudine di allenamento."
     ]
   },
   {
@@ -280,9 +316,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been training five days a week and can already see improvements in my stamina.",
-    "correctAnswer": "Ho corso cinque giorni alla settimana e posso già vedere miglioramenti nella mia resistenza.",
+    "correctAnswer": "Mi alleno cinque giorni alla settimana e vedo già dei miglioramenti nella mia resistenza.",
     "hints": [
-      "'Stamina' means the ability to sustain effort; present perfect continuous for ongoing."
+      "Italian uses the present for an ongoing routine; 'resistenza' = stamina."
     ]
   },
   {
@@ -290,7 +326,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Do you think competitive sport teaches important life skills?",
-    "correctAnswer": "Pensi che lo sport competitivo insegni importanti abilità di vita?",
+    "correctAnswer": "Pensi che lo sport agonistico insegni competenze importanti per la vita?",
     "hints": [
       "A discussion question about the value of sport."
     ]
@@ -300,7 +336,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I had to take three weeks off training due to an overuse injury.",
-    "correctAnswer": "Ho dovuto prendere tre settimane di allenamento a causa di una lesione di overuse.",
+    "correctAnswer": "Ho dovuto sospendere gli allenamenti per tre settimane a causa di un infortunio da sovraccarico.",
     "hints": [
       "'Overuse injury' comes from too much repetitive activity."
     ]
@@ -310,7 +346,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My personal trainer recommended incorporating strength work alongside my cardio routine.",
-    "correctAnswer": "Il mio personal trainer ha raccomandato di integrare il lavoro di forza insieme alla mia routine cardio.",
+    "correctAnswer": "Il mio personal trainer mi ha consigliato di affiancare esercizi di forza alla mia routine di cardio.",
     "hints": [
       "'Incorporating' means adding in; 'cardio' = cardiovascular exercise."
     ]
@@ -320,7 +356,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The mental health benefits of regular exercise are well established.",
-    "correctAnswer": "I benefici per la salute mentale di esercizio regolare sono ben stabiliti.",
+    "correctAnswer": "I benefici dell'attività fisica regolare per la salute mentale sono ben documentati.",
     "hints": [
       "'Well established' = widely accepted based on evidence."
     ]
@@ -330,11 +366,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A colleague asks why you started running.",
-    "correctAnswer": "Ho iniziato come un modo per gestire lo stress, ed è diventato qualcosa che mi piace veramente.",
+    "correctAnswer": "Ho iniziato per gestire lo stress, e poi è diventato qualcosa che mi piace davvero.",
     "hints": [
       "Give a reason and show how it evolved."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I started as a way to manage stress, and it became something I really enjoy."
   },
   {
     "id": "it-sf-b1-8",
@@ -361,7 +398,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Have you found that exercising regularly has changed how you feel day to day?",
-    "correctAnswer": "Hai scoperto che l'esercizio regolarmente è cambiato come ti senti giorno per giorno?",
+    "correctAnswer": "Hai notato che fare attività fisica regolarmente ha cambiato il modo in cui ti senti ogni giorno?",
     "hints": [
       "'Day to day' means in daily life; present perfect asks about experience."
     ]
@@ -380,42 +417,51 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I switched to cycling because it is easier on my knees.",
-    "correctAnswer": "Sono passato in bicicletta perché è più facile sulle ginocchia.",
+    "correctAnswer": "Sono passato alla bicicletta perché affatica meno le ginocchia.",
     "hints": [
       "Explain reason with 'because'."
     ],
     "exerciseType": "build_sentence",
-    "id": "it-sp-b1-60"
+    "id": "it-sp-b1-60",
+    "acceptedAnswers": [
+      "Sono passata alla bicicletta perché affatica meno le ginocchia."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What strategy do you use to stay consistent with training?",
-    "correctAnswer": "Quale strategia usi per rimanere coerente con la formazione?",
+    "prompt": "Quale strategia usi per allenarti con ___?",
+    "correctAnswer": "costanza",
     "hints": [
-      "Reflective sports question."
+      "A noun meaning 'consistency/regularity'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-sp-b1-61"
+    "id": "it-sp-b1-61",
+    "clozeOptions": [
+      "costanza",
+      "coerenza",
+      "costante",
+      "costanze"
+    ]
   },
   {
     "id": "it-sf-b2-1",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: The commercialisation of elite sport raises questions about its relationship with grassroots participation.",
-    "correctAnswer": "La commercializzazione dello sport d'elite pone domande circa il suo rapporto con la partecipazione di base.",
+    "prompt": "Say: The commercialization of elite sport raises questions about its relationship with grassroots participation.",
+    "correctAnswer": "La commercializzazione dello sport d'élite solleva interrogativi sul suo rapporto con la pratica di base.",
     "hints": [
-      "'Commercialisation' = the process of making something about money; 'grassroots' = community level."
+      "'Commercialization' = the process of making something about money; 'grassroots' = community level."
     ]
   },
   {
     "id": "it-sf-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Periodisation — the systematic planning of training cycles — is central to peak athletic performance.",
-    "correctAnswer": "Periodizzazione — la pianificazione sistematica dei cicli di formazione — è centrale a picco le prestazioni atletiche.",
+    "prompt": "Say: Periodization — the systematic planning of training cycles — is central to peak athletic performance.",
+    "correctAnswer": "La periodizzazione — la pianificazione sistematica dei cicli di allenamento — è fondamentale per raggiungere il massimo rendimento atletico.",
     "hints": [
-      "'Periodisation' = planned variation in training; 'peak performance' = best possible level."
+      "'Periodization' = planned variation in training; 'peak performance' = best possible level."
     ]
   },
   {
@@ -433,7 +479,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The proliferation of wearable technology has fundamentally altered how athletes monitor performance.",
-    "correctAnswer": "La proliferazione della tecnologia indossabile ha modificato fondamentalmente come gli atleti monitorano le prestazioni.",
+    "correctAnswer": "La diffusione della tecnologia indossabile ha cambiato radicalmente il modo in cui gli atleti monitorano le prestazioni.",
     "hints": [
       "'Proliferation' = rapid increase; 'fundamentally altered' = changed at a basic level."
     ]
@@ -443,7 +489,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Doping scandals have eroded public trust in competitive sport, particularly at the elite level.",
-    "correctAnswer": "Gli scandali doping hanno eroso la fiducia pubblica nello sport competitivo, in particolare a livello di élite.",
+    "correctAnswer": "Gli scandali di doping hanno eroso la fiducia del pubblico nello sport agonistico, soprattutto ad alto livello.",
     "hints": [
       "'Eroded' = gradually worn away; 'doping' = use of banned performance-enhancing substances."
     ]
@@ -453,7 +499,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Maintaining work-life-fitness balance in a sedentary profession requires deliberate effort and planning.",
-    "correctAnswer": "Mantenere l'equilibrio di lavoro-vita-fitness in una professione sedenaria richiede uno sforzo deliberato e una pianificazione.",
+    "correctAnswer": "In una professione sedentaria, conciliare lavoro, vita privata e attività fisica richiede impegno e pianificazione.",
     "hints": [
       "'Sedentary' = involving a lot of sitting; 'deliberate' = intentional."
     ]
@@ -473,7 +519,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The psychological resilience required at elite level is as demanding as the physical conditioning.",
-    "correctAnswer": "La resilienza psicologica richiesta a livello elite è tanto impegnativa quanto il condizionamento fisico.",
+    "correctAnswer": "La resilienza psicologica richiesta ad alto livello è impegnativa quanto la preparazione fisica.",
     "hints": [
       "'Resilience' = ability to bounce back from difficulty; 'conditioning' = physical training state."
     ]
@@ -482,7 +528,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: A balanced training plan reduces the risk of overtraining.",
-    "correctAnswer": "Un piano di formazione equilibrato riduce il rischio di sovraformazione.",
+    "correctAnswer": "Un piano di allenamento equilibrato riduce il rischio di sovrallenamento.",
     "hints": [
       "Formal fitness vocabulary."
     ],
@@ -491,23 +537,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Performance improves when recovery is treated as part of training.",
-    "correctAnswer": "Le prestazioni migliorano quando il recupero viene trattato come parte della formazione.",
+    "prompt": "Le prestazioni migliorano quando il ___ viene considerato parte dell'allenamento.",
+    "correctAnswer": "recupero",
     "hints": [
-      "Passive form at B2."
+      "A noun meaning 'recovery'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-sp-b2-70"
+    "id": "it-sp-b2-70",
+    "clozeOptions": [
+      "recupero",
+      "risultato",
+      "record",
+      "riscatto"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can athletes maintain motivation during long off-seasons?",
-    "correctAnswer": "Come possono gli atleti mantenere la motivazione durante le lunghe fuori stagione?",
+    "prompt": "Dialogue: At a coaching seminar, you ask about keeping athletes motivated between seasons.",
+    "correctAnswer": "Come possono gli atleti mantenere la motivazione durante i lunghi periodi di pausa?",
     "hints": [
       "Complex question pattern."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-sp-b2-71"
+    "id": "it-sp-b2-71",
+    "answerEnglish": "How can athletes maintain motivation during long off-seasons?"
   }
 ]

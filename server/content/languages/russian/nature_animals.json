@@ -4,9 +4,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: There is a cat on the roof.",
-    "correctAnswer": "На крыше есть кошка.",
+    "correctAnswer": "На крыше сидит кошка.",
     "hints": [
-      "Use 'there is' to describe location."
+      "Start with the place ('на крыше'); Russian often adds a position verb like 'сидит'."
+    ],
+    "acceptedAnswers": [
+      "На крыше кошка."
     ]
   },
   {
@@ -59,6 +62,9 @@
     "correctAnswer": "Вчера вечером я видел лису около леса.",
     "hints": [
       "Use past tense to describe what you saw."
+    ],
+    "acceptedAnswers": [
+      "Вчера вечером я видела лису около леса."
     ]
   },
   {
@@ -122,7 +128,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Some species have adapted remarkably well to living alongside humans.",
-    "correctAnswer": "Некоторые виды замечательно хорошо приспособились к жизни рядом с людьми.",
+    "correctAnswer": "Некоторые виды удивительно хорошо приспособились к жизни рядом с людьми.",
     "hints": [
       "Use past tense with an adverb for emphasis."
     ],
@@ -350,12 +356,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Listen and build the sentence you hear.",
-    "correctAnswer": "Байкал — самое глубокое озеро в мире и содержит около двадцати процентов мировых запасов пресной воды.",
+    "correctAnswer": "Байкал — самое глубокое озеро в мире и содержит около двадцати процентов мировых запасов поверхностной пресной воды.",
     "hints": [
       "Listen for 'самое глубокое' (the deepest) and 'запасов пресной воды' (freshwater reserves)."
     ],
     "exerciseType": "dictation_sentence",
-    "culturalNote": "Lake Baikal in Siberia is a UNESCO World Heritage Site and the largest reservoir of fresh water on Earth."
+    "culturalNote": "Lake Baikal in Siberia is a UNESCO World Heritage Site and the largest freshwater lake on Earth by volume."
   },
   {
     "id": "ru-na-b1-7",
@@ -773,7 +779,7 @@
       "Listen for 'на Камчатке' (in Kamchatka) and 'одна из самых больших' (one of the largest)."
     ],
     "exerciseType": "dictation_sentence",
-    "culturalNote": "Kamchatka is a peninsula in Russia's Far East, with volcanoes, geysers, and the largest population of brown bears."
+    "culturalNote": "Kamchatka is a peninsula in Russia's Far East, with volcanoes, geysers, and one of the world's largest populations of brown bears."
   },
   {
     "id": "ru-na-b1-17",

@@ -4,7 +4,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a building where you can see art or historical objects",
-    "correctAnswer": "museet museum",
+    "correctAnswer": "museum",
     "hints": [
       "Think of a place that preserves important objects."
     ],
@@ -17,7 +17,7 @@
     "prompt": "Say: I love visiting old buildings.",
     "correctAnswer": "Jag älskar att besöka gamla byggnader.",
     "hints": [
-      "'Love' + gerund for a strong preference."
+      "'Älska att' + infinitive = to love doing something."
     ]
   },
   {
@@ -38,6 +38,10 @@
     "correctAnswer": "Detta är en traditionell festival.",
     "hints": [
       "'Traditional' means part of a long custom."
+    ],
+    "acceptedAnswers": [
+      "Det här är en traditionell högtid.",
+      "Det här är en traditionell fest."
     ]
   },
   {
@@ -45,10 +49,11 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: When is the national holiday?",
-    "correctAnswer": "När är den nationella semestern?",
+    "correctAnswer": "När är nationaldagen?",
     "hints": [
       "A public day off to celebrate a country's history."
-    ]
+    ],
+    "culturalNote": "Sweden's National Day is June 6, a public holiday since 2005."
   },
   {
     "id": "sv-ch-a1-6",
@@ -86,9 +91,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I went to the theater last weekend.",
-    "correctAnswer": "Jag gick till teatern förra helgen.",
+    "correctAnswer": "Jag gick på teater förra helgen.",
     "hints": [
       "Simple past for a recent visit."
+    ],
+    "acceptedAnswers": [
+      "Förra helgen gick jag på teater."
     ]
   },
   {
@@ -131,16 +139,20 @@
       "Basic culture question."
     ],
     "exerciseType": "flashcard",
-    "id": "sv-cu-a1-41"
+    "id": "sv-cu-a1-41",
+    "acceptedAnswers": [
+      "Vad heter den här festivalen?",
+      "Vad heter den här högtiden?"
+    ]
   },
   {
     "id": "sv-ch-a2",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The castle was built in the twelfth century.",
-    "correctAnswer": "Slottet byggdes på 1200-talet.",
+    "correctAnswer": "Slottet byggdes på 1100-talet.",
     "hints": [
-      "Passive past simple for a historical fact."
+      "Swedish counts centuries by their hundreds: the 1100s = '1100-talet' (the twelfth century)."
     ]
   },
   {
@@ -158,9 +170,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Every year, the town holds a traditional food festival in July.",
-    "correctAnswer": "Varje år har staden en traditionell matfestival i juli.",
+    "correctAnswer": "Varje år i juli anordnar orten en traditionell matfestival.",
     "hints": [
       "Use present simple for regular events."
+    ],
+    "acceptedAnswers": [
+      "Varje år har staden en traditionell matfestival i juli."
     ]
   },
   {
@@ -178,7 +193,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Are there any historical sites worth visiting nearby?",
-    "correctAnswer": "Finns det några historiska platser värda att besöka i närheten?",
+    "correctAnswer": "Finns det några historiska platser i närheten som är värda ett besök?",
     "hints": [
       "'Worth visiting' means deserving a visit."
     ]
@@ -190,7 +205,10 @@
     "prompt": "Say: The museum has an impressive collection of Roman artifacts.",
     "correctAnswer": "Museet har en imponerande samling romerska artefakter.",
     "hints": [
-      "'Artefacts' are objects made or used by people in the past."
+      "'Artifacts' are objects made or used by people in the past; museums often say 'föremål'."
+    ],
+    "acceptedAnswers": [
+      "Museet har en imponerande samling romerska föremål."
     ]
   },
   {
@@ -198,7 +216,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The local folk music here is quite different from what I am used to.",
-    "correctAnswer": "Den lokala folkmusiken här är helt annorlunda än vad jag är van vid.",
+    "correctAnswer": "Folkmusiken här är ganska annorlunda än den jag är van vid.",
     "hints": [
       "'I am used to' means accustomed to."
     ]
@@ -218,22 +236,21 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We attended the opening night of a new exhibition at the gallery.",
-    "correctAnswer": "Vi deltog i öppningsnatten på en ny utställning på galleriet.",
+    "correctAnswer": "Vi var på vernissagen för en ny utställning på galleriet.",
     "hints": [
-      "'Attended' = went to; 'opening night' = the first evening."
+      "'Vernissage' = the opening of an art exhibition."
     ]
   },
   {
     "id": "sv-ch-a2-10",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: Shakespeare wrote thirty-seven plays during his lifetime.",
-    "correctAnswer": "Shakespeare skrev trettiosju pjäser under sin livstid.",
+    "prompt": "Say: Strindberg wrote more than sixty plays during his lifetime.",
+    "correctAnswer": "Strindberg skrev fler än sextio pjäser under sin livstid.",
     "hints": [
-      "Past simple for a completed historical fact.",
-      "Shakespeare is considered the greatest writer in the English language."
+      "Past tense for a historical fact; 'fler än' = more than."
     ],
-    "culturalNote": "William Shakespeare (1564–1616) is considered the greatest writer in the English language. His works are still performed in theaters worldwide."
+    "culturalNote": "August Strindberg (1849–1912) is Sweden's most famous playwright; his plays, such as 'Fröken Julie' (Miss Julie), are still performed worldwide."
   },
   {
     "level": "a2",
@@ -259,20 +276,26 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Why do people celebrate this holiday?",
-    "correctAnswer": "Varför firar folk denna semester?",
+    "prompt": "Varför firar folk den här ___?",
+    "correctAnswer": "högtiden",
     "hints": [
-      "History/culture curiosity."
+      "A celebrated holiday is a 'högtid'; 'semester' is a vacation."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-cu-a2-51"
+    "id": "sv-cu-a2-51",
+    "clozeOptions": [
+      "högtiden",
+      "semestern",
+      "ledigheten",
+      "säsongen"
+    ]
   },
   {
     "id": "sv-ch-b1",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Cultural heritage shapes national identity in ways that are often invisible to those within the culture.",
-    "correctAnswer": "Kulturarv formar nationell identitet på sätt som ofta är osynliga för dem inom kulturen.",
+    "correctAnswer": "Kulturarvet formar den nationella identiteten på sätt som ofta är osynliga för dem som är en del av kulturen.",
     "hints": [
       "'Shapes' = influences; 'invisible to' = not easily seen by."
     ]
@@ -284,7 +307,10 @@
     "prompt": "Ask: Do you think colonialism has left a lasting impact on contemporary culture?",
     "correctAnswer": "Tror du att kolonialismen har lämnat en bestående inverkan på den samtida kulturen?",
     "hints": [
-      "'Colonialism' = the practice of colonising other countries; 'lasting impact' = long-term effect."
+      "'Colonialism' = the practice of colonizing other countries; 'bestående avtryck' = lasting impact."
+    ],
+    "acceptedAnswers": [
+      "Tror du att kolonialismen har lämnat bestående avtryck i den samtida kulturen?"
     ]
   },
   {
@@ -312,7 +338,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Oral traditions have played a crucial role in preserving history where written records were absent.",
-    "correctAnswer": "Orala traditioner har spelat en avgörande roll för att bevara historia där skriftliga dokument saknades.",
+    "correctAnswer": "Muntliga traditioner har spelat en avgörande roll för att bevara historien där skriftliga källor saknades.",
     "hints": [
       "'Oral traditions' = stories passed down verbally; 'preserving' = keeping alive."
     ]
@@ -322,7 +348,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: How does a country reconcile pride in its history with acknowledgement of past wrongs?",
-    "correctAnswer": "Hur försonar ett land stolthet i sin historia med erkännande av tidigare fel?",
+    "correctAnswer": "Hur förenar ett land stoltheten över sin historia med erkännandet av tidigare orätter?",
     "hints": [
       "'Reconcile' = bring into harmony; a discussion about national identity and responsibility."
     ]
@@ -331,10 +357,10 @@
     "id": "sv-ch-b1-7",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: The Renaissance was characterised by a renewed interest in classical antiquity and humanist philosophy.",
-    "correctAnswer": "Renässansen präglades av ett förnyat intresse för klassisk antiken och humanistisk filosofi.",
+    "prompt": "Say: The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
+    "correctAnswer": "Renässansen präglades av ett förnyat intresse för den klassiska antiken och humanistisk filosofi.",
     "hints": [
-      "'Characterised by' = defined or typified by; 'antiquity' = ancient times.",
+      "'Characterized by' = defined or typified by; 'antiquity' = ancient times.",
       "'Humanist' thought placed humans, not God, at the center of intellectual life."
     ],
     "culturalNote": "The Renaissance (14th–17th centuries) began in Italy and spread across Europe, transforming art, science, and intellectual thought."
@@ -343,8 +369,8 @@
     "id": "sv-ch-b1-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Globalisation has accelerated cultural exchange but also threatened the survival of minority languages.",
-    "correctAnswer": "Globaliseringen har påskyndat kulturutbytet men hotade också minoritetsspråkens överlevnad.",
+    "prompt": "Say: Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
+    "correctAnswer": "Globaliseringen har påskyndat kulturutbytet men också hotat minoritetsspråkens överlevnad.",
     "hints": [
       "'Accelerated' = sped up; 'minority languages' = languages spoken by fewer people."
     ]
@@ -354,18 +380,19 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Someone asks what you found most moving during a museum visit.",
-    "correctAnswer": "De personliga bokstäverna och dagböckerna gav mig en mycket starkare känsla av hur livet faktiskt var vid den tiden.",
+    "correctAnswer": "De personliga breven och dagböckerna gav mig en mycket starkare känsla för hur livet verkligen var på den tiden.",
     "hints": [
       "Ground your response in specific artifacts; use 'gave me a sense of'."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "The personal letters and diaries gave me a much stronger sense of what life was really like back then."
   },
   {
     "id": "sv-ch-b1-10",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The partition of the subcontinent in 1947 had profound and lasting consequences for millions of families.",
-    "correctAnswer": "Partitionen av subkontinenten 1947 hade djupa och varaktiga konsekvenser för miljontals familjer.",
+    "correctAnswer": "Delningen av den indiska subkontinenten 1947 fick djupa och bestående konsekvenser för miljontals familjer.",
     "hints": [
       "'Partition' = division; 'profound' = very significant."
     ]
@@ -384,7 +411,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Local traditions help preserve community identity.",
-    "correctAnswer": "Lokala traditioner hjälper till att bevara gemenskapsidentitet.",
+    "correctAnswer": "Lokala traditioner hjälper till att bevara den lokala identiteten.",
     "hints": [
       "Community-focused statement."
     ],
@@ -394,31 +421,40 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Which historical period do you find most fascinating?",
-    "correctAnswer": "Vilken historisk period finner du mest fascinerande?",
+    "prompt": "Vilken historisk period tycker du är mest ___?",
+    "correctAnswer": "fascinerande",
     "hints": [
-      "Opinion prompt."
+      "An adjective ending in -ande (invariable)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-cu-b1-61"
+    "id": "sv-cu-b1-61",
+    "clozeOptions": [
+      "fascinerande",
+      "fascinerad",
+      "fascination",
+      "fascinera"
+    ]
   },
   {
     "id": "sv-ch-b2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The repatriation of colonial artifacts remains one of the most contentious debates in contemporary museum practice.",
-    "correctAnswer": "Reatrieringen av koloniala artefakter är fortfarande en av de mest omtvistade debatterna i modern museipraxis.",
+    "correctAnswer": "Återlämnandet av koloniala föremål är fortfarande en av de mest omstridda frågorna inom dagens museivärld.",
     "hints": [
       "'Repatriation' = returning objects to their country of origin; 'contentious' = causing debate."
     ],
-    "culturalNote": "Many museums hold artifacts acquired during the colonial era; debates about returning items like the Elgin Marbles and the Benin Bronzes continue."
+    "culturalNote": "Many museums hold artifacts acquired during the colonial era; debates about returning items like the Elgin Marbles and the Benin Bronzes continue.",
+    "acceptedAnswers": [
+      "Repatrieringen av koloniala artefakter är fortfarande en av de mest omstridda debatterna i modern museipraxis."
+    ]
   },
   {
     "id": "sv-ch-b2-2",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: To what extent does national mythology construct a selective and self-serving version of historical events?",
-    "correctAnswer": "I vilken utsträckning bygger den nationella mytologin en selektiv och självbetjänande version av historiska händelser?",
+    "correctAnswer": "I vilken utsträckning skapar den nationella mytologin en selektiv och tillrättalagd bild av historiska händelser?",
     "hints": [
       "'National mythology' = the stories a nation tells about itself; 'self-serving' = benefiting those in power."
     ]
@@ -428,9 +464,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The Enlightenment represented a fundamental epistemic shift that placed reason above religious authority.",
-    "correctAnswer": "Upplysningen representerade ett grundläggande epistemiskt skifte som placerade orsak över religiös auktoritet.",
+    "correctAnswer": "Upplysningen innebar ett grundläggande kunskapsteoretiskt skifte som satte förnuftet över den religiösa auktoriteten.",
     "hints": [
-      "'Epistemic' = relating to knowledge; 'placed reason above' = prioritised rationality over faith."
+      "'Förnuftet' = reason; 'placed reason above' = prioritized rationality over faith."
     ]
   },
   {
@@ -438,7 +474,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Cultural appropriation raises difficult questions about ownership, power, and the boundaries of artistic borrowing.",
-    "correctAnswer": "Kulturanpassning väcker svåra frågor om ägande, makt och gränserna för konstnärlig upplåning.",
+    "correctAnswer": "Kulturell appropriering väcker svåra frågor om ägande, makt och gränserna för konstnärliga lån.",
     "hints": [
       "'Cultural appropriation' = adopting elements of another culture, often without consent or understanding."
     ]
@@ -458,7 +494,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: How do commemorative practices shape collective memory and influence political identity?",
-    "correctAnswer": "Hur formar minnesmetoder kollektivt minne och påverkar politisk identitet?",
+    "correctAnswer": "Hur formar minnesritualer det kollektiva minnet och påverkar den politiska identiteten?",
     "hints": [
       "'Commemorative practices' = rituals of remembrance; 'collective memory' = shared historical understanding."
     ]
@@ -468,7 +504,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Historiography — the study of how history is written — reveals as much about the historian's era as about the events described.",
-    "correctAnswer": "Historieskrivning - studiet av hur historien skrivs - avslöjar lika mycket om historikerns tid som om de händelser som beskrivs.",
+    "correctAnswer": "Historiografi – studiet av hur historia skrivs – avslöjar lika mycket om historikerns tid som om de händelser som beskrivs.",
     "hints": [
       "'Historiography' = the study of historical writing; 'era' = time period."
     ]
@@ -478,7 +514,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The commodification of cultural heritage through mass tourism can simultaneously preserve and undermine it.",
-    "correctAnswer": "Kulturarvets modifiering genom massturism kan samtidigt bevara och undergräva det.",
+    "correctAnswer": "Kommersialiseringen av kulturarvet genom massturism kan samtidigt bevara och underminera det.",
     "hints": [
       "'Commodification' = turning into a product; 'simultaneously' = at the same time; 'undermine' = weaken."
     ]
@@ -487,7 +523,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Interpreting history requires awareness of perspective and bias.",
-    "correctAnswer": "Tolkande historia kräver medvetenhet om perspektiv och fördomar.",
+    "correctAnswer": "Att tolka historia kräver medvetenhet om perspektiv och partiskhet.",
     "hints": [
       "Analytical framing."
     ],
@@ -496,24 +532,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Cultural heritage can strengthen social cohesion across generations.",
-    "correctAnswer": "Kulturarv kan stärka den sociala sammanhållningen över generationer.",
+    "prompt": "Kulturarv kan stärka den sociala ___ över generationerna.",
+    "correctAnswer": "sammanhållningen",
     "hints": [
-      "Advanced abstract wording."
+      "Definite form after 'den sociala'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-cu-b2-70"
+    "id": "sv-cu-b2-70",
+    "clozeOptions": [
+      "sammanhållningen",
+      "sammanhållning",
+      "samhället",
+      "samarbetet"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should societies balance preservation with modernization?",
-    "correctAnswer": "Hur bör samhällen balansera bevarandet med modernisering?",
+    "prompt": "Dialogue: At a town meeting about renovating the historic center, you ask how societies should balance preservation with modernization.",
+    "correctAnswer": "Hur bör samhällen väga bevarande mot modernisering?",
     "hints": [
       "Complex policy-style question."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Cultural references vary by region and period.",
-    "id": "sv-cu-b2-71"
+    "id": "sv-cu-b2-71",
+    "answerEnglish": "How should societies balance preservation with modernization?"
   }
 ]

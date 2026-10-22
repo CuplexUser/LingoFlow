@@ -1,0 +1,482 @@
+{
+  "language": "french",
+  "category": "nature_animals",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:21:50.230Z",
+  "contentHash": "cf9e64237c9c5512",
+  "summary": "B1–B2 environmental sentences are mostly correct, but A1–A2 weather and nature basics contain several calques that teach wrong French (Quel est le temps, Il a été chaud, lumières du Nord, la rivière a inondé). Two B1 items mistranslate key terms (rétablissement for 'rewilding', 'une murmure des étourneaux'), and the file has the usual cloze items without blanks plus a roleplay and dialogue_turn without answerEnglish or situation.",
+  "findings": [
+    {
+      "id": "fr-na-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains English 'it is'; French weather verbs use impersonal 'il'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Weather verbs like 'pleuvoir' use impersonal 'il': 'il pleut'."
+          ]
+        }
+      ],
+      "itemHash": "e41fdb1f91edc84d",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a1-3",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Quel est le temps' is not how French asks about the weather; the fixed phrase is 'Quel temps fait-il ?'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quel temps fait-il aujourd'hui ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il fait quel temps aujourd'hui ?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Weather questions use 'faire': 'Quel temps fait-il ?'"
+          ]
+        }
+      ],
+      "itemHash": "45067525933b9bad",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a1-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses 'autumn' instead of US 'fall'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after fall."
+          ]
+        }
+      ],
+      "itemHash": "10b37b3de9d10142",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The precise 'animaux de compagnie' and the tu form are not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vous avez des animaux de compagnie ?",
+            "Tu as des animaux ?",
+            "Tu as des animaux de compagnie ?"
+          ]
+        }
+      ],
+      "itemHash": "f67a684e9d8d8b35",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The more natural 'se promener' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je me suis promené dans la forêt hier.",
+            "Je me suis promenée dans la forêt hier."
+          ]
+        }
+      ],
+      "itemHash": "ebd31944ea6c500e",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Weather temperature uses 'faire': 'il a fait chaud', not 'il a été chaud'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il a fait exceptionnellement chaud pour cette période de l'année.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il a fait anormalement chaud pour la saison.",
+            "Il a fait exceptionnellement chaud pour la saison."
+          ]
+        }
+      ],
+      "itemHash": "86e8c86775b3f09d",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'les lumières du Nord' is a calque; the northern lights are 'les aurores boréales'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quel est le meilleur moment de l'année pour voir les aurores boréales ?",
+          "list": null
+        }
+      ],
+      "itemHash": "197a23de0341ae05",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'inonder' needs an object; a river that floods 'déborde'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La rivière a débordé après plusieurs jours de fortes pluies.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La rivière est sortie de son lit après plusieurs jours de fortes pluies."
+          ]
+        }
+      ],
+      "itemHash": "cebca6f9cf5d686e",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a2-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint is about English 'deer'; irrelevant to French.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Une famille de' + plural noun; 'cerf' has the regular plural 'cerfs'."
+          ]
+        }
+      ],
+      "itemHash": "58850fe6e6ab1ad1",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a2-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'rubbish'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I recycle my trash to help protect the environment.",
+          "list": null
+        }
+      ],
+      "itemHash": "9a1019c762e9a045",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a2-8",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'walking' is dropped and 'how often' becomes a yes/no question.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "À quelle fréquence allez-vous vous promener à la campagne ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tous les combien allez-vous vous promener à la campagne ?",
+            "À quelle fréquence vas-tu te promener à la campagne ?"
+          ]
+        }
+      ],
+      "itemHash": "e3863c5efde38a11",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Comment pouvons-nous protéger les animaux ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sauvages",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sauvages",
+            "sauvage",
+            "domestiques",
+            "domestique"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wild' — the adjective agrees with 'animaux' (masculine plural)."
+          ]
+        }
+      ],
+      "itemHash": "01cf0b6e04e78fca",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'déforestation', the more common term, is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La déforestation est l'une des principales causes de perte d'habitat pour de nombreuses espèces en voie de disparition."
+          ]
+        }
+      ],
+      "itemHash": "5aadee61cc0c65d8",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'rétablissement' means recovery in general; rewilding is 'réensauvagement'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les projets de réensauvagement visent à restaurer les écosystèmes naturels en réintroduisant des espèces indigènes.",
+          "list": null
+        }
+      ],
+      "itemHash": "e6154bfe7993d9cc",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The subjunctive after 'Pensez-vous que', equally correct, is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pensez-vous que les espaces verts urbains aient un effet mesurable sur la santé mentale ?"
+          ]
+        }
+      ],
+      "itemHash": "020894c8f16be12e",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'une murmure des étourneaux' is not French (murmure is masculine and not a collective noun); hints and note are about English and the UK.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai eu la chance d'assister à un ballet d'étourneaux au crépuscule.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai eu la chance d'assister à une nuée d'étourneaux au crépuscule."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French describes a murmuration as 'un ballet' or 'une nuée d'étourneaux'; 'au crépuscule' = at dusk."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "Huge swirling flocks of starlings can be seen across France and much of Europe in fall and winter, especially near reed beds and wetlands where the birds roost.",
+          "list": null
+        }
+      ],
+      "itemHash": "aff576d7be774165",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b1-10",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay item has no answerEnglish.",
+      "fix": [
+        {
+          "field": "answerEnglish",
+          "text": "I try to cut down on single-use plastics, eat less meat, and walk or cycle instead of driving.",
+          "list": null
+        }
+      ],
+      "itemHash": "40792300ac71abae",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quelles sont les causes du ___ des populations animales ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "déclin",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "déclin",
+            "déclic",
+            "décor",
+            "délai"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'decline'."
+          ]
+        }
+      ],
+      "itemHash": "db3d904ea89b3799",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The established term is 'la sixième extinction de masse'; 'bien engagée' fits 'well underway'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La sixième extinction de masse, principalement due à l'activité humaine, est déjà bien engagée.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La sixième extinction de masse, principalement attribuable à l'activité humaine, est déjà bien avancée."
+          ]
+        }
+      ],
+      "itemHash": "136c0651ef62bee5",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Les stratégies de conservation doivent tenir compte à la fois de l'écologie et des moyens de ___ locaux.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "subsistance",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "subsistance",
+            "transport",
+            "communication",
+            "paiement"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Moyens de subsistance' = livelihoods."
+          ]
+        }
+      ],
+      "itemHash": "ab05e970660bdc22",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    },
+    {
+      "id": "fr-na-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn item has no situation or answerEnglish; 'produisent le plus grand impact' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a climate workshop, you ask the experts which environmental interventions have the greatest long-term impact.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Quelles sont les interventions environnementales qui ont le plus d'impact à long terme ?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Which environmental interventions have the greatest long-term impact?",
+          "list": null
+        }
+      ],
+      "itemHash": "350a7ac0dc4320ca",
+      "appliedAt": "2026-10-22T09:34:58.126Z"
+    }
+  ]
+}

@@ -1,0 +1,607 @@
+{
+  "language": "swedish",
+  "category": "science_technology",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:57:47.285Z",
+  "contentHash": "8913aa5244e692fb",
+  "summary": "Everyday tech phrases are mostly fine, but several items teach wrong Swedish: 'telefonbatteri är dött', 'för arbete', split compounds (videosamtal app, Open-source programvara, Post-quantum kryptografi), wrong tense (ställer in), 'till' after 'föredrar', 'förskjutit' for displaced, 'misslyckades' for a laptop failing, 'driver i' for 'ushering in', 'Påskyndar' reversing the meaning of 'outpace', and 'eftersom' for 'as'. Plus cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "sv-st-a1-4",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Mitt telefonbatteri är dött' is a calque; Swedes say the battery is 'slut'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Batteriet i mobilen är slut.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mobilen har dött.",
+            "Min telefon har inget batteri kvar."
+          ]
+        }
+      ],
+      "itemHash": "36ee1efa2d782557",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Lint confirmed: 'laptop' is colloquial; the standard term is 'bärbar dator'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "bärbar dator",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'portable computer'; 'laptop' is also heard."
+          ]
+        }
+      ],
+      "itemHash": "258e1a670d3caacb",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a1-7",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'för arbete' is a calque; 'for work' is 'i jobbet'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag skickar mejl i jobbet.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag skickar e-post i jobbet.",
+            "Jag skickar mejl på jobbet."
+          ]
+        }
+      ],
+      "itemHash": "884bb37d431db260",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A password is 'till' something; the everyday 'wifi:t' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vad är lösenordet till wifi:t?",
+            "Vad är lösenordet till Wi-Fi?"
+          ]
+        }
+      ],
+      "itemHash": "d72ad6864fca7dcf",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-sc-a1-41",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Generic 'you' in Swedish is 'man'; 'du' suggests asking how this person charges it.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur laddar man den här enheten?",
+          "list": null
+        }
+      ],
+      "itemHash": "4b1e6e38dd9b345e",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a2-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The standard 'säkerhetskopierade' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag säkerhetskopierade mina filer till molnet."
+          ]
+        }
+      ],
+      "itemHash": "e921193c39806add",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Split compound 'videosamtal app' should be 'videosamtalsapp'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag använder en app för videosamtal för att hålla kontakten med min familj utomlands.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag använder en videosamtalsapp för att hålla kontakten med min familj utomlands."
+          ]
+        }
+      ],
+      "itemHash": "22668a7b80597b31",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'lagring' alone is odd; it is 'lagringsutrymme'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag tog bort appen eftersom den tog för mycket lagringsutrymme.",
+          "list": null
+        }
+      ],
+      "itemHash": "ebc34fd50b7925b4",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'en ny art av insekt' is a calque; Swedish says 'en ny insektsart'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Forskare har upptäckt en ny insektsart i regnskogen.",
+          "list": null
+        }
+      ],
+      "itemHash": "6beb9731f333d212",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a2-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Present tense 'ställer in' for a past action.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag ställde in en automatisk påminnelse i mobilen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag ställde in en automatisk påminnelse på min telefon."
+          ]
+        }
+      ],
+      "itemHash": "f55b881c28981aaf",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-a2-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'föredra ... till' is wrong; it is 'framför'. 'fysiska böcker' is a calque of 'physical'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag föredrar att läsa pappersböcker framför e-böcker.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag läser hellre pappersböcker än e-böcker."
+          ]
+        }
+      ],
+      "itemHash": "ec8e1d27e6230de3",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-sc-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vilket ___ använder du för onlinemöten?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "verktyg",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "verktyg",
+            "verktyget",
+            "verktygen",
+            "verk"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "After 'vilket' the noun is indefinite singular."
+          ]
+        }
+      ],
+      "itemHash": "d19307698fed85a6",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'förskjutit' means shifted; 'samtidigt som man skapar' changes the subject.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Automatiseringen har ersatt många industrijobb, samtidigt som den har skapat nya tjänster inom teknik.",
+          "list": null
+        }
+      ],
+      "itemHash": "8f8bc8aa8dc40438",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b1-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'viewing' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Algoritmen rekommenderar innehåll utifrån vad du har tittat på tidigare.",
+          "list": null
+        }
+      ],
+      "itemHash": "dd5051f2733f5d89",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'förbättrats dramatiskt i effektivitet och kostnad' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tekniken för förnybar energi har blivit betydligt effektivare och billigare under det senaste decenniet.",
+          "list": null
+        }
+      ],
+      "itemHash": "de9403c588ea8546",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b1-7",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'might' is conditional ('skulle kunna'); 'quantum computing' is 'kvantberäkning'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hur skulle kvantdatorer kunna förändra förutsättningarna för datasäkerhet?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hur kan kvantdatorer förändra landskapet för datasäkerhet?"
+          ]
+        }
+      ],
+      "itemHash": "1e873794c45085e5",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b1-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Open-source programvara' is half English and split; Swedish says 'programvara med öppen källkod'. British 'democratised' in prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Open-source software has democratized access to powerful digital tools.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Programvara med öppen källkod har demokratiserat tillgången till kraftfulla digitala verktyg.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Öppen källkod' = open source; 'democratized' = made available to everyone."
+          ]
+        }
+      ],
+      "itemHash": "dc32e484fe5196dd",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b1-10",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay has no answerEnglish.",
+      "fix": [
+        {
+          "field": "answerEnglish",
+          "text": "I think they have real potential, but safety regulations need to catch up with the technology first.",
+          "list": null
+        }
+      ],
+      "itemHash": "73a452e8b0a074a1",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-sc-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'om ... misslyckades' means 'if it failed at a task'; a device 'går sönder'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Jag säkerhetskopierade mina filer ifall den bärbara datorn skulle gå sönder.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Jag backade upp mina filer ifall datorn skulle krascha."
+          ]
+        }
+      ],
+      "itemHash": "0326d6a2af903eb5",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-sc-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'open-source programvara' is half English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vilka är fördelarna med programvara med öppen ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "källkod",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "källkod",
+            "källkoden",
+            "källkoder",
+            "källa"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Öppen källkod' = open source."
+          ]
+        }
+      ],
+      "itemHash": "fd706d07016e7fea",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'driver i' is meaningless; 'ushering in' is 'inleder'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sammansmältningen av AI, bioteknik och materialvetenskap inleder ett nytt industriellt paradigm.",
+          "list": null
+        }
+      ],
+      "itemHash": "e920eb69bc41f2dc",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'mänsklig intervention i biologi' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Genredigering med CRISPR väcker djupa etiska frågor om gränserna för människans ingrepp i biologin.",
+          "list": null
+        }
+      ],
+      "itemHash": "91dc7638851d92c3",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b2-4",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'economic opportunity' is plural in Swedish: 'ekonomiska möjligheter'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Den digitala klyftan förvärrar befintliga socioekonomiska ojämlikheter genom att begränsa tillgången till utbildning och ekonomiska möjligheter.",
+          "list": null
+        }
+      ],
+      "itemHash": "100f26a8c4f7d852",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'utmaningar ställda av' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "De kunskapsteoretiska utmaningar som deepfakes och syntetiska medier ger upphov till kräver nya sätt att verifiera information.",
+          "list": null
+        }
+      ],
+      "itemHash": "6b398c98fd66c856",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Påskyndar' means speeds up, reversing the meaning of 'outpace'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Går den tekniska utvecklingen snabbare än samhällets förmåga att anpassa sina institutioner?",
+          "list": null
+        }
+      ],
+      "itemHash": "c97ab815e6441fdc",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b2-7",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'över akademiska, företags- och regeringssfärer' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Det etiska ramverk som ligger till grund för AI-utvecklingen är fortfarande omstritt inom akademin, näringslivet och den offentliga sektorn.",
+          "list": null
+        }
+      ],
+      "itemHash": "680d32beef69a301",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-st-b2-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Post-quantum kryptografi' is half English; Swedish uses 'postkvantkryptografi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Postkvantkryptografi är nu en strategisk prioritering för regeringar som oroar sig för den långsiktiga datasäkerheten.",
+          "list": null
+        }
+      ],
+      "itemHash": "ea44e1717b7eab2f",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-sc-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'eftersom' means 'because'; 'as (over time)' is 'i takt med att'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Etiska riktlinjer bör utvecklas i takt med att AI-systemen blir mer kapabla.",
+          "list": null
+        }
+      ],
+      "itemHash": "cc59ac93f2d3d9df",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-sc-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Automatisering kan öka produktiviteten samtidigt som arbetsmarknaden ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "omformas",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "omformas",
+            "omformar",
+            "omformades",
+            "omformats"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present-tense s-passive."
+          ]
+        }
+      ],
+      "itemHash": "71d767729cb5025e",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    },
+    {
+      "id": "sv-sc-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a public debate on new technologies, you ask how regulators can encourage innovation without compromising public safety.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How can regulators encourage innovation without compromising public safety?",
+          "list": null
+        }
+      ],
+      "itemHash": "70346e40162c4228",
+      "appliedAt": "2026-10-22T10:00:55.547Z"
+    }
+  ]
+}

@@ -6,7 +6,7 @@
     "prompt": "Say: I work in an office.",
     "correctAnswer": "Lavoro in un ufficio.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Lavorare in' + place; 'un ufficio' = an office."
     ]
   },
   {
@@ -16,7 +16,7 @@
     "prompt": "Say: My shift starts at nine o'clock.",
     "correctAnswer": "Il mio turno inizia alle nove.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Alle' + hour for clock times: 'alle nove'."
     ]
   },
   {
@@ -26,7 +26,12 @@
     "prompt": "Say: I am the new employee.",
     "correctAnswer": "Sono il nuovo impiegato.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Impiegato/impiegata' agrees with the speaker."
+    ],
+    "acceptedAnswers": [
+      "Sono la nuova impiegata.",
+      "Sono il nuovo dipendente.",
+      "Sono la nuova dipendente."
     ]
   },
   {
@@ -69,6 +74,10 @@
     "correctAnswer": "Il mio manager è molto disponibile.",
     "hints": [
       "A manager is your direct boss."
+    ],
+    "acceptedAnswers": [
+      "Il mio responsabile è molto disponibile.",
+      "Il mio capo è molto disponibile."
     ]
   },
   {
@@ -115,7 +124,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Where is the training room?",
-    "correctAnswer": "Dov'è la sala di allenamento?",
+    "correctAnswer": "Dov'è la sala formazione?",
     "hints": [
       "Use this on your first day."
     ],
@@ -126,9 +135,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: the final approval before release",
-    "correctAnswer": "segnale-off",
+    "correctAnswer": "approvazione finale",
     "hints": [
-      "Hyphenated compound noun."
+      "Literally 'final approval'; in offices you may also hear the English 'sign-off'."
     ],
     "exerciseType": "flashcard",
     "id": "it-wo-a1-43"
@@ -159,9 +168,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: someone you report to",
-    "correctAnswer": "manager",
+    "correctAnswer": "responsabile",
     "hints": [
-      "A core workplace noun."
+      "The person you report to; 'manager' is also used in Italian offices."
     ],
     "exerciseType": "flashcard",
     "id": "it-wo-a1-48"
@@ -171,9 +180,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Could you send me the report by Friday?",
-    "correctAnswer": "Puoi mandarmi il rapporto entro venerdi'?",
+    "correctAnswer": "Puoi mandarmi il rapporto entro venerdì?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Può mandarmi il rapporto entro venerdì?",
+      "Potresti mandarmi il rapporto entro venerdì?"
     ]
   },
   {
@@ -181,9 +194,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have a meeting at two o'clock this afternoon.",
-    "correctAnswer": "Ho una riunione alle due di questo pomeriggio.",
+    "correctAnswer": "Ho una riunione oggi pomeriggio alle due.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Oggi pomeriggio alle due ho una riunione."
     ]
   },
   {
@@ -194,6 +210,10 @@
     "correctAnswer": "Possiamo rimandare l'incontro a giovedì?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Possiamo spostare la riunione a giovedì?",
+      "Possiamo rimandare la riunione a giovedì?"
     ]
   },
   {
@@ -201,9 +221,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I will send you the updated version by end of day.",
-    "correctAnswer": "Ti invierò la versione aggiornata entro la fine del giorno.",
+    "correctAnswer": "Ti invierò la versione aggiornata entro fine giornata.",
     "hints": [
       "'By end of day' is a common work deadline phrase."
+    ],
+    "acceptedAnswers": [
+      "Ti manderò la versione aggiornata entro fine giornata.",
+      "Ti invierò la versione aggiornata entro la fine della giornata."
     ]
   },
   {
@@ -211,19 +235,25 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Could you copy me in on that email?",
-    "correctAnswer": "Mi puoi copiare su quell'email?",
+    "correctAnswer": "Puoi mettermi in copia in quella mail?",
     "hints": [
-      "'Copy me in' means add you to the CC field."
+      "'Mettere in copia' = add someone to the CC field."
+    ],
+    "acceptedAnswers": [
+      "Mi puoi mettere in copia in quell'e-mail?"
     ]
   },
   {
     "id": "it-wo-21",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I would like to take two weeks of annual leave in August.",
-    "correctAnswer": "Vorrei prendere due settimane di congedo annuale in agosto.",
+    "prompt": "Say: I would like to take two weeks of vacation in August.",
+    "correctAnswer": "Vorrei prendere due settimane di ferie ad agosto.",
     "hints": [
-      "'Annual leave' is the formal term for holiday days."
+      "'Le ferie' (always plural) = paid vacation from work."
+    ],
+    "acceptedAnswers": [
+      "Vorrei prendere due settimane di ferie in agosto."
     ]
   },
   {
@@ -241,9 +271,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: The deadline is next Monday at noon.",
-    "correctAnswer": "Il termine è il prossimo lunedì a mezzogiorno.",
+    "correctAnswer": "La scadenza è lunedì prossimo a mezzogiorno.",
     "hints": [
       "State the day and time clearly."
+    ],
+    "acceptedAnswers": [
+      "La scadenza è il prossimo lunedì a mezzogiorno."
     ]
   },
   {
@@ -255,16 +288,24 @@
     "hints": [
       "Give clear availability information."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I'm free tomorrow morning, but I have a call in the afternoon.",
+    "acceptedAnswers": [
+      "Sono libera domattina, ma ho una chiamata nel pomeriggio."
+    ]
   },
   {
     "id": "it-wo-41",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have finished my tasks for today.",
-    "correctAnswer": "Ho finito i miei compiti per oggi.",
+    "correctAnswer": "Ho finito le mie attività per oggi.",
     "hints": [
       "Present perfect for completed actions."
+    ],
+    "acceptedAnswers": [
+      "Ho finito i miei compiti per oggi.",
+      "Per oggi ho finito."
     ]
   },
   {
@@ -291,13 +332,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I am responsible for weekly updates.",
-    "correctAnswer": "Sono responsabile degli aggiornamenti settimanali.",
+    "prompt": "Sono ___ degli aggiornamenti settimanali.",
+    "correctAnswer": "responsabile",
     "hints": [
-      "Use this to describe ownership."
+      "An adjective meaning 'in charge of'; singular after 'sono'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-wo-a2-53"
+    "id": "it-wo-a2-53",
+    "clozeOptions": [
+      "responsabile",
+      "responsabili",
+      "responsabilità",
+      "responsabilmente"
+    ]
   },
   {
     "level": "a2",
@@ -325,9 +372,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was not able to attend the conference call due to a scheduling conflict.",
-    "correctAnswer": "Non sono stato in grado di partecipare alla conferenza a causa di un conflitto di pianificazione.",
+    "correctAnswer": "Non sono riuscito a partecipare alla teleconferenza per una sovrapposizione di impegni.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Non sono riuscita a partecipare alla teleconferenza per una sovrapposizione di impegni.",
+      "Non ho potuto partecipare alla call per una sovrapposizione di impegni."
     ]
   },
   {
@@ -375,7 +426,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My role involves coordinating between the sales and marketing teams.",
-    "correctAnswer": "Il mio ruolo consiste nel coordinare tra i team di vendita e marketing.",
+    "correctAnswer": "Il mio ruolo consiste nel coordinare i team di vendita e di marketing.",
     "hints": [
       "'My role involves' is a professional way to describe your job."
     ]
@@ -385,9 +436,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Could you give me an update on where things stand with the client?",
-    "correctAnswer": "Potresti darmi un aggiornamento su dove le cose stanno con il cliente?",
+    "correctAnswer": "Potresti aggiornarmi su come stanno andando le cose con il cliente?",
     "hints": [
       "'Where things stand' means the current situation."
+    ],
+    "acceptedAnswers": [
+      "Potresti darmi un aggiornamento sulla situazione con il cliente?"
     ]
   },
   {
@@ -405,9 +459,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been given more responsibilities since my promotion.",
-    "correctAnswer": "Mi sono dato più responsabilità dalla mia promozione.",
+    "correctAnswer": "Da quando sono stato promosso mi hanno dato più responsabilità.",
     "hints": [
-      "Passive present perfect; 'since my promotion' anchors the time."
+      "Italian often uses an impersonal 'mi hanno dato' instead of the passive."
+    ],
+    "acceptedAnswers": [
+      "Da quando sono stata promossa mi hanno dato più responsabilità.",
+      "Dalla mia promozione mi sono state date più responsabilità."
     ]
   },
   {
@@ -424,7 +482,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I would like to propose a shorter meeting agenda.",
-    "correctAnswer": "Vorrei proporre un programma di riunione più breve.",
+    "correctAnswer": "Vorrei proporre un ordine del giorno più breve.",
     "hints": [
       "Polite formal suggestion structure."
     ],
@@ -434,31 +492,38 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: Can we move this deadline to next Wednesday?",
-    "correctAnswer": "Possiamo spostare questa scadenza al prossimo mercoledì?",
+    "prompt": "Possiamo ___ questa scadenza a mercoledì prossimo?",
+    "correctAnswer": "spostare",
     "hints": [
-      "Direct but collaborative phrasing."
+      "Infinitive after 'possiamo'; it means 'to move'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-wo-b1-63"
+    "id": "it-wo-b1-63",
+    "clozeOptions": [
+      "spostare",
+      "sposare",
+      "spostata",
+      "spostando"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I need more context before I can approve this plan.",
+    "prompt": "Dialogue: Your colleague asks you to approve a project plan right away.",
     "correctAnswer": "Ho bisogno di più contesto prima di poter approvare questo piano.",
     "hints": [
       "State dependency clearly."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-wo-b1-64"
+    "id": "it-wo-b1-64",
+    "answerEnglish": "I need more context before I can approve this plan."
   },
   {
     "id": "it-wo-7",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would like to propose a restructuring of the project timeline.",
-    "correctAnswer": "Vorrei proporre una ristrutturazione della linea temporale del progetto.",
+    "correctAnswer": "Vorrei proporre una revisione della tempistica del progetto.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -468,7 +533,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The stakeholders have concerns about the projected return on investment.",
-    "correctAnswer": "Gli stakeholder hanno preoccupazioni circa il ritorno proiettato sugli investimenti.",
+    "correctAnswer": "Gli stakeholder nutrono dubbi sul ritorno previsto dell'investimento.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -478,9 +543,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Following up on my previous email, I wanted to clarify the deliverables.",
-    "correctAnswer": "In seguito alla mia precedente e-mail, volevo chiarire i consegnabili.",
+    "correctAnswer": "Facendo seguito alla mia e-mail precedente, volevo chiarire i risultati attesi.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Facendo seguito alla mia e-mail precedente, volevo chiarire i deliverable."
     ]
   },
   {
@@ -488,7 +556,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: We need to align on priorities before committing resources to this initiative.",
-    "correctAnswer": "Dobbiamo allineare le priorità prima di impegnare le risorse a questa iniziativa.",
+    "correctAnswer": "Dobbiamo allinearci sulle priorità prima di impegnare risorse in questa iniziativa.",
     "hints": [
       "'Align on' means agree and coordinate on."
     ]
@@ -518,7 +586,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I recommend we pilot the solution with a small cohort before scaling.",
-    "correctAnswer": "Raccomando di pilotare la soluzione con una piccola coorte prima di scagliare.",
+    "correctAnswer": "Raccomando di testare la soluzione con un piccolo gruppo pilota prima di estenderla su larga scala.",
     "hints": [
       "'Pilot' as a verb means to test; 'scaling' means expanding."
     ]
@@ -548,7 +616,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The procurement process needs to be streamlined to reduce lead times.",
-    "correctAnswer": "Il processo di approvvigionamento deve essere semplificato per ridurre i tempi di piombo.",
+    "correctAnswer": "Il processo di approvvigionamento deve essere semplificato per ridurre i tempi di consegna.",
     "hints": [
       "'Streamlined' means made more efficient; 'lead times' are delays before delivery."
     ]
@@ -566,24 +634,31 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I suggest we document risks before final sign-off.",
-    "correctAnswer": "Suggerisco di documentare i rischi prima del decollo finale.",
+    "prompt": "Suggerisco di documentare i rischi prima dell'___ finale.",
+    "correctAnswer": "approvazione",
     "hints": [
-      "Strong phrasing for process quality."
+      "A noun meaning 'approval' (sign-off)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-wo-b2-72"
+    "id": "it-wo-b2-72",
+    "clozeOptions": [
+      "approvazione",
+      "approvare",
+      "approvato",
+      "approva"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How should we mitigate potential delays in this rollout?",
-    "correctAnswer": "Come dobbiamo mitigare i potenziali ritardi in questo rollout?",
+    "prompt": "Dialogue: In a project meeting, you raise the risk of delays in the upcoming rollout.",
+    "correctAnswer": "Come dovremmo mitigare i potenziali ritardi in questo rollout?",
     "hints": [
       "Use 'mitigate' for formal risk language."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-wo-b2-73"
+    "id": "it-wo-b2-73",
+    "answerEnglish": "How should we mitigate potential delays in this rollout?"
   },
   {
     "level": "b2",

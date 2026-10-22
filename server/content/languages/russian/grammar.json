@@ -619,11 +619,13 @@
     "correctAnswer": "Вчера вечером я встретил старого друга.",
     "options": [
       "Вчера вечером я встретил старого друга.",
-      "Я встретил вчера вечером старого друга.",
+      "Вчера вечером старого я встретил друга.",
       "Вчера друга я встретил старого вечером.",
       "Я старого друга встретил вечером вчера."
     ],
-    "hints": ["Time expressions naturally come first in Russian sentences."],
+    "hints": [
+      "Russian word order is flexible, but an adjective stays next to its noun: 'старого друга'."
+    ],
     "exerciseType": "mc_sentence"
   },
   {
@@ -713,8 +715,10 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Consistency matters more than intensity when learning a language.",
-    "correctAnswer": "При изучении языка системность важнее интенсивности.",
-    "hints": ["'При + verbal noun' sets the context; comparative genitive for 'more than'."],
+    "correctAnswer": "При изучении языка регулярность важнее интенсивности.",
+    "hints": [
+      "'При + verbal noun' sets the context; comparative genitive for 'more than'."
+    ],
     "exerciseType": "build_sentence"
   },
   {
@@ -796,15 +800,17 @@
     "id": "ru-gr-b2-mc01",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the sentence with correct word order for emphasis on 'yesterday'.",
+    "prompt": "Choose the most natural, neutral word order: Yesterday I met her at a café.",
     "correctAnswer": "Вчера я встретил её в кафе.",
     "options": [
       "Вчера я встретил её в кафе.",
-      "Я встретил её вчера в кафе.",
-      "В кафе вчера я встретил её.",
-      "Я её вчера встретил в кафе."
+      "Её в кафе встретил вчера я.",
+      "В кафе её я вчера встретил.",
+      "Встретил в кафе вчера её я."
     ],
-    "hints": ["Placing the time word first gives it the most emphasis."],
+    "hints": [
+      "Time words usually open a neutral Russian sentence; the newest information goes at the end."
+    ],
     "exerciseType": "mc_sentence"
   },
   {

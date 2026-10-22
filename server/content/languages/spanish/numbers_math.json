@@ -24,8 +24,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which word means the number 2 in Spanish?",
     "correctAnswer": "dos",
-    "options": ["du", "dos", "doux", "deux"],
-    "hints": ["It rhymes with 'rose'. The others are French!"]
+    "options": [
+      "tres",
+      "dos",
+      "uno",
+      "diez"
+    ],
+    "hints": [
+      "It rhymes with 'rose' (without the r sound at the end)."
+    ]
   },
   {
     "id": "es-num-a1-4",
@@ -43,7 +50,9 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 4 in Spanish",
     "correctAnswer": "cuatro",
-    "hints": ["The music genre 'cuatro' is named after the four-stringed instrument. A table has ___ legs."]
+    "hints": [
+      "The 'cuatro' is a small four-stringed guitar from Venezuela and Puerto Rico. A table has ___ legs."
+    ]
   },
   {
     "id": "es-num-a1-6",
@@ -144,7 +153,13 @@
     "difficulty": "a1",
     "prompt": "Read this calculation in Spanish: 2 + 3 = 5",
     "correctAnswer": "Dos más tres son cinco.",
-    "hints": ["Use: más (plus), son (equals/are). Note: Spanish uses 'son' not 'es' for sums!"]
+    "hints": [
+      "Use: más (plus), son or es igual a (equals)."
+    ],
+    "acceptedAnswers": [
+      "Dos más tres es igual a cinco.",
+      "Dos más tres igual a cinco."
+    ]
   },
   {
     "id": "es-num-a1-17",
@@ -218,8 +233,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you spell 50 in Spanish?",
     "correctAnswer": "cincuenta",
-    "options": ["cincoenta", "cincuenta", "cinqüenta", "cinquenta"],
-    "hints": ["It comes from 'cinco' (five) + '-cuenta'. The 'v' sound disappears!"]
+    "options": [
+      "cincoenta",
+      "cincuenta",
+      "cinqüenta",
+      "cinquenta"
+    ],
+    "hints": [
+      "Based on 'cinco' + '-uenta': cincuenta."
+    ]
   },
   {
     "id": "es-num-a2-3",
@@ -256,7 +278,13 @@
     "exerciseType": "flashcard",
     "prompt": "Math symbol in Spanish: ÷",
     "correctAnswer": "dividido entre",
-    "hints": ["'10 ÷ 2' is 'diez dividido entre dos'. 'Entre' literally means 'between'."]
+    "hints": [
+      "The participle of 'dividir' + a preposition meaning 'between'."
+    ],
+    "acceptedAnswers": [
+      "dividido por",
+      "entre"
+    ]
   },
   {
     "id": "es-num-a2-7",
@@ -301,7 +329,9 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 1,000,000 in Spanish",
     "correctAnswer": "un millón",
-    "hints": ["Note the accent: millón. Plural: millones. 'Ganó un millón de euros.'"]
+    "hints": [
+      "Note the written accent in the singular; plural: millones."
+    ]
   },
   {
     "id": "es-num-a2-12",
@@ -337,8 +367,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you write 37 in Spanish words?",
     "correctAnswer": "treinta y siete",
-    "options": ["tres y siete", "treintaisiete", "treinta y siete", "treinta-siete"],
-    "hints": ["Numbers 31–99 use 'y' (and): treinta y siete. Unlike 21–29, they stay as separate words!"]
+    "options": [
+      "tres y siete",
+      "treintaisiete",
+      "treinta y siete",
+      "treinta-siete"
+    ],
+    "hints": [
+      "Numbers 31–99 use 'y' (and) as three separate words, unlike 21–29."
+    ]
   },
   {
     "id": "es-num-a2-16",
@@ -392,7 +429,13 @@
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary in Spanish: 1/2",
     "correctAnswer": "la mitad",
-    "hints": ["Literally 'the middle'. Also common: 'un medio' in math contexts."]
+    "hints": [
+      "'La mitad' = half (of something). In math, 1/2 is also read 'un medio'."
+    ],
+    "acceptedAnswers": [
+      "un medio",
+      "mitad"
+    ]
   },
   {
     "id": "es-num-b1-2",
@@ -429,7 +472,9 @@
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary in Spanish: the symbol '%'",
     "correctAnswer": "por ciento",
-    "hints": ["From Latin 'per centum': out of a hundred. '20%' = 'veinte por ciento'."]
+    "hints": [
+      "From Latin 'per centum': out of a hundred."
+    ]
   },
   {
     "id": "es-num-b1-6",
@@ -501,7 +546,9 @@
     "difficulty": "b1",
     "prompt": "How do you say the decimal 3.5 in Spanish?",
     "correctAnswer": "tres coma cinco",
-    "hints": ["Spanish uses a comma (coma) for decimals, not a point! '3,5' = 'tres coma cinco'."]
+    "hints": [
+      "Spanish writes decimals with a comma (3,5) and reads the comma aloud."
+    ]
   },
   {
     "id": "es-num-b1-14",
@@ -518,9 +565,11 @@
     "level": "b1",
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
-    "prompt": "Complete: Está en la ___ — just turned 35 last week. (Spanish decade expression)",
+    "prompt": "Complete: Está en la ___: la semana pasada cumplió 35 años.",
     "correctAnswer": "treintena",
-    "hints": ["La treintena = the thirties (age range). La veintena, la cuarentena… same pattern!"]
+    "hints": [
+      "A noun for the decade of life from 30 to 39. La veintena, la cuarentena… same pattern."
+    ]
   },
   {
     "id": "es-num-b1-16",
@@ -529,8 +578,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say 'a pair of' in Spanish?",
     "correctAnswer": "un par de",
-    "options": ["una pareja de", "un par de", "una docena de", "unos de"],
-    "hints": ["'Un par de zapatos' = a pair of shoes. 'Par' is even a math word too — números pares!"]
+    "options": [
+      "una pareja de",
+      "un par de",
+      "una docena de",
+      "unos de"
+    ],
+    "hints": [
+      "'___ zapatos' = a pair of shoes. The same root gives 'números pares'."
+    ]
   },
   {
     "id": "es-num-b1-17",
@@ -565,17 +621,26 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say 2,500,000 most naturally in spoken Spanish?",
     "correctAnswer": "dos millones y medio",
-    "options": ["veinticinco millones", "dos punto cinco millones", "dos millones y medio", "dos millones quinientos"],
-    "hints": ["'Dos millones y medio' flows most naturally. 'Medio' = half, very handy!"]
+    "options": [
+      "veinticinco millones",
+      "dos punto cinco millones",
+      "dos millones y medio",
+      "dos millones quinientos"
+    ],
+    "hints": [
+      "Spanish adds 'y medio' for 'and a half'."
+    ]
   },
   {
     "id": "es-num-b2-1",
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "flashcard",
-    "prompt": "Translate the Spanish saying: 'No hay dos sin tres.'",
-    "correctAnswer": "Things always come in threes. / There's no two without three.",
-    "hints": ["Used when something happens twice and you expect it to happen again. 'Otra vez? No hay dos sin tres…'"]
+    "prompt": "Spanish saying: things come in threes (if it happened twice, it will happen again)",
+    "correctAnswer": "No hay dos sin tres.",
+    "hints": [
+      "Used when something happens twice and you expect it to happen again. 'Otra vez? No hay dos sin tres…'"
+    ]
   },
   {
     "id": "es-num-b2-2",
@@ -601,9 +666,11 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "flashcard",
-    "prompt": "Translate the Spanish idiom: 'ir a medias'",
-    "correctAnswer": "to go fifty-fifty; to split the cost equally",
-    "hints": ["'Medias' = halves. '¿Vamos a medias?' = Shall we split it?"]
+    "prompt": "Spanish idiom: to go fifty-fifty (split the cost equally)",
+    "correctAnswer": "ir a medias",
+    "hints": [
+      "From 'medio' (half). '¿Vamos ___?' = Shall we split it?"
+    ]
   },
   {
     "id": "es-num-b2-5",
@@ -622,7 +689,9 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Es la sospechosa ___. El detective se centra en ella. (Spanish for 'number one')",
     "correctAnswer": "número uno",
-    "hints": ["'Ser el número uno' = to be the top / the most important. Works in Spanish just like English."]
+    "hints": [
+      "Works just like the English expression for the prime suspect."
+    ]
   },
   {
     "id": "es-num-b2-7",
@@ -640,8 +709,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "What is 'un número redondo' in Spanish?",
     "correctAnswer": "un número que termina en cero y es fácil de usar",
-    "options": ["un número impar", "un número que termina en cero y es fácil de usar", "cualquier número par", "un cuadrado perfecto"],
-    "hints": ["100, 50, 1000 son 'redondos'. 47 y 83 no lo son."]
+    "options": [
+      "un número impar",
+      "un número que termina en cero y es fácil de usar",
+      "cualquier número par",
+      "un cuadrado perfecto"
+    ],
+    "hints": [
+      "100, 50 and 1000 are round numbers; 47 and 83 are not."
+    ]
   },
   {
     "id": "es-num-b2-9",
@@ -657,8 +733,10 @@
     "difficulty": "b2",
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: ___ me haría volver a ese lugar después de esa experiencia.",
-    "correctAnswer": "Nada del mundo",
-    "hints": ["'Nada del mundo' = nothing in the world. Strong and emphatic — just like 'no amount of money' in English."]
+    "correctAnswer": "Nada en el mundo",
+    "hints": [
+      "'Nothing in the world' — a strong, emphatic subject."
+    ]
   },
   {
     "id": "es-num-b2-11",

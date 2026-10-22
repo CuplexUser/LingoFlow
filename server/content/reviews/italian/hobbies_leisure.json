@@ -1,0 +1,641 @@
+{
+  "language": "italian",
+  "category": "hobbies_leisure",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:33:00.235Z",
+  "contentHash": "641e615e1ef7a53b",
+  "summary": "Basic hobby sentences are fine, but there are several mistranslations (football for 'calcio', 'per fare'/'per giocare' on infinitive flashcards, cucinare for baking, ho preso la ceramica, spegnerti, inseguimenti solitari) and a few nonsense sentences (Incontriamo amici e giochi; Ho intenzione di entrare nello yoga per anni). Three B2 pronunciation items are A1 sentences (one in the wrong tense), and the file has the usual cloze items without blanks plus roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "it-ho-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'per fare escursioni' means 'in order to go hiking'; the infinitive is 'fare escursioni'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "fare escursioni",
+          "list": null
+        }
+      ],
+      "itemHash": "e9fa77f694f73167",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'per giocare a scacchi' has a stray 'per'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "giocare a scacchi",
+          "list": null
+        }
+      ],
+      "itemHash": "01ed0a5393650fb6",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Adorare' + infinitive = to love doing something."
+          ]
+        }
+      ],
+      "itemHash": "4fb9feea1e60504a",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a1-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Italians say 'calcio', not 'football'; the prompt uses British 'football'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I play soccer with my friends.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Gioco a calcio con i miei amici.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Giocare a' + sport: 'giocare a calcio'."
+          ]
+        }
+      ],
+      "itemHash": "fa6d7b45c38b35fd",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a1-10",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'at weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What do you like to do on weekends?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cosa ti piace fare nel fine settimana?",
+            "Che cosa ti piace fare nel weekend?"
+          ]
+        }
+      ],
+      "itemHash": "bacda4434936de83",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a2-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint describes English; the simple present with 'da' is the most natural form and not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Studio chitarra da sei mesi.",
+            "Imparo a suonare la chitarra da sei mesi."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'da' for an activity started in the past and still going on."
+          ]
+        }
+      ],
+      "itemHash": "1839b36397b15e21",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'club di libri' is a calque; it is 'club del libro'. Joining is usually 'iscriversi'. Feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi sono iscritto a un club del libro l'anno scorso.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi sono iscritta a un club del libro l'anno scorso.",
+            "L'anno scorso mi sono unito a un gruppo di lettura.",
+            "L'anno scorso mi sono unita a un gruppo di lettura."
+          ]
+        }
+      ],
+      "itemHash": "ad2792b32a1187b4",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a2-9",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'cucinare' means cooking in general; baking is 'fare dolci' / 'preparare torte'. Prompt uses British 'at the weekends'; hint is about English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I enjoy baking on weekends.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Mi piace fare dolci nel fine settimana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi piace preparare torte nel fine settimana.",
+            "Nel fine settimana mi piace fare dolci."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mi piace' + infinitive; Italian has no single verb for 'bake'."
+          ]
+        }
+      ],
+      "itemHash": "21873c45862d9e27",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quale hobby ti aiuta a ___ lo stress?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ridurre",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ridurre",
+            "riduci",
+            "ridotto",
+            "riducendo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aiutare a' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "2725c8dc335b1408",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Roleplay quotes the question in English and has no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone asks: Cosa ti piace fare dopo il lavoro?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I usually paint or go for a run.",
+          "list": null
+        }
+      ],
+      "itemHash": "9b82917c9e8d9941",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Incontriamo amici e giochi' mixes persons ('giochi' = you play) and is ungrammatical; no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone asks: Cosa fai nel fine settimana?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Mi vedo con gli amici e facciamo giochi da tavolo.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I meet up with friends and we play board games.",
+          "list": null
+        }
+      ],
+      "itemHash": "10e811dd02ea2493",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'football' should be 'calcio'; question in English; no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Someone asks: Ti piace lo sport?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sì, a volte gioco a calcio.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Yes, I sometimes play soccer.",
+          "list": null
+        }
+      ],
+      "itemHash": "8b6fa2600b2318c4",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ho preso la ceramica' means 'I took the pottery'; 'lo trovo' doesn't agree.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Di recente ho iniziato a fare ceramica e la trovo molto terapeutica.",
+          "list": null
+        }
+      ],
+      "itemHash": "d83109e3357b4c6c",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'spegnerti' means to turn yourself off/die out; mentally switching off is 'staccare la spina'. Only feminine given.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cosa fai per staccare la spina quando ti senti sopraffatto?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cosa fai per staccare la spina quando ti senti sopraffatta?"
+          ]
+        }
+      ],
+      "itemHash": "de07fefb9296a3a7",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'team sports' is plural ('degli sport di squadra'); feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Anche se non sono molto competitivo, mi piace il lato sociale degli sport di squadra.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Anche se non sono molto competitiva, mi piace il lato sociale degli sport di squadra."
+          ]
+        }
+      ],
+      "itemHash": "7003e3eaab3150d4",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ho intenzione di entrare nello yoga per anni, ma mai abbastanza gestito' is word-for-word nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sono anni che voglio iniziare a fare yoga, ma non ci sono mai riuscito.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono anni che voglio iniziare a fare yoga, ma non ci sono mai riuscita."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sono anni che' + present = for years I have been ...; 'riuscirci' = manage it."
+          ]
+        }
+      ],
+      "itemHash": "029d0891ad3bedc7",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'espandere la mia prospettiva' is a calque; the idiom is 'ampliare i miei orizzonti'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Per me viaggiare non è solo un hobby: è un modo per ampliare i miei orizzonti.",
+          "list": null
+        }
+      ],
+      "itemHash": "d85b9bcfba54ef46",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'un mezza maratona' has the wrong article ('una').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi sto allenando per una mezza maratona e lo trovo sia stimolante sia gratificante.",
+          "list": null
+        }
+      ],
+      "itemHash": "a533598da82ac1dd",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; impersonal 'si' with 'il vostro' is inconsistent.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Come fai a rimanere ___ quando pratichi il tuo hobby?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "motivato",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "motivata"
+          ]
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "motivato",
+            "motivare",
+            "motivazione",
+            "motivando"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective after 'rimanere', agreeing with 'tu'."
+          ]
+        }
+      ],
+      "itemHash": "65875f648c4511cb",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2 level.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Reading is what helps me unwind most after an exhausting week.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "La lettura è ciò che mi aiuta di più a staccare dopo una settimana estenuante.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ciò che' = what (that which); 'staccare' = to unwind."
+          ]
+        }
+      ],
+      "itemHash": "a19def1345232966",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Imperfect 'Praticavo' contradicts the present-tense prompt; it is also an A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: If I hadn't practiced guitar every day, I would never have made so much progress.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Se non mi fossi esercitato con la chitarra ogni giorno, non avrei mai fatto tanti progressi.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive (mi fossi esercitato) + past conditional (avrei fatto)."
+          ]
+        }
+      ],
+      "itemHash": "a0447482e1e1e647",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b2-3",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2 level.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Painting allows me to express emotions I would struggle to put into words.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "La pittura mi permette di esprimere emozioni che faticherei a tradurre in parole.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Faticare a' + infinitive = to struggle to; conditional 'faticherei'."
+          ]
+        }
+      ],
+      "itemHash": "d5f375d059dd2eb5",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'inseguimenti' means chases; 'ho gravitato' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sono sempre stato attratto dalle attività solitarie, ed è forse per questo che mi sono avvicinato alla scrittura.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono sempre stata attratta dalle attività solitarie, ed è forse per questo che mi sono avvicinata alla scrittura."
+          ]
+        }
+      ],
+      "itemHash": "55aae99909abd0bd",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'nel grado in cui definisce il vostro senso di sé' is a calque with a plural 'vostro'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La differenza tra un hobby e una passione sta nella misura in cui definisce chi sei.",
+          "list": null
+        }
+      ],
+      "itemHash": "d9d8f7d74e9e9ea1",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'creazione di competenze' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Preferisco gli hobby che uniscono l'interazione sociale allo ___ di competenze.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sviluppo",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sviluppo",
+            "sviluppare",
+            "sviluppato",
+            "svago"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'development'."
+          ]
+        }
+      ],
+      "itemHash": "ddf01969a26a7c82",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    },
+    {
+      "id": "it-ho-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'orientati verso l'obiettivo' is unidiomatic.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend says every hobby should have a clear goal, like a race or an exhibition. Ask a follow-up question.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "In che misura gli hobby dovrebbero essere orientati a un obiettivo?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "To what extent should hobbies be goal-oriented?",
+          "list": null
+        }
+      ],
+      "itemHash": "668bc3d77134dea5",
+      "appliedAt": "2026-10-22T09:35:01.367Z"
+    }
+  ]
+}

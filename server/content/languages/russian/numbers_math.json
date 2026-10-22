@@ -34,7 +34,9 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 3 in Russian",
     "correctAnswer": "три",
-    "hints": ["Pronounced 'tree'. Good things come in ___s — even in Russian!"]
+    "hints": [
+      "Pronounced 'tree'. Russians say 'Бог любит троицу' — good things come in threes."
+    ]
   },
   {
     "id": "ru-num-a1-5",
@@ -246,8 +248,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "What does '×' mean in Russian math?",
     "correctAnswer": "умножить на",
-    "options": ["плюс", "минус", "умножить на", "разделить на"],
-    "hints": ["'3 × 4' is 'три умножить на четыре'. 'Умножить' = to multiply."]
+    "options": [
+      "плюс",
+      "минус",
+      "умножить на",
+      "разделить на"
+    ],
+    "hints": [
+      "Russian reads × with the verb 'to multiply' plus a preposition."
+    ]
   },
   {
     "id": "ru-num-a2-6",
@@ -256,7 +265,9 @@
     "exerciseType": "flashcard",
     "prompt": "Math symbol in Russian: ÷",
     "correctAnswer": "разделить на",
-    "hints": ["'10 ÷ 2' = 'десять разделить на два'. 'Разделить' = to divide/share."]
+    "hints": [
+      "The verb 'to divide' (perfective) plus the preposition 'на'."
+    ]
   },
   {
     "id": "ru-num-a2-7",
@@ -282,8 +293,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say the number 25 in Russian?",
     "correctAnswer": "двадцать пять",
-    "options": ["двадцатьпять", "двадцать пять", "двапятьдесят", "двести пять"],
-    "hints": ["Russian compound numbers 21–99 are written as two words with a space: двадцать пять."]
+    "options": [
+      "двадцатьпять",
+      "двадцать пять",
+      "двапятьдесят",
+      "двести пять"
+    ],
+    "hints": [
+      "Russian compound numbers 21–99 are written as two separate words."
+    ]
   },
   {
     "id": "ru-num-a2-10",
@@ -328,7 +346,9 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: ___ яиц — это двенадцать яиц.",
     "correctAnswer": "Дюжина",
-    "hints": ["An old-fashioned but charming word for twelve. Dюжина = дюжина."]
+    "hints": [
+      "An old-fashioned but charming word for twelve of something."
+    ]
   },
   {
     "id": "ru-num-a2-15",
@@ -365,8 +385,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "What is the ordinal form of 3 in Russian (masculine)?",
     "correctAnswer": "третий",
-    "options": ["три", "тройной", "третий", "трётий"],
-    "hints": ["The first three are irregular: первый, второй, ___. After that, it regularises."]
+    "options": [
+      "три",
+      "тройной",
+      "третий",
+      "трётий"
+    ],
+    "hints": [
+      "The first three are irregular: первый, второй, ___. After that, ordinals follow the number."
+    ]
   },
   {
     "id": "ru-num-a2-19",
@@ -410,8 +437,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say the fraction 2/3 in Russian?",
     "correctAnswer": "две трети",
-    "options": ["два три", "второй третий", "две трети", "два на три"],
-    "hints": ["The bottom number uses a genitive ordinal: 'треть' (a third). Two thirds = две трети."]
+    "options": [
+      "два три",
+      "второй третий",
+      "две трети",
+      "два на три"
+    ],
+    "hints": [
+      "'Треть' = a third (a noun). After 'две' it takes the genitive singular."
+    ]
   },
   {
     "id": "ru-num-b1-4",
@@ -420,7 +454,9 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: ___ класса сдали экзамен — тридцать из сорока студентов.",
     "correctAnswer": "Три четверти",
-    "hints": ["30 out of 40 = 75%. That's three quarters — три четверти."]
+    "hints": [
+      "30 out of 40 = 75%."
+    ]
   },
   {
     "id": "ru-num-b1-5",
@@ -520,7 +556,13 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Ему ___. На прошлой неделе ему исполнилось 35. (Russian age expression)",
     "correctAnswer": "чуть больше тридцати",
-    "hints": ["'Чуть больше тридцати' = just over thirty / in his thirties. A natural way to express it."]
+    "hints": [
+      "Russian says he is 'a little over thirty' rather than 'in his thirties'."
+    ],
+    "acceptedAnswers": [
+      "за тридцать",
+      "тридцать с небольшим"
+    ]
   },
   {
     "id": "ru-num-b1-16",
@@ -565,8 +607,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say 2,500,000 most naturally in Russian?",
     "correctAnswer": "два с половиной миллиона",
-    "options": ["двадцать пять миллионов", "два целых пять миллиона", "два с половиной миллиона", "два миллиона пятьсот"],
-    "hints": ["'Два с половиной миллиона' = two and a half million. 'С половиной' = and a half — very useful pattern!"]
+    "options": [
+      "двадцать пять миллионов",
+      "два целых пять миллиона",
+      "два с половиной миллиона",
+      "два миллиона пятьсот"
+    ],
+    "hints": [
+      "'С половиной' = and a half — a very useful pattern."
+    ]
   },
   {
     "id": "ru-num-b2-2",
@@ -592,9 +641,11 @@
     "level": "b2",
     "difficulty": "b2",
     "exerciseType": "flashcard",
-    "prompt": "Translate the Russian idiom: 'To count on someone' (to rely on someone)",
+    "prompt": "Vocabulary: to count on someone (to rely on them)",
     "correctAnswer": "рассчитывать на кого-то",
-    "hints": ["'Я всегда могу на тебя рассчитывать.' The verb 'рассчитывать' literally means to calculate!"]
+    "hints": [
+      "'Я всегда могу на тебя рассчитывать.' The verb 'рассчитывать' literally means to calculate!"
+    ]
   },
   {
     "id": "ru-num-b2-5",
@@ -613,7 +664,9 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Она подозреваемая ___. Детектив сосредоточился именно на ней. (Russian for 'number one')",
     "correctAnswer": "номер один",
-    "hints": ["'Номер один' works just like English. The prime suspect, the top priority."]
+    "hints": [
+      "Works just like the English expression for the prime suspect."
+    ]
   },
   {
     "id": "ru-num-b2-7",
@@ -631,8 +684,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "What is 'круглое число' in Russian?",
     "correctAnswer": "число, оканчивающееся на ноль и удобное для счёта",
-    "options": ["нечётное число", "число, оканчивающееся на ноль и удобное для счёта", "любое чётное число", "точный квадрат"],
-    "hints": ["100, 50, 1000 — круглые числа. 47 и 83 — нет."]
+    "options": [
+      "нечётное число",
+      "число, оканчивающееся на ноль и удобное для счёта",
+      "любое чётное число",
+      "точный квадрат"
+    ],
+    "hints": [
+      "100, 50 and 1000 are round numbers; 47 and 83 are not."
+    ]
   },
   {
     "id": "ru-num-b2-9",
@@ -640,7 +700,9 @@
     "difficulty": "b2",
     "prompt": "Say this sentence in Russian: 'Two thirds of the respondents agreed with the proposal.'",
     "correctAnswer": "Две трети респондентов поддержали предложение.",
-    "hints": ["'Две трети' takes a genitive singular: 'респондентов'. The verb agrees with the fraction, not the noun."]
+    "hints": [
+      "'Две трети' is followed by the genitive plural 'респондентов'; the verb is usually plural."
+    ]
   },
   {
     "id": "ru-num-b2-10",
@@ -668,7 +730,9 @@
     "exerciseType": "flashcard",
     "prompt": "Russian number idiom: the equivalent of 'on cloud nine' (extremely happy)",
     "correctAnswer": "на седьмом небе",
-    "hints": ["На седьмом небе = on the seventh heaven. Seventh, not ninth — but the same bliss!"]
+    "hints": [
+      "Russians float two levels lower — on the seventh heaven, not the ninth cloud."
+    ]
   },
   {
     "id": "ru-num-b2-13",
@@ -686,8 +750,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which is a 'делитель' (factor / divisor) of 12?",
     "correctAnswer": "4",
-    "options": ["5", "4", "7", "9"],
-    "hints": ["Делитель делит число без остатка. 12 ÷ 4 = 3. ✓"]
+    "options": [
+      "5",
+      "4",
+      "7",
+      "9"
+    ],
+    "hints": [
+      "A divisor divides the number with no remainder."
+    ]
   },
   {
     "id": "ru-num-b2-15",
@@ -695,6 +766,11 @@
     "difficulty": "b2",
     "prompt": "Use the word 'бесчисленный' in a Russian sentence about travel.",
     "correctAnswer": "Я побывал в бесчисленных городах по всей Европе.",
-    "hints": ["'Бесчисленный' = countless / innumerable. More emphatic than 'многочисленный' (numerous)."]
+    "hints": [
+      "'Бесчисленный' = countless / innumerable. More emphatic than 'многочисленный' (numerous)."
+    ],
+    "acceptedAnswers": [
+      "Я побывала в бесчисленных городах по всей Европе."
+    ]
   }
 ]

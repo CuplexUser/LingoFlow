@@ -1,0 +1,744 @@
+{
+  "language": "italian",
+  "category": "health",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:28:06.761Z",
+  "contentHash": "aa3f5b22a09dbabb",
+  "summary": "A1 phrases are fine, but from A2 onward many symptom sentences are machine translations that a patient would not say (gola dolorosa per tre giorni, mi sento di vertigini, mi sono girato la caviglia, inizino a lavorare, esercitare). Several B2 medical requests are ungrammatical (Apprezzo un rinvio, date il mio farmaco esistente, prima di impegnarsi, più che motivate), plus the usual misspelled 'E'', cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "it-he-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sentirsi' is reflexive: 'mi sento' = I feel."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Non sto bene."
+          ]
+        }
+      ],
+      "itemHash": "d6ea27d35fd08620",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Più vicino' after the noun = nearest."
+          ]
+        }
+      ],
+      "itemHash": "24e5626bc2e2e6cf",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Avere mal di' + body part, with no article: 'mal di testa'."
+          ]
+        }
+      ],
+      "itemHash": "bd9a70725358a57c",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-14",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'chemist's'; 'qui vicino' is the everyday phrasing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nelle vicinanze' or 'qui vicino' = nearby."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'è una farmacia qui vicino?"
+          ]
+        }
+      ],
+      "itemHash": "9b7ea0c9c99da556",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The equally common 'Ho mal di stomaco' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho mal di stomaco.",
+            "Mi fa male la pancia."
+          ]
+        }
+      ],
+      "itemHash": "92af562d267d43e9",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-17",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'allergica' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono allergica alla penicillina."
+          ]
+        }
+      ],
+      "itemHash": "26bc0699c6f6aecc",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Formal 'Può' (likely when asking a stranger) is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Può chiamare un'ambulanza?",
+            "Potete chiamare un'ambulanza?"
+          ]
+        }
+      ],
+      "itemHash": "a3716ea085d4c322",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ho avuto una gola dolorosa per tre giorni' is a calque; an ongoing symptom is present + 'da'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho mal di gola da tre giorni.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'da' for a symptom that is still going on."
+          ]
+        }
+      ],
+      "itemHash": "ef58d928a751be9b",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Mi sento di vertigini' is ungrammatical; Italian says 'ho le vertigini'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho le vertigini da stamattina.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi gira la testa da stamattina."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'da' for something that started this morning and is still going on."
+          ]
+        }
+      ],
+      "itemHash": "d4038226b82e71f6",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-22",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'girare la caviglia' is not Italian; and 'while hiking' is not 'mentre camminavo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi sono storto la caviglia durante un'escursione.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi sono storta la caviglia durante un'escursione.",
+            "Mi sono slogato la caviglia durante un'escursione.",
+            "Mi sono slogata la caviglia durante un'escursione."
+          ]
+        }
+      ],
+      "itemHash": "e9e186102e3c78ac",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-23",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The everyday word for a prescription is 'ricetta'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Serve la ricetta per questo farmaco?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho bisogno della ricetta per questo farmaco?",
+            "Ho bisogno di una prescrizione per questo farmaco?"
+          ]
+        }
+      ],
+      "itemHash": "b4e4317985ff3288",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'rash' is an anglicism; Italian says 'un'eruzione cutanea' or 'uno sfogo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho un'eruzione cutanea sul braccio.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho uno sfogo sul braccio."
+          ]
+        }
+      ],
+      "itemHash": "732a97fa600ca168",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-26",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'E'' should be 'È'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "È contagioso?",
+          "list": null
+        }
+      ],
+      "itemHash": "79fc76c921502b93",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-a2-50",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'esercitarsi' means to practice a skill; physical exercise is 'fare attività fisica'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quanto spesso fai attività fisica?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quanto spesso fa attività fisica?",
+            "Quante volte fai sport?"
+          ]
+        }
+      ],
+      "itemHash": "0f79ecd6117a58f4",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ho iniziato a cucinare pasti più ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sani",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "sani",
+            "sane",
+            "sano",
+            "sana"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The adjective agrees with 'pasti' (masculine plural)."
+          ]
+        }
+      ],
+      "itemHash": "23c89c8ab511b0b4",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'condizione preesistente' and 'farmaci regolari' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho una patologia preesistente che richiede una terapia regolare.",
+          "list": null
+        }
+      ],
+      "itemHash": "c2d9a0955462d264",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'esercitare' means to practice a profession; exercising is 'fare attività fisica'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sarebbe sicuro fare attività fisica con questo problema?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Potrei fare attività fisica senza rischi con questa patologia?"
+          ]
+        }
+      ],
+      "itemHash": "ef27abdab227ff25",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'decidere l'intervento' is clumsy; it is 'decidere se operarmi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorrei un secondo parere prima di decidere se operarmi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vorrei una seconda opinione prima di decidere se operarmi."
+          ]
+        }
+      ],
+      "itemHash": "60c8303157c37de0",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-27",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'have been getting worse' is an ongoing trend ('stanno peggiorando'); the hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I sintomi sono iniziati gradualmente e stanno peggiorando.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passato prossimo for the start, 'stare' + gerund for the ongoing trend."
+          ]
+        }
+      ],
+      "itemHash": "c3efd11e67f1721e",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Medicines 'fanno effetto'; 'lavorare' means to do a job.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quanto dovrei aspettare prima che gli antibiotici facciano effetto?",
+          "list": null
+        }
+      ],
+      "itemHash": "20c80b97fbb4ad54",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-29",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'Ho seguito' suggests the diet is over; an ongoing diet is 'Sto seguendo' / 'Seguo da'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sto seguendo una dieta povera di sodio su consiglio del medico.",
+          "list": null
+        }
+      ],
+      "itemHash": "29ee6d7be9b87527",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Blood pressure 'oscilla', not 'fluttua'; feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sono preoccupato perché la mia pressione oscilla.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono preoccupata perché la mia pressione oscilla."
+          ]
+        }
+      ],
+      "itemHash": "118d5085d8ba2f0b",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer has no subject ('sono circa sei ore') and 'mi sono svegliato' doesn't describe a pattern; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Di solito dormo circa sei ore, ma ultimamente mi sveglio spesso di notte.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I usually sleep about six hours, but lately I've been waking up often at night.",
+          "list": null
+        }
+      ],
+      "itemHash": "9e6696ae79519a1b",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-32",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'emphasises'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Currently' emphasizes something happening right now."
+          ]
+        }
+      ],
+      "itemHash": "b7c3e36b12089a23",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-33",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "One 'adopts' lifestyle changes; 'fare' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ci sono cambiamenti nello stile di vita che dovrei adottare insieme a questa terapia?",
+          "list": null
+        }
+      ],
+      "itemHash": "304c39bf8cd61fc7",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'ha migliorato la mia energia' is unidiomatic.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ho ___ lo zucchero e ora ho più energia.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ridotto",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "ridotto",
+            "ridurre",
+            "riduco",
+            "riducendo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'ridurre' (to reduce)."
+          ]
+        }
+      ],
+      "itemHash": "98e21a45f31331b3",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Apprezzo' is not conditional, and 'rinvio' means postponement; a referral is an 'impegnativa'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gradirei un'impegnativa per uno specialista per ulteriori accertamenti.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Impegnativa' = a doctor's referral; 'gradirei' is the polite conditional."
+          ]
+        }
+      ],
+      "itemHash": "3dc433c41597d07f",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-11",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'lasciare questo non trattato' is a word-for-word calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quali sono le conseguenze a lungo termine se non lo curo?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quali sono le conseguenze a lungo termine se non viene curato?"
+          ]
+        }
+      ],
+      "itemHash": "81d3208d806fc563",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-35",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'date il mio farmaco esistente' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ci sono controindicazioni con i farmaci che prendo già?",
+          "list": null
+        }
+      ],
+      "itemHash": "bfb816a5261330c3",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-36",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'impegnarsi' is the wrong person (should be first person), and 'committing to surgery' is 'sottopormi a un intervento'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Voglio valutare alternative non invasive prima di sottopormi a un intervento chirurgico.",
+          "list": null
+        }
+      ],
+      "itemHash": "0668abd8bde44065",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-37",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'correlare con' is wrong; it is 'essere correlato a'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il peggioramento delle mie condizioni sembra correlato a un aumento dei livelli di stress.",
+          "list": null
+        }
+      ],
+      "itemHash": "3ee77b4f55fab352",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-38",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'dato la mia storia' has wrong agreement and the impersonal 'Si consiglia' loses the question.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sarebbe consigliabile una terapia preventiva, vista la mia storia familiare?",
+          "list": null
+        }
+      ],
+      "itemHash": "013f144f2f46ef8c",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'cura preventiva' and 'trattamento reattivo' are calques; Italian contrasts 'prevenzione' and 'cure'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La prevenzione è più efficace delle cure a posteriori.",
+          "list": null
+        }
+      ],
+      "itemHash": "60ab074d208453bb",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'assistenza sanitaria mentale' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quali politiche possono migliorare l'accesso alle cure per la ___ mentale?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "salute",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "salute",
+            "salita",
+            "saluto",
+            "salvezza"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Salute mentale' = mental health."
+          ]
+        }
+      ],
+      "itemHash": "f2f74873c5b32ec0",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    },
+    {
+      "id": "it-he-b2-71",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sono più che motivate a breve termine' is nonsense; no situation or answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: A friend says they keep starting new fitness plans and giving up. Give your view.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Le abitudini sostenibili contano più della motivazione a breve termine.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Sustainable routines matter more than short-term motivation.",
+          "list": null
+        }
+      ],
+      "itemHash": "39b8a81271045764",
+      "appliedAt": "2026-10-22T09:34:59.823Z"
+    }
+  ]
+}

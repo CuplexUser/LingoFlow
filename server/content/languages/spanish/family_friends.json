@@ -6,7 +6,7 @@
     "prompt": "Say: I have two brothers and one sister.",
     "correctAnswer": "Tengo dos hermanos y una hermana.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Tener' for family members; 'hermanos' (plural) can also mean siblings."
     ]
   },
   {
@@ -16,7 +16,11 @@
     "prompt": "Ask: Do you have any children?",
     "correctAnswer": "¿Tienes hijos?",
     "hints": [
-      "Practice this phrase out loud."
+      "Spanish drops 'any' in this question; 'hijos' = children (sons and daughters)."
+    ],
+    "acceptedAnswers": [
+      "¿Tiene hijos?",
+      "¿Tiene usted hijos?"
     ]
   },
   {
@@ -26,7 +30,7 @@
     "prompt": "Say: My parents live in the countryside.",
     "correctAnswer": "Mis padres viven en el campo.",
     "hints": [
-      "Practice this phrase out loud."
+      "'El campo' = the countryside."
     ]
   },
   {
@@ -36,7 +40,7 @@
     "prompt": "Say: My grandmother is seventy years old.",
     "correctAnswer": "Mi abuela tiene setenta años.",
     "hints": [
-      "State age with 'is ... years old'."
+      "Spanish uses 'tener' + años: she 'has' seventy years."
     ]
   },
   {
@@ -78,7 +82,10 @@
     "prompt": "Say: My best friend's name is Sam.",
     "correctAnswer": "Mi mejor amigo se llama Sam.",
     "hints": [
-      "Use the possessive apostrophe: friend's."
+      "Use 'llamarse': literally 'my best friend calls himself Sam'."
+    ],
+    "acceptedAnswers": [
+      "Mi mejor amiga se llama Sam."
     ]
   },
   {
@@ -105,7 +112,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I visit my grandparents on Sundays.",
-    "correctAnswer": "Visitaré a mis abuelos los domingos.",
+    "correctAnswer": "Visito a mis abuelos los domingos.",
     "hints": [
       "Family routine phrase."
     ],
@@ -140,15 +147,20 @@
     "prompt": "Say: My cousin is getting married next spring.",
     "correctAnswer": "Mi primo se casará la próxima primavera.",
     "hints": [
-      "Present continuous for a planned future event."
+      "'Casarse' is reflexive. Future or present both work for a planned event."
+    ],
+    "acceptedAnswers": [
+      "Mi primo se casa la próxima primavera.",
+      "Mi prima se casa la próxima primavera.",
+      "Mi prima se casará la próxima primavera."
     ]
   },
   {
     "id": "es-fa-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: We usually meet up at the weekends.",
-    "correctAnswer": "Normalmente nos vemos en los fines de semana.",
+    "prompt": "Say: We usually meet up on weekends.",
+    "correctAnswer": "Normalmente nos vemos los fines de semana.",
     "hints": [
       "Pay attention to the sentence structure."
     ]
@@ -158,9 +170,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How long have you known each other?",
-    "correctAnswer": "¿Cuánto tiempo se conocen?",
+    "correctAnswer": "¿Cuánto tiempo hace que se conocen?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "¿Cuánto tiempo hace que os conocéis?",
+      "¿Desde cuándo se conocen?"
     ]
   },
   {
@@ -178,9 +194,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Are you close to your siblings?",
-    "correctAnswer": "¿Estás cerca de tus hermanos?",
+    "correctAnswer": "¿Estás muy unido a tus hermanos?",
     "hints": [
       "'Close' here means emotionally connected; siblings are brothers or sisters."
+    ],
+    "acceptedAnswers": [
+      "¿Tienes una relación cercana con tus hermanos?",
+      "¿Estás muy unida a tus hermanos?"
     ]
   },
   {
@@ -188,9 +208,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We are a big family — there are seven of us.",
-    "correctAnswer": "Somos una gran familia, somos siete.",
+    "correctAnswer": "Somos una familia numerosa: somos siete.",
     "hints": [
       "Use 'there are' to state how many people."
+    ],
+    "acceptedAnswers": [
+      "Somos una familia grande: somos siete."
     ]
   },
   {
@@ -218,9 +241,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We celebrated my grandfather's eightieth birthday last weekend.",
-    "correctAnswer": "Celebramos el cumpleaños de mi abuelo el fin de semana pasado.",
+    "correctAnswer": "Celebramos los ochenta años de mi abuelo el fin de semana pasado.",
     "hints": [
       "Use simple past for a completed past event."
+    ],
+    "acceptedAnswers": [
+      "El fin de semana pasado celebramos el ochenta cumpleaños de mi abuelo."
     ]
   },
   {
@@ -257,10 +283,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I call my parents every evening.",
-    "correctAnswer": "Llamo a mis padres todas las noches.",
+    "prompt": "___ a mis padres todas las noches.",
+    "correctAnswer": "Llamo",
     "hints": [
-      "Routine communication phrase."
+      "First-person present of 'llamar' (to call)."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-fa-a2-51"
@@ -270,7 +296,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My sister and I do not always see eye to eye, but we support each other.",
-    "correctAnswer": "Mi hermana y yo no siempre vemos ojo a ojo, pero nos apoyamos.",
+    "correctAnswer": "Mi hermana y yo no siempre estamos de acuerdo, pero nos apoyamos.",
     "hints": [
       "'See eye to eye' means agree."
     ]
@@ -310,9 +336,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I try to keep in touch with old friends, even when life gets busy.",
-    "correctAnswer": "Trato de mantenerme en contacto con viejos amigos, incluso cuando la vida se pone ocupada.",
+    "correctAnswer": "Trato de mantener el contacto con viejos amigos, incluso cuando estoy muy ocupado.",
     "hints": [
       "'Keep in touch' means maintain contact."
+    ],
+    "acceptedAnswers": [
+      "Trato de mantener el contacto con viejos amigos, incluso cuando estoy muy ocupada."
     ]
   },
   {
@@ -322,7 +351,7 @@
     "prompt": "Say: My brother and I have very different personalities, but we have the same sense of humor.",
     "correctAnswer": "Mi hermano y yo tenemos personalidades muy diferentes, pero tenemos el mismo sentido del humor.",
     "hints": [
-      "Contrast with 'but'; 'sense of humour' is the ability to find things funny."
+      "Contrast with 'pero'; 'sentido del humor' = sense of humor."
     ]
   },
   {
@@ -330,7 +359,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks why you do not visit your family more often.",
-    "correctAnswer": "Vivimos muy lejos, y lucho por encontrar tiempo en torno a los compromisos laborales.",
+    "correctAnswer": "Vivimos muy lejos y me cuesta encontrar tiempo con el trabajo.",
     "hints": [
       "Give a reason that combines distance and schedule."
     ],
@@ -341,7 +370,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Having grown up in a small town, I appreciate the close-knit community there.",
-    "correctAnswer": "Habiendo crecido en un pequeño pueblo, agradezco la comunidad cercana.",
+    "correctAnswer": "Como crecí en un pueblo pequeño, valoro lo unida que es la comunidad.",
     "hints": [
       "'Close-knit' means a tight, supportive community."
     ]
@@ -361,9 +390,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We grew apart after university, but we have recently reconnected.",
-    "correctAnswer": "Nos separamos después de la universidad, pero recientemente hemos reconectado.",
+    "correctAnswer": "Nos distanciamos después de la universidad, pero hace poco volvimos a conectar.",
     "hints": [
       "'Grew apart' means drifted away from each other over time."
+    ],
+    "acceptedAnswers": [
+      "Nos distanciamos después de la universidad, pero recientemente hemos vuelto a conectar."
     ]
   },
   {
@@ -390,10 +422,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Family traditions help us stay connected.",
-    "correctAnswer": "Las tradiciones familiares nos ayudan a mantenernos conectados.",
+    "prompt": "Las tradiciones familiares nos ayudan a mantenernos ___.",
+    "correctAnswer": "unidos",
     "hints": [
-      "Community/family link."
+      "An adjective meaning 'close together'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-fa-b1-61"
@@ -403,9 +435,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The dynamics within a blended family can be complex but deeply rewarding.",
-    "correctAnswer": "Las dinámicas dentro de una familia mezclada pueden ser complejas pero muy gratificantes.",
+    "correctAnswer": "Las dinámicas dentro de una familia reconstituida pueden ser complejas, pero muy gratificantes.",
     "hints": [
       "'Blended family' = step-parents or half-siblings; 'dynamics' = the way relationships work."
+    ],
+    "acceptedAnswers": [
+      "Las dinámicas dentro de una familia ensamblada pueden ser complejas, pero muy gratificantes."
     ]
   },
   {
@@ -413,7 +448,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I was raised to value loyalty and honesty above all else.",
-    "correctAnswer": "Me criaron para valorar la lealtad y la honestidad sobre todo.",
+    "correctAnswer": "Me criaron para valorar la lealtad y la honestidad por encima de todo.",
     "hints": [
       "Passive 'was raised' refers to how your parents brought you up."
     ]
@@ -433,7 +468,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The expectation that adult children will look after ageing parents varies considerably across cultures.",
-    "correctAnswer": "La expectativa de que los niños adultos cuiden de los padres envejecidos varía considerablemente entre culturas.",
+    "correctAnswer": "La expectativa de que los hijos adultos cuiden de sus padres mayores varía considerablemente entre culturas.",
     "hints": [
       "'Varies considerably' means differs a lot; 'across cultures' means between different societies."
     ],
@@ -492,10 +527,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How do family expectations influence personal choices?",
-    "correctAnswer": "¿Cómo influyen las expectativas familiares en las opciones personales?",
+    "prompt": "¿Cómo ___ las expectativas familiares en las decisiones personales?",
+    "correctAnswer": "influyen",
     "hints": [
-      "Reflective high-level question."
+      "'Influir en' = to influence; third-person plural."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-fa-b2-70"
@@ -503,7 +538,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Friendships evolve as people's priorities change.",
+    "prompt": "Choose the best response. A friend is sad that you see each other less than before.",
     "correctAnswer": "Las amistades evolucionan a medida que cambian las prioridades de las personas.",
     "hints": [
       "Nuanced change-over-time sentence."

@@ -1,0 +1,710 @@
+{
+  "language": "italian",
+  "category": "money_finance",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:36:23.098Z",
+  "contentHash": "1f1e7d98b9dc5198",
+  "summary": "A1 money phrases are mostly fine (one misspelling, 'Risparmo'), but A2–B2 contains many calques and wrong tenses (esce dal mio conto, pagare troppo sul mio mutuo, rintracciare, Ho tracciato, Ho speso for a habit), several ungrammatical B1–B2 sentences (Compound interesse, il valore che investe dalla crescita investendo, in modo sproporzionato che colpisce), and a UK ISA item turned into nonsense, rewritten here with the Italian PIR. Plus cloze items without blanks and roleplay/dialogue items without answerEnglish.",
+  "findings": [
+    {
+      "id": "it-mf-a1-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Quanto costa?' works on its own; add 'questo' to point at something."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quanto costa questo?",
+            "Quanto costa questa cosa?"
+          ]
+        }
+      ],
+      "itemHash": "9dfb8650a45bdd17",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Abbastanza' + noun = enough; 'soldi' (always plural) = money."
+          ]
+        }
+      ],
+      "itemHash": "589251dc27fe6c13",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a1-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint (lint confirmed).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Pagare con la carta' = pay by card."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Posso pagare con la carta?",
+            "Si può pagare con la carta?"
+          ]
+        }
+      ],
+      "itemHash": "8f2fa0109b72525a",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A shop receipt is usually 'lo scontrino'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Posso avere lo scontrino, per favore?",
+            "Mi può dare la ricevuta, per favore?"
+          ]
+        }
+      ],
+      "itemHash": "c85ee52cbcf4493c",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Risparmo' is misspelled ('Risparmio'); hint explains English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Risparmio un po' di soldi ogni mese.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Un po' di' + noun = a little; note the apostrophe in 'po''."
+          ]
+        }
+      ],
+      "itemHash": "bc228e6ae6443f9f",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a2-3",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "Habit translated as a past action ('Ho speso'), and 'eating out' lost ('per mangiare').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Spendo troppi soldi per mangiare fuori.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Spendo troppi soldi al ristorante."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mangiare fuori' = to eat out."
+          ]
+        }
+      ],
+      "itemHash": "e0cf3ff871507a8b",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a2-4",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'per euro' lacks the article; it is 'dell'euro'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Qual è il tasso di cambio attuale dell'euro?",
+          "list": null
+        }
+      ],
+      "itemHash": "c656c0529287b29d",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a2-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday 'fare un bonifico' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Stamattina ho fatto il bonifico online.",
+            "Ho fatto il bonifico online stamattina."
+          ]
+        }
+      ],
+      "itemHash": "038f250edcee13e2",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a2-6",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'esce dal mio conto' is a calque; rent is 'addebitato sul conto'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'affitto mi viene addebitato sul conto il primo del mese.",
+          "list": null
+        }
+      ],
+      "itemHash": "2d104eb8e54fbd93",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'impostare un addebito diretto' is a calque; Italians 'attivano l'addebito automatico (domiciliazione)'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Posso attivare l'addebito automatico per questo pagamento?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Posso attivare la domiciliazione bancaria per questo pagamento?"
+          ]
+        }
+      ],
+      "itemHash": "12b91124e0e86076",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Personal spending is 'spese', not 'costi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sto cercando di ridurre le spese inutili.",
+          "list": null
+        }
+      ],
+      "itemHash": "f60fc45f3e4fdb46",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-a2-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'una tassa' is a specific fee; income tax is 'le tasse' / 'le imposte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Devo pagare delle tasse su questo reddito?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Devo pagare le tasse su questo reddito?"
+          ]
+        }
+      ],
+      "itemHash": "27b781cb4acc03e3",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mo-a2-49",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A weekly habit is translated with the passato prossimo.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ogni settimana fisso un budget per la spesa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Fisso un budget per la spesa ogni settimana."
+          ]
+        }
+      ],
+      "itemHash": "3521ced877a28ae7",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quanto devo ___ ogni mese?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "risparmiare",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "risparmiare",
+            "spendere",
+            "guadagnare",
+            "prestare"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "You want to ask how much to save."
+          ]
+        }
+      ],
+      "itemHash": "cd308307f6b647ce",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "One 'costituisce' or 'mette da parte' a fund, not 'costruisce'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sto cercando di mettere da parte un fondo di emergenza che copra tre mesi di spese.",
+          "list": null
+        }
+      ],
+      "itemHash": "29c3529dcf6606a2",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-2",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'pagare troppo sul mio mutuo per ridurre il termine' is a word-for-word calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Converrebbe fare dei rimborsi anticipati sul mutuo per ridurne la durata?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Rimborso anticipato' = paying more than required; 'durata' = the term of the loan."
+          ]
+        }
+      ],
+      "itemHash": "36530943df6f8e04",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'flussi di reddito' is a calque; Italian says 'fonti di reddito'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sto cercando di diversificare le mie fonti di reddito invece di contare solo sullo stipendio.",
+          "list": null
+        }
+      ],
+      "itemHash": "831e225475404c91",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Compound interesse' is half English, 'vostri/tieni' mix persons, and 'the longer' needs 'tanto più ... quanto più'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Con l'interesse composto, i tuoi risparmi crescono tanto più velocemente quanto più a lungo li tieni investiti.",
+          "list": null
+        }
+      ],
+      "itemHash": "2d6405d6e0856e82",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The banking term is 'penale', not 'penalità'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Qual è la penale per l'estinzione anticipata di questo prestito?",
+          "list": null
+        }
+      ],
+      "itemHash": "4129606e0a37fe12",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'rintracciare' means to trace/locate someone; tracking spending is 'tenere traccia di'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tengo un budget mensile per sapere dove vanno a finire i miei soldi.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tengo un budget mensile per tenere traccia di dove vanno i miei soldi."
+          ]
+        }
+      ],
+      "itemHash": "a868e7072a736752",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The usual terms are 'contributi previdenziali' and 'al lordo delle imposte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I miei contributi pensionistici vengono detratti dallo stipendio al lordo delle imposte.",
+          "list": null
+        }
+      ],
+      "itemHash": "cf2a28e6bcfb86d9",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'il pagamento del debito più alto interesse prima' is ungrammatical; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho ripagato prima il debito con l'interesse più alto, mantenendo un piccolo fondo di emergenza.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I paid off the highest-interest debt first, while keeping a small emergency fund.",
+          "list": null
+        }
+      ],
+      "itemHash": "bab3368fc152b746",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "One 'disdice' a subscription.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho controllato i miei abbonamenti e ho disdetto quelli che non usavo.",
+          "list": null
+        }
+      ],
+      "itemHash": "90379982d7327715",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b1-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "UK-only product, and the answer ('le azioni e le azioni ISA') is nonsense. Rewritten to the Italian equivalent.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What is the difference between a PIR and an ordinary savings account?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Qual è la differenza tra un PIR e un normale conto deposito?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "PIR = Piano Individuale di Risparmio; 'conto deposito' = savings account."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "PIR (Piani Individuali di Risparmio) are Italian tax-advantaged investment plans: if held for at least five years, gains are exempt from capital gains tax, within annual limits.",
+          "list": null
+        }
+      ],
+      "itemHash": "3015bb62fb77085a",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mo-b1-59",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ho tracciato' is past tense and a calque of 'track'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tengo sotto controllo le mie spese per evitare quelle inutili.",
+          "list": null
+        }
+      ],
+      "itemHash": "5743b14a2468b440",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'costruire un fondo' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Qual è il modo più sicuro per ___ un fondo di emergenza?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "costituire",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "costituire",
+            "consumare",
+            "chiudere",
+            "prelevare"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Costituire un fondo' = to build up a fund."
+          ]
+        }
+      ],
+      "itemHash": "d408bf2bff4c0a3a",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b2-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'Behavioural'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Behavioral economics' studies how psychology affects economic choices."
+          ]
+        }
+      ],
+      "itemHash": "26f1ceb9f5fad6e8",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'sta lottando per tenere il passo' is a calque; Italian says 'fatica a stare al passo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il quadro normativo che disciplina l'innovazione fintech fatica a stare al passo con il cambiamento tecnologico.",
+          "list": null
+        }
+      ],
+      "itemHash": "aab960962ac2c399",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b2-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'entire regional economies' became singular; prompt uses British 'destabilise'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Sovereign debt crises can destabilize entire regional economies if creditors lose confidence.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Le crisi del debito sovrano possono destabilizzare intere economie regionali se i creditori perdono fiducia.",
+          "list": null
+        }
+      ],
+      "itemHash": "504861feaae5b622",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'il valore che investe dalla crescita investendo' is word-for-word nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cosa distingue l'investimento value dall'investimento growth come strategie di portafoglio?",
+          "list": null
+        }
+      ],
+      "itemHash": "208aae82626ccfca",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mf-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'in modo sproporzionato che colpisce' is ungrammatical; a gerund is needed.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le pressioni inflazionistiche hanno eroso il potere d'acquisto reale, colpendo in modo sproporzionato le famiglie a basso reddito.",
+          "list": null
+        }
+      ],
+      "itemHash": "dbbf8d6db3541867",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mo-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Indefinite articles are more natural here ('da un risparmio ... e da investimenti ...').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La stabilità finanziaria a lungo termine dipende da un risparmio disciplinato e da investimenti diversificati.",
+          "list": null
+        }
+      ],
+      "itemHash": "fc0cb50fc9480109",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank; 'erode potere d'acquisto' is missing the article.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "L'inflazione erode il ___ d'acquisto quando i salari non tengono il passo.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "potere",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "potere",
+            "punto",
+            "tempo",
+            "modo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Potere d'acquisto' = purchasing power."
+          ]
+        }
+      ],
+      "itemHash": "361f274998b96853",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    },
+    {
+      "id": "it-mo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; 'rischio di debito familiare' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a conference on household finances, you ask the panel which policies best reduce the risk of household over-indebtedness.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Quali politiche sono più efficaci per ridurre il rischio di sovraindebitamento delle famiglie?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "Which policies are most effective in reducing household debt risk?",
+          "list": null
+        }
+      ],
+      "itemHash": "1a5bf8c1829730b0",
+      "appliedAt": "2026-10-22T10:00:51.249Z"
+    }
+  ]
+}

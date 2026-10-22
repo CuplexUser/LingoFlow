@@ -1,0 +1,705 @@
+{
+  "language": "italian",
+  "category": "culture_history",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:38:28.923Z",
+  "contentHash": "ec1d8d88e3f6c313",
+  "summary": "A1 items are solid, but A2–B2 contains several wrong word choices (detiene for 'holds' a festival, stanziamento for 'appropriation', meritevole for 'self-serving', vacanza for a celebrated holiday, ho saputo di for 'learned about'), wrong tense or subject (altera, è stato colpito), and a nonsense roleplay answer. A Shakespeare item is carried over from the English course (replaced with Dante), plus British spellings, cloze items without blanks and a dialogue_turn with no situation.",
+  "findings": [
+    {
+      "id": "it-ch-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint explains the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Adorare' + infinitive = to love doing something."
+          ]
+        }
+      ],
+      "itemHash": "16adc5e487881c3d",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A traditional festival is usually 'una festa'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Questa è una festa tradizionale.",
+            "È una festa tradizionale."
+          ]
+        }
+      ],
+      "itemHash": "07635f5c000f4fc1",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine 'andata' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sono andata a teatro lo scorso fine settimana.",
+            "Il fine settimana scorso sono andato a teatro.",
+            "Il fine settimana scorso sono andata a teatro."
+          ]
+        }
+      ],
+      "itemHash": "07fa60fa637ae5ec",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The direct translation 'bello' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Questo dipinto è bello.",
+            "Questo quadro è bellissimo."
+          ]
+        }
+      ],
+      "itemHash": "d50da1de992f54fd",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The passato prossimo, more common in speech, is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il castello è stato costruito nel XII secolo.",
+            "Il castello è stato costruito nel dodicesimo secolo."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passato remoto (fu costruito) or passato prossimo (è stato costruito) for historical facts."
+          ]
+        }
+      ],
+      "itemHash": "9be56ecbbdda777b",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'detenere' means to hold/possess (or detain); a town 'organizza' a festival.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ogni anno, a luglio, il paese organizza una sagra tradizionale.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ogni anno la città organizza un festival gastronomico tradizionale a luglio."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "A 'sagra' is a local Italian food festival celebrating a typical product, such as chestnuts, truffles or a local wine.",
+          "list": null
+        }
+      ],
+      "itemHash": "b1f2b2161fbf8cd3",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a2-6",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'una impressionante' should elide to 'un'impressionante'; hint uses British 'Artefacts'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il museo ha un'impressionante collezione di reperti romani.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Artifacts' are objects made or used by people in the past; Italian often says 'reperti'."
+          ]
+        }
+      ],
+      "itemHash": "5850c11171c1726e",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'da quello che sono abituato' needs 'a cui'; 'locale qui' is redundant; feminine not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La musica popolare di qui è piuttosto diversa da quella a cui sono abituato.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La musica popolare di qui è piuttosto diversa da quella a cui sono abituata."
+          ]
+        }
+      ],
+      "itemHash": "75761cddb33c8eb0",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'la storia dietro' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Qual è l'origine di questa tradizione?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Da dove nasce questa tradizione?"
+          ]
+        }
+      ],
+      "itemHash": "26ee817e57cc4612",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'inaugurazione' / 'vernissage' are the usual terms and not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Abbiamo partecipato all'inaugurazione di una nuova mostra alla galleria.",
+            "Siamo andati al vernissage di una nuova mostra alla galleria."
+          ]
+        }
+      ],
+      "itemHash": "e3115e06e40ebbfd",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-a2-10",
+      "severity": "error",
+      "kind": "cultural-note",
+      "problem": "Leftover from the English course (Shakespeare as 'the greatest writer in English'). Rewritten to the Italian equivalent.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Dante wrote the Divine Comedy in the early fourteenth century.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Dante scrisse la Divina Commedia all'inizio del Trecento.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Dante ha scritto la Divina Commedia all'inizio del Trecento.",
+            "Dante scrisse la Divina Commedia all'inizio del XIV secolo."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passato remoto for historical facts; 'il Trecento' = the 1300s."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "Dante Alighieri (1265–1321) is called the father of the Italian language; his Divine Comedy helped make the Florentine dialect the basis of modern Italian.",
+          "list": null
+        }
+      ],
+      "itemHash": "d4e6dfc6341bb557",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-cu-a2-50",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ho saputo di' means 'I found out about'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho studiato questo paese a scuola.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "A scuola ho imparato molto su questo paese."
+          ]
+        }
+      ],
+      "itemHash": "45772688e44ce67d",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-cu-a2-51",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'vacanza' is time off, not a celebration; the cloze item also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Perché la gente festeggia questa ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "festa",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "festa",
+            "vacanza",
+            "ferie",
+            "stagione"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A holiday you celebrate is 'una festa'; 'vacanza' is time off."
+          ]
+        }
+      ],
+      "itemHash": "2ed92bd2e1966008",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'a quelli all'interno della cultura' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il patrimonio culturale plasma l'identità nazionale in modi spesso invisibili a chi ne fa parte.",
+          "list": null
+        }
+      ],
+      "itemHash": "0820055b5e1a6557",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint uses British 'colonising'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
+          ]
+        }
+      ],
+      "itemHash": "e79e6701aa2a8cca",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Present tense 'altera' for a past event.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La rivoluzione industriale ha cambiato radicalmente la struttura della società e la natura del lavoro.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La rivoluzione industriale cambiò radicalmente la struttura della società e la natura del lavoro."
+          ]
+        }
+      ],
+      "itemHash": "600eb5b5dc946134",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'ed è stato colpito' switches to 'he was struck'; 'scala' is a calque of 'scale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ho visitato il sito archeologico e sono rimasto colpito dalla grandezza delle antiche rovine.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ho visitato il sito archeologico e sono rimasta colpita dalla grandezza delle antiche rovine."
+          ]
+        }
+      ],
+      "itemHash": "82e64cad06a4d166",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'dove ... erano assenti' is stiff; 'laddove mancavano' is natural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le tradizioni orali hanno svolto un ruolo cruciale nel preservare la storia laddove mancavano documenti scritti.",
+          "list": null
+        }
+      ],
+      "itemHash": "b49116499016fba4",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Bringing ideas together is 'conciliare'; 'orgoglio nella' should be 'orgoglio per'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Come fa un paese a conciliare l'orgoglio per la propria storia con il riconoscimento degli errori del passato?",
+          "list": null
+        }
+      ],
+      "itemHash": "6f8b278680a7e89a",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt and hint use British 'characterised'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Characterized by' = defined or typified by; 'antiquity' = ancient times.",
+            "'Humanist' thought placed humans, not God, at the center of intellectual life."
+          ]
+        }
+      ],
+      "itemHash": "1a7fc766efe4da83",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-8",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Prompt uses British 'Globalisation'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
+          "list": null
+        }
+      ],
+      "itemHash": "a6992da8a22f1d2f",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b1-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'di quello che la vita era realmente come al momento' is word-for-word nonsense; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le lettere e i diari personali mi hanno fatto capire molto meglio com'era davvero la vita a quell'epoca.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "The letters and personal diaries gave me a much stronger sense of what life was really like back then.",
+          "list": null
+        }
+      ],
+      "itemHash": "f48ccb157eaa1b0f",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-cu-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quale periodo storico trovi più ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "affascinante",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "affascinante",
+            "affascinanti",
+            "affascinato",
+            "affascinare"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Singular adjective agreeing with 'periodo'."
+          ]
+        }
+      ],
+      "itemHash": "04c3c8c1563d78b5",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'meritevole' means deserving; 'self-serving' is 'di comodo' or 'autoassolutoria'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In che misura la mitologia nazionale costruisce una versione selettiva e di comodo degli eventi storici?",
+          "list": null
+        }
+      ],
+      "itemHash": "72e6b3a0d4b1bfa0",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b2-3",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'Illuminismo' as a historical period takes a capital; hint uses British 'prioritised'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'Illuminismo rappresentò un cambiamento epistemico fondamentale che pose la ragione al di sopra dell'autorità religiosa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'Illuminismo ha rappresentato un cambiamento epistemico fondamentale che ha posto la ragione al di sopra dell'autorità religiosa."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Epistemic' = relating to knowledge; 'placed reason above' = prioritized rationality over faith."
+          ]
+        }
+      ],
+      "itemHash": "25db03751fe35fb0",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'stanziamento' means allocation of funds; the term is 'appropriazione culturale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'appropriazione culturale solleva domande difficili sulla proprietà, sul potere e sui limiti del prestito artistico.",
+          "list": null
+        }
+      ],
+      "itemHash": "828f4f7247a64aa3",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b2-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'sfidato' is a calque ('messo in discussione') and 'inclusive' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il concetto di canone occidentale è stato messo in discussione da studiosi che sostengono una tradizione letteraria più inclusiva a livello globale.",
+          "list": null
+        }
+      ],
+      "itemHash": "c0995594d414db2b",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Come' + subject-first order sounds off in a formal question; 'In che modo' is natural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In che modo le pratiche commemorative plasmano la memoria collettiva e influenzano l'identità politica?",
+          "list": null
+        }
+      ],
+      "itemHash": "0b524cd7f707f95b",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'rivela tanto l'era' needs 'sull'epoca ... sugli eventi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La storiografia — lo studio di come viene scritta la storia — rivela tanto sull'epoca dello storico quanto sugli eventi descritti.",
+          "list": null
+        }
+      ],
+      "itemHash": "d0ef10e372f8bcb1",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-ch-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'commodificazione' is an anglicism; the Italian term is 'mercificazione'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La mercificazione del patrimonio culturale attraverso il turismo di massa può al tempo stesso preservarlo e minarlo.",
+          "list": null
+        }
+      ],
+      "itemHash": "868bb20b1675704c",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-cu-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Il patrimonio culturale può rafforzare la ___ sociale attraverso le generazioni.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "coesione",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "coesione",
+            "coerenza",
+            "collisione",
+            "coalizione"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The word for 'cohesion' (people holding together)."
+          ]
+        }
+      ],
+      "itemHash": "e96659b1ac74f3c3",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    },
+    {
+      "id": "it-cu-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn has no situation or answerEnglish; the culturalNote is generic filler.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a town meeting about renovating the historic center, you ask how societies should balance preservation with modernization.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Come dovrebbero le società conciliare la tutela del patrimonio con la modernizzazione?",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How should societies balance preservation with modernization?",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "88b62f8f7cd8069b",
+      "appliedAt": "2026-10-22T10:00:51.730Z"
+    }
+  ]
+}

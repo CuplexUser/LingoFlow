@@ -1,0 +1,612 @@
+{
+  "language": "french",
+  "category": "science_technology",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T09:19:46.202Z",
+  "contentHash": "7bc8f5b41f5c9560",
+  "summary": "A1–A2 content is largely sound, with some dropped words and missing alternatives. B1–B2 has several machine-translation errors that teach wrong meanings (failles profondes for 'deepfakes', échouerait for a laptop failing, ont un accès démocratisé, concernés par, institutionnel for 'corporate', 'ils' for voitures). Three cloze items have no blank and the roleplay/dialogue items lack a situation or answerEnglish.",
+  "findings": [
+    {
+      "id": "fr-st-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday 'du Wi-Fi' forms are not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il y a du Wi-Fi ici ?",
+            "Est-ce qu'il y a du Wi-Fi ici ?",
+            "Y a-t-il du Wi-Fi ici ?"
+          ]
+        }
+      ],
+      "itemHash": "7d406d30a8884299",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-a1-4",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'phone' is dropped; 'batterie à plat' is the standard phrase.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La batterie de mon téléphone est à plat.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mon téléphone n'a plus de batterie.",
+            "La batterie de mon téléphone est morte."
+          ]
+        }
+      ],
+      "itemHash": "2b7cc27d2a96df02",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-a1-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'here' is dropped from the answer.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je peux recharger mon téléphone ici ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Est-ce que je peux recharger mon téléphone ici ?",
+            "Puis-je recharger mon téléphone ici ?"
+          ]
+        }
+      ],
+      "itemHash": "4eff743a5ee65088",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-a1-7",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'pour travailler' means 'in order to work'; 'for work' is 'pour le travail'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'envoie des e-mails pour le travail.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'envoie des mails pour le travail.",
+            "J'envoie des courriels pour le travail."
+          ]
+        }
+      ],
+      "itemHash": "44d8b02c114eea81",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-a2",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "In France 'mon portable' usually means my mobile phone, not my laptop.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai mis à jour le logiciel de mon ordinateur portable hier soir.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai mis à jour le logiciel sur mon ordinateur portable hier soir."
+          ]
+        }
+      ],
+      "itemHash": "c1f7dd65b322e6f7",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-a2-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A phone's photo camera is usually 'appareil photo'; not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ce téléphone a un bon appareil photo ?",
+            "Est-ce que ce téléphone a un bon appareil photo ?"
+          ]
+        }
+      ],
+      "itemHash": "c2439269f3943956",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "One 'programme' a reminder; 'installer' is for apps or hardware.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai programmé un rappel automatique sur mon téléphone.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai configuré un rappel automatique sur mon téléphone."
+          ]
+        }
+      ],
+      "itemHash": "ff569d7e8d4769df",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-a2-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'préférer lire X aux Y' is awkward; French uses 'plutôt que' and 'livres papier'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je préfère lire des livres papier plutôt que des livres électroniques.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je préfère les livres papier aux livres électroniques.",
+            "Je préfère lire des livres papier plutôt que des liseuses."
+          ]
+        }
+      ],
+      "itemHash": "c9dec504b50281dc",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-sc-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quel ___ utilisez-vous pour les réunions en ligne ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "outil",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "outil",
+            "meuble",
+            "véhicule",
+            "aliment"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A word meaning 'tool'."
+          ]
+        }
+      ],
+      "itemHash": "b850de1c69e99930",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Feminine speaker form 'préoccupée' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis préoccupée par la quantité de données personnelles que les entreprises technologiques recueillent."
+          ]
+        }
+      ],
+      "itemHash": "71cfeac02aa77aaa",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'réseaux sociaux', the everyday term, is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pensez-vous que les enfants devraient avoir un accès limité aux réseaux sociaux ?",
+            "Penses-tu que les enfants devraient avoir un accès limité aux réseaux sociaux ?"
+          ]
+        }
+      ],
+      "itemHash": "f2b1f83ad6af5ef8",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'déplacé des emplois' is a calque (jobs moved elsewhere); 'emplois manufacturiers' and 'rôles' are anglicisms.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'automatisation a supprimé de nombreux emplois dans l'industrie, tout en créant de nouveaux postes dans la tech.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'automatisation a supprimé de nombreux emplois industriels, tout en créant de nouveaux postes dans la technologie."
+          ]
+        }
+      ],
+      "itemHash": "72c4fd2a4d4cf80f",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'votre précédent comportement de visualisation' is a calque; French says 'historique de visionnage'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'algorithme recommande des contenus en fonction de votre historique de visionnage.",
+          "list": null
+        }
+      ],
+      "itemHash": "bd19cb5639de9ffd",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'améliorer leur coût' is not a French collocation.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les technologies des énergies renouvelables sont devenues nettement plus efficaces et moins chères au cours de la dernière décennie.",
+          "list": null
+        }
+      ],
+      "itemHash": "6056b7da29598bc4",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-7",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'might' calls for the conditional 'pourrait-il'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Comment le calcul quantique pourrait-il changer le paysage de la sécurité des données ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Comment l'informatique quantique pourrait-elle changer le paysage de la sécurité des données ?"
+          ]
+        }
+      ],
+      "itemHash": "8acb74ddb6fa3edc",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'ma qualité de sommeil' is unidiomatic; French says 'la qualité de mon sommeil'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'essaie de limiter mon temps d'écran pour préserver la qualité de mon sommeil.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'essaie de limiter mon temps d'écran pour protéger la qualité de mon sommeil."
+          ]
+        }
+      ],
+      "itemHash": "056c32d259dbca51",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ont un accès démocratisé' means 'have democratized access'—the verb is lost. Prompt and hint use British 'democratised'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Open-source software has democratized access to powerful digital tools.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Les logiciels libres ont démocratisé l'accès à de puissants outils numériques.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Open-source' = freely available code; 'democratized' = made available to everyone."
+          ]
+        }
+      ],
+      "itemHash": "2689cbdb07c27c4e",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'ils' should be 'elles' (voitures autonomes); 'règlements de sécurité' should be 'réglementation'; no answerEnglish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je pense qu'elles ont un réel potentiel, mais la réglementation en matière de sécurité doit d'abord rattraper la technologie.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "I think they have real potential, but safety regulations need to catch up with the technology first.",
+          "list": null
+        }
+      ],
+      "itemHash": "18dd5c69ebe911ca",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-sc-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'échouer' means to fail at a task; a device that fails 'tombe en panne'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai sauvegardé mes fichiers au cas où mon ordinateur portable tomberait en panne.",
+          "list": null
+        }
+      ],
+      "itemHash": "5a07d8ba4f9e4827",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-sc-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quels sont les avantages des logiciels ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "libres",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "libres",
+            "payants",
+            "fermés",
+            "anciens"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Open-source software' = 'logiciels libres'."
+          ]
+        }
+      ],
+      "itemHash": "919f8ed12ef01c17",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The established French term is 'grands modèles de langage'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Comment les gouvernements devraient-ils réglementer les grands modèles de langage pour prévenir les abus tout en préservant l'innovation ?",
+          "list": null
+        }
+      ],
+      "itemHash": "803f6f5a9cda56ae",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'L'édition des gènes CRISPR' is a calque; French says 'l'édition génomique par CRISPR'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'édition génomique par CRISPR soulève de profondes questions éthiques sur les limites de l'intervention humaine en biologie.",
+          "list": null
+        }
+      ],
+      "itemHash": "4a4c05b0256b3b44",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'failles profondes' means deep flaws; deepfakes are 'deepfakes' or 'hypertrucages'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les défis épistémiques posés par les deepfakes et les médias synthétiques exigent de nouveaux cadres pour la vérification de l'information.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Les défis épistémiques posés par les hypertrucages et les médias synthétiques exigent de nouveaux cadres pour la vérification de l'information."
+          ]
+        }
+      ],
+      "itemHash": "a3afadadcf46855f",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b2-7",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'institutionnel' does not mean 'corporate'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le cadre éthique qui sous-tend le développement de l'IA demeure contesté dans le monde universitaire, les entreprises et les pouvoirs publics.",
+          "list": null
+        }
+      ],
+      "itemHash": "ff7e892770d4372b",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-st-b2-8",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'concernés par' means 'affected by', not 'worried about'; 'post-quantique' is the usual spelling.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La cryptographie post-quantique est désormais une priorité stratégique pour les gouvernements soucieux de la sécurité des données à long terme.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La cryptographie post-quantique est maintenant une priorité stratégique pour les gouvernements soucieux de la sécurité des données à long terme."
+          ]
+        }
+      ],
+      "itemHash": "bc87062e8378eb17",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-sc-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'plus capables' is a calque for AI capability; French says 'plus performants'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les lignes directrices éthiques devraient évoluer à mesure que les systèmes d'intelligence artificielle deviennent plus performants.",
+          "list": null
+        }
+      ],
+      "itemHash": "348f981e1503cdbe",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-sc-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "cloze_sentence item has no blank in its prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "L'automatisation peut augmenter la productivité tout en ___ les marchés du travail.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "remodelant",
+          "list": null
+        },
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "remodelant",
+            "remodeler",
+            "remodelé",
+            "remodèle"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Tout en' is followed by the present participle."
+          ]
+        }
+      ],
+      "itemHash": "9945d1c7b87b8ec8",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    },
+    {
+      "id": "fr-sc-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "dialogue_turn item has no situation and no answerEnglish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dialogue: At a public debate on new technologies, you ask how regulators can encourage innovation without compromising public safety.",
+          "list": null
+        },
+        {
+          "field": "answerEnglish",
+          "text": "How can regulators encourage innovation without compromising public safety?",
+          "list": null
+        }
+      ],
+      "itemHash": "e2ef2daf1ec4dd39",
+      "appliedAt": "2026-10-22T09:34:57.542Z"
+    }
+  ]
+}

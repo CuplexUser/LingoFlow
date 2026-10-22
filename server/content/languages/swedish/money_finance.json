@@ -6,7 +6,11 @@
     "prompt": "Ask: How much does this cost?",
     "correctAnswer": "Hur mycket kostar detta?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Vad kostar det här?' is the most common everyday form."
+    ],
+    "acceptedAnswers": [
+      "Vad kostar det här?",
+      "Hur mycket kostar det här?"
     ]
   },
   {
@@ -16,7 +20,11 @@
     "prompt": "Say: I do not have enough money.",
     "correctAnswer": "Jag har inte tillräckligt med pengar.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Tillräckligt med' + noun = enough."
+    ],
+    "acceptedAnswers": [
+      "Jag har inte tillräckligt pengar.",
+      "Jag har inte råd."
     ]
   },
   {
@@ -26,7 +34,10 @@
     "prompt": "Ask: Can I pay by card?",
     "correctAnswer": "Kan jag betala med kort?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Betala med kort' = pay by card."
+    ],
+    "acceptedAnswers": [
+      "Går det att betala med kort?"
     ]
   },
   {
@@ -44,10 +55,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Do you accept cash?",
-    "correctAnswer": "Accepterar du kontanter?",
+    "correctAnswer": "Tar ni kontanter?",
     "hints": [
       "A useful question when paying for something."
-    ]
+    ],
+    "acceptedAnswers": [
+      "Tar du kontanter?",
+      "Accepterar ni kontanter?"
+    ],
+    "culturalNote": "Sweden is one of the most cashless countries in the world; many shops and cafés no longer accept cash."
   },
   {
     "id": "sv-mf-a1-6",
@@ -65,9 +81,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I need to go to the ATM.",
-    "correctAnswer": "Jag måste gå till ATM.",
+    "correctAnswer": "Jag måste gå till bankomaten.",
     "hints": [
-      "An ATM is an automatic cash machine."
+      "'Bankomat' = ATM (originally a brand name, now the everyday word)."
+    ],
+    "acceptedAnswers": [
+      "Jag behöver gå till en bankomat.",
+      "Jag måste gå till uttagsautomaten."
     ]
   },
   {
@@ -75,9 +95,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My salary is paid every month.",
-    "correctAnswer": "Min lön betalas varje månad.",
+    "correctAnswer": "Lönen betalas ut varje månad.",
     "hints": [
       "State how often you are paid."
+    ],
+    "acceptedAnswers": [
+      "Jag får lön varje månad.",
+      "Min lön betalas ut varje månad."
     ]
   },
   {
@@ -85,9 +109,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Can I have a receipt, please?",
-    "correctAnswer": "Kan jag få ett kvitto, snälla?",
+    "correctAnswer": "Kan jag få ett kvitto, tack?",
     "hints": [
       "A receipt is proof that you paid."
+    ],
+    "acceptedAnswers": [
+      "Kan jag få kvitto?",
+      "Kan jag få ett kvitto, snälla?"
     ]
   },
   {
@@ -166,9 +194,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I transferred the money online this morning.",
-    "correctAnswer": "Jag överförde pengarna online i morse.",
+    "correctAnswer": "Jag förde över pengarna via internetbanken i morse.",
     "hints": [
       "'Transferred' = moved money from one account to another."
+    ],
+    "acceptedAnswers": [
+      "Jag överförde pengarna online i morse.",
+      "Jag swishade pengarna i morse."
     ]
   },
   {
@@ -176,7 +208,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My rent comes out of my account on the first of the month.",
-    "correctAnswer": "Min hyra kommer från mitt konto den första av månaden.",
+    "correctAnswer": "Hyran dras från mitt konto den första varje månad.",
     "hints": [
       "'Comes out of' means is deducted from."
     ]
@@ -185,10 +217,13 @@
     "id": "sv-mf-a2-7",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Can I set up a direct debit for this payment?",
-    "correctAnswer": "Kan jag ställa in en direktdebitering för denna betalning?",
+    "prompt": "Ask: Can I set up automatic payments for this bill?",
+    "correctAnswer": "Kan jag betala den här räkningen via autogiro?",
     "hints": [
-      "A direct debit is an automatic recurring bank payment."
+      "'Autogiro' = automatic recurring payment from your bank account."
+    ],
+    "acceptedAnswers": [
+      "Kan jag lägga upp autogiro för den här betalningen?"
     ]
   },
   {
@@ -225,11 +260,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I set a budget for groceries every week.",
-    "correctAnswer": "Jag satte en budget för livsmedel varje vecka.",
+    "correctAnswer": "Jag sätter en budget för matinköp varje vecka.",
     "hints": [
       "Budget vocabulary."
     ],
-    "id": "sv-mo-a2-49"
+    "id": "sv-mo-a2-49",
+    "acceptedAnswers": [
+      "Varje vecka gör jag en budget för maten."
+    ]
   },
   {
     "level": "a2",
@@ -245,13 +283,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: How much should I save each month?",
-    "correctAnswer": "Hur mycket ska jag spara varje månad?",
+    "prompt": "Hur mycket ska jag ___ varje månad?",
+    "correctAnswer": "spara",
     "hints": [
-      "Planning question."
+      "Infinitive after 'ska'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-mo-a2-51"
+    "id": "sv-mo-a2-51",
+    "clozeOptions": [
+      "spara",
+      "sparar",
+      "sparade",
+      "sparat"
+    ]
   },
   {
     "id": "sv-mf-b1-1",
@@ -261,6 +305,9 @@
     "correctAnswer": "Jag har försökt bygga upp en nödfond som täcker tre månaders utgifter.",
     "hints": [
       "'Build up' = accumulate gradually; an emergency fund is money set aside for unexpected costs."
+    ],
+    "acceptedAnswers": [
+      "Jag har försökt bygga upp en buffert som täcker tre månaders utgifter."
     ]
   },
   {
@@ -268,9 +315,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Would it be worth overpaying on my mortgage to reduce the term?",
-    "correctAnswer": "Skulle det vara värt att betala på min inteckning för att minska termen?",
+    "correctAnswer": "Skulle det löna sig att amortera extra på bolånet för att korta löptiden?",
     "hints": [
-      "'Overpaying' = paying more than the minimum; 'term' = the length of the mortgage."
+      "'Amortera' = pay down a loan; 'löptid' = the term of the loan."
     ]
   },
   {
@@ -278,7 +325,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I am trying to diversify my income streams rather than relying solely on my salary.",
-    "correctAnswer": "Jag försöker diversifiera mina inkomstströmmar istället för att förlita mig enbart på min lön.",
+    "correctAnswer": "Jag försöker sprida mina inkomstkällor i stället för att bara förlita mig på lönen.",
     "hints": [
       "'Diversify' = spread; 'income streams' = different sources of money."
     ]
@@ -288,9 +335,9 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Compound interest means that your savings grow faster the longer you keep them invested.",
-    "correctAnswer": "Sammansatt intresse innebär att dina besparingar växer snabbare ju längre du håller dem investerade.",
+    "correctAnswer": "Ränta på ränta innebär att ditt sparande växer snabbare ju längre du låter det vara investerat.",
     "hints": [
-      "'Compound interest' = interest earned on both the original amount and previous interest."
+      "'Ränta på ränta' (interest on interest) = compound interest."
     ]
   },
   {
@@ -298,7 +345,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What is the penalty for early repayment of this loan?",
-    "correctAnswer": "Vad är straffet för tidig återbetalning av detta lån?",
+    "correctAnswer": "Vad är avgiften för att lösa det här lånet i förtid?",
     "hints": [
       "'Early repayment' = paying off a loan before the agreed end date."
     ]
@@ -308,7 +355,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I keep a monthly budget to track where my money is going.",
-    "correctAnswer": "Jag håller en månatlig budget för att spåra var mina pengar går.",
+    "correctAnswer": "Jag gör en månadsbudget för att hålla koll på vart pengarna tar vägen.",
     "hints": [
       "'Keep a budget' = maintain a record; 'track' = monitor."
     ]
@@ -318,7 +365,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My pension contributions are deducted from my salary before tax.",
-    "correctAnswer": "Mina pensionsbidrag dras från min lön före skatt.",
+    "correctAnswer": "Mina pensionsavsättningar dras från min bruttolön.",
     "hints": [
       "'Deducted' = removed; 'before tax' = pre-tax; passive voice here."
     ]
@@ -328,18 +375,19 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. A friend asks how you handled your debt after university.",
-    "correctAnswer": "Jag prioriterade att betala av högsta ränteskulden först samtidigt som jag bibehöll en liten akutfond.",
+    "correctAnswer": "Jag betalade först av skulden med högst ränta, samtidigt som jag behöll en liten buffert.",
     "hints": [
       "Give a practical, specific strategy."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I paid off the highest-interest debt first, while keeping a small emergency fund."
   },
   {
     "id": "sv-mf-b1-9",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I reviewed my subscriptions and canceled the ones I was not using.",
-    "correctAnswer": "Jag granskade mina prenumerationer och avbröt de jag inte använde.",
+    "correctAnswer": "Jag gick igenom mina prenumerationer och sa upp dem jag inte använde.",
     "hints": [
       "'Reviewed' = went through carefully; 'subscriptions' = regular paid services."
     ]
@@ -348,18 +396,18 @@
     "id": "sv-mf-b1-10",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the difference between a stocks and shares ISA and a cash ISA?",
-    "correctAnswer": "Vad är skillnaden mellan en aktie och aktier ISA och en kontant ISA?",
+    "prompt": "Ask: What is the difference between an ISK and an ordinary savings account?",
+    "correctAnswer": "Vad är skillnaden mellan ett ISK och ett vanligt sparkonto?",
     "hints": [
-      "ISA = Individual Savings Account; a key UK financial product."
+      "ISK = investeringssparkonto, an investment savings account."
     ],
-    "culturalNote": "ISAs (Individual Savings Accounts) are tax-efficient savings wrappers available to UK residents, allowing them to save or invest a fixed amount per year without paying tax on gains or interest."
+    "culturalNote": "The Swedish ISK (investeringssparkonto), introduced in 2012, is taxed with a flat standard rate based on the account's value instead of on actual gains, which makes it popular for saving in stocks and funds."
   },
   {
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I track my spending to avoid unnecessary expenses.",
-    "correctAnswer": "Jag spårar mina utgifter för att undvika onödiga kostnader.",
+    "correctAnswer": "Jag håller koll på mina utgifter för att undvika onödiga kostnader.",
     "hints": [
       "Purpose clause at B1."
     ],
@@ -379,20 +427,26 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: What is the safest way to build an emergency fund?",
-    "correctAnswer": "Vad är det säkraste sättet att bygga en nödfond?",
+    "prompt": "Vad är det säkraste sättet att bygga upp en ___?",
+    "correctAnswer": "buffert",
     "hints": [
-      "Practical finance question."
+      "Money set aside for unexpected costs."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-mo-b1-61"
+    "id": "sv-mo-b1-61",
+    "clozeOptions": [
+      "buffert",
+      "skuld",
+      "förlust",
+      "räkning"
+    ]
   },
   {
     "id": "sv-mf-b2-1",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The correlation between financial literacy and long-term wealth accumulation is well documented.",
-    "correctAnswer": "Korrelationen mellan finansiell läskunnighet och långsiktig ackumulation är väl dokumenterad.",
+    "correctAnswer": "Sambandet mellan ekonomisk kunnighet och långsiktig förmögenhetsuppbyggnad är väldokumenterat.",
     "hints": [
       "'Correlation' = a relationship between two things; 'wealth accumulation' = building up assets."
     ]
@@ -404,7 +458,7 @@
     "prompt": "Ask: To what extent do you think behavioral economics explains irrational financial decision-making?",
     "correctAnswer": "I vilken utsträckning tror du att beteendeekonomi förklarar irrationellt ekonomiskt beslutsfattande?",
     "hints": [
-      "'Behavioural economics' studies how psychology affects economic choices."
+      "'Behavioral economics' studies how psychology affects economic choices."
     ]
   },
   {
@@ -412,7 +466,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Quantitative easing involves central banks increasing the money supply to stimulate economic activity.",
-    "correctAnswer": "Kvantitativ lättnad innebär att centralbanker ökar penningmängden för att stimulera ekonomisk aktivitet.",
+    "correctAnswer": "Kvantitativa lättnader innebär att centralbanker ökar penningmängden för att stimulera den ekonomiska aktiviteten.",
     "hints": [
       "'Quantitative easing' = QE; a monetary policy tool used in financial crises."
     ]
@@ -422,7 +476,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The regulatory framework governing fintech innovation is struggling to keep pace with technological change.",
-    "correctAnswer": "Det regelverk som styr fintech innovation kämpar för att hålla jämna steg med tekniska förändringar.",
+    "correctAnswer": "Regelverket för innovation inom fintech har svårt att hålla jämna steg med den tekniska utvecklingen.",
     "hints": [
       "'Fintech' = financial technology; 'regulatory framework' = the rules and laws that govern an area."
     ]
@@ -431,8 +485,8 @@
     "id": "sv-mf-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Sovereign debt crises can destabilise entire regional economies if creditors lose confidence.",
-    "correctAnswer": "Suveräna skuldkriser kan destabilisera hela regionala ekonomier om borgenärerna förlorar förtroendet.",
+    "prompt": "Say: Sovereign debt crises can destabilize entire regional economies if creditors lose confidence.",
+    "correctAnswer": "Statsskuldskriser kan destabilisera hela regionala ekonomier om långivarna förlorar förtroendet.",
     "hints": [
       "'Sovereign debt' = money owed by a government; 'creditors' = those who lend money."
     ]
@@ -442,7 +496,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: What distinguishes value investing from growth investing as portfolio strategies?",
-    "correctAnswer": "Vad skiljer värdet från tillväxtinvesteringar som portföljstrategier?",
+    "correctAnswer": "Vad skiljer värdeinvestering från tillväxtinvestering som portföljstrategier?",
     "hints": [
       "'Value investing' = buying undervalued assets; 'growth investing' = buying high-growth-potential companies."
     ]
@@ -452,7 +506,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Inflationary pressures have eroded real purchasing power, disproportionately affecting lower-income households.",
-    "correctAnswer": "Inflationstrycket har eroderat den verkliga köpkraften och påverkar oproportionerligt lägre inkomsthushåll.",
+    "correctAnswer": "Inflationstrycket har urholkat den reala köpkraften och drabbat hushåll med låga inkomster oproportionerligt hårt.",
     "hints": [
       "'Real purchasing power' = what money can actually buy; 'disproportionately' = more than one would expect."
     ]
@@ -472,7 +526,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Long-term financial stability depends on disciplined saving and diversified investments.",
-    "correctAnswer": "Långsiktig finansiell stabilitet beror på disciplinerad sparande och diversifierade investeringar.",
+    "correctAnswer": "Långsiktig finansiell stabilitet bygger på disciplinerat sparande och diversifierade investeringar.",
     "hints": [
       "Formal financial wording."
     ],
@@ -481,23 +535,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Inflation erodes purchasing power when wages do not keep pace.",
-    "correctAnswer": "Inflationen eroderar köpkraft när lönerna inte håller jämna steg.",
+    "prompt": "Inflationen urholkar ___ när lönerna inte håller jämna steg.",
+    "correctAnswer": "köpkraften",
     "hints": [
-      "Cause-effect sentence."
+      "Definite form of 'köpkraft' (purchasing power)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-mo-b2-70"
+    "id": "sv-mo-b2-70",
+    "clozeOptions": [
+      "köpkraften",
+      "köpkraft",
+      "köpkraftens",
+      "köpkrafter"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Which policies are most effective in reducing household debt risk?",
-    "correctAnswer": "Vilka policyer är mest effektiva för att minska risken för hushållsskuld?",
+    "prompt": "Dialogue: At a conference on household finances, you ask the panel which policies best reduce the risk of household over-indebtedness.",
+    "correctAnswer": "Vilka åtgärder är mest effektiva för att minska risken för överskuldsättning bland hushållen?",
     "hints": [
       "Policy-level question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-mo-b2-71"
+    "id": "sv-mo-b2-71",
+    "answerEnglish": "Which policies are most effective in reducing household debt risk?"
   }
 ]

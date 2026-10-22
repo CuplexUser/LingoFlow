@@ -6,7 +6,11 @@
     "prompt": "Say: Hello, how are you?",
     "correctAnswer": "Hola, ¿cómo estás?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Estar' is used for how someone is. Informal: ¿cómo estás?; formal: ¿cómo está?"
+    ],
+    "acceptedAnswers": [
+      "Hola, ¿cómo está?",
+      "Hola, ¿cómo está usted?"
     ]
   },
   {
@@ -16,7 +20,11 @@
     "prompt": "Say: Thank you very much for your help.",
     "correctAnswer": "Muchas gracias por tu ayuda.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Por' introduces what you are thankful for."
+    ],
+    "acceptedAnswers": [
+      "Muchas gracias por su ayuda.",
+      "Muchas gracias por la ayuda."
     ]
   },
   {
@@ -26,7 +34,10 @@
     "prompt": "Say: I do not understand this sentence.",
     "correctAnswer": "No entiendo esta oración.",
     "hints": [
-      "Practice this phrase out loud."
+      "Put 'no' directly before the verb."
+    ],
+    "acceptedAnswers": [
+      "No entiendo esta frase."
     ]
   },
   {
@@ -36,7 +47,11 @@
     "prompt": "Say: Excuse me, where is the bathroom?",
     "correctAnswer": "Disculpe, ¿dónde está el baño?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Disculpe' (formal) gets a stranger's attention; 'estar' for location."
+    ],
+    "acceptedAnswers": [
+      "Disculpa, ¿dónde está el baño?",
+      "Perdón, ¿dónde está el baño?"
     ]
   },
   {
@@ -57,7 +72,7 @@
     "prompt": "Say: My name is María.",
     "correctAnswer": "Me llamo María.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Me llamo' literally means 'I call myself'. Double l sounds like English y."
     ],
     "exerciseType": "pronunciation"
   },
@@ -98,9 +113,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I do not speak Spanish well.",
-    "correctAnswer": "No hablo español bien.",
+    "correctAnswer": "No hablo bien español.",
     "hints": [
-      "Practice this phrase out loud."
+      "Natives usually say 'No hablo bien español'."
     ],
     "exerciseType": "pronunciation"
   },
@@ -168,6 +183,9 @@
     "correctAnswer": "¿Podrías hablar más despacio, por favor?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "¿Podría hablar más despacio, por favor?"
     ]
   },
   {
@@ -188,6 +206,10 @@
     "correctAnswer": "¿Podría repetir eso una vez más?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "¿Podrías repetir eso una vez más?",
+      "¿Podría repetirlo una vez más?"
     ]
   },
   {
@@ -195,9 +217,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Could you write that down for me?",
-    "correctAnswer": "¿Podrías escribir eso para mí?",
+    "correctAnswer": "¿Me lo podrías escribir?",
     "hints": [
-      "Pay attention to the sentence structure."
+      "Spanish says 'write it to me': me + lo + escribir."
+    ],
+    "acceptedAnswers": [
+      "¿Podrías escribírmelo?",
+      "¿Me lo podría escribir?",
+      "¿Podrías escribir eso para mí?"
     ]
   },
   {
@@ -355,6 +382,10 @@
     "correctAnswer": "Me siento con más confianza cuando hablo en frases más largas.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Me siento más seguro cuando hablo con frases más largas.",
+      "Me siento más segura cuando hablo con frases más largas."
     ]
   },
   {
@@ -565,6 +596,9 @@
     "correctAnswer": "Cuanto más practico, más seguro me siento.",
     "hints": [
       "Use 'cuanto más... más...' for comparative correlatives."
+    ],
+    "acceptedAnswers": [
+      "Cuanto más practico, más segura me siento."
     ]
   },
   {
@@ -605,9 +639,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had we started sooner, we would not be rushing now.",
-    "correctAnswer": "Si hubiéramos empezado antes, no estaríamos corriendo ahora.",
+    "correctAnswer": "Si hubiéramos empezado antes, ahora no tendríamos tanta prisa.",
     "hints": [
       "Use the mixed conditional: pluperfect subjunctive + conditional."
+    ],
+    "acceptedAnswers": [
+      "Si hubiéramos empezado antes, ahora no iríamos con prisas."
     ]
   },
   {

@@ -6,7 +6,10 @@
     "prompt": "Ask: What is your name?",
     "correctAnswer": "Wie heißt du?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Heißen' = to be called. Formal: Wie heißen Sie?"
+    ],
+    "acceptedAnswers": [
+      "Wie heißen Sie?"
     ]
   },
   {
@@ -16,7 +19,11 @@
     "prompt": "Say: My name is Alex and I am from the United States.",
     "correctAnswer": "Mein Name ist Alex und ich bin aus den Vereinigten Staaten.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Aus den USA' takes the plural article; 'kommen aus' is the usual verb."
+    ],
+    "acceptedAnswers": [
+      "Ich heiße Alex und komme aus den USA.",
+      "Mein Name ist Alex und ich komme aus den Vereinigten Staaten."
     ]
   },
   {
@@ -26,7 +33,11 @@
     "prompt": "Ask: Where are you from?",
     "correctAnswer": "Wo kommst du her?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Woher' = from where. Formal: Woher kommen Sie?"
+    ],
+    "acceptedAnswers": [
+      "Woher kommst du?",
+      "Woher kommen Sie?"
     ]
   },
   {
@@ -38,19 +49,25 @@
     "hints": [
       "A friendly greeting."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Ich freue mich, dich kennenzulernen."
+    ]
   },
   {
     "id": "de-cv-a1-5",
     "level": "a1",
     "difficulty": "a1",
     "prompt": "goodbye",
-    "correctAnswer": "abschied",
+    "correctAnswer": "tschüss",
     "hints": [
-      "A word you say when leaving."
+      "Informal: tschüss; formal: auf Wiedersehen."
     ],
     "exerciseType": "flashcard",
-    "imageUrl": "/images/placeholder.svg"
+    "imageUrl": "/images/placeholder.svg",
+    "acceptedAnswers": [
+      "auf Wiedersehen"
+    ]
   },
   {
     "id": "de-cv-a1-6",
@@ -78,10 +95,10 @@
     "id": "de-cv-a1-8",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "I ___ a student.",
-    "correctAnswer": "am",
+    "prompt": "Ich ___ Student.",
+    "correctAnswer": "bin",
     "hints": [
-      "Use the correct form of 'to be'."
+      "First person of 'sein'. No article before jobs and roles."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -175,9 +192,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: What do you usually do on weekends?",
-    "correctAnswer": "Was machen Sie normalerweise an Wochenenden?",
+    "correctAnswer": "Was machen Sie normalerweise am Wochenende?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Was machst du normalerweise am Wochenende?"
     ]
   },
   {
@@ -185,9 +205,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I usually spend my evenings reading or walking.",
-    "correctAnswer": "Ich verbringe normalerweise meine Abende lesen oder gehen.",
+    "correctAnswer": "Meine Abende verbringe ich normalerweise mit Lesen oder Spazierengehen.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Ich verbringe meine Abende normalerweise mit Lesen oder Spazierengehen."
     ]
   },
   {
@@ -206,10 +229,10 @@
     "id": "de-cv-a2-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "She ___ three languages fluently.",
+    "prompt": "Sie ___ drei Sprachen fließend.",
     "correctAnswer": "spricht",
     "hints": [
-      "Use the correct present tense form."
+      "'Sprechen' changes its vowel: sie spricht."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -222,25 +245,32 @@
     "hints": [
       "Answer with your job."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "acceptedAnswers": [
+      "Ich arbeite als Ingenieurin."
+    ]
   },
   {
     "id": "de-cv-a2-7",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: Do you have any brothers or sisters?",
-    "correctAnswer": "Haben Sie Brüder oder Schwestern?",
+    "correctAnswer": "Haben Sie Geschwister?",
     "hints": [
       "Ask about someone's family."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Hast du Geschwister?",
+      "Haben Sie Brüder oder Schwestern?"
+    ]
   },
   {
     "id": "de-cv-a2-8",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I visited my grandparents last summer.",
-    "correctAnswer": "Ich besuchte meine Großeltern im letzten Sommer.",
+    "correctAnswer": "Ich habe letzten Sommer meine Großeltern besucht.",
     "hints": [
       "Use the past tense for a completed event."
     ],
@@ -251,7 +281,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "a hobby",
-    "correctAnswer": "ein hobby",
+    "correctAnswer": "ein Hobby",
     "hints": [
       "An activity you enjoy in your free time."
     ],
@@ -273,9 +303,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We met at a party last month.",
-    "correctAnswer": "Wir trafen uns im letzten Monat auf einer Party.",
+    "correctAnswer": "Wir haben uns letzten Monat auf einer Party kennengelernt.",
     "hints": [
       "Use the past tense of 'meet'."
+    ],
+    "acceptedAnswers": [
+      "Wir trafen uns letzten Monat auf einer Party."
     ]
   },
   {
@@ -283,21 +316,27 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: How long have you lived here?",
-    "correctAnswer": "Wie lange haben Sie hier gelebt?",
+    "correctAnswer": "Wie lange wohnen Sie schon hier?",
     "hints": [
-      "Use present perfect for duration."
+      "Present tense + 'schon' for something still going on."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Wie lange wohnst du schon hier?"
+    ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I am sorry, I did not catch that.",
-    "correctAnswer": "Tut mir leid, das habe ich nicht erwischt.",
+    "correctAnswer": "Tut mir leid, das habe ich nicht verstanden.",
     "hints": [
       "Polite repair phrase."
     ],
-    "id": "de-co-a2-57"
+    "id": "de-co-a2-57",
+    "acceptedAnswers": [
+      "Entschuldigung, das habe ich nicht mitbekommen."
+    ]
   },
   {
     "level": "a2",
@@ -313,10 +352,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: What do you usually do after work?",
-    "correctAnswer": "Was machst du normalerweise nach der Arbeit?",
+    "prompt": "Was machst du normalerweise ___ der Arbeit?",
+    "correctAnswer": "nach",
     "hints": [
-      "Routine question pattern."
+      "A preposition meaning 'after'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-co-a2-59"
@@ -326,9 +365,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I enjoy talking about books and current events.",
-    "correctAnswer": "Ich spreche gerne über Bücher und aktuelle Veranstaltungen.",
+    "correctAnswer": "Ich spreche gerne über Bücher und das aktuelle Geschehen.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Ich unterhalte mich gerne über Bücher und aktuelle Themen."
     ]
   },
   {
@@ -336,9 +378,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: In my opinion, consistency is more important than intensity.",
-    "correctAnswer": "Meiner Meinung nach ist Konsistenz wichtiger als Intensität.",
+    "correctAnswer": "Meiner Meinung nach ist Regelmäßigkeit wichtiger als Intensität.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Meiner Meinung nach ist Beständigkeit wichtiger als Intensität."
     ]
   },
   {
@@ -349,6 +394,10 @@
     "correctAnswer": "Welche Themen besprechen Sie gerne?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Über welche Themen sprichst du gerne?",
+      "Welche Themen besprichst du gerne?"
     ]
   },
   {
@@ -356,7 +405,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I used to be very shy, but I have become more outgoing.",
-    "correctAnswer": "Früher war ich sehr schüchtern, aber ich bin mehr ausgestiegen.",
+    "correctAnswer": "Früher war ich sehr schüchtern, aber inzwischen bin ich offener geworden.",
     "hints": [
       "Contrast past and present with 'used to' and present perfect."
     ],
@@ -366,10 +415,10 @@
     "id": "de-cv-b1-5",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "I would have joined you if I ___ free.",
-    "correctAnswer": "hättet ausgeschüttet",
+    "prompt": "Ich wäre mitgekommen, wenn ich Zeit ___ hätte.",
+    "correctAnswer": "gehabt",
     "hints": [
-      "Use the third conditional."
+      "Past subjunctive: hätte + past participle."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -383,18 +432,21 @@
       "Express a balanced opinion."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "In many English-speaking cultures, softening criticism with a positive remark first is considered polite."
+    "culturalNote": "Germans are often fairly direct with criticism; a brief positive remark first is polite but not strictly expected."
   },
   {
     "id": "de-cv-b1-7",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We should catch up more often.",
-    "correctAnswer": "Wir sollten öfter aufholen.",
+    "correctAnswer": "Wir sollten uns öfter treffen und austauschen.",
     "hints": [
-      "'Catch up' means to talk and share news."
+      "'Sich austauschen' = to share news."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "acceptedAnswers": [
+      "Wir sollten uns öfter treffen."
+    ]
   },
   {
     "id": "de-cv-b1-8",
@@ -403,7 +455,7 @@
     "prompt": "Say: I have been meaning to call you all week.",
     "correctAnswer": "Ich wollte dich die ganze Woche anrufen.",
     "hints": [
-      "Use present perfect continuous for an ongoing intention."
+      "'Wollte' (simple past of 'wollen') expresses the intention you had."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -423,7 +475,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "to interrupt",
-    "correctAnswer": "zu unterbrechen",
+    "correctAnswer": "unterbrechen",
     "hints": [
       "To stop someone while they are speaking."
     ],
@@ -434,7 +486,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: However, I see your point and I partially agree.",
-    "correctAnswer": "Ich sehe jedoch Ihren Punkt, und ich stimme teilweise zu.",
+    "correctAnswer": "Ich verstehe aber Ihren Standpunkt und stimme teilweise zu.",
     "hints": [
       "Use 'however' to introduce a different perspective."
     ]
@@ -454,7 +506,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I see your point, but I have a different opinion.",
-    "correctAnswer": "Ich sehe Ihren Punkt, aber ich habe eine andere Meinung.",
+    "correctAnswer": "Ich verstehe Ihren Standpunkt, aber ich bin anderer Meinung.",
     "hints": [
       "Balanced disagreement."
     ],
@@ -474,10 +526,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: I felt nervous at first, then I relaxed.",
-    "correctAnswer": "Ich fühlte mich zuerst nervös, dann entspannte ich mich.",
+    "prompt": "Zuerst war ich nervös, dann habe ich mich ___.",
+    "correctAnswer": "entspannt",
     "hints": [
-      "Story transition phrase."
+      "Past participle of 'sich entspannen'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-co-b1-67"
@@ -487,7 +539,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I used to be shy, but now I express my ideas confidently.",
-    "correctAnswer": "Ich war früher schüchtern, aber jetzt drückte ich meine Ideen zuversichtlich aus.",
+    "correctAnswer": "Früher war ich schüchtern, aber jetzt drücke ich meine Ideen selbstbewusst aus.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -497,7 +549,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Although we disagree, I respect your perspective.",
-    "correctAnswer": "Obwohl wir nicht einverstanden sind, respektiere ich Ihre Perspektive.",
+    "correctAnswer": "Obwohl wir nicht einer Meinung sind, respektiere ich Ihre Sichtweise.",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -517,9 +569,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: It strikes me that we have more in common than we initially thought.",
-    "correctAnswer": "Es trifft mich, dass wir mehr gemeinsam haben, als wir ursprünglich dachten.",
+    "correctAnswer": "Mir fällt auf, dass wir mehr gemeinsam haben, als wir ursprünglich dachten.",
     "hints": [
-      "Use 'it strikes me that' for a reflective observation."
+      "'Mir fällt auf, dass...' = it strikes me that..."
     ],
     "exerciseType": "build_sentence"
   },
@@ -527,10 +579,10 @@
     "id": "de-cv-b2-5",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Had she ___ more clearly, the misunderstanding would not have occurred.",
-    "correctAnswer": "kommuniziert",
+    "prompt": "Hätte sie sich klarer ___, wäre das Missverständnis nicht entstanden.",
+    "correctAnswer": "ausgedrückt",
     "hints": [
-      "Use the past participle in an inverted conditional."
+      "Verb-first 'Hätte sie...' replaces 'wenn'; past participle of 'sich ausdrücken'."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -539,13 +591,13 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Choose the best response. A colleague says something you strongly disagree with.",
-    "correctAnswer": "Ich sehe, woher du kommst, aber ich habe eine andere Entscheidung.",
+    "correctAnswer": "Ich verstehe deinen Standpunkt, sehe das aber anders.",
     "hints": [
       "Disagree diplomatically.",
       "Consider the register."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Acknowledging the other person's viewpoint before disagreeing is valued in professional English."
+    "culturalNote": "In German workplaces, acknowledging the other view briefly and then stating your own clearly is considered professional."
   },
   {
     "id": "de-cv-b2-7",
@@ -563,9 +615,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I would have phrased it differently had I known the context.",
-    "correctAnswer": "Ich hätte es anders ausgedrückt, wenn ich den Kontext kenne.",
+    "correctAnswer": "Ich hätte es anders ausgedrückt, wenn ich den Kontext gekannt hätte.",
     "hints": [
-      "Use inverted third conditional for a formal tone."
+      "Past subjunctive in both clauses."
     ],
     "exerciseType": "dictation_sentence"
   },
@@ -573,8 +625,8 @@
     "id": "de-cv-b2-9",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "nuance / bias / tone / register",
-    "correctAnswer": "nuance",
+    "prompt": "Nuance / Voreingenommenheit / Tonfall / Register",
+    "correctAnswer": "Nuance",
     "hints": [
       "Which word means a subtle difference in meaning?"
     ],
@@ -584,8 +636,8 @@
     "id": "de-cv-b2-10",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "to empathise",
-    "correctAnswer": "zum einfühlen",
+    "prompt": "to empathize",
+    "correctAnswer": "sich einfühlen",
     "hints": [
       "To understand and share another person's feelings."
     ],
@@ -596,9 +648,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The crux of the matter is that we need clearer communication.",
-    "correctAnswer": "Die Frage ist, dass wir eine klarere Kommunikation brauchen.",
+    "correctAnswer": "Der springende Punkt ist, dass wir klarer kommunizieren müssen.",
     "hints": [
-      "'The crux of the matter' is an idiomatic expression meaning the central point."
+      "'Der springende Punkt' = the crux of the matter."
     ]
   },
   {
@@ -606,7 +658,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Rather than argue, let us try to find common ground.",
-    "correctAnswer": "Anstatt zu argumentieren, sollten wir versuchen, gemeinsam Boden zu finden.",
+    "correctAnswer": "Anstatt zu streiten, sollten wir versuchen, eine gemeinsame Basis zu finden.",
     "hints": [
       "Use 'rather than' to present an alternative."
     ],
@@ -616,7 +668,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Let me rephrase that to make my point clearer.",
-    "correctAnswer": "Lassen Sie mich das wiederholen, um meinen Punkt klarer zu machen.",
+    "correctAnswer": "Lassen Sie mich das anders formulieren, damit klarer wird, was ich meine.",
     "hints": [
       "Advanced conversation control."
     ],
@@ -625,10 +677,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: Would you mind elaborating on that argument?",
-    "correctAnswer": "Würden Sie das Argument ausarbeiten?",
+    "prompt": "Würden Sie dieses Argument bitte näher ___?",
+    "correctAnswer": "ausführen",
     "hints": [
-      "Formal discussion prompt."
+      "'Näher ausführen' = to elaborate."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-co-b2-74"
@@ -636,7 +688,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I appreciate the nuance in your explanation.",
+    "prompt": "Choose the best response. A colleague has just explained a complex issue very carefully.",
     "correctAnswer": "Ich schätze die Nuance in Ihrer Erklärung.",
     "hints": [
       "High-level feedback phrase."

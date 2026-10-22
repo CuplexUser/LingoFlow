@@ -16,7 +16,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "To go hiking",
-    "correctAnswer": "att gå vandring",
+    "correctAnswer": "att vandra",
     "hints": [
       "An outdoor hobby."
     ],
@@ -38,9 +38,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I like to paint in my free time.",
-    "correctAnswer": "Jag gillar att måla i min fritid.",
+    "correctAnswer": "Jag gillar att måla på min fritid.",
     "hints": [
       "Use 'I like to' to express enjoyment."
+    ],
+    "acceptedAnswers": [
+      "Jag tycker om att måla på fritiden."
     ]
   },
   {
@@ -61,6 +64,10 @@
     "correctAnswer": "Har du några hobbyer?",
     "hints": [
       "A common get-to-know-you question."
+    ],
+    "acceptedAnswers": [
+      "Har du några hobbys?",
+      "Har du någon hobby?"
     ]
   },
   {
@@ -68,7 +75,7 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a sport played in water",
-    "correctAnswer": "simma simning",
+    "correctAnswer": "simning",
     "hints": [
       "You move through water with your arms and legs."
     ],
@@ -81,14 +88,14 @@
     "prompt": "Say: I love listening to music.",
     "correctAnswer": "Jag älskar att lyssna på musik.",
     "hints": [
-      "'Love' + gerund expresses strong enjoyment."
+      "'Älska att' + infinitive = to love doing something."
     ]
   },
   {
     "id": "sv-ho-a1-9",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Say: I play football with my friends.",
+    "prompt": "Say: I play soccer with my friends.",
     "correctAnswer": "Jag spelar fotboll med mina vänner.",
     "hints": [
       "State an activity and who you do it with."
@@ -98,17 +105,20 @@
     "id": "sv-ho-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: What do you like to do at weekends?",
+    "prompt": "Ask: What do you like to do on weekends?",
     "correctAnswer": "Vad tycker du om att göra på helgerna?",
     "hints": [
       "A friendly question about free time."
+    ],
+    "acceptedAnswers": [
+      "Vad gillar du att göra på helgerna?"
     ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I like painting on weekends.",
-    "correctAnswer": "Jag gillar att måla på helger.",
+    "correctAnswer": "Jag gillar att måla på helgerna.",
     "hints": [
       "Use 'like' + activity."
     ],
@@ -141,11 +151,14 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I play tennis on Saturday mornings.",
-    "correctAnswer": "Jag spelar tennis på lördag morgon.",
+    "correctAnswer": "Jag spelar tennis på lördagsmorgnarna.",
     "hints": [
       "Use the present tense."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Jag spelar tennis på lördagsmornarna."
+    ]
   },
   {
     "id": "sv-ho-a2-2",
@@ -163,20 +176,27 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I swim at the pool.",
-    "correctAnswer": "Jag simmar vid poolen.",
+    "correctAnswer": "Jag simmar i simhallen.",
     "hints": [
       "A short activity sentence."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Jag simmar i bassängen.",
+      "Jag simmar i poolen."
+    ]
   },
   {
     "id": "sv-ho-a2-4",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have been learning the guitar for six months.",
-    "correctAnswer": "Jag har lärt mig gitarren i sex månader.",
+    "correctAnswer": "Jag har lärt mig spela gitarr i sex månader.",
     "hints": [
-      "Present perfect continuous for an ongoing activity."
+      "Perfect tense + 'i' for something still going on."
+    ],
+    "acceptedAnswers": [
+      "Jag har spelat gitarr i sex månader."
     ]
   },
   {
@@ -184,7 +204,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often do you go cycling?",
-    "correctAnswer": "Hur ofta går du cykling?",
+    "correctAnswer": "Hur ofta cyklar du?",
     "hints": [
       "Use 'how often do you' to ask about frequency."
     ]
@@ -214,19 +234,22 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Have you ever tried rock climbing?",
-    "correctAnswer": "Har du någonsin provat rockklättring?",
+    "correctAnswer": "Har du någonsin provat klättring?",
     "hints": [
       "'Have you ever tried' asks about life experience."
+    ],
+    "acceptedAnswers": [
+      "Har du någonsin provat bergsklättring?"
     ]
   },
   {
     "id": "sv-ho-a2-9",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I enjoy baking at the weekends.",
+    "prompt": "Say: I enjoy baking on weekends.",
     "correctAnswer": "Jag gillar att baka på helgerna.",
     "hints": [
-      "'Enjoy' is followed by the gerund (-ing)."
+      "'Gilla att' + infinitive = to enjoy doing something."
     ]
   },
   {
@@ -263,46 +286,55 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Which hobby helps you reduce stress?",
-    "correctAnswer": "Vilken hobby hjälper dig att minska stress?",
+    "prompt": "Vilken hobby hjälper dig att ___ stressen?",
+    "correctAnswer": "minska",
     "hints": [
-      "Useful for conversation practice."
+      "Infinitive after 'hjälpa ... att'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-ho-a2-51"
+    "id": "sv-ho-a2-51",
+    "clozeOptions": [
+      "minska",
+      "minskar",
+      "minskade",
+      "minskat"
+    ]
   },
   {
     "id": "sv-ho-b1",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. What do you like to do after work?",
-    "correctAnswer": "Jag brukar måla eller gå för en körning.",
+    "prompt": "Choose the best response. Someone asks: Vad brukar du göra efter jobbet?",
+    "correctAnswer": "Jag brukar måla eller gå ut och springa.",
     "hints": [
       "Mention two leisure activities."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I usually paint or go for a run."
   },
   {
     "id": "sv-ho-b1-2",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. What do you do on weekends?",
-    "correctAnswer": "Jag träffar vänner och spelar spel.",
+    "prompt": "Choose the best response. Someone asks: Vad gör du på helgerna?",
+    "correctAnswer": "Jag träffar vänner och spelar sällskapsspel.",
     "hints": [
       "A friendly, natural answer."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I meet friends and play board games."
   },
   {
     "id": "sv-ho-b1-3",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the best response. Do you like sports?",
-    "correctAnswer": "Jag spelar fotboll ibland.",
+    "prompt": "Choose the best response. Someone asks: Gillar du sport?",
+    "correctAnswer": "Ja, jag spelar fotboll ibland.",
     "hints": [
       "Answer with a frequency word."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "Yes, I sometimes play soccer."
   },
   {
     "id": "sv-ho-b1-4",
@@ -319,7 +351,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently taken up pottery and find it very therapeutic.",
-    "correctAnswer": "Jag har nyligen tagit upp keramik och hittat det mycket terapeutiskt.",
+    "correctAnswer": "Jag har nyligen börjat med keramik och tycker att det är väldigt terapeutiskt.",
     "hints": [
       "'Taken up' means started a new hobby; 'therapeutic' means calming and healing."
     ]
@@ -329,9 +361,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What do you do to switch off when you are feeling overwhelmed?",
-    "correctAnswer": "Vad gör du för att stänga av när du känner dig överväldigad?",
+    "correctAnswer": "Vad gör du för att koppla av när du känner dig överväldigad?",
     "hints": [
       "'Switch off' means mentally disconnect from stress."
+    ],
+    "acceptedAnswers": [
+      "Vad gör du för att koppla bort allt när du känner dig överväldigad?"
     ]
   },
   {
@@ -339,7 +374,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Although I am not very competitive, I enjoy the social side of team sports.",
-    "correctAnswer": "Även om jag inte är särskilt konkurrenskraftig, tycker jag om den sociala sidan av lagsporter.",
+    "correctAnswer": "Även om jag inte är särskilt tävlingsinriktad tycker jag om den sociala sidan av lagsporter.",
     "hints": [
       "'Although' introduces a contrast."
     ]
@@ -349,7 +384,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been meaning to get into yoga for years but never quite managed it.",
-    "correctAnswer": "Jag har menat att komma in i yoga i åratal men aldrig riktigt lyckats.",
+    "correctAnswer": "Jag har tänkt börja med yoga i flera år men aldrig riktigt kommit igång.",
     "hints": [
       "'Been meaning to' = intended to but not done; 'get into' = start doing regularly."
     ]
@@ -359,7 +394,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Traveling is not just a hobby for me — it is a way of expanding my perspective.",
-    "correctAnswer": "Att resa är inte bara en hobby för mig – det är ett sätt att expandera mitt perspektiv.",
+    "correctAnswer": "Att resa är inte bara en hobby för mig – det är ett sätt att vidga mina vyer.",
     "hints": [
       "'Not just... but' contrasts a simple description with a deeper meaning."
     ]
@@ -369,7 +404,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been training for a half-marathon and find it both challenging and rewarding.",
-    "correctAnswer": "Jag har tränat för ett halvmaraton och hittat det både utmanande och givande.",
+    "correctAnswer": "Jag har tränat inför ett halvmaraton och tycker att det är både utmanande och givande.",
     "hints": [
       "'Both... and...' links two contrasting qualities."
     ]
@@ -398,22 +433,28 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: How do you stay motivated when practicing your hobby?",
-    "correctAnswer": "Hur är du motiverad när du övar din hobby?",
+    "prompt": "Hur håller du ___ uppe när du ägnar dig åt din hobby?",
+    "correctAnswer": "motivationen",
     "hints": [
-      "Open question form."
+      "'Hålla motivationen uppe' = stay motivated."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-ho-b1-61"
+    "id": "sv-ho-b1-61",
+    "clozeOptions": [
+      "motivationen",
+      "motivation",
+      "motiverad",
+      "motivera"
+    ]
   },
   {
     "id": "sv-ho-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I relax by reading books.",
-    "correctAnswer": "Jag slappnar av genom att läsa böcker.",
+    "prompt": "Say: Reading is what helps me unwind most after an exhausting week.",
+    "correctAnswer": "Det är läsningen som hjälper mig att varva ner mest efter en utmattande vecka.",
     "hints": [
-      "Use a reflective tone."
+      "A cleft sentence ('Det är ... som') puts emphasis on 'läsningen'."
     ],
     "exerciseType": "pronunciation"
   },
@@ -421,10 +462,10 @@
     "id": "sv-ho-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I practice guitar every day.",
-    "correctAnswer": "Jag övar gitarr varje dag.",
+    "prompt": "Say: If I hadn't practiced guitar every day, I would never have made so much progress.",
+    "correctAnswer": "Om jag inte hade övat på gitarr varje dag hade jag aldrig gjort så stora framsteg.",
     "hints": [
-      "A clear daily habit."
+      "'Om' + pluperfect, then 'hade' + supine for an unreal past."
     ],
     "exerciseType": "pronunciation"
   },
@@ -432,10 +473,10 @@
     "id": "sv-ho-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I enjoy painting in my free time.",
-    "correctAnswer": "Jag tycker om att måla i min fritid.",
+    "prompt": "Say: Painting allows me to express emotions I would struggle to put into words.",
+    "correctAnswer": "Målning låter mig uttrycka känslor som jag skulle ha svårt att sätta ord på.",
     "hints": [
-      "A common hobby phrase."
+      "'Sätta ord på' = put into words; 'skulle ha svårt att' = would struggle to."
     ],
     "exerciseType": "pronunciation"
   },
@@ -444,7 +485,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Leisure time has become an increasingly contested concept in the age of constant connectivity.",
-    "correctAnswer": "Fritid har blivit ett alltmer omtvistat koncept i ständig anslutning.",
+    "correctAnswer": "Fritid har blivit ett alltmer omstritt begrepp i en tid av ständig uppkoppling.",
     "hints": [
       "'Contested concept' means something whose meaning is debated; 'connectivity' = being always online."
     ]
@@ -474,7 +515,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Amateur astronomy demands patience, precision, and a willingness to accept that most nights will yield nothing spectacular.",
-    "correctAnswer": "Amatör astronomi kräver tålamod, precision och en vilja att acceptera att de flesta nätter inte kommer att ge något spektakulärt.",
+    "correctAnswer": "Amatörastronomi kräver tålamod, precision och en vilja att acceptera att de flesta nätter inte kommer att bjuda på något spektakulärt.",
     "hints": [
       "'Yield' here means produce; 'spectacular' means impressive."
     ],
@@ -485,7 +526,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The distinction between a hobby and a passion lies in the degree to which it defines your sense of self.",
-    "correctAnswer": "Skillnaden mellan en hobby och en passion ligger i den grad som den definierar din självkänsla.",
+    "correctAnswer": "Skillnaden mellan en hobby och en passion ligger i hur mycket den definierar din identitet.",
     "hints": [
       "'Lies in' means is found in or depends on; 'sense of self' is your identity."
     ]
@@ -503,23 +544,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I prefer hobbies that combine social interaction with skill-building.",
-    "correctAnswer": "Jag föredrar hobbyer som kombinerar social interaktion med färdighetsbyggande.",
+    "prompt": "Jag föredrar hobbyer som kombinerar socialt umgänge med att ___ nya färdigheter.",
+    "correctAnswer": "utveckla",
     "hints": [
-      "Complex noun phrase."
+      "Infinitive after 'att'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "sv-ho-b2-70"
+    "id": "sv-ho-b2-70",
+    "clozeOptions": [
+      "utveckla",
+      "utvecklar",
+      "utvecklade",
+      "utvecklat"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: To what extent should hobbies be goal-oriented?",
+    "prompt": "Dialogue: A friend says every hobby should have a clear goal, like a race or an exhibition. Ask a follow-up question.",
     "correctAnswer": "I vilken utsträckning bör hobbyer vara målinriktade?",
     "hints": [
       "Formal discussion prompt."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "sv-ho-b2-71"
+    "id": "sv-ho-b2-71",
+    "answerEnglish": "To what extent should hobbies be goal-oriented?"
   }
 ]

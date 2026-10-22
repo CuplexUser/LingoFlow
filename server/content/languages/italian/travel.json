@@ -6,7 +6,11 @@
     "prompt": "Ask: Where is the train station?",
     "correctAnswer": "Dov'è la stazione?",
     "hints": [
-      "Practice this phrase out loud."
+      "'La stazione' on its own usually means the train station; 'dov'è' = where is."
+    ],
+    "acceptedAnswers": [
+      "Dov'è la stazione dei treni?",
+      "Dov'è la stazione ferroviaria?"
     ]
   },
   {
@@ -16,7 +20,7 @@
     "prompt": "Ask: How much does this ticket cost?",
     "correctAnswer": "Quanto costa questo biglietto?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Quanto costa' + singular noun; 'quanto costano' for plural."
     ]
   },
   {
@@ -24,9 +28,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Which platform does the train leave from?",
-    "correctAnswer": "Da quale piattaforma parte il treno?",
+    "correctAnswer": "Da quale binario parte il treno?",
     "hints": [
-      "Practice this phrase out loud."
+      "'Binario' = platform/track at a train station."
+    ],
+    "acceptedAnswers": [
+      "Da che binario parte il treno?"
     ]
   },
   {
@@ -56,9 +63,12 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Is this the right bus for the airport?",
-    "correctAnswer": "E' l'autobus giusto per l'aeroporto?",
+    "correctAnswer": "È l'autobus giusto per l'aeroporto?",
     "hints": [
-      "Yes/no question — invert 'is' and subject."
+      "Italian yes/no questions keep statement word order; only the intonation rises."
+    ],
+    "acceptedAnswers": [
+      "Questo è l'autobus giusto per l'aeroporto?"
     ]
   },
   {
@@ -101,17 +111,26 @@
     "hints": [
       "A short, important phrase for travelers."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Sono persa.",
+      "Mi sono perso.",
+      "Mi sono persa."
+    ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I need a ticket to the city center.",
-    "correctAnswer": "Mi serve un biglietto per il centro della citta'.",
+    "correctAnswer": "Mi serve un biglietto per il centro città.",
     "hints": [
       "Basic transport sentence."
     ],
-    "id": "it-tr-a1-40"
+    "id": "it-tr-a1-40",
+    "acceptedAnswers": [
+      "Mi serve un biglietto per il centro della città.",
+      "Mi serve un biglietto per il centro."
+    ]
   },
   {
     "level": "a1",
@@ -132,6 +151,10 @@
     "correctAnswer": "Ho bisogno di una stanza per due notti.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Ho bisogno di una camera per due notti.",
+      "Mi serve una camera per due notti."
     ]
   },
   {
@@ -142,6 +165,9 @@
     "correctAnswer": "Questo autobus va al centro della città?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "acceptedAnswers": [
+      "Questo autobus va in centro?"
     ]
   },
   {
@@ -149,9 +175,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to check in for my reservation.",
-    "correctAnswer": "Vorrei controllare la prenotazione.",
+    "correctAnswer": "Vorrei fare il check-in, ho una prenotazione.",
     "hints": [
-      "Pay attention to the sentence structure."
+      "'Fare il check-in' = to check in at a hotel or airport."
+    ],
+    "acceptedAnswers": [
+      "Vorrei fare il check-in per la mia prenotazione."
     ]
   },
   {
@@ -159,11 +188,15 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to exchange some money.",
-    "correctAnswer": "Vorrei scambiare un po' di soldi.",
+    "correctAnswer": "Vorrei cambiare dei soldi.",
     "hints": [
       "Use 'I would like to' for polite requests."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Vorrei cambiare un po' di soldi.",
+      "Vorrei cambiare del denaro."
+    ]
   },
   {
     "id": "it-tr-21",
@@ -190,9 +223,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often does the airport shuttle run?",
-    "correctAnswer": "Quanto spesso funziona la navetta aeroportuale?",
+    "correctAnswer": "Ogni quanto passa la navetta per l'aeroporto?",
     "hints": [
       "Use 'how often' to ask about frequency."
+    ],
+    "acceptedAnswers": [
+      "Ogni quanto parte la navetta per l'aeroporto?"
     ]
   },
   {
@@ -200,20 +236,28 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have two bags to check in.",
-    "correctAnswer": "Ho due borse da controllare.",
+    "correctAnswer": "Ho due bagagli da imbarcare.",
     "hints": [
       "State what you have, then add the purpose."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Ho due valigie da imbarcare.",
+      "Ho due bagagli da spedire."
+    ]
   },
   {
     "id": "it-tr-25",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Can I get a window seat?",
-    "correctAnswer": "Posso avere un posto per le finestre?",
+    "correctAnswer": "Posso avere un posto vicino al finestrino?",
     "hints": [
       "A simple 'can I' request."
+    ],
+    "acceptedAnswers": [
+      "Posso avere un posto lato finestrino?",
+      "Potrei avere un posto vicino al finestrino?"
     ]
   },
   {
@@ -230,7 +274,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I would like to check in, please.",
-    "correctAnswer": "Vorrei controllare, per favore.",
+    "correctAnswer": "Vorrei fare il check-in, per favore.",
     "hints": [
       "Hotel check-in phrase."
     ],
@@ -250,13 +294,19 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Say: I lost my boarding pass this morning.",
-    "correctAnswer": "Ho perso il pass stamattina.",
+    "prompt": "Stamattina ho perso la ___ d'imbarco.",
+    "correctAnswer": "carta",
     "hints": [
-      "Problem report sentence."
+      "'Carta d'imbarco' = boarding pass; 'porta d'imbarco' is the gate."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-tr-a2-52"
+    "id": "it-tr-a2-52",
+    "clozeOptions": [
+      "carta",
+      "porta",
+      "sala",
+      "fila"
+    ]
   },
   {
     "id": "it-tr-5",
@@ -296,6 +346,10 @@
     "correctAnswer": "Mi chiedevo se potesse raccomandare un buon ristorante locale.",
     "hints": [
       "Use 'I was wondering if' for polite, indirect requests."
+    ],
+    "acceptedAnswers": [
+      "Mi chiedevo se potesse consigliarmi un buon ristorante locale.",
+      "Mi chiedevo se potessi consigliarmi un buon ristorante del posto."
     ]
   },
   {
@@ -303,9 +357,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Is there a discount if I book both legs of the journey together?",
-    "correctAnswer": "C'è uno sconto se prenoto entrambe le gambe del viaggio insieme?",
+    "correctAnswer": "C'è uno sconto se prenoto andata e ritorno insieme?",
     "hints": [
       "Conditional question using 'if'."
+    ],
+    "acceptedAnswers": [
+      "C'è uno sconto se prenoto entrambe le tratte insieme?"
     ]
   },
   {
@@ -313,7 +370,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The journey takes about three hours with one change.",
-    "correctAnswer": "Il viaggio dura circa tre ore con un cambiamento.",
+    "correctAnswer": "Il viaggio dura circa tre ore con un cambio.",
     "hints": [
       "Use 'about' for an approximation."
     ],
@@ -327,6 +384,10 @@
     "correctAnswer": "Preferisco viaggiare leggero quando possibile.",
     "hints": [
       "'Travel light' is an idiom for packing minimally."
+    ],
+    "acceptedAnswers": [
+      "Preferisco viaggiare leggera quando possibile.",
+      "Quando possibile, preferisco viaggiare leggero."
     ]
   },
   {
@@ -344,7 +405,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I had to rebook at a higher fare after my original flight was canceled.",
-    "correctAnswer": "Ho dovuto prenotare ad una tariffa più alta dopo la cancellazione del mio volo originale.",
+    "correctAnswer": "Ho dovuto riprenotare a una tariffa più alta dopo la cancellazione del mio volo originale.",
     "hints": [
       "Use 'had to' for past obligation."
     ]
@@ -354,11 +415,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. The hotel says you haven't got a reservation.",
-    "correctAnswer": "Ho un'e-mail di conferma — si può controllare di nuovo, per favore?",
+    "correctAnswer": "Ho un'e-mail di conferma: può ricontrollare, per favore?",
     "hints": [
       "Stay calm and polite; offer evidence."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "answerEnglish": "I have a confirmation email — could you check again, please?"
   },
   {
     "level": "b1",
@@ -374,23 +436,35 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: Which neighborhood is best for local food?",
-    "correctAnswer": "Quale quartiere è meglio per il cibo locale?",
+    "correctAnswer": "Qual è il quartiere migliore per il cibo locale?",
     "hints": [
       "Recommendation question."
     ],
     "exerciseType": "build_sentence",
-    "id": "it-tr-b1-61"
+    "id": "it-tr-b1-61",
+    "acceptedAnswers": [
+      "Quale quartiere è il migliore per il cibo locale?"
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Say: Traveling alone helped me become more independent.",
-    "correctAnswer": "Viaggiare da solo mi ha aiutato a diventare più indipendente.",
+    "prompt": "Viaggiare da solo mi ha ___ a diventare più indipendente.",
+    "correctAnswer": "aiutato",
     "hints": [
-      "Reflection sentence."
+      "Past participle of 'aiutare' after 'ha'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-tr-b1-62"
+    "id": "it-tr-b1-62",
+    "acceptedAnswers": [
+      "aiutata"
+    ],
+    "clozeOptions": [
+      "aiutato",
+      "aiutare",
+      "aiuta",
+      "aiutando"
+    ]
   },
   {
     "id": "it-tr-7",
@@ -400,6 +474,10 @@
     "correctAnswer": "Potresti consigliare un quartiere sicuro vicino al centro?",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "acceptedAnswers": [
+      "Potrebbe consigliarmi un quartiere sicuro vicino al centro?",
+      "Potresti consigliarmi un quartiere sicuro vicino al centro?"
     ]
   },
   {
@@ -417,7 +495,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Is there a faster connection if I change lines once?",
-    "correctAnswer": "C'è una connessione più veloce se cambio linee una volta?",
+    "correctAnswer": "C'è un collegamento più veloce se cambio linea una volta?",
     "hints": [
       "Focus on natural phrasing and word order."
     ]
@@ -427,9 +505,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Despite the delays, I managed to make my connection with minutes to spare.",
-    "correctAnswer": "Nonostante i ritardi, sono riuscito a rendere la mia connessione con i minuti da risparmiare.",
+    "correctAnswer": "Nonostante i ritardi, sono riuscito a prendere la coincidenza con qualche minuto di margine.",
     "hints": [
-      "'Despite' introduces a concession; 'with minutes to spare' is idiomatic."
+      "'Prendere la coincidenza' = make a connection; 'con qualche minuto di margine' = with minutes to spare."
+    ],
+    "acceptedAnswers": [
+      "Nonostante i ritardi, sono riuscita a prendere la coincidenza con qualche minuto di margine."
     ]
   },
   {
@@ -437,7 +518,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Could you outline the cancellation and refund policy for this fare class?",
-    "correctAnswer": "Potrebbe delineare la politica di cancellazione e rimborso per questa classe di tariffa?",
+    "correctAnswer": "Potrebbe illustrarmi le condizioni di cancellazione e rimborso per questa classe tariffaria?",
     "hints": [
       "'Outline' here means 'explain briefly'. 'Fare class' is a travel-specific term."
     ]
@@ -447,9 +528,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I was unfairly charged an excess baggage fee and would like to dispute it.",
-    "correctAnswer": "Sono stato ingiustamente addebitato una tassa di bagaglio in eccesso e vorrei contestarlo.",
+    "correctAnswer": "Mi è stato addebitato ingiustamente un supplemento per bagaglio in eccesso e vorrei contestarlo.",
     "hints": [
-      "Passive voice for what happened to you; 'dispute' means formally challenge."
+      "'Mi è stato addebitato' = I was charged (literally 'it was charged to me')."
     ]
   },
   {
@@ -468,9 +549,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I tend to prefer trains over flights for journeys under five hours.",
-    "correctAnswer": "Preferisco i treni sui voli per i viaggi sotto le cinque ore.",
+    "correctAnswer": "Tendo a preferire il treno all'aereo per i viaggi sotto le cinque ore.",
     "hints": [
       "'I tend to' softens a personal preference naturally."
+    ],
+    "acceptedAnswers": [
+      "Tendo a preferire i treni agli aerei per i viaggi sotto le cinque ore."
     ]
   },
   {
@@ -478,10 +562,10 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The layover gives me just enough time to clear customs and recheck my luggage.",
-    "correctAnswer": "Il deposito mi da il tempo sufficiente per sgomberare i costumi e ricontrollare i bagagli.",
+    "correctAnswer": "Lo scalo mi dà il tempo appena sufficiente per passare la dogana e riconsegnare i bagagli.",
     "hints": [
-      "'Clear customs' and 'recheck luggage' are standard travel phrases.",
-      "A layover is a stop between flights."
+      "'Scalo' = layover; 'passare la dogana' = clear customs.",
+      "'Riconsegnare i bagagli' = recheck your luggage."
     ],
     "culturalNote": "In the US and many countries, you must collect and recheck your luggage on international connections even if your final destination is domestic."
   },
@@ -498,23 +582,30 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How can tourism support local communities without harming them?",
-    "correctAnswer": "Come può il turismo sostenere le comunità locali senza danneggiarle?",
+    "prompt": "Come può il turismo sostenere le comunità locali senza ___?",
+    "correctAnswer": "danneggiarle",
     "hints": [
-      "Complex travel ethics question."
+      "The object pronoun agrees with 'comunità' (feminine plural)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "it-tr-b2-71"
+    "id": "it-tr-b2-71",
+    "clozeOptions": [
+      "danneggiarle",
+      "danneggiarli",
+      "danneggiarla",
+      "danneggiarlo"
+    ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I planned contingencies in case flights were delayed.",
-    "correctAnswer": "Ho pianificato contingenze in caso di ritardo dei voli.",
+    "prompt": "Dialogue: A friend asks how you managed when your connecting flight was late.",
+    "correctAnswer": "Avevo previsto un piano B nel caso in cui i voli fossero in ritardo.",
     "hints": [
       "Advanced planning phrase."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "it-tr-b2-72"
+    "id": "it-tr-b2-72",
+    "answerEnglish": "I had planned contingencies in case flights were delayed."
   }
 ]

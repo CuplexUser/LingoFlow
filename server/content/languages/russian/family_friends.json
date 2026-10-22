@@ -6,7 +6,7 @@
     "prompt": "Say: This is my brother and that is my cousin.",
     "correctAnswer": "Это мой брат, а это мой двоюродный брат.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Двоюродный брат' = cousin (literally 'second-born brother'). 'А' contrasts the two."
     ]
   },
   {
@@ -16,7 +16,7 @@
     "prompt": "Say: My friends are very kind and funny.",
     "correctAnswer": "Мои друзья очень добрые и весёлые.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Друзья' is the irregular plural of 'друг'; adjectives take plural endings."
     ]
   },
   {
@@ -24,9 +24,9 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My sister lives near my parents.",
-    "correctAnswer": "Моя сестра живет рядом с моими родителями.",
+    "correctAnswer": "Моя сестра живёт рядом с моими родителями.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Рядом с' + instrumental = near, next to."
     ]
   },
   {
@@ -79,6 +79,9 @@
     "correctAnswer": "Моя мама — учитель.",
     "hints": [
       "Russian uses a dash instead of 'is' when linking nouns in the present tense."
+    ],
+    "acceptedAnswers": [
+      "Моя мама — учительница."
     ]
   },
   {
@@ -99,7 +102,7 @@
     "prompt": "Say: We are a big family.",
     "correctAnswer": "Мы большая семья.",
     "hints": [
-      "No verb 'to be' in Russian present tense: 'Мы большая семья' = We (are) a big family."
+      "No verb 'to be' in the Russian present tense. 'Семья' is feminine, so the adjective agrees."
     ]
   },
   {
@@ -147,7 +150,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My older brother is married with two kids.",
-    "correctAnswer": "Мой старший брат женат и у него двое детей.",
+    "correctAnswer": "Мой старший брат женат, и у него двое детей.",
     "hints": [
       "'Женат' = married (for a man). 'Двое детей' uses a collective numeral + genitive plural."
     ]
@@ -213,6 +216,9 @@
     "correctAnswer": "Я вырос с бабушкой и дедушкой в маленьком городе.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "acceptedAnswers": [
+      "Я выросла с бабушкой и дедушкой в маленьком городе."
     ]
   },
   {
@@ -230,7 +236,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: We stay close even though we live in different cities.",
-    "correctAnswer": "Мы остаемся близки, хотя живем в разных городах.",
+    "correctAnswer": "Мы остаёмся близки, хотя живём в разных городах.",
     "hints": [
       "Notice the tense or modal used."
     ]
@@ -253,6 +259,10 @@
     "correctAnswer": "Трудно поддерживать дружбу, когда загружен работой.",
     "hints": [
       "Impersonal construction: 'Трудно + infinitive' = it is hard to. 'Загружен' = overloaded (short passive participle)."
+    ],
+    "acceptedAnswers": [
+      "Трудно поддерживать дружбу, когда много работы.",
+      "Трудно поддерживать дружбу, когда ты загружен работой."
     ]
   },
   {
@@ -284,6 +294,9 @@
     "correctAnswer": "Как отреагировали твои родители, когда ты переехал за границу?",
     "hints": [
       "'Отреагировать' = to react (perfective). 'Переехал' = moved (perfective past, masculine)."
+    ],
+    "acceptedAnswers": [
+      "Как отреагировали твои родители, когда ты переехала за границу?"
     ]
   },
   {
@@ -302,10 +315,10 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. Your friend is going through a difficult time.",
-    "correctAnswer": "Я здесь для тебя. Поговори со мной, если хочешь.",
+    "correctAnswer": "Я рядом. Поговори со мной, если хочешь.",
     "answerEnglish": "I'm here for you. Talk to me if you want.",
     "hints": [
-      "'Я здесь для тебя' = I am here for you. A warm, supportive phrase."
+      "'Я рядом' (literally 'I'm nearby') = I'm here for you. A warm, supportive phrase."
     ],
     "exerciseType": "roleplay"
   },
@@ -478,7 +491,7 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My aunt and uncle live in a different city.",
-    "correctAnswer": "Моя тётя и дядя живут в другом городе.",
+    "correctAnswer": "Мои тётя и дядя живут в другом городе.",
     "hints": [
       "'Тётя' and 'дядя' are both informal. 'В другом городе' = prepositional case."
     ]
@@ -642,9 +655,9 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: The bond between siblings can be one of the most complex human relationships.",
-    "correctAnswer": "Связь между братьями и сёстрами может быть одной из самых сложных человеческих отношений.",
+    "correctAnswer": "Отношения между братьями и сёстрами могут быть одними из самых сложных в жизни человека.",
     "hints": [
-      "'Одной из самых' + genitive superlative = one of the most. 'Человеческих отношений' = genitive plural."
+      "'Одними из самых' + genitive plural = among the most. 'Отношения' is plural."
     ]
   },
   {

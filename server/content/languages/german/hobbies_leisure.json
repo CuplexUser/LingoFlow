@@ -3,8 +3,8 @@
     "id": "de-ho-a1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "To read books",
-    "correctAnswer": "bücher lesen",
+    "prompt": "Vocabulary: to read books",
+    "correctAnswer": "Bücher lesen",
     "hints": [
       "Think about a quiet hobby."
     ],
@@ -15,19 +15,22 @@
     "id": "de-ho-a1-2",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "To go hiking",
-    "correctAnswer": "zum wandern",
+    "prompt": "Vocabulary: to go hiking",
+    "correctAnswer": "wandern",
     "hints": [
       "An outdoor hobby."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "wandern gehen"
+    ]
   },
   {
     "id": "de-ho-a1-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "To play chess",
-    "correctAnswer": "um schach zu spielen",
+    "prompt": "Vocabulary: to play chess",
+    "correctAnswer": "Schach spielen",
     "hints": [
       "A strategy board game."
     ],
@@ -48,9 +51,13 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: My hobby is cooking.",
-    "correctAnswer": "Mein Hobby kocht.",
+    "correctAnswer": "Mein Hobby ist Kochen.",
     "hints": [
-      "State your hobby with 'my hobby is'."
+      "Use the capitalized infinitive as a noun: das Kochen."
+    ],
+    "acceptedAnswers": [
+      "Mein Hobby ist das Kochen.",
+      "Ich koche gern."
     ]
   },
   {
@@ -61,6 +68,9 @@
     "correctAnswer": "Haben Sie Hobbys?",
     "hints": [
       "A common get-to-know-you question."
+    ],
+    "acceptedAnswers": [
+      "Hast du Hobbys?"
     ]
   },
   {
@@ -68,11 +78,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Vocabulary: a sport played in water",
-    "correctAnswer": "schwimmen",
+    "correctAnswer": "das Schwimmen",
     "hints": [
       "You move through water with your arms and legs."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "acceptedAnswers": [
+      "Schwimmen",
+      "schwimmen"
+    ]
   },
   {
     "id": "de-ho-a1-8",
@@ -81,7 +95,11 @@
     "prompt": "Say: I love listening to music.",
     "correctAnswer": "Ich höre gerne Musik.",
     "hints": [
-      "'Love' + gerund expresses strong enjoyment."
+      "German adds 'gern' to the verb to say you like doing something."
+    ],
+    "acceptedAnswers": [
+      "Ich höre sehr gern Musik.",
+      "Ich liebe es, Musik zu hören."
     ]
   },
   {
@@ -98,21 +116,27 @@
     "id": "de-ho-a1-10",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Ask: What do you like to do at weekends?",
-    "correctAnswer": "Was möchten Sie am Wochenende machen?",
+    "prompt": "Ask: What do you like to do on weekends?",
+    "correctAnswer": "Was machen Sie gern am Wochenende?",
     "hints": [
       "A friendly question about free time."
+    ],
+    "acceptedAnswers": [
+      "Was machst du gern am Wochenende?"
     ]
   },
   {
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Say: I like painting on weekends.",
-    "correctAnswer": "Ich mag Malerei an Wochenenden.",
+    "correctAnswer": "Am Wochenende male ich gern.",
     "hints": [
       "Use 'like' + activity."
     ],
-    "id": "de-ho-a1-39"
+    "id": "de-ho-a1-39",
+    "acceptedAnswers": [
+      "Ich male gern am Wochenende."
+    ]
   },
   {
     "level": "a1",
@@ -129,12 +153,15 @@
     "level": "a1",
     "difficulty": "a1",
     "prompt": "Ask: Do you enjoy reading comics?",
-    "correctAnswer": "Genießt es, Comics zu lesen?",
+    "correctAnswer": "Liest du gern Comics?",
     "hints": [
       "Use 'Do you enjoy...?' for hobbies."
     ],
     "exerciseType": "flashcard",
-    "id": "de-ho-a1-41"
+    "id": "de-ho-a1-41",
+    "acceptedAnswers": [
+      "Lesen Sie gern Comics?"
+    ]
   },
   {
     "id": "de-ho-a2",
@@ -152,18 +179,22 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I watch movies at home.",
-    "correctAnswer": "Ich sehe Filme zu Hause.",
+    "correctAnswer": "Ich schaue zu Hause Filme.",
     "hints": [
       "A simple leisure routine."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "acceptedAnswers": [
+      "Ich sehe zu Hause Filme.",
+      "Ich gucke zu Hause Filme."
+    ]
   },
   {
     "id": "de-ho-a2-3",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I swim at the pool.",
-    "correctAnswer": "Ich schwimme am Pool.",
+    "correctAnswer": "Ich schwimme im Schwimmbad.",
     "hints": [
       "A short activity sentence."
     ],
@@ -174,9 +205,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have been learning the guitar for six months.",
-    "correctAnswer": "Ich habe seit sechs Monaten die Gitarre gelernt.",
+    "correctAnswer": "Ich lerne seit sechs Monaten Gitarre.",
     "hints": [
-      "Present perfect continuous for an ongoing activity."
+      "Present tense + 'seit' for something still going on."
     ]
   },
   {
@@ -184,9 +215,13 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: How often do you go cycling?",
-    "correctAnswer": "Wie oft fahren Sie?",
+    "correctAnswer": "Wie oft fahren Sie Rad?",
     "hints": [
       "Use 'how often do you' to ask about frequency."
+    ],
+    "acceptedAnswers": [
+      "Wie oft fährst du Fahrrad?",
+      "Wie oft fahren Sie Fahrrad?"
     ]
   },
   {
@@ -194,9 +229,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I joined a book club last year.",
-    "correctAnswer": "Ich bin letztes Jahr bei einem Buchclub.",
+    "correctAnswer": "Ich bin letztes Jahr einem Lesekreis beigetreten.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "acceptedAnswers": [
+      "Ich bin letztes Jahr einem Buchclub beigetreten."
     ]
   },
   {
@@ -204,9 +242,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: My favorite hobby is photography.",
-    "correctAnswer": "Mein Lieblingskochfeld ist Fotografie.",
+    "correctAnswer": "Mein Lieblingshobby ist Fotografie.",
     "hints": [
       "State your preference with 'my favorite'."
+    ],
+    "acceptedAnswers": [
+      "Mein Lieblingshobby ist das Fotografieren."
     ]
   },
   {
@@ -214,9 +255,12 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Ask: Have you ever tried rock climbing?",
-    "correctAnswer": "Haben Sie jemals versucht, Klettern?",
+    "correctAnswer": "Haben Sie schon mal Klettern ausprobiert?",
     "hints": [
       "'Have you ever tried' asks about life experience."
+    ],
+    "acceptedAnswers": [
+      "Hast du schon mal Klettern ausprobiert?"
     ]
   },
   {
@@ -224,9 +268,9 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I enjoy baking at the weekends.",
-    "correctAnswer": "Ich genieße das Backen an den Wochenenden.",
+    "correctAnswer": "Am Wochenende backe ich gern.",
     "hints": [
-      "'Enjoy' is followed by the gerund (-ing)."
+      "Verb + 'gern' = to enjoy doing."
     ]
   },
   {
@@ -263,10 +307,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Which hobby helps you reduce stress?",
-    "correctAnswer": "Welches Hobby hilft Ihnen, Stress zu reduzieren?",
+    "prompt": "Welches Hobby hilft Ihnen, ___ abzubauen?",
+    "correctAnswer": "Stress",
     "hints": [
-      "Useful for conversation practice."
+      "'___ abbauen' = to reduce stress."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-ho-a2-51"
@@ -276,7 +320,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Choose the best response. What do you like to do after work?",
-    "correctAnswer": "Normalerweise male ich oder gehe für einen Lauf.",
+    "correctAnswer": "Normalerweise male ich oder gehe laufen.",
     "hints": [
       "Mention two leisure activities."
     ],
@@ -309,7 +353,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I find that gardening is a good way to unwind after a stressful day.",
-    "correctAnswer": "Ich finde, dass die Gärung ein guter Weg ist, sich nach einem stressigen Tag zu entspannen.",
+    "correctAnswer": "Ich finde, Gartenarbeit ist eine gute Möglichkeit, nach einem stressigen Tag abzuschalten.",
     "hints": [
       "'I find that' introduces a personal observation; 'unwind' means relax."
     ]
@@ -319,7 +363,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have recently taken up pottery and find it very therapeutic.",
-    "correctAnswer": "Ich habe kürzlich Töpferei aufgenommen und finde es sehr therapeutisch.",
+    "correctAnswer": "Ich habe vor Kurzem mit dem Töpfern angefangen und finde es sehr therapeutisch.",
     "hints": [
       "'Taken up' means started a new hobby; 'therapeutic' means calming and healing."
     ]
@@ -329,9 +373,12 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Ask: What do you do to switch off when you are feeling overwhelmed?",
-    "correctAnswer": "Was tun Sie, um auszuschalten, wenn Sie sich überfordert fühlen?",
+    "correctAnswer": "Was tun Sie, um abzuschalten, wenn Sie sich überfordert fühlen?",
     "hints": [
       "'Switch off' means mentally disconnect from stress."
+    ],
+    "acceptedAnswers": [
+      "Was machst du, um abzuschalten, wenn du dich überfordert fühlst?"
     ]
   },
   {
@@ -339,7 +386,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Although I am not very competitive, I enjoy the social side of team sports.",
-    "correctAnswer": "Obwohl ich nicht sehr wettbewerbsfähig bin, genieße ich die soziale Seite des Teamsports.",
+    "correctAnswer": "Obwohl ich nicht besonders ehrgeizig bin, mag ich die soziale Seite von Mannschaftssportarten.",
     "hints": [
       "'Although' introduces a contrast."
     ]
@@ -349,7 +396,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I have been meaning to get into yoga for years but never quite managed it.",
-    "correctAnswer": "Ich wollte schon seit Jahren in Yoga kommen, aber es hat nie ganz geschafft.",
+    "correctAnswer": "Ich wollte schon seit Jahren mit Yoga anfangen, habe es aber nie geschafft.",
     "hints": [
       "'Been meaning to' = intended to but not done; 'get into' = start doing regularly."
     ]
@@ -378,7 +425,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I joined a local book club to meet new people.",
-    "correctAnswer": "Ich schloss mich einem lokalen Buchclub an, um neue Leute kennenzulernen.",
+    "correctAnswer": "Ich bin einem Lesekreis in der Nähe beigetreten, um neue Leute kennenzulernen.",
     "hints": [
       "Purpose clause with 'to'."
     ],
@@ -388,7 +435,7 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: My main hobby changed after I moved to the city.",
-    "correctAnswer": "Mein Hauptkochfeld änderte sich, nachdem ich in die Stadt zog.",
+    "correctAnswer": "Mein Haupthobby hat sich geändert, nachdem ich in die Stadt gezogen bin.",
     "hints": [
       "Use sequence in storytelling."
     ],
@@ -398,10 +445,10 @@
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: How do you stay motivated when practicing your hobby?",
-    "correctAnswer": "Wie bleiben Sie motiviert, wenn Sie Ihr Hobby üben?",
+    "prompt": "Wie bleiben Sie ___, wenn Sie Ihr Hobby ausüben?",
+    "correctAnswer": "motiviert",
     "hints": [
-      "Open question form."
+      "An adjective meaning 'eager to keep going'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-ho-b1-61"
@@ -410,10 +457,10 @@
     "id": "de-ho-b2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I relax by reading books.",
-    "correctAnswer": "Ich entspanne mich beim Lesen von Büchern.",
+    "prompt": "Say: Nothing helps me unwind like losing myself in a good book.",
+    "correctAnswer": "Nichts entspannt mich so sehr, wie mich in ein gutes Buch zu vertiefen.",
     "hints": [
-      "Use a reflective tone."
+      "'Sich in etwas vertiefen' = to lose yourself in something."
     ],
     "exerciseType": "pronunciation"
   },
@@ -421,10 +468,10 @@
     "id": "de-ho-b2-2",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I practice guitar every day.",
-    "correctAnswer": "Ich übe jeden Tag Gitarre.",
+    "prompt": "Say: I make a point of practicing guitar every day, however busy I am.",
+    "correctAnswer": "Ich achte darauf, jeden Tag Gitarre zu üben, egal wie viel ich zu tun habe.",
     "hints": [
-      "A clear daily habit."
+      "'Darauf achten, ... zu' = to make a point of; 'egal wie' = however."
     ],
     "exerciseType": "pronunciation"
   },
@@ -432,10 +479,10 @@
     "id": "de-ho-b2-3",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I enjoy painting in my free time.",
-    "correctAnswer": "Ich genieße die Malerei in meiner Freizeit.",
+    "prompt": "Say: Painting lets me express things I struggle to put into words.",
+    "correctAnswer": "Beim Malen kann ich Dinge ausdrücken, die ich nur schwer in Worte fassen kann.",
     "hints": [
-      "A common hobby phrase."
+      "'In Worte fassen' = to put into words."
     ],
     "exerciseType": "pronunciation"
   },
@@ -444,7 +491,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Leisure time has become an increasingly contested concept in the age of constant connectivity.",
-    "correctAnswer": "Die Freizeit ist im Zeitalter der ständigen Konnektivität zu einem zunehmend bestrittenen Konzept geworden.",
+    "correctAnswer": "Freizeit ist im Zeitalter ständiger Erreichbarkeit zu einem zunehmend umstrittenen Begriff geworden.",
     "hints": [
       "'Contested concept' means something whose meaning is debated; 'connectivity' = being always online."
     ]
@@ -454,7 +501,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: I have always been drawn to solitary pursuits, which is perhaps why I gravitated towards writing.",
-    "correctAnswer": "Ich bin schon immer auf einsame Verfolgungen angewiesen worden, weshalb ich vielleicht zum Schreiben graviert habe.",
+    "correctAnswer": "Mich haben schon immer Beschäftigungen angezogen, die man allein ausübt – vielleicht bin ich deshalb zum Schreiben gekommen.",
     "hints": [
       "'Drawn to' means attracted to; 'gravitated towards' means naturally moved towards."
     ]
@@ -464,9 +511,12 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Ask: Do you think hobbies say something fundamental about a person's character?",
-    "correctAnswer": "Denkst du, Hobbys sagen etwas Grundlegendes an den Charakter einer Person?",
+    "correctAnswer": "Glaubst du, dass Hobbys etwas Grundlegendes über den Charakter eines Menschen aussagen?",
     "hints": [
       "'Fundamental' means basic or essential; invite a nuanced discussion."
+    ],
+    "acceptedAnswers": [
+      "Glauben Sie, dass Hobbys etwas Grundlegendes über den Charakter eines Menschen aussagen?"
     ]
   },
   {
@@ -474,7 +524,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Amateur astronomy demands patience, precision, and a willingness to accept that most nights will yield nothing spectacular.",
-    "correctAnswer": "Amateurastronomie verlangt Geduld, Präzision und eine Bereitschaft zu akzeptieren, dass die meisten Nächte nichts spektakuläres.",
+    "correctAnswer": "Amateurastronomie verlangt Geduld, Präzision und die Bereitschaft zu akzeptieren, dass die meisten Nächte nichts Spektakuläres bringen.",
     "hints": [
       "'Yield' here means produce; 'spectacular' means impressive."
     ],
@@ -494,7 +544,7 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Leisure activities improve my focus and creativity.",
-    "correctAnswer": "Freizeitaktivitäten verbessern meinen Fokus und Kreativität.",
+    "correctAnswer": "Freizeitaktivitäten verbessern meine Konzentration und meine Kreativität.",
     "hints": [
       "Abstract nouns are common at B2."
     ],
@@ -503,10 +553,10 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: I prefer hobbies that combine social interaction with skill-building.",
-    "correctAnswer": "Ich bevorzuge Hobbys, die soziale Interaktion mit Skill-Gebäude kombinieren.",
+    "prompt": "Ich bevorzuge Hobbys, die soziale Kontakte mit dem Erwerb neuer ___ verbinden.",
+    "correctAnswer": "Fähigkeiten",
     "hints": [
-      "Complex noun phrase."
+      "A plural noun meaning 'skills'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "de-ho-b2-70"
@@ -514,7 +564,7 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: To what extent should hobbies be goal-oriented?",
+    "prompt": "Choose the best response. A friend says every hobby should lead to a measurable achievement.",
     "correctAnswer": "Inwieweit sollten Hobbys zielorientiert sein?",
     "hints": [
       "Formal discussion prompt."

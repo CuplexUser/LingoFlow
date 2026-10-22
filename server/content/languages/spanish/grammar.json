@@ -3,10 +3,15 @@
     "id": "es-gr-1",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'She ___ a teacher.' (to be)",
+    "prompt": "Say: She is a teacher.",
     "correctAnswer": "Es maestra.",
     "hints": [
-      "Use the correct form of 'to be' for she."
+      "'Ser' for professions, with no article: es maestra."
+    ],
+    "acceptedAnswers": [
+      "Ella es maestra.",
+      "Es profesora.",
+      "Ella es profesora."
     ]
   },
   {
@@ -16,37 +21,41 @@
     "prompt": "Say: They are my friends.",
     "correctAnswer": "Son mis amigos.",
     "hints": [
-      "Practice this phrase out loud."
+      "'Ser' for identity: son = they are."
+    ],
+    "acceptedAnswers": [
+      "Ellos son mis amigos.",
+      "Son mis amigas."
     ]
   },
   {
     "id": "es-gr-3",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'I ___ like coffee.' (not)",
+    "prompt": "Say: I don't like coffee.",
     "correctAnswer": "No me gusta el café.",
     "hints": [
-      "For present simple negative, use 'do not'."
+      "Put 'no' before 'me gusta'."
     ]
   },
   {
     "id": "es-gr-13",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'We ___ students.' (to be)",
+    "prompt": "Say: We are students.",
     "correctAnswer": "Somos estudiantes.",
     "hints": [
-      "'We' uses 'are'."
+      "'Somos' = we are (ser)."
     ]
   },
   {
     "id": "es-gr-14",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the correct form: 'He ___ English every day.' (study)",
-    "correctAnswer": "Estudia inglés todos los días.",
+    "prompt": "Él ___ inglés todos los días. (estudiar)",
+    "correctAnswer": "estudia",
     "hints": [
-      "Third person singular adds -s or -es to the verb."
+      "Third person singular of -ar verbs ends in -a."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -57,27 +66,30 @@
     "prompt": "Say: There is a book on the table.",
     "correctAnswer": "Hay un libro sobre la mesa.",
     "hints": [
-      "Use 'there is' for one thing, 'there are' for more than one."
+      "'Hay' = there is / there are — the same form for singular and plural."
+    ],
+    "acceptedAnswers": [
+      "Hay un libro en la mesa."
     ]
   },
   {
     "id": "es-gr-16",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: '___ you like tea?' (to do)",
+    "prompt": "Ask: Do you like tea?",
     "correctAnswer": "¿Te gusta el té?",
     "hints": [
-      "Yes/no questions in present simple use 'do'."
+      "Spanish has no auxiliary 'do': use 'gustar' with the thing liked as the subject."
     ]
   },
   {
     "id": "es-gr-17",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Choose the article: 'She has ___ umbrella.' (a/an)",
-    "correctAnswer": "Tiene un paraguas.",
+    "prompt": "Ella tiene ___ paraguas.",
+    "correctAnswer": "un",
     "hints": [
-      "Use 'an' before a vowel sound."
+      "'Paraguas' is masculine and singular despite the -s."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -88,7 +100,7 @@
     "prompt": "Say: I am not tired.",
     "correctAnswer": "No estoy cansado.",
     "hints": [
-      "Negative of 'to be': add 'not'."
+      "'Estar' for temporary states; 'no' before the verb. Female speaker: cansada."
     ],
     "exerciseType": "build_sentence"
   },
@@ -96,10 +108,10 @@
     "id": "es-gr-19",
     "level": "a1",
     "difficulty": "a1",
-    "prompt": "Fill in the blank: 'The cats ___ sleeping.' (to be)",
+    "prompt": "Say: The cats are sleeping.",
     "correctAnswer": "Los gatos están durmiendo.",
     "hints": [
-      "Plural subject uses 'are' in the present continuous."
+      "'Estar' + gerund for an action in progress."
     ]
   },
   {
@@ -108,9 +120,13 @@
     "prompt": "Say: She goes to school every day.",
     "correctAnswer": "Va a la escuela todos los días.",
     "hints": [
-      "Notice the -s in third person singular."
+      "'Ir' is irregular: va = he/she goes."
     ],
-    "id": "es-gr-a1-39"
+    "id": "es-gr-a1-39",
+    "acceptedAnswers": [
+      "Ella va a la escuela todos los días.",
+      "Va al colegio todos los días."
+    ]
   },
   {
     "level": "a1",
@@ -118,10 +134,14 @@
     "prompt": "Say: They are happy.",
     "correctAnswer": "Son felices.",
     "hints": [
-      "Use 'are' with 'they'."
+      "'Feliz' becomes 'felices' in the plural (z → c)."
     ],
     "exerciseType": "build_sentence",
-    "id": "es-gr-a1-40"
+    "id": "es-gr-a1-40",
+    "acceptedAnswers": [
+      "Están felices.",
+      "Están contentos."
+    ]
   },
   {
     "level": "a1",
@@ -141,17 +161,24 @@
     "prompt": "Say: I went to the supermarket yesterday.",
     "correctAnswer": "Fui al supermercado ayer.",
     "hints": [
-      "'Went' is the irregular past tense of 'go'."
+      "'Fui' is the irregular preterite of 'ir'."
+    ],
+    "acceptedAnswers": [
+      "Ayer fui al supermercado."
     ]
   },
   {
     "id": "es-gr-5",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'She ___ been waiting for an hour.' (have/has)",
-    "correctAnswer": "Ha estado esperando una hora.",
+    "prompt": "Say: She has been waiting for an hour.",
+    "correctAnswer": "Lleva una hora esperando.",
     "hints": [
-      "Third person singular uses 'has' in perfect tenses."
+      "'Llevar' + time + gerund for something still going on."
+    ],
+    "acceptedAnswers": [
+      "Ha estado esperando una hora.",
+      "Hace una hora que espera."
     ]
   },
   {
@@ -161,17 +188,17 @@
     "prompt": "Say: If it rains, we will stay inside.",
     "correctAnswer": "Si llueve, nos quedaremos dentro.",
     "hints": [
-      "First conditional: 'if' + present simple, 'will' + infinitive."
+      "'Si' + present, then the future in the main clause."
     ]
   },
   {
     "id": "es-gr-20",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct form: 'I ___ to the cinema last Saturday.' (go)",
-    "correctAnswer": "Fui al cine el sábado pasado.",
+    "prompt": "El sábado pasado ___ al cine. (ir)",
+    "correctAnswer": "fui",
     "hints": [
-      "Use the simple past for a completed past event."
+      "Irregular preterite of 'ir', 'yo' form."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -179,10 +206,13 @@
     "id": "es-gr-21",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'He ___ working at seven this morning.' (was/were)",
-    "correctAnswer": "Trabajaba a las siete de esta mañana.",
+    "prompt": "Say: He was working at seven this morning.",
+    "correctAnswer": "Estaba trabajando a las siete de la mañana.",
     "hints": [
-      "He/she/it uses 'was' in past continuous."
+      "Imperfect of 'estar' + gerund for an action in progress in the past."
+    ],
+    "acceptedAnswers": [
+      "Trabajaba a las siete de la mañana."
     ]
   },
   {
@@ -190,19 +220,23 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: We have lived here for five years.",
-    "correctAnswer": "Hemos vivido aquí durante cinco años.",
+    "correctAnswer": "Llevamos cinco años viviendo aquí.",
     "hints": [
-      "Present perfect with 'for' expresses duration up to now."
+      "'Llevar' + time + gerund, or present + 'desde hace'."
+    ],
+    "acceptedAnswers": [
+      "Vivimos aquí desde hace cinco años.",
+      "Hemos vivido aquí durante cinco años."
     ]
   },
   {
     "id": "es-gr-23",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Choose the correct comparative: 'This book is ___ than the other one.' (interesting)",
-    "correctAnswer": "Este libro es más interesante que el otro.",
+    "prompt": "Este libro es ___ interesante que el otro.",
+    "correctAnswer": "más",
     "hints": [
-      "Long adjectives use 'more' for comparatives."
+      "'Más ... que' = more ... than."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -210,10 +244,10 @@
     "id": "es-gr-24",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: '___ you been to Paris?' (have/has)",
+    "prompt": "Ask: Have you been to Paris?",
     "correctAnswer": "¿Has estado en París?",
     "hints": [
-      "Question form of present perfect with 'you'."
+      "Present perfect: haber + participle ('estado')."
     ]
   },
   {
@@ -223,28 +257,39 @@
     "prompt": "Say: She used to play the piano when she was young.",
     "correctAnswer": "Solía tocar el piano cuando era joven.",
     "hints": [
-      "'Used to' expresses a past habit that no longer continues."
+      "Imperfect of 'soler' + infinitive, or just the imperfect."
+    ],
+    "acceptedAnswers": [
+      "Tocaba el piano cuando era joven."
     ]
   },
   {
     "id": "es-gr-26",
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Fill in the blank: 'You should ___ more water.' (drink)",
+    "prompt": "Say: You should drink more water.",
     "correctAnswer": "Deberías beber más agua.",
     "hints": [
-      "'Should' is followed by the base infinitive."
+      "Conditional of 'deber' + infinitive for advice."
+    ],
+    "acceptedAnswers": [
+      "Deberías tomar más agua.",
+      "Debería beber más agua."
     ]
   },
   {
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Say: I have lived here for two years.",
-    "correctAnswer": "He vivido aquí durante dos años.",
+    "correctAnswer": "Llevo dos años viviendo aquí.",
     "hints": [
       "Present perfect for duration."
     ],
-    "id": "es-gr-a2-49"
+    "id": "es-gr-a2-49",
+    "acceptedAnswers": [
+      "Vivo aquí desde hace dos años.",
+      "He vivido aquí durante dos años."
+    ]
   },
   {
     "level": "a2",
@@ -260,10 +305,10 @@
   {
     "level": "a2",
     "difficulty": "a2",
-    "prompt": "Ask: Should I use much or many here?",
-    "correctAnswer": "¿Debo usar mucho o muchos aquí?",
+    "prompt": "Tengo ___ amigos en Madrid. (mucho)",
+    "correctAnswer": "muchos",
     "hints": [
-      "Countability grammar prompt."
+      "'Mucho' agrees in gender and number with the noun."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-gr-a2-51"
@@ -275,17 +320,17 @@
     "prompt": "Say: If I had more time, I would learn a third language.",
     "correctAnswer": "Si tuviera más tiempo, aprendería un tercer idioma.",
     "hints": [
-      "Second conditional: 'if' + past simple, 'would' + infinitive."
+      "'Si' + imperfect subjunctive, then the conditional."
     ]
   },
   {
     "id": "es-gr-8",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'By the time she arrives, we ___ finished dinner.' (will have)",
+    "prompt": "Say: By the time she arrives, we will have finished dinner.",
     "correctAnswer": "Para cuando llegue, habremos terminado la cena.",
     "hints": [
-      "Future perfect for an action completed before a future point."
+      "'Para cuando' + present subjunctive; future perfect in the main clause."
     ]
   },
   {
@@ -295,17 +340,17 @@
     "prompt": "Say: Despite feeling tired, she continued working.",
     "correctAnswer": "A pesar de sentirse cansada, siguió trabajando.",
     "hints": [
-      "'Despite' is followed by a noun or gerund (-ing form)."
+      "'A pesar de' + infinitive."
     ]
   },
   {
     "id": "es-gr-27",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct passive form: 'The report ___ by the team last week.' (write)",
-    "correctAnswer": "El informe fue escrito por el equipo la semana pasada.",
+    "prompt": "El informe ___ escrito por el equipo la semana pasada.",
+    "correctAnswer": "fue",
     "hints": [
-      "Passive past simple: was/were + past participle."
+      "Passive: ser + participle, here in the preterite."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -316,17 +361,21 @@
     "prompt": "Say: He told me that he had already sent the email.",
     "correctAnswer": "Me dijo que ya había enviado el correo electrónico.",
     "hints": [
-      "Reported speech shifts tense: 'has sent' → 'had sent'."
+      "Pluperfect 'había enviado' in reported speech."
     ]
   },
   {
     "id": "es-gr-29",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'I wish I ___ more time to practice.' (had/have)",
-    "correctAnswer": "Desearía tener más tiempo para practicar.",
+    "prompt": "Say: I wish I had more time to practice.",
+    "correctAnswer": "Me gustaría tener más tiempo para practicar.",
     "hints": [
-      "'I wish' + past simple expresses a present regret."
+      "'Me gustaría' + infinitive, or 'ojalá' + imperfect subjunctive."
+    ],
+    "acceptedAnswers": [
+      "Ojalá tuviera más tiempo para practicar.",
+      "Desearía tener más tiempo para practicar."
     ]
   },
   {
@@ -334,19 +383,25 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: Not only did she win the race, but she also broke the record.",
-    "correctAnswer": "No sólo ganó la carrera, sino que también rompió el récord.",
+    "correctAnswer": "No solo ganó la carrera, sino que también batió el récord.",
     "hints": [
-      "'Not only... but also' requires inversion after 'not only'."
+      "'No solo... sino que también...'. A record is 'batido'."
+    ],
+    "acceptedAnswers": [
+      "No solo ganó la carrera, sino que también rompió el récord."
     ]
   },
   {
     "id": "es-gr-31",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Fill in the blank: 'She is used to ___ early.' (wake)",
-    "correctAnswer": "Está acostumbrada a despertar temprano.",
+    "prompt": "Say: She is used to waking up early.",
+    "correctAnswer": "Está acostumbrada a levantarse temprano.",
     "hints": [
-      "'Be used to' is followed by the gerund (-ing)."
+      "'Acostumbrado/a a' + infinitive."
+    ],
+    "acceptedAnswers": [
+      "Está acostumbrada a despertarse temprano."
     ]
   },
   {
@@ -363,10 +418,10 @@
     "id": "es-gr-33",
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Choose the correct relative pronoun: 'The person ___ called left no message.' (who/which)",
-    "correctAnswer": "La persona que llamó no dejó ningún mensaje.",
+    "prompt": "La persona ___ llamó no dejó ningún mensaje.",
+    "correctAnswer": "que",
     "hints": [
-      "Use 'who' for people; 'which' for things."
+      "'Que' is the relative pronoun for both people and things."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -384,20 +439,23 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: The report that you sent was very helpful.",
-    "correctAnswer": "El informe que envió fue muy útil.",
+    "correctAnswer": "El informe que enviaste fue muy útil.",
     "hints": [
       "Relative clause example."
     ],
     "exerciseType": "build_sentence",
-    "id": "es-gr-b1-60"
+    "id": "es-gr-b1-60",
+    "acceptedAnswers": [
+      "El informe que me enviaste fue muy útil."
+    ]
   },
   {
     "level": "b1",
     "difficulty": "b1",
-    "prompt": "Ask: When should I use the passive voice?",
-    "correctAnswer": "¿Cuándo debería usar la voz pasiva?",
+    "prompt": "¿Cuándo debería usar la voz ___?",
+    "correctAnswer": "pasiva",
     "hints": [
-      "Usage question."
+      "The opposite of the active voice."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-gr-b1-61"
@@ -407,19 +465,26 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known about the delay, I would have taken an earlier train.",
-    "correctAnswer": "Si hubiera sabido sobre el retraso, habría tomado un tren anterior.",
+    "correctAnswer": "Si hubiera sabido lo del retraso, habría tomado un tren más temprano.",
     "hints": [
-      "Inverted third conditional: 'Had I...' replaces 'If I had...'"
+      "Spanish has no inversion: 'Si hubiera sabido' or 'De haber sabido'."
+    ],
+    "acceptedAnswers": [
+      "De haber sabido lo del retraso, habría cogido un tren más temprano."
     ]
   },
   {
     "id": "es-gr-11",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'Rarely ___ I see such attention to detail.' (have)",
-    "correctAnswer": "Raramente he visto tanta atención al detalle.",
+    "prompt": "Say: Rarely have I seen such attention to detail.",
+    "correctAnswer": "Pocas veces he visto tanta atención al detalle.",
     "hints": [
-      "Fronted negative adverbs require subject-auxiliary inversion."
+      "'Pocas veces' or 'rara vez' = rarely; no inversion in Spanish."
+    ],
+    "acceptedAnswers": [
+      "Raramente he visto tanta atención al detalle.",
+      "Rara vez he visto tanta atención al detalle."
     ]
   },
   {
@@ -436,10 +501,14 @@
     "id": "es-gr-34",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'No sooner ___ she arrived than the meeting began.' (had)",
-    "correctAnswer": "No había llegado antes de que empezara la reunión.",
+    "prompt": "Say: No sooner had she arrived than the meeting began.",
+    "correctAnswer": "En cuanto llegó, empezó la reunión.",
     "hints": [
-      "'No sooner' triggers inversion; 'than' follows rather than 'when'."
+      "'En cuanto' or 'apenas' = as soon as."
+    ],
+    "acceptedAnswers": [
+      "Nada más llegar ella, empezó la reunión.",
+      "Apenas llegó, empezó la reunión."
     ]
   },
   {
@@ -447,19 +516,22 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: It is high time we addressed the underlying structural issues.",
-    "correctAnswer": "Es hora de abordar las cuestiones estructurales subyacentes.",
+    "correctAnswer": "Ya es hora de que abordemos los problemas estructurales de fondo.",
     "hints": [
-      "'It is high time' + past subjunctive expresses urgency."
+      "'Ya es hora de que' + present subjunctive expresses urgency."
+    ],
+    "acceptedAnswers": [
+      "Es hora de abordar las cuestiones estructurales subyacentes."
     ]
   },
   {
     "id": "es-gr-36",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Choose the correct form: 'The data ___ analysed before any conclusions can be drawn.' (must be)",
-    "correctAnswer": "Los datos deben analizarse antes de que se puedan extraer conclusiones.",
+    "prompt": "Los datos deben ___ antes de sacar conclusiones.",
+    "correctAnswer": "analizarse",
     "hints": [
-      "Modal passive: modal + be + past participle."
+      "Passive 'se' attached to the infinitive."
     ],
     "exerciseType": "cloze_sentence"
   },
@@ -468,38 +540,41 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Were she to apply, she would be a strong candidate for the position.",
-    "correctAnswer": "Si fuera a solicitar, sería una candidata fuerte para la posición.",
+    "correctAnswer": "Si se presentara, sería una candidata sólida para el puesto.",
     "hints": [
-      "Inverted conditional with 'were to' for formal, hypothetical situations."
+      "'Si' + imperfect subjunctive; 'presentarse' = to apply (for a job)."
     ]
   },
   {
     "id": "es-gr-38",
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Fill in the blank: 'The more you practice, ___ you become.' (fluent)",
-    "correctAnswer": "Cuanto más practiques, más fluidez te vuelves.",
+    "prompt": "Say: The more you practice, the more fluent you become.",
+    "correctAnswer": "Cuanto más practicas, más fluidez ganas.",
     "hints": [
-      "'The more... the more...' is a comparative structure expressing proportional change."
+      "'Cuanto más ..., más ...' for proportional change."
+    ],
+    "acceptedAnswers": [
+      "Cuanto más practicas, con más fluidez hablas."
     ]
   },
   {
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Say: Had I known earlier, I would have prepared differently.",
-    "correctAnswer": "Si lo hubiera sabido antes, habría preparado de manera diferente.",
+    "correctAnswer": "Si lo hubiera sabido antes, me habría preparado de otra manera.",
     "hints": [
-      "Inverted third conditional."
+      "Pluperfect subjunctive + conditional perfect; 'prepararse' is reflexive."
     ],
     "id": "es-gr-b2-69"
   },
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Say: Not only did she finish on time, but she also improved the draft.",
-    "correctAnswer": "No sólo terminó a tiempo, sino que también mejoró el proyecto.",
+    "prompt": "No solo terminó a tiempo, ___ que también mejoró el borrador.",
+    "correctAnswer": "sino",
     "hints": [
-      "Inversion after negative adverbials."
+      "'No solo... ___ que también...'."
     ],
     "exerciseType": "cloze_sentence",
     "id": "es-gr-b2-70"
@@ -507,8 +582,8 @@
   {
     "level": "b2",
     "difficulty": "b2",
-    "prompt": "Ask: How does emphasis change when we front a phrase?",
-    "correctAnswer": "¿Cómo cambia el énfasis cuando nos enfrentamos a una frase?",
+    "prompt": "Choose the best response. Your teacher moves a phrase to the start of your sentence and asks if you notice a difference.",
+    "correctAnswer": "Sí. ¿Cómo cambia el énfasis cuando ponemos una frase al principio?",
     "hints": [
       "Advanced grammar awareness question."
     ],
