@@ -66,16 +66,9 @@ Russian is hand-edited; the other courses are largely machine translations of th
 `npm run review:content` hands out per-category review work orders to an AI (MCP or files). See
 `docs/content-quality-checklist.md`.
 
-- [ ] **Rewrite numbers_math multiple choice in fr/de/it/sv** — the 23 `multiple_choice` items per
-  course are literal translations of an English-only quiz ("How do you spell 50?" answered `50`,
-  English idioms with German answers). Rewrite them as Spanish and Russian did ("How do you write 37
-  in German words?"). Their known errors are in `server/content/lint-baseline.json`; remove entries
-  with `npm run lint:content -- --update-baseline` as they are fixed.
-- [ ] **Run the AI review per course** (fr, de, it, sv, es; 16 work orders each), triage the
-  findings with `--findings`, apply with `--apply`, and check the diff. Start with
-  `--severity=error`.
-- [ ] **Work down the lint warnings** — stock "Practice this phrase out loud." hints, untranslated
-  single words, English-template hints.
+The first review pass, the numbers_math rewrite and the lint warnings are done (see
+`docs/Completed.md`).
+
 - [ ] **Depth** — cultural notes (15 per course vs. 64 in Russian) and `acceptedAnswers` for gender
   and formal/informal variants, which the review flags as `missing-alternative`.
 - [ ] **Failure-rate signal** — rank items by `session_attempts` failure rate against the Russian

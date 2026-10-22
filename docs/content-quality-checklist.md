@@ -9,6 +9,11 @@ Use this checklist before merging content-heavy updates.
   fail the `content_lint` test unless they are listed in `server/content/lint-baseline.json`, which
   may only shrink; warnings are hints for review. Add `--warnings`, `--lang=<course>` or
   `--rule=<rule>` for detail.
+- A warning that turns out to be correct content (a cognate such as French `six`, an answer the
+  language guess misreads) goes in `server/content/lint-accepted.json` with a one-line reason.
+  Accepted warnings are hidden from the report, `--status` and work orders; the `content_lint`
+  test fails on an entry that no longer matches a warning.
+
 ## AI review through work orders
 
 An AI of your choice reviews one category file at a time like a native-speaking teacher, using

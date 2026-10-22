@@ -428,8 +428,13 @@
     "difficulty": "b1",
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary: the symbol '%'",
-    "correctAnswer": "per cent",
-    "hints": ["From Latin 'per centum': out of a hundred."]
+    "correctAnswer": "percent",
+    "hints": [
+      "From Latin 'per centum': out of a hundred."
+    ],
+    "acceptedAnswers": [
+      "per cent"
+    ]
   },
   {
     "id": "en-num-b1-6",
@@ -565,8 +570,15 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say 2,500,000 in the most natural spoken English?",
     "correctAnswer": "two and a half million",
-    "options": ["twenty-five hundred thousand", "two point five million", "two and a half million", "two millions five hundred"],
-    "hints": ["'Two and a half million' flows most naturally in speech."]
+    "options": [
+      "twenty-five hundred thousand",
+      "two point five million",
+      "two and a half million",
+      "two millions five hundred"
+    ],
+    "hints": [
+      "In everyday speech, 'half' combines with big round numbers."
+    ]
   },
   {
     "id": "en-num-b2-1",

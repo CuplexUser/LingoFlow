@@ -4,7 +4,9 @@
 // Errors are definite defects; warnings are heuristic signals worth a look. Errors that
 // already existed when the check was introduced are listed in
 // server/content/lint-baseline.json, which the content_lint test only lets shrink: a new
-// error fails the test, and so does a fixed error that is still in the baseline.
+// error fails the test, and so does a fixed error that is still in the baseline. Warnings
+// checked by hand and found correct are listed with a reason in
+// server/content/lint-accepted.json and left out of the report.
 //
 // Usage:
 //   npm run lint:content                         summary, depth figures, all errors
@@ -23,7 +25,8 @@ const {
   contentDepth,
   listLanguages,
   baselineKey,
-  BASELINE_PATH
+  BASELINE_PATH,
+  ACCEPTED_PATH
 } = require("../server/src/data/contentLint.ts");
 
 type Finding = {
@@ -44,6 +47,7 @@ const languages: string[] = option("lang") ? [option("lang") as string] : listLa
 const ruleFilter = option("rule");
 
 let findings: Finding[] = lintContent(languages);
+const acceptedCount = lintContent(languages, { includeAccepted: true }).length - findings.length;
 
 if (flag("update-baseline")) {
   if (option("lang")) {
@@ -154,5 +158,10 @@ if (flag("warnings") || ruleFilter) {
   const warningCount = findings.filter((f) => f.severity === "warning").length;
   if (warningCount)
     console.log(`\n${warningCount} warnings not shown; pass --warnings to list them.`);
+}
+if (acceptedCount && !ruleFilter) {
+  console.log(
+    `\n${acceptedCount} checked warnings hidden; see ${path.relative(process.cwd(), ACCEPTED_PATH)}.`
+  );
 }
 console.log("");

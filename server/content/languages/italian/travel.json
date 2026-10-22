@@ -343,12 +343,13 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Say: I was wondering if you could recommend a good local restaurant.",
-    "correctAnswer": "Mi chiedevo se potesse raccomandare un buon ristorante locale.",
+    "correctAnswer": "Mi chiedevo se potesse consigliarmi un buon ristorante della zona.",
     "hints": [
-      "Use 'I was wondering if' for polite, indirect requests."
+      "'Mi chiedevo se' + subjunctive ('potesse') makes a polite, indirect request."
     ],
     "acceptedAnswers": [
       "Mi chiedevo se potesse consigliarmi un buon ristorante locale.",
+      "Mi chiedevo se potesse raccomandare un buon ristorante locale.",
       "Mi chiedevo se potessi consigliarmi un buon ristorante del posto."
     ]
   },

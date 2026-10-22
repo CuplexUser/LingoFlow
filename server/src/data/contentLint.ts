@@ -807,8 +807,17 @@ function englishPromptMap(english: Record<string, ContentItem[]>, category: stri
   return new Map((english[category] || []).map((item) => [String(item.prompt || ""), item]));
 }
 
-// Lint every language (or just `languages`) and return all findings.
-function lintContent(languages: string[] = listLanguages()): LintFinding[] {
+// Lint every language (or just `languages`) and return the findings. Warnings checked by hand
+// and listed in lint-accepted.json are left out unless `includeAccepted` is set.
+function lintContent(
+  languages: string[] = listLanguages(),
+  { includeAccepted = false }: { includeAccepted?: boolean } = {}
+): LintFinding[] {
+  const findings = lintAll(languages);
+  return includeAccepted ? findings : withoutAccepted(findings);
+}
+
+function lintAll(languages: string[]): LintFinding[] {
   const english = loadLanguageItems("english");
   const findings: LintFinding[] = [];
   for (const language of languages) {
@@ -862,6 +871,22 @@ function loadBaseline(): string[] {
   return fs.existsSync(BASELINE_PATH) ? JSON.parse(fs.readFileSync(BASELINE_PATH, "utf8")) : [];
 }
 
+// Warnings a person has checked and found correct (a cognate such as French "six", an answer
+// the language guess misreads), keyed by baselineKey() with the reason as the value. The
+// content_lint test fails on an entry that no longer matches a warning.
+const ACCEPTED_PATH = path.join(CONTENT_DIR, "..", "lint-accepted.json");
+
+function loadAccepted(): Record<string, string> {
+  return fs.existsSync(ACCEPTED_PATH) ? JSON.parse(fs.readFileSync(ACCEPTED_PATH, "utf8")) : {};
+}
+
+function withoutAccepted(findings: LintFinding[]): LintFinding[] {
+  const accepted = loadAccepted();
+  return findings.filter(
+    (finding) => finding.severity === "error" || !Object.hasOwn(accepted, baselineKey(finding))
+  );
+}
+
 module.exports = {
   RULES,
   lintContent,
@@ -871,5 +896,7 @@ module.exports = {
   listLanguages,
   baselineKey,
   loadBaseline,
-  BASELINE_PATH
+  loadAccepted,
+  BASELINE_PATH,
+  ACCEPTED_PATH
 };

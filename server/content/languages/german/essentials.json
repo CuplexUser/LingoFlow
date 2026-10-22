@@ -6,7 +6,7 @@
     "prompt": "Say: Hello, how are you?",
     "correctAnswer": "Hallo, wie geht's?",
     "hints": [
-      "'Wie geht's?' is informal; formally: 'Wie geht es Ihnen?'"
+      "\"Wie geht's?\" is informal; formally: \"Wie geht es Ihnen?\""
     ],
     "acceptedAnswers": [
       "Hallo, wie geht es dir?",
@@ -358,7 +358,7 @@
     "prompt": "Sie ___ Englisch und Französisch.",
     "correctAnswer": "spricht",
     "hints": [
-      "'Sprechen' changes its vowel: ich spreche, sie spricht."
+      "'Sprechen' changes its vowel from e to i with 'du' and 'er/sie/es'."
     ],
     "exerciseType": "cloze_sentence"
   },

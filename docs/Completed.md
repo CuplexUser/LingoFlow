@@ -291,6 +291,20 @@ a tooling path to scale authored content across languages.
 
 ---
 
+## Phase 20: Content quality parity with Russian — completed steps (2026-10-22)
+
+- [x] **Rewrite numbers_math multiple choice in fr/de/it/sv** — the English-only quiz items now
+  ask for target-language number words; the lint baseline is empty.
+- [x] **Run the AI review per course** — all 16 categories of fr, de, it, ru, es and sv reviewed
+  through work orders and every finding applied (`npm run review:content -- --apply-all`).
+- [x] **Work down the lint warnings** — real hints replaced the stock "Practice this phrase out
+  loud." hints in the English course, hints that gave the answer away were rewritten, and
+  target-language forms in hints are quoted. The remaining warnings are correct content (cognates
+  such as French `six`, answers the language guess misreads) and are listed with a reason in
+  `server/content/lint-accepted.json`.
+
+---
+
 ## Phase 1: Reliability and anti-trivial-cheat ✓ COMPLETE
 
 - [x] Move final scoring authority to server:

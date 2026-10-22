@@ -6,7 +6,7 @@
     "prompt": "Ask: What is your name?",
     "correctAnswer": "Come ti chiami?",
     "hints": [
-      "'Chiamarsi' is reflexive: 'Come ti chiami?' (informal), 'Come si chiama?' (formal)."
+      "'Chiamarsi' (to be called) is reflexive: 'ti' informally, 'si' formally."
     ],
     "acceptedAnswers": [
       "Come si chiama?"
@@ -33,7 +33,7 @@
     "prompt": "Ask: Where are you from?",
     "correctAnswer": "Da dove vieni?",
     "hints": [
-      "'Da dove vieni?' or 'Di dove sei?'; formal: 'Da dove viene?'."
+      "'Venire da' asks where someone comes from; 'Di dove sei?' also works. Formal: 'viene'."
     ],
     "acceptedAnswers": [
       "Di dove sei?",
@@ -656,7 +656,7 @@
     "prompt": "Say: I would have phrased it differently had I known the context.",
     "correctAnswer": "L'avrei detto diversamente se avessi saputo il contesto.",
     "hints": [
-      "Past conditional (l'avrei detto) + past subjunctive (se avessi saputo)."
+      "Past conditional ('avrei detto') + past subjunctive ('avessi saputo')."
     ],
     "exerciseType": "dictation_sentence"
   },

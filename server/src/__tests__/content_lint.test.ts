@@ -7,10 +7,11 @@ const {
   lintContent,
   baselineKey,
   loadBaseline,
+  loadAccepted,
   detectLanguage
 } = require("../data/contentLint.ts");
 
-const findings = lintContent();
+const findings = lintContent(undefined, { includeAccepted: true });
 const baseline = new Set(loadBaseline());
 const errorKeys = new Set(
   findings.filter((finding: any) => finding.severity === "error").map(baselineKey)
@@ -34,6 +35,14 @@ test("the lint baseline lists only errors that still exist", () => {
     [],
     "These baseline errors are fixed; run `npm run lint:content -- --update-baseline`"
   );
+});
+
+test("lint-accepted.json lists only warnings that still exist", () => {
+  const warningKeys = new Set(
+    findings.filter((finding: any) => finding.severity === "warning").map(baselineKey)
+  );
+  const stale = Object.keys(loadAccepted()).filter((key) => !warningKeys.has(key));
+  assert.deepEqual(stale, [], "Remove these entries from server/content/lint-accepted.json");
 });
 
 test("detectLanguage tells the course languages apart", () => {

@@ -6,7 +6,7 @@
     "prompt": "Say: I have two brothers and one sister.",
     "correctAnswer": "J'ai deux frères et une sœur.",
     "hints": [
-      "'Avoir' for family members: j'ai deux frères."
+      "Family members take 'avoir' (to have), not 'être'."
     ]
   },
   {
@@ -16,7 +16,7 @@
     "prompt": "Ask: Do you have any children?",
     "correctAnswer": "Vous avez des enfants ?",
     "hints": [
-      "'Des enfants' — French needs the article where English says 'any'."
+      "Questions still need the article: 'des enfants' (any children)."
     ],
     "acceptedAnswers": [
       "Tu as des enfants ?",
@@ -280,7 +280,7 @@
     "prompt": "J'___ mes parents tous les soirs.",
     "correctAnswer": "appelle",
     "hints": [
-      "'Appeler' doubles its l: j'appelle."
+      "'Appeler' doubles its l when the ending is silent; 'nous appelons' keeps one."
     ],
     "exerciseType": "cloze_sentence",
     "id": "fr-fa-a2-51"

@@ -398,7 +398,7 @@
       "cinq-vingt"
     ],
     "hints": [
-      "Tens, hyphen, units: vingt-cinq. Only 21, 31, 41… use 'et' (vingt et un)."
+      "Tens, hyphen, units. Only 21, 31, 41… use 'et' (vingt et un)."
     ]
   },
   {
@@ -479,7 +479,7 @@
       "sept-trente"
     ],
     "hints": [
-      "Tens, hyphen, units: trente-sept."
+      "Tens, hyphen, units, as in 'vingt-deux'."
     ]
   },
   {
@@ -547,9 +547,6 @@
     "correctAnswer": "cinq cinq cinq, zéro un neuf neuf",
     "hints": [
       "0 is 'zéro'. French numbers are normally read in pairs, but this one goes digit by digit."
-    ],
-    "acceptedAnswers": [
-      "cinq cinq cinq zéro un neuf neuf"
     ]
   },
   {
@@ -576,7 +573,7 @@
     "prompt": "Fraction vocabulary: 1/4",
     "correctAnswer": "un quart",
     "hints": [
-      "Four equal parts. 'Un quart d'heure' is fifteen minutes."
+      "Four equal parts. A quarter of an hour, 'un ___ d'heure', is fifteen minutes."
     ]
   },
   {
@@ -873,7 +870,7 @@
     "prompt": "Complete: Le compte n'y ___ pas — les coûts sont bien trop élevés.",
     "correctAnswer": "est",
     "hints": [
-      "'Le compte n'y est pas' = the numbers don't add up."
+      "The fixed idiom 'le compte n'y ___ pas' means the numbers don't add up; it uses 'être'."
     ]
   },
   {
