@@ -204,9 +204,13 @@ function registerUserRoutes(app: any, deps: any): void {
     res.json(row);
   });
 
+  // ?all=1 lists every achievement, locked ones included, with progress toward them.
+  // Without it, only the earned ones, as older clients expect.
   app.get("/api/user/achievements", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
-    res.json(await database.getUserAchievements(userId));
+    res.json(req.query.all === "1"
+      ? await database.getAchievementCatalog(userId)
+      : await database.getUserAchievements(userId));
   });
 
   app.get("/api/progress", requireAuth, async (req: any, res: any) => {

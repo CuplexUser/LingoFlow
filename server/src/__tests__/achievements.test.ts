@@ -406,3 +406,77 @@ test("GET /api/user/achievements requires authentication", async (t) => {
   const res = await fetch(`${srv.base}/api/user/achievements`);
   assert.equal(res.status, 401);
 });
+
+// ─── Learning path and story achievements ─────────────────────────────────────
+
+test("checkAndGrantAchievements grants unit_1 and leap_ahead from the path result", async () => {
+  const userId = await createTestUser("path-achievements");
+  const base: AchievementCheckInput = {
+    streak: 0, totalXp: 0, language: "spanish", category: "essentials",
+    mastery: 0, hintsUsed: 0, revealedAnswers: 0, score: 5, maxScore: 10,
+    now: new Date("2026-01-01T12:00:00")
+  };
+
+  const midUnit = await database.checkAndGrantAchievements(userId, {
+    ...base, path: { kind: "lesson", unitDone: false }
+  }) as Achievement[];
+  assert.deepEqual(midUnit, []);
+
+  const unitDone = await database.checkAndGrantAchievements(userId, {
+    ...base, path: { kind: "lesson", unitDone: true }
+  }) as Achievement[];
+  assert.deepEqual(unitDone.map((a) => a.id), ["unit_1"]);
+
+  const failed = await database.checkAndGrantAchievements(userId, {
+    ...base, path: { kind: "checkpoint", passed: false }
+  }) as Achievement[];
+  assert.deepEqual(failed, []);
+
+  const passed = await database.checkAndGrantAchievements(userId, {
+    ...base, path: { kind: "checkpoint", passed: true }
+  }) as Achievement[];
+  assert.deepEqual(passed.map((a) => a.id), ["leap_ahead"]);
+});
+
+test("grantAchievement returns the achievement only the first time", async () => {
+  const userId = await createTestUser("grant-once");
+  const first = await database.grantAchievement(userId, "story_1") as Achievement[];
+  assert.equal(first.length, 1);
+  assert.equal(first[0].id, "story_1");
+  assert.equal(first[0].name, "Bookworm");
+  assert.deepEqual(await database.grantAchievement(userId, "story_1"), []);
+});
+
+// ─── Catalog with locked achievements ─────────────────────────────────────────
+
+test("GET /api/user/achievements?all=1 lists locked achievements with progress", async (t) => {
+  const srv = await TestServer.start();
+  t.after(() => srv.close());
+  const { headers, userId } = await createAuthSession(srv.base, "ach-catalog");
+
+  await database.recordSession({
+    userId, language: "spanish", category: "essentials", score: 8, maxScore: 10,
+    mistakes: 2, xpGained: 40, difficultyLevel: "a1", today: database.toIsoDate()
+  } satisfies RecordSessionArgs);
+  await database.grantAchievement(userId, "early_bird");
+
+  const res = await fetch(`${srv.base}/api/user/achievements?all=1`, { headers });
+  assert.equal(res.status, 200);
+  const catalog = await res.json() as Array<Achievement & { earnedAt: string | null; progress: { current: number; target: number } | null }>;
+  const byId = new Map(catalog.map((a) => [a.id, a]));
+
+  assert.ok(byId.has("streak_100") && byId.has("story_1"), "locked achievements are listed");
+  assert.equal(byId.get("xp_100")?.earnedAt, null);
+  assert.deepEqual(byId.get("xp_100")?.progress, { current: 40, target: 100 });
+  assert.deepEqual(byId.get("streak_3")?.progress, { current: 1, target: 3 });
+  assert.deepEqual(byId.get("polyglot")?.progress, { current: 1, target: 2 });
+  assert.equal(byId.get("night_owl")?.progress, null);
+
+  const earned = byId.get("early_bird");
+  assert.equal(typeof earned?.earnedAt, "string");
+  assert.equal(earned?.progress, null);
+
+  // Without ?all=1 the list stays earned-only.
+  const plain = await (await fetch(`${srv.base}/api/user/achievements`, { headers })).json() as Achievement[];
+  assert.deepEqual(plain.map((a) => a.id), ["early_bird"]);
+});

@@ -246,6 +246,7 @@ function registerCourseRoutes(app: any, deps: any): void {
       language: story.language,
       xpGained: potentialXp
     });
+    const unlockedAchievements = await database.grantAchievement(req.authUserId, "story_1");
 
     return res.json({
       ok: true,
@@ -256,7 +257,8 @@ function registerCourseRoutes(app: any, deps: any): void {
       explanations,
       xpGained: award.xpGained,
       alreadyAwarded: award.alreadyAwarded,
-      todayXp: award.todayXp
+      todayXp: award.todayXp,
+      unlockedAchievements
     });
   });
 

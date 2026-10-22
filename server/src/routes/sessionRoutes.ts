@@ -554,7 +554,8 @@ function registerSessionRoutes(
       revealedAnswers: safeRevealedAnswers,
       score,
       maxScore: effectiveMaxScore,
-      isPracticeSession
+      isPracticeSession,
+      path: pathResult
     });
 
     return res.json({

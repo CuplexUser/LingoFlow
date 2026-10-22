@@ -2837,7 +2837,10 @@ const ACHIEVEMENT_DEFS: Record<string, { name: string; description: string; icon
   polyglot:   { name: "Polyglot",          description: "Practiced 2 or more languages",            icon: "globe" },
   speed_demon:{ name: "Speed Demon",       description: "Perfect session (10+ questions, no hints)", icon: "lightning" },
   night_owl:  { name: "Night Owl",         description: "Practiced between midnight and 4 AM",      icon: "moon" },
-  early_bird: { name: "Early Bird",        description: "Practiced between 5 AM and 7 AM",          icon: "sun" }
+  early_bird: { name: "Early Bird",        description: "Practiced between 5 AM and 7 AM",          icon: "sun" },
+  unit_1:     { name: "First Unit",        description: "Finished every lesson in a unit",          icon: "graduate" },
+  leap_ahead: { name: "Leap Ahead",        description: "Passed a checkpoint to jump ahead",        icon: "lightning" },
+  story_1:    { name: "Bookworm",          description: "Read a story to the end",                  icon: "star" }
 };
 
 function resolveAchievementDef(achievementId: string) {
@@ -2865,9 +2868,11 @@ async function checkAndGrantAchievements(userId: number, params: {
   score: number;
   maxScore: number;
   isPracticeSession?: boolean;
+  // The learning-path result of the session, when it was a path lesson or checkpoint.
+  path?: { kind: string; unitDone?: boolean; passed?: boolean } | null;
   now?: Date;
 }) {
-  const { streak, totalXp, language, category, mastery, hintsUsed, revealedAnswers, score, maxScore, isPracticeSession = false, now = new Date() } = params;
+  const { streak, totalXp, language, category, mastery, hintsUsed, revealedAnswers, score, maxScore, isPracticeSession = false, path = null, now = new Date() } = params;
   const newlyUnlocked: Array<{ id: string; name: string; description: string; icon: string; earnedAt: string }> = [];
 
   const existingIds = new Set<string>(
@@ -2920,7 +2925,19 @@ async function checkAndGrantAchievements(userId: number, params: {
   if (hour >= 0 && hour < 4) await tryGrant("night_owl");
   if (hour >= 5 && hour <= 7) await tryGrant("early_bird");
 
+  if (path?.kind === "lesson" && path.unitDone) await tryGrant("unit_1");
+  if (path?.kind === "checkpoint" && path.passed) await tryGrant("leap_ahead");
+
   return newlyUnlocked;
+}
+
+// Grants one achievement outside a lesson (a finished story, say). Returns it in a list
+// when it is new, so callers can pass it on as unlockedAchievements.
+async function grantAchievement(userId: number, achievementId: string) {
+  const info = await db.prepare("INSERT INTO achievements (user_id, achievement_id) VALUES (?, ?) ON CONFLICT (user_id, achievement_id) DO NOTHING").run(userId, achievementId);
+  if (!((info as any).changes > 0)) return [];
+  const row: any = await db.prepare("SELECT earned_at FROM achievements WHERE user_id = ? AND achievement_id = ?").get(userId, achievementId);
+  return [{ id: achievementId, ...resolveAchievementDef(achievementId), earnedAt: row?.earned_at || new Date().toISOString() }];
 }
 
 async function getUserAchievements(userId: number) {
@@ -2932,6 +2949,45 @@ async function getUserAchievements(userId: number) {
     ...resolveAchievementDef(row.achievement_id),
     earnedAt: row.earned_at
   }));
+}
+
+// Every fixed achievement, earned or not (earnedAt is null when not), plus the earned
+// per-category and per-language ones, which have no fixed list. Locked counted ones carry
+// progress, so a client can show "4 of 7 days". Streak and XP are granted per language,
+// so the best language counts.
+async function getAchievementCatalog(userId: number) {
+  const earned = await getUserAchievements(userId);
+  const earnedAt = new Map(earned.map((achievement) => [achievement.id, achievement.earnedAt]));
+  const rows: any[] = await db.prepare(
+    "SELECT total_xp, streak, last_completed_date FROM language_progress WHERE user_id = ?"
+  ).all(userId) as any[];
+  const bestXp = rows.reduce((max, row) => Math.max(max, Number(row.total_xp) || 0), 0);
+  const bestStreak = rows.reduce(
+    (max, row) => Math.max(max, liveStreak(Number(row.streak) || 0, row.last_completed_date || null)),
+    0
+  );
+  const languages = rows.filter((row) => Number(row.total_xp) > 0).length;
+
+  function progressFor(id: string) {
+    const counted = /^(streak|xp)_(\d+)$/.exec(id);
+    if (counted) {
+      const target = Number(counted[2]);
+      return { current: Math.min(counted[1] === "streak" ? bestStreak : bestXp, target), target };
+    }
+    if (id === "polyglot") return { current: Math.min(languages, 2), target: 2 };
+    return null;
+  }
+
+  const fixed = Object.entries(ACHIEVEMENT_DEFS).map(([id, def]) => ({
+    id,
+    ...def,
+    earnedAt: earnedAt.get(id) ?? null,
+    progress: earnedAt.has(id) ? null : progressFor(id)
+  }));
+  const dynamic = earned
+    .filter((achievement) => !ACHIEVEMENT_DEFS[achievement.id])
+    .map((achievement) => ({ ...achievement, progress: null }));
+  return [...fixed, ...dynamic];
 }
 
 async function runInTransaction(operation) {
@@ -3493,7 +3549,9 @@ module.exports = {
   recordSession,
   recordPracticeXp,
   checkAndGrantAchievements,
+  grantAchievement,
   getUserAchievements,
+  getAchievementCatalog,
   runInTransaction,
   addDailyXp,
   toIsoDate,
