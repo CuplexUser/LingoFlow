@@ -57,7 +57,7 @@ describe("SpeedMatchGame", () => {
 
     // Let the run timer expire before the remaining pairs are matched.
     await act(async () => {
-      await vi.advanceTimersByTimeAsync(31000);
+      await vi.advanceTimersByTimeAsync(21000);
     });
 
     expect(submitSpeedMatchScore).toHaveBeenCalledWith("spanish", 3);

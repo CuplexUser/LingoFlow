@@ -11,7 +11,7 @@ type SpeedMatchGameProps = {
 type Phase = "loading" | "error" | "ready" | "running" | "break" | "gameover";
 
 const PAIRS_PER_RUN = 6;
-const RUN_SECONDS = 30;
+const RUN_SECONDS = 20;
 const BREAK_SECONDS = 3;
 const MIN_POOL = PAIRS_PER_RUN;
 
