@@ -11,7 +11,7 @@ const path = require("node:path");
 const { z } = require("zod");
 
 const { CATEGORIES } = require("../../server/src/data/constants.ts");
-const { lintContent } = require("../../server/src/data/contentLint.ts");
+const { lintContent, lintItems } = require("../../server/src/data/contentLint.ts");
 const {
   CONTENT_DIR,
   readCategory,
@@ -25,6 +25,9 @@ const REVIEWS_DIR = path.join(CONTENT_DIR, "..", "reviews");
 const WORK_ORDERS_DIR = path.join(REVIEWS_DIR, "work-orders");
 const REFERENCE_LANGUAGE = "russian";
 const REFERENCE_ITEM_COUNT = 24;
+// Learners always know English, so it is never a course: its files are the template the
+// other courses were translated from. The lint still checks them.
+const SOURCE_LANGUAGE = "english";
 
 type Item = Record<string, unknown> & { id: string };
 type Fix = { field: string; text: string | null; list: string[] | null };
@@ -54,6 +57,7 @@ type Delivery = "mcp" | "file";
 const LANGUAGES: string[] = fs
   .readdirSync(CONTENT_DIR)
   .filter((entry: string) => fs.statSync(path.join(CONTENT_DIR, entry)).isDirectory())
+  .filter((entry: string) => entry !== SOURCE_LANGUAGE)
   .sort();
 const CATEGORY_IDS: string[] = CATEGORIES.map((category: { id: string }) => category.id);
 
@@ -256,6 +260,15 @@ function submitReview(result: unknown): string {
       }
     }
   }
+  if (!problems.length) {
+    for (const [index, finding] of findings.entries()) {
+      for (const message of newLintErrors(language, category, items.get(finding.id)!, [finding])) {
+        problems.push(
+          `- findings.${index} (${finding.id}): the fix introduces a defect: ${message}`
+        );
+      }
+    }
+  }
   if (problems.length) throw new WorkOrderError(`The result has problems:\n${problems.join("\n")}`);
 
   const review: Review = {
@@ -345,6 +358,24 @@ function applyFix(item: Item, fix: Fix) {
   else item[fix.field] = LIST_FIELDS.includes(fix.field) ? fix.list : fix.text;
 }
 
+// Lint errors the findings' fixes would add to the item (warnings are heuristics, so only
+// errors count). Returns their messages.
+function newLintErrors(
+  language: string,
+  category: string,
+  item: Item,
+  findings: Array<{ fix: Fix[] }>
+): string[] {
+  const patched: Item = structuredClone(item);
+  for (const finding of findings) for (const fix of finding.fix) applyFix(patched, fix);
+  const errors = (target: Item) =>
+    lintItems([target], language, category).filter((f: any) => f.severity === "error");
+  const before = new Set(errors(item).map((f: any) => f.rule));
+  return errors(patched)
+    .filter((f: any) => !before.has(f.rule))
+    .map((f: any) => `${f.message} (${f.rule})`);
+}
+
 // Writes stored fixes into the content files. Items edited since their review are skipped,
 // since the fix may no longer fit them.
 function applyFixes(
@@ -374,6 +405,10 @@ function applyFixes(
       if (finding.itemHash !== hashItem(item)) {
         lines.push(`  skipped ${category}/${item.id}: changed since the review`);
         return undefined;
+      }
+      // Reviews stored before submitReview linted fixes can still introduce errors.
+      for (const message of newLintErrors(language, category, item, [finding])) {
+        lines.push(`  check ${category}/${item.id} by hand: ${message}`);
       }
       for (const fix of finding.fix) applyFix(item, fix);
       finding.appliedAt = now;

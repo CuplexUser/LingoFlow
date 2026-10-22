@@ -1,0 +1,132 @@
+{
+  "language": "russian",
+  "category": "health",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:16:48.627Z",
+  "contentHash": "7c399baa8b99d62e",
+  "summary": "An excellent file: natural medical Russian with precise hints. Only small fixes: three generic hints, a hint that gives away the answer, a missing stress mark, a missing feminine form, and a slightly dated verb ('велел').",
+  "findings": [
+    {
+      "id": "ru-he-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the word order with 'сегодня' at the end is equally natural.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Чувствовать себя' = to feel (literally 'to feel oneself')."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я плохо себя чувствую сегодня."
+          ]
+        }
+      ],
+      "itemHash": "ef893266ed8544c3"
+    },
+    {
+      "id": "ru-he-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ближайшая' = nearest; it agrees with feminine 'аптека'."
+          ]
+        }
+      ],
+      "itemHash": "d741e7d867fa5420"
+    },
+    {
+      "id": "ru-he-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'У меня болит' + body part; 'глотать' = to swallow."
+          ]
+        }
+      ],
+      "itemHash": "8492bbc89af335bb"
+    },
+    {
+      "id": "ru-he-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Russians simply say they 'have temperature' — no separate word for fever is needed."
+          ]
+        }
+      ],
+      "itemHash": "7a087f45ffc02a5c"
+    },
+    {
+      "id": "ru-he-a1-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The stress guide leaves 'голова' unmarked; the stress is on the last syllable.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Stress: болИт, головА. The most common way to describe pain: 'У меня болит + body part (nominative)'."
+          ]
+        }
+      ],
+      "itemHash": "3e0c97340cef77f2"
+    },
+    {
+      "id": "ru-he-a1-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint gives the feminine 'простудилась' but it isn't accepted; 'У меня простуда' is also correct.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я простудилась.",
+            "У меня простуда."
+          ]
+        }
+      ],
+      "itemHash": "c11436c0458b32d1"
+    },
+    {
+      "id": "ru-he-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'велел' sounds dated; 'сказал' is the everyday verb and should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Врач сказал мне отдыхать неделю и избегать стресса.",
+            "Врач сказал, чтобы я отдыхал неделю и избегал стресса."
+          ]
+        }
+      ],
+      "itemHash": "fa5a450ddd19f55a"
+    }
+  ]
+}

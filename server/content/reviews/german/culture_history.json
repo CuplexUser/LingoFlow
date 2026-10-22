@@ -1,0 +1,597 @@
+{
+  "language": "german",
+  "category": "culture_history",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:45:17.524Z",
+  "contentHash": "c552d6ce3210051a",
+  "summary": "The A1 vocabulary has lowercase nouns. B1–B2 has many wrong-meaning translations: 'Kulturelle Mittel' for cultural appropriation, 'Vergemeinschaftung' for commodification, 'bedeutungsvollsten' for most contentious, 'selbsterhaltende' for self-serving, 'von der Skala ... getroffen', 'Urlaub' (vacation) for a holiday, and a historiography definition that drops its meaning. A Shakespeare item sits in the German culture file, three cloze items lack a blank, and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "de-ch-a1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized; lowercase reads as the English word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "das Museum",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Museum"
+          ]
+        }
+      ],
+      "itemHash": "7c23fc70ba385bb5"
+    },
+    {
+      "id": "de-ch-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ich liebe es, ... zu' + infinitive; or simply verb + 'sehr gern'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich besichtige sehr gern alte Gebäude."
+          ]
+        }
+      ],
+      "itemHash": "4faf5accdb0a038e"
+    },
+    {
+      "id": "de-ch-a1-5",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'national' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wann ist der Nationalfeiertag?",
+          "list": null
+        }
+      ],
+      "itemHash": "bd1d4fe5300ad96f"
+    },
+    {
+      "id": "de-ch-a1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The answer is lowercase and plural; the prompt asks for one piece.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "die Skulptur",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Skulptur",
+            "die Plastik"
+          ]
+        }
+      ],
+      "itemHash": "5338523ceff06998"
+    },
+    {
+      "id": "de-ch-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Spoken German uses the Perfekt.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich bin letztes Wochenende ins Theater gegangen.",
+            "Letztes Wochenende war ich im Theater."
+          ]
+        }
+      ],
+      "itemHash": "fb1dc30a8847cec3"
+    },
+    {
+      "id": "de-cu-a1-40",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A fortified castle is a 'Burg'; 'Schloss' is a palace.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir haben eine alte Burg besichtigt.",
+            "Wir besuchten eine alte Burg."
+          ]
+        }
+      ],
+      "itemHash": "17bf2227a91683fc"
+    },
+    {
+      "id": "de-ch-a2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Was ist die Bedeutung' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Welche Bedeutung hat dieses Denkmal?",
+          "list": null
+        }
+      ],
+      "itemHash": "b4ddabfca603bd90"
+    },
+    {
+      "id": "de-ch-a2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'über ... lernen' needs 'etwas', or 'erfahren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich finde es faszinierend, etwas über andere Bräuche und Traditionen zu erfahren.",
+          "list": null
+        }
+      ],
+      "itemHash": "cc27609d5ea68abe"
+    },
+    {
+      "id": "de-ch-a2-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'worth visiting' is lost.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gibt es in der Nähe historische Stätten, die einen Besuch wert sind?",
+          "list": null
+        }
+      ],
+      "itemHash": "5b6af0ea7421a1d6"
+    },
+    {
+      "id": "de-ch-a2-6",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The hint uses British 'Artefacts'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Artefakte' = artifacts, objects made or used by people in the past."
+          ]
+        }
+      ],
+      "itemHash": "4fb06fff0dfa7d0a"
+    },
+    {
+      "id": "de-ch-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'die Geschichte hinter' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Was steckt hinter dieser Tradition?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Woher kommt diese Tradition?"
+          ]
+        }
+      ],
+      "itemHash": "0aa83953272626a0"
+    },
+    {
+      "id": "de-ch-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Eröffnungsnacht' is a calque; an exhibition opening is an 'Eröffnung' or 'Vernissage'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wir waren bei der Eröffnung einer neuen Ausstellung in der Galerie.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir waren bei der Vernissage einer neuen Ausstellung in der Galerie."
+          ]
+        }
+      ],
+      "itemHash": "11f7a233b1eda30f"
+    },
+    {
+      "id": "de-ch-a2-10",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "A Shakespeare fact is out of place in a German culture file.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Goethe worked on Faust for almost sixty years.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Goethe arbeitete fast sechzig Jahre lang am Faust.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Am' = an dem; 'arbeiten an' + dative."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "Johann Wolfgang von Goethe (1749–1832) is Germany's most celebrated writer; he worked on 'Faust' from the 1770s until shortly before his death.",
+          "list": null
+        }
+      ],
+      "itemHash": "bec6e904f7127285"
+    },
+    {
+      "id": "de-cu-a2-50",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'über ... gelernt' needs 'etwas'; word order is unnatural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe in der Schule etwas über dieses Land gelernt.",
+          "list": null
+        }
+      ],
+      "itemHash": "486ebd4995e94740"
+    },
+    {
+      "id": "de-cu-a2-51",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Urlaub' means vacation, not a public holiday; the cloze also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Warum ___ die Menschen diesen Feiertag?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "feiern",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to celebrate'."
+          ]
+        }
+      ],
+      "itemHash": "c9d623d69f0b3321"
+    },
+    {
+      "id": "de-ch-b1",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'für die Kultur' drops 'those within the culture'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Das kulturelle Erbe prägt die nationale Identität auf eine Weise, die für die Angehörigen dieser Kultur oft unsichtbar ist.",
+          "list": null
+        }
+      ],
+      "itemHash": "1438452d71e0bea1"
+    },
+    {
+      "id": "de-ch-b1-2",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The hint uses British 'colonising'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
+          ]
+        }
+      ],
+      "itemHash": "3086ee2fc6bbbbd1"
+    },
+    {
+      "id": "de-ch-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'die Natur der Arbeit' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die industrielle Revolution veränderte die Gesellschaftsstruktur und das Wesen der Arbeit grundlegend.",
+          "list": null
+        }
+      ],
+      "itemHash": "4817e7dec60b7d8f"
+    },
+    {
+      "id": "de-ch-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'von der Skala ... getroffen' means 'hit by the scale (measuring)'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich besuchte die Ausgrabungsstätte und war beeindruckt vom Ausmaß der antiken Ruinen.",
+          "list": null
+        }
+      ],
+      "itemHash": "c8e0edc8f98a1cf8"
+    },
+    {
+      "id": "de-ch-b1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'den Stolz seiner Geschichte' means 'its history's pride'; pride in something is 'Stolz auf'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie vereinbart ein Land den Stolz auf seine Geschichte mit der Anerkennung vergangenen Unrechts?",
+          "list": null
+        }
+      ],
+      "itemHash": "81021f5ce5f5ee5e"
+    },
+    {
+      "id": "de-ch-b1-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The hint uses British 'Characterised'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sich auszeichnen durch' = to be characterized by; 'Antike' = antiquity.",
+            "'Humanist' thought placed humans, not God, at the center of intellectual life."
+          ]
+        }
+      ],
+      "itemHash": "b9bd56cb4004ca94"
+    },
+    {
+      "id": "de-ch-b1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'gaben mir ein viel stärkeres Gefühl' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Durch die persönlichen Briefe und Tagebücher habe ich viel besser verstanden, wie das Leben damals wirklich war.",
+          "list": null
+        }
+      ],
+      "itemHash": "5c26095af2319c99"
+    },
+    {
+      "id": "de-cu-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Welche historische ___ finden Sie am faszinierendsten?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Epoche",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Periode",
+            "Zeit"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A feminine noun for a historical period."
+          ]
+        }
+      ],
+      "itemHash": "ca395ed56d167f67"
+    },
+    {
+      "id": "de-ch-b2",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'bedeutungsvollsten' means most meaningful, not most contentious.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Rückgabe kolonialer Kulturgüter ist nach wie vor eine der umstrittensten Debatten der heutigen Museumsarbeit.",
+          "list": null
+        }
+      ],
+      "itemHash": "766db728b0adbb92"
+    },
+    {
+      "id": "de-ch-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'selbsterhaltend' means self-sustaining; self-serving is 'eigennützig'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Inwieweit konstruiert die nationale Mythologie eine selektive und eigennützige Version historischer Ereignisse?",
+          "list": null
+        }
+      ],
+      "itemHash": "e35fe2739f5eecc3"
+    },
+    {
+      "id": "de-ch-b2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'die über religiöse Autorität Grund legte' is garbled; 'reason' (Vernunft) is lost. The hint uses British 'prioritised'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Aufklärung bedeutete einen grundlegenden erkenntnistheoretischen Wandel, der die Vernunft über die religiöse Autorität stellte.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Erkenntnistheoretisch' = epistemic; 'Vernunft' = reason."
+          ]
+        }
+      ],
+      "itemHash": "44cf189e35f9f355"
+    },
+    {
+      "id": "de-ch-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Kulturelle Mittel' means cultural means/resources; appropriation is 'Aneignung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kulturelle Aneignung wirft schwierige Fragen nach Eigentum, Macht und den Grenzen künstlerischer Anleihen auf.",
+          "list": null
+        }
+      ],
+      "itemHash": "01f785da944c1b66"
+    },
+    {
+      "id": "de-ch-b2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'herausgefordert' is a calque; a concept is 'infrage gestellt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Das Konzept eines westlichen Kanons wird von Wissenschaftlern infrage gestellt, die sich für eine globaler ausgerichtete literarische Tradition einsetzen.",
+          "list": null
+        }
+      ],
+      "itemHash": "6e81708e64519280"
+    },
+    {
+      "id": "de-ch-b2-7",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The definition 'das Studium der Geschichte' drops 'how history is written'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Historiografie – die Lehre davon, wie Geschichte geschrieben wird – verrät ebenso viel über die Epoche des Historikers wie über die beschriebenen Ereignisse.",
+          "list": null
+        }
+      ],
+      "itemHash": "e519160ca6223f05"
+    },
+    {
+      "id": "de-ch-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vergemeinschaftung' means communitization; commodification is 'Kommerzialisierung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Kommerzialisierung des kulturellen Erbes durch den Massentourismus kann es zugleich bewahren und untergraben.",
+          "list": null
+        }
+      ],
+      "itemHash": "edd7b45fdb9d467f"
+    },
+    {
+      "id": "de-cu-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Bias' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Geschichte zu interpretieren erfordert ein Bewusstsein für Perspektive und Voreingenommenheit.",
+          "list": null
+        }
+      ],
+      "itemHash": "d510a03eb8895d27"
+    },
+    {
+      "id": "de-cu-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Das kulturelle Erbe kann den sozialen ___ über Generationen hinweg stärken.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Zusammenhalt",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A masculine noun meaning 'cohesion'."
+          ]
+        }
+      ],
+      "itemHash": "58a7b364d3285f6c"
+    },
+    {
+      "id": "de-cu-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; its culturalNote is empty filler.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. City planners want to replace a historic market hall with a modern shopping center.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "0d7a1de746a0b1a5"
+    }
+  ]
+}

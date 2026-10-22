@@ -1,0 +1,532 @@
+{
+  "language": "english",
+  "category": "essentials",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:07:52.113Z",
+  "contentHash": "052ec5dddb784128",
+  "summary": "Sentences are correct and natural, but the format is broken in places: flashcards show the same text on both sides, three cloze items have no blank, and two dialogue_turn items have no situation. Spoken and typed answers use full forms ('I am', 'do not') without accepting the contractions natives actually use, and four items have only a generic hint.",
+  "findings": [
+    {
+      "id": "en-es-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A friendly greeting followed by a question about how someone is."
+          ]
+        }
+      ],
+      "itemHash": "1ee0579a728dd543"
+    },
+    {
+      "id": "en-es-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Very much' strengthens 'thank you'."
+          ]
+        }
+      ],
+      "itemHash": "2fc8f69e22084c2f"
+    },
+    {
+      "id": "en-es-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint, and the everyday contraction 'don't' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I don't understand this sentence."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Negate with 'do not' (or 'don't') + verb."
+          ]
+        }
+      ],
+      "itemHash": "c22123965c181b67"
+    },
+    {
+      "id": "en-es-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Start politely with 'Excuse me'. Americans say 'bathroom' or 'restroom'."
+          ]
+        }
+      ],
+      "itemHash": "016eb0ad27b03d51"
+    },
+    {
+      "id": "en-es-a1-6",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: the polite word you add to a request",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Can I have some water, ___?'"
+          ]
+        }
+      ],
+      "itemHash": "9073195decdb9aa1"
+    },
+    {
+      "id": "en-es-a1-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I'm' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Yes, I'm fine."
+          ]
+        }
+      ],
+      "itemHash": "b82bb017269c08f0"
+    },
+    {
+      "id": "en-es-a1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I'm' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm fine, thank you.",
+            "I'm fine, thanks."
+          ]
+        }
+      ],
+      "itemHash": "2a10923715c85640"
+    },
+    {
+      "id": "en-es-a1-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contracted forms are what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm sorry, I don't know."
+          ]
+        }
+      ],
+      "itemHash": "30c5452a184d8647"
+    },
+    {
+      "id": "en-es-a1-54",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is confusing: the sentence already is present continuous.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present continuous for an ongoing habit: am + -ing."
+          ]
+        }
+      ],
+      "itemHash": "e61707b37b994770"
+    },
+    {
+      "id": "en-es-a1-55",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask someone to explain the meaning of a word.",
+          "list": null
+        }
+      ],
+      "itemHash": "e0f49476ffec1a59"
+    },
+    {
+      "id": "en-es-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I'm' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm learning English every day."
+          ]
+        }
+      ],
+      "itemHash": "28be103a231b6692"
+    },
+    {
+      "id": "en-es-a2-10",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to say you are sorry for something",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'I want to ___ for being late.'"
+          ]
+        }
+      ],
+      "itemHash": "0737da58b205fee9"
+    },
+    {
+      "id": "en-es-a2-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I usually ___ new words at night.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "review",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'study again'."
+          ]
+        }
+      ],
+      "itemHash": "07857570fd27287f"
+    },
+    {
+      "id": "en-es-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I'll' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I made a mistake, but I'll try again."
+          ]
+        }
+      ],
+      "itemHash": "2574ea39155bb18a"
+    },
+    {
+      "id": "en-es-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I'd' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to improve my pronunciation."
+          ]
+        }
+      ],
+      "itemHash": "4724c7fcd67bcc98"
+    },
+    {
+      "id": "en-es-b1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'weren't' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "The instructions weren't clear enough."
+          ]
+        }
+      ],
+      "itemHash": "b43ca0c80c4ce666"
+    },
+    {
+      "id": "en-es-b1-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I've' is what natives say; the second hint is irrelevant.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been waiting for twenty minutes."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use present perfect continuous for duration."
+          ]
+        }
+      ],
+      "itemHash": "f1278fbcbea18afc"
+    },
+    {
+      "id": "en-es-b1-12",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to say you are unhappy or dissatisfied about something",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'The guests started to ___ about the noise.'"
+          ]
+        }
+      ],
+      "itemHash": "62486c55ec56d607"
+    },
+    {
+      "id": "en-es-b1-69",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I've' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been practicing this expression for weeks."
+          ]
+        }
+      ],
+      "itemHash": "ec5fb39d25c99dfc"
+    },
+    {
+      "id": "en-es-b1-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I understood the idea but ___ one detail.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "missed",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past tense of a verb meaning 'failed to notice'."
+          ]
+        }
+      ],
+      "itemHash": "d98c5eaabae85822"
+    },
+    {
+      "id": "en-es-b1-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to, not a 'Say:' prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your teacher asks what your goal is this term.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm trying to sound more natural in conversations."
+          ]
+        }
+      ],
+      "itemHash": "72c83a29b25159c5"
+    },
+    {
+      "id": "en-es-12",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint; the sentence's point is the 'not only' contrast.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Not only' adds a contrast after the comma."
+          ]
+        }
+      ],
+      "itemHash": "19f9d3b9b6ed522f"
+    },
+    {
+      "id": "en-es-b2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I'd rather' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd rather rephrase the question than give a misleading answer."
+          ]
+        }
+      ],
+      "itemHash": "6076f01dfc384092"
+    },
+    {
+      "id": "en-es-b2-11",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to express the same idea in different words",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Can you ___ that in simpler terms?'"
+          ]
+        }
+      ],
+      "itemHash": "071543af1797c44e"
+    },
+    {
+      "id": "en-es-b2-13",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'isn't' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Being articulate isn't the same as being verbose."
+          ]
+        }
+      ],
+      "itemHash": "fc35e52c5258eab2"
+    },
+    {
+      "id": "en-es-b2-78",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Could you ___ the nuance of that expression?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "clarify",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'make clear'."
+          ]
+        }
+      ],
+      "itemHash": "920f12f8c23d9a96"
+    },
+    {
+      "id": "en-es-b2-79",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to, not a 'Say:' prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A colleague asks how confident you feel speaking English now.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm confident, although I still make occasional mistakes."
+          ]
+        }
+      ],
+      "itemHash": "85a81b49b40b71f1"
+    },
+    {
+      "id": "en-es-b2-80",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The contraction 'I'd rather' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd rather reformulate the sentence than translate it directly."
+          ]
+        }
+      ],
+      "itemHash": "03fcd2116d174c0a"
+    }
+  ]
+}

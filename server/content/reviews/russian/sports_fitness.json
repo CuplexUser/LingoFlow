@@ -1,0 +1,106 @@
+{
+  "language": "russian",
+  "category": "sports_fitness",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:19:28.969Z",
+  "contentHash": "34ec3063d3c5d1f9",
+  "summary": "Sports Russian is accurate and well explained. One cloze has a number mismatch (plural 'эндорфинов' glossed as singular 'гормона'). Smaller issues: the calque 'элитные спортсмены', a stiff 'растягивался', missing feminine forms, and a British spelling in an English prompt.",
+  "findings": [
+    {
+      "id": "ru-sf-b2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Элитные спортсмены' is a calque; Russian says 'спортсмены высокого уровня'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Спортсмены высокого уровня должны сочетать интенсивные тренировки с достаточным временем для восстановления.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Элитные спортсмены должны сочетать интенсивные тренировки с достаточным временем для восстановления."
+          ]
+        }
+      ],
+      "itemHash": "7e171c52f70098b9"
+    },
+    {
+      "id": "ru-sp-a2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Я растягивался' is unusual; Russians say 'делал растяжку'. Feminine forms are missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я делал растяжку десять минут после пробежки.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я делала растяжку десять минут после пробежки.",
+            "Я растягивался десять минут после пробежки.",
+            "Я растягивалась десять минут после пробежки."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Делать растяжку' = to stretch (do stretching). 'После пробежки' = after a run (genitive)."
+          ]
+        }
+      ],
+      "itemHash": "cdfe382ef470fe3f"
+    },
+    {
+      "id": "ru-sp-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'не ходила ... потянула'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я не ходила в бассейн с тех пор, как потянула мышцу."
+          ]
+        }
+      ],
+      "itemHash": "06920b2c166ec96d"
+    },
+    {
+      "id": "ru-sp-b2-2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Plural 'эндорфинов' is followed by singular 'гормона, улучшающего' — the apposition must agree in number.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cloze: Высокоинтенсивные тренировки стимулируют выработку ___ — гормонов, улучшающих настроение.",
+          "list": null
+        }
+      ],
+      "itemHash": "4582f544de48e905"
+    },
+    {
+      "id": "ru-sp-b2-3",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The English prompt uses British 'commercialisation'; the course uses US English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The commercialization of sports has widened the gap between top clubs and the rest.",
+          "list": null
+        }
+      ],
+      "itemHash": "b68286714794d3b4"
+    }
+  ]
+}

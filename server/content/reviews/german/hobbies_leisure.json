@@ -1,0 +1,763 @@
+{
+  "language": "german",
+  "category": "hobbies_leisure",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:40:30.219Z",
+  "contentHash": "4a10e4c8ea55d915",
+  "summary": "One of the worst German files. It has absurd mistranslations: 'Mein Hobby kocht' (my hobby cooks), 'Lieblingskochfeld' and 'Hauptkochfeld' (favorite/main stovetop) for hobby, 'Gärung' (fermentation) for gardening, 'einsame Verfolgungen', 'Skill-Gebäude', 'Genießt es, Comics zu lesen?'. Flashcards are lowercase or wrapped in 'zum'/'um ... zu'. Many items lack verbs or use the wrong tense, three cloze items have no blank, a dialogue_turn has no situation, and three B2 items are A1 sentences.",
+  "findings": [
+    {
+      "id": "de-ho-a1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized: 'Bücher'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Bücher lesen",
+          "list": null
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to read books",
+          "list": null
+        }
+      ],
+      "itemHash": "7ed0598c1499369c"
+    },
+    {
+      "id": "de-ho-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'zum wandern' means 'for hiking'; the infinitive is 'wandern'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "wandern",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "wandern gehen"
+          ]
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to go hiking",
+          "list": null
+        }
+      ],
+      "itemHash": "6afe8cb60361cbff"
+    },
+    {
+      "id": "de-ho-a1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'um schach zu spielen' means 'in order to play chess' and is lowercase.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Schach spielen",
+          "list": null
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to play chess",
+          "list": null
+        }
+      ],
+      "itemHash": "d823670cfe9c7cc1"
+    },
+    {
+      "id": "de-ho-a1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Mein Hobby kocht' means 'my hobby is cooking (something)'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mein Hobby ist Kochen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mein Hobby ist das Kochen.",
+            "Ich koche gern."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use the capitalized infinitive as a noun: das Kochen."
+          ]
+        }
+      ],
+      "itemHash": "57bc5a67abc20849"
+    },
+    {
+      "id": "de-ho-a1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The informal question should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hast du Hobbys?"
+          ]
+        }
+      ],
+      "itemHash": "11bf6ded3698eee4"
+    },
+    {
+      "id": "de-ho-a1-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "As the name of a sport the word is a capitalized noun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "das Schwimmen",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Schwimmen",
+            "schwimmen"
+          ]
+        }
+      ],
+      "itemHash": "c081267dc26bd9a7"
+    },
+    {
+      "id": "de-ho-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German adds 'gern' to the verb to say you like doing something."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich höre sehr gern Musik.",
+            "Ich liebe es, Musik zu hören."
+          ]
+        }
+      ],
+      "itemHash": "b106af0219f24356"
+    },
+    {
+      "id": "de-ho-a1-10",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Was möchten Sie machen?' asks what you want to do, not what you like doing; the prompt uses British 'at weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What do you like to do on weekends?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Was machen Sie gern am Wochenende?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Was machst du gern am Wochenende?"
+          ]
+        }
+      ],
+      "itemHash": "3d0d58edb7c36daf"
+    },
+    {
+      "id": "de-ho-a1-39",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Ich mag Malerei an Wochenenden' is a calque ('Malerei' is the art form).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Am Wochenende male ich gern.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich male gern am Wochenende."
+          ]
+        }
+      ],
+      "itemHash": "b62702a9c59452df"
+    },
+    {
+      "id": "de-ho-a1-41",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Genießt es, Comics zu lesen?' has no subject and is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Liest du gern Comics?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Lesen Sie gern Comics?"
+          ]
+        }
+      ],
+      "itemHash": "3c1f9ef32d270f22"
+    },
+    {
+      "id": "de-ho-a2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Germans 'schauen' or 'gucken' films.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich schaue zu Hause Filme.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich sehe zu Hause Filme.",
+            "Ich gucke zu Hause Filme."
+          ]
+        }
+      ],
+      "itemHash": "4df2a1e245a7ac64"
+    },
+    {
+      "id": "de-ho-a2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'am Pool' means beside the pool; swimming is 'im Schwimmbad'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich schwimme im Schwimmbad.",
+          "list": null
+        }
+      ],
+      "itemHash": "d5b71375cb553b61"
+    },
+    {
+      "id": "de-ho-a2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Ongoing duration uses the present + 'seit'; instruments take no article.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich lerne seit sechs Monaten Gitarre.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'seit' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "01cf75ddaf93dd62"
+    },
+    {
+      "id": "de-ho-a2-5",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Wie oft fahren Sie?' drops cycling.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie oft fahren Sie Rad?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie oft fährst du Fahrrad?",
+            "Wie oft fahren Sie Fahrrad?"
+          ]
+        }
+      ],
+      "itemHash": "ec147b5f33a95b60"
+    },
+    {
+      "id": "de-ho-a2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The verb is missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich bin letztes Jahr einem Lesekreis beigetreten.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich bin letztes Jahr einem Buchclub beigetreten."
+          ]
+        }
+      ],
+      "itemHash": "49ad583f14196804"
+    },
+    {
+      "id": "de-ho-a2-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Lieblingskochfeld' means favorite stovetop.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mein Lieblingshobby ist Fotografie.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mein Lieblingshobby ist das Fotografieren."
+          ]
+        }
+      ],
+      "itemHash": "b4f5dcd9195bd2cb"
+    },
+    {
+      "id": "de-ho-a2-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'versucht, Klettern' is ungrammatical; trying an activity is 'ausprobieren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Haben Sie schon mal Klettern ausprobiert?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hast du schon mal Klettern ausprobiert?"
+          ]
+        }
+      ],
+      "itemHash": "39ed1e03d046d969"
+    },
+    {
+      "id": "de-ho-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Ich genieße das Backen' is a calque; the hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Am Wochenende backe ich gern.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Verb + 'gern' = to enjoy doing."
+          ]
+        }
+      ],
+      "itemHash": "1c91e01574d920b9"
+    },
+    {
+      "id": "de-ho-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Welches Hobby hilft Ihnen, ___ abzubauen?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Stress",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'___ abbauen' = to reduce stress."
+          ]
+        }
+      ],
+      "itemHash": "7a8c5e3f370c0f40"
+    },
+    {
+      "id": "de-ho-b1",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'für einen Lauf gehen' is a literal calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Normalerweise male ich oder gehe laufen.",
+          "list": null
+        }
+      ],
+      "itemHash": "e5550a58fb76a6d6"
+    },
+    {
+      "id": "de-ho-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Gärung' means fermentation; gardening is 'Gartenarbeit'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich finde, Gartenarbeit ist eine gute Möglichkeit, nach einem stressigen Tag abzuschalten.",
+          "list": null
+        }
+      ],
+      "itemHash": "a80799ed860aa517"
+    },
+    {
+      "id": "de-ho-b1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Töpferei aufgenommen' means 'took in a pottery workshop'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe vor Kurzem mit dem Töpfern angefangen und finde es sehr therapeutisch.",
+          "list": null
+        }
+      ],
+      "itemHash": "dcf3fa257504ddb0"
+    },
+    {
+      "id": "de-ho-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ausschalten' is switching off a device; mentally it's 'abschalten'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Was tun Sie, um abzuschalten, wenn Sie sich überfordert fühlen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Was machst du, um abzuschalten, wenn du dich überfordert fühlst?"
+          ]
+        }
+      ],
+      "itemHash": "3a6e31c1b33b8c36"
+    },
+    {
+      "id": "de-ho-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'wettbewerbsfähig' describes companies that can compete economically.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Obwohl ich nicht besonders ehrgeizig bin, mag ich die soziale Seite von Mannschaftssportarten.",
+          "list": null
+        }
+      ],
+      "itemHash": "bf8b16ed8f9d61bb"
+    },
+    {
+      "id": "de-ho-b1-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'in Yoga kommen' and 'es hat nie ganz geschafft' are garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich wollte schon seit Jahren mit Yoga anfangen, habe es aber nie geschafft.",
+          "list": null
+        }
+      ],
+      "itemHash": "f7c2ae9e9d4b34d5"
+    },
+    {
+      "id": "de-ho-b1-59",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A book club is usually a 'Lesekreis'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich bin einem Lesekreis in der Nähe beigetreten, um neue Leute kennenzulernen.",
+          "list": null
+        }
+      ],
+      "itemHash": "ec5e4c9fa779e6f0"
+    },
+    {
+      "id": "de-ho-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Hauptkochfeld' means main stovetop.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mein Haupthobby hat sich geändert, nachdem ich in die Stadt gezogen bin.",
+          "list": null
+        }
+      ],
+      "itemHash": "1423ca061841d6a6"
+    },
+    {
+      "id": "de-ho-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie bleiben Sie ___, wenn Sie Ihr Hobby ausüben?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "motiviert",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'eager to keep going'."
+          ]
+        }
+      ],
+      "itemHash": "582b18a5c6baaa97"
+    },
+    {
+      "id": "de-ho-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence with a generic hint at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Nothing helps me unwind like losing myself in a good book.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nichts entspannt mich so sehr, wie mich in ein gutes Buch zu vertiefen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sich in etwas vertiefen' = to lose yourself in something."
+          ]
+        }
+      ],
+      "itemHash": "5be75c3115f220b3"
+    },
+    {
+      "id": "de-ho-b2-2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I make a point of practicing guitar every day, however busy I am.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Ich achte darauf, jeden Tag Gitarre zu üben, egal wie viel ich zu tun habe.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Darauf achten, ... zu' = to make a point of; 'egal wie' = however."
+          ]
+        }
+      ],
+      "itemHash": "61e61a33650f4b0a"
+    },
+    {
+      "id": "de-ho-b2-3",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2, with the calque 'genieße die Malerei'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Painting lets me express things I struggle to put into words.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Beim Malen kann ich Dinge ausdrücken, die ich nur schwer in Worte fassen kann.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'In Worte fassen' = to put into words."
+          ]
+        }
+      ],
+      "itemHash": "3026fc353a4c4330"
+    },
+    {
+      "id": "de-ho-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'bestritten' means denied; contested is 'umstritten'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Freizeit ist im Zeitalter ständiger Erreichbarkeit zu einem zunehmend umstrittenen Begriff geworden.",
+          "list": null
+        }
+      ],
+      "itemHash": "701e17ece9404adc"
+    },
+    {
+      "id": "de-ho-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'auf einsame Verfolgungen angewiesen worden ... graviert' is gibberish.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mich haben schon immer Beschäftigungen angezogen, die man allein ausübt – vielleicht bin ich deshalb zum Schreiben gekommen.",
+          "list": null
+        }
+      ],
+      "itemHash": "33a775cef4edc939"
+    },
+    {
+      "id": "de-ho-b2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'etwas Grundlegendes an den Charakter' uses the wrong preposition; it's 'über'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Glaubst du, dass Hobbys etwas Grundlegendes über den Charakter eines Menschen aussagen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Glauben Sie, dass Hobbys etwas Grundlegendes über den Charakter eines Menschen aussagen?"
+          ]
+        }
+      ],
+      "itemHash": "cddf31a7709ee340"
+    },
+    {
+      "id": "de-ho-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The verb of the 'dass' clause is missing, and 'Spektakuläres' must be capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Amateurastronomie verlangt Geduld, Präzision und die Bereitschaft zu akzeptieren, dass die meisten Nächte nichts Spektakuläres bringen.",
+          "list": null
+        }
+      ],
+      "itemHash": "f192a3707394ff1a"
+    },
+    {
+      "id": "de-ho-b2-69",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'meinen Fokus und Kreativität' needs a second possessive for the feminine noun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Freizeitaktivitäten verbessern meine Konzentration und meine Kreativität.",
+          "list": null
+        }
+      ],
+      "itemHash": "9408f1ae4eb26f6e"
+    },
+    {
+      "id": "de-ho-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'Skill-Gebäude' (skill building as in edifice) is nonsense.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich bevorzuge Hobbys, die soziale Kontakte mit dem Erwerb neuer ___ verbinden.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Fähigkeiten",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A plural noun meaning 'skills'."
+          ]
+        }
+      ],
+      "itemHash": "66da9508b105940b"
+    },
+    {
+      "id": "de-ho-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend says every hobby should lead to a measurable achievement.",
+          "list": null
+        }
+      ],
+      "itemHash": "c22a21dabebb42cc"
+    }
+  ]
+}

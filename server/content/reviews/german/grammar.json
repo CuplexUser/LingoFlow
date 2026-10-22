@@ -1,0 +1,1103 @@
+{
+  "language": "german",
+  "category": "grammar",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:39:23.577Z",
+  "contentHash": "49807f0c8f567c67",
+  "summary": "Like the Spanish file, this is the English grammar course machine-translated: English fill-in prompts, English grammar hints, and whole sentences as cloze answers. Every item has been rewritten as German grammar practice. Several answers are also wrong: duration with the Perfekt instead of 'seit' + present, 'letztes Samstag', 'Sie wird früher aufwachen' for 'she is used to waking early', 'Früher kam sie nicht an, als...', a missing reflexive, a masculine 'Kandidat' for a woman, and 'die passive Stimme'.",
+  "findings": [
+    {
+      "id": "de-gr-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in prompt with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is a teacher.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "No article before professions; feminine -in: Lehrerin."
+          ]
+        }
+      ],
+      "itemHash": "fd09449b25410f8d"
+    },
+    {
+      "id": "de-gr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sie sind' = they are; context tells you it isn't formal 'you'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Das sind meine Freunde."
+          ]
+        }
+      ],
+      "itemHash": "6e4ff044943e1d22"
+    },
+    {
+      "id": "de-gr-3",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with a hint about 'do not'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I don't like coffee.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Negate a noun with 'kein': keinen Kaffee (accusative)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich mag Kaffee nicht."
+          ]
+        }
+      ],
+      "itemHash": "379b565a4a1e5e1a"
+    },
+    {
+      "id": "de-gr-13",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We are students.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wir sind' = we are; no article before roles."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir sind Studentinnen.",
+            "Wir sind Schüler."
+          ]
+        }
+      ],
+      "itemHash": "4a48fe65de887714"
+    },
+    {
+      "id": "de-gr-14",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence; 'studieren' means to study at university.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Er ___ jeden Tag Englisch. (lernen)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "lernt",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person singular ends in -t."
+          ]
+        }
+      ],
+      "itemHash": "26576457826e5fcf"
+    },
+    {
+      "id": "de-gr-15",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "For objects in a place, German uses a position verb rather than 'es gibt'; the hint describes English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Auf dem Tisch liegt ein Buch.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Es gibt ein Buch auf dem Tisch.",
+            "Ein Buch liegt auf dem Tisch."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German often uses 'liegen' or 'stehen' for where things are."
+          ]
+        }
+      ],
+      "itemHash": "32737f1229933465"
+    },
+    {
+      "id": "de-gr-16",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about do-support.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you like tea?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German has no auxiliary 'do': start the question with the verb."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Trinkst du gern Tee?",
+            "Mögen Sie Tee?"
+          ]
+        }
+      ],
+      "itemHash": "5a8c9d67cd523b09"
+    },
+    {
+      "id": "de-gr-17",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze tests English a/an and the answer is a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sie hat ___ Schirm.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "einen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Masculine accusative of 'ein'."
+          ]
+        }
+      ],
+      "itemHash": "579d62b7abbee358"
+    },
+    {
+      "id": "de-gr-18",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nicht' goes before the adjective."
+          ]
+        }
+      ],
+      "itemHash": "26f2c0f423dd0288"
+    },
+    {
+      "id": "de-gr-19",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about the present continuous.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The cats are sleeping.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German has no continuous tense: 'schlafen' covers 'sleep' and 'are sleeping'."
+          ]
+        }
+      ],
+      "itemHash": "4aacd428eb7b5afd"
+    },
+    {
+      "id": "de-gr-a1-39",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English -s.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Zur Schule' = zu + der Schule."
+          ]
+        }
+      ],
+      "itemHash": "7c120885a968a1ee"
+    },
+    {
+      "id": "de-gr-a1-40",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English 'are'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sie sind' = they are."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sie sind froh."
+          ]
+        }
+      ],
+      "itemHash": "5d0f764d4d8be7c5"
+    },
+    {
+      "id": "de-gr-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English 'went'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gehen' forms its Perfekt with 'sein': bin gegangen."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Gestern bin ich in den Supermarkt gegangen.",
+            "Ich war gestern im Supermarkt."
+          ]
+        }
+      ],
+      "itemHash": "aed5530dca8e60b3"
+    },
+    {
+      "id": "de-gr-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in; the answer 'hat eine Stunde gewartet' means the waiting is over.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She has been waiting for an hour.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sie wartet seit einer Stunde.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sie wartet schon eine Stunde."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'seit' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "4220fb35669664b8"
+    },
+    {
+      "id": "de-gr-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English first conditional.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wenn' sends the verb to the end; German uses the present for the future."
+          ]
+        }
+      ],
+      "itemHash": "0f36bd62653eddc8"
+    },
+    {
+      "id": "de-gr-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze with a whole-sentence answer; 'letztes Samstag' is also wrong (Samstag is masculine).",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Letzten Samstag ___ ich ins Kino.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ging",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Simple past of 'gehen'; verb second after the time phrase."
+          ]
+        }
+      ],
+      "itemHash": "c94ddba0b6238c72"
+    },
+    {
+      "id": "de-gr-21",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about was/were.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: He was working at seven this morning.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Heute Morgen um sieben war er bei der Arbeit."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German has no continuous tense; the Perfekt does the job."
+          ]
+        }
+      ],
+      "itemHash": "85c74d3a38e11593"
+    },
+    {
+      "id": "de-gr-22",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Wir haben hier fünf Jahre gelebt' implies you no longer live here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wir wohnen seit fünf Jahren hier.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir leben seit fünf Jahren hier."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'seit' + dative for duration up to now."
+          ]
+        }
+      ],
+      "itemHash": "d76b8f9b5af27308"
+    },
+    {
+      "id": "de-gr-23",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Dieses Buch ist ___ als das andere. (interessant)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "interessanter",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German adds -er to every adjective, long or short."
+          ]
+        }
+      ],
+      "itemHash": "44a196659560a60e"
+    },
+    {
+      "id": "de-gr-24",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about have/has.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Have you been to Paris?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Schon' = ever/already; 'warst' is the simple past of 'sein'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Bist du schon mal in Paris gewesen?",
+            "Waren Sie schon in Paris?"
+          ]
+        }
+      ],
+      "itemHash": "56324eeef70f9305"
+    },
+    {
+      "id": "de-gr-25",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Instruments take no article ('Klavier spielen'), and 'used to' is lost.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Als sie jung war, spielte sie früher Klavier.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Früher, als sie jung war, hat sie Klavier gespielt."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Früher' expresses 'used to'; no article with instruments."
+          ]
+        }
+      ],
+      "itemHash": "731664966518f430"
+    },
+    {
+      "id": "de-gr-26",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: You should drink more water.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Solltest' + infinitive at the end."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sie sollten mehr Wasser trinken."
+          ]
+        }
+      ],
+      "itemHash": "536f8c3542c8031b"
+    },
+    {
+      "id": "de-gr-a2-49",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Ich habe zwei Jahre hier gelebt' implies you no longer live here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich wohne seit zwei Jahren hier.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich lebe seit zwei Jahren hier."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'seit' for duration up to now."
+          ]
+        }
+      ],
+      "itemHash": "92f878818b456061"
+    },
+    {
+      "id": "de-gr-a2-51",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks about English much/many and has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich habe ___ Freunde in Berlin. (viel)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "viele",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Viel' takes a plural ending before a plural noun."
+          ]
+        }
+      ],
+      "itemHash": "4d0209a8ba0a5be0"
+    },
+    {
+      "id": "de-gr-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English second conditional.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wenn' + Konjunktiv II (hätte), then 'würde' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "08732626bf1c1c32"
+    },
+    {
+      "id": "de-gr-8",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "English fill-in; 'haben wir das Abendessen fertig' means dinner will be ready, not eaten.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: By the time she arrives, we will have finished dinner.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Bis sie ankommt, werden wir mit dem Abendessen fertig sein.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Bis sie ankommt, haben wir schon gegessen.",
+            "Bis sie ankommt, werden wir schon zu Abend gegessen haben."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Bis' = by the time; 'fertig sein mit' = to be finished with."
+          ]
+        }
+      ],
+      "itemHash": "e96540a0512ff191"
+    },
+    {
+      "id": "de-gr-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English -ing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Obwohl' sends the verb to the end of its clause."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Trotz ihrer Müdigkeit arbeitete sie weiter."
+          ]
+        }
+      ],
+      "itemHash": "3343ef512df2bb62"
+    },
+    {
+      "id": "de-gr-27",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Der Bericht ___ letzte Woche vom Team geschrieben.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "wurde",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passive: werden + participle, here in the simple past."
+          ]
+        }
+      ],
+      "itemHash": "6abfb8f67e70db8e"
+    },
+    {
+      "id": "de-gr-28",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English; 'bereits' sounds better after the object.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Er sagte mir, dass er die E-Mail bereits geschickt hatte.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pluperfect: hatte + participle at the end of the 'dass' clause."
+          ]
+        }
+      ],
+      "itemHash": "556af790a129b95b"
+    },
+    {
+      "id": "de-gr-29",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about had/have.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I wish I had more time to practice.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Ich wünschte, ich hätte mehr Zeit zum Üben.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich wünschte, ich hätte mehr Zeit zu üben.",
+            "Wenn ich nur mehr Zeit zum Üben hätte!"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ich wünschte' + Konjunktiv II."
+          ]
+        }
+      ],
+      "itemHash": "ff50f3eedaec06da"
+    },
+    {
+      "id": "de-gr-30",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English inversion.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nicht nur..., sondern auch...'. A record is 'gebrochen' or 'aufgestellt'."
+          ]
+        }
+      ],
+      "itemHash": "4cd4e46280f5ec27"
+    },
+    {
+      "id": "de-gr-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "English fill-in; 'Sie wird früher aufwachen' means 'she will wake up earlier'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is used to waking up early.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sie ist es gewohnt, früh aufzuwachen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sie ist es gewohnt, früh aufzustehen.",
+            "Sie ist gewohnt, früh aufzustehen."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Es gewohnt sein, ... zu' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "d854db494816f37c"
+    },
+    {
+      "id": "de-gr-33",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze tests English who/which and the answer is a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Die Person, ___ angerufen hat, hat keine Nachricht hinterlassen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "die",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The relative pronoun agrees with 'die Person' (feminine, nominative)."
+          ]
+        }
+      ],
+      "itemHash": "2ea6dae546c125cf"
+    },
+    {
+      "id": "de-gr-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'die passive Stimme' is not German for the passive voice.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wann sollte ich das ___ verwenden?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Passiv",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The German grammar term for the passive voice (neuter)."
+          ]
+        }
+      ],
+      "itemHash": "a17b7896f979fc40"
+    },
+    {
+      "id": "de-gr-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'wissen' can't take 'die Verzögerung' as object here; you know 'von der Verspätung'. The hint describes English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hätte ich von der Verspätung gewusst, hätte ich einen früheren Zug genommen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Verb-first 'Hätte ich...' replaces 'wenn ich ... hätte'."
+          ]
+        }
+      ],
+      "itemHash": "489f0595884dda95"
+    },
+    {
+      "id": "de-gr-11",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about inversion.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Rarely have I seen such attention to detail.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Selten habe ich so viel Liebe zum Detail gesehen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Selten habe ich diese Liebe zum Detail gesehen."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German puts the verb second after any fronted adverb."
+          ]
+        }
+      ],
+      "itemHash": "f13fe8080e3aa63a"
+    },
+    {
+      "id": "de-gr-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Früher kam sie nicht an, als das Treffen begann' is nonsense.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: No sooner had she arrived than the meeting began.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Kaum war sie angekommen, begann die Besprechung.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Kaum' + verb-first clause = no sooner."
+          ]
+        }
+      ],
+      "itemHash": "270bd28b4980dc0b"
+    },
+    {
+      "id": "de-gr-35",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English subjunctive; German uses the indicative here.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Es ist höchste Zeit, dass' + indicative."
+          ]
+        }
+      ],
+      "itemHash": "06cd6335e0f49ca3"
+    },
+    {
+      "id": "de-gr-36",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Die Daten müssen ___ werden, bevor man Schlussfolgerungen ziehen kann.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "analysiert",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Modal passive: modal + participle + werden."
+          ]
+        }
+      ],
+      "itemHash": "2e150357c3784558"
+    },
+    {
+      "id": "de-gr-37",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "A woman is 'eine Kandidatin'; 'Position' is an anglicism for a job.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Würde sie sich bewerben, wäre sie eine starke Kandidatin für die Stelle.",
+          "list": null
+        }
+      ],
+      "itemHash": "ecc1586fd8c061f9"
+    },
+    {
+      "id": "de-gr-38",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in; 'praktizieren' is for professions, not practice.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The more you practice, the more fluent you become.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Je mehr du übst, desto fließender wirst du.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je mehr Sie üben, desto fließender werden Sie.",
+            "Je mehr du übst, umso fließender sprichst du."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Je ... desto' with verb-final, then verb-second."
+          ]
+        }
+      ],
+      "itemHash": "e5253b54da17199f"
+    },
+    {
+      "id": "de-gr-b2-69",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'vorbereiten' needs the reflexive 'mich' here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hätte ich es früher gewusst, hätte ich mich anders vorbereitet.",
+          "list": null
+        }
+      ],
+      "itemHash": "e7f2554ddb31e41a"
+    },
+    {
+      "id": "de-gr-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'Nicht nur, dass..., sondern sie hat' is clumsy.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sie war nicht nur pünktlich fertig, ___ hat auch den Entwurf verbessert.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sondern",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nicht nur ... ___ auch' = not only ... but also."
+          ]
+        }
+      ],
+      "itemHash": "a4c36cd034f2316c"
+    },
+    {
+      "id": "de-gr-b2-71",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'wenn wir einen Satz stellen' doesn't mean fronting a phrase; the dialogue_turn also lacks a situation.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your teacher moves a phrase to the start of your sentence and asks if you notice a difference.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Ja. Wie verändert sich die Betonung, wenn wir einen Satzteil an den Anfang stellen?",
+          "list": null
+        }
+      ],
+      "itemHash": "02916d0151f6ada0"
+    }
+  ]
+}

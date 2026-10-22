@@ -1,0 +1,429 @@
+{
+  "language": "french",
+  "category": "health",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:50:23.347Z",
+  "contentHash": "d88d35068cfed405",
+  "summary": "The basic health French is good, especially at A1–A2. Errors: 'exercer' (to practice a profession) for exercising, twice; 'une enquête' (police inquiry) for medical tests; a B2 question that asks about the consequences of treatment instead of no treatment; and 'j'ai environ six heures' for sleep. Three cloze items lack a blank and one dialogue_turn has no situation. Hints are generic in places and some refer to British English.",
+  "findings": [
+    {
+      "id": "fr-he-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Se sentir' is reflexive: je me sens."
+          ]
+        }
+      ],
+      "itemHash": "599d3a82e351841b"
+    },
+    {
+      "id": "fr-he-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Le plus proche' = the nearest; it follows the noun."
+          ]
+        }
+      ],
+      "itemHash": "6fcd9aa3a30ec49a"
+    },
+    {
+      "id": "fr-he-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Avoir mal à' + body part = to have a pain in."
+          ]
+        }
+      ],
+      "itemHash": "f5a87fc62cf45522"
+    },
+    {
+      "id": "fr-he-14",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about British English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Il y a' = there is; 'à proximité' = nearby."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il y a une pharmacie près d'ici ?",
+            "Est-ce qu'il y a une pharmacie dans le coin ?"
+          ]
+        }
+      ],
+      "itemHash": "a522cf1adbad0eb5"
+    },
+    {
+      "id": "fr-he-15",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "French normally says 'J'ai mal au ventre/à l'estomac'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai mal au ventre.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai mal à l'estomac.",
+            "Mon estomac me fait mal."
+          ]
+        }
+      ],
+      "itemHash": "86ddfd27d35e0654"
+    },
+    {
+      "id": "fr-he-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Strangers in an emergency are addressed formally.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pouvez-vous appeler une ambulance ?",
+            "Appelez une ambulance !"
+          ]
+        }
+      ],
+      "itemHash": "1fd867371a377dbf"
+    },
+    {
+      "id": "fr-he-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English present perfect.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'depuis' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "15653aa241af1947"
+    },
+    {
+      "id": "fr-he-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A skin rash is 'une éruption cutanée' or 'des boutons'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai une éruption cutanée sur le bras.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai des boutons sur le bras."
+          ]
+        }
+      ],
+      "itemHash": "3af41b66d846722d"
+    },
+    {
+      "id": "fr-he-a2-50",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'exercer' means to practice a profession; physical exercise is 'faire du sport'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "À quelle fréquence faites-vous du sport ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu fais du sport combien de fois par semaine ?",
+            "Combien de fois par semaine faites-vous de l'exercice ?"
+          ]
+        }
+      ],
+      "itemHash": "65619c513be4c359"
+    },
+    {
+      "id": "fr-he-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'ai commencé à cuisiner des repas plus ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sains",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'good for your health'."
+          ]
+        }
+      ],
+      "itemHash": "6d297a45de68d651"
+    },
+    {
+      "id": "fr-he-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'des médicaments réguliers' is a calque; French says 'un traitement régulier'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai une maladie chronique qui nécessite un traitement régulier.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai une maladie préexistante qui nécessite un traitement régulier."
+          ]
+        }
+      ],
+      "itemHash": "fb5b5590b0b72c0d"
+    },
+    {
+      "id": "fr-he-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'exercer' is wrong, 'sécuritaire' is Quebec usage, and 'condition' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Est-ce que ce serait sans danger de faire du sport avec cette maladie ?",
+          "list": null
+        }
+      ],
+      "itemHash": "a83d7edf1155a202"
+    },
+    {
+      "id": "fr-he-29",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "The passé composé implies the diet is over.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je suis un régime pauvre en sel sur les conseils de mon médecin.",
+          "list": null
+        }
+      ],
+      "itemHash": "e37d3de23582647f"
+    },
+    {
+      "id": "fr-he-31",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'j'ai environ six heures' is a calque of 'I get six hours'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je dors environ six heures, mais ces derniers temps je me réveille la nuit.",
+          "list": null
+        }
+      ],
+      "itemHash": "190baa5400521f98"
+    },
+    {
+      "id": "fr-he-32",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'emphasises' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Actuellement' = currently (not 'actually')."
+          ]
+        }
+      ],
+      "itemHash": "224f2745c7237a1c"
+    },
+    {
+      "id": "fr-he-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'ai réduit le sucre et ça a ___ mon énergie.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "amélioré",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'améliorer'."
+          ]
+        }
+      ],
+      "itemHash": "b1e55461a42291b3"
+    },
+    {
+      "id": "fr-he-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'consulter un spécialiste pour une enquête' means you will consult for an inquiry; a referral is 'm'adresser à'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je vous serais reconnaissant de m'adresser à un spécialiste pour des examens complémentaires.",
+          "list": null
+        }
+      ],
+      "itemHash": "55e79ea2e342ccd9"
+    },
+    {
+      "id": "fr-he-11",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The answer asks about the consequences of the treatment, not of leaving it untreated.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quelles sont les conséquences à long terme si on ne traite pas cela ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quelles sont les conséquences à long terme d'une absence de traitement ?"
+          ]
+        }
+      ],
+      "itemHash": "e74b6d7b07ba8d86"
+    },
+    {
+      "id": "fr-he-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A medical procedure is an 'intervention'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je voudrais parler des risques et des bénéfices avant de consentir à l'intervention.",
+          "list": null
+        }
+      ],
+      "itemHash": "8157c3ff2c58a7e8"
+    },
+    {
+      "id": "fr-he-36",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'m'engager dans la chirurgie' sounds like choosing a career in surgery.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je veux explorer des alternatives non invasives avant de me décider pour une opération.",
+          "list": null
+        }
+      ],
+      "itemHash": "6b67dea057bc397f"
+    },
+    {
+      "id": "fr-he-38",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'my' is dropped from 'my family history'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Un traitement préventif serait-il conseillé compte tenu de mes antécédents familiaux ?",
+          "list": null
+        }
+      ],
+      "itemHash": "b4febb4454b9dcc4"
+    },
+    {
+      "id": "fr-he-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quelles politiques peuvent améliorer l'___ aux soins de santé mentale ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "accès",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A masculine noun meaning 'access'."
+          ]
+        }
+      ],
+      "itemHash": "885db15c32613b35"
+    },
+    {
+      "id": "fr-he-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how to stay motivated to exercise.",
+          "list": null
+        }
+      ],
+      "itemHash": "117bb5d6679010f3"
+    }
+  ]
+}

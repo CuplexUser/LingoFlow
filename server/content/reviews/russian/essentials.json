@@ -1,0 +1,335 @@
+{
+  "language": "russian",
+  "category": "essentials",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:14:03.313Z",
+  "contentHash": "0fcc667149a2ac6d",
+  "summary": "Clean and natural overall, as expected of the reference course. The main gap is that many past-tense and adjective answers accept only the masculine speaker form (сделал, хотел бы, местный, пошёл, думал, достиг), so female learners are marked wrong. There are also a few calques ('для меня', 'с ясными аргументами'), a missing comma, and four generic hints.",
+  "findings": [
+    {
+      "id": "ru-es-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Привет' is informal; with strangers use 'Здравствуйте'."
+          ]
+        }
+      ],
+      "itemHash": "2520b49ccf5b37f4"
+    },
+    {
+      "id": "ru-es-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'за помощь' without a possessive is the most natural, and formal 'вашу' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'За' + accusative = for (something)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Большое спасибо за помощь.",
+            "Большое спасибо за вашу помощь."
+          ]
+        }
+      ],
+      "itemHash": "39edc8c577e7bea4"
+    },
+    {
+      "id": "ru-es-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Не' goes right before the verb."
+          ]
+        }
+      ],
+      "itemHash": "7a0a033792643761"
+    },
+    {
+      "id": "ru-es-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the shorter everyday form should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Извините' gets a stranger's attention politely."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Извините, где туалет?"
+          ]
+        }
+      ],
+      "itemHash": "e8ef4e95363a6c94"
+    },
+    {
+      "id": "ru-es-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'Извините' is an equally common apology.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Извините."
+          ]
+        }
+      ],
+      "itemHash": "2eb80b18e956f47b"
+    },
+    {
+      "id": "ru-es-10",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'еще' is written without the ё used elsewhere in the course.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Не могли бы вы повторить это ещё раз?",
+          "list": null
+        }
+      ],
+      "itemHash": "0894c7888a8f8859"
+    },
+    {
+      "id": "ru-es-13",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'записать это для меня' is a calque; Russian uses the dative.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Не могли бы вы мне это записать?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Не могли бы вы записать мне это?"
+          ]
+        }
+      ],
+      "itemHash": "0e4520d24d6e2d77"
+    },
+    {
+      "id": "ru-es-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'местная'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Извините, я не знаю. Я не местная."
+          ]
+        }
+      ],
+      "itemHash": "de82bd575ad25396"
+    },
+    {
+      "id": "ru-es-a2-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'пошла'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "После работы я пошла в магазин."
+          ]
+        }
+      ],
+      "itemHash": "ff611b624a1559f2"
+    },
+    {
+      "id": "ru-es-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'сделала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я сделала ошибку, но попробую снова."
+          ]
+        }
+      ],
+      "itemHash": "b635020e59326507"
+    },
+    {
+      "id": "ru-es-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'хотела бы'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я хотела бы улучшить своё произношение."
+          ]
+        }
+      ],
+      "itemHash": "03dd1a62f284f4aa"
+    },
+    {
+      "id": "ru-es-b1-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Two independent clauses joined by 'и' need a comma.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я читаю эту книгу уже неделю, и она мне очень нравится.",
+          "list": null
+        }
+      ],
+      "itemHash": "d8edcef82bec8073"
+    },
+    {
+      "id": "ru-es-b1-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'теперь мне он нравится' has unnatural word order; the feminine 'думала' is not accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Раньше я думал, что русский язык очень сложный, но теперь он мне нравится.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Раньше я думала, что русский язык очень сложный, но теперь он мне нравится."
+          ]
+        }
+      ],
+      "itemHash": "ff25e320b093595c"
+    },
+    {
+      "id": "ru-es-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'объяснить мнение с ясными аргументами' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я могу объяснить своё мнение, приводя ясные аргументы.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я могу чётко аргументировать своё мнение."
+          ]
+        }
+      ],
+      "itemHash": "ab6d0e3665201db8"
+    },
+    {
+      "id": "ru-es-b2-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'утверждала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я бы утверждала, что контекст важнее заучивания правил."
+          ]
+        }
+      ],
+      "itemHash": "6471537f07ce60bd"
+    },
+    {
+      "id": "ru-es-b2-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'достигла'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Если бы не терпеливые учителя, я бы никогда не достигла этого уровня."
+          ]
+        }
+      ],
+      "itemHash": "954e8e8f6cfefb5c"
+    },
+    {
+      "id": "ru-es-a2-17",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'потренировать разговорную речь' is awkward; the usual form is 'попрактиковаться в разговорной речи'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Где я могу попрактиковаться в разговорной речи?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Где можно попрактиковаться в разговорной речи?"
+          ]
+        }
+      ],
+      "itemHash": "12f44d0f3962a3b7"
+    },
+    {
+      "id": "ru-es-b2-18",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'системной' means systematic; 'consistent' here means regular.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Беглость речи улучшается, когда практика регулярная.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Беглость речи улучшается при регулярной практике."
+          ]
+        }
+      ],
+      "itemHash": "b41f5b0ac83c5ebe"
+    }
+  ]
+}

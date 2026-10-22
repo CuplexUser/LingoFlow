@@ -1,0 +1,491 @@
+{
+  "language": "german",
+  "category": "nature_animals",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:46:09.721Z",
+  "contentHash": "ffe4e8fc8db55a94",
+  "summary": "The A1 core has lowercase nouns. A2–B2 has serious errors: 'eine Verwöhnung von Starlings' for a starling murmuration, 'Umweltauswärtigkeiten', an incoherent sustainability answer ('zu gehen oder zu fahren, anstatt zu fahren'), 'Deforestation' left in English, 'in die Landschaft gehen', a wrong auxiliary ('Ich habe mich ... geworden'), 'Tipping-Punkte', and a flooding sentence with the wrong verb. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "de-na-a1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized; lowercase reads as the English word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Tiger",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tiger"
+          ]
+        }
+      ],
+      "itemHash": "795cc707c8cda32b"
+    },
+    {
+      "id": "de-na-a1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized; lowercase reads as the English word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Winter",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Winter"
+          ]
+        }
+      ],
+      "itemHash": "b14e06fcc37fa199"
+    },
+    {
+      "id": "de-na-a1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "For things in a place German often uses 'sein' rather than 'es gibt'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Im Garten sind viele Vögel."
+          ]
+        }
+      ],
+      "itemHash": "f04ba088b779335c"
+    },
+    {
+      "id": "de-na-a1-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English present continuous.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German has no continuous tense: 'scheint' covers 'shines' and 'is shining'."
+          ]
+        }
+      ],
+      "itemHash": "0d211cbe7768d158"
+    },
+    {
+      "id": "de-na-a1-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English present continuous.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Schlafen' changes its vowel: die Katze schläft. 'Auf dem Sofa' = dative (location)."
+          ]
+        }
+      ],
+      "itemHash": "2adea34afef010e5"
+    },
+    {
+      "id": "de-na-a1-10",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'in den Wald gegangen' means 'went into the forest', not walked in it.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich bin gestern im Wald spazieren gegangen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Gestern bin ich im Wald spazieren gegangen."
+          ]
+        }
+      ],
+      "itemHash": "b429c1fe758879d2"
+    },
+    {
+      "id": "de-na-a2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "German says 'für die Jahreszeit'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Es war ungewöhnlich warm für die Jahreszeit.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Für diese Jahreszeit ist es ungewöhnlich warm."
+          ]
+        }
+      ],
+      "itemHash": "4181517d78df1922"
+    },
+    {
+      "id": "de-na-a2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The usual German term is 'Polarlichter' (or 'Nordlicht', singular).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wann ist die beste Jahreszeit, um Polarlichter zu sehen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wann sieht man am besten Nordlichter?"
+          ]
+        }
+      ],
+      "itemHash": "dc979a7bbd1c8374"
+    },
+    {
+      "id": "de-na-a2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Der Fluss ist ... überschwemmt' says the river itself is flooded; a river 'tritt über die Ufer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Fluss ist nach mehreren Tagen Starkregen über die Ufer getreten.",
+          "list": null
+        }
+      ],
+      "itemHash": "d4c09c8e086356f6"
+    },
+    {
+      "id": "de-na-a2-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English 'deer'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German forms a compound: Hirsch + Familie."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich habe heute Morgen eine Hirschfamilie im Park gesehen.",
+            "Heute Morgen habe ich im Park eine Rehfamilie gesehen."
+          ]
+        }
+      ],
+      "itemHash": "ef79c4c2cee1fccc"
+    },
+    {
+      "id": "de-na-a2-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The prompt uses British 'rubbish'; the answer drops 'help'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I recycle my trash to help protect the environment.",
+          "list": null
+        }
+      ],
+      "itemHash": "1f867c16e8820112"
+    },
+    {
+      "id": "de-na-a2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'in die Landschaft gehen' isn't idiomatic; 'walking in the countryside' is 'auf dem Land spazieren gehen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie oft gehen Sie auf dem Land spazieren?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie oft gehst du in der Natur wandern?"
+          ]
+        }
+      ],
+      "itemHash": "716a1b48c7ca7f72"
+    },
+    {
+      "id": "de-na-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie können wir Wildtiere ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "schützen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to protect'."
+          ]
+        }
+      ],
+      "itemHash": "54cb03276c05fbd4"
+    },
+    {
+      "id": "de-na-b1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Deforestation' is English; German says 'Abholzung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Abholzung ist eine der Hauptursachen für den Verlust von Lebensräumen vieler bedrohter Arten.",
+          "list": null
+        }
+      ],
+      "itemHash": "eb0b779757f8c543"
+    },
+    {
+      "id": "de-na-b1-2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Ich habe mich ... geworden' combines the wrong auxiliary with 'werden'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mir ist vor Kurzem bewusster geworden, wie sich meine Ernährung auf die CO2-Emissionen auswirkt.",
+          "list": null
+        }
+      ],
+      "itemHash": "e08ab16e2a1f7fc6"
+    },
+    {
+      "id": "de-na-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Bird migration is 'Zugverhalten'; 'Migrationsmuster' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Das Zugverhalten der Vögel wird durch den Klimawandel gestört.",
+          "list": null
+        }
+      ],
+      "itemHash": "b0a849b5a0e1f9ee"
+    },
+    {
+      "id": "de-na-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'eine Verwöhnung von Starlings' (a pampering of Starlings) is nonsense; starlings are 'Stare'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich hatte das Glück, in der Dämmerung einen riesigen Starenschwarm zu beobachten.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Star' (plural 'Stare') = starling; German describes a murmuration as a 'Starenschwarm'.",
+            "'In der Dämmerung' = at dusk."
+          ]
+        }
+      ],
+      "itemHash": "44c78efccccebafd"
+    },
+    {
+      "id": "de-na-b1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'zu gehen oder zu fahren, anstatt zu fahren' contradicts itself.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich versuche, weniger Einwegplastik zu benutzen, weniger Fleisch zu essen und zu Fuß zu gehen oder Rad zu fahren, statt das Auto zu nehmen.",
+          "list": null
+        }
+      ],
+      "itemHash": "9d02086316f1d9c6"
+    },
+    {
+      "id": "de-na-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Was führt zu einem ___ der Tierpopulationen?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Rückgang",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A masculine noun meaning 'decline'."
+          ]
+        }
+      ],
+      "itemHash": "f2218d209596abb2"
+    },
+    {
+      "id": "de-na-b2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Massenauslöschungsereignis' and 'gut im Gange' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Das sechste Massenaussterben, das vor allem vom Menschen verursacht wird, ist bereits in vollem Gange.",
+          "list": null
+        }
+      ],
+      "itemHash": "2bc92de8291ad274"
+    },
+    {
+      "id": "de-na-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Tipping-Punkte' and 'Feedback-Schleifen' are not German terms; they are 'Kipppunkte' and 'Rückkopplungsschleifen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kipppunkte im Klimasystem – etwa das Auftauen des Permafrosts – könnten unumkehrbare Rückkopplungsschleifen auslösen.",
+          "list": null
+        }
+      ],
+      "itemHash": "fb00f28be6c611a7"
+    },
+    {
+      "id": "de-na-b2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'die Schutzmaßnahmen der Umwelt' means the environment's own measures.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Das Vorsorgeprinzip besagt, dass fehlende wissenschaftliche Gewissheit Umweltschutzmaßnahmen nicht verzögern darf.",
+          "list": null
+        }
+      ],
+      "itemHash": "13d20dc2e9994baa"
+    },
+    {
+      "id": "de-na-b2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Umweltauswärtigkeiten' is not a word; externalities are 'externe Effekte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Können Marktmechanismen allein externe Umwelteffekte wirksam angehen, oder sind staatliche Eingriffe nötig?",
+          "list": null
+        }
+      ],
+      "itemHash": "51831e5c42bf93ea"
+    },
+    {
+      "id": "de-na-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The second clause has no verb ('aber mit zunehmenden Bedrohungen ... konfrontiert').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tiefsee-Ökosysteme sind noch kaum erforscht, sind aber zunehmend durch Rohstoffabbau und die Erwärmung der Ozeane bedroht.",
+          "list": null
+        }
+      ],
+      "itemHash": "628b2621adeec736"
+    },
+    {
+      "id": "de-na-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'argumentiert für' is a calque; the term is 'Tiefenökologie'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die philosophische Tradition der Tiefenökologie plädiert für einen Eigenwert der Natur unabhängig von ihrem Nutzen für den Menschen.",
+          "list": null
+        }
+      ],
+      "itemHash": "f579ee8fdc45c5c2"
+    },
+    {
+      "id": "de-na-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Naturschutzstrategien müssen sowohl die Ökologie als auch die lokalen ___ berücksichtigen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Lebensgrundlagen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A plural noun meaning 'livelihoods'."
+          ]
+        }
+      ],
+      "itemHash": "d182b14cbf3540bf"
+    },
+    {
+      "id": "de-na-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A council member asks where the environmental budget should go.",
+          "list": null
+        }
+      ],
+      "itemHash": "722261ecb8aec945"
+    }
+  ]
+}

@@ -1,0 +1,550 @@
+{
+  "language": "german",
+  "category": "food_cooking",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:37:59.927Z",
+  "contentHash": "e2148f036de1dbd6",
+  "summary": "Many restaurant basics are wrong: 'Ist das Vegetarier?' (Is that a vegetarian person?), 'hauptkurs', 'Menü' for the menu card, 'Tee zum Kaffee', 'die Chips für Salat zu ersetzen'. B1–B2 has 'überkocht' (boiled over), 'Möchten Sie' for would you be able to, an agreement error ('wenn ich ... kochen'), and 'Saubere ... gezüchtete Produkte' for sourcing local produce. Three cloze items lack a blank (one also drops the meaning) and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "de-fo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German 'has hunger': Hunger haben."
+          ]
+        }
+      ],
+      "itemHash": "31b6bb14714fc520"
+    },
+    {
+      "id": "de-fo-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'please' is dropped, and 'bekommen' is the natural verb.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kann ich bitte ein Glas Wasser haben?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Könnte ich bitte ein Glas Wasser bekommen?",
+            "Ein Glas Wasser, bitte."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Bitte' usually goes after the verb and subject."
+          ]
+        }
+      ],
+      "itemHash": "5f6e72aa36e90da1"
+    },
+    {
+      "id": "de-fo-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Möchte' + accusative: einen Kaffee."
+          ]
+        }
+      ],
+      "itemHash": "108c3cc2e4ca8bfd"
+    },
+    {
+      "id": "de-fo-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vegetarier' is a person; the adjective is 'vegetarisch'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ist das vegetarisch?",
+          "list": null
+        }
+      ],
+      "itemHash": "bbb5a63b4ae4d270"
+    },
+    {
+      "id": "de-fo-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Hauptkurs' is a calque (and lowercase); the main course is 'das Hauptgericht'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "das Hauptgericht",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hauptgericht",
+            "der Hauptgang"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after the starter (die Vorspeise)."
+          ]
+        }
+      ],
+      "itemHash": "5fdecf0046ae74ca"
+    },
+    {
+      "id": "de-fo-16",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "German says 'Tagessuppe'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Was ist die Tagessuppe?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Welche Suppe gibt es heute?"
+          ]
+        }
+      ],
+      "itemHash": "a95cbe847be7ea7c"
+    },
+    {
+      "id": "de-fo-18",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Menü' is a set meal; the menu card is 'die Speisekarte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Können wir die Speisekarte sehen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Könnten wir bitte die Speisekarte haben?"
+          ]
+        }
+      ],
+      "itemHash": "97ffb3918916af22"
+    },
+    {
+      "id": "de-fo-19",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'bevorzugen ... zum' is wrong; German says 'lieber ... als'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich trinke lieber Tee als Kaffee.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich mag Tee lieber als Kaffee.",
+            "Ich ziehe Tee Kaffee vor."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Lieber ... als' = to prefer ... to."
+          ]
+        }
+      ],
+      "itemHash": "7d998d41f40c178c"
+    },
+    {
+      "id": "de-fo-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Abendessen ... an den Abenden' is redundant and clumsy.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Abends koche ich normalerweise zu Hause.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Normalerweise koche ich abends zu Hause."
+          ]
+        }
+      ],
+      "itemHash": "fea1059073c8d3bd"
+    },
+    {
+      "id": "de-fo-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'please' is dropped; 'zahlen' is the usual phrasing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Könnten wir bitte die Rechnung haben?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir möchten bitte zahlen.",
+            "Die Rechnung, bitte."
+          ]
+        }
+      ],
+      "itemHash": "e70d9472591fce79"
+    },
+    {
+      "id": "de-fo-21",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Food is 'zubereitet'; 'vorbereiten' means to get ready in advance.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie lange dauert es, dieses Gericht zuzubereiten?",
+          "list": null
+        }
+      ],
+      "itemHash": "b8da7d2c4f531061"
+    },
+    {
+      "id": "de-fo-22",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The prompt uses British 'speciality'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I would like to try the local specialty.",
+          "list": null
+        }
+      ],
+      "itemHash": "2ee946c5e2aa96ea"
+    },
+    {
+      "id": "de-fo-23",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'near here' is reduced to 'hier'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Können Sie ein gutes Restaurant hier in der Nähe empfehlen?",
+          "list": null
+        }
+      ],
+      "itemHash": "82a7d7a49068932c"
+    },
+    {
+      "id": "de-fo-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'zum Kochen hinzufügen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Beim Kochen nehme ich immer Knoblauch und Olivenöl.",
+          "list": null
+        }
+      ],
+      "itemHash": "f5d53713e2ea14ed"
+    },
+    {
+      "id": "de-fo-26",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Chips' in German are crisps; British chips are 'Pommes'. The meaning is also reversed.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kann ich statt Pommes einen Salat bekommen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kann ich die Pommes durch Salat ersetzen?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Statt' + noun = instead of."
+          ]
+        }
+      ],
+      "itemHash": "d48432fedadd3206"
+    },
+    {
+      "id": "de-fo-a2-49",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'versuchen' means to attempt; trying a recipe is 'ausprobieren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Heute Abend probiere ich ein neues Rezept aus.",
+          "list": null
+        }
+      ],
+      "itemHash": "021ed2523fee6bdd"
+    },
+    {
+      "id": "de-fo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wir haben in einem kleinen ___ gegessen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Familienrestaurant",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A compound noun: family + restaurant."
+          ]
+        }
+      ],
+      "itemHash": "e109b774f8132db9"
+    },
+    {
+      "id": "de-fo-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'nach einer ... Ernährung begonnen' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe vor Kurzem angefangen, mich pflanzlich zu ernähren.",
+          "list": null
+        }
+      ],
+      "itemHash": "0fbd410d43229fe1"
+    },
+    {
+      "id": "de-fo-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Recipes don't 'fordern'; German says 'man braucht'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Für das Rezept braucht man zwei Knoblauchzehen und eine Prise Salz.",
+          "list": null
+        }
+      ],
+      "itemHash": "56b5256930f091ef"
+    },
+    {
+      "id": "de-fo-27",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'wenn ich ... kochen' has the wrong verb ending.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wenn ich zu Hause koche, experimentiere ich gern mit verschiedenen Küchen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich neige dazu, mit verschiedenen Küchen zu experimentieren, wenn ich zu Hause koche."
+          ]
+        }
+      ],
+      "itemHash": "4542fe373fb1bf03"
+    },
+    {
+      "id": "de-fo-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'überkocht' means boiled over; overcooked is 'zu lange gekocht' or 'verkocht'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Das ist etwas zu lange gekocht, aber der Geschmack ist trotzdem sehr gut.",
+          "list": null
+        }
+      ],
+      "itemHash": "d09418e50919b1fa"
+    },
+    {
+      "id": "de-fo-29",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Möchten Sie' asks whether they want to, not whether they can.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Könnten Sie eine glutenfreie Variante anbieten?",
+          "list": null
+        }
+      ],
+      "itemHash": "34c597251f8e8848"
+    },
+    {
+      "id": "de-fo-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Heat is 'bei schwacher Hitze'; the hint uses British 'flavour'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Langsames Garen bei schwacher Hitze entfaltet den Geschmack viel besser.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Den Geschmack entfalten' = to develop the flavor."
+          ]
+        }
+      ],
+      "itemHash": "0d1aee7d75aee808"
+    },
+    {
+      "id": "de-fo-31",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'hosten' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nächsten Samstag gebe ich eine Dinnerparty und brauche Inspiration.",
+          "list": null
+        }
+      ],
+      "itemHash": "c148b7fcbb4a07fe"
+    },
+    {
+      "id": "de-fo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; the answer also drops 'meal-prepping'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich habe angefangen, Mahlzeiten vorzukochen, um unter der Woche Zeit zu ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sparen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to save'."
+          ]
+        }
+      ],
+      "itemHash": "2b288e6e3fa73b92"
+    },
+    {
+      "id": "de-fo-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Saubere ... lokal gezüchtete Produkte' (clean ... locally bred) is nonsense; the note uses British spelling.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Saisonale Produkte aus der Region zu kaufen, ist sowohl eine ökologische als auch eine kulinarische Entscheidung.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "Farm-to-table dining has become a significant movement in many countries, emphasizing shorter supply chains and fresher ingredients.",
+          "list": null
+        }
+      ],
+      "itemHash": "a529fb7933bab2ed"
+    },
+    {
+      "id": "de-fo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie können Städte die ___ entlang der Lieferketten reduzieren?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Lebensmittelverschwendung",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A compound noun for food waste."
+          ]
+        }
+      ],
+      "itemHash": "b828369853cc2809"
+    },
+    {
+      "id": "de-fo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks whether they should cut out carbs completely.",
+          "list": null
+        }
+      ],
+      "itemHash": "0217c59415765490"
+    }
+  ]
+}

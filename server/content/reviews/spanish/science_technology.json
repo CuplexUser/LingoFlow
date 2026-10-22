@@ -1,0 +1,398 @@
+{
+  "language": "spanish",
+  "category": "science_technology",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:27:36.361Z",
+  "contentHash": "8e68d16266eaf2dc",
+  "summary": "Basic tech vocabulary is fine, but several items have wrong verbs or are literal calques: 'permito' (allow) for enable, 'Arreglé' (fixed) for set up, 'batería está muerta', 'Envié ... para trabajar', 'medios de comunicación profundos', 'posquantum', and a garbled automation sentence. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-st-a1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Latin America says 'computadora'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "computadora",
+            "computador"
+          ]
+        }
+      ],
+      "itemHash": "9890c817e92c43ac"
+    },
+    {
+      "id": "es-st-a1-4",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Mi batería de teléfono está muerta' is a literal calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi móvil se ha quedado sin batería.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me quedé sin batería en el teléfono.",
+            "Mi teléfono se quedó sin batería."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish says the phone 'ran out of battery': quedarse sin batería."
+          ]
+        }
+      ],
+      "itemHash": "08e3c21852253a5a"
+    },
+    {
+      "id": "es-st-a1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'laptop' (Latin America) and 'ordenador portátil' should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "laptop",
+            "ordenador portátil",
+            "computadora portátil"
+          ]
+        }
+      ],
+      "itemHash": "e1e5754df4ed1cb4"
+    },
+    {
+      "id": "es-st-a1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Envié' is past, and 'para trabajar' means 'in order to work'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Envío correos electrónicos por trabajo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mando correos por trabajo."
+          ]
+        }
+      ],
+      "itemHash": "289151e0c740f40c"
+    },
+    {
+      "id": "es-st-a1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The password is 'del wifi'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cuál es la contraseña del wifi?",
+          "list": null
+        }
+      ],
+      "itemHash": "24e2c80c3d219e12"
+    },
+    {
+      "id": "es-st-a2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'reajustar' isn't used for passwords; Spanish says 'restablecer' or 'cambiar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo restablezco mi contraseña?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Cómo cambio mi contraseña?"
+          ]
+        }
+      ],
+      "itemHash": "c15100991c57db06"
+    },
+    {
+      "id": "es-st-a2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Respaldé ... a la nube' is a calque; Spanish says 'hice una copia de seguridad en la nube'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hice una copia de seguridad de mis archivos en la nube.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Respaldé mis archivos en la nube."
+          ]
+        }
+      ],
+      "itemHash": "5123d142c359cef8"
+    },
+    {
+      "id": "es-st-a2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'permitir' means to allow; enabling a setting is 'activar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo activo la autenticación en dos pasos?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Cómo activo la autenticación de dos factores?"
+          ]
+        }
+      ],
+      "itemHash": "c49bd400cc6a3189"
+    },
+    {
+      "id": "es-st-a2-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Arreglé' means 'I fixed/repaired'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Programé un recordatorio automático en mi teléfono.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Configuré un recordatorio automático en mi móvil."
+          ]
+        }
+      ],
+      "itemHash": "067fba8479f3a4fe"
+    },
+    {
+      "id": "es-sc-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Qué ___ usas para las reuniones en línea?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "herramienta",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'tool'."
+          ]
+        }
+      ],
+      "itemHash": "b87a2300942ad7b8"
+    },
+    {
+      "id": "es-st-b1-4",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The tenses don't match: 'ha desplazado' with 'crea'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La automatización ha eliminado muchos empleos industriales, pero ha creado nuevos puestos en tecnología.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La automatización ha desplazado muchos trabajos de fabricación, al tiempo que ha creado nuevos puestos en tecnología."
+          ]
+        }
+      ],
+      "itemHash": "76272cf66bc006ff"
+    },
+    {
+      "id": "es-st-b1-6",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'han mejorado la eficiencia y el costo' says they improved the cost; the meaning is improvement 'in' efficiency and cost.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Las tecnologías de energía renovable han mejorado muchísimo en eficiencia y coste en la última década.",
+          "list": null
+        }
+      ],
+      "itemHash": "aeb3427e726f36c3"
+    },
+    {
+      "id": "es-st-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'cálculo cuántico' and 'paisaje' are calques; Spanish says 'computación cuántica' and 'panorama'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo podría la computación cuántica cambiar el panorama de la seguridad de los datos?",
+          "list": null
+        }
+      ],
+      "itemHash": "d94bfa0da46bca7e"
+    },
+    {
+      "id": "es-st-b1-8",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'mi calidad del sueño' should be 'la calidad de mi sueño'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Trato de limitar mi tiempo frente a la pantalla para proteger la calidad de mi sueño.",
+          "list": null
+        }
+      ],
+      "itemHash": "e340918c91e212ae"
+    },
+    {
+      "id": "es-sc-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cuáles son las ___ de usar software de código abierto?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ventajas",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "beneficios"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A plural noun meaning 'advantages'."
+          ]
+        }
+      ],
+      "itemHash": "f2312cb508c9c1f9"
+    },
+    {
+      "id": "es-st-b2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The established term is 'grandes modelos de lenguaje'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo deberían los gobiernos regular los grandes modelos de lenguaje para evitar su mal uso sin frenar la innovación?",
+          "list": null
+        }
+      ],
+      "itemHash": "915081e1daffd6e9"
+    },
+    {
+      "id": "es-st-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'medios de comunicación profundos y sintéticos' is a nonsense translation of 'deepfakes and synthetic media'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Los desafíos epistémicos que plantean los deepfakes y los medios sintéticos exigen nuevos marcos para verificar la información.",
+          "list": null
+        }
+      ],
+      "itemHash": "94d69a199cc27745"
+    },
+    {
+      "id": "es-st-b2-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'posquantum' is misspelled (poscuántica); 'interesados en' should be 'preocupados por'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La criptografía poscuántica es ahora una prioridad estratégica para los gobiernos preocupados por la seguridad de los datos a largo plazo.",
+          "list": null
+        }
+      ],
+      "itemHash": "75a5f1a0c70419bd"
+    },
+    {
+      "id": "es-sc-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; the sentence ('mientras que la remodelación') is also ungrammatical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "La automatización puede aumentar la ___ al tiempo que transforma los mercados laborales.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "productividad",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun for how much work gets done in a given time."
+          ]
+        }
+      ],
+      "itemHash": "fe523846b7b3e209"
+    },
+    {
+      "id": "es-sc-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A panelist argues that tech regulation always kills innovation.",
+          "list": null
+        }
+      ],
+      "itemHash": "0b2b5ad6567d96b9"
+    }
+  ]
+}

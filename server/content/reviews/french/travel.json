@@ -1,0 +1,455 @@
+{
+  "language": "french",
+  "category": "travel",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:48:48.482Z",
+  "contentHash": "173b8e8fa21b8277",
+  "summary": "The A1 phrases are mostly fine, but A2–B2 has many literal translations: 'les deux jambes du voyage', 'vider les douanes', 'des minutes à perdre', 'prévu des imprévus', 'Le temps de départ', 'vérifier ma réservation' for check in, 'plate-forme' for a train platform, plus grammar errors ('Quels documents ai-je besoin', 'sans les nuire', 'seul ... indépendante'). Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "fr-tr-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'La gare' = train station (feminine)."
+          ]
+        }
+      ],
+      "itemHash": "026e08def50d64fa"
+    },
+    {
+      "id": "fr-tr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Combien coûte...?' = how much does ... cost?"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'est combien, ce billet ?"
+          ]
+        }
+      ],
+      "itemHash": "f4dfb5d356e91c4f"
+    },
+    {
+      "id": "fr-tr-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A train platform is a 'quai' or 'voie', not a 'plate-forme'; the hint is generic.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "De quel quai part le train ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "De quelle voie part le train ?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Le quai' or 'la voie' = platform/track."
+          ]
+        }
+      ],
+      "itemHash": "15cdb99656eaf845"
+    },
+    {
+      "id": "fr-tr-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English inversion; the French answer uses intonation.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spoken French often asks yes/no questions with rising intonation alone."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Est-ce que c'est le bon bus pour l'aéroport ?"
+          ]
+        }
+      ],
+      "itemHash": "3c32a5a58bacd41c"
+    },
+    {
+      "id": "fr-tr-17",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'please' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai besoin d'un taxi, s'il vous plaît.",
+          "list": null
+        }
+      ],
+      "itemHash": "e25931c80e21b947"
+    },
+    {
+      "id": "fr-tr-19",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'perdue'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis perdue.",
+            "Je me suis perdu.",
+            "Je me suis perdue."
+          ]
+        }
+      ],
+      "itemHash": "d3fc097f8c64eae0"
+    },
+    {
+      "id": "fr-tr-10",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'vérifier ma réservation' means to verify a booking, not check in.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'aimerais m'enregistrer, j'ai une réservation.",
+          "list": null
+        }
+      ],
+      "itemHash": "008a833d8cc53464"
+    },
+    {
+      "id": "fr-tr-20",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Exchanging money is 'changer de l'argent'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'aimerais changer de l'argent.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'aimerais échanger de l'argent."
+          ]
+        }
+      ],
+      "itemHash": "b49cbec115476799"
+    },
+    {
+      "id": "fr-tr-25",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'un siège de fenêtre' is a calque; French says 'côté hublot/fenêtre'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Est-ce que je peux avoir une place côté hublot ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je peux avoir une place côté fenêtre ?"
+          ]
+        }
+      ],
+      "itemHash": "8c59366cf7b8634d"
+    },
+    {
+      "id": "fr-tr-26",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Le temps de départ est de 11 heures' is a broken calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il faut libérer la chambre à 11 heures.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Le départ se fait à 11 heures.",
+            "Le check-out est à 11 heures."
+          ]
+        }
+      ],
+      "itemHash": "75cc7f233a87a83d"
+    },
+    {
+      "id": "fr-tr-a2-52",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'ai perdu ma carte d'___ ce matin.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "embarquement",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Carte d'___' = boarding pass."
+          ]
+        }
+      ],
+      "itemHash": "b934533984872626"
+    },
+    {
+      "id": "fr-tr-27",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'recommander' needs the indirect object 'me'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je me demandais si vous pourriez me recommander un bon restaurant du coin.",
+          "list": null
+        }
+      ],
+      "itemHash": "ef02e1efa756a96f"
+    },
+    {
+      "id": "fr-tr-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'les deux jambes du voyage' is a literal mistranslation of 'legs'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Y a-t-il une réduction si je réserve l'aller et le retour ensemble ?",
+          "list": null
+        }
+      ],
+      "itemHash": "df6a5161d7ca6d2d"
+    },
+    {
+      "id": "fr-tr-31",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'avoir besoin de' requires 'De quels documents'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "De quels documents ai-je besoin pour passer la frontière ?",
+          "list": null
+        }
+      ],
+      "itemHash": "48f627feb774f915"
+    },
+    {
+      "id": "fr-tr-32",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'réserver' loses 'rebook'; 'vol original' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai dû changer ma réservation pour un tarif plus élevé après l'annulation de mon vol initial.",
+          "list": null
+        }
+      ],
+      "itemHash": "9c0b601a5bfb206d"
+    },
+    {
+      "id": "fr-tr-b1-62",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'seul ... indépendante' mixes genders.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Voyager seul m'a aidé à devenir plus ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "indépendant",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "indépendante"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'able to manage on your own'."
+          ]
+        }
+      ],
+      "itemHash": "a58bae5b55483b87"
+    },
+    {
+      "id": "fr-tr-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A travel route is an 'itinéraire'; 'une route' is a road.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je préférerais un itinéraire plus calme, même s'il est plus long.",
+          "list": null
+        }
+      ],
+      "itemHash": "66cdb21ca2c587a4"
+    },
+    {
+      "id": "fr-tr-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A transit connection is a 'correspondance'; 'connexion' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Y a-t-il un trajet plus rapide si je change de ligne une fois ?",
+          "list": null
+        }
+      ],
+      "itemHash": "fd899a652b732b7c"
+    },
+    {
+      "id": "fr-tr-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'faire ma connexion avec des minutes à perdre' is a literal mistranslation.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Malgré les retards, j'ai réussi à attraper ma correspondance avec quelques minutes d'avance.",
+          "list": null
+        }
+      ],
+      "itemHash": "c9745f210a7342a8"
+    },
+    {
+      "id": "fr-tr-36",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "You are charged 'des frais d'excédent de bagages'; 'le contester' refers to the wrong noun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "On m'a facturé à tort des frais d'excédent de bagages et j'aimerais les contester.",
+          "list": null
+        }
+      ],
+      "itemHash": "7ee123ad5f5937c6"
+    },
+    {
+      "id": "fr-tr-38",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'aux vols de moins de cinq heures' compares trains with short flights instead of preferring trains for short trips.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pour les trajets de moins de cinq heures, j'ai tendance à préférer le train à l'avion.",
+          "list": null
+        }
+      ],
+      "itemHash": "9e98bb2fcc49d3b1"
+    },
+    {
+      "id": "fr-tr-39",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'vider les douanes' (empty the customs) is nonsense; a layover is an 'escale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'escale me laisse juste le temps de passer la douane et de réenregistrer mes bagages.",
+          "list": null
+        }
+      ],
+      "itemHash": "6b518af1cdfc501b"
+    },
+    {
+      "id": "fr-tr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'nuire' takes an indirect object ('leur').",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Comment le tourisme peut-il soutenir les communautés locales sans leur ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "nuire",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to harm' that takes an indirect object."
+          ]
+        }
+      ],
+      "itemHash": "a839ff7640ed8aa6"
+    },
+    {
+      "id": "fr-tr-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'prévu des imprévus' (foreseen the unforeseen) is nonsense.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how you managed a trip with several tight flight connections.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "J'avais prévu un plan B au cas où les vols seraient retardés.",
+          "list": null
+        }
+      ],
+      "itemHash": "3b7736d87f1863d9"
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{
+  "language": "spanish",
+  "category": "family_friends",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:19:29.999Z",
+  "contentHash": "9564eddf9617a043",
+  "summary": "A1 content is fine, but A2–B2 has many calques and meaning errors: 'vemos ojo a ojo', '¿Estás cerca de tus hermanos?' (physically near), 'niños adultos', 'nos separamos' (broke up) for grew apart, an ungrammatical '¿Cuánto tiempo se conocen?', a wrong future 'Visitaré', and a dropped 'eightieth'. Three cloze items lack a blank, a dialogue_turn has no situation, and several hints explain English.",
+  "findings": [
+    {
+      "id": "es-fa-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Tener' for family members; 'hermanos' (plural) can also mean siblings."
+          ]
+        }
+      ],
+      "itemHash": "5dd705867ec2d9a6"
+    },
+    {
+      "id": "es-fa-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the formal form should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish drops 'any' in this question; 'hijos' = children (sons and daughters)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Tiene hijos?",
+            "¿Tiene usted hijos?"
+          ]
+        }
+      ],
+      "itemHash": "14c1953dd69ba5ad"
+    },
+    {
+      "id": "es-fa-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'El campo' = the countryside."
+          ]
+        }
+      ],
+      "itemHash": "b7bf96115ba74566"
+    },
+    {
+      "id": "es-fa-13",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English structure; Spanish uses 'tener' for age.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish uses 'tener' + años: she 'has' seventy years."
+          ]
+        }
+      ],
+      "itemHash": "b9156ad22c3fff9a"
+    },
+    {
+      "id": "es-fa-17",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English apostrophe; a female friend ('amiga') should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use 'llamarse': literally 'my best friend calls himself Sam'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi mejor amiga se llama Sam."
+          ]
+        }
+      ],
+      "itemHash": "c01ba7f50810c7ca"
+    },
+    {
+      "id": "es-fa-a1-39",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Visitaré' is future; a weekly routine uses the present.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Visito a mis abuelos los domingos.",
+          "list": null
+        }
+      ],
+      "itemHash": "b23e035dba886d54"
+    },
+    {
+      "id": "es-fa-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes English; Spanish also uses the present for planned events.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Casarse' is reflexive. Future or present both work for a planned event."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi primo se casa la próxima primavera.",
+            "Mi prima se casa la próxima primavera.",
+            "Mi prima se casará la próxima primavera."
+          ]
+        }
+      ],
+      "itemHash": "035fbc2dff4776df"
+    },
+    {
+      "id": "es-fa-5",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Days and weekends take no preposition: 'los fines de semana', not 'en los'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Normalmente nos vemos los fines de semana.",
+          "list": null
+        },
+        {
+          "field": "prompt",
+          "text": "Say: We usually meet up on weekends.",
+          "list": null
+        }
+      ],
+      "itemHash": "92183fcc894ae701"
+    },
+    {
+      "id": "es-fa-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'¿Cuánto tiempo se conocen?' is ungrammatical; it needs 'hace ... que' or 'llevan'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cuánto tiempo hace que se conocen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Cuánto tiempo hace que os conocéis?",
+            "¿Desde cuándo se conocen?"
+          ]
+        }
+      ],
+      "itemHash": "7c38b25b3df106c7"
+    },
+    {
+      "id": "es-fa-21",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'¿Estás cerca de tus hermanos?' means physically near them, not emotionally close.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Estás muy unido a tus hermanos?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Tienes una relación cercana con tus hermanos?",
+            "¿Estás muy unida a tus hermanos?"
+          ]
+        }
+      ],
+      "itemHash": "9d67be0e99e23c7a"
+    },
+    {
+      "id": "es-fa-22",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'una gran familia' means a great family; a big family is 'numerosa' or 'grande'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Somos una familia numerosa: somos siete.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Somos una familia grande: somos siete."
+          ]
+        }
+      ],
+      "itemHash": "293917faf6872138"
+    },
+    {
+      "id": "es-fa-25",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'eightieth' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Celebramos los ochenta años de mi abuelo el fin de semana pasado.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "El fin de semana pasado celebramos el ochenta cumpleaños de mi abuelo."
+          ]
+        }
+      ],
+      "itemHash": "fcb60e5216fc6425"
+    },
+    {
+      "id": "es-fa-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "___ a mis padres todas las noches.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Llamo",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First-person present of 'llamar' (to call)."
+          ]
+        }
+      ],
+      "itemHash": "f5b6293c1344f7c7"
+    },
+    {
+      "id": "es-fa-7",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'no siempre vemos ojo a ojo' is a literal calque; Spanish says 'no siempre estamos de acuerdo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi hermana y yo no siempre estamos de acuerdo, pero nos apoyamos.",
+          "list": null
+        }
+      ],
+      "itemHash": "5da6ee7395298009"
+    },
+    {
+      "id": "es-fa-28",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'la vida se pone ocupada' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Trato de mantener el contacto con viejos amigos, incluso cuando estoy muy ocupado.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Trato de mantener el contacto con viejos amigos, incluso cuando estoy muy ocupada."
+          ]
+        }
+      ],
+      "itemHash": "cdc26c469ea36bdb"
+    },
+    {
+      "id": "es-fa-29",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'humour' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Contrast with 'pero'; 'sentido del humor' = sense of humor."
+          ]
+        }
+      ],
+      "itemHash": "c2d72ac36af38b47"
+    },
+    {
+      "id": "es-fa-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'lucho por encontrar tiempo en torno a los compromisos laborales' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vivimos muy lejos y me cuesta encontrar tiempo con el trabajo.",
+          "list": null
+        }
+      ],
+      "itemHash": "3d4edf516d1f15fb"
+    },
+    {
+      "id": "es-fa-31",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'agradezco la comunidad cercana' doesn't render 'close-knit'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Como crecí en un pueblo pequeño, valoro lo unida que es la comunidad.",
+          "list": null
+        }
+      ],
+      "itemHash": "8bf7e9e87e3efd73"
+    },
+    {
+      "id": "es-fa-33",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Nos separamos' means we split up; drifting apart is 'nos distanciamos'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nos distanciamos después de la universidad, pero hace poco volvimos a conectar.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nos distanciamos después de la universidad, pero recientemente hemos vuelto a conectar."
+          ]
+        }
+      ],
+      "itemHash": "abfc8967ba11ec7a"
+    },
+    {
+      "id": "es-fa-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Las tradiciones familiares nos ayudan a mantenernos ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "unidos",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'close together'."
+          ]
+        }
+      ],
+      "itemHash": "639bd3a7564d012a"
+    },
+    {
+      "id": "es-fa-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'familia mezclada' is a calque; Spanish says 'familia reconstituida' or 'ensamblada'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Las dinámicas dentro de una familia reconstituida pueden ser complejas, pero muy gratificantes.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Las dinámicas dentro de una familia ensamblada pueden ser complejas, pero muy gratificantes."
+          ]
+        }
+      ],
+      "itemHash": "2d1aa5a14a6f5994"
+    },
+    {
+      "id": "es-fa-11",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'sobre todo' means 'especially'; 'above all else' is 'por encima de todo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me criaron para valorar la lealtad y la honestidad por encima de todo.",
+          "list": null
+        }
+      ],
+      "itemHash": "3cb7d8e275e34b01"
+    },
+    {
+      "id": "es-fa-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'niños adultos' is a contradiction; adult children are 'hijos adultos'. 'padres envejecidos' is unnatural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La expectativa de que los hijos adultos cuiden de sus padres mayores varía considerablemente entre culturas.",
+          "list": null
+        }
+      ],
+      "itemHash": "36186c2e249865e7"
+    },
+    {
+      "id": "es-fa-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cómo ___ las expectativas familiares en las decisiones personales?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "influyen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Influir en' = to influence; third-person plural."
+          ]
+        }
+      ],
+      "itemHash": "a1919ff90fc7fe1a"
+    },
+    {
+      "id": "es-fa-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend is sad that you see each other less than before.",
+          "list": null
+        }
+      ],
+      "itemHash": "36387960b8fce4cb"
+    }
+  ]
+}

@@ -1,0 +1,624 @@
+{
+  "language": "german",
+  "category": "news_media",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:42:32.989Z",
+  "contentHash": "719ab981a90bfd04",
+  "summary": "Pervasive machine-translation errors: 'Wahlabdeckung', 'brechende Nachricht' for breaking news, 'Heilung' (healing) for curation, 'Konfilation', 'Informationsequity', 'Geschichten zu erzählen' for cross-referencing, 'beim Lesen' (while reading) for 'rather than reading', and 'Beschaffung' (procurement) for sourcing. Also lowercase nouns, wrong tenses and agreement, three cloze items without a blank, and a dialogue_turn without a situation.",
+  "findings": [
+    {
+      "id": "de-nm-a1-1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized; the lint flag is valid because the lowercase form looks English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Journalist",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Journalist",
+            "die Journalistin"
+          ]
+        }
+      ],
+      "itemHash": "fd652640da7e209b"
+    },
+    {
+      "id": "de-nm-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The Perfekt says 'I have read'; a daily habit uses the present.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich lese jeden Morgen die Nachrichten.",
+          "list": null
+        }
+      ],
+      "itemHash": "6b27963462bfa6ef"
+    },
+    {
+      "id": "de-nm-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'vom' is the natural contraction; the formal form should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hast du vom Erdbeben gehört?",
+            "Haben Sie von dem Erdbeben gehört?"
+          ]
+        }
+      ],
+      "itemHash": "7bc381ca9252e481"
+    },
+    {
+      "id": "de-nm-a1-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Time usually precedes place, and TV programs 'kommen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Nachrichten kommen um sechs im Fernsehen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Die Nachrichten laufen um sechs im Fernsehen."
+          ]
+        }
+      ],
+      "itemHash": "a04a3efc25979023"
+    },
+    {
+      "id": "de-nm-a1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "die Zeitung",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Zeitung",
+            "die Tageszeitung"
+          ]
+        }
+      ],
+      "itemHash": "b5d03a751e59181e"
+    },
+    {
+      "id": "de-nm-a1-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Watching TV is the separable verb 'fernsehen'; 'Fernsehen sehen' is wrong.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich sehe nicht viel fern.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich schaue nicht viel Fernsehen."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Fernsehen' is separable: ich sehe ... fern."
+          ]
+        }
+      ],
+      "itemHash": "35b787f666ed46e9"
+    },
+    {
+      "id": "de-nm-a1-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Ich bekomme meine Nachrichten' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich informiere mich im Internet.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich lese die Nachrichten im Internet."
+          ]
+        }
+      ],
+      "itemHash": "8681cff98e19ed8a"
+    },
+    {
+      "id": "de-ne-a1-40",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'um etwas gehen' needs the impersonal 'es': 'In ... geht es um'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In diesem Bericht geht es um das Wetter.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "In dieser Meldung geht es um das Wetter."
+          ]
+        }
+      ],
+      "itemHash": "7f8b421f571774cc"
+    },
+    {
+      "id": "de-ne-a1-41",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Wo bekommen Sie Ihre Nachrichten?' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie informieren Sie sich über das Weltgeschehen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wo informierst du dich?"
+          ]
+        }
+      ],
+      "itemHash": "18012a2300e29b7e"
+    },
+    {
+      "id": "de-nm-a2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "An economy 'wächst'; the prompt uses British 'per cent'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: According to the report, the economy grew by two percent last year.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Laut dem Bericht ist die Wirtschaft im letzten Jahr um zwei Prozent gewachsen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Laut Bericht wuchs die Wirtschaft letztes Jahr um zwei Prozent."
+          ]
+        }
+      ],
+      "itemHash": "6be759b9bcd987fc"
+    },
+    {
+      "id": "de-nm-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Wahlabdeckung' is not a German word; coverage is 'Berichterstattung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Haben Sie die Berichterstattung über die Wahl verfolgt?",
+          "list": null
+        }
+      ],
+      "itemHash": "6bb5bb0068f80c62"
+    },
+    {
+      "id": "de-nm-a2-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'beim Lesen von Printmedien' means 'while reading print media'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich höre lieber Podcasts, als Printmedien zu lesen.",
+          "list": null
+        }
+      ],
+      "itemHash": "244a946d85cfcaa8"
+    },
+    {
+      "id": "de-nm-a2-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Welche News-Outlet' has the wrong case and is an anglicism; 'vertrauen' takes the dative.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Welchem Nachrichtenmedium vertrauen Sie am meisten?",
+          "list": null
+        }
+      ],
+      "itemHash": "23eab21bdc6ff76b"
+    },
+    {
+      "id": "de-nm-a2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'brechende Nachricht' is a literal calque; breaking news is an 'Eilmeldung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Es gab eine Eilmeldung über die Überschwemmungen.",
+          "list": null
+        }
+      ],
+      "itemHash": "4ba2c168aec771fb"
+    },
+    {
+      "id": "de-nm-a2-7",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'of news' is dropped, so the sentence says social media is young people's main source of everything.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Soziale Medien sind heute für viele junge Menschen die wichtigste Nachrichtenquelle.",
+          "list": null
+        }
+      ],
+      "itemHash": "15a5b634d8c41600"
+    },
+    {
+      "id": "de-nm-a2-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Subscriptions are 'gekündigt'; 'abgesagt' is for events.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe mein Zeitungsabo gekündigt und bin auf eine Nachrichten-App umgestiegen.",
+          "list": null
+        }
+      ],
+      "itemHash": "167e4f0e0feb1149"
+    },
+    {
+      "id": "de-ne-a2-49",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "News is 'verfolgt'; 'folgen' with dative is for accounts.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich verfolge die lokalen Nachrichten auf meinem Handy.",
+          "list": null
+        }
+      ],
+      "itemHash": "ff2307a90ebc3b25"
+    },
+    {
+      "id": "de-ne-a2-50",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'bevorzugen ... zu' is wrong; German says 'lieber ... als'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich mag kurze Videos lieber als lange Artikel.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich ziehe kurze Videos langen Artikeln vor."
+          ]
+        }
+      ],
+      "itemHash": "1cdd8ad3a0295044"
+    },
+    {
+      "id": "de-ne-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hast du gestern von dieser Veranstaltung ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "gehört",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'hören'."
+          ]
+        }
+      ],
+      "itemHash": "7eb353c4bca76f09"
+    },
+    {
+      "id": "de-nm-b1-3",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The answer says events are 'framed by the public'; 'Medienbias' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Einseitige Berichterstattung kann beeinflussen, wie Ereignisse dargestellt und von der Öffentlichkeit interpretiert werden.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Framed' means presented from a particular angle; 'bias' means favoring one view."
+          ]
+        }
+      ],
+      "itemHash": "1a6f131edb8bfc75"
+    },
+    {
+      "id": "de-nm-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Geschichten zu erzählen' means 'to tell stories'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich versuche, Meldungen mit mehreren Nachrichtenquellen abzugleichen, bevor ich mir eine Meinung bilde.",
+          "list": null
+        }
+      ],
+      "itemHash": "04bb11e3767b52f8"
+    },
+    {
+      "id": "de-nm-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'sensationelle' means sensational in the sense of amazing; sensationalist is 'reißerisch'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Inwiefern glauben Sie, dass reißerische Schlagzeilen die öffentliche Wahrnehmung verzerren?",
+          "list": null
+        }
+      ],
+      "itemHash": "cdcb01f748edfd09"
+    },
+    {
+      "id": "de-nm-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'die Geschichte halten' is a calque; holding back a story is 'zurückhalten'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Redaktion beschloss, die Meldung zurückzuhalten, bis es handfestere Beweise gab.",
+          "list": null
+        }
+      ],
+      "itemHash": "e5c0e77d074a20a9"
+    },
+    {
+      "id": "de-nm-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "German uses 'Bürgerjournalismus'; 'Anstieg der Technologie' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Bürgerjournalismus hat mit dem Siegeszug des Smartphones deutlich zugenommen.",
+          "list": null
+        }
+      ],
+      "itemHash": "f1d2aa09ab5d3c7b"
+    },
+    {
+      "id": "de-ne-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Warum teilen Menschen Artikel, ___ sie zu lesen?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ohne",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'___ ... zu' + infinitive = without doing something."
+          ]
+        }
+      ],
+      "itemHash": "c4e180ce2983b512"
+    },
+    {
+      "id": "de-nm-b2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Nachrichtenübermittlung' means news transmission; 'ziviles Engagement' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Rückgang der Lokalberichterstattung hat erhebliche Folgen für das bürgerschaftliche Engagement und die demokratische Kontrolle.",
+          "list": null
+        }
+      ],
+      "itemHash": "171a87c90d2d6948"
+    },
+    {
+      "id": "de-nm-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Heilung' means healing; curation is 'Kuratierung' or 'Auswahl'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die algorithmische Auswahl von Nachrichtenfeeds schafft Echokammern, die bestehende Überzeugungen verstärken.",
+          "list": null
+        }
+      ],
+      "itemHash": "64bb6eafc2a2d1ac"
+    },
+    {
+      "id": "de-nm-b2-3",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "The present tense loses 'has altered'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie hat der 24-Stunden-Nachrichtenzyklus journalistische Standards und den öffentlichen Diskurs verändert?",
+          "list": null
+        }
+      ],
+      "itemHash": "70c1bd45460ce7ba"
+    },
+    {
+      "id": "de-nm-b2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'dient einer Funktion' and 'zur Rechenschaft halten' are wrong; it's 'eine Funktion erfüllen' and 'zur Rechenschaft ziehen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Investigativer Journalismus erfüllt eine wichtige demokratische Funktion, indem er die Mächtigen zur Rechenschaft zieht.",
+          "list": null
+        }
+      ],
+      "itemHash": "3c2dd4cf1253d516"
+    },
+    {
+      "id": "de-nm-b2-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Konfilation' is not a word and 'verschwommen' is not transitive.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Vermischung von Meinung und Fakten in Kommentaren hat wichtige erkenntnistheoretische Grenzen verwischt.",
+          "list": null
+        }
+      ],
+      "itemHash": "fe748e96bbab753b"
+    },
+    {
+      "id": "de-nm-b2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Medien' is plural: 'Sind staatliche Medien...'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sind staatliche Medien jemals mit echter redaktioneller Unabhängigkeit vereinbar?",
+          "list": null
+        }
+      ],
+      "itemHash": "8c21474889605c5d"
+    },
+    {
+      "id": "de-nm-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Die Paywalling ... Informationsequity' is half-English nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dass Qualitätsjournalismus hinter Bezahlschranken verschwindet, wirft wichtige Fragen zur Informationsgerechtigkeit auf.",
+          "list": null
+        }
+      ],
+      "itemHash": "40b9093dd520d1e7"
+    },
+    {
+      "id": "de-ne-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Beschaffung' means procurement; sourcing is 'Quellenangaben'. 'Verantwortlicher' means 'in charge'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Verantwortungsvoller Journalismus erfordert transparente Quellenangaben und Kontext.",
+          "list": null
+        }
+      ],
+      "itemHash": "a045563670cbc438"
+    },
+    {
+      "id": "de-ne-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'Sensational' is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Reißerische Schlagzeilen können das öffentliche Verständnis komplexer Themen ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "verzerren",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to distort'."
+          ]
+        }
+      ],
+      "itemHash": "c6f27ec2342a2796"
+    },
+    {
+      "id": "de-ne-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend says social networks should simply delete anything false.",
+          "list": null
+        }
+      ],
+      "itemHash": "f17b7ebec6983260"
+    }
+  ]
+}

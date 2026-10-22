@@ -1,0 +1,306 @@
+{
+  "language": "english",
+  "category": "sports_fitness",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:11:50.915Z",
+  "contentHash": "1d8e6a6fe93cad63",
+  "summary": "Accurate fitness vocabulary. Fixes needed: British spellings and usage ('commercialisation', 'periodisation', 'football', mass-noun 'sport'), three cloze items without a blank, a flashcard with identical sides, a dialogue_turn without a situation, and missing contractions.",
+  "findings": [
+    {
+      "id": "en-sf-a1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "In US English this sport is 'soccer'; 'football' means American football.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "soccer",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "football"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Americans say 'soccer'; most of the world calls it 'football'."
+          ]
+        }
+      ],
+      "itemHash": "5c25195fe530d5c8"
+    },
+    {
+      "id": "en-sf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Go' + -ing for activities: go running, go swimming."
+          ]
+        }
+      ],
+      "itemHash": "dd1c56f99d1983fc"
+    },
+    {
+      "id": "en-sf-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm not' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm not very sporty."
+          ]
+        }
+      ],
+      "itemHash": "d7e251b54ff0e3e6"
+    },
+    {
+      "id": "en-sp-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask someone whether they play sports like soccer or basketball.",
+          "list": null
+        }
+      ],
+      "itemHash": "50fd08f6658106fe"
+    },
+    {
+      "id": "en-sf-a2-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been going to the gym three times a week."
+          ]
+        }
+      ],
+      "itemHash": "e4cac78e565792f9"
+    },
+    {
+      "id": "en-sp-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How long is your usual ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "workout",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A session of exercise at the gym."
+          ]
+        }
+      ],
+      "itemHash": "93f145e7101ba1c3"
+    },
+    {
+      "id": "en-sf-b1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been training five days a week and can already see improvements in my stamina."
+          ]
+        }
+      ],
+      "itemHash": "be5b249697e86325"
+    },
+    {
+      "id": "en-sf-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Mass-noun 'sport' is British; US English says 'sports'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you think competitive sports teach important life skills?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Do you think competitive sports teach important life skills?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Do you think competitive sport teaches important life skills?"
+          ]
+        }
+      ],
+      "itemHash": "18f53b68853736c0"
+    },
+    {
+      "id": "en-sp-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What strategy do you use to stay ___ with training?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "consistent",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'regular and steady'."
+          ]
+        }
+      ],
+      "itemHash": "ec0b2beb4d049a73"
+    },
+    {
+      "id": "en-sf-b2-1",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'commercialisation' is British spelling; mass-noun 'sport' is British usage.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The commercialization of elite sports raises questions about its relationship with grassroots participation.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "The commercialization of elite sports raises questions about its relationship with grassroots participation.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Commercialization' = the process of making something about money; 'grassroots' = community level."
+          ]
+        }
+      ],
+      "itemHash": "4aa740cc2c006de3"
+    },
+    {
+      "id": "en-sf-b2-2",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'Periodisation' is British spelling.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Periodization — the systematic planning of training cycles — is central to peak athletic performance.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Periodization — the systematic planning of training cycles — is central to peak athletic performance.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Periodization' = planned variation in training; 'peak performance' = best possible level."
+          ]
+        }
+      ],
+      "itemHash": "f718cbbbd1ff3d5e"
+    },
+    {
+      "id": "en-sf-b2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'work-life-fitness balance' is an invented compound that sounds awkward.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Balancing work, life, and fitness in a sedentary job requires deliberate effort and planning.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Balancing work, life, and fitness in a sedentary job requires deliberate effort and planning.",
+          "list": null
+        }
+      ],
+      "itemHash": "f1e3423babcab02f"
+    },
+    {
+      "id": "en-sp-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Performance improves when ___ is treated as part of training.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "recovery",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The rest period that lets the body repair itself."
+          ]
+        }
+      ],
+      "itemHash": "bab287428bf919a7"
+    },
+    {
+      "id": "en-sp-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A coach says her athletes lose focus between seasons.",
+          "list": null
+        }
+      ],
+      "itemHash": "f1b4574289f79763"
+    }
+  ]
+}

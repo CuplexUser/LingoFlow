@@ -512,6 +512,27 @@ test("settings and progress overview normalize invalid language ids", async (t) 
   assert.equal(saveEqualRes.status, 200);
   const sameLanguageSettings = await saveEqualRes.json() as any;
   assert.notEqual(sameLanguageSettings.targetLanguage, sameLanguageSettings.nativeLanguage);
+
+  // The native language is always English, so English is never a learning language
+  const saveNativeRes = await fetch(`${srv.base}/api/settings`, {
+    method: "PUT",
+    headers: authHeaders,
+    body: JSON.stringify({
+      nativeLanguage: "swedish",
+      targetLanguage: "english",
+      dailyGoal: 25,
+      dailyMinutes: 20,
+      weeklyGoalSessions: 5,
+      selfRatedLevel: "a1",
+      learnerName: "Learner",
+      learnerBio: "",
+      focusArea: "travel"
+    })
+  });
+  assert.equal(saveNativeRes.status, 200);
+  const nativeSettings = await saveNativeRes.json() as any;
+  assert.equal(nativeSettings.nativeLanguage, "english");
+  assert.notEqual(nativeSettings.targetLanguage, "english");
 });
 
 // ─── User isolation ───────────────────────────────────────────────────────────

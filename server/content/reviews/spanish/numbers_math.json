@@ -1,0 +1,356 @@
+{
+  "language": "spanish",
+  "category": "numbers_math",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:31:02.358Z",
+  "contentHash": "a40e7d8f498939c3",
+  "summary": "The best Spanish file: numbers and math vocabulary are correct and well explained. Problems: two flashcards run Spanish→English, 'Nada del mundo' should be 'Nada en el mundo', three hints are factually wrong ('mitad' = 'the middle', 'cuatro' as a music genre, a disappearing 'v' in cincuenta), French distractors for 'dos', and several hints that reveal the answer.",
+  "findings": [
+    {
+      "id": "es-num-a1-3",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "The distractors are French or non-words; for a Spanish course they should be Spanish number words.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tres",
+            "dos",
+            "uno",
+            "diez"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It rhymes with 'rose' (without the r sound at the end)."
+          ]
+        }
+      ],
+      "itemHash": "dab9f9a69b4adeef"
+    },
+    {
+      "id": "es-num-a1-5",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "The 'cuatro' is a four-stringed instrument (Venezuela, Puerto Rico), not a music genre.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The 'cuatro' is a small four-stringed guitar from Venezuela and Puerto Rico. A table has ___ legs."
+          ]
+        }
+      ],
+      "itemHash": "06b239db049cf476"
+    },
+    {
+      "id": "es-num-a1-16",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'es igual a' is also standard for '='.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Dos más tres es igual a cinco.",
+            "Dos más tres igual a cinco."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: más (plus), son or es igual a (equals)."
+          ]
+        }
+      ],
+      "itemHash": "2ed9b5010f26f250"
+    },
+    {
+      "id": "es-num-a2-2",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "There is no 'v' sound in 'cinco'; the hint is nonsense.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Based on 'cinco' + '-uenta': cincuenta."
+          ]
+        }
+      ],
+      "itemHash": "c6c2782485b5ec9a"
+    },
+    {
+      "id": "es-num-a2-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint gives the answer; 'dividido por' is also standard.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The participle of 'dividir' + a preposition meaning 'between'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "dividido por",
+            "entre"
+          ]
+        }
+      ],
+      "itemHash": "8db3030778dfdb42"
+    },
+    {
+      "id": "es-num-a2-11",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Note the written accent in the singular; plural: millones."
+          ]
+        }
+      ],
+      "itemHash": "a14e48d94c4a54b7"
+    },
+    {
+      "id": "es-num-a2-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Numbers 31–99 use 'y' (and) as three separate words, unlike 21–29."
+          ]
+        }
+      ],
+      "itemHash": "6bf3348952ae065a"
+    },
+    {
+      "id": "es-num-b1-1",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "'La mitad' means 'half', not 'the middle' ('el medio').",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'La mitad' = half (of something). In math, 1/2 is also read 'un medio'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "un medio",
+            "mitad"
+          ]
+        }
+      ],
+      "itemHash": "49bb7f3aefe81668"
+    },
+    {
+      "id": "es-num-b1-5",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "From Latin 'per centum': out of a hundred."
+          ]
+        }
+      ],
+      "itemHash": "b977e4114b53c49d"
+    },
+    {
+      "id": "es-num-b1-13",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish writes decimals with a comma (3,5) and reads the comma aloud."
+          ]
+        }
+      ],
+      "itemHash": "8a064734a3bf2caa"
+    },
+    {
+      "id": "es-num-b1-15",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The Spanish cloze sentence contains English, and the hint gives the answer.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Está en la ___: la semana pasada cumplió 35 años.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun for the decade of life from 30 to 39. La veintena, la cuarentena… same pattern."
+          ]
+        }
+      ],
+      "itemHash": "8ff94e90ed1767fe"
+    },
+    {
+      "id": "es-num-b1-16",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'___ zapatos' = a pair of shoes. The same root gives 'números pares'."
+          ]
+        }
+      ],
+      "itemHash": "7d760fcefd884a03"
+    },
+    {
+      "id": "es-num-b1-20",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish adds 'y medio' for 'and a half'."
+          ]
+        }
+      ],
+      "itemHash": "04b070841e1e9f94"
+    },
+    {
+      "id": "es-num-b2-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The flashcard has Spanish on the front and English on the back.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Spanish saying: things come in threes (if it happened twice, it will happen again)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "No hay dos sin tres.",
+          "list": null
+        }
+      ],
+      "itemHash": "960a492d3ce4b8fa"
+    },
+    {
+      "id": "es-num-b2-4",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The flashcard has Spanish on the front and English on the back.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Spanish idiom: to go fifty-fifty (split the cost equally)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ir a medias",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "From 'medio' (half). '¿Vamos ___?' = Shall we split it?"
+          ]
+        }
+      ],
+      "itemHash": "204169b70cf6a2ec"
+    },
+    {
+      "id": "es-num-b2-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Works just like the English expression for the prime suspect."
+          ]
+        }
+      ],
+      "itemHash": "293a1b6ce603d424"
+    },
+    {
+      "id": "es-num-b2-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is in Spanish; hints must be in English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "100, 50 and 1000 are round numbers; 47 and 83 are not."
+          ]
+        }
+      ],
+      "itemHash": "aaf27f73e2f71915"
+    },
+    {
+      "id": "es-num-b2-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The fixed expression is 'nada en el mundo' (or 'por nada del mundo'), not 'nada del mundo'; the hint also gives the answer.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nada en el mundo",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nothing in the world' — a strong, emphatic subject."
+          ]
+        }
+      ],
+      "itemHash": "f0daef37ac606523"
+    }
+  ]
+}

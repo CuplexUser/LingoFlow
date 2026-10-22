@@ -1,0 +1,355 @@
+{
+  "language": "english",
+  "category": "health",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:09:38.768Z",
+  "contentHash": "0a31ba1ed5007a94",
+  "summary": "The medical English is accurate and well graded. Fixes needed: three cloze items with no blank, one flashcard with identical sides, one dialogue_turn without a situation, British spellings or terms in hints, generic hints, and missing contractions.",
+  "findings": [
+    {
+      "id": "en-he-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'I don't feel well' is what natives say.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A gentle way to say you are sick."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I don't feel well."
+          ]
+        }
+      ],
+      "itemHash": "2358db0128c7ff58"
+    },
+    {
+      "id": "en-he-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nearest' = closest to where you are now."
+          ]
+        }
+      ],
+      "itemHash": "873d36d0dcf739f3"
+    },
+    {
+      "id": "en-he-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use 'I have a...' for many symptoms: a headache, a cold, a fever."
+          ]
+        }
+      ],
+      "itemHash": "a991d7f5148f90e9"
+    },
+    {
+      "id": "en-he-14",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "'Chemist's' is British; the hint should say so in a US-English course.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Americans also say 'drugstore'; in the UK it's a 'chemist's'."
+          ]
+        }
+      ],
+      "itemHash": "68af4b58832c6f1c"
+    },
+    {
+      "id": "en-he-17",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm allergic' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm allergic to penicillin."
+          ]
+        }
+      ],
+      "itemHash": "fb36f6d9544adb58"
+    },
+    {
+      "id": "en-he-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Describe a healthy habit: drinking water daily.",
+          "list": null
+        }
+      ],
+      "itemHash": "4592fb8061c23e08"
+    },
+    {
+      "id": "en-he-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've had' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've had a sore throat for three days."
+          ]
+        }
+      ],
+      "itemHash": "2fb7c3b18bf76a61"
+    },
+    {
+      "id": "en-he-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Americans usually say 'pills'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I need to take these pills twice a day."
+          ]
+        }
+      ],
+      "itemHash": "12a3b4324b0325cc"
+    },
+    {
+      "id": "en-he-20",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been feeling dizzy since this morning."
+          ]
+        }
+      ],
+      "itemHash": "674eda741be67ff8"
+    },
+    {
+      "id": "en-he-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I started cooking ___ meals.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "healthier",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Comparative form of 'healthy'."
+          ]
+        }
+      ],
+      "itemHash": "6bac4938c9964765"
+    },
+    {
+      "id": "en-he-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like a second opinion before deciding on surgery."
+          ]
+        }
+      ],
+      "itemHash": "cd8fb800bfd4df4c"
+    },
+    {
+      "id": "en-he-30",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm concerned' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm concerned that my blood pressure has been fluctuating."
+          ]
+        }
+      ],
+      "itemHash": "cf9f802fd2e82016"
+    },
+    {
+      "id": "en-he-31",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I usually get around six hours, but I've been waking up in the night lately."
+          ]
+        }
+      ],
+      "itemHash": "7e2ca5e42d48857c"
+    },
+    {
+      "id": "en-he-32",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'emphasises' is British spelling; contraction not accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Currently' emphasizes something happening right now."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm currently taking medication for high blood pressure."
+          ]
+        }
+      ],
+      "itemHash": "65b6a844ec8e5919"
+    },
+    {
+      "id": "en-he-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered; 'reduced sugar' is also unnatural.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I cut ___ on sugar, and my energy improved.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "down",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Cut ___ on' = eat or use less of something."
+          ]
+        }
+      ],
+      "itemHash": "8eb2fde1a1bc4530"
+    },
+    {
+      "id": "en-he-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd appreciate' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd appreciate a referral to a specialist for further investigation."
+          ]
+        }
+      ],
+      "itemHash": "e4e156f0fffd252e"
+    },
+    {
+      "id": "en-he-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to discuss the risks and benefits before consenting to the procedure."
+          ]
+        }
+      ],
+      "itemHash": "d2c4c151f64b2059"
+    },
+    {
+      "id": "en-he-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which policies can improve ___ to mental health care?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "access",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'the ability to get or use something'."
+          ]
+        }
+      ],
+      "itemHash": "3fb33f8aeb11e92d"
+    },
+    {
+      "id": "en-he-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how to stay motivated to exercise.",
+          "list": null
+        }
+      ],
+      "itemHash": "4e81f3a3ae544c8a"
+    }
+  ]
+}

@@ -1,0 +1,694 @@
+{
+  "language": "spanish",
+  "category": "hobbies_leisure",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:23:09.904Z",
+  "contentHash": "079eff5a499c1d96",
+  "summary": "Poor machine translation throughout. Errors include flashcards answered with 'para + infinitive', 'Mi hobby está cocinando', 'Toco tenis', 'vas a ciclismo', 'Conozco amigos', 'he tomado cerámica', 'apagarte', 'entrar en yoga', 'persecuciones solitarias', and two wrong futures. Three cloze items lack a blank, a dialogue_turn has no situation, and three B2 items are A1 sentences.",
+  "findings": [
+    {
+      "id": "es-ho-a1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'para leer libros' means 'in order to read books'; the vocabulary item is the infinitive.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "leer libros",
+          "list": null
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to read books",
+          "list": null
+        }
+      ],
+      "itemHash": "e51cd5cb3e19c552"
+    },
+    {
+      "id": "es-ho-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'para ir de excursión' means 'in order to go on a trip'; hiking is 'hacer senderismo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "hacer senderismo",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "ir de excursión",
+            "ir de caminata"
+          ]
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to go hiking",
+          "list": null
+        }
+      ],
+      "itemHash": "4e486a9610fd5ba8"
+    },
+    {
+      "id": "es-ho-a1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'para jugar ajedrez' means 'in order to play chess'; the infinitive is 'jugar al ajedrez'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "jugar al ajedrez",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "jugar ajedrez"
+          ]
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to play chess",
+          "list": null
+        }
+      ],
+      "itemHash": "34a01c8a7779a1b1"
+    },
+    {
+      "id": "es-ho-a1-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Mi hobby está cocinando' means 'my hobby is (currently) cooking'; Spanish uses 'ser' + infinitive.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi hobby es cocinar.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi pasatiempo es cocinar.",
+            "Mi afición es la cocina."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish uses the infinitive, not a gerund, as a noun: 'cocinar'."
+          ]
+        }
+      ],
+      "itemHash": "de11e24bd5966442"
+    },
+    {
+      "id": "es-ho-a1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'algún hobby' and 'pasatiempos' are common alternatives.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Tienes algún hobby?",
+            "¿Tienes algún pasatiempo?",
+            "¿Tienes pasatiempos?"
+          ]
+        }
+      ],
+      "itemHash": "e989f46291aa8323"
+    },
+    {
+      "id": "es-ho-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Encantar' works like 'gustar' and is followed by an infinitive."
+          ]
+        }
+      ],
+      "itemHash": "e4e46ce61904a858"
+    },
+    {
+      "id": "es-ho-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Spain says 'jugar al fútbol'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Juego al fútbol con mis amigos."
+          ]
+        }
+      ],
+      "itemHash": "08ee8f2bf681da1d"
+    },
+    {
+      "id": "es-ho-a2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'tocar' is for instruments; sports use 'jugar (al)'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Juego al tenis los sábados por la mañana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Juego tenis los sábados por la mañana."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Jugar (a)' for sports, 'tocar' for instruments."
+          ]
+        }
+      ],
+      "itemHash": "1d58d8c1f8a54502"
+    },
+    {
+      "id": "es-ho-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Nadaré' is future; the prompt is present.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nado en la piscina.",
+          "list": null
+        }
+      ],
+      "itemHash": "1fb1e0e9512cf74b"
+    },
+    {
+      "id": "es-ho-a2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Spanish uses 'llevar' for ongoing duration; you learn 'a tocar la guitarra'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevo seis meses aprendiendo a tocar la guitarra.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "He estado aprendiendo a tocar la guitarra durante seis meses."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Llevar' + time + gerund."
+          ]
+        }
+      ],
+      "itemHash": "d93f4833bec5a5db"
+    },
+    {
+      "id": "es-ho-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ir a ciclismo' is not Spanish; cycling as a pastime is 'montar en bici' or 'salir en bici'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cada cuánto sales en bici?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Con qué frecuencia montas en bici?",
+            "¿Con qué frecuencia sales en bicicleta?"
+          ]
+        }
+      ],
+      "itemHash": "193eeac30197957a"
+    },
+    {
+      "id": "es-ho-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A book club is a 'club de lectura'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El año pasado me uní a un club de lectura.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me uní a un club de lectura el año pasado."
+          ]
+        }
+      ],
+      "itemHash": "fb7b7ee6bf1eef56"
+    },
+    {
+      "id": "es-ho-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'intentar escalar roca' is a calque; Spanish says 'probar la escalada'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Alguna vez has probado la escalada?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Has probado alguna vez a escalar?"
+          ]
+        }
+      ],
+      "itemHash": "e1ee47b34f8aeb8d"
+    },
+    {
+      "id": "es-ho-a2-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund; the prompt uses British 'at the weekends'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Me gusta' + infinitive; 'hornear' = to bake."
+          ]
+        },
+        {
+          "field": "prompt",
+          "text": "Say: I enjoy baking on weekends.",
+          "list": null
+        }
+      ],
+      "itemHash": "42f96cbd0b00b910"
+    },
+    {
+      "id": "es-ho-a2-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'seguir en forma' means to remain fit; 'to keep fit' is 'mantenerme en forma'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Empecé a correr para mantenerme en forma.",
+          "list": null
+        }
+      ],
+      "itemHash": "c3323f3d9a2f3449"
+    },
+    {
+      "id": "es-ho-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; it also switches to formal 'le'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Qué pasatiempo te ayuda a reducir el ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "estrés",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The feeling of pressure and worry."
+          ]
+        }
+      ],
+      "itemHash": "a1ec91a899f2ea43"
+    },
+    {
+      "id": "es-ho-b1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Conozco amigos' means 'I get to know friends'; meeting up is 'quedar con'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quedo con amigos y jugamos a algo.",
+          "list": null
+        }
+      ],
+      "itemHash": "c207eb5264e3ad30"
+    },
+    {
+      "id": "es-ho-b1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Spain says 'jugar al fútbol'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sí, a veces juego al fútbol."
+          ]
+        }
+      ],
+      "itemHash": "e20b5568c7fc1b8d"
+    },
+    {
+      "id": "es-ho-b1-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Encuentro que' is a calque of 'I find that'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me parece que la jardinería es una buena forma de desconectar después de un día estresante.",
+          "list": null
+        }
+      ],
+      "itemHash": "33006edd994a5564"
+    },
+    {
+      "id": "es-ho-b1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'he tomado cerámica' means 'I have drunk/taken ceramics'; 'lo he encontrado' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hace poco empecé con la cerámica y me resulta muy terapéutica.",
+          "list": null
+        }
+      ],
+      "itemHash": "b0d4b4c5cdc65472"
+    },
+    {
+      "id": "es-ho-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'apagarte' means turning yourself off like a device; switching off mentally is 'desconectar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Qué haces para desconectar cuando te sientes abrumado?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Qué haces para desconectar cuando te sientes abrumada?"
+          ]
+        }
+      ],
+      "itemHash": "d56ab4564d9ef257"
+    },
+    {
+      "id": "es-ho-b1-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'competitiva'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Aunque no soy muy competitiva, disfruto del lado social de los deportes de equipo."
+          ]
+        }
+      ],
+      "itemHash": "a2e9c145df793ad0"
+    },
+    {
+      "id": "es-ho-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'entrar en yoga' is a literal calque of 'get into'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevo años queriendo empezar con el yoga, pero nunca lo he conseguido.",
+          "list": null
+        }
+      ],
+      "itemHash": "30f3b2a69983cf78"
+    },
+    {
+      "id": "es-ho-b1-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Current RAE spelling is 'solo' without an accent.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Viajar no es solo un pasatiempo para mí: es una manera de ampliar mi perspectiva.",
+          "list": null
+        }
+      ],
+      "itemHash": "432a0a528ec56329"
+    },
+    {
+      "id": "es-ho-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Training is 'para' a race, the half-marathon is usually feminine ('una media maratón'), and 'lo encuentro' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevo un tiempo entrenando para una media maratón y me resulta exigente y gratificante a la vez.",
+          "list": null
+        }
+      ],
+      "itemHash": "b161c0f0b4a9ec73"
+    },
+    {
+      "id": "es-ho-b1-59",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'book' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me uní a un club de lectura del barrio para conocer gente nueva.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me uní a un club de lectura local para conocer gente nueva."
+          ]
+        }
+      ],
+      "itemHash": "a00bec7578007db1"
+    },
+    {
+      "id": "es-ho-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cómo te mantienes ___ cuando practicas tu pasatiempo?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "motivado",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'eager to keep going'."
+          ]
+        }
+      ],
+      "itemHash": "7b3b5aa4cf5877c9"
+    },
+    {
+      "id": "es-ho-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Nothing helps me unwind like losing myself in a good book.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nada me ayuda a desconectar tanto como perderme en un buen libro.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Perderse en' = to lose yourself in."
+          ]
+        }
+      ],
+      "itemHash": "ca30c655f7dba43e"
+    },
+    {
+      "id": "es-ho-b2-2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I make a point of practicing guitar every day, however busy I am.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Procuro practicar la guitarra todos los días, por muy ocupado que esté.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Procuro practicar la guitarra todos los días, por muy ocupada que esté."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Por muy' + adjective + 'que' + subjunctive = however ... I am."
+          ]
+        }
+      ],
+      "itemHash": "f3ef3f29eb84f28c"
+    },
+    {
+      "id": "es-ho-b2-3",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Painting lets me express things I struggle to put into words.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Pintar me permite expresar cosas que me cuesta poner en palabras.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Me cuesta' + infinitive = I struggle to."
+          ]
+        }
+      ],
+      "itemHash": "c89cc3b2cc590572"
+    },
+    {
+      "id": "es-ho-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'persecuciones solitarias' means solitary chases; the sentence is a word-for-word mistranslation.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Siempre me han atraído las actividades solitarias; quizá por eso acabé dedicándome a la escritura.",
+          "list": null
+        }
+      ],
+      "itemHash": "c4aca52d220a1b6b"
+    },
+    {
+      "id": "es-ho-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'su sentido de sí mismo' switches to formal 'su' and is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La diferencia entre un hobby y una pasión está en hasta qué punto define tu identidad.",
+          "list": null
+        }
+      ],
+      "itemHash": "45aafb5b9e3bd0cf"
+    },
+    {
+      "id": "es-ho-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Prefiero pasatiempos que combinen la ___ social con el desarrollo de habilidades.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "interacción",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'contact and communication'."
+          ]
+        }
+      ],
+      "itemHash": "8b6942ce46f025bf"
+    },
+    {
+      "id": "es-ho-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend says every hobby should lead to a measurable achievement.",
+          "list": null
+        }
+      ],
+      "itemHash": "7e357a2eb89d3895"
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "language": "english",
+  "category": "family_friends",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:09:58.701Z",
+  "contentHash": "3ffab3f598a1d70d",
+  "summary": "Natural content with good idioms. The same structural defects recur (three cloze items without a blank, a flashcard with identical sides, a dialogue_turn without a situation, generic hints), along with several British forms ('at the weekends', 'get on well', 'ageing', 'university') in a US-English course.",
+  "findings": [
+    {
+      "id": "en-fa-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Plural nouns add -s: brothers."
+          ]
+        }
+      ],
+      "itemHash": "0dcba4bc2a19e53e"
+    },
+    {
+      "id": "en-fa-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Any' is used in questions; 'children' is the irregular plural of 'child'."
+          ]
+        }
+      ],
+      "itemHash": "d78d83cccb38ec6a"
+    },
+    {
+      "id": "en-fa-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'The countryside' = rural areas outside towns."
+          ]
+        }
+      ],
+      "itemHash": "784a8c9200e8026d"
+    },
+    {
+      "id": "en-fa-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Describe your friend with the word 'kind'.",
+          "list": null
+        }
+      ],
+      "itemHash": "50910817d48df9ab"
+    },
+    {
+      "id": "en-fa-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'at the weekends' is British; US English says 'on weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We usually meet up on weekends.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "We usually meet up on weekends.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "We usually meet up at the weekends.",
+            "We usually meet up at the weekend."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Meet up' = get together. Americans say 'on weekends'."
+          ]
+        }
+      ],
+      "itemHash": "4a80c12708879bc7"
+    },
+    {
+      "id": "en-fa-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'get on well with' is British; US English says 'get along with'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you get along with your neighbors?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Do you get along with your neighbors?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Do you get along well with your neighbors?",
+            "Do you get on well with your neighbors?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Get along with' means have a good relationship with."
+          ]
+        }
+      ],
+      "itemHash": "a56f0b69d5a02ef7"
+    },
+    {
+      "id": "en-fa-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I ___ my parents every evening.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "call",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'phone'."
+          ]
+        }
+      ],
+      "itemHash": "87e23743e23dde3c"
+    },
+    {
+      "id": "en-fa-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'don't' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "My sister and I don't always see eye to eye, but we support each other."
+          ]
+        }
+      ],
+      "itemHash": "179119b85dcc4cad"
+    },
+    {
+      "id": "en-fa-33",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Americans usually say 'college' here.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "We grew apart after college, but we have recently reconnected.",
+            "We grew apart after college, but we've recently reconnected."
+          ]
+        }
+      ],
+      "itemHash": "a91110146c261f64"
+    },
+    {
+      "id": "en-fa-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Family traditions help us stay ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "connected",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'close to each other'."
+          ]
+        }
+      ],
+      "itemHash": "3dcea2cb304a7d38"
+    },
+    {
+      "id": "en-fa-34",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'ageing' is British spelling; the course uses US English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The expectation that adult children will look after aging parents varies considerably across cultures.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "The expectation that adult children will look after aging parents varies considerably across cultures.",
+          "list": null
+        }
+      ],
+      "itemHash": "6169f0bf469fc6d7"
+    },
+    {
+      "id": "en-fa-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do family expectations ___ personal choices?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "influence",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'have an effect on'."
+          ]
+        }
+      ],
+      "itemHash": "f71cc676e54a7364"
+    },
+    {
+      "id": "en-fa-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend is sad that you see each other less than before.",
+          "list": null
+        }
+      ],
+      "itemHash": "797a9ecf3f99c6fb"
+    }
+  ]
+}

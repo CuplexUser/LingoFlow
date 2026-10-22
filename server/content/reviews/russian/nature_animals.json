@@ -1,0 +1,102 @@
+{
+  "language": "russian",
+  "category": "nature_animals",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:11:53.074Z",
+  "contentHash": "9e50032ee83c40c4",
+  "summary": "A beautiful, culturally rich nature file. Small issues: 'есть' used for the location of a specific animal, the awkward 'замечательно хорошо', two overstated facts (Baikal's share of all fresh water, Kamchatka's bear population), and a missing feminine form.",
+  "findings": [
+    {
+      "id": "ru-na-a1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'есть' is used for existence or possession, not for where something is; Russians say 'На крыше (сидит) кошка'. The hint is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "На крыше сидит кошка.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "На крыше кошка."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Start with the place ('на крыше'); Russian often adds a position verb like 'сидит'."
+          ]
+        }
+      ],
+      "itemHash": "a60f3cdaeaeffcb4"
+    },
+    {
+      "id": "ru-na-a2-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'видела'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Вчера вечером я видела лису около леса."
+          ]
+        }
+      ],
+      "itemHash": "07dbc6784a95eb43"
+    },
+    {
+      "id": "ru-na-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'замечательно хорошо' is an awkward calque of 'remarkably well'; 'удивительно хорошо' is natural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Некоторые виды удивительно хорошо приспособились к жизни рядом с людьми.",
+          "list": null
+        }
+      ],
+      "itemHash": "9a5ba7e62bf2fd06"
+    },
+    {
+      "id": "ru-na-b1-6",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "Baikal holds about 20% of the world's unfrozen surface fresh water, not of all fresh water reserves.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Байкал — самое глубокое озеро в мире и содержит около двадцати процентов мировых запасов поверхностной пресной воды.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "Lake Baikal in Siberia is a UNESCO World Heritage Site and the largest freshwater lake on Earth by volume.",
+          "list": null
+        }
+      ],
+      "itemHash": "ac7c1591f4e9f2c0"
+    },
+    {
+      "id": "ru-na-b1-16",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "The note claims 'the largest population of brown bears'; Kamchatka has one of the largest, as the sentence itself says.",
+      "fix": [
+        {
+          "field": "culturalNote",
+          "text": "Kamchatka is a peninsula in Russia's Far East, with volcanoes, geysers, and one of the world's largest populations of brown bears.",
+          "list": null
+        }
+      ],
+      "itemHash": "d1308c8d50890f60"
+    }
+  ]
+}

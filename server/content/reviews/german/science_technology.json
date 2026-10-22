@@ -1,0 +1,394 @@
+{
+  "language": "german",
+  "category": "science_technology",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:44:16.935Z",
+  "contentHash": "2f8443e9ea48b590",
+  "summary": "Better than other German files at A1–A2 apart from lowercase nouns, but many B1–B2 errors: 'unterstützt' (supported) for backed up, 'Fertigungsaufträge verlagert', 'Energieeffizienztechnologien' dropping cost, sentences missing verbs ('Ist die Beschleunigung ... die Fähigkeit'), 'bestritten' for contested, 'auf E-Books' for 'to e-books', and a garbled automation sentence. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "de-st-a1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized; lowercase makes it look like the English word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Computer",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Computer",
+            "der Rechner"
+          ]
+        }
+      ],
+      "itemHash": "e7b76d3eb5d789ea"
+    },
+    {
+      "id": "de-st-a1-4",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Meine Handybatterie ist tot' is a calque; Germans say the battery is 'leer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mein Handy-Akku ist leer.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mein Akku ist leer.",
+            "Mein Handy ist leer."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German says the battery is 'empty' (leer); 'Akku' = rechargeable battery."
+          ]
+        }
+      ],
+      "itemHash": "c1196efdd010cc19"
+    },
+    {
+      "id": "de-st-a1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Laptop",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Laptop",
+            "das Notebook"
+          ]
+        }
+      ],
+      "itemHash": "66256d17d4ecb5d8"
+    },
+    {
+      "id": "de-st-a2",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'last night' is reduced to 'gestern'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe gestern Abend die Software auf meinem Laptop aktualisiert.",
+          "list": null
+        }
+      ],
+      "itemHash": "72fd50e4bdee1b69"
+    },
+    {
+      "id": "de-st-a2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Files are backed up 'in der Cloud'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe meine Dateien in der Cloud gesichert.",
+          "list": null
+        }
+      ],
+      "itemHash": "56edf982792bf7e8"
+    },
+    {
+      "id": "de-st-a2-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'an mein Telefon' is wrong; settings are 'auf meinem Handy'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe auf meinem Handy eine automatische Erinnerung eingerichtet.",
+          "list": null
+        }
+      ],
+      "itemHash": "09ca760a3caa68dc"
+    },
+    {
+      "id": "de-st-a2-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'lieber ... auf E-Books' is wrong; the comparison takes 'als'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich lese lieber gedruckte Bücher als E-Books.",
+          "list": null
+        }
+      ],
+      "itemHash": "19614e1236f590dd"
+    },
+    {
+      "id": "de-sc-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Welches ___ verwenden Sie für Online-Meetings?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Tool",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Programm",
+            "Werkzeug"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A neuter noun meaning 'tool' (often borrowed from English)."
+          ]
+        }
+      ],
+      "itemHash": "a87451f57f2784d9"
+    },
+    {
+      "id": "de-st-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Fertigungsaufträge verlagert' means 'relocated production orders'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Automatisierung hat viele Arbeitsplätze in der Produktion verdrängt und zugleich neue Stellen in der Technik geschaffen.",
+          "list": null
+        }
+      ],
+      "itemHash": "1c36f4a535f0f87e"
+    },
+    {
+      "id": "de-st-b1-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Energieeffizienztechnologien' changes the subject and 'cost' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Technologien für erneuerbare Energien sind in den letzten zehn Jahren deutlich effizienter und günstiger geworden.",
+          "list": null
+        }
+      ],
+      "itemHash": "fae40703f576cb40"
+    },
+    {
+      "id": "de-st-b1-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Quantenrechner' lacks an article; 'Landschaft' is a calque of 'landscape'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie könnte das Quantencomputing die Datensicherheit grundlegend verändern?",
+          "list": null
+        }
+      ],
+      "itemHash": "227d1dfb4556d262"
+    },
+    {
+      "id": "de-st-b1-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'mit der Technologie aufholen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich glaube, sie haben echtes Potenzial, aber die Sicherheitsvorschriften müssen erst mit der Technik Schritt halten.",
+          "list": null
+        }
+      ],
+      "itemHash": "9308107ee203955b"
+    },
+    {
+      "id": "de-sc-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'unterstützt' means supported, not backed up; 'versagt hat' is the wrong mood.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe meine Dateien gesichert, für den Fall, dass mein Laptop ausfällt.",
+          "list": null
+        }
+      ],
+      "itemHash": "b2e4002a804c5c3e"
+    },
+    {
+      "id": "de-sc-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Welche ___ bietet die Nutzung von Open-Source-Software?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Vorteile",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A plural noun meaning 'advantages'."
+          ]
+        }
+      ],
+      "itemHash": "a3127ad617692aa8"
+    },
+    {
+      "id": "de-st-b2",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The answer says the convergence 'is' a paradigm; 'ushering in' is lost.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Das Zusammenwachsen von KI, Biotechnologie und Materialwissenschaft läutet ein neues industrielles Paradigma ein.",
+          "list": null
+        }
+      ],
+      "itemHash": "d4ca66dd40470cb9"
+    },
+    {
+      "id": "de-st-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The standard term is 'digitale Kluft'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die digitale Kluft verschärft bestehende soziale Ungleichheiten, weil sie den Zugang zu Bildung und wirtschaftlichen Chancen einschränkt.",
+          "list": null
+        }
+      ],
+      "itemHash": "f6f08944ee5666dd"
+    },
+    {
+      "id": "de-st-b2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The verb is missing: 'Ist die Beschleunigung ... die Fähigkeit'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Übersteigt das Tempo des technologischen Wandels die Fähigkeit der Gesellschaft, ihre Institutionen anzupassen?",
+          "list": null
+        }
+      ],
+      "itemHash": "bbf72541a50ba9a7"
+    },
+    {
+      "id": "de-st-b2-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'bestritten' means denied; contested is 'umstritten'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der ethische Rahmen der KI-Entwicklung bleibt in Wissenschaft, Wirtschaft und Politik umstritten.",
+          "list": null
+        }
+      ],
+      "itemHash": "b8ce9244cfbed450"
+    },
+    {
+      "id": "de-st-b2-8",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'sich um etwas kümmern' means to take care of, not to be concerned about.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Post-Quanten-Kryptografie ist inzwischen eine strategische Priorität für Regierungen, die sich um die langfristige Datensicherheit sorgen.",
+          "list": null
+        }
+      ],
+      "itemHash": "5bacf594ce3ef17b"
+    },
+    {
+      "id": "de-sc-b2-69",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'da' means 'because'; 'as' here means 'in step with'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ethische Leitlinien sollten sich in dem Maße weiterentwickeln, wie KI-Systeme leistungsfähiger werden.",
+          "list": null
+        }
+      ],
+      "itemHash": "df4cbc1bff917e96"
+    },
+    {
+      "id": "de-sc-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'während die Arbeitsmärkte neu zu gestalten' is ungrammatical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Automatisierung kann die ___ steigern und zugleich die Arbeitsmärkte umgestalten.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Produktivität",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun for how much work gets done in a given time."
+          ]
+        }
+      ],
+      "itemHash": "f1bd520f01d60190"
+    },
+    {
+      "id": "de-sc-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A panelist argues that tech regulation always kills innovation.",
+          "list": null
+        }
+      ],
+      "itemHash": "cae30d6be9cf27c2"
+    }
+  ]
+}

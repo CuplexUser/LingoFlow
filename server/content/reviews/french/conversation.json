@@ -1,0 +1,673 @@
+{
+  "language": "french",
+  "category": "conversation",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:48:03.997Z",
+  "contentHash": "e61f414633e03663",
+  "summary": "The A1–A2 French is mostly correct, but the file repeats the machine-translation pattern. Four cloze items are English (one answered 'a été'), flashcards are wrapped in 'pour', and an mc_sentence uses English words. There are calques with the wrong meaning ('je n'ai pas attrapé ça', 'rattraper', 'plus sortant', 'cohérence' for consistency, 'discuter' for argue, 'Je vois d'où vous venez'), a missing subjunctive, missing grave accents, three clozes without a blank, and a dialogue_turn without a situation.",
+  "findings": [
+    {
+      "id": "fr-co-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'Comment vous appelez-vous ?' is the standard question.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'How do you call yourself?' — s'appeler."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Comment vous appelez-vous ?",
+            "Comment tu t'appelles ?",
+            "Comment t'appelles-tu ?"
+          ]
+        }
+      ],
+      "itemHash": "96ec4c815d226979"
+    },
+    {
+      "id": "fr-co-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Venir de' + des (de + les) États-Unis."
+          ]
+        }
+      ],
+      "itemHash": "6c81d43737fecab9"
+    },
+    {
+      "id": "fr-co-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; informal forms should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'D'où' = from where; inverted verb in formal questions."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu viens d'où ?",
+            "D'où viens-tu ?"
+          ]
+        }
+      ],
+      "itemHash": "52bf7c6139efe103"
+    },
+    {
+      "id": "fr-cv-a1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'heureuse'; 'faire votre connaissance' is common.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis heureuse de vous rencontrer.",
+            "Je suis heureux de faire votre connaissance."
+          ]
+        }
+      ],
+      "itemHash": "f10411b989cc53da"
+    },
+    {
+      "id": "fr-cv-a1-8",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Je ___ étudiant.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "suis",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First person of 'être'; no article before a role."
+          ]
+        }
+      ],
+      "itemHash": "833d614c86b4e99c"
+    },
+    {
+      "id": "fr-cv-a1-12",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Capital 'À' keeps its accent; 'A demain' reads as 'has tomorrow'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "À demain !",
+          "list": null
+        }
+      ],
+      "itemHash": "81d769851924aec8"
+    },
+    {
+      "id": "fr-co-a1-51",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Je suis de Suède' is odd; French says 'Je viens de Suède' or 'Je suis suédois'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je viens de Suède.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis suédois.",
+            "Je suis suédoise."
+          ]
+        }
+      ],
+      "itemHash": "fb7a543d87a0abeb"
+    },
+    {
+      "id": "fr-co-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Walking for leisure is 'se promener'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "D'habitude, je passe mes soirées à lire ou à me promener.",
+          "list": null
+        }
+      ],
+      "itemHash": "522fb5bbd4ccda5c"
+    },
+    {
+      "id": "fr-cv-a2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Elle ___ couramment trois langues.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person singular of 'parler'."
+          ]
+        }
+      ],
+      "itemHash": "081d8e76d26b419a"
+    },
+    {
+      "id": "fr-cv-a2-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'ingénieure'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je travaille comme ingénieure.",
+            "Je suis ingénieur."
+          ]
+        }
+      ],
+      "itemHash": "61f83f3c91c0a92a"
+    },
+    {
+      "id": "fr-cv-a2-12",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English present perfect.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French uses the present + 'depuis' for something still going on."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Depuis combien de temps habitez-vous ici ?",
+            "Tu habites ici depuis quand ?"
+          ]
+        }
+      ],
+      "itemHash": "c084570bf49aadf7"
+    },
+    {
+      "id": "fr-co-a2-57",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'je n'ai pas attrapé ça' is a literal calque meaning 'I didn't physically catch that'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Désolé, je n'ai pas compris.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Désolée, je n'ai pas compris.",
+            "Pardon, je n'ai pas saisi."
+          ]
+        }
+      ],
+      "itemHash": "fa09f3b8da8b1b2c"
+    },
+    {
+      "id": "fr-co-a2-59",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Que faites-vous d'habitude ___ le travail ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "après",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A preposition meaning 'after'."
+          ]
+        }
+      ],
+      "itemHash": "f06099da53ad2bbc"
+    },
+    {
+      "id": "fr-co-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Current events are 'l'actualité'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'aime parler de livres et de l'actualité.",
+          "list": null
+        }
+      ],
+      "itemHash": "9a99ec8fb402f12e"
+    },
+    {
+      "id": "fr-co-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'cohérence' means coherence; consistency in practice is 'régularité'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "À mon avis, la régularité est plus importante que l'intensité.",
+          "list": null
+        }
+      ],
+      "itemHash": "4c18b61f21760844"
+    },
+    {
+      "id": "fr-co-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'discuter de' needs the preposition before the question word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "De quel genre de sujets aimez-vous discuter ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "De quoi aimes-tu parler ?",
+            "De quels sujets aimez-vous parler ?"
+          ]
+        }
+      ],
+      "itemHash": "4467ff46034695c2"
+    },
+    {
+      "id": "fr-cv-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sortant' means outgoing as in 'leaving office'; sociable is 'sociable' or 'ouvert'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Avant, j'étais très timide, mais je suis devenu plus sociable.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Avant, j'étais très timide, mais je suis devenue plus sociable.",
+            "Avant, j'étais très timide, mais je suis devenu plus ouvert."
+          ]
+        }
+      ],
+      "itemHash": "daa0e837ce8ca439"
+    },
+    {
+      "id": "fr-cv-b1-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; 'a été' is wrong.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Je me serais joint à vous si j'___ été libre.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "avais",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + plus-que-parfait (avoir in the imperfect + participle)."
+          ]
+        }
+      ],
+      "itemHash": "d56a2b371f736858"
+    },
+    {
+      "id": "fr-cv-b1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'bien que' requires the subjunctive 'j'aie'; the note is about English-speaking cultures.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je trouve ça intéressant, même si j'ai quelques réserves.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je pense que c'est intéressant, bien que j'aie quelques inquiétudes."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "In French, 'même si' takes the indicative while 'bien que' takes the subjunctive — a classic learner trap.",
+          "list": null
+        }
+      ],
+      "itemHash": "8b31d61dd8226a73"
+    },
+    {
+      "id": "fr-cv-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'rattraper' alone means 'make up for/catch' and is incomplete here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "On devrait se voir plus souvent.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "On devrait se donner des nouvelles plus souvent."
+          ]
+        }
+      ],
+      "itemHash": "7a72ceb27174645a"
+    },
+    {
+      "id": "fr-cv-b1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes an English tense; informal 't'appeler' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The imparfait 'je voulais' expresses an intention you had."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je voulais t'appeler toute la semaine.",
+            "Ça fait une semaine que je veux t'appeler."
+          ]
+        }
+      ],
+      "itemHash": "a7443bdd56759328"
+    },
+    {
+      "id": "fr-cv-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'pour interrompre' means 'in order to interrupt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "interrompre",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "couper la parole"
+          ]
+        }
+      ],
+      "itemHash": "81b61b3e3efa8ad4"
+    },
+    {
+      "id": "fr-co-b1-66",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The more literal and formal versions should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Qu'est-ce qui t'a fait prendre cette décision ?",
+            "Pourquoi avez-vous décidé cela ?"
+          ]
+        }
+      ],
+      "itemHash": "a3ed9b0a03845f05"
+    },
+    {
+      "id": "fr-co-b1-67",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'étais nerveux au début, puis je me suis ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "détendu",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "détendue"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'se détendre'."
+          ]
+        }
+      ],
+      "itemHash": "0711f4769172b674"
+    },
+    {
+      "id": "fr-cv-b2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Si elle s'était ___ plus clairement, le malentendu n'aurait pas eu lieu.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "exprimée",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 's'exprimer', agreeing with 'elle'."
+          ]
+        }
+      ],
+      "itemHash": "14db97c5757bd348"
+    },
+    {
+      "id": "fr-cv-b2-6",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Je vois d'où vous venez' is a calque; the note is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je comprends votre point de vue, mais je ne suis pas d'accord.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "In French workplaces, a brief 'je comprends' before disagreeing keeps the tone courteous.",
+          "list": null
+        }
+      ],
+      "itemHash": "04ede05b255cd51b"
+    },
+    {
+      "id": "fr-cv-b2-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "The options are English words.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "nuance / parti pris / ton / registre",
+          "list": null
+        }
+      ],
+      "itemHash": "85d2031e7c1b4edd"
+    },
+    {
+      "id": "fr-cv-b2-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'pour empathie' is not a verb; the prompt uses British spelling.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "to empathize",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "faire preuve d'empathie",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "compatir",
+            "se mettre à la place de quelqu'un"
+          ]
+        }
+      ],
+      "itemHash": "7327497c446e6e0e"
+    },
+    {
+      "id": "fr-cv-b2-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'discuter' means to talk; arguing is 'se disputer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Plutôt que de nous disputer, essayons de trouver un terrain d'entente.",
+          "list": null
+        }
+      ],
+      "itemHash": "0e6466634ca2d7b3"
+    },
+    {
+      "id": "fr-co-b2-73",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'mon point' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Permettez-moi de reformuler pour que mon propos soit plus clair.",
+          "list": null
+        }
+      ],
+      "itemHash": "6bc306360fa2d759"
+    },
+    {
+      "id": "fr-co-b2-74",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Pourriez-vous ___ cet argument ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "développer",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to expand on'."
+          ]
+        }
+      ],
+      "itemHash": "c4d286b651736ac2"
+    },
+    {
+      "id": "fr-co-b2-75",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A colleague has just explained a complex issue very carefully.",
+          "list": null
+        }
+      ],
+      "itemHash": "e9c71e9071dd0e56"
+    }
+  ]
+}

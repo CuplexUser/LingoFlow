@@ -1,0 +1,499 @@
+{
+  "language": "french",
+  "category": "hobbies_leisure",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:55:20.611Z",
+  "contentHash": "7414153a79dcbde1",
+  "summary": "Basic hobby French is good, but there are several calques with the wrong meaning: 'pour éteindre' (turn off a device) for switch off, 'pris de la poterie', 'entrer dans le yoga', 'J'ai été entrainé' (passive) for I've been training, 'Je rencontre des amis' (meet for the first time), and 'cuisiner' for baking. Flashcards are wrapped in 'pour'. Three cloze items lack a blank, a dialogue_turn has no situation, and three B2 items are A1 sentences.",
+  "findings": [
+    {
+      "id": "fr-ho-a1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'pour lire des livres' means 'in order to read books'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "lire des livres",
+          "list": null
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to read books",
+          "list": null
+        }
+      ],
+      "itemHash": "2a9542e4d31b7d5d"
+    },
+    {
+      "id": "fr-ho-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'pour aller à la randonnée' is a garbled purpose phrase; going hiking is 'faire de la randonnée'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "faire de la randonnée",
+          "list": null
+        },
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to go hiking",
+          "list": null
+        }
+      ],
+      "itemHash": "d5ed3067b87866bc"
+    },
+    {
+      "id": "fr-ho-a1-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'dans mon temps libre' is a calque; French says 'pendant mon temps libre'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'aime peindre pendant mon temps libre.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'aime peindre quand j'ai du temps libre."
+          ]
+        }
+      ],
+      "itemHash": "0d6bf9c55e2d6faf"
+    },
+    {
+      "id": "fr-ho-a1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The informal and singular forms should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu as des passe-temps ?",
+            "Vous avez des loisirs ?",
+            "Tu as un hobby ?"
+          ]
+        }
+      ],
+      "itemHash": "9d7b89a102ff807c"
+    },
+    {
+      "id": "fr-ho-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Adorer' + infinitive = to love doing something."
+          ]
+        }
+      ],
+      "itemHash": "b1e344bd34050c2b"
+    },
+    {
+      "id": "fr-ho-a1-10",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The prompt uses British 'at weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What do you like to do on weekends?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Qu'est-ce que tu aimes faire le week-end ?",
+            "Qu'aimez-vous faire le week-end ?"
+          ]
+        }
+      ],
+      "itemHash": "0faec83845a83771"
+    },
+    {
+      "id": "fr-ho-a2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Combien de fois allez-vous faire du vélo' lacks a time frame.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "À quelle fréquence faites-vous du vélo ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu fais du vélo tous les combien ?"
+          ]
+        }
+      ],
+      "itemHash": "e66a12f3a0707fa3"
+    },
+    {
+      "id": "fr-ho-a2-9",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'cuisiner' is cooking in general, not baking; the hint is about the English gerund; the prompt is British.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I enjoy baking on weekends.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "J'aime faire de la pâtisserie le week-end.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Baking cakes is 'faire de la pâtisserie'."
+          ]
+        }
+      ],
+      "itemHash": "59ac9c6ffa13bf84"
+    },
+    {
+      "id": "fr-ho-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quel passe-temps vous aide à réduire le ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "stress",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The same word as in English."
+          ]
+        }
+      ],
+      "itemHash": "1e21d711c35c78b1"
+    },
+    {
+      "id": "fr-ho-b1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'rencontrer des amis' means meeting them for the first time; meeting up is 'retrouver'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je retrouve des amis et on joue à des jeux.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je vois des amis et on joue à des jeux de société."
+          ]
+        }
+      ],
+      "itemHash": "e22ef475d1213c07"
+    },
+    {
+      "id": "fr-ho-b1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'J'ai pris de la poterie' sounds like buying pottery.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je me suis mis récemment à la poterie et je trouve ça très thérapeutique.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je me suis mise récemment à la poterie et je trouve ça très thérapeutique."
+          ]
+        }
+      ],
+      "itemHash": "70660778d3ad2602"
+    },
+    {
+      "id": "fr-ho-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'éteindre' means switching off a device; mentally it's 'décrocher'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Que faites-vous pour décrocher quand vous vous sentez dépassé ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Que fais-tu pour décompresser quand tu te sens débordé ?"
+          ]
+        }
+      ],
+      "itemHash": "54a9e043cf19fede"
+    },
+    {
+      "id": "fr-ho-b1-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'compétitive'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Bien que je ne sois pas très compétitive, j'apprécie le côté social des sports d'équipe."
+          ]
+        }
+      ],
+      "itemHash": "fc8203499b2e150e"
+    },
+    {
+      "id": "fr-ho-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'entrer dans le yoga' is a calque of 'get into'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cela fait des années que je veux me mettre au yoga, mais je n'y suis jamais vraiment arrivé.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cela fait des années que je veux me mettre au yoga, mais je n'y suis jamais vraiment arrivée."
+          ]
+        }
+      ],
+      "itemHash": "78856744a0409747"
+    },
+    {
+      "id": "fr-ho-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'J'ai été entrainé' is passive ('I was trained by someone').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je m'entraîne pour un semi-marathon et je trouve ça à la fois difficile et gratifiant.",
+          "list": null
+        }
+      ],
+      "itemHash": "3d33836d2a955973"
+    },
+    {
+      "id": "fr-ho-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Comment restez-vous ___ quand vous pratiquez votre passe-temps ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "motivé",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "motivée"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'eager to keep going'."
+          ]
+        }
+      ],
+      "itemHash": "040e87f301d2a385"
+    },
+    {
+      "id": "fr-ho-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Nothing helps me unwind like losing myself in a good book.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Rien ne me détend autant que de me plonger dans un bon livre.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Se plonger dans' = to lose yourself in."
+          ]
+        }
+      ],
+      "itemHash": "2449bf442889d5a2"
+    },
+    {
+      "id": "fr-ho-b2-2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I make a point of practicing guitar every day, however busy I am.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Je tiens à jouer de la guitare tous les jours, aussi occupé que je sois.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je tiens à jouer de la guitare tous les jours, aussi occupée que je sois."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aussi + adjective + que' + subjunctive = however ... I am."
+          ]
+        }
+      ],
+      "itemHash": "394e93a8cccf23db"
+    },
+    {
+      "id": "fr-ho-b2-3",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2, with 'dans mon temps libre'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Painting lets me express things I struggle to put into words.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "La peinture me permet d'exprimer ce que j'ai du mal à mettre en mots.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Avoir du mal à' = to struggle to."
+          ]
+        }
+      ],
+      "itemHash": "0585743a15aacfb2"
+    },
+    {
+      "id": "fr-ho-b2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'j'ai gravité vers' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai toujours été attiré par les activités solitaires ; c'est peut-être pour ça que je me suis tourné vers l'écriture.",
+          "list": null
+        }
+      ],
+      "itemHash": "434f573860b238b7"
+    },
+    {
+      "id": "fr-ho-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'votre sens de soi' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La différence entre un passe-temps et une passion tient à la mesure dans laquelle elle définit votre identité.",
+          "list": null
+        }
+      ],
+      "itemHash": "6473fd9acdcb9ecc"
+    },
+    {
+      "id": "fr-ho-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Je préfère les passe-temps qui allient les échanges sociaux et l'acquisition de ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "compétences",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A plural noun meaning 'skills'."
+          ]
+        }
+      ],
+      "itemHash": "94326e445f01b683"
+    },
+    {
+      "id": "fr-ho-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend says every hobby should lead to a measurable achievement.",
+          "list": null
+        }
+      ],
+      "itemHash": "db75b1c83c4f3719"
+    }
+  ]
+}

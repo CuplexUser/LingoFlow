@@ -1,0 +1,372 @@
+{
+  "language": "english",
+  "category": "hobbies_leisure",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:11:25.563Z",
+  "contentHash": "64eb9e133842ae09",
+  "summary": "Good range of leisure language. Problems: four flashcards show the same text on both sides, three B2 items are A1-level sentences, three cloze items lack a blank, one dialogue_turn has no situation, and British 'at weekends' and 'football' appear in a US-English course.",
+  "findings": [
+    {
+      "id": "en-ho-a1",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: a quiet hobby with novels and stories",
+          "list": null
+        }
+      ],
+      "itemHash": "c52c76fdec526d8c"
+    },
+    {
+      "id": "en-ho-a1-2",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to take long walks in nature, often on trails",
+          "list": null
+        }
+      ],
+      "itemHash": "1bd05f8073ffe0f9"
+    },
+    {
+      "id": "en-ho-a1-3",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to play the board game with kings, queens and knights",
+          "list": null
+        }
+      ],
+      "itemHash": "5f3ce14bc3aa3d9c"
+    },
+    {
+      "id": "en-ho-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "In US English this sport is 'soccer'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I play soccer with my friends."
+          ]
+        }
+      ],
+      "itemHash": "4c13ccc35f1ecf7f"
+    },
+    {
+      "id": "en-ho-a1-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'at weekends' is British; US English says 'on weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What do you like to do on weekends?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "What do you like to do on weekends?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "What do you like to do at weekends?",
+            "What do you like to do on the weekend?"
+          ]
+        }
+      ],
+      "itemHash": "bae8105b78fa9857"
+    },
+    {
+      "id": "en-ho-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask a friend whether they like reading comics.",
+          "list": null
+        }
+      ],
+      "itemHash": "66ef36eb54bf129e"
+    },
+    {
+      "id": "en-ho-a2-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been learning the guitar for six months.",
+            "I've been learning guitar for six months."
+          ]
+        }
+      ],
+      "itemHash": "1d3ef98e82991b0c"
+    },
+    {
+      "id": "en-ho-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'at the weekends' is British; US English says 'on weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I enjoy baking on weekends.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "I enjoy baking on weekends.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I enjoy baking at the weekends.",
+            "I enjoy baking on the weekend."
+          ]
+        }
+      ],
+      "itemHash": "981826878cdc73ca"
+    },
+    {
+      "id": "en-ho-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which hobby helps you reduce ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "stress",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The feeling of pressure and worry."
+          ]
+        }
+      ],
+      "itemHash": "20f5307560c3b3af"
+    },
+    {
+      "id": "en-ho-b1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "In US English this sport is 'soccer'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Yes, I play soccer sometimes."
+          ]
+        }
+      ],
+      "itemHash": "e0f02dc56490be19"
+    },
+    {
+      "id": "en-ho-b1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've recently taken up pottery and find it very therapeutic."
+          ]
+        }
+      ],
+      "itemHash": "0ea1ab6e8a627cb8"
+    },
+    {
+      "id": "en-ho-b1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been meaning to get into yoga for years but never quite managed it."
+          ]
+        }
+      ],
+      "itemHash": "17fa9bbf14e70058"
+    },
+    {
+      "id": "en-ho-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you stay ___ when practicing your hobby?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "motivated",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'eager to keep going'."
+          ]
+        }
+      ],
+      "itemHash": "de496a0c8ae656a7"
+    },
+    {
+      "id": "en-ho-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "A five-word A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Nothing helps me unwind quite like losing myself in a good book.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nothing helps me unwind quite like losing myself in a good book.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Lose yourself in' = become completely absorbed in."
+          ]
+        }
+      ],
+      "itemHash": "1407bc39456109d3"
+    },
+    {
+      "id": "en-ho-b2-2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I make a point of practicing guitar every day, however busy I am.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "I make a point of practicing guitar every day, however busy I am.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Make a point of' + -ing = always make sure to do something."
+          ]
+        }
+      ],
+      "itemHash": "116814120ac655c0"
+    },
+    {
+      "id": "en-ho-b2-3",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A1 sentence at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Painting allows me to express things I struggle to put into words.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Painting allows me to express things I struggle to put into words.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Put into words' = describe in language."
+          ]
+        }
+      ],
+      "itemHash": "20b5ed0abe84660c"
+    },
+    {
+      "id": "en-ho-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I prefer hobbies that combine social ___ with skill-building.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "interaction",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'contact and communication with others'."
+          ]
+        }
+      ],
+      "itemHash": "f18dd787a8eb6c67"
+    },
+    {
+      "id": "en-ho-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend says every hobby should lead to a measurable achievement.",
+          "list": null
+        }
+      ],
+      "itemHash": "15240ef50255e90f"
+    }
+  ]
+}

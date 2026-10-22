@@ -1,0 +1,378 @@
+{
+  "language": "english",
+  "category": "money_finance",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:12:36.729Z",
+  "contentHash": "a9364ddc1410da94",
+  "summary": "Finance vocabulary is accurate, but the file mixes British financial terms (direct debit, ISA, pension, overpaying the mortgage) and spellings ('prioritised', 'destabilise', 'behavioural') into a US-English course. It also has the recurring structural defects: three cloze items without a blank, a dialogue_turn without a situation, and generic hints.",
+  "findings": [
+    {
+      "id": "en-mf-a1-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'How much does ... cost?' asks for a price."
+          ]
+        }
+      ],
+      "itemHash": "f323ddd6dc7d212a"
+    },
+    {
+      "id": "en-mf-a1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'don't' is what natives say.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Enough' goes before the noun: enough money."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I don't have enough money."
+          ]
+        }
+      ],
+      "itemHash": "832350fef5ad75d1"
+    },
+    {
+      "id": "en-mf-a1-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pay 'by card' or 'in cash'."
+          ]
+        }
+      ],
+      "itemHash": "6dbc6e8a5aa08a54"
+    },
+    {
+      "id": "en-mf-a1-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "ATM stands for 'automated teller machine', not 'automatic cash machine'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An ATM (automated teller machine) gives you cash."
+          ]
+        }
+      ],
+      "itemHash": "716eb9522a775650"
+    },
+    {
+      "id": "en-mo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How much should I ___ each month?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "save",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The opposite of 'spend'."
+          ]
+        }
+      ],
+      "itemHash": "37ff8c84c40239b1"
+    },
+    {
+      "id": "en-mf-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'direct debit' is British; Americans say 'automatic payment' or 'autopay'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Can I set up automatic payments for this bill?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Can I set up automatic payments for this bill?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Can I set up autopay for this bill?",
+            "Can I set up a direct debit for this payment?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Automatic payments take money from your account on a schedule."
+          ]
+        }
+      ],
+      "itemHash": "3e9e5383ecad16e3"
+    },
+    {
+      "id": "en-mf-a2-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm trying' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm trying to cut back on unnecessary spending."
+          ]
+        }
+      ],
+      "itemHash": "0b07c6d987d78d13"
+    },
+    {
+      "id": "en-mf-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been trying to build up an emergency fund covering three months of expenses."
+          ]
+        }
+      ],
+      "itemHash": "2f9e86ef2acac311"
+    },
+    {
+      "id": "en-mf-b1-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'overpaying on my mortgage to reduce the term' is British; Americans say 'make extra payments'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Would it be worth making extra payments on my mortgage to pay it off sooner?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Would it be worth making extra payments on my mortgage to pay it off sooner?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Extra payments' = paying more than the minimum; 'pay off' = finish repaying."
+          ]
+        }
+      ],
+      "itemHash": "2fa074743547ad74"
+    },
+    {
+      "id": "en-mf-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'pension contributions' is British; in the US these are 'retirement contributions' (e.g. to a 401(k)).",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: My retirement contributions are deducted from my salary before tax.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "My retirement contributions are deducted from my salary before tax.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "My 401(k) contributions are deducted from my salary before tax.",
+            "My pension contributions are deducted from my salary before tax."
+          ]
+        }
+      ],
+      "itemHash": "439da5cc9d6de71c"
+    },
+    {
+      "id": "en-mf-b1-8",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'prioritised' is British spelling; 'after university' is usually 'after college' in the US.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how you handled your debt after college.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "I prioritized paying off the highest-interest debt first while maintaining a small emergency fund.",
+          "list": null
+        }
+      ],
+      "itemHash": "5c0c84f51f19a0fe"
+    },
+    {
+      "id": "en-mf-b1-10",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "ISAs are a UK-only product, out of place in a US-English course; the US equivalent is the IRA.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What is the difference between a traditional IRA and a Roth IRA?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "What is the difference between a traditional IRA and a Roth IRA?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "IRA = Individual Retirement Account."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "In the US, a traditional IRA gives a tax break when you contribute, while a Roth IRA is funded with taxed money but grows and is withdrawn tax-free in retirement.",
+          "list": null
+        }
+      ],
+      "itemHash": "c277edf7e0e685a0"
+    },
+    {
+      "id": "en-mo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is the safest way to build an ___ fund?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "emergency",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Money kept aside for unexpected problems."
+          ]
+        }
+      ],
+      "itemHash": "549bbad99a01a03e"
+    },
+    {
+      "id": "en-mf-b2-2",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The hint uses British 'Behavioural' while the sentence uses 'behavioral'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Behavioral economics' studies how psychology affects economic choices."
+          ]
+        }
+      ],
+      "itemHash": "affc7546d9d1ef22"
+    },
+    {
+      "id": "en-mf-b2-5",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'destabilise' is British spelling.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Sovereign debt crises can destabilize entire regional economies if creditors lose confidence.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sovereign debt crises can destabilize entire regional economies if creditors lose confidence.",
+          "list": null
+        }
+      ],
+      "itemHash": "2777c36d07cfd6b9"
+    },
+    {
+      "id": "en-mo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Inflation erodes purchasing ___ when wages do not keep pace.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "power",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Purchasing ___' = how much your money can buy."
+          ]
+        }
+      ],
+      "itemHash": "6aa1b35a377f9f70"
+    },
+    {
+      "id": "en-mo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. In a seminar, someone says rising household debt is a private matter, not a policy issue.",
+          "list": null
+        }
+      ],
+      "itemHash": "9d0acad43a91af39"
+    }
+  ]
+}

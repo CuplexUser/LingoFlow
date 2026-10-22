@@ -1,0 +1,610 @@
+{
+  "language": "german",
+  "category": "family_friends",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:37:11.440Z",
+  "contentHash": "c268ee8e7db5cb00",
+  "summary": "The A1 core is fine, but many A2–B2 sentences are calques with wrong meanings: 'Auge zum Auge ... sondern', 'in der Nähe Ihrer Geschwister' (physically near), 'nahegelegene Gemeinschaft', 'wieder angeschlossen', 'seit meiner Abreise', 'Kommst du gut mit' (missing 'aus'), 'es gibt sieben von uns', and one garbled B2 sentence. Also a lowercase noun, 'am Sonntag' for a habit, three cloze items without a blank, and a dialogue_turn without a situation.",
+  "findings": [
+    {
+      "id": "de-fa-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Plural of 'Bruder' takes an umlaut: Brüder."
+          ]
+        }
+      ],
+      "itemHash": "b6d1a3ca7e142f0b"
+    },
+    {
+      "id": "de-fa-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the informal question should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German drops 'any' here. Informal: Hast du Kinder?"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hast du Kinder?"
+          ]
+        }
+      ],
+      "itemHash": "f38249ec3d844892"
+    },
+    {
+      "id": "de-fa-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Auf dem Land' = in the countryside."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Meine Eltern wohnen auf dem Land."
+          ]
+        }
+      ],
+      "itemHash": "2433fbd5983c9039"
+    },
+    {
+      "id": "de-fa-15",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Ich lebe mit meiner Familie' sounds incomplete; German adds 'zusammen' or uses 'bei'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich wohne bei meiner Familie.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich lebe mit meiner Familie zusammen.",
+            "Ich wohne mit meiner Familie zusammen."
+          ]
+        }
+      ],
+      "itemHash": "aa658eb56a9c5547"
+    },
+    {
+      "id": "de-fa-16",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "die Großmutter",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Großmutter",
+            "die Oma",
+            "Oma"
+          ]
+        }
+      ],
+      "itemHash": "d6a9dfd895904556"
+    },
+    {
+      "id": "de-fa-17",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The hint is about the English apostrophe, and 'Der Name meines besten Freundes ist Sam' is stiff.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mein bester Freund heißt Sam.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Meine beste Freundin heißt Sam.",
+            "Der Name meines besten Freundes ist Sam."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German uses 'heißen' for names."
+          ]
+        }
+      ],
+      "itemHash": "9277c939855e3ed1"
+    },
+    {
+      "id": "de-fa-a1-39",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "A habit on a weekday uses the adverb 'sonntags'; 'am Sonntag' means this one Sunday.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich besuche sonntags meine Großeltern.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Sonntags besuche ich meine Großeltern."
+          ]
+        }
+      ],
+      "itemHash": "70a705669e424822"
+    },
+    {
+      "id": "de-fa-a1-40",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "German uses 'Geschwister' for siblings.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Haben Sie Geschwister?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hast du Geschwister?",
+            "Haben Sie Brüder oder Schwestern?"
+          ]
+        }
+      ],
+      "itemHash": "7046273e4ece588d"
+    },
+    {
+      "id": "de-fa-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes English; a female cousin is 'Cousine'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German uses the present tense for planned future events."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Meine Cousine heiratet im nächsten Frühjahr.",
+            "Mein Cousin heiratet nächsten Frühling."
+          ]
+        }
+      ],
+      "itemHash": "ab50118631679140"
+    },
+    {
+      "id": "de-fa-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The informal plural should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie lange kennt ihr euch schon?"
+          ]
+        }
+      ],
+      "itemHash": "394f6362219b0a8e"
+    },
+    {
+      "id": "de-fa-21",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'in der Nähe Ihrer Geschwister' means physically near them.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Stehen Sie Ihren Geschwistern nahe?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Stehst du deinen Geschwistern nahe?",
+            "Hast du ein enges Verhältnis zu deinen Geschwistern?"
+          ]
+        }
+      ],
+      "itemHash": "6c963f719362fb8d"
+    },
+    {
+      "id": "de-fa-22",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'es gibt sieben von uns' is a calque; German says 'wir sind zu siebt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wir sind eine große Familie – wir sind zu siebt.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Zu siebt' = seven of us."
+          ]
+        }
+      ],
+      "itemHash": "8048cc7bc8f324d5"
+    },
+    {
+      "id": "de-fa-23",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'for work' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mein Freund ist letztes Jahr beruflich ins Ausland gezogen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Meine Freundin ist letztes Jahr beruflich ins Ausland gezogen."
+          ]
+        }
+      ],
+      "itemHash": "bd8a425c190482dc"
+    },
+    {
+      "id": "de-fa-24",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The separable verb is 'auskommen'; 'aus' is missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kommst du gut mit deinen Nachbarn aus?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Verstehst du dich gut mit deinen Nachbarn?"
+          ]
+        }
+      ],
+      "itemHash": "281aa75841036670"
+    },
+    {
+      "id": "de-fa-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich rufe jeden Abend meine Eltern ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "an",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Anrufen' is separable; the prefix goes to the end."
+          ]
+        }
+      ],
+      "itemHash": "2af4de331ee5e040"
+    },
+    {
+      "id": "de-fa-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Auge zum Auge' is a literal calque and 'sondern' (but rather) is wrong after a negated clause here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Meine Schwester und ich sind nicht immer einer Meinung, aber wir unterstützen uns gegenseitig.",
+          "list": null
+        }
+      ],
+      "itemHash": "2933891b396bbdde"
+    },
+    {
+      "id": "de-fa-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The infinitive clause needs 'aufzuwachsen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie war es, in einer großen Familie aufzuwachsen?",
+          "list": null
+        }
+      ],
+      "itemHash": "b2041c93745e074e"
+    },
+    {
+      "id": "de-fa-27",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'seit meiner Abreise' means since my departure (on a trip), not since I moved out.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Meine Beziehung zu meinen Eltern hat sich verbessert, seit ich ausgezogen bin.",
+          "list": null
+        }
+      ],
+      "itemHash": "36fbdcd7fa308cda"
+    },
+    {
+      "id": "de-fa-28",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'das Leben beschäftigt ist' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich versuche, mit alten Freunden in Kontakt zu bleiben, auch wenn viel los ist.",
+          "list": null
+        }
+      ],
+      "itemHash": "bcea6a361c4d36f1"
+    },
+    {
+      "id": "de-fa-29",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'humour' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Contrast with 'aber'; 'Sinn für Humor' = sense of humor."
+          ]
+        }
+      ],
+      "itemHash": "46d12476a20da4ab"
+    },
+    {
+      "id": "de-fa-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Zeit rund um Arbeitsverpflichtungen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wir wohnen ziemlich weit voneinander entfernt, und neben der Arbeit finde ich kaum Zeit.",
+          "list": null
+        }
+      ],
+      "itemHash": "b741cb31b1d954f2"
+    },
+    {
+      "id": "de-fa-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'nahegelegene Gemeinschaft' means nearby community, not close-knit.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Da ich in einer Kleinstadt aufgewachsen bin, schätze ich die eng verbundene Gemeinschaft dort.",
+          "list": null
+        }
+      ],
+      "itemHash": "70ab91196d748fdd"
+    },
+    {
+      "id": "de-fa-32",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Zeit ausgleichen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie teilen Sie Ihre Zeit zwischen Familie und Freundeskreis auf?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie teilst du deine Zeit zwischen Familie und Freunden auf?"
+          ]
+        }
+      ],
+      "itemHash": "e76ebde5ba16819c"
+    },
+    {
+      "id": "de-fa-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'wieder angeschlossen' means reconnected like a device.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nach dem Studium haben wir uns aus den Augen verloren, aber vor Kurzem wieder Kontakt aufgenommen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir haben uns nach der Uni auseinandergelebt, aber kürzlich wieder Kontakt aufgenommen."
+          ]
+        }
+      ],
+      "itemHash": "f685811c5ae5a7f9"
+    },
+    {
+      "id": "de-fa-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Familientraditionen helfen uns, miteinander ___ zu bleiben.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "verbunden",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A participle meaning 'connected'."
+          ]
+        }
+      ],
+      "itemHash": "a4126dca46af0fab"
+    },
+    {
+      "id": "de-fa-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A blended family is a 'Patchworkfamilie'; 'gemischte Familie' means mixed-race or mixed-faith.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Dynamik in einer Patchworkfamilie kann komplex, aber zutiefst bereichernd sein.",
+          "list": null
+        }
+      ],
+      "itemHash": "02771085f1cb7968"
+    },
+    {
+      "id": "de-fa-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Ich wurde auf Wert Loyalität ... erhoben' is garbled ('erheben' = to levy).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich wurde dazu erzogen, Loyalität und Ehrlichkeit über alles zu stellen.",
+          "list": null
+        }
+      ],
+      "itemHash": "01edacdb12485ec1"
+    },
+    {
+      "id": "de-fa-34",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'über die Kulturen' is a calque; the prompt uses British 'ageing'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The expectation that adult children will look after aging parents varies considerably across cultures.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Die Erwartung, dass erwachsene Kinder sich um ihre alternden Eltern kümmern, ist von Kultur zu Kultur sehr unterschiedlich.",
+          "list": null
+        }
+      ],
+      "itemHash": "300b5f09b3ee8bf2"
+    },
+    {
+      "id": "de-fa-38",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The German term is 'Wahlfamilie'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Wahlfamilie – ein Netzwerk von Freunden, die wie Familie werden – wird im modernen Leben immer mehr geschätzt.",
+          "list": null
+        }
+      ],
+      "itemHash": "95e281a979a99163"
+    },
+    {
+      "id": "de-fa-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie ___ die Erwartungen der Familie persönliche Entscheidungen?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "beeinflussen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to influence', third-person plural."
+          ]
+        }
+      ],
+      "itemHash": "fbb04949abb84652"
+    },
+    {
+      "id": "de-fa-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend is sad that you see each other less than before.",
+          "list": null
+        }
+      ],
+      "itemHash": "25adac80e615fba2"
+    }
+  ]
+}

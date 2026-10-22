@@ -1,0 +1,510 @@
+{
+  "language": "french",
+  "category": "work",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:49:36.016Z",
+  "contentHash": "47483e77b4fc5c4e",
+  "summary": "The best French file so far. Most business sentences are correct, but there are some Quebec-specific or calqued terms ('quart', 'TI', 'intervenants', 'produits livrables', 'me copier sur'). Errors: 'salle d'entraînement' (gym) for training room, 'signature' with an English hyphen hint for sign-off, 'avant l'échelle' (before the ladder), a missing 'À' accent, three cloze items without a blank, and two dialogue_turn items without a situation.",
+  "findings": [
+    {
+      "id": "fr-wo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Dans un bureau' = in an office."
+          ]
+        }
+      ],
+      "itemHash": "00b6ecc3631accaa"
+    },
+    {
+      "id": "fr-wo-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Generic hint; 'quart' is Quebec usage; in France a shift is 'mon service' or 'mon poste'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mon service commence à 9 heures.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mon poste commence à 9 heures.",
+            "Mon quart commence à 9 heures."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "France: 'mon service'; Quebec: 'mon quart'."
+          ]
+        }
+      ],
+      "itemHash": "fdaf3bdde0d32923"
+    },
+    {
+      "id": "fr-wo-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; a female speaker says 'la nouvelle employée'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nouveau' becomes 'nouvel' before a vowel: le nouvel employé."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis la nouvelle employée."
+          ]
+        }
+      ],
+      "itemHash": "8adf106088ac0a6f"
+    },
+    {
+      "id": "fr-wo-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'employé' is the most common word and should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "employé",
+            "un employé",
+            "salariée"
+          ]
+        }
+      ],
+      "itemHash": "df7cea493773b11a"
+    },
+    {
+      "id": "fr-wo-16",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'utile' describes things; a helpful person is 'serviable'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mon responsable est très serviable.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ma responsable est très serviable.",
+            "Mon manager m'aide beaucoup."
+          ]
+        }
+      ],
+      "itemHash": "1b404f8d67a58d0f"
+    },
+    {
+      "id": "fr-wo-17",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Capital 'À' keeps its accent.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "À quelle heure ouvre le bureau ?",
+          "list": null
+        }
+      ],
+      "itemHash": "87b48c9ff366fe98"
+    },
+    {
+      "id": "fr-wo-a1-42",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'salle d'entraînement' is a gym; a training room is 'salle de formation'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Où est la salle de formation ?",
+          "list": null
+        }
+      ],
+      "itemHash": "536bed3ca6f48917"
+    },
+    {
+      "id": "fr-wo-a1-43",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'signature' is not the approval itself, and the hint about hyphens is English-only.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "la validation",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "le feu vert",
+            "l'approbation"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Donner le feu vert' = to give the go-ahead."
+          ]
+        }
+      ],
+      "itemHash": "9c8b4916745ef12e"
+    },
+    {
+      "id": "fr-wo-a1-48",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'gestionnaire' means an administrator in France; the person you report to is 'le/la responsable' or 'le supérieur'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "le responsable",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "la responsable",
+            "le supérieur",
+            "le chef",
+            "gestionnaire"
+          ]
+        }
+      ],
+      "itemHash": "d1387a44388c158d"
+    },
+    {
+      "id": "fr-wo-20",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'me copier sur' is a calque; French says 'mettre en copie'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pouvez-vous me mettre en copie de ce mail ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pouvez-vous me mettre en copie de cet e-mail ?"
+          ]
+        }
+      ],
+      "itemHash": "2b75714121aa252e"
+    },
+    {
+      "id": "fr-wo-21",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'congé annuel' is legal jargon; French says 'congés'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je voudrais prendre deux semaines de congés en août.",
+          "list": null
+        }
+      ],
+      "itemHash": "46bb9dfd7c54f42e"
+    },
+    {
+      "id": "fr-wo-22",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'TI' is Quebec usage; France says 'informatique'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Qui dois-je contacter pour les problèmes informatiques ?",
+          "list": null
+        }
+      ],
+      "itemHash": "073341628a76c9b2"
+    },
+    {
+      "id": "fr-wo-a2-52",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Reviewing a report is 'relire'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pourriez-vous relire ce rapport avant le déjeuner ?",
+          "list": null
+        }
+      ],
+      "itemHash": "dd951ce6bbac5d07"
+    },
+    {
+      "id": "fr-wo-a2-53",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Je suis ___ des mises à jour hebdomadaires.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "responsable",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "chargé",
+            "chargée"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Être ___ de' = to be in charge of."
+          ]
+        }
+      ],
+      "itemHash": "2bd68ec889fe8081"
+    },
+    {
+      "id": "fr-wo-a2-54",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'en avance sur le calendrier' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nous avons terminé la tâche avant la date prévue.",
+          "list": null
+        }
+      ],
+      "itemHash": "9e7646f4e41cdaea"
+    },
+    {
+      "id": "fr-wo-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A scheduling conflict is a 'conflit d'agenda'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je n'ai pas pu assister à la conférence téléphonique à cause d'un conflit d'agenda.",
+          "list": null
+        }
+      ],
+      "itemHash": "c8a88347e660bb8b"
+    },
+    {
+      "id": "fr-wo-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'donner une mise à jour' is a calque; French says 'faire le point'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pourriez-vous faire le point sur la situation avec le client ?",
+          "list": null
+        }
+      ],
+      "itemHash": "10abbd1d8d638f75"
+    },
+    {
+      "id": "fr-wo-b1-61",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'prioriser l'enjeu client' is jargon-heavy.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nous devrions traiter en priorité le problème du client avant le déploiement.",
+          "list": null
+        }
+      ],
+      "itemHash": "1e5016392043df16"
+    },
+    {
+      "id": "fr-wo-b1-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Pouvons-nous ___ cette échéance à mercredi prochain ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "reporter",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to postpone'."
+          ]
+        }
+      ],
+      "itemHash": "e06ba3b54ebfcdee"
+    },
+    {
+      "id": "fr-wo-b1-64",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A colleague asks you to approve a plan you have barely seen.",
+          "list": null
+        }
+      ],
+      "itemHash": "7a56654d11992eeb"
+    },
+    {
+      "id": "fr-wo-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'intervenants' is Quebec usage; France says 'parties prenantes'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les parties prenantes s'inquiètent du retour sur investissement prévu.",
+          "list": null
+        }
+      ],
+      "itemHash": "eeff37578f9399d3"
+    },
+    {
+      "id": "fr-wo-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'produits livrables' is a Quebec calque; France says 'livrables'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pour faire suite à mon précédent e-mail, je voulais clarifier les livrables.",
+          "list": null
+        }
+      ],
+      "itemHash": "1a5c48f6d478de31"
+    },
+    {
+      "id": "fr-wo-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'avant l'échelle' means 'before the ladder'; 'piloter' means to steer, not to trial.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je recommande de tester la solution avec un petit groupe avant de la déployer à grande échelle.",
+          "list": null
+        }
+      ],
+      "itemHash": "99472e71703ce22f"
+    },
+    {
+      "id": "fr-wo-36",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Metrics are 'indicateurs'; 'mesures' is ambiguous.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quels indicateurs utilisons-nous pour évaluer le succès de cette campagne ?",
+          "list": null
+        }
+      ],
+      "itemHash": "2a17f9936843463c"
+    },
+    {
+      "id": "fr-wo-b2-71",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'produits livrables' and 'intervenants' are Quebec usage.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nous devons aligner les livrables sur les attentes des parties prenantes.",
+          "list": null
+        }
+      ],
+      "itemHash": "69e8b8cc27b1b91a"
+    },
+    {
+      "id": "fr-wo-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Je suggère de documenter les risques avant la ___ finale.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "validation",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "approbation"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun for final approval (sign-off)."
+          ]
+        }
+      ],
+      "itemHash": "7f9931376e2886db"
+    },
+    {
+      "id": "fr-wo-b2-73",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your manager warns that the rollout may slip.",
+          "list": null
+        }
+      ],
+      "itemHash": "417e0b9ec2e158de"
+    }
+  ]
+}

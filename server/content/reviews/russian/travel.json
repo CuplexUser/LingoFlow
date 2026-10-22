@@ -1,0 +1,209 @@
+{
+  "language": "russian",
+  "category": "travel",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:15:51.855Z",
+  "contentHash": "ebd8001cac735bd5",
+  "summary": "A high-quality travel file with idiomatic phrases (пешая доступность, ручная кладь, налегке). Remaining issues: masculine-only answers on typed items, a missing 'nearby' in one translation, a stiff hotel check-in sentence, a missing comma, and one ungrammatical distractor.",
+  "findings": [
+    {
+      "id": "ru-tr-a1-s01",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The shorter 'Где вокзал?' is what people actually say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Где вокзал?",
+            "Где находится вокзал?"
+          ]
+        }
+      ],
+      "itemHash": "f5f8ac63a752eee8"
+    },
+    {
+      "id": "ru-tr-a1-s06",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'nearby' is dropped; 'Здесь есть метро?' asks whether the city has a metro at all.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Здесь рядом есть метро?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Рядом есть метро?",
+            "Здесь поблизости есть метро?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Рядом' = nearby; 'есть' = there is."
+          ]
+        }
+      ],
+      "itemHash": "a6d6303bbc56880b"
+    },
+    {
+      "id": "ru-tr-a2-s02",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "For buses on a route, 'идёт' is at least as common as 'едет'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Этот автобус идёт в центр города?",
+            "Этот автобус едет в центр?"
+          ]
+        }
+      ],
+      "itemHash": "13e78734c7751d9d"
+    },
+    {
+      "id": "ru-tr-a2-s03",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'зарегистрироваться по своему бронированию' is stiff and 'would like' became 'want'; at a hotel Russians say 'заселиться'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я хотел бы заселиться, у меня бронь.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я хотела бы заселиться, у меня бронь.",
+            "Я хочу зарегистрироваться по своему бронированию."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Заселиться' = to check in at a hotel; 'бронь' = a booking (colloquial)."
+          ]
+        }
+      ],
+      "itemHash": "465d6d4db41a0d8d"
+    },
+    {
+      "id": "ru-tr-a2-s05",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'bags' can equally be 'сумки'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "У меня две сумки."
+          ]
+        }
+      ],
+      "itemHash": "cfd407bf18383430"
+    },
+    {
+      "id": "ru-tr-b1-s02",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "A comma is required before 'и' joining clauses with different subjects; female speaker form missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я потерял паспорт, и мне срочно нужна помощь.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я потеряла паспорт, и мне срочно нужна помощь."
+          ]
+        }
+      ],
+      "itemHash": "cf01a76c4aab94cc"
+    },
+    {
+      "id": "ru-tr-b1-s06",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'booked' is literally 'забронировал'; female forms are missing.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я заранее купила билеты онлайн.",
+            "Я заранее забронировал билеты онлайн.",
+            "Я заранее забронировала билеты онлайн."
+          ]
+        }
+      ],
+      "itemHash": "bd8192f4dae231c6"
+    },
+    {
+      "id": "ru-tr-b2-s02",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'предпочла бы'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я предпочла бы более спокойный маршрут, даже если он займёт больше времени."
+          ]
+        }
+      ],
+      "itemHash": "21af569b15c78627"
+    },
+    {
+      "id": "ru-tr-b2-s05",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'проверила ... опоздала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Если бы я проверила расписание, я бы не опоздала на поезд."
+          ]
+        }
+      ],
+      "itemHash": "4152641e71e82059"
+    },
+    {
+      "id": "ru-tr-b2-mc01",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'Если брони рано' is ungrammatical; distractors should be well-formed but wrong in meaning.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Чем раньше бронируешь, тем дешевле билеты.",
+            "Билеты всегда стоят одинаково.",
+            "Если бронируешь рано, билеты бесплатны.",
+            "Чем позже едешь, тем лучше."
+          ]
+        }
+      ],
+      "itemHash": "88333e4bdbc70ed7"
+    }
+  ]
+}

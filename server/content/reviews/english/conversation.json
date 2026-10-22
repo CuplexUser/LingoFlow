@@ -1,0 +1,474 @@
+{
+  "language": "english",
+  "category": "conversation",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:08:23.849Z",
+  "contentHash": "d0b61d95e191a0d7",
+  "summary": "Content is natural, but there are format defects: flashcards with identical front and back, three cloze items with no blank, and a dialogue_turn with no situation. Uncontracted forms ('let us', 'I did not catch that') sound stilted and contractions are not accepted, and a British spelling slips into the US-English course.",
+  "findings": [
+    {
+      "id": "en-co-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A basic question when you meet someone. 'What's your name?' is the everyday form."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "What's your name?"
+          ]
+        }
+      ],
+      "itemHash": "6eeb6504827512df"
+    },
+    {
+      "id": "en-co-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'I'm' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Name first, then where you are from."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "My name is Alex and I'm from the United States."
+          ]
+        }
+      ],
+      "itemHash": "620f390b911900d7"
+    },
+    {
+      "id": "en-co-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The question word goes first and 'from' goes at the end."
+          ]
+        }
+      ],
+      "itemHash": "eaf5a74bd6834fcc"
+    },
+    {
+      "id": "en-cv-a1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm happy to meet you."
+          ]
+        }
+      ],
+      "itemHash": "3c1f3d6fffbd2249"
+    },
+    {
+      "id": "en-cv-a1-5",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: the word you say when you leave",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "bye"
+          ]
+        }
+      ],
+      "itemHash": "2c6d8e2588872072"
+    },
+    {
+      "id": "en-cv-a1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "In US English 'movies' is the usual word.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I like music and movies."
+          ]
+        }
+      ],
+      "itemHash": "1eced5c0b44c0429"
+    },
+    {
+      "id": "en-co-a1-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Tell someone that your home country is Sweden.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm from Sweden."
+          ]
+        }
+      ],
+      "itemHash": "33aacbe2b6fb9ca5"
+    },
+    {
+      "id": "en-co-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'It's' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "It's nice to meet you in person."
+          ]
+        }
+      ],
+      "itemHash": "af796aea298ddbf9"
+    },
+    {
+      "id": "en-cv-a2-9",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: an activity you enjoy in your free time",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Painting is my favorite ___.'"
+          ]
+        }
+      ],
+      "itemHash": "dc4993facf41d740"
+    },
+    {
+      "id": "en-co-a2-57",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'I am sorry, I did not catch that' sounds stilted; this phrase is almost always contracted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I'm sorry, I didn't catch that.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I am sorry, I did not catch that.",
+            "Sorry, I didn't catch that."
+          ]
+        }
+      ],
+      "itemHash": "2f55d6c924d584d0"
+    },
+    {
+      "id": "en-co-a2-59",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What do you ___ do after work?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "usually",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A frequency adverb meaning 'most of the time'."
+          ]
+        }
+      ],
+      "itemHash": "342b4c53f9f75aa5"
+    },
+    {
+      "id": "en-cv-b1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've become' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I used to be very shy, but I've become more outgoing."
+          ]
+        }
+      ],
+      "itemHash": "6f8a78f9a99af736"
+    },
+    {
+      "id": "en-cv-b1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'it's' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I think it's interesting, although I have some concerns."
+          ]
+        }
+      ],
+      "itemHash": "a83809e018481b01"
+    },
+    {
+      "id": "en-cv-b1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been meaning to call you all week."
+          ]
+        }
+      ],
+      "itemHash": "8db37fbe201ab551"
+    },
+    {
+      "id": "en-cv-b1-10",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to stop someone while they are speaking",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sorry to ___, but can I add something?'"
+          ]
+        }
+      ],
+      "itemHash": "1e68c2d2e3cc37ce"
+    },
+    {
+      "id": "en-co-b1-67",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I felt nervous at ___, then I relaxed.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "first",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'At ___' = in the beginning."
+          ]
+        }
+      ],
+      "itemHash": "ce707b058b33b341"
+    },
+    {
+      "id": "en-co-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'they're' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I appreciate honest conversations, even when they're difficult."
+          ]
+        }
+      ],
+      "itemHash": "c12fc2081f6f1274"
+    },
+    {
+      "id": "en-cv-b2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The idiom is almost always 'where you're coming from'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I see where you're coming from, but I have a different take on this.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I see where you are coming from, but I have a different take on this."
+          ]
+        }
+      ],
+      "itemHash": "044c52dfd80ed91b"
+    },
+    {
+      "id": "en-cv-b2-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd have' is common in speech.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd have phrased it differently had I known the context."
+          ]
+        }
+      ],
+      "itemHash": "5b9e6cba1826237f"
+    },
+    {
+      "id": "en-cv-b2-10",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical, and 'empathise' is British spelling in a US-English course.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to understand and share another person's feelings",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "to empathize",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "to empathise"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'It's easier to ___ with someone who has been through the same thing.'"
+          ]
+        }
+      ],
+      "itemHash": "d387343be73c92b5"
+    },
+    {
+      "id": "en-cv-b2-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'let us' sounds archaic here; natives say 'let's'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Rather than argue, let's try to find common ground.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Rather than argue, let us try to find common ground."
+          ]
+        }
+      ],
+      "itemHash": "e0e9dcaa80610ad5"
+    },
+    {
+      "id": "en-co-b2-74",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Would you mind ___ on that argument?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "elaborating",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Would you mind' is followed by an -ing form."
+          ]
+        }
+      ],
+      "itemHash": "5cea281d6d2653b5"
+    },
+    {
+      "id": "en-co-b2-75",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to, not a 'Say:' prompt.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A colleague has just explained a subtle point very carefully.",
+          "list": null
+        }
+      ],
+      "itemHash": "2221dd99ca51d4c2"
+    }
+  ]
+}

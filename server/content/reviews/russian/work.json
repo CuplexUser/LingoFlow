@@ -1,0 +1,202 @@
+{
+  "language": "russian",
+  "category": "work",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:16:26.095Z",
+  "contentHash": "e8b2f5a91ad188e3",
+  "summary": "Business Russian is natural and well chosen. Problems: one cloze sentence is still in English, several past-tense answers lack the feminine form, ё is missing in a few answers (все еще, четкие, начнем), and five generic hints.",
+  "findings": [
+    {
+      "id": "ru-wo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'В' + prepositional for where you work. 'Небольшой' = small."
+          ]
+        }
+      ],
+      "itemHash": "288db37f1d490f9c"
+    },
+    {
+      "id": "ru-wo-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Generic hint; 'все еще' should be written with ё like the rest of the course.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я всё ещё осваиваю инструменты для этой работы.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Всё ещё' = still. 'Осваивать' = to get to grips with, to master."
+          ]
+        }
+      ],
+      "itemHash": "30b75853fc12ab1b"
+    },
+    {
+      "id": "ru-wo-13",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'начинаю работу в восемь' is equally common.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'В' + time: в восемь часов = at eight o'clock."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я начинаю работу в восемь.",
+            "Я начинаю работать в восемь."
+          ]
+        }
+      ],
+      "itemHash": "9aaabb868b863675"
+    },
+    {
+      "id": "ru-wo-14",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'переговорная комната' and the short question should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Переговорная' (from 'переговоры', talks) = meeting room."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Где переговорная?",
+            "Где находится переговорная комната?"
+          ]
+        }
+      ],
+      "itemHash": "f3d86cbe82b377a7"
+    },
+    {
+      "id": "ru-wo-17",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'В центре города' = in the city center (prepositional + genitive)."
+          ]
+        }
+      ],
+      "itemHash": "de01ec5acab890d4"
+    },
+    {
+      "id": "ru-wo-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'закончила'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я закончила черновик, но его ещё нужно доработать."
+          ]
+        }
+      ],
+      "itemHash": "db35e7cbefdf2c83"
+    },
+    {
+      "id": "ru-wo-11",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'четкие' should be 'чёткие', consistent with the course's use of ё.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Мне нужны более чёткие приоритеты, прежде чем я смогу оценить сроки.",
+          "list": null
+        }
+      ],
+      "itemHash": "6ab7ed4fcd1b018e"
+    },
+    {
+      "id": "ru-wo-25",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'начнем' should be 'начнём', consistent with the course's use of ё.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Нам следует уточнить приоритеты, прежде чем мы начнём.",
+          "list": null
+        }
+      ],
+      "itemHash": "957f5dea8a04757d"
+    },
+    {
+      "id": "ru-wo-28",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is in English, so the learner cannot place a Russian verb in it.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cloze: Вчера мы ____ это предложение.",
+          "list": null
+        }
+      ],
+      "itemHash": "118b064ac299846b"
+    },
+    {
+      "id": "ru-wo-a2-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'выполнила'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Вчера я выполнила три задачи."
+          ]
+        }
+      ],
+      "itemHash": "fee031256d48c5a2"
+    },
+    {
+      "id": "ru-wo-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'ожидала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Это упражнение оказалось труднее, чем я ожидала."
+          ]
+        }
+      ],
+      "itemHash": "2917485b1ba48d24"
+    }
+  ]
+}

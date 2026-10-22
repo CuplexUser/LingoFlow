@@ -1,0 +1,586 @@
+{
+  "language": "spanish",
+  "category": "travel",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:16:10.765Z",
+  "contentHash": "ad3171a3f22592e3",
+  "summary": "The weakest Spanish file so far: about a dozen sentences are literal machine translations that are wrong or nonsensical ('viajar luz', 'ambas piernas del viaje', 'limpiar las aduanas', 'minutos para ahorrar', 'dos bolsas para entrar', 'comprobar mi reserva' for check in). Two cloze items lack a blank and a dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-tr-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Estar' for location; 'estación de tren' = train station."
+          ]
+        }
+      ],
+      "itemHash": "202069f785407fe2"
+    },
+    {
+      "id": "es-tr-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; Latin America says 'boleto'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Billete' in Spain, 'boleto' in Latin America."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Cuánto cuesta este boleto?"
+          ]
+        }
+      ],
+      "itemHash": "b19fb81670e71f0e"
+    },
+    {
+      "id": "es-tr-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Generic hint; a train platform is usually 'andén' (Spain) or 'vía'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿De qué andén sale el tren?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿De qué vía sale el tren?",
+            "¿De qué plataforma sale el tren?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Andén' = platform; the question starts with 'de' because the train leaves from it."
+          ]
+        }
+      ],
+      "itemHash": "e55a9980e895f5f0"
+    },
+    {
+      "id": "es-tr-15",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'¿Es el autobús adecuado para el aeropuerto?' is a calque; the hint is about English word order.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Este es el autobús que va al aeropuerto?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Este autobús va al aeropuerto?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Ask whether this bus goes ('va') to the airport."
+          ]
+        }
+      ],
+      "itemHash": "e2123ddb4c477482"
+    },
+    {
+      "id": "es-tr-19",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'perdida'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Estoy perdida."
+          ]
+        }
+      ],
+      "itemHash": "138e6e1001b6bbf5"
+    },
+    {
+      "id": "es-tr-10",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'comprobar mi reserva' means 'verify my booking', not check in.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me gustaría registrarme; tengo una reserva.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me gustaría hacer el check-in de mi reserva."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Registrarse' or 'hacer el check-in' = to check in at a hotel."
+          ]
+        }
+      ],
+      "itemHash": "8ad53ce91e4d9320"
+    },
+    {
+      "id": "es-tr-23",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A 'transbordador' is a ferry or space shuttle, and shuttles don't 'correr'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cada cuánto pasa el autobús lanzadera del aeropuerto?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Con qué frecuencia pasa el autobús del aeropuerto?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Cada cuánto' = how often; a shuttle bus is an 'autobús lanzadera'."
+          ]
+        }
+      ],
+      "itemHash": "9416964400626a81"
+    },
+    {
+      "id": "es-tr-24",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'dos bolsas para entrar' means 'two bags to go in'; checking bags is 'facturar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tengo dos maletas para facturar.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Facturar' = to check in luggage."
+          ]
+        }
+      ],
+      "itemHash": "16e302c28fae0d47"
+    },
+    {
+      "id": "es-tr-25",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'¿Puedo tomar un asiento de ventana?' is a calque; you ask to be given a window seat ('ventanilla').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Me puede dar un asiento de ventanilla?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Puedo tener un asiento de ventanilla?",
+            "¿Me puede dar un asiento junto a la ventanilla?"
+          ]
+        }
+      ],
+      "itemHash": "2968d7ae6fa172ef"
+    },
+    {
+      "id": "es-tr-26",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'El tiempo de salida es de las once en punto' is a broken calque; 'hora' is needed and 'de' is wrong.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La hora de salida es a las once.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hay que dejar la habitación a las once."
+          ]
+        }
+      ],
+      "itemHash": "f7335651acb6b3ee"
+    },
+    {
+      "id": "es-tr-a2-50",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Me gustaría entrar' means 'I'd like to go in', not check in.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quisiera registrarme, por favor.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me gustaría registrarme, por favor.",
+            "Quisiera hacer el check-in, por favor."
+          ]
+        }
+      ],
+      "itemHash": "0e52405fbeae30c8"
+    },
+    {
+      "id": "es-tr-a2-51",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'¿Cuánto lleva el autobús?' asks how much the bus carries; travel time uses 'tardar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cuánto tarda el autobús?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Tardar' = to take (time)."
+          ]
+        }
+      ],
+      "itemHash": "9ca826643120d58e"
+    },
+    {
+      "id": "es-tr-a2-52",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Perdí mi tarjeta de ___ esta mañana.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "embarque",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Tarjeta de embarque' = boarding pass."
+          ]
+        }
+      ],
+      "itemHash": "b618fed35b0f55bd"
+    },
+    {
+      "id": "es-tr-27",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'recomendar' needs the indirect object: 'recomendarme'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me preguntaba si podría recomendarme un buen restaurante local.",
+          "list": null
+        }
+      ],
+      "itemHash": "91d43cf2db1d01fd"
+    },
+    {
+      "id": "es-tr-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ambas piernas del viaje' is a literal 'legs'; 'si reservar' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Hay descuento si reservo la ida y la vuelta juntas?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Hay algún descuento si reservo los dos trayectos juntos?"
+          ]
+        }
+      ],
+      "itemHash": "0b73138b4cdd551f"
+    },
+    {
+      "id": "es-tr-30",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'viajar luz' means 'travel light' as in illumination.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Prefiero viajar ligero de equipaje siempre que puedo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Prefiero viajar con poco equipaje siempre que sea posible."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Viajar ligero de equipaje' = to travel light."
+          ]
+        }
+      ],
+      "itemHash": "7156cba2e1e54e1c"
+    },
+    {
+      "id": "es-tr-32",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'reservar en una tarifa' and the passive 'fue cancelado' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tuve que cambiar mi reserva a una tarifa más cara después de que cancelaran mi vuelo original.",
+          "list": null
+        }
+      ],
+      "itemHash": "361a07eed2b3c68f"
+    },
+    {
+      "id": "es-tr-33",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Hotel staff are addressed with 'usted', not 'tú'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tengo un correo de confirmación: ¿podría volver a comprobarlo, por favor?",
+          "list": null
+        }
+      ],
+      "itemHash": "454a59748eee4ce3"
+    },
+    {
+      "id": "es-tr-b1-62",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Viajar solo me ayudó a ser más ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "independiente",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'able to manage on your own'."
+          ]
+        }
+      ],
+      "itemHash": "92378564c4374f95"
+    },
+    {
+      "id": "es-tr-8",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'Prefiero' drops the conditional 'would prefer'; 'aunque tarde' is more natural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Preferiría una ruta más tranquila, aunque tarde más.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Preferiría una ruta más tranquila, aunque se tarde más."
+          ]
+        }
+      ],
+      "itemHash": "f3b7494a5159608e"
+    },
+    {
+      "id": "es-tr-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'hacer mi conexión con minutos para ahorrar' is a literal translation that makes no sense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "A pesar de los retrasos, conseguí llegar a mi conexión con unos minutos de margen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Con unos minutos de margen' = with minutes to spare."
+          ]
+        }
+      ],
+      "itemHash": "a4c5207b6ada0327"
+    },
+    {
+      "id": "es-tr-35",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'esbozar' (to sketch) is odd here; 'explicar brevemente' is what you'd say.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Podría explicarme brevemente la política de cancelación y reembolso de esta tarifa?",
+          "list": null
+        }
+      ],
+      "itemHash": "31130ea32e417e68"
+    },
+    {
+      "id": "es-tr-36",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'cobrar un exceso de equipaje' omits 'cargo por', and 'disputar' is a calque of 'reclamar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me cobraron injustamente un cargo por exceso de equipaje y me gustaría reclamarlo.",
+          "list": null
+        }
+      ],
+      "itemHash": "d073d7cb4c8b6ad8"
+    },
+    {
+      "id": "es-tr-38",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Prefiero trenes sobre vuelos' is an anglicism and drops 'tend to'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Suelo preferir el tren al avión para viajes de menos de cinco horas.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Soler' = to tend to; 'preferir A a B'."
+          ]
+        }
+      ],
+      "itemHash": "7fcc95e7221b79d8"
+    },
+    {
+      "id": "es-tr-39",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'La entrega' (delivery) and 'limpiar las aduanas' (clean the customs) are nonsense translations.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La escala me da el tiempo justo para pasar la aduana y volver a facturar mi equipaje.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Escala' = layover; 'pasar la aduana' = clear customs; 'facturar' = check in luggage."
+          ]
+        }
+      ],
+      "itemHash": "187e41dd1fb8f895"
+    },
+    {
+      "id": "es-tr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cómo puede el turismo apoyar a las comunidades locales sin ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dañarlas",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Infinitive of 'dañar' (to harm) with the object pronoun attached."
+          ]
+        }
+      ],
+      "itemHash": "20f59929f470b59a"
+    },
+    {
+      "id": "es-tr-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'Planeé contingencias' is unnatural.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how you handled the risk of missing your connections.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Hice un plan B por si se retrasaban los vuelos.",
+          "list": null
+        }
+      ],
+      "itemHash": "78360d992cdba677"
+    }
+  ]
+}

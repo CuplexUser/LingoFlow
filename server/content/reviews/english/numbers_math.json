@@ -1,0 +1,227 @@
+{
+  "language": "english",
+  "category": "numbers_math",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:07:10.084Z",
+  "contentHash": "2f483d12e6284309",
+  "summary": "The source file is in good shape. The main issues are a few options that become indistinguishable once punctuation is ignored, British 'per cent' in a US-English course, an unnatural '20% off' sentence, and missing accepted alternatives ('a hundred', 'oh' for zero, 'about twenty').",
+  "findings": [
+    {
+      "id": "en-num-a1-18",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'five and five' is colloquially correct ('five and five is ten'), so it is not clearly wrong.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "five divided by five",
+            "five plus five",
+            "five times five",
+            "five minus five"
+          ]
+        }
+      ],
+      "itemHash": "a763147363d8ee93"
+    },
+    {
+      "id": "en-num-a2-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'a hundred' is equally common.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "a hundred",
+            "hundred"
+          ]
+        }
+      ],
+      "itemHash": "678276ad48836477"
+    },
+    {
+      "id": "en-num-a2-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'a thousand' is equally common.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "a thousand",
+            "thousand"
+          ]
+        }
+      ],
+      "itemHash": "0bcb18aa8613992f"
+    },
+    {
+      "id": "en-num-a2-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'a million' is equally common.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "a million",
+            "million"
+          ]
+        }
+      ],
+      "itemHash": "82d1909f78b3c785"
+    },
+    {
+      "id": "en-num-a2-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'twentyfive' differs from the answer only by the hyphen, which answer matching ignores, so picking it counts as correct.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "twenty-five",
+            "two five",
+            "fifty-two",
+            "twenty-fifth"
+          ]
+        }
+      ],
+      "itemHash": "975d90cd878e0f2b"
+    },
+    {
+      "id": "en-num-a2-15",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'thirty seven' differs from the answer only by punctuation, so it cannot be marked wrong.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "three-seven",
+            "thirty-seventh",
+            "thirty-seven",
+            "thirtseven"
+          ]
+        }
+      ],
+      "itemHash": "2045873a04779c4d"
+    },
+    {
+      "id": "en-num-a2-20",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint itself says 0 can be 'oh', but that reading isn't accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "five five five, oh one nine nine"
+          ]
+        }
+      ],
+      "itemHash": "d4151304017c602a"
+    },
+    {
+      "id": "en-num-b1-5",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The course uses US English, where the spelling is 'percent'; the hint also reveals the answer.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "percent",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "per cent"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "From Latin: 'out of a hundred'."
+          ]
+        }
+      ],
+      "itemHash": "be3ccd65bad31155"
+    },
+    {
+      "id": "en-num-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'There is twenty per cent off' is stiff; natives say 'It's twenty percent off'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "It's twenty percent off.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "There's twenty percent off.",
+            "Everything is twenty percent off.",
+            "It's twenty per cent off."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Number first, then 'percent off'."
+          ]
+        }
+      ],
+      "itemHash": "0cceb0bcbb4a211c"
+    },
+    {
+      "id": "en-num-b1-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'about', 'around' and 'approximately' work just as well.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "about twenty",
+            "around twenty",
+            "approximately twenty"
+          ]
+        }
+      ],
+      "itemHash": "980d86de7aff404c"
+    },
+    {
+      "id": "en-num-b1-20",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint gives away the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use a fraction word instead of 'point five'."
+          ]
+        }
+      ],
+      "itemHash": "ce12076964f7b203"
+    }
+  ]
+}

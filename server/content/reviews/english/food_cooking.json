@@ -1,0 +1,449 @@
+{
+  "language": "english",
+  "category": "food_cooking",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:10:30.179Z",
+  "contentHash": "b72aa7545c73c864",
+  "summary": "Food vocabulary is rich and accurate. The main content error is the 'substitute X for Y' hint, which teaches the meaning backwards. There are also many British restaurant terms (bill, chips, starter, speciality, cater for, on a low heat) in a US-English course, plus the recurring cloze/flashcard/dialogue_turn defects.",
+  "findings": [
+    {
+      "id": "en-fo-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'I'm hungry' is what natives say.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hungry' is an adjective, so use 'am', not 'have'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm hungry."
+          ]
+        }
+      ],
+      "itemHash": "d86197fc2c5e4ec2"
+    },
+    {
+      "id": "en-fo-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Can I have...' is the everyday way to order."
+          ]
+        }
+      ],
+      "itemHash": "7d6bfb2491180604"
+    },
+    {
+      "id": "en-fo-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'I'd like' is a polite way to order."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like a coffee with milk."
+          ]
+        }
+      ],
+      "itemHash": "962dab3095a0f0dc"
+    },
+    {
+      "id": "en-fo-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "'Starter' is British; US English says 'appetizer'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after the appetizer. Americans also call it an 'entrée'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "entrée",
+            "main dish"
+          ]
+        }
+      ],
+      "itemHash": "2c756478a820a639"
+    },
+    {
+      "id": "en-fo-17",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I don't' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I don't eat meat."
+          ]
+        }
+      ],
+      "itemHash": "c13fc6593f84803f"
+    },
+    {
+      "id": "en-fo-a1-39",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like a bowl of soup."
+          ]
+        }
+      ],
+      "itemHash": "b65a2497b497b6db"
+    },
+    {
+      "id": "en-fo-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Describe your routine: rice is what you make for dinner.",
+          "list": null
+        }
+      ],
+      "itemHash": "39bab3af609ab140"
+    },
+    {
+      "id": "en-fo-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'the bill' is British; Americans ask for 'the check'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Could we have the check, please?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Could we have the check, please?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Could we have the bill, please?",
+            "Could we get the check, please?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Americans say 'the check'; the British say 'the bill'."
+          ]
+        }
+      ],
+      "itemHash": "29cc88d1cf94b0ca"
+    },
+    {
+      "id": "en-fo-22",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'speciality' is British; US spelling is 'specialty'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I would like to try the local specialty.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "I would like to try the local specialty.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to try the local specialty.",
+            "I would like to try the local speciality."
+          ]
+        }
+      ],
+      "itemHash": "10414b0cb739f34c"
+    },
+    {
+      "id": "en-fo-26",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "The hint reverses the meaning: 'substitute X for Y' means use X instead of Y. 'Chips' is also British for fries.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Is it possible to substitute a salad for the fries?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Is it possible to substitute a salad for the fries?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Is it possible to substitute salad for the fries?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Substitute X for Y' means use X instead of Y."
+          ]
+        }
+      ],
+      "itemHash": "d01532cceb344c71"
+    },
+    {
+      "id": "en-fo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "We ___ at a small family restaurant.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ate",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Irregular past tense of 'eat'."
+          ]
+        }
+      ],
+      "itemHash": "5c764f6be7ab0081"
+    },
+    {
+      "id": "en-fo-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've recently started following a plant-based diet."
+          ]
+        }
+      ],
+      "itemHash": "cf495192fd91ad3b"
+    },
+    {
+      "id": "en-fo-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'cater for' is British; Americans say 'accommodate' or 'provide'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Would you be able to provide a gluten-free option?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Would you be able to provide a gluten-free option?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Would you be able to offer a gluten-free option?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Would you be able to' is very polite."
+          ]
+        }
+      ],
+      "itemHash": "76ac0bac44b1ac8c"
+    },
+    {
+      "id": "en-fo-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'on a low heat' is British; US recipes say 'over low heat'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Slow cooking over low heat develops the flavor much better.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Slow cooking over low heat develops the flavor much better.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Slow cooking on a low heat develops the flavor much better."
+          ]
+        }
+      ],
+      "itemHash": "b75c28b2ec70f002"
+    },
+    {
+      "id": "en-fo-33",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Uncontracted 'it is ... I have been' sounds stiff in casual conversation.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Yes, I baked it this morning — it's a sourdough recipe I've been perfecting.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Yes, I baked it this morning — it is a sourdough recipe I have been perfecting."
+          ]
+        }
+      ],
+      "itemHash": "6355956ba69cd172"
+    },
+    {
+      "id": "en-fo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I started meal-prepping to ___ time during the week.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "save",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The opposite of 'waste'."
+          ]
+        }
+      ],
+      "itemHash": "7bd7b8ebe03974b3"
+    },
+    {
+      "id": "en-fo-34",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "No hyphen after an -ly adverb ('locally grown'); the note uses British 'emphasising'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Sourcing seasonal, locally grown produce is both an ecological and a culinary choice.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sourcing seasonal, locally grown produce is both an ecological and a culinary choice.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "Farm-to-table dining has become a significant movement in many countries, emphasizing shorter supply chains and fresher ingredients.",
+          "list": null
+        }
+      ],
+      "itemHash": "e63567e179f40480"
+    },
+    {
+      "id": "en-fo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How can cities reduce food ___ across supply chains?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "waste",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Food that is thrown away instead of eaten."
+          ]
+        }
+      ],
+      "itemHash": "d956efd7dcab836d"
+    },
+    {
+      "id": "en-fo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks whether they should cut out carbs completely.",
+          "list": null
+        }
+      ],
+      "itemHash": "ba693b8178c37dc1"
+    }
+  ]
+}

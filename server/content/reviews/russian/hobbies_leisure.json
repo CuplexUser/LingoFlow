@@ -1,0 +1,85 @@
+{
+  "language": "russian",
+  "category": "hobbies_leisure",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:18:55.251Z",
+  "contentHash": "6b429121de26f207",
+  "summary": "Very good hobby vocabulary. One hint mislabels the verbal adverb 'читая' as a participle, and another repeats the idea that a sentence-initial time word is emphatic. A few B2 sentences are stiff ('умственно нагружает', 'тем лучше я становлюсь'), and 'системность' again stands in for 'consistency'.",
+  "findings": [
+    {
+      "id": "ru-ho-b1-s01",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "'читая' is a verbal adverb (деепричастие), not a present active participle; the hint teaches the wrong term.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use the verbal adverb (деепричастие) 'читая' = by reading, while reading."
+          ]
+        }
+      ],
+      "itemHash": "0cd86f9b3e064c31"
+    },
+    {
+      "id": "ru-ho-a2-s02",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "A sentence-initial time word is the neutral position in Russian, not an emphatic one.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Time words like 'вчера' usually open a neutral Russian sentence."
+          ]
+        }
+      ],
+      "itemHash": "fc150becbf6d20a6"
+    },
+    {
+      "id": "ru-ho-b2-s03",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'системность' means being systematic; 'consistency' here is 'регулярность'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "При освоении нового навыка регулярность важнее интенсивности.",
+          "list": null
+        }
+      ],
+      "itemHash": "f7b91fe9f0d6227d"
+    },
+    {
+      "id": "ru-ho-b2-s05",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Досуг, который умственно нагружает' is awkward; Russians would say 'требующий умственных усилий'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Досуг, который требует умственных усилий, приносит больше удовлетворения, чем пассивные развлечения.",
+          "list": null
+        }
+      ],
+      "itemHash": "85fa81885d902f79"
+    },
+    {
+      "id": "ru-ho-b2-c03",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'тем лучше я становлюсь' is awkward; the idiomatic form is 'тем лучше у меня получается'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cloze: Чем больше времени я уделяю рисованию, тем ____ у меня получается.",
+          "list": null
+        }
+      ],
+      "itemHash": "98bc80047e56c64e"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "language": "russian",
+  "category": "grammar",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:18:29.504Z",
+  "contentHash": "174d986c6db4b2bf",
+  "summary": "A strong grammar file with accurate aspect and case explanations. Two word-order items are flawed: in one, a 'wrong' option is perfectly natural Russian; the other claims that sentence-initial position gives emphasis, when in Russian it marks the neutral topic. 'Системность' is also a slightly off rendering of 'consistency'.",
+  "findings": [
+    {
+      "id": "ru-gr-b1-mc02",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'Я встретил вчера вечером старого друга' is also correct, natural Russian, so the item has two right answers.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Вчера вечером я встретил старого друга.",
+            "Вчера вечером старого я встретил друга.",
+            "Вчера друга я встретил старого вечером.",
+            "Я старого друга встретил вечером вчера."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Russian word order is flexible, but an adjective stays next to its noun: 'старого друга'."
+          ]
+        }
+      ],
+      "itemHash": "4814e4c793850928"
+    },
+    {
+      "id": "ru-gr-b2-mc01",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "In Russian the sentence-initial position marks the neutral topic, while new or emphasized information goes at the end; the hint teaches the opposite, and several options are natural Russian.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the most natural, neutral word order: Yesterday I met her at a café.",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Вчера я встретил её в кафе.",
+            "Её в кафе встретил вчера я.",
+            "В кафе её я вчера встретил.",
+            "Встретил в кафе вчера её я."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Time words usually open a neutral Russian sentence; the newest information goes at the end."
+          ]
+        }
+      ],
+      "itemHash": "f1d2ba23d193fbc5"
+    },
+    {
+      "id": "ru-gr-b2-s06",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'системность' means being systematic; 'consistency' in this sense is 'регулярность'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "При изучении языка регулярность важнее интенсивности.",
+          "list": null
+        }
+      ],
+      "itemHash": "01d03663f0344f62"
+    }
+  ]
+}

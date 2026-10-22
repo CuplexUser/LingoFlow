@@ -1,0 +1,645 @@
+{
+  "language": "french",
+  "category": "essentials",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:47:05.930Z",
+  "contentHash": "fdbf41987e948a65",
+  "summary": "Much better French than the German file; most sentences are natural. The main errors are five cloze items left as English sentences (two with wrong answers, 'est parti' and 'était'), flashcard infinitives wrapped in 'pour'/'de', a missing accent in 'À tout à l'heure', three cloze items without a blank, and two dialogue_turn items without a situation. Many items also lack feminine and tu/vous alternatives.",
+  "findings": [
+    {
+      "id": "fr-es-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; common alternatives aren't accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ça va ?' is casual; formal: 'Comment allez-vous ?'"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Salut, ça va ?",
+            "Bonjour, comment allez-vous ?",
+            "Bonjour, comment vas-tu ?"
+          ]
+        }
+      ],
+      "itemHash": "9a6313702ebaba5a"
+    },
+    {
+      "id": "fr-es-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; informal 'ton aide' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Votre' is formal, 'ton' informal."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Merci beaucoup pour ton aide.",
+            "Merci beaucoup de votre aide."
+          ]
+        }
+      ],
+      "itemHash": "81e4cea649846433"
+    },
+    {
+      "id": "fr-es-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Negation wraps the verb: ne ... pas."
+          ]
+        }
+      ],
+      "itemHash": "1dfc276edf984f0a"
+    },
+    {
+      "id": "fr-es-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Les toilettes' is always plural in French."
+          ]
+        }
+      ],
+      "itemHash": "a96f86cf7f7183b6"
+    },
+    {
+      "id": "fr-es-a1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Mon nom est' is understood but French speakers say 'Je m'appelle'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je m'appelle Anna.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mon nom est Anna."
+          ]
+        }
+      ],
+      "itemHash": "cba1894e36665b58"
+    },
+    {
+      "id": "fr-es-a1-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Je ___ d'Espagne.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "viens",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "suis"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Venir de' or 'être de' + place = to be from."
+          ]
+        }
+      ],
+      "itemHash": "5031eb25fe2f85f8"
+    },
+    {
+      "id": "fr-es-a1-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Capital 'À' keeps its accent; without it the answer reads 'a' (has).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Au revoir, à tout à l'heure !",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "À tout à l'heure !",
+            "Au revoir, à plus tard !",
+            "Salut, à plus !"
+          ]
+        }
+      ],
+      "itemHash": "da7f5d612b486170"
+    },
+    {
+      "id": "fr-es-a1-14",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday forms 'Enchanté(e)' and 'Ravie' should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Enchanté.",
+            "Enchantée.",
+            "Ravie de vous rencontrer."
+          ]
+        }
+      ],
+      "itemHash": "3de1455ed376b233"
+    },
+    {
+      "id": "fr-es-a1-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'désolée'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis désolée, je ne sais pas.",
+            "Désolé, je ne sais pas."
+          ]
+        }
+      ],
+      "itemHash": "7073b75552626055"
+    },
+    {
+      "id": "fr-es-a1-53",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'please' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pourriez-vous répéter, s'il vous plaît ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu peux répéter, s'il te plaît ?"
+          ]
+        }
+      ],
+      "itemHash": "364e9205e16d620d"
+    },
+    {
+      "id": "fr-es-a1-54",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English present continuous.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French has no continuous tense: 'j'apprends' covers both."
+          ]
+        }
+      ],
+      "itemHash": "cf582f6e173b1b29"
+    },
+    {
+      "id": "fr-es-a2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; 'est parti' is the wrong person and verb.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hier, je ___ à l'école.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "suis allé",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "suis allée"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aller' forms the passé composé with 'être'."
+          ]
+        }
+      ],
+      "itemHash": "506c69995053f2f4"
+    },
+    {
+      "id": "fr-es-a2-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'pour s'excuser' means 'in order to apologize'; the dictionary form is 's'excuser'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "s'excuser",
+          "list": null
+        }
+      ],
+      "itemHash": "6ceebf9d7ac7d5fc"
+    },
+    {
+      "id": "fr-es-a2-12",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Elle ___ anglais et français.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person singular of 'parler'."
+          ]
+        }
+      ],
+      "itemHash": "e1d816ad13945712"
+    },
+    {
+      "id": "fr-es-a2-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "D'habitude, je ___ les nouveaux mots le soir.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "révise",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Réviser' = to review/go over."
+          ]
+        }
+      ],
+      "itemHash": "fa69dd507e5ee179"
+    },
+    {
+      "id": "fr-es-b1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'walked' is lost, and 'bien que' + subjunctive is the textbook form.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Même s'il pleuvait, nous sommes allés au parc à pied.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Bien qu'il ait plu, nous sommes allés au parc à pied.",
+            "Même s'il pleuvait, nous sommes allés au parc."
+          ]
+        }
+      ],
+      "itemHash": "5664ccece7048ac3"
+    },
+    {
+      "id": "fr-es-b1-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; 'was' is the wrong answer.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'___ ici depuis trois ans.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "habite",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French uses the present + 'depuis' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "19aba22cf8dff110"
+    },
+    {
+      "id": "fr-es-b1-11",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hints describe English tenses.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'depuis' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "78e6021f9407935e"
+    },
+    {
+      "id": "fr-es-b1-12",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Dictionary forms take no 'de'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "se plaindre",
+          "list": null
+        }
+      ],
+      "itemHash": "d1c901075325d5b0"
+    },
+    {
+      "id": "fr-es-b1-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'pratiquer une expression' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je m'entraîne à utiliser cette expression depuis des semaines.",
+          "list": null
+        }
+      ],
+      "itemHash": "5711f88a82e081ae"
+    },
+    {
+      "id": "fr-es-b1-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'ai compris l'idée, mais j'ai ___ un détail.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "raté",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "manqué"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle meaning 'missed'."
+          ]
+        }
+      ],
+      "itemHash": "85ce8ef81e963eb9"
+    },
+    {
+      "id": "fr-es-b1-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; a female speaker says 'naturelle'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your tutor asks what you are working on at the moment.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'essaie de paraître plus naturelle dans les conversations."
+          ]
+        }
+      ],
+      "itemHash": "3897a9cb6b3524cb"
+    },
+    {
+      "id": "fr-es-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A general statement uses 'son ton', not 'votre'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Il est essentiel d'adapter son ton à la situation.",
+          "list": null
+        }
+      ],
+      "itemHash": "d9aeb0ea7e53f0c2"
+    },
+    {
+      "id": "fr-es-b2-4",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Plus tu pratiques, ___ tu prends confiance.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Plus ..., plus ...' = the more ..., the more ..."
+          ]
+        }
+      ],
+      "itemHash": "3cacd2b0208e71b8"
+    },
+    {
+      "id": "fr-es-b2-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'j'aurais parlé' loses 'spoken up'; the hint describes English inversion.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Si j'avais su la réponse, j'aurais pris la parole.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + plus-que-parfait, then conditionnel passé."
+          ]
+        }
+      ],
+      "itemHash": "60b9f18c495b8fca"
+    },
+    {
+      "id": "fr-es-b2-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'pour paraphraser' means 'in order to paraphrase'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "paraphraser",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "reformuler"
+          ]
+        }
+      ],
+      "itemHash": "a216eafbf538cf99"
+    },
+    {
+      "id": "fr-es-b2-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'un langage vraiment couramment parlé' is clumsy.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La nuance est ce qui distingue un langage correct d'une expression vraiment fluide.",
+          "list": null
+        }
+      ],
+      "itemHash": "3112aa362011abc8"
+    },
+    {
+      "id": "fr-es-b2-13",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'articulé' means pronouncing clearly, not articulate.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "S'exprimer avec aisance n'est pas la même chose qu'être verbeux.",
+          "list": null
+        }
+      ],
+      "itemHash": "08d1fa0c39eca6f0"
+    },
+    {
+      "id": "fr-es-b2-77",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Inferring 'from' context is 'à partir du contexte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La plupart du temps, je peux déduire le sens à partir du contexte.",
+          "list": null
+        }
+      ],
+      "itemHash": "53cf8877d4edac5b"
+    },
+    {
+      "id": "fr-es-b2-78",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Pourriez-vous préciser la ___ de cette expression ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "nuance",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A fine shade of meaning."
+          ]
+        }
+      ],
+      "itemHash": "4e63052297c8f9d8"
+    },
+    {
+      "id": "fr-es-b2-79",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'des erreurs occasionnelles' is stiff and 'still' is lost.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. An interviewer asks how confident you feel speaking French.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "J'ai confiance en moi, même si je fais encore des erreurs de temps en temps.",
+          "list": null
+        }
+      ],
+      "itemHash": "009389845a0185e1"
+    }
+  ]
+}

@@ -173,7 +173,6 @@ function registerUserRoutes(app: any, deps: any): void {
   app.put("/api/settings", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;
     const {
-      nativeLanguage,
       targetLanguage,
       dailyGoal,
       dailyMinutes,
@@ -188,7 +187,6 @@ function registerUserRoutes(app: any, deps: any): void {
 
     const devUnlockAll = process.env.NODE_ENV !== "production" && Boolean(unlockAllLessons);
     const row = await database.saveSettings(userId, {
-      nativeLanguage: nativeLanguage || "english",
       targetLanguage: targetLanguage || "spanish",
       dailyGoal: Number.isInteger(dailyGoal) ? dailyGoal : 30,
       dailyMinutes: Number.isInteger(dailyMinutes) ? Math.max(5, Math.min(240, dailyMinutes)) : 20,

@@ -1,0 +1,1129 @@
+{
+  "language": "spanish",
+  "category": "grammar",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:22:08.317Z",
+  "contentHash": "7a9aada794fa2459",
+  "summary": "This file is the English grammar course machine-translated: prompts are English fill-in-the-blank sentences with English grammar hints (do-support, a/an, -s endings, inversion), and the cloze items have whole Spanish sentences as answers. Each item has been rewritten as a Spanish exercise with Spanish grammar hints. Several B2 answers are also wrong ('No había llegado antes de que...', 'Si fuera a solicitar', 'más fluidez te vuelves', '...cuando nos enfrentamos a una frase').",
+  "findings": [
+    {
+      "id": "es-gr-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Prompt is an English fill-in with an English grammar hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is a teacher.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ser' for professions, with no article: es maestra."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ella es maestra.",
+            "Es profesora.",
+            "Ella es profesora."
+          ]
+        }
+      ],
+      "itemHash": "5d34b7709fc8ed15"
+    },
+    {
+      "id": "es-gr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ser' for identity: son = they are."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ellos son mis amigos.",
+            "Son mis amigas."
+          ]
+        }
+      ],
+      "itemHash": "92c0346d2ae9c7a5"
+    },
+    {
+      "id": "es-gr-3",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with an English hint about 'do not'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I don't like coffee.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Put 'no' before 'me gusta'."
+          ]
+        }
+      ],
+      "itemHash": "78e11ce5328685e3"
+    },
+    {
+      "id": "es-gr-13",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We are students.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Somos' = we are (ser)."
+          ]
+        }
+      ],
+      "itemHash": "e100c1c718bed16e"
+    },
+    {
+      "id": "es-gr-14",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is an English sentence, the answer is a whole sentence, and the hint is about English -s.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Él ___ inglés todos los días. (estudiar)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "estudia",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Third person singular of -ar verbs ends in -a."
+          ]
+        }
+      ],
+      "itemHash": "30fc1c554fcf5785"
+    },
+    {
+      "id": "es-gr-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English 'there is/are'; Spanish uses 'hay' for both.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hay' = there is / there are — the same form for singular and plural."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hay un libro en la mesa."
+          ]
+        }
+      ],
+      "itemHash": "b29420ea21615ba0"
+    },
+    {
+      "id": "es-gr-16",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about do-support.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you like tea?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish has no auxiliary 'do': use 'gustar' with the thing liked as the subject."
+          ]
+        }
+      ],
+      "itemHash": "12f837a744ca0ad8"
+    },
+    {
+      "id": "es-gr-17",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze tests English a/an and the answer is a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ella tiene ___ paraguas.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "un",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Paraguas' is masculine and singular despite the -s."
+          ]
+        }
+      ],
+      "itemHash": "557f54c0d065d5a2"
+    },
+    {
+      "id": "es-gr-18",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Estar' for temporary states; 'no' before the verb. Female speaker: cansada."
+          ]
+        }
+      ],
+      "itemHash": "441ee3595a07affa"
+    },
+    {
+      "id": "es-gr-19",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The cats are sleeping.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Estar' + gerund for an action in progress."
+          ]
+        }
+      ],
+      "itemHash": "285265995c8c7909"
+    },
+    {
+      "id": "es-gr-a1-39",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English -s.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ir' is irregular: va = he/she goes."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ella va a la escuela todos los días.",
+            "Va al colegio todos los días."
+          ]
+        }
+      ],
+      "itemHash": "5470a0e74dca5871"
+    },
+    {
+      "id": "es-gr-a1-40",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English 'are'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Feliz' becomes 'felices' in the plural (z → c)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Están felices.",
+            "Están contentos."
+          ]
+        }
+      ],
+      "itemHash": "e4610e19fac0cd49"
+    },
+    {
+      "id": "es-gr-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English 'went'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Fui' is the irregular preterite of 'ir'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ayer fui al supermercado."
+          ]
+        }
+      ],
+      "itemHash": "13499607a138f8bc"
+    },
+    {
+      "id": "es-gr-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about has/have; Spanish naturally uses 'llevar' for this.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She has been waiting for an hour.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Lleva una hora esperando.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ha estado esperando una hora.",
+            "Hace una hora que espera."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Llevar' + time + gerund for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "c5d897d2cd02ac03"
+    },
+    {
+      "id": "es-gr-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English 'will'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + present, then the future in the main clause."
+          ]
+        }
+      ],
+      "itemHash": "708b00a2faa35bdc"
+    },
+    {
+      "id": "es-gr-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "El sábado pasado ___ al cine. (ir)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fui",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Irregular preterite of 'ir', 'yo' form."
+          ]
+        }
+      ],
+      "itemHash": "9fa0254decb55215"
+    },
+    {
+      "id": "es-gr-21",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about was/were.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: He was working at seven this morning.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Estaba trabajando a las siete de la mañana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Trabajaba a las siete de la mañana."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Imperfect of 'estar' + gerund for an action in progress in the past."
+          ]
+        }
+      ],
+      "itemHash": "41e20f860f60a7f8"
+    },
+    {
+      "id": "es-gr-22",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "For ongoing duration Spanish prefers 'llevar' or 'desde hace'; the hint describes English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevamos cinco años viviendo aquí.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vivimos aquí desde hace cinco años.",
+            "Hemos vivido aquí durante cinco años."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Llevar' + time + gerund, or present + 'desde hace'."
+          ]
+        }
+      ],
+      "itemHash": "1910952024fb1b80"
+    },
+    {
+      "id": "es-gr-23",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Este libro es ___ interesante que el otro.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "más",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Más ... que' = more ... than."
+          ]
+        }
+      ],
+      "itemHash": "7983d2e6a23704d4"
+    },
+    {
+      "id": "es-gr-24",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about have/has.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Have you been to Paris?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present perfect: haber + participle ('estado')."
+          ]
+        }
+      ],
+      "itemHash": "be5c394c1334ac95"
+    },
+    {
+      "id": "es-gr-25",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The plain imperfect also expresses 'used to'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tocaba el piano cuando era joven."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Imperfect of 'soler' + infinitive, or just the imperfect."
+          ]
+        }
+      ],
+      "itemHash": "5b25cddfd21b1ba7"
+    },
+    {
+      "id": "es-gr-26",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: You should drink more water.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Conditional of 'deber' + infinitive for advice."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Deberías tomar más agua.",
+            "Debería beber más agua."
+          ]
+        }
+      ],
+      "itemHash": "7042e5bb82f32dee"
+    },
+    {
+      "id": "es-gr-a2-49",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "For ongoing duration Spanish prefers 'llevar' or 'desde hace'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevo dos años viviendo aquí.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vivo aquí desde hace dos años.",
+            "He vivido aquí durante dos años."
+          ]
+        }
+      ],
+      "itemHash": "a0999a39d820f209"
+    },
+    {
+      "id": "es-gr-a2-51",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks about English much/many and has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Tengo ___ amigos en Madrid. (mucho)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "muchos",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mucho' agrees in gender and number with the noun."
+          ]
+        }
+      ],
+      "itemHash": "f791a99ebb44ded2"
+    },
+    {
+      "id": "es-gr-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English second conditional.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + imperfect subjunctive, then the conditional."
+          ]
+        }
+      ],
+      "itemHash": "ec2059f0de468fb9"
+    },
+    {
+      "id": "es-gr-8",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about 'will have'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: By the time she arrives, we will have finished dinner.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Para cuando' + present subjunctive; future perfect in the main clause."
+          ]
+        }
+      ],
+      "itemHash": "444d15e1c9beb14b"
+    },
+    {
+      "id": "es-gr-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English -ing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'A pesar de' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "b28c8e5836a70f57"
+    },
+    {
+      "id": "es-gr-27",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "El informe ___ escrito por el equipo la semana pasada.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fue",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passive: ser + participle, here in the preterite."
+          ]
+        }
+      ],
+      "itemHash": "b5953afa422ddb4d"
+    },
+    {
+      "id": "es-gr-28",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English tense shift.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pluperfect 'había enviado' in reported speech."
+          ]
+        }
+      ],
+      "itemHash": "e5f5c8a65f4431d1"
+    },
+    {
+      "id": "es-gr-29",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about had/have.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I wish I had more time to practice.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Me gustaría tener más tiempo para practicar.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ojalá tuviera más tiempo para practicar.",
+            "Desearía tener más tiempo para practicar."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Me gustaría' + infinitive, or 'ojalá' + imperfect subjunctive."
+          ]
+        }
+      ],
+      "itemHash": "41eb2b1360d8d747"
+    },
+    {
+      "id": "es-gr-30",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Current RAE spelling is 'solo' without an accent; the hint about inversion is English-only.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "No solo ganó la carrera, sino que también batió el récord.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "No solo ganó la carrera, sino que también rompió el récord."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'No solo... sino que también...'. A record is 'batido'."
+          ]
+        }
+      ],
+      "itemHash": "e61fdb48c25e575e"
+    },
+    {
+      "id": "es-gr-31",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in, and 'despertar' needs the reflexive here.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is used to waking up early.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Está acostumbrada a levantarse temprano.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Está acostumbrada a despertarse temprano."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Acostumbrado/a a' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "fb1a978e9fb91d19"
+    },
+    {
+      "id": "es-gr-33",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze tests English who/which and the answer is a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "La persona ___ llamó no dejó ningún mensaje.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "que",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Que' is the relative pronoun for both people and things."
+          ]
+        }
+      ],
+      "itemHash": "c5453c1159ce9b2d"
+    },
+    {
+      "id": "es-gr-b1-60",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'que envió' means 'that he/she sent'; 'you' is 'enviaste' or formal 'envió usted'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El informe que enviaste fue muy útil.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "El informe que me enviaste fue muy útil."
+          ]
+        }
+      ],
+      "itemHash": "eebe43661340e848"
+    },
+    {
+      "id": "es-gr-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cuándo debería usar la voz ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "pasiva",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The opposite of the active voice."
+          ]
+        }
+      ],
+      "itemHash": "c3cee814b90f2a6f"
+    },
+    {
+      "id": "es-gr-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The hint is about English inversion; 'sobre el retraso' and 'un tren anterior' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Si hubiera sabido lo del retraso, habría tomado un tren más temprano.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "De haber sabido lo del retraso, habría cogido un tren más temprano."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish has no inversion: 'Si hubiera sabido' or 'De haber sabido'."
+          ]
+        }
+      ],
+      "itemHash": "a036c5f90df19d81"
+    },
+    {
+      "id": "es-gr-11",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about inversion.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Rarely have I seen such attention to detail.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Pocas veces he visto tanta atención al detalle.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Raramente he visto tanta atención al detalle.",
+            "Rara vez he visto tanta atención al detalle."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Pocas veces' or 'rara vez' = rarely; no inversion in Spanish."
+          ]
+        }
+      ],
+      "itemHash": "8876058487479cb1"
+    },
+    {
+      "id": "es-gr-34",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'No había llegado antes de que empezara la reunión' means she had NOT arrived before the meeting began.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: No sooner had she arrived than the meeting began.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "En cuanto llegó, empezó la reunión.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nada más llegar ella, empezó la reunión.",
+            "Apenas llegó, empezó la reunión."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'En cuanto' or 'apenas' = as soon as."
+          ]
+        }
+      ],
+      "itemHash": "d3cd80ea16e14b0b"
+    },
+    {
+      "id": "es-gr-35",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'Es hora de abordar' drops the urgency of 'high time'; Spanish uses 'ya es hora de que' + subjunctive.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ya es hora de que abordemos los problemas estructurales de fondo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Es hora de abordar las cuestiones estructurales subyacentes."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ya es hora de que' + present subjunctive expresses urgency."
+          ]
+        }
+      ],
+      "itemHash": "52abb8ac55e9b01d"
+    },
+    {
+      "id": "es-gr-36",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Los datos deben ___ antes de sacar conclusiones.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "analizarse",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passive 'se' attached to the infinitive."
+          ]
+        }
+      ],
+      "itemHash": "346b47cf078de8f6"
+    },
+    {
+      "id": "es-gr-37",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Si fuera a solicitar' means 'if she were going to apply for (something)'; 'posición' is a calque of 'position'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Si se presentara, sería una candidata sólida para el puesto.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + imperfect subjunctive; 'presentarse' = to apply (for a job)."
+          ]
+        }
+      ],
+      "itemHash": "6a9fd630bcac9798"
+    },
+    {
+      "id": "es-gr-38",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'más fluidez te vuelves' is ungrammatical; the prompt is an English fill-in.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The more you practice, the more fluent you become.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Cuanto más practicas, más fluidez ganas.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cuanto más practicas, con más fluidez hablas."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Cuanto más ..., más ...' for proportional change."
+          ]
+        }
+      ],
+      "itemHash": "a0bca4543b0f0464"
+    },
+    {
+      "id": "es-gr-b2-69",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'habría preparado' needs an object or the reflexive 'me'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Si lo hubiera sabido antes, me habría preparado de otra manera.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pluperfect subjunctive + conditional perfect; 'prepararse' is reflexive."
+          ]
+        }
+      ],
+      "itemHash": "e198215856949643"
+    },
+    {
+      "id": "es-gr-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'proyecto' doesn't mean draft.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "No solo terminó a tiempo, ___ que también mejoró el borrador.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sino",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'No solo... ___ que también...'."
+          ]
+        }
+      ],
+      "itemHash": "a8d499bb692e7ceb"
+    },
+    {
+      "id": "es-gr-b2-71",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'nos enfrentamos a una frase' means 'we confront a phrase'; the dialogue_turn also lacks a situation.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your teacher moves a phrase to the start of your sentence and asks if you notice a difference.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sí. ¿Cómo cambia el énfasis cuando ponemos una frase al principio?",
+          "list": null
+        }
+      ],
+      "itemHash": "a21307c903cb53dc"
+    }
+  ]
+}

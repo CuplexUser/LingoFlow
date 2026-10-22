@@ -1,0 +1,229 @@
+{
+  "language": "russian",
+  "category": "family_friends",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:17:33.602Z",
+  "contentHash": "ab55fd53eae1edcc",
+  "summary": "Warm, idiomatic family vocabulary with strong hints. One answer has a case-agreement error ('связь ... одной из самых сложных ... отношений'), and 'Я здесь для тебя' is an anglicism. Smaller issues: ё omitted, missing commas, a hint that reveals its answer, and generic hints.",
+  "findings": [
+    {
+      "id": "ru-fa-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Двоюродный брат' = cousin (literally 'second-born brother'). 'А' contrasts the two."
+          ]
+        }
+      ],
+      "itemHash": "2f83ec8dc41a7de7"
+    },
+    {
+      "id": "ru-fa-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Друзья' is the irregular plural of 'друг'; adjectives take plural endings."
+          ]
+        }
+      ],
+      "itemHash": "ac5de1467a3a229e"
+    },
+    {
+      "id": "ru-fa-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Generic hint; 'живет' should be written with ё like the rest of the course.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Моя сестра живёт рядом с моими родителями.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Рядом с' + instrumental = near, next to."
+          ]
+        }
+      ],
+      "itemHash": "0ca3aff8bada948a"
+    },
+    {
+      "id": "ru-ff-a1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'учительница' is the everyday word for a female teacher.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Моя мама — учительница."
+          ]
+        }
+      ],
+      "itemHash": "a0879435eb830eaf"
+    },
+    {
+      "id": "ru-ff-a1-10",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "No verb 'to be' in the Russian present tense. 'Семья' is feminine, so the adjective agrees."
+          ]
+        }
+      ],
+      "itemHash": "063cbccfa6001c17"
+    },
+    {
+      "id": "ru-ff-a2-5",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "A comma is needed before 'и' joining two clauses with different subjects.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Мой старший брат женат, и у него двое детей.",
+          "list": null
+        }
+      ],
+      "itemHash": "3980d43479f17fe4"
+    },
+    {
+      "id": "ru-fa-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'выросла'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я выросла с бабушкой и дедушкой в маленьком городе."
+          ]
+        }
+      ],
+      "itemHash": "7f0d1e1b2d3624eb"
+    },
+    {
+      "id": "ru-fa-11",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'остаемся', 'живем' should be written with ё.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Мы остаёмся близки, хотя живём в разных городах.",
+          "list": null
+        }
+      ],
+      "itemHash": "bf582481421bf019"
+    },
+    {
+      "id": "ru-ff-b1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The generic-you masculine participle is unusual; the impersonal 'когда много работы' is more natural.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Трудно поддерживать дружбу, когда много работы.",
+            "Трудно поддерживать дружбу, когда ты загружен работой."
+          ]
+        }
+      ],
+      "itemHash": "a98e89ebb9b24f51"
+    },
+    {
+      "id": "ru-ff-b1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The addressee may be female ('переехала').",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Как отреагировали твои родители, когда ты переехала за границу?"
+          ]
+        }
+      ],
+      "itemHash": "7d1303280264c6bf"
+    },
+    {
+      "id": "ru-ff-b1-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Я здесь для тебя' is a calque of 'I'm here for you'; Russians say 'Я рядом'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я рядом. Поговори со мной, если хочешь.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Я рядом' (literally 'I'm nearby') = I'm here for you. A warm, supportive phrase."
+          ]
+        }
+      ],
+      "itemHash": "f95ab6c4fb06cb63"
+    },
+    {
+      "id": "ru-fa-a2-1",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "With a mixed pair, the possessive is plural ('Мои тётя и дядя'), as the course itself teaches in ru-fa-a2-4.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Мои тётя и дядя живут в другом городе.",
+          "list": null
+        }
+      ],
+      "itemHash": "3096d7477d64c18c"
+    },
+    {
+      "id": "ru-fa-b2-1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Связь ... может быть одной из самых сложных человеческих отношений' mixes a feminine singular head with a neuter plural noun; it is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Отношения между братьями и сёстрами могут быть одними из самых сложных в жизни человека.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Одними из самых' + genitive plural = among the most. 'Отношения' is plural."
+          ]
+        }
+      ],
+      "itemHash": "8b2cbde6df5e8bd3"
+    }
+  ]
+}

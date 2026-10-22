@@ -1,0 +1,388 @@
+{
+  "language": "french",
+  "category": "food_cooking",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:52:27.647Z",
+  "contentHash": "1769495c067c6b77",
+  "summary": "Generally good food French with a few classic traps. Errors: 'la facture' instead of 'l'addition' for a restaurant bill, 'cours principal' instead of 'plat principal', 'chips' (crisps) for British chips, 'recette amère' (bitter) for sourdough, 'répondre à une option', and the umami tastes named with 'doux/aigre'. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "fr-fo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French 'has hunger': avoir faim."
+          ]
+        }
+      ],
+      "itemHash": "6ef7f867145ba1bd"
+    },
+    {
+      "id": "fr-fo-2",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "Generic hint; 'please' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je peux avoir un verre d'eau, s'il vous plaît ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pourrais-je avoir un verre d'eau, s'il vous plaît ?",
+            "Un verre d'eau, s'il vous plaît."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Je peux avoir...?' is a common, polite way to order."
+          ]
+        }
+      ],
+      "itemHash": "10d9d08ff030d791"
+    },
+    {
+      "id": "fr-fo-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; café names should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Je voudrais' is the polite form of 'vouloir'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je voudrais un café au lait.",
+            "Je voudrais un café crème."
+          ]
+        }
+      ],
+      "itemHash": "bcf3e8084101506c"
+    },
+    {
+      "id": "fr-fo-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'cours principal' is a calque of 'main course'; French says 'plat principal'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "le plat principal",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "plat principal"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after the starter ('l'entrée')."
+          ]
+        }
+      ],
+      "itemHash": "467bc7e1da7e2260"
+    },
+    {
+      "id": "fr-fo-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "In a restaurant you ask for 'la carte'; 'le menu' is often a set menu.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "On peut voir la carte ?",
+            "Pourrions-nous voir la carte ?"
+          ]
+        }
+      ],
+      "itemHash": "0c0d463629cd8ea7"
+    },
+    {
+      "id": "fr-fo-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "A restaurant bill is 'l'addition'; 'la facture' is an invoice.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "On peut avoir l'addition, s'il vous plaît ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "L'addition, s'il vous plaît.",
+            "Pourrions-nous avoir l'addition, s'il vous plaît ?"
+          ]
+        }
+      ],
+      "itemHash": "cffe09d1856ff29c"
+    },
+    {
+      "id": "fr-fo-22",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The prompt uses British 'speciality'; tasting food is 'goûter'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I would like to try the local specialty.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je voudrais goûter la spécialité locale."
+          ]
+        }
+      ],
+      "itemHash": "fbeeee9fe779f80b"
+    },
+    {
+      "id": "fr-fo-26",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "French 'chips' are crisps; British chips are 'frites'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Est-il possible de remplacer les frites par de la salade ?",
+          "list": null
+        }
+      ],
+      "itemHash": "2c2c550a047bd445"
+    },
+    {
+      "id": "fr-fo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Nous avons mangé dans un petit restaurant ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "familial",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'family-run'."
+          ]
+        }
+      ],
+      "itemHash": "f475afd4d958e514"
+    },
+    {
+      "id": "fr-fo-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'régime à base de plantes' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai récemment commencé à avoir une alimentation végétale.",
+          "list": null
+        }
+      ],
+      "itemHash": "1ff673964ac2d360"
+    },
+    {
+      "id": "fr-fo-29",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'répondre à une option' means 'to answer an option'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pourriez-vous proposer une option sans gluten ?",
+          "list": null
+        }
+      ],
+      "itemHash": "ed24feab3cf1b71e"
+    },
+    {
+      "id": "fr-fo-30",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The hint uses British 'flavour'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'À feu doux' = on low heat."
+          ]
+        }
+      ],
+      "itemHash": "009de06addae72ae"
+    },
+    {
+      "id": "fr-fo-32",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'fait une différence importante' is a calque; French says 'fait toute la différence'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je trouve que faire mariner la viande toute la nuit fait toute la différence.",
+          "list": null
+        }
+      ],
+      "itemHash": "ad59ef976763822c"
+    },
+    {
+      "id": "fr-fo-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'recette amère' means bitter recipe; sourdough is 'au levain'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Oui, je l'ai fait ce matin — c'est une recette au levain que j'ai peaufinée.",
+          "list": null
+        }
+      ],
+      "itemHash": "1ee778d300e43ad1"
+    },
+    {
+      "id": "fr-fo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'ai commencé à préparer mes repas à l'avance pour ___ du temps pendant la semaine.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "gagner",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French 'wins' time where English saves it."
+          ]
+        }
+      ],
+      "itemHash": "b1940797679e5b19"
+    },
+    {
+      "id": "fr-fo-34",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The note uses British 'emphasising'.",
+      "fix": [
+        {
+          "field": "culturalNote",
+          "text": "Farm-to-table dining has become a significant movement in many countries, emphasizing shorter supply chains and fresher ingredients.",
+          "list": null
+        }
+      ],
+      "itemHash": "529cafe6820f0a7a"
+    },
+    {
+      "id": "fr-fo-36",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The tastes are 'le sucré, l'acide, le salé, l'amer'; 'doux' means mild and 'aigre' sour-spoiled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "L'umami est souvent décrit comme la cinquième saveur, aux côtés du sucré, de l'acide, du salé et de l'amer.",
+          "list": null
+        }
+      ],
+      "itemHash": "4fe552a0fee2c8a6"
+    },
+    {
+      "id": "fr-fo-38",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'sous la chaleur' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La réaction de Maillard — le brunissement des protéines sous l'effet de la chaleur — est essentielle pour développer la profondeur des saveurs.",
+          "list": null
+        }
+      ],
+      "itemHash": "db368bcfa2d465c5"
+    },
+    {
+      "id": "fr-fo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Comment les villes peuvent-elles réduire le ___ alimentaire dans les chaînes d'approvisionnement ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "gaspillage",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'waste'."
+          ]
+        }
+      ],
+      "itemHash": "d535e27c23723225"
+    },
+    {
+      "id": "fr-fo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks whether they should cut out carbs completely.",
+          "list": null
+        }
+      ],
+      "itemHash": "7f2a87b170147528"
+    }
+  ]
+}

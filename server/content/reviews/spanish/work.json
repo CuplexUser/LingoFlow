@@ -1,0 +1,446 @@
+{
+  "language": "spanish",
+  "category": "work",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:17:09.666Z",
+  "contentHash": "0ce9b62a7ddc2fae",
+  "summary": "Mixed quality. Business vocabulary is generally good, but there are several false friends and calques ('promoción' for promotion, 'por adelantado' for ahead of schedule, 'soy libre', 'señal final', 'programa de reuniones', 'manager' as the Spanish answer). Three cloze items lack a blank and two dialogue_turn items lack a situation.",
+  "findings": [
+    {
+      "id": "es-wo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish drops the subject pronoun: 'Trabajo' already means 'I work'."
+          ]
+        }
+      ],
+      "itemHash": "7ca66413f792a463"
+    },
+    {
+      "id": "es-wo-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Turno' = shift; 'émpieza' or 'comienza' = starts."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi turno empieza a las nueve."
+          ]
+        }
+      ],
+      "itemHash": "70161f4ce495e11c"
+    },
+    {
+      "id": "es-wo-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; a female speaker says 'la nueva empleada'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ser' for identity; the adjective 'nuevo' can go before the noun."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Soy la nueva empleada."
+          ]
+        }
+      ],
+      "itemHash": "e2fb696300d9caec"
+    },
+    {
+      "id": "es-wo-16",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'útil' describes things, not helpful people.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mi jefe me ayuda mucho.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi gerente me ayuda mucho.",
+            "Mi jefa me ayuda mucho.",
+            "Mi jefe es muy servicial."
+          ]
+        }
+      ],
+      "itemHash": "192878e7e54c7fa1"
+    },
+    {
+      "id": "es-wo-a1-42",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'sala de entrenamiento' suggests a gym; a training room is 'sala de formación' or 'de capacitación'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Dónde está la sala de formación?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Dónde está la sala de capacitación?"
+          ]
+        }
+      ],
+      "itemHash": "cbc08f43ed82fda3"
+    },
+    {
+      "id": "es-wo-a1-48",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer is the English word 'manager'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "jefe",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "jefa",
+            "gerente",
+            "el jefe"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Feminine: jefa. 'Gerente' is used for a manager in charge of a business or department."
+          ]
+        }
+      ],
+      "itemHash": "093b51c0a2f371ce"
+    },
+    {
+      "id": "es-wo-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'reprogramar hasta el jueves' is wrong; moving to a day takes 'para' or 'al'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Podemos pasar la reunión al jueves?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Podemos reprogramar la reunión para el jueves?",
+            "¿Podemos cambiar la reunión al jueves?"
+          ]
+        }
+      ],
+      "itemHash": "3ef3625b479f257f"
+    },
+    {
+      "id": "es-wo-21",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'licencia anual' is regional; Spain simply says 'vacaciones'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me gustaría tomar dos semanas de vacaciones en agosto.",
+            "Me gustaría coger dos semanas de vacaciones en agosto."
+          ]
+        }
+      ],
+      "itemHash": "80ffe489a9e18b38"
+    },
+    {
+      "id": "es-wo-24",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Availability uses 'estar': 'Soy libre' means 'I am a free person'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Estoy libre por la mañana, pero tengo una llamada por la tarde.",
+          "list": null
+        }
+      ],
+      "itemHash": "15fc23cc8d6899b8"
+    },
+    {
+      "id": "es-wo-a2-53",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Soy ___ de las actualizaciones semanales.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "responsable",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ser ___ de' = to be in charge of."
+          ]
+        }
+      ],
+      "itemHash": "1b3f47ef6aeece06"
+    },
+    {
+      "id": "es-wo-a2-54",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'por adelantado' means 'in advance' (e.g. paying); ahead of schedule is 'antes de lo previsto'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Terminamos la tarea antes de lo previsto.",
+          "list": null
+        }
+      ],
+      "itemHash": "40ec96d50ceceef5"
+    },
+    {
+      "id": "es-wo-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'conferencia' and 'conflicto de programación' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "No pude asistir a la llamada por un conflicto de horario.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "No pude asistir a la videoconferencia por un problema de agenda."
+          ]
+        }
+      ],
+      "itemHash": "5561ea6055053df3"
+    },
+    {
+      "id": "es-wo-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The idiomatic 'llevar + time + gerund' should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Llevo tres meses trabajando en este proyecto."
+          ]
+        }
+      ],
+      "itemHash": "59abdf1448cf8113"
+    },
+    {
+      "id": "es-wo-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'una actualización sobre dónde están las cosas' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Podría ponerme al día sobre cómo van las cosas con el cliente?",
+          "list": null
+        }
+      ],
+      "itemHash": "120bd8d62c8ecbf8"
+    },
+    {
+      "id": "es-wo-42",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'promoción' is a false friend; a job promotion is 'ascenso'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me han dado más responsabilidades desde mi ascenso.",
+          "list": null
+        }
+      ],
+      "itemHash": "8e8c05c1ff684214"
+    },
+    {
+      "id": "es-wo-b1-62",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'un programa de reuniones más corto' means a shorter schedule of meetings, not a shorter agenda.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quisiera proponer un orden del día más breve para la reunión.",
+          "list": null
+        }
+      ],
+      "itemHash": "e6022d24c85bfabd"
+    },
+    {
+      "id": "es-wo-b1-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'pasar ... hasta' is also wrong.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Podemos ___ este plazo al próximo miércoles?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "aplazar",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'postpone'."
+          ]
+        }
+      ],
+      "itemHash": "76a7fc9eb16b96ca"
+    },
+    {
+      "id": "es-wo-b1-64",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'antes de que pueda' should be 'antes de poder' with the same subject.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A colleague asks you to approve a plan you have barely seen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Necesito más contexto antes de poder aprobar este plan.",
+          "list": null
+        }
+      ],
+      "itemHash": "cff341f52e088bf5"
+    },
+    {
+      "id": "es-wo-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Siguiendo mi correo' is a calque of 'following up on'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "En relación con mi correo anterior, quería aclarar los entregables.",
+          "list": null
+        }
+      ],
+      "itemHash": "e4c3b92225780d2b"
+    },
+    {
+      "id": "es-wo-31",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'alinearnos con las prioridades' means conforming to priorities, not agreeing on them.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Debemos ponernos de acuerdo sobre las prioridades antes de comprometer recursos en esta iniciativa.",
+          "list": null
+        }
+      ],
+      "itemHash": "e5caeb728536cec4"
+    },
+    {
+      "id": "es-wo-34",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Le recomiendo que piloteemos' mixes persons and 'pilotear' is uncommon.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Recomiendo que hagamos una prueba piloto con un grupo reducido antes de escalar.",
+          "list": null
+        }
+      ],
+      "itemHash": "c4b4aef381dea1cb"
+    },
+    {
+      "id": "es-wo-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'señal final' is not Spanish for sign-off.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sugiero que documentemos los riesgos antes del ___ final.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "visto bueno",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A fixed phrase for approval, literally 'seen good'."
+          ]
+        }
+      ],
+      "itemHash": "e4a365ddfd65d53c"
+    },
+    {
+      "id": "es-wo-b2-73",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your manager warns that the rollout may slip.",
+          "list": null
+        }
+      ],
+      "itemHash": "15b796e60e7db793"
+    }
+  ]
+}

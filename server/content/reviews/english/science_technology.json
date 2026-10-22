@@ -1,0 +1,176 @@
+{
+  "language": "english",
+  "category": "science_technology",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:12:50.418Z",
+  "contentHash": "7d33911ab04aa103",
+  "summary": "Up-to-date and accurate tech vocabulary. The only problems are the recurring structural defects (three cloze items without a blank, a flashcard with identical sides, a dialogue_turn without a situation), one British spelling ('democratised'), and a few missing contractions.",
+  "findings": [
+    {
+      "id": "en-st-a1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'What's' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "What's the password for the Wi-Fi?",
+            "What's the Wi-Fi password?"
+          ]
+        }
+      ],
+      "itemHash": "bfe79e8fe558fb70"
+    },
+    {
+      "id": "en-sc-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask how to put power into this gadget's battery.",
+          "list": null
+        }
+      ],
+      "itemHash": "6f585fa6fae52ef3"
+    },
+    {
+      "id": "en-sc-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which ___ do you use for online meetings?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "tool",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A general word for an app or program you use for a task."
+          ]
+        }
+      ],
+      "itemHash": "f0fb6cdb90cdf542"
+    },
+    {
+      "id": "en-st-b1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm concerned' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm concerned about the amount of personal data that tech companies collect."
+          ]
+        }
+      ],
+      "itemHash": "d9b3f661c7ab9de4"
+    },
+    {
+      "id": "en-st-b1-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'democratised' is British spelling.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Open-source software has democratized access to powerful digital tools.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Open-source software has democratized access to powerful digital tools.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Open-source' = freely available code; 'democratized' = made available to everyone."
+          ]
+        }
+      ],
+      "itemHash": "cae79c8d36980b0d"
+    },
+    {
+      "id": "en-sc-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What are the ___ of using open-source software?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "benefits",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A plural noun meaning 'advantages'."
+          ]
+        }
+      ],
+      "itemHash": "5e356903e0cd0311"
+    },
+    {
+      "id": "en-sc-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Automation can increase ___ while reshaping labor markets.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "productivity",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun for how much work gets done in a given time."
+          ]
+        }
+      ],
+      "itemHash": "c081d458f268ab55"
+    },
+    {
+      "id": "en-sc-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A panelist argues that tech regulation always kills innovation.",
+          "list": null
+        }
+      ],
+      "itemHash": "ed2a257d41c18e28"
+    }
+  ]
+}

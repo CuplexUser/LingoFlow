@@ -1,0 +1,571 @@
+{
+  "language": "french",
+  "category": "sports_fitness",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:56:20.349Z",
+  "contentHash": "c5faaaf6a2b7c5a4",
+  "summary": "Weaker than the other French files. 'formation' (vocational training) is used for athletic training, including 'surformation'. Other errors: 'exercer' for exercising, 'me réchauffer' for warming up, 'J'ai signé un demi-marathon', 'J'ai tiré un muscle', 'demain matin' for a habit, 'plus facile à genoux' (on your knees), 'prendre trois semaines d'entraînement' (the opposite of time off), and a garbled B1 question. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "fr-sf-a1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'football' is correct French (the lint flag is a false alarm), but the everyday 'le foot' should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "le football",
+            "le foot",
+            "foot"
+          ]
+        }
+      ],
+      "itemHash": "db8ee6c3c9f73dfa"
+    },
+    {
+      "id": "fr-sf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Courir' = to run; 'tous les matins' = every morning."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je vais courir tous les matins."
+          ]
+        }
+      ],
+      "itemHash": "5b8d2daede1228fb"
+    },
+    {
+      "id": "fr-sf-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aimer' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "2274b7d7a59e38b5"
+    },
+    {
+      "id": "fr-sf-a1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A 'gymnase' is a sports hall; a fitness gym is 'la salle de sport'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Où est la salle de sport ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Où est la salle de gym ?",
+            "Où est le gymnase ?"
+          ]
+        }
+      ],
+      "itemHash": "dfd2eefaba818e54"
+    },
+    {
+      "id": "fr-sf-a1-7",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Je marche au travail' sounds like walking at work; walking to work is 'aller au travail à pied'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je vais au travail à pied tous les jours.",
+          "list": null
+        }
+      ],
+      "itemHash": "56805ca107381c8b"
+    },
+    {
+      "id": "fr-sf-a1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'à vélo' means 'by bike'; the activity is 'le vélo' or 'le cyclisme'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "le vélo",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "le cyclisme",
+            "faire du vélo"
+          ]
+        }
+      ],
+      "itemHash": "0d705cfea70a8643"
+    },
+    {
+      "id": "fr-sf-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'sportive'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je ne suis pas très sportive."
+          ]
+        }
+      ],
+      "itemHash": "0f853d54948ef38f"
+    },
+    {
+      "id": "fr-sf-a1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'exercer' means to practice a profession; physical exercise is 'faire du sport'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Combien de fois par semaine faites-vous du sport ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu fais du sport combien de fois par semaine ?"
+          ]
+        }
+      ],
+      "itemHash": "e0338f916ee8e926"
+    },
+    {
+      "id": "fr-sp-a1-39",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'demain matin' means 'tomorrow morning'; the prompt is a routine.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je cours le matin.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je vais courir le matin."
+          ]
+        }
+      ],
+      "itemHash": "3b1b122f8cbb4e7f"
+    },
+    {
+      "id": "fr-sp-a1-41",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Tu joues au sport d'équipe ?' is ungrammatical; sports are 'pratiqués'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tu pratiques un sport d'équipe ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu fais un sport d'équipe ?"
+          ]
+        }
+      ],
+      "itemHash": "0ce235a7ff16df0f"
+    },
+    {
+      "id": "fr-sf-a2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'J'ai été à la gym' implies the routine is over.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ces derniers temps, je vais à la salle de sport trois fois par semaine.",
+          "list": null
+        }
+      ],
+      "itemHash": "f47b79715e4f41cf"
+    },
+    {
+      "id": "fr-sf-a2-2",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'une course' means a race, not a run.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tu veux venir courir avec moi dimanche ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Voulez-vous venir courir avec moi dimanche ?"
+          ]
+        }
+      ],
+      "itemHash": "891416d21e024190"
+    },
+    {
+      "id": "fr-sf-a2-3",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'J'ai tiré un muscle' is a calque; French says 'se froisser un muscle'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je me suis froissé un muscle pendant mon entraînement hier.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je me suis fait une élongation hier à l'entraînement."
+          ]
+        }
+      ],
+      "itemHash": "0b83819a54a4636b"
+    },
+    {
+      "id": "fr-sf-a2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'se réchauffer' means to get warm; warming up for sport is 's'échauffer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je dois m'échauffer avant de commencer l'entraînement.",
+          "list": null
+        }
+      ],
+      "itemHash": "1d5599ec15d5dfa4"
+    },
+    {
+      "id": "fr-sf-a2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'J'ai signé un demi-marathon' means signed (a document).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je me suis inscrit à un semi-marathon le mois prochain.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je me suis inscrite à un semi-marathon le mois prochain."
+          ]
+        }
+      ],
+      "itemHash": "2760ca3aee0629cb"
+    },
+    {
+      "id": "fr-sf-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Race distances use 'sur'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Elle a remporté la médaille d'or sur 100 mètres.",
+          "list": null
+        }
+      ],
+      "itemHash": "90dfb8a9d78526d8"
+    },
+    {
+      "id": "fr-sp-a2-50",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Stretching as an activity is 'les étirements'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Les étirements aident à prévenir les blessures.",
+          "list": null
+        }
+      ],
+      "itemHash": "8ef07d88478cbb0f"
+    },
+    {
+      "id": "fr-sp-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Combien de temps ___ votre entraînement habituel ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dure",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Durer' = to last."
+          ]
+        }
+      ],
+      "itemHash": "bb1a5914998b63e1"
+    },
+    {
+      "id": "fr-sf-b1-1",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'cohérence' means coherence; 'habitude de fitness' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pour prendre l'habitude de faire du sport, la régularité compte plus que l'intensité.",
+          "list": null
+        }
+      ],
+      "itemHash": "dbb9f55eea289118"
+    },
+    {
+      "id": "fr-sf-b1-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The passé composé implies the training is over.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je m'entraîne cinq jours par semaine depuis un moment et je vois déjà des progrès en endurance.",
+          "list": null
+        }
+      ],
+      "itemHash": "9da5ec05c90731d8"
+    },
+    {
+      "id": "fr-sf-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'compétences de vie' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pensez-vous que le sport de compétition apprend des choses importantes pour la vie ?",
+          "list": null
+        }
+      ],
+      "itemHash": "445203934aedec2e"
+    },
+    {
+      "id": "fr-sf-b1-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'prendre trois semaines d'entraînement' means taking three weeks of training, the opposite of time off.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'ai dû arrêter l'entraînement pendant trois semaines à cause d'une blessure de surmenage.",
+          "list": null
+        }
+      ],
+      "itemHash": "df32ed822bfe61cd"
+    },
+    {
+      "id": "fr-sf-b1-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'mon cardio routine' has the wrong gender and word order.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mon coach personnel m'a conseillé d'ajouter du renforcement musculaire à mes séances de cardio.",
+          "list": null
+        }
+      ],
+      "itemHash": "65de6219d417f5da"
+    },
+    {
+      "id": "fr-sf-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The answer is garbled ('Avez - vous', 'a changé régulièrement').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Avez-vous remarqué que faire du sport régulièrement a changé votre façon de vous sentir au quotidien ?",
+          "list": null
+        }
+      ],
+      "itemHash": "8cc1bae4379f766f"
+    },
+    {
+      "id": "fr-sp-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'plus facile à genoux' means 'easier on your knees' as in kneeling.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Je suis passé au vélo parce que ça ménage mes genoux.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis passée au vélo parce que ça ménage mes genoux."
+          ]
+        }
+      ],
+      "itemHash": "66a76ddd0e65faf6"
+    },
+    {
+      "id": "fr-sp-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'cohérent avec la formation' is wrong.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quelle stratégie utilisez-vous pour être ___ dans votre entraînement ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "régulier",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "régulière",
+            "assidu"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'consistent, steady'."
+          ]
+        }
+      ],
+      "itemHash": "850e4b1c22a1dfbc"
+    },
+    {
+      "id": "fr-sf-b2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'fitness' is dropped from the balance.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dans un métier sédentaire, trouver l'équilibre entre travail, vie privée et sport demande des efforts délibérés et de l'organisation.",
+          "list": null
+        }
+      ],
+      "itemHash": "bdaf41043880ed97"
+    },
+    {
+      "id": "fr-sf-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'remodele' is misspelled (remòdele → remodèle); 'Comment pensez-vous que' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Selon vous, comment la technologie transforme-t-elle l'expérience des spectateurs dans le sport moderne ?",
+          "list": null
+        }
+      ],
+      "itemHash": "1899f446b653ffff"
+    },
+    {
+      "id": "fr-sp-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'formation' is vocational training and 'surformation' is not a word; it's 'entraînement' and 'surentraînement'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Un plan d'entraînement équilibré réduit le risque de surentraînement.",
+          "list": null
+        }
+      ],
+      "itemHash": "c30db18ead918ef9"
+    },
+    {
+      "id": "fr-sp-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'formation' is the wrong word.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Les performances s'améliorent quand la ___ est considérée comme une partie de l'entraînement.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "récupération",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The rest period that lets the body recover."
+          ]
+        }
+      ],
+      "itemHash": "fb1d6381ab3d173d"
+    },
+    {
+      "id": "fr-sp-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A coach says her athletes lose focus between seasons.",
+          "list": null
+        }
+      ],
+      "itemHash": "7f93e520a6a77ffd"
+    }
+  ]
+}

@@ -1,0 +1,320 @@
+{
+  "language": "english",
+  "category": "travel",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:08:45.720Z",
+  "contentHash": "b0f504196d1ecd7e",
+  "summary": "Travel phrases are realistic and level-appropriate. The defects are structural: three cloze items without a blank, a flashcard with identical sides, a dialogue_turn without a situation, and three generic hints. There are also a few British forms in a US-English course and missing contraction alternatives.",
+  "findings": [
+    {
+      "id": "en-tr-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Where is' + place. In speech: 'Where's the train station?'"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Where's the train station?"
+          ]
+        }
+      ],
+      "itemHash": "c93efc380e013b4e"
+    },
+    {
+      "id": "en-tr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'How much does ... cost?' asks for a price."
+          ]
+        }
+      ],
+      "itemHash": "261ad257fdd9805b"
+    },
+    {
+      "id": "en-tr-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "In everyday English the preposition 'from' goes at the end of the question."
+          ]
+        }
+      ],
+      "itemHash": "c4572f79f3b74f7c"
+    },
+    {
+      "id": "en-tr-19",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm lost' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm lost."
+          ]
+        }
+      ],
+      "itemHash": "205ddc82d1609bcf"
+    },
+    {
+      "id": "en-tr-a1-42",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say that your hotel is close to the museum.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "My hotel is close to the museum."
+          ]
+        }
+      ],
+      "itemHash": "835503faa992635a"
+    },
+    {
+      "id": "en-tr-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to check in for my reservation."
+          ]
+        }
+      ],
+      "itemHash": "a245d25deb21455a"
+    },
+    {
+      "id": "en-tr-20",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to exchange some money."
+          ]
+        }
+      ],
+      "itemHash": "a1878f05f65e3bb7"
+    },
+    {
+      "id": "en-tr-a2-50",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to check in, please."
+          ]
+        }
+      ],
+      "itemHash": "cfb46730cc58df56"
+    },
+    {
+      "id": "en-tr-a2-52",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I lost my boarding ___ this morning.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "pass",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The document you show at the gate."
+          ]
+        }
+      ],
+      "itemHash": "5f474096118e475f"
+    },
+    {
+      "id": "en-tr-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The standard collocation is 'within walking distance of'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "The museum is within walking distance of the hotel.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "The museum is within walking distance from the hotel."
+          ]
+        },
+        {
+          "field": "prompt",
+          "text": "Say: The museum is within walking distance of the hotel.",
+          "list": null
+        }
+      ],
+      "itemHash": "61bbc65834544c71"
+    },
+    {
+      "id": "en-tr-33",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'haven't got' is British; the course uses US English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. The hotel says you don't have a reservation.",
+          "list": null
+        }
+      ],
+      "itemHash": "983ba7cfdd708b4f"
+    },
+    {
+      "id": "en-tr-b1-62",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Traveling alone helped me become more ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "independent",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'able to manage on your own'."
+          ]
+        }
+      ],
+      "itemHash": "b0814b9ea48bde9d"
+    },
+    {
+      "id": "en-tr-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd prefer' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd prefer a quieter route, even if it takes longer."
+          ]
+        }
+      ],
+      "itemHash": "0bbead9a9687aaa7"
+    },
+    {
+      "id": "en-tr-b2-70",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "US English usually says 'public transportation'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Efficient public transportation made the entire trip more sustainable."
+          ]
+        }
+      ],
+      "itemHash": "08da9bc62784c1d7"
+    },
+    {
+      "id": "en-tr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How can tourism support local communities ___ harming them?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "without",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A preposition followed by an -ing form."
+          ]
+        }
+      ],
+      "itemHash": "d7a41ac8b8a29692"
+    },
+    {
+      "id": "en-tr-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation, and 'planned contingencies' is unnatural.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how you handled the risk of missing your connections.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "I made contingency plans in case our flights were delayed.",
+          "list": null
+        }
+      ],
+      "itemHash": "5de6bc71ccd50218"
+    }
+  ]
+}

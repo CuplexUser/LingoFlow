@@ -1,0 +1,416 @@
+{
+  "language": "english",
+  "category": "work",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:09:15.354Z",
+  "contentHash": "c5308c0c7b8b9aa5",
+  "summary": "Solid workplace English. The problems are three cloze items without a blank, two dialogue_turn items without a situation, British workplace terms ('copy me in', 'annual leave') in a US-English course, an A1 flashcard with B2 jargon, and contractions that natives use but aren't accepted.",
+  "findings": [
+    {
+      "id": "en-wo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Work in' + place of work."
+          ]
+        }
+      ],
+      "itemHash": "9083a240563d3d11"
+    },
+    {
+      "id": "en-wo-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A 'shift' is a fixed block of working hours."
+          ]
+        }
+      ],
+      "itemHash": "2d41d5b486dacd7c"
+    },
+    {
+      "id": "en-wo-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'I'm' is what natives say.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Introduce yourself on your first day."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm the new employee."
+          ]
+        }
+      ],
+      "itemHash": "7cc8771f33f1cccd"
+    },
+    {
+      "id": "en-wo-a1-43",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "'sign-off' is B2 business jargon, far above A1.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: a day when you don't go to work",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "a day off",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'I'm taking Friday as ___.'"
+          ]
+        }
+      ],
+      "itemHash": "869453e0af2cc832"
+    },
+    {
+      "id": "en-wo-19",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'll' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'll send you the updated version by end of day.",
+            "I'll send you the updated version by the end of the day."
+          ]
+        }
+      ],
+      "itemHash": "ff3236cf2359bf7b"
+    },
+    {
+      "id": "en-wo-20",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'copy me in' is British; US English says 'cc me on'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Could you cc me on that email?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Could you cc me on that email?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Could you copy me on that email?",
+            "Could you copy me in on that email?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'cc' means add someone in the copy field."
+          ]
+        }
+      ],
+      "itemHash": "ffc8ab63f240cfbd"
+    },
+    {
+      "id": "en-wo-21",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'annual leave' and 'holiday days' are British; the course uses US English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I'd like to take two weeks of vacation in August.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "I'd like to take two weeks of vacation in August.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I would like to take two weeks of vacation in August.",
+            "I would like to take two weeks of annual leave in August."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "US English says 'vacation'; 'annual leave' is British."
+          ]
+        }
+      ],
+      "itemHash": "5c2bc4d50decbce7"
+    },
+    {
+      "id": "en-wo-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Stiff without contraction and missing the comma before 'but'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "I'm free in the morning, but I have a call in the afternoon.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I am free in the morning, but I have a call in the afternoon."
+          ]
+        }
+      ],
+      "itemHash": "0b418a785ab0534c"
+    },
+    {
+      "id": "en-wo-41",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've finished my tasks for today."
+          ]
+        }
+      ],
+      "itemHash": "3cb324796cf2ffd9"
+    },
+    {
+      "id": "en-wo-a2-53",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I am ___ for weekly updates.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "responsible",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective followed by 'for' meaning 'in charge of'."
+          ]
+        }
+      ],
+      "itemHash": "9aca482d3600c425"
+    },
+    {
+      "id": "en-wo-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to discuss my progress at our next meeting."
+          ]
+        }
+      ],
+      "itemHash": "fdbc4b8a39dcb8ac"
+    },
+    {
+      "id": "en-wo-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'wasn't' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I wasn't able to attend the conference call due to a scheduling conflict."
+          ]
+        }
+      ],
+      "itemHash": "14b6a84c6cde9676"
+    },
+    {
+      "id": "en-wo-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've been' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've been working on this project for three months."
+          ]
+        }
+      ],
+      "itemHash": "0138b4506349a99b"
+    },
+    {
+      "id": "en-wo-25",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd appreciate' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd appreciate some feedback on my presentation."
+          ]
+        }
+      ],
+      "itemHash": "c9210d7e2beda714"
+    },
+    {
+      "id": "en-wo-30",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to flag a potential risk before it becomes a problem."
+          ]
+        }
+      ],
+      "itemHash": "cea69ec194abbc1f"
+    },
+    {
+      "id": "en-wo-b1-63",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Can we ___ this deadline to next Wednesday?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "move",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A simple verb meaning 'change the date of'."
+          ]
+        }
+      ],
+      "itemHash": "5d58d7c7d9cf0af4"
+    },
+    {
+      "id": "en-wo-b1-64",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A colleague asks you to approve a plan you have barely seen.",
+          "list": null
+        }
+      ],
+      "itemHash": "2151f4ba08f5c857"
+    },
+    {
+      "id": "en-wo-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd like' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'd like to propose a restructuring of the project timeline."
+          ]
+        }
+      ],
+      "itemHash": "c7a250db2aa3b201"
+    },
+    {
+      "id": "en-wo-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "I suggest we document risks before final ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sign-off",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A compound noun for the final approval."
+          ]
+        }
+      ],
+      "itemHash": "a205c262a3eb441d"
+    },
+    {
+      "id": "en-wo-b2-73",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your manager warns that the rollout may slip.",
+          "list": null
+        }
+      ],
+      "itemHash": "763b4ec7f7d3287c"
+    }
+  ]
+}

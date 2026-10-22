@@ -1,0 +1,188 @@
+{
+  "language": "russian",
+  "category": "money_finance",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:09:10.758Z",
+  "contentHash": "6ff0582c61e5f389",
+  "summary": "Rich, mostly natural financial Russian. Errors: a gender mismatch in a cloze ('моя главная ___' answered by masculine 'расход') and a hint that calls a nominative noun instrumental. Smaller issues: hints that describe English tenses instead of Russian, the redundant 'ключевую процентную ставку', an unidiomatic 'залезть в долг', and missing feminine forms.",
+  "findings": [
+    {
+      "id": "ru-mf-a2-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English grammar ('present continuous'), which doesn't apply to Russian.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Откладывать деньги' = to save (put aside) money; 'чтобы' + infinitive = in order to."
+          ]
+        }
+      ],
+      "itemHash": "818d5c9cd3557830"
+    },
+    {
+      "id": "ru-mf-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint refers to the English present perfect; the feminine 'составила' is missing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Perfective past 'составил' for a completed action with a lasting result."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я составила ежемесячный бюджет, чтобы отслеживать расходы."
+          ]
+        }
+      ],
+      "itemHash": "adb48cd9e73f5881"
+    },
+    {
+      "id": "ru-mf-b1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint refers to the English third conditional; the feminine form is missing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Russian uses 'если бы' + past tense in both clauses for unreal conditions, past or present."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Если бы я больше откладывала в прошлом году, я могла бы позволить себе этот отпуск."
+          ]
+        }
+      ],
+      "itemHash": "84887e2e7a989f82"
+    },
+    {
+      "id": "ru-mo-a2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Feminine 'главная' cannot agree with the masculine answer 'расход'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cloze: Я плачу за квартиру каждый месяц — это мой главный ____.",
+          "list": null
+        }
+      ],
+      "itemHash": "5913a9540fa1ab77"
+    },
+    {
+      "id": "ru-mo-a2-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'Накладная' is a delivery note, not an invoice; the everyday word is 'счёт'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "счёт / счёт-фактура",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A document requesting payment. In everyday speech 'счёт'; 'счёт-фактура' is the formal tax invoice."
+          ]
+        }
+      ],
+      "itemHash": "c16aef38d931ab53"
+    },
+    {
+      "id": "ru-mo-a2-17",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The idiom is normally plural: 'влезть (залезть) в долги'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "влезть в долги",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "влезть в долги",
+            "сделать скидку",
+            "открыть вклад",
+            "снять деньги"
+          ]
+        }
+      ],
+      "itemHash": "86baa66d83c0930b"
+    },
+    {
+      "id": "ru-mo-b2-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The Bank of Russia's rate is 'ключевая ставка'; 'ключевая процентная ставка' is redundant.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cloze: Центральный банк принял решение оставить ____ ставку без изменений.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ключевую",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ключевая ставка' = the central bank's key policy rate; accusative feminine here."
+          ]
+        }
+      ],
+      "itemHash": "a69c095c9af3369b"
+    },
+    {
+      "id": "ru-mo-b2-15",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The English prompt uses British 'characterised'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best translation: A bear market is characterized by sustained price declines.",
+          "list": null
+        }
+      ],
+      "itemHash": "84c6c74998444a3e"
+    },
+    {
+      "id": "ru-mo-b2-17",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "'Управление' is the nominative subject here, not instrumental.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verbal noun meaning 'management', the subject of the sentence; 'управление' + instrumental (активами)."
+          ]
+        }
+      ],
+      "itemHash": "e3046a1c79f64e67"
+    }
+  ]
+}

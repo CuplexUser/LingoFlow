@@ -1,0 +1,289 @@
+{
+  "language": "russian",
+  "category": "numbers_math",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:12:48.052Z",
+  "contentHash": "b1ef82ebb5d3c394",
+  "summary": "The best numbers file in the app, but its hints need work. Two hints teach wrong case labels ('респондентов' called genitive singular, 'треть' called a genitive ordinal), one hint contains a garbled 'Dюжина', several hints give away the answer, and two hints are written in Russian instead of English.",
+  "findings": [
+    {
+      "id": "ru-num-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint quotes an English proverb; Russian has its own ('Бог любит троицу').",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pronounced 'tree'. Russians say 'Бог любит троицу' — good things come in threes."
+          ]
+        }
+      ],
+      "itemHash": "6b1ac58e43340ebd"
+    },
+    {
+      "id": "ru-num-a2-5",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Russian reads × with the verb 'to multiply' plus a preposition."
+          ]
+        }
+      ],
+      "itemHash": "93bfb9f32ceb1871"
+    },
+    {
+      "id": "ru-num-a2-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The verb 'to divide' (perfective) plus the preposition 'на'."
+          ]
+        }
+      ],
+      "itemHash": "446a1b1bb7e5d278"
+    },
+    {
+      "id": "ru-num-a2-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Russian compound numbers 21–99 are written as two separate words."
+          ]
+        }
+      ],
+      "itemHash": "ef0eb48e367d267f"
+    },
+    {
+      "id": "ru-num-a2-14",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "The hint contains a garbled Latin letter ('Dюжина') and gives away the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An old-fashioned but charming word for twelve of something."
+          ]
+        }
+      ],
+      "itemHash": "0c72b81db7920a7e"
+    },
+    {
+      "id": "ru-num-a2-18",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'regularises' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The first three are irregular: первый, второй, ___. After that, ordinals follow the number."
+          ]
+        }
+      ],
+      "itemHash": "19cc70ffccdfeba4"
+    },
+    {
+      "id": "ru-num-b1-3",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "'треть' is a noun, not a 'genitive ordinal'; the hint also gives away the answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Треть' = a third (a noun). After 'две' it takes the genitive singular."
+          ]
+        }
+      ],
+      "itemHash": "793c5bf635512bed"
+    },
+    {
+      "id": "ru-num-b1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "30 out of 40 = 75%."
+          ]
+        }
+      ],
+      "itemHash": "e9ffb1025f74e152"
+    },
+    {
+      "id": "ru-num-b1-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint gives the answer, and the most natural phrasing for 35 ('за тридцать', 'тридцать с небольшим') isn't accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "за тридцать",
+            "тридцать с небольшим"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Russian says he is 'a little over thirty' rather than 'in his thirties'."
+          ]
+        }
+      ],
+      "itemHash": "32f0b0b2eed898c7"
+    },
+    {
+      "id": "ru-num-b1-20",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'С половиной' = and a half — a very useful pattern."
+          ]
+        }
+      ],
+      "itemHash": "76ac658e3a26f76a"
+    },
+    {
+      "id": "ru-num-b2-4",
+      "severity": "improvement",
+      "kind": "other",
+      "problem": "The prompt calls the English phrase a 'Russian idiom'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to count on someone (to rely on them)",
+          "list": null
+        }
+      ],
+      "itemHash": "23ba5c5ba3afd717"
+    },
+    {
+      "id": "ru-num-b2-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Works just like the English expression for the prime suspect."
+          ]
+        }
+      ],
+      "itemHash": "3be0f3f92aaa543c"
+    },
+    {
+      "id": "ru-num-b2-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is in Russian; hints must be in English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "100, 50 and 1000 are round numbers; 47 and 83 are not."
+          ]
+        }
+      ],
+      "itemHash": "bfa7eb5ec064b858"
+    },
+    {
+      "id": "ru-num-b2-9",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "'респондентов' is genitive plural, not genitive singular.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Две трети' is followed by the genitive plural 'респондентов'; the verb is usually plural."
+          ]
+        }
+      ],
+      "itemHash": "5b98e2759b6e1550"
+    },
+    {
+      "id": "ru-num-b2-12",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Russians float two levels lower — on the seventh heaven, not the ninth cloud."
+          ]
+        }
+      ],
+      "itemHash": "89b258a628a5791b"
+    },
+    {
+      "id": "ru-num-b2-14",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is in Russian; hints must be in English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A divisor divides the number with no remainder."
+          ]
+        }
+      ],
+      "itemHash": "33a7abb6e7b7da70"
+    },
+    {
+      "id": "ru-num-b2-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'побывала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я побывала в бесчисленных городах по всей Европе."
+          ]
+        }
+      ],
+      "itemHash": "48d25c948c03f5f8"
+    }
+  ]
+}

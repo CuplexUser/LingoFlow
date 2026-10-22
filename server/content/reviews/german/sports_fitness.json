@@ -1,0 +1,621 @@
+{
+  "language": "german",
+  "category": "sports_fitness",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:41:31.010Z",
+  "contentHash": "93370e999e628997",
+  "summary": "Heavy machine-translation damage. 'Ausbildung' (vocational training) is used for athletic training throughout, including 'Überschulung' for overtraining. Other errors: 'spazieren gehen' for a run, 'einen Muskeln gezogen', 'unterschrieben' for signed up, 'drei Wochen ... trainieren' (the opposite of time off), 'schalte zum Radfahren', 'prädiziert', lowercase nouns, and 'Spielen Sie Sport?'. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "de-sf-a1-1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Fußball",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Fußball"
+          ]
+        }
+      ],
+      "itemHash": "30d184878ca72ba4"
+    },
+    {
+      "id": "de-sf-a1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'joggen gehen' is the everyday phrasing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Laufen' or 'joggen gehen' = to go running."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich gehe jeden Morgen joggen.",
+            "Ich gehe jeden Morgen laufen."
+          ]
+        }
+      ],
+      "itemHash": "6614a9d37847ad51"
+    },
+    {
+      "id": "de-sf-a1-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "German doesn't 'play' sport in general; it's 'Sport treiben' or 'Sport machen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Treiben Sie Sport?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Machst du Sport?",
+            "Treibst du Sport?"
+          ]
+        }
+      ],
+      "itemHash": "493ef667be3ff3de"
+    },
+    {
+      "id": "de-sf-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Verb + 'gern' = to like doing something."
+          ]
+        }
+      ],
+      "itemHash": "4a219ba48682897a"
+    },
+    {
+      "id": "de-sf-a1-7",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "Walking is dropped: 'gehen zur Arbeit' just means going to work.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich gehe jeden Tag zu Fuß zur Arbeit.",
+          "list": null
+        }
+      ],
+      "itemHash": "107d359f8313897a"
+    },
+    {
+      "id": "de-sf-a1-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "As a noun it is capitalized: 'das Radfahren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "das Radfahren",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Radfahren",
+            "Fahrradfahren"
+          ]
+        }
+      ],
+      "itemHash": "9bdc14a9e4dca28d"
+    },
+    {
+      "id": "de-sp-a1-41",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'irgendwelche Teamsportarten spielen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Machen Sie Mannschaftssport?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Spielst du in einer Mannschaft?"
+          ]
+        }
+      ],
+      "itemHash": "59e92cc7d32ebc1e"
+    },
+    {
+      "id": "de-sf-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'spazieren gehen' means going for a walk, not a run.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hast du Lust, am Sonntag mit mir laufen zu gehen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Möchtest du am Sonntag mit mir joggen gehen?"
+          ]
+        }
+      ],
+      "itemHash": "2c07d4067e4532a1"
+    },
+    {
+      "id": "de-sf-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'einen Muskeln gezogen' is ungrammatical and a calque; a pulled muscle is a 'Zerrung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe mir gestern beim Training eine Zerrung zugezogen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich habe mir gestern beim Training einen Muskel gezerrt."
+          ]
+        }
+      ],
+      "itemHash": "d661ada0ca363caa"
+    },
+    {
+      "id": "de-sf-a2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'aufwärmen' needs the reflexive 'mich'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich muss mich aufwärmen, bevor ich trainiere.",
+          "list": null
+        }
+      ],
+      "itemHash": "7faad3e2bd25241a"
+    },
+    {
+      "id": "de-sf-a2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'unterschrieben' means signed (a document); registering is 'sich anmelden'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe mich für einen Halbmarathon nächsten Monat angemeldet.",
+          "list": null
+        }
+      ],
+      "itemHash": "ed4ee7e1742a1dd3"
+    },
+    {
+      "id": "de-sf-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Klasse' is a school class; a yoga class is a 'Yogakurs' or 'Yogastunde'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie lange dauert die Yogastunde?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie lange dauert der Yogakurs?"
+          ]
+        }
+      ],
+      "itemHash": "b2249d52323d1026"
+    },
+    {
+      "id": "de-sf-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Race distances are 'über 100 Meter'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sie gewann die Goldmedaille über 100 Meter.",
+          "list": null
+        }
+      ],
+      "itemHash": "898b29d197a3298b"
+    },
+    {
+      "id": "de-sf-a2-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Outdoor-Übung in den Fitnessraum bevorzugen' is garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich trainiere lieber draußen als im Fitnessstudio.",
+          "list": null
+        }
+      ],
+      "itemHash": "0a346ef906c22bd5"
+    },
+    {
+      "id": "de-sp-a2-49",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English present continuous.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Versuchen, ... zu' + infinitive; 'Ausdauer' = endurance."
+          ]
+        }
+      ],
+      "itemHash": "743fbfb711746b13"
+    },
+    {
+      "id": "de-sp-a2-50",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Dehnung' is the stretch itself; the activity is 'Dehnen', and injuries are 'vorgebeugt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Dehnen hilft, Verletzungen vorzubeugen.",
+          "list": null
+        }
+      ],
+      "itemHash": "f69eb1cea43e22eb"
+    },
+    {
+      "id": "de-sp-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie lange ___ Ihr Training normalerweise?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dauert",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Dauern' = to last."
+          ]
+        }
+      ],
+      "itemHash": "85d07cd0496e1e0a"
+    },
+    {
+      "id": "de-sf-b1-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Konsistenz' is an anglicism for regularity.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wenn man sich das Training zur Gewohnheit machen will, ist Regelmäßigkeit wichtiger als Intensität.",
+          "list": null
+        }
+      ],
+      "itemHash": "fb41fbc5b2dd6b8e"
+    },
+    {
+      "id": "de-sf-b1-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The Perfekt implies the training is over; 'Verbesserungen sehen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich trainiere seit einiger Zeit fünf Tage die Woche und merke schon, dass meine Ausdauer besser wird.",
+          "list": null
+        }
+      ],
+      "itemHash": "2c0877fde2e36aff"
+    },
+    {
+      "id": "de-sf-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Lebensfähigkeiten' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Glaubst du, dass Wettkampfsport wichtige Fähigkeiten fürs Leben vermittelt?",
+          "list": null
+        }
+      ],
+      "itemHash": "0db16913080c5bc6"
+    },
+    {
+      "id": "de-sf-b1-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The answer says 'I had to train for three weeks' — the opposite of taking time off.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich musste wegen einer Überlastungsverletzung drei Wochen mit dem Training aussetzen.",
+          "list": null
+        }
+      ],
+      "itemHash": "7f078e95ad2a97ad"
+    },
+    {
+      "id": "de-sf-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Übung' means an exercise; regular exercise is 'Bewegung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die positiven Auswirkungen regelmäßiger Bewegung auf die psychische Gesundheit sind gut belegt.",
+          "list": null
+        }
+      ],
+      "itemHash": "9bf7d2da3e1c0fd7"
+    },
+    {
+      "id": "de-sf-b1-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Ich begann als Weg, Stress zu verwalten' is a garbled calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe damit angefangen, um Stress abzubauen, und inzwischen macht es mir richtig Spaß.",
+          "list": null
+        }
+      ],
+      "itemHash": "9f6ac84dc96aed24"
+    },
+    {
+      "id": "de-sf-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Einstellung' means attitude or adjustment, not setting goals; 'stay motivated' is lost.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wenn man sich realistische kurzfristige Ziele setzt, fällt es leichter, motiviert zu bleiben.",
+          "list": null
+        }
+      ],
+      "itemHash": "8b527d1c30af5348"
+    },
+    {
+      "id": "de-sf-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'dass regelmäßig Übungen geändert hat, wie Sie ... fühlen' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Haben Sie festgestellt, dass regelmäßiger Sport verändert hat, wie Sie sich im Alltag fühlen?",
+          "list": null
+        }
+      ],
+      "itemHash": "2a858999d681f7fc"
+    },
+    {
+      "id": "de-sp-b1-59",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Regelmäßige Übung' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Regelmäßige Bewegung hat mein Energieniveau verbessert.",
+          "list": null
+        }
+      ],
+      "itemHash": "39405231b63d9e19"
+    },
+    {
+      "id": "de-sp-b1-60",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ich schalte zum Radfahren' (I change gear to cycling) and 'einfacher auf den Knien' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich bin aufs Radfahren umgestiegen, weil es die Knie weniger belastet.",
+          "list": null
+        }
+      ],
+      "itemHash": "e8da9e97f756b240"
+    },
+    {
+      "id": "de-sp-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'mit der Ausbildung im Einklang' is wrong.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Mit welcher Strategie bleiben Sie beim Training ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dran",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "am Ball"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Colloquial: 'dranbleiben' = to stick with it."
+          ]
+        }
+      ],
+      "itemHash": "2d3cb4d71c1719cc"
+    },
+    {
+      "id": "de-sf-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ausbildungszyklen' means vocational training cycles; athletes have 'Trainingszyklen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Periodisierung – die systematische Planung von Trainingszyklen – ist entscheidend für sportliche Spitzenleistungen.",
+          "list": null
+        }
+      ],
+      "itemHash": "6cf4f9e96c0ee455"
+    },
+    {
+      "id": "de-sf-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'prädiziert' means predicts (in logic), not predetermines.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Inwieweit bestimmt die Genetik das sportliche Potenzial im Voraus?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Inwieweit ist das sportliche Potenzial genetisch vorbestimmt?"
+          ]
+        }
+      ],
+      "itemHash": "2fc690c485eb60ba"
+    },
+    {
+      "id": "de-sf-b2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'sedentären Beruf' and 'Work-Life-Fitness Balance' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "In einem Beruf, in dem man viel sitzt, braucht es bewusste Anstrengung und Planung, um Arbeit, Privatleben und Sport unter einen Hut zu bringen.",
+          "list": null
+        }
+      ],
+      "itemHash": "abdaf8c9b41f1c0c"
+    },
+    {
+      "id": "de-sf-b2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Wie denken Sie, dass...' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie verändert die Technik Ihrer Meinung nach das Zuschauererlebnis im modernen Sport?",
+          "list": null
+        }
+      ],
+      "itemHash": "0517968752bcb2f8"
+    },
+    {
+      "id": "de-sp-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ausbildungsplan' and 'Überschulung' mean vocational plan and over-schooling.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ein ausgewogener Trainingsplan verringert das Risiko des Übertrainings.",
+          "list": null
+        }
+      ],
+      "itemHash": "8d6321ec09b65b0f"
+    },
+    {
+      "id": "de-sp-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'Ausbildung' is wrong for athletic training.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Die Leistung verbessert sich, wenn die ___ als Teil des Trainings betrachtet wird.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Erholung",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The rest period that lets the body recover."
+          ]
+        }
+      ],
+      "itemHash": "bbbf0b49f097f3c5"
+    },
+    {
+      "id": "de-sp-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'Nebensaison' is a tourism term.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A coach says her athletes lose focus between seasons.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Wie können Athleten in langen Saisonpausen motiviert bleiben?",
+          "list": null
+        }
+      ],
+      "itemHash": "303cf8d7bbe939b1"
+    }
+  ]
+}

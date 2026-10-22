@@ -1,0 +1,520 @@
+{
+  "language": "spanish",
+  "category": "health",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:18:24.134Z",
+  "contentHash": "c30642b3fdcafa93",
+  "summary": "The A1–A2 items are fine, but B1–B2 has many machine-translation errors: 'cuando me mudo' (move house) for 'when I move', two gender-agreement errors ('dada mi medicamento', 'tratamiento reactiva'), a missing reflexive, a wrong future tense, a garbled referral request, and anglicisms ('condición', 'ejercitar'). Three cloze items lack a blank and a dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-he-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sentirse' is reflexive: me siento = I feel."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "No me encuentro bien."
+          ]
+        }
+      ],
+      "itemHash": "3a2a956c58cf84f9"
+    },
+    {
+      "id": "es-he-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Más cercano' = nearest; it agrees with masculine 'hospital'."
+          ]
+        }
+      ],
+      "itemHash": "1015320144d2bce5"
+    },
+    {
+      "id": "es-he-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish 'has pain of head'; you can also say 'Me duele la cabeza'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me duele la cabeza."
+          ]
+        }
+      ],
+      "itemHash": "9e66e8177c935412"
+    },
+    {
+      "id": "es-he-14",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint about 'chemist's' is about British English, not Spanish.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hay' = there is/are; 'cerca' = nearby."
+          ]
+        }
+      ],
+      "itemHash": "d4de1277ec77d6fa"
+    },
+    {
+      "id": "es-he-16",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'médico' is the more common word and should be accepted (the lint flag on 'doctor' is a false alarm; it is also Spanish).",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "médico",
+            "médica",
+            "doctora"
+          ]
+        }
+      ],
+      "itemHash": "19cb466ba37c1614"
+    },
+    {
+      "id": "es-he-17",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'alérgica'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Soy alérgica a la penicilina."
+          ]
+        }
+      ],
+      "itemHash": "031c9ac4830e1520"
+    },
+    {
+      "id": "es-he-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "With a stranger in an emergency, the formal 'puede' is typical.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Puede llamar a una ambulancia?"
+          ]
+        }
+      ],
+      "itemHash": "c3931673c4b10ee2"
+    },
+    {
+      "id": "es-he-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "For an ongoing symptom Spanish uses 'llevar' or 'hace ... que', not the present perfect; the hint teaches the English pattern.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevo tres días con dolor de garganta.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hace tres días que me duele la garganta.",
+            "He tenido dolor de garganta durante tres días."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Llevar + time + con' or 'hace + time + que' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "78545669520c4ded"
+    },
+    {
+      "id": "es-he-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'pastillas' is the everyday word in Spain.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tengo que tomar estas pastillas dos veces al día.",
+            "Necesito tomar estas pastillas dos veces al día."
+          ]
+        }
+      ],
+      "itemHash": "3d2043a5bfe125ca"
+    },
+    {
+      "id": "es-he-20",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Spanish uses the present with 'desde' for an ongoing state; feminine form missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Estoy mareado desde esta mañana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Estoy mareada desde esta mañana.",
+            "Me he sentido mareado desde esta mañana.",
+            "Me he sentido mareada desde esta mañana."
+          ]
+        }
+      ],
+      "itemHash": "b24bf44dbcb3d8d3"
+    },
+    {
+      "id": "es-he-22",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'mientras caminaba' loses 'hiking'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me torcí el tobillo haciendo senderismo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me torcí el tobillo mientras hacía senderismo."
+          ]
+        }
+      ],
+      "itemHash": "5305e357718fbda0"
+    },
+    {
+      "id": "es-he-25",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'mudarse' means to move house; moving your body is 'moverse'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El dolor empeora cuando me muevo.",
+          "list": null
+        }
+      ],
+      "itemHash": "db2ecd0c9d857db8"
+    },
+    {
+      "id": "es-he-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Comencé a cocinar comidas más ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "saludables",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'good for your health'."
+          ]
+        }
+      ],
+      "itemHash": "63247c62b23c776c"
+    },
+    {
+      "id": "es-he-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'condición preexistente' is an insurance anglicism; patients say 'una enfermedad previa' or 'crónica'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tengo una enfermedad previa que requiere medicación regular.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tengo una enfermedad crónica que requiere medicación regular.",
+            "Tengo una condición preexistente que requiere medicación regular."
+          ]
+        }
+      ],
+      "itemHash": "47652bd22c6bebb0"
+    },
+    {
+      "id": "es-he-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'ejercitar' is transitive and needs an object; doing exercise is 'hacer ejercicio'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Sería seguro hacer ejercicio con esta enfermedad?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Sería seguro hacer ejercicio con esta condición?"
+          ]
+        }
+      ],
+      "itemHash": "6ea4e280d118e006"
+    },
+    {
+      "id": "es-he-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'con el consejo de' is a calque; Spanish says 'por consejo de'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sigo una dieta baja en sodio por consejo de mi médico.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "He estado siguiendo una dieta baja en sodio por consejo de mi médico."
+          ]
+        }
+      ],
+      "itemHash": "845b26de7f440f47"
+    },
+    {
+      "id": "es-he-31",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'he estado despertando' lacks the reflexive 'me'; 'tengo seis horas' isn't how you describe sleep.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Normalmente duermo unas seis horas, pero últimamente me despierto por la noche.",
+          "list": null
+        }
+      ],
+      "itemHash": "a7c6308fa2f6ff0c"
+    },
+    {
+      "id": "es-he-32",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'emphasises' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Actualmente' means 'currently' — not 'actually'."
+          ]
+        }
+      ],
+      "itemHash": "8df152cc8f095942"
+    },
+    {
+      "id": "es-he-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Reduje el azúcar y ___ mi energía.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "mejoró",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Preterite of 'mejorar' (to improve)."
+          ]
+        }
+      ],
+      "itemHash": "1c7584508a7c8f0c"
+    },
+    {
+      "id": "es-he-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'que se remitiera a un especialista para su investigación' says someone else is referred for their research.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Le agradecería que me derivara a un especialista para hacer más pruebas.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Agradecería que me remitieran a un especialista para hacer más pruebas."
+          ]
+        }
+      ],
+      "itemHash": "82d7d0e208879226"
+    },
+    {
+      "id": "es-he-35",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'dada mi medicamento' has a gender error and 'existente' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Hay contraindicaciones con la medicación que ya tomo?",
+          "list": null
+        }
+      ],
+      "itemHash": "eaf90ace8aa4f263"
+    },
+    {
+      "id": "es-he-36",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'comprometerme a cirugía' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Quiero explorar alternativas no invasivas antes de decidirme por la cirugía.",
+          "list": null
+        }
+      ],
+      "itemHash": "763b01711e79d2a6"
+    },
+    {
+      "id": "es-he-37",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'condición' is an anglicism for one's state of health.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El empeoramiento de mi estado parece estar relacionado con el aumento del estrés.",
+          "list": null
+        }
+      ],
+      "itemHash": "fbcf85d27b802959"
+    },
+    {
+      "id": "es-he-38",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The future 'se aconsejará' is wrong for 'would be advisable'; 'historial familiar' is usually 'antecedentes familiares'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Sería aconsejable un tratamiento preventivo dados mis antecedentes familiares?",
+          "list": null
+        }
+      ],
+      "itemHash": "de541851aa877170"
+    },
+    {
+      "id": "es-he-b2-69",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'el tratamiento reactiva' has a gender agreement error.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La atención preventiva es más eficaz que el tratamiento reactivo.",
+          "list": null
+        }
+      ],
+      "itemHash": "da285aac387fa5a6"
+    },
+    {
+      "id": "es-he-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Qué políticas pueden mejorar el ___ a la atención de salud mental?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "acceso",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'access'."
+          ]
+        }
+      ],
+      "itemHash": "df9ce0c55b7d07f2"
+    },
+    {
+      "id": "es-he-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how to stay motivated to exercise.",
+          "list": null
+        }
+      ],
+      "itemHash": "769a6ed7d59fb320"
+    }
+  ]
+}

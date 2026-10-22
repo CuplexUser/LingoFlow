@@ -1,0 +1,641 @@
+{
+  "language": "german",
+  "category": "money_finance",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:43:33.726Z",
+  "contentHash": "af9062f0fb7d7672",
+  "summary": "Poor German financial vocabulary with absurd literal translations: 'Ich rette Geld' (I rescue money), 'verbringe Geld', 'den Begriff zu reduzieren' (term as in word), 'Verbundenes Interesse' for compound interest, 'Quantitative Leasing', 'Inflationsdrücke', 'Ich spüre meine Ausgaben', and a garbled UK-only ISA item. Also a lowercase noun, wrong tenses and reflexives, three cloze items without a blank, and a dialogue_turn without a situation.",
+  "findings": [
+    {
+      "id": "de-mf-a1-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wie viel kostet...?' = how much does ... cost?"
+          ]
+        }
+      ],
+      "itemHash": "b35a8c4f02b446ca"
+    },
+    {
+      "id": "de-mf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nicht genug' + noun = not enough."
+          ]
+        }
+      ],
+      "itemHash": "8afe2c55120dd282"
+    },
+    {
+      "id": "de-mf-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the everyday short form should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mit (der) Karte zahlen' = to pay by card."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kann ich mit Karte zahlen?",
+            "Kann ich mit Karte bezahlen?"
+          ]
+        }
+      ],
+      "itemHash": "512e3cccd9829cee"
+    },
+    {
+      "id": "de-mf-a1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'Kann ich bar bezahlen?' is the everyday phrasing.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kann ich bar bezahlen?",
+            "Nehmen Sie Bargeld?"
+          ]
+        }
+      ],
+      "itemHash": "6a9b756173e21e35"
+    },
+    {
+      "id": "de-mf-a1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized; in Germany this card is usually called 'EC-Karte' or 'Girocard'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "die Debitkarte",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Debitkarte",
+            "die EC-Karte",
+            "die Girocard"
+          ]
+        }
+      ],
+      "itemHash": "7bd8034011b7ea5b"
+    },
+    {
+      "id": "de-mf-a1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A salary is 'ausgezahlt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mein Gehalt wird jeden Monat ausgezahlt.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich bekomme mein Gehalt jeden Monat."
+          ]
+        }
+      ],
+      "itemHash": "ad969006ee476574"
+    },
+    {
+      "id": "de-mf-a1-9",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'please' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kann ich bitte eine Quittung haben?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kann ich bitte den Kassenbon haben?"
+          ]
+        }
+      ],
+      "itemHash": "803966e383574d54"
+    },
+    {
+      "id": "de-mf-a1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'retten' means to rescue; saving money is 'sparen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich spare jeden Monat etwas Geld.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sparen' = to save (money); 'etwas' = a little."
+          ]
+        }
+      ],
+      "itemHash": "14a46fd18bbe31d9"
+    },
+    {
+      "id": "de-mf-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'verbringen' is for time; money is 'ausgegeben'. 'beim Essen' means 'while eating'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich gebe zu viel Geld fürs Essengehen aus.",
+          "list": null
+        }
+      ],
+      "itemHash": "c6c083c5deccafc3"
+    },
+    {
+      "id": "de-mf-a2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Bank transfers are 'überwiesen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe das Geld heute Morgen online überwiesen.",
+          "list": null
+        }
+      ],
+      "itemHash": "b8b31d2880726e6c"
+    },
+    {
+      "id": "de-mf-a2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'kommt aus meinem Konto auf dem ersten Monat' is garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Miete wird am Ersten des Monats von meinem Konto abgebucht.",
+          "list": null
+        }
+      ],
+      "itemHash": "17573a0952823552"
+    },
+    {
+      "id": "de-mf-a2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'zurücknehmen' means to take back; cutting back is 'einschränken'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich versuche, unnötige Ausgaben einzuschränken.",
+          "list": null
+        }
+      ],
+      "itemHash": "419cf855b42c0713"
+    },
+    {
+      "id": "de-mf-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A loan is 'aufgenommen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe einen Kredit aufgenommen, um mein erstes Auto zu kaufen.",
+          "list": null
+        }
+      ],
+      "itemHash": "2f6454fa6e31c48c"
+    },
+    {
+      "id": "de-mo-a2-49",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The Perfekt describes a past event, but the prompt is a weekly routine.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich lege jede Woche ein Budget für Lebensmittel fest.",
+          "list": null
+        }
+      ],
+      "itemHash": "72168a2e262b6a78"
+    },
+    {
+      "id": "de-mo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie viel sollte ich jeden Monat ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sparen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The opposite of 'ausgeben'."
+          ]
+        }
+      ],
+      "itemHash": "82f3bb0a7c94b363"
+    },
+    {
+      "id": "de-mf-b1-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Funds are 'aufgebaut', not 'errichtet'; the Perfekt implies the effort is over.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich versuche seit einiger Zeit, einen Notgroschen aufzubauen, der die Ausgaben von drei Monaten abdeckt.",
+          "list": null
+        }
+      ],
+      "itemHash": "2417ecd3d1cf8963"
+    },
+    {
+      "id": "de-mf-b1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'den Begriff reduzieren' means 'reduce the word'; the term of a mortgage is the 'Laufzeit'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Lohnt es sich, Sondertilgungen auf meine Hypothek zu leisten, um die Laufzeit zu verkürzen?",
+          "list": null
+        }
+      ],
+      "itemHash": "a715e500e47fee8e"
+    },
+    {
+      "id": "de-mf-b1-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'anstatt sich ... zu verlassen' needs 'mich'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich versuche, mehrere Einkommensquellen aufzubauen, anstatt mich nur auf mein Gehalt zu verlassen.",
+          "list": null
+        }
+      ],
+      "itemHash": "43b255244ed0276a"
+    },
+    {
+      "id": "de-mf-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Verbundenes Interesse' means 'connected curiosity'; compound interest is 'der Zinseszins'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Zinseszins bewirkt, dass Ihre Ersparnisse umso schneller wachsen, je länger Sie sie angelegt lassen.",
+          "list": null
+        }
+      ],
+      "itemHash": "fae281d5aba55078"
+    },
+    {
+      "id": "de-mf-b1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Strafe' is a punishment; the banking term is 'Vorfälligkeitsentschädigung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie hoch ist die Vorfälligkeitsentschädigung für dieses Darlehen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Was kostet es, dieses Darlehen vorzeitig zurückzuzahlen?"
+          ]
+        }
+      ],
+      "itemHash": "9ca1625ceb56c105"
+    },
+    {
+      "id": "de-mf-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'behalte einen Haushalt ... wo mein Geld läuft' is garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich führe ein monatliches Haushaltsbuch, um zu sehen, wohin mein Geld fließt.",
+          "list": null
+        }
+      ],
+      "itemHash": "de11b6585a7a4592"
+    },
+    {
+      "id": "de-mf-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Pension' is for civil servants; contributions are 'Rentenbeiträge'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Meine Rentenbeiträge werden vor Steuern von meinem Gehalt abgezogen.",
+          "list": null
+        }
+      ],
+      "itemHash": "f445277d597cea60"
+    },
+    {
+      "id": "de-mf-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The sentence is a stiff calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe zuerst die Schulden mit den höchsten Zinsen abbezahlt und dabei einen kleinen Notgroschen behalten.",
+          "list": null
+        }
+      ],
+      "itemHash": "324ad2d96e803f8f"
+    },
+    {
+      "id": "de-mf-b1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Subscriptions are 'gekündigt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe meine Abos durchgesehen und die gekündigt, die ich nicht genutzt habe.",
+          "list": null
+        }
+      ],
+      "itemHash": "6847dcfdb5b5b0d1"
+    },
+    {
+      "id": "de-mf-b1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The translation is garbled, and ISAs are a UK-only product irrelevant to German learners.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What is the difference between a savings account and a securities account?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Was ist der Unterschied zwischen einem Sparkonto und einem Depot?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Depot' = securities/brokerage account."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "b4cbed1d2511bef2"
+    },
+    {
+      "id": "de-mo-b1-59",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'spüren' means to feel.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich behalte meine Ausgaben im Blick, um unnötige Kosten zu vermeiden.",
+          "list": null
+        }
+      ],
+      "itemHash": "1920c9587d0a58d1"
+    },
+    {
+      "id": "de-mo-b1-60",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'wie viele Menschen sich leihen' means 'how many people borrow'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Zinssätze beeinflussen, wie viel Geld sich die Leute leihen.",
+          "list": null
+        }
+      ],
+      "itemHash": "bc2bf3a68945f41b"
+    },
+    {
+      "id": "de-mo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie baut man am sichersten einen ___ auf?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Notgroschen",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Notfallfonds"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Money set aside for emergencies."
+          ]
+        }
+      ],
+      "itemHash": "687d0c0f693d0882"
+    },
+    {
+      "id": "de-mf-b2-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Wie weit denken Sie' is a calque; the hint uses British spelling.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Inwieweit erklärt die Verhaltensökonomie Ihrer Meinung nach irrationale Finanzentscheidungen?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Verhaltensökonomie' (behavioral economics) studies how psychology affects economic choices."
+          ]
+        }
+      ],
+      "itemHash": "99a7578797bd2566"
+    },
+    {
+      "id": "de-mf-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Quantitative Leasing' is wrong; the German term is 'quantitative Lockerung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Bei der quantitativen Lockerung erhöhen Zentralbanken die Geldmenge, um die Wirtschaft anzukurbeln.",
+          "list": null
+        }
+      ],
+      "itemHash": "182cac7fc457ff7e"
+    },
+    {
+      "id": "de-mf-b2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Souveräne Schuldenkrisen' means confident debt crises; it's 'Staatsschuldenkrisen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Staatsschuldenkrisen können ganze Regionalwirtschaften destabilisieren, wenn die Gläubiger das Vertrauen verlieren.",
+          "list": null
+        }
+      ],
+      "itemHash": "9fd40e24f432c883"
+    },
+    {
+      "id": "de-mf-b2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'auszeichnen ... von' is wrong; distinguishing is 'unterscheiden ... von'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Was unterscheidet Value-Investing von Growth-Investing als Anlagestrategien?",
+          "list": null
+        }
+      ],
+      "itemHash": "c536ad7451cfcb7c"
+    },
+    {
+      "id": "de-mf-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Inflationsdrücke' and 'weniger Einkommenshaushalte' are garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Inflationsdruck hat die reale Kaufkraft geschmälert und trifft Haushalte mit niedrigem Einkommen überproportional.",
+          "list": null
+        }
+      ],
+      "itemHash": "6ef0b5378fd5faab"
+    },
+    {
+      "id": "de-mo-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Einsparungen' means cuts; disciplined saving is 'diszipliniertes Sparen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Langfristige finanzielle Stabilität hängt von diszipliniertem Sparen und breit gestreuten Anlagen ab.",
+          "list": null
+        }
+      ],
+      "itemHash": "ca2dabcde3ea0615"
+    },
+    {
+      "id": "de-mo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Die Inflation schmälert die ___, wenn die Löhne nicht Schritt halten.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Kaufkraft",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A compound noun: 'buying' + 'power'."
+          ]
+        }
+      ],
+      "itemHash": "641183e6f542b3ff"
+    },
+    {
+      "id": "de-mo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'Politiken' is an anglicism for policy measures.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. In a seminar, someone says household debt is a private matter, not a policy issue.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Welche Maßnahmen sind am wirksamsten, um das Risiko der Haushaltsverschuldung zu senken?",
+          "list": null
+        }
+      ],
+      "itemHash": "fc51dee81d46065a"
+    }
+  ]
+}

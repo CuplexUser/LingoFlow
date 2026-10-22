@@ -729,6 +729,11 @@ async function resyncUsersSequence() {
   ).get();
 }
 
+// Learners always study from English: prompts, hints and the UI are in English. The
+// native_language column and the nativeLanguage settings field remain for older clients,
+// but the value is fixed.
+const NATIVE_LANGUAGE = "english";
+
 function isValidLanguageId(value) {
   const normalized = String(value || "").trim().toLowerCase();
   if (!normalized) return false;
@@ -1069,8 +1074,8 @@ async function maybeMigrateLegacyJson() {
           updated_at = CURRENT_TIMESTAMP
       WHERE user_id = 1
     `).run(
-      settings.nativeLanguage || "english",
-      normalizeLanguageId(settings.targetLanguage, "spanish"),
+      NATIVE_LANGUAGE,
+      normalizeTargetLanguageId(settings.targetLanguage, NATIVE_LANGUAGE, "spanish"),
       Number.isInteger(settings.dailyGoal) ? settings.dailyGoal : 30
     );
 
@@ -1318,14 +1323,13 @@ async function getSettings(userId = 1) {
     FROM settings
     WHERE user_id = ?
   `).get(userId);
-  const normalizedNativeLanguage = normalizeLanguageId(row.native_language, "english");
   const normalizedTargetLanguage = normalizeTargetLanguageId(
     row.target_language,
-    normalizedNativeLanguage,
+    NATIVE_LANGUAGE,
     "spanish"
   );
   return {
-    nativeLanguage: normalizedNativeLanguage,
+    nativeLanguage: NATIVE_LANGUAGE,
     targetLanguage: normalizedTargetLanguage,
     dailyGoal: row.daily_goal,
     dailyMinutes: row.daily_minutes,
@@ -1343,11 +1347,10 @@ async function saveSettings(userId = 1, nextSettings = {}) {
   await ensureUserState(userId);
   const safeSettings = nextSettings as any;
   const existingSettings = await db.prepare("SELECT target_language FROM settings WHERE user_id = ?").get(userId);
-  const nextNativeLanguage = normalizeLanguageId(safeSettings.nativeLanguage, "english");
   const fallbackLanguage = normalizeLanguageId(existingSettings?.target_language, "spanish");
   const nextTargetLanguage = normalizeTargetLanguageId(
     safeSettings.targetLanguage,
-    nextNativeLanguage,
+    NATIVE_LANGUAGE,
     fallbackLanguage
   );
   await db.prepare(`
@@ -1366,7 +1369,7 @@ async function saveSettings(userId = 1, nextSettings = {}) {
         updated_at = CURRENT_TIMESTAMP
     WHERE user_id = ?
   `).run(
-    nextNativeLanguage,
+    NATIVE_LANGUAGE,
     nextTargetLanguage,
     Number.isInteger(safeSettings.dailyGoal) ? safeSettings.dailyGoal : 30,
     Number.isInteger(safeSettings.dailyMinutes) ? safeSettings.dailyMinutes : 20,

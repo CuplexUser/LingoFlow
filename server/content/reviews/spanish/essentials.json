@@ -1,0 +1,260 @@
+{
+  "language": "spanish",
+  "category": "essentials",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:13:31.076Z",
+  "contentHash": "154352c01a4e4d8d",
+  "summary": "Solid, natural Spanish with good subjunctive coverage. Gaps: six generic hints, missing tú/usted and feminine alternatives, the calque 'escribir eso para mí', and 'no estaríamos corriendo' for 'we wouldn't be rushing'. The about-english lint on sp-es-b2-15 is a false alarm.",
+  "findings": [
+    {
+      "id": "sp-es-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the formal 'está' is equally correct for 'you'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Estar' is used for how someone is. Informal: ¿cómo estás?; formal: ¿cómo está?"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hola, ¿cómo está?",
+            "Hola, ¿cómo está usted?"
+          ]
+        }
+      ],
+      "itemHash": "f52c591eb45fdf01"
+    },
+    {
+      "id": "sp-es-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; formal 'su ayuda' and plain 'por la ayuda' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Por' introduces what you are thankful for."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Muchas gracias por su ayuda.",
+            "Muchas gracias por la ayuda."
+          ]
+        }
+      ],
+      "itemHash": "132df52473e56e55"
+    },
+    {
+      "id": "sp-es-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'frase' is the everyday word for sentence.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Put 'no' directly before the verb."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "No entiendo esta frase."
+          ]
+        }
+      ],
+      "itemHash": "adc79c761b500a04"
+    },
+    {
+      "id": "sp-es-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; informal 'Disculpa' and 'Perdón' are common.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Disculpe' (formal) gets a stranger's attention; 'estar' for location."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Disculpa, ¿dónde está el baño?",
+            "Perdón, ¿dónde está el baño?"
+          ]
+        }
+      ],
+      "itemHash": "2248d85e4b8b614c"
+    },
+    {
+      "id": "sp-es-a1-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Me llamo' literally means 'I call myself'. Double l sounds like English y."
+          ]
+        }
+      ],
+      "itemHash": "9a4f04da5f71c3c4"
+    },
+    {
+      "id": "sp-es-a1-10",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Generic hint; 'bien' usually comes before the language in natural speech.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Natives usually say 'No hablo bien español'."
+          ]
+        },
+        {
+          "field": "correctAnswer",
+          "text": "No hablo bien español.",
+          "list": null
+        }
+      ],
+      "itemHash": "3ce203faf1ce92d3"
+    },
+    {
+      "id": "sp-es-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The formal 'podría' is equally correct.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Podría hablar más despacio, por favor?"
+          ]
+        }
+      ],
+      "itemHash": "d398e52ab905c826"
+    },
+    {
+      "id": "sp-es-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The informal 'podrías' is equally correct.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Podrías repetir eso una vez más?",
+            "¿Podría repetirlo una vez más?"
+          ]
+        }
+      ],
+      "itemHash": "592e74af78d669f9"
+    },
+    {
+      "id": "sp-es-13",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'escribir eso para mí' is a calque; Spanish uses the indirect object pronoun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Me lo podrías escribir?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Podrías escribírmelo?",
+            "¿Me lo podría escribir?",
+            "¿Podrías escribir eso para mí?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish says 'write it to me': me + lo + escribir."
+          ]
+        }
+      ],
+      "itemHash": "d214d725100aea42"
+    },
+    {
+      "id": "sp-es-14",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'más seguro/segura' and 'con frases' are equally natural.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me siento más seguro cuando hablo con frases más largas.",
+            "Me siento más segura cuando hablo con frases más largas."
+          ]
+        }
+      ],
+      "itemHash": "8e18671911b9c017"
+    },
+    {
+      "id": "sp-es-b2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'segura'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cuanto más practico, más segura me siento."
+          ]
+        }
+      ],
+      "itemHash": "ca909cf601bfcc36"
+    },
+    {
+      "id": "sp-es-b2-13",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'no estaríamos corriendo' means 'we wouldn't be running'; 'rushing' is 'tener prisa' or 'ir con prisas'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Si hubiéramos empezado antes, ahora no tendríamos tanta prisa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Si hubiéramos empezado antes, ahora no iríamos con prisas."
+          ]
+        }
+      ],
+      "itemHash": "c0c6c6b043802119"
+    }
+  ]
+}

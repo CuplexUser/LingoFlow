@@ -1,0 +1,374 @@
+{
+  "language": "spanish",
+  "category": "culture_history",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:28:28.645Z",
+  "contentHash": "0d81e936d7c2398a",
+  "summary": "Better than other Spanish files at B1–B2, but it still contains wrong translations: 'fui golpeado por la escala' (literally 'I was hit by the scale'), 'Asistieron' (wrong person), 'estas vacaciones' for a holiday, the non-word 'autoservadora', and a missing 'a' in 'diferente de lo que estoy acostumbrado'. A Shakespeare item sits oddly in a Spanish culture file, three cloze items lack a blank, and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-ch-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Encantar' + infinitive works like 'gustar'."
+          ]
+        }
+      ],
+      "itemHash": "185005eca3b82817"
+    },
+    {
+      "id": "es-ch-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'antiguo' is the usual word for old buildings.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Este edificio es muy antiguo?",
+            "¿Es muy antiguo este edificio?"
+          ]
+        }
+      ],
+      "itemHash": "f221f94ce7e3ec04"
+    },
+    {
+      "id": "es-ch-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'artefactos' in Spanish usually means devices; archaeological items are 'piezas' or 'objetos'. The hint uses British 'Artefacts'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El museo tiene una impresionante colección de piezas romanas.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "El museo tiene una impresionante colección de objetos romanos."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Piezas' = objects in a museum collection."
+          ]
+        }
+      ],
+      "itemHash": "a52484240f03ae6b"
+    },
+    {
+      "id": "es-ch-a2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'acostumbrado' takes 'a': 'diferente de lo que estoy acostumbrado' is ungrammatical; 'quite' is 'bastante', not 'muy'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La música folclórica de aquí es bastante diferente de aquello a lo que estoy acostumbrado.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La música popular de aquí es bastante distinta a la que estoy acostumbrado.",
+            "La música popular de aquí es bastante distinta a la que estoy acostumbrada."
+          ]
+        }
+      ],
+      "itemHash": "aaadb8fe9b0a83f3"
+    },
+    {
+      "id": "es-ch-a2-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Asistieron' is 'they attended'; the prompt says 'we'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Asistimos a la inauguración de una nueva exposición en la galería.",
+          "list": null
+        }
+      ],
+      "itemHash": "71668e20fee46b94"
+    },
+    {
+      "id": "es-ch-a2-10",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "A Shakespeare fact is out of place in a Spanish culture file; Spanish has an obvious equivalent.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Cervantes published the first part of Don Quixote in 1605.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Cervantes publicó la primera parte del Quijote en 1605.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Preterite 'publicó' for a completed historical fact."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": "Miguel de Cervantes (1547–1616) is considered the greatest writer in the Spanish language; 'Don Quijote' is often called the first modern novel.",
+          "list": null
+        }
+      ],
+      "itemHash": "4be701228d063dc4"
+    },
+    {
+      "id": "es-cu-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'estas vacaciones' means 'this vacation', not a holiday.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Por qué la gente ___ esta fiesta?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "celebra",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'La gente' takes a singular verb."
+          ]
+        }
+      ],
+      "itemHash": "ee58d0964e4136bd"
+    },
+    {
+      "id": "es-ch-b1-2",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'colonising' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
+          ]
+        }
+      ],
+      "itemHash": "ad8a5bc2d585c4cc"
+    },
+    {
+      "id": "es-ch-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'fui golpeado por la escala' literally means 'I was hit by the scale'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Visité el yacimiento arqueológico y me impresionó la magnitud de las ruinas.",
+          "list": null
+        }
+      ],
+      "itemHash": "fe85ebfb0ad10335"
+    },
+    {
+      "id": "es-ch-b1-6",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "Spanish questions invert the subject: '¿Cómo concilia un país...?'",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo concilia un país el orgullo por su historia con el reconocimiento de los errores del pasado?",
+          "list": null
+        }
+      ],
+      "itemHash": "2f918d010c1865f1"
+    },
+    {
+      "id": "es-ch-b1-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The hint uses British 'Characterised'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Caracterizarse por' = to be characterized by; 'antigüedad' = ancient times.",
+            "'Humanist' thought placed humans, not God, at the center of intellectual life."
+          ]
+        }
+      ],
+      "itemHash": "0149535f5dfabfec"
+    },
+    {
+      "id": "es-ch-b1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'me dieron un sentido mucho más fuerte' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Las cartas y diarios personales me hicieron entender mucho mejor cómo era la vida en aquella época.",
+          "list": null
+        }
+      ],
+      "itemHash": "cb4c75d95255ade1"
+    },
+    {
+      "id": "es-cu-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Qué periodo histórico te ___ más fascinante?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "parece",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Parecer' = to seem, used with an indirect object pronoun."
+          ]
+        }
+      ],
+      "itemHash": "6e0b92b09ff71119"
+    },
+    {
+      "id": "es-ch-b2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'la práctica del museo contemporáneo' is a calque; 'artefactos' isn't used for cultural objects.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La repatriación de piezas coloniales sigue siendo uno de los debates más polémicos de la museología actual.",
+          "list": null
+        }
+      ],
+      "itemHash": "eb133c3ba335eea1"
+    },
+    {
+      "id": "es-ch-b2-2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'autoservadora' is not a Spanish word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Hasta qué punto construye la mitología nacional una versión selectiva e interesada de los acontecimientos históricos?",
+          "list": null
+        }
+      ],
+      "itemHash": "c8f0f886cc4bf324"
+    },
+    {
+      "id": "es-ch-b2-3",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "A completed historical change takes the preterite; the hint uses British 'prioritised'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La Ilustración supuso un cambio epistémico fundamental que situó la razón por encima de la autoridad religiosa.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Epistémico' = relating to knowledge; 'placed reason above' = prioritized rationality over faith."
+          ]
+        }
+      ],
+      "itemHash": "14dd2167dcfe8aff"
+    },
+    {
+      "id": "es-ch-b2-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'argumentan por' is a calque of 'argue for'; Spanish says 'abogan por'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El concepto de un canon occidental ha sido cuestionado por académicos que abogan por una tradición literaria más inclusiva a escala global.",
+          "list": null
+        }
+      ],
+      "itemHash": "7dd7413c02bac68e"
+    },
+    {
+      "id": "es-cu-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "El patrimonio cultural puede fortalecer la ___ social entre generaciones.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "cohesión",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'the bonds that hold a group together'."
+          ]
+        }
+      ],
+      "itemHash": "0414965a35be6897"
+    },
+    {
+      "id": "es-cu-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation, and its culturalNote is empty filler.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. City planners want to replace a historic market with a modern shopping center.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "54fb928540d798c2"
+    }
+  ]
+}

@@ -1,0 +1,1304 @@
+{
+  "language": "swedish",
+  "category": "numbers_math",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:06:37.089Z",
+  "contentHash": "a17cef9b417b7aed",
+  "summary": "Machine-translated with typical leftovers: digit answers, duplicated words ('tusen tusen', 'först först', 'andra sekunden'), mistranslations ('delad av' for ÷, 'kvartal' for 1/4, 'även till och med' for even, 'splittrad', 'skor'), and ≈15 prompts or hints about English. Cloze sentences are rewritten in Swedish and English idioms replaced with Swedish ones.",
+  "findings": [
+    {
+      "id": "sv-num-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "When counting, Swedish says 'ett', not 'en'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "ett",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "en"
+          ]
+        }
+      ],
+      "itemHash": "6b5a22607a527bfb"
+    },
+    {
+      "id": "sv-num-a1-3",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Distractors 'tow', 'också för', 'för att' come from the English to/too/two pun; hint is about English.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tolv",
+            "två",
+            "tre",
+            "tio"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pronounced 'tvoh'. Don't confuse it with tolv (12)."
+          ]
+        }
+      ],
+      "itemHash": "9b610eb2f2d5f97d"
+    },
+    {
+      "id": "sv-num-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint quotes an English proverb; Swedish has its own.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedes say 'Alla goda ting är ___' — all good things come in threes."
+          ]
+        }
+      ],
+      "itemHash": "ea17282e251a1bda"
+    },
+    {
+      "id": "sv-num-a1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 5 with English and junk distractors.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "fem",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "fäm",
+            "fem",
+            "femm",
+            "fen"
+          ]
+        }
+      ],
+      "itemHash": "ff415e222a35bcf9"
+    },
+    {
+      "id": "sv-num-a1-12",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: En vecka har ___ dagar.",
+          "list": null
+        }
+      ],
+      "itemHash": "71178b9a6e3d43a2"
+    },
+    {
+      "id": "sv-num-a1-13",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Prompt asks about English; 'lika' alone is not how = is read.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is '+' called in Swedish math?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "minus",
+            "plus",
+            "gånger",
+            "delat med"
+          ]
+        }
+      ],
+      "itemHash": "49f8cbdb382919ae"
+    },
+    {
+      "id": "sv-num-a1-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "= is read 'lika med', not 'lika'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "lika med",
+          "list": null
+        }
+      ],
+      "itemHash": "c4c28d43db509957"
+    },
+    {
+      "id": "sv-num-a1-16",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'är' and 'blir' are equally common; hint names English words.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Två plus tre är fem.",
+            "Två plus tre blir fem."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: plus, and 'är lika med', 'är' or 'blir' for equals."
+          ]
+        }
+      ],
+      "itemHash": "5f2e55550e0c8dee"
+    },
+    {
+      "id": "sv-num-a1-18",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'fem och fem' is colloquially correct, and '5 minus 5' uses digits.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "fem delat med fem",
+            "fem plus fem",
+            "fem gånger fem",
+            "fem minus fem"
+          ]
+        }
+      ],
+      "itemHash": "49fb6d0ce701f02e"
+    },
+    {
+      "id": "sv-num-a1-21",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Asks about the English word 'thirteen'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which number is 'tretton'?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "tre + -ton. Don't confuse it with trettio (30)."
+          ]
+        }
+      ],
+      "itemHash": "c6ee64eb514a7562"
+    },
+    {
+      "id": "sv-num-a1-22",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 5 and the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Jag har ___ fingrar på varje hand.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fem",
+          "list": null
+        }
+      ],
+      "itemHash": "202437480d70bae3"
+    },
+    {
+      "id": "sv-num-a2-2",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'femtio' appears three times among the options; hint is about English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you write 50 in Swedish?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "femtio",
+            "femton",
+            "femte",
+            "fyrtio"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "fem + -tio. Don't confuse it with femton (15)."
+          ]
+        }
+      ],
+      "itemHash": "128e10d7f023150e"
+    },
+    {
+      "id": "sv-num-a2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer is duplicated ('tusen tusen').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "tusen",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "ettusen",
+            "ett tusen"
+          ]
+        }
+      ],
+      "itemHash": "2c99948b13b9ff72"
+    },
+    {
+      "id": "sv-num-a2-5",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "÷ is read 'delat med', not 'delad av'.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "plus",
+            "minus",
+            "gånger",
+            "delat med"
+          ]
+        }
+      ],
+      "itemHash": "bcae0c57b87a9498"
+    },
+    {
+      "id": "sv-num-a2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "÷ is read 'delat med'; 'delad av' is a literal 'divided by'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "delat med",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "delat i",
+            "dividerat med"
+          ]
+        }
+      ],
+      "itemHash": "b1b3d53468baf081"
+    },
+    {
+      "id": "sv-num-a2-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'motsvarar' (corresponds to) is not used for equals.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tre gånger fyra är tolv.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tre gånger fyra är lika med tolv.",
+            "Tre gånger fyra blir tolv."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: gånger (times), and 'är' or 'blir' for equals."
+          ]
+        }
+      ],
+      "itemHash": "719519c266a787c8"
+    },
+    {
+      "id": "sv-num-a2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 5.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "fem",
+          "list": null
+        }
+      ],
+      "itemHash": "712711f7799b787a"
+    },
+    {
+      "id": "sv-num-a2-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "The correct option appears twice and the hint about hyphens is English-only.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tjugofem",
+            "två fem",
+            "femtjugo",
+            "tjugofäm"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish writes it as one word, tens first: tjugo + fem."
+          ]
+        }
+      ],
+      "itemHash": "32dab7790f8b66cb"
+    },
+    {
+      "id": "sv-num-a2-10",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Ett dygn har ___ timmar.",
+          "list": null
+        }
+      ],
+      "itemHash": "8f08bdd98e4ab8f8"
+    },
+    {
+      "id": "sv-num-a2-12",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'en poäng' and 'en grov' are mistranslations of 'a score' and 'a gross'.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "ett par",
+            "ett dussin",
+            "ett tjog",
+            "ett hundratal"
+          ]
+        }
+      ],
+      "itemHash": "5f048ddc883be4d6"
+    },
+    {
+      "id": "sv-num-a2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says English; Swedish reads years with 'hundra'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say the year 1999 in Swedish?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "nittonhundranittionio",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish reads years with 'hundra': nitton-hundra-nittionio, written as one word."
+          ]
+        }
+      ],
+      "itemHash": "6bc80b860a33c590"
+    },
+    {
+      "id": "sv-num-a2-14",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the English word 'dozen'; the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Ett ___ ägg är tolv ägg.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dussin",
+          "list": null
+        }
+      ],
+      "itemHash": "e27bd00034f74336"
+    },
+    {
+      "id": "sv-num-a2-15",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'tretseven' is English junk; hint is about English hyphens.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tre sju",
+            "trettio sju",
+            "trettiosju",
+            "sjutrettio"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Tens + units, one word: trettio + sju."
+          ]
+        }
+      ],
+      "itemHash": "7ce4c4bceb5279b6"
+    },
+    {
+      "id": "sv-num-a2-16",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'först först' is duplicated and is the adverb; the ordinal is 'första'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "första",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "förste"
+          ]
+        }
+      ],
+      "itemHash": "bba14369947f992c"
+    },
+    {
+      "id": "sv-num-a2-17",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'andra sekunden' mixes in 'second' as a time unit; in Swedish only 'andra' is the ordinal.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "andra",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "andre"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The runner-up finishes in this place."
+          ]
+        }
+      ],
+      "itemHash": "202499d96746555d"
+    },
+    {
+      "id": "sv-num-a2-18",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'tre' appears twice; hint is English.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tre",
+            "tredje",
+            "trede",
+            "tredjedel"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "första, andra, ___, fjärde."
+          ]
+        }
+      ],
+      "itemHash": "36bb9c89b2ba36ce"
+    },
+    {
+      "id": "sv-num-a2-19",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Hon kom på ___ plats — precis utanför pallen.",
+          "list": null
+        }
+      ],
+      "itemHash": "300a3e085649cb94"
+    },
+    {
+      "id": "sv-num-a2-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says English, one 'fem' is missing, and the digit 1 is 'ett'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you read the phone number 555-0199 in Swedish?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fem fem fem, noll ett nio nio",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Phone numbers are said digit by digit. 0 is 'noll', 1 is 'ett'."
+          ]
+        }
+      ],
+      "itemHash": "635cc7f6bec74034"
+    },
+    {
+      "id": "sv-num-b1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'kvartal' is a quarter of a year; 1/4 is 'en fjärdedel'. The US-coin hint is English-only.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "en fjärdedel",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Four equal parts. Fifteen minutes is 'en kvart'."
+          ]
+        }
+      ],
+      "itemHash": "35330ec973aa5481"
+    },
+    {
+      "id": "sv-num-b1-3",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'tredje tredje tredje tredje' is junk.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "två tre",
+            "två treor",
+            "två tredjedelar",
+            "andra tredje"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Fraction = ordinal + -del: tredje → tredjedel."
+          ]
+        }
+      ],
+      "itemHash": "184441b41514d70c"
+    },
+    {
+      "id": "sv-num-b1-4",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: ___ av klassen klarade provet — trettio av fyrtio elever.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "30 av 40 = 75 %."
+          ]
+        }
+      ],
+      "itemHash": "56d66f5e6022c14a"
+    },
+    {
+      "id": "sv-num-b1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Det finns tjugo procent av' is a broken calque; Swedish says 'tjugo procent rabatt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Det är tjugo procent rabatt.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tjugo procent rabatt.",
+            "Det är tjugo procents rabatt."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Rabatt' = discount."
+          ]
+        }
+      ],
+      "itemHash": "93c34b3e8c15aa29"
+    },
+    {
+      "id": "sv-num-b1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'differens' is the math term and should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "differens",
+            "skillnaden"
+          ]
+        }
+      ],
+      "itemHash": "01e1c7e227cee5fb"
+    },
+    {
+      "id": "sv-num-b1-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'splittrad' means shattered; the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Vi måste ___ på notan i tre — ungefär tjugo euro var.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dela",
+          "list": null
+        }
+      ],
+      "itemHash": "547325e2a11ea268"
+    },
+    {
+      "id": "sv-num-b1-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Swedish uses a decimal comma: 3,5 is 'tre komma fem'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "tre komma fem",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish uses a decimal comma, read 'komma'."
+          ]
+        }
+      ],
+      "itemHash": "1adef6038a8273fd"
+    },
+    {
+      "id": "sv-num-b1-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'i hans trettio' is not Swedish; the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Han är i ___ — han fyllde trettiofem förra veckan.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "trettioårsåldern",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "30-årsåldern"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'I trettioårsåldern' = in one's thirties."
+          ]
+        }
+      ],
+      "itemHash": "ac1dd522b3171240"
+    },
+    {
+      "id": "sv-num-b1-16",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Asks what an English phrase means instead of how to say it.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'a pair of shoes' in Swedish?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ett par skor",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "en sko",
+            "ett par skor",
+            "några skor",
+            "många skor"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ett par' = a pair — though in speech it can also mean 'a few'."
+          ]
+        }
+      ],
+      "itemHash": "b57cd283b658a684"
+    },
+    {
+      "id": "sv-num-b1-17",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'även till och med' is 'even' as in 'even so'; even numbers are 'jämna tal'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "jämna",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "jämna tal",
+            "jämn"
+          ]
+        }
+      ],
+      "itemHash": "5285e2b23d53c081"
+    },
+    {
+      "id": "sv-num-b1-18",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Biljetten kostar ___ euro, några cent hit eller dit.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "cirka tjugo",
+            "runt tjugo"
+          ]
+        }
+      ],
+      "itemHash": "b952c5c2b960154d"
+    },
+    {
+      "id": "sv-num-b1-19",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Swedish normally says 'dubbla priset'; the prompt is about English 'twice'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'double the price' in Swedish?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dubbla priset",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "det dubbla priset",
+            "två gånger priset"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Dubbla' = double; 'dubbelt så dyrt' = twice as expensive."
+          ]
+        }
+      ],
+      "itemHash": "fe0cddf02e2fb82d"
+    },
+    {
+      "id": "sv-num-b1-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Prompt says English; one option uses digits.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 2,500,000 in the most natural spoken Swedish?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tjugofem hundra tusen",
+            "två poäng fem miljoner",
+            "två och en halv miljon",
+            "två miljoner femhundra"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Två och en halv' = two and a half."
+          ]
+        }
+      ],
+      "itemHash": "aa3d4dc8b22fb410"
+    },
+    {
+      "id": "sv-num-b2-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Tests an English idiom with a garbled paraphrase ('sjukdom'); replaced with a Swedish number idiom.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Idiom: 'to kill two birds with one stone'",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "slå två flugor i en smäll",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'to hit two flies with one swat'."
+          ]
+        }
+      ],
+      "itemHash": "c7be12b9b759a345"
+    },
+    {
+      "id": "sv-num-b2-2",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks the meaning of an English idiom; Swedish has 'i sjunde himlen'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'on cloud nine' in Swedish?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "i sjunde himlen",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "i nionde himlen",
+            "i sjunde himlen",
+            "uppe i det blå",
+            "på tredje våningen"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish happiness is the seventh heaven."
+          ]
+        }
+      ],
+      "itemHash": "7facf7e1388303ac"
+    },
+    {
+      "id": "sv-num-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'lägg till tillägg' is nonsense; Swedish says 'kalkylen går inte ihop'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Kalkylen går inte ___ — kostnaderna är alldeles för höga.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ihop",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Det går inte ihop' = it doesn't add up."
+          ]
+        }
+      ],
+      "itemHash": "a10f0734792ee550"
+    },
+    {
+      "id": "sv-num-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Answer is a dictionary paraphrase, not the expression.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "dela lika",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "köra fifty-fifty",
+            "dela fifty-fifty"
+          ]
+        }
+      ],
+      "itemHash": "cedd7e1055cba8d7"
+    },
+    {
+      "id": "sv-num-b2-5",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Asks the meaning of an English phrase; Swedish uses the same image.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which Swedish sentence means 'the odds are against us'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Oddsen är emot oss.",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Vi behöver fler människor.",
+            "Siffrorna är fel.",
+            "Oddsen är emot oss.",
+            "Tävlingen är rättvis."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Swedish borrowed 'odds' from English."
+          ]
+        }
+      ],
+      "itemHash": "afdd02e0df1391c2"
+    },
+    {
+      "id": "sv-num-b2-6",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Hon är misstänkt ___ — kommissarien fokuserar helt på henne.",
+          "list": null
+        }
+      ],
+      "itemHash": "7a2f3de45a443244"
+    },
+    {
+      "id": "sv-num-b2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Swedish school math says 'kvot'; hint lists English terms.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "kvot",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "kvoten",
+            "kvotient"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Summa, differens, produkt, ___."
+          ]
+        }
+      ],
+      "itemHash": "78400a434acc1a6c"
+    },
+    {
+      "id": "sv-num-b2-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'nummer' is wrong for a mathematical number (tal) and options are garbled.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is 'ett runt tal'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ett tal som slutar på noll och är lätt att räkna med",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "ett cirkeltal i geometri",
+            "ett tal som slutar på noll och är lätt att räkna med",
+            "vilket tal som helst",
+            "en perfekt kvadrat"
+          ]
+        }
+      ],
+      "itemHash": "0439b689b4076380"
+    },
+    {
+      "id": "sv-num-b2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'höll med om' is the more natural rendering of 'agreed with'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Två tredjedelar av de tillfrågade höll med om förslaget.",
+            "Två tredjedelar av respondenterna höll med om förslaget."
+          ]
+        }
+      ],
+      "itemHash": "a26ed0adc72103a7"
+    },
+    {
+      "id": "sv-num-b2-10",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; Swedish says 'Inga pengar i världen'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: ___ i världen skulle få mig att flyga igen efter den upplevelsen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Inga pengar",
+          "list": null
+        }
+      ],
+      "itemHash": "f7df164e5f229a86"
+    },
+    {
+      "id": "sv-num-b2-11",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "Options mix imperative and 'för att' forms.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which Swedish phrase means 'to zero in on something'?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "att ignorera något",
+            "att nollställa något",
+            "att fokusera just på något",
+            "att räkna ner till noll"
+          ]
+        }
+      ],
+      "itemHash": "6c68828755857f35"
+    },
+    {
+      "id": "sv-num-b2-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'att lita på eller lita på någon' is garbled; Swedish uses 'räkna med någon'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "att räkna med någon",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "att lita på någon",
+            "räkna med någon"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Du kan alltid räkna med mig.'"
+          ]
+        }
+      ],
+      "itemHash": "8cfad1d5c7f046e7"
+    },
+    {
+      "id": "sv-num-b2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'skor' is a literal 'shoestring'; Swedish says 'på sparlåga'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Efter flera år av nedskärningar drivs organisationen på ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sparlåga",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'På sparlåga' = on a low flame — running on almost no money."
+          ]
+        }
+      ],
+      "itemHash": "db4ef933bb603c30"
+    },
+    {
+      "id": "sv-num-b2-14",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer '4.4 4 4' and option '5.5' are garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "4",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "5",
+            "4",
+            "7",
+            "9"
+          ]
+        }
+      ],
+      "itemHash": "030075c8e04ee3ec"
+    }
+  ]
+}

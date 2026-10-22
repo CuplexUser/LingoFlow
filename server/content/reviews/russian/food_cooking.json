@@ -1,0 +1,152 @@
+{
+  "language": "russian",
+  "category": "food_cooking",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:18:00.572Z",
+  "contentHash": "a99f713a6af42dd2",
+  "summary": "Excellent culinary Russian with accurate cultural notes. Minor fixes: three generic hints, missing feminine past-tense forms, a missing ё ('испек'), and two hints that call verbal nouns 'gerunds'.",
+  "findings": [
+    {
+      "id": "ru-fo-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the feminine form and the standard ordering formula aren't accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Я бы хотел(а)' = I would like. In a café you can also just say 'Мне, пожалуйста, ...'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я бы хотела кофе и сэндвич.",
+            "Мне, пожалуйста, кофе и сэндвич."
+          ]
+        }
+      ],
+      "itemHash": "55ffcb9c153a1a67"
+    },
+    {
+      "id": "ru-fo-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'У вас есть' = do you have; 'блюда' = dishes."
+          ]
+        }
+      ],
+      "itemHash": "d3b6694424046413"
+    },
+    {
+      "id": "ru-fo-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Без' + genitive: лёд → без льда."
+          ]
+        }
+      ],
+      "itemHash": "c2b407d9ee35afc5"
+    },
+    {
+      "id": "ru-fo-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'забыла ... изменила'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я забыла один ингредиент, поэтому изменила рецепт."
+          ]
+        }
+      ],
+      "itemHash": "3961295101f68321"
+    },
+    {
+      "id": "ru-fo-10",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'испек' should be 'испёк'; the feminine 'испекла' is missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Я впервые испёк хлеб дома.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я впервые испекла хлеб дома."
+          ]
+        }
+      ],
+      "itemHash": "13b9e9881210978e"
+    },
+    {
+      "id": "ru-fo-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'мариновала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я мариновала курицу всю ночь перед тем, как жарить её на гриле."
+          ]
+        }
+      ],
+      "itemHash": "c179e1896945ba17"
+    },
+    {
+      "id": "ru-fo-b2-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "'обжарка' is a verbal noun, not a gerund; the hint's terminology is wrong.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Отвечать за' + accusative = to be responsible for. 'При обжарке' = during searing ('при' + prepositional of a verbal noun)."
+          ]
+        }
+      ],
+      "itemHash": "707399773daf6313"
+    },
+    {
+      "id": "ru-fo-b2-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "'составление' is a verbal noun, not a gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Подход к' + dative = approach to. 'Составление меню' (verbal noun) = menu planning."
+          ]
+        }
+      ],
+      "itemHash": "6949cfe41f7c0453"
+    }
+  ]
+}

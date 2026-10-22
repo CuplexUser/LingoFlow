@@ -1,0 +1,612 @@
+{
+  "language": "spanish",
+  "category": "money_finance",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:26:39.559Z",
+  "contentHash": "aae86b72b525d35c",
+  "summary": "The A1 money basics are fine, but many A2–B2 sentences are literal translations: 'pagar sobre mi hipoteca para reducir el término', 'a cuánta gente presta', 'la pena para el pago', 'alivio cuantitativo', a garbled UK-only ISA item, and wrong tenses ('Puse ... cada semana', 'Doy prioridad'). Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-mf-a1-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Cuánto cuesta' = how much does it cost; 'esto' = this (thing)."
+          ]
+        }
+      ],
+      "itemHash": "16d60e3d1f83ea60"
+    },
+    {
+      "id": "es-mf-a1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Suficiente' goes before the noun; 'no' before the verb."
+          ]
+        }
+      ],
+      "itemHash": "58d43cfd905df467"
+    },
+    {
+      "id": "es-mf-a1-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pay 'con tarjeta' or 'en efectivo'."
+          ]
+        }
+      ],
+      "itemHash": "f79033af555e2acf"
+    },
+    {
+      "id": "es-mf-a1-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A shop is addressed in the plural/formal: '¿Aceptan...?'",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Aceptan efectivo?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Acepta efectivo?",
+            "¿Se puede pagar en efectivo?"
+          ]
+        }
+      ],
+      "itemHash": "4339116e478cada3"
+    },
+    {
+      "id": "es-mf-a1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Mi salario se paga' is stiff; Spanish says 'me pagan'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me pagan el sueldo cada mes.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cobro mi sueldo cada mes.",
+            "Mi salario se paga cada mes."
+          ]
+        }
+      ],
+      "itemHash": "fef00e28781a831c"
+    },
+    {
+      "id": "es-mf-a1-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'¿Puedo recibir un recibo?' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Me da el recibo, por favor?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Me puede dar un recibo, por favor?",
+            "¿Me da el tique, por favor?"
+          ]
+        }
+      ],
+      "itemHash": "dacb5c693cee3e79"
+    },
+    {
+      "id": "es-mf-a1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'Ahorrar' is the natural verb for saving money.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ahorro un poco de dinero cada mes."
+          ]
+        }
+      ],
+      "itemHash": "d2649930e8f4c932"
+    },
+    {
+      "id": "es-mf-a2-3",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'para comer' means 'in order to eat'; 'eating out' is 'comer fuera'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gasto demasiado dinero en comer fuera.",
+          "list": null
+        }
+      ],
+      "itemHash": "5f89cf1bdfe9b8b7"
+    },
+    {
+      "id": "es-mf-a2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The rate is 'del euro', not 'para euros'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cuál es el tipo de cambio actual del euro?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿A cuánto está el euro hoy?"
+          ]
+        }
+      ],
+      "itemHash": "aabc433e1ca7f75d"
+    },
+    {
+      "id": "es-mf-a2-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The preterite is standard in Latin America.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Transferí el dinero por internet esta mañana.",
+            "Esta mañana he hecho la transferencia por internet."
+          ]
+        }
+      ],
+      "itemHash": "73cc3f62c6e0ae8a"
+    },
+    {
+      "id": "es-mf-a2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'el primero del mes' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El alquiler se me carga en la cuenta el día uno de cada mes.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mi alquiler sale de mi cuenta el día uno de cada mes."
+          ]
+        }
+      ],
+      "itemHash": "5ec5b5f2d99ca1c0"
+    },
+    {
+      "id": "es-mf-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'configurar un débito directo' is a calque; Spain says 'domiciliar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Puedo domiciliar este pago?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Puedo poner este pago como débito automático?"
+          ]
+        }
+      ],
+      "itemHash": "c28224e4767f8b5d"
+    },
+    {
+      "id": "es-mf-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Loans are 'pedidos', not 'tomados'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Pedí un préstamo para comprar mi primer coche.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Pedí un préstamo para comprar mi primer auto."
+          ]
+        }
+      ],
+      "itemHash": "1a6f9e55296c2d33"
+    },
+    {
+      "id": "es-mo-a2-49",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Puse' is past, but the prompt describes a weekly routine.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cada semana me pongo un presupuesto para la compra.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cada semana fijo un presupuesto para la compra."
+          ]
+        }
+      ],
+      "itemHash": "3cbcbadc7fe77412"
+    },
+    {
+      "id": "es-mo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cuánto debo ___ cada mes?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ahorrar",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The opposite of 'gastar'."
+          ]
+        }
+      ],
+      "itemHash": "a015b656e20076cc"
+    },
+    {
+      "id": "es-mf-b1-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'construir un fondo' is a calque, and the relative clause needs the subjunctive.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Estoy intentando crear un fondo de emergencia que cubra tres meses de gastos.",
+          "list": null
+        }
+      ],
+      "itemHash": "96f8f4fc46ece202"
+    },
+    {
+      "id": "es-mf-b1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'pagar sobre mi hipoteca para reducir el término' is a meaningless literal translation.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Merece la pena amortizar parte de la hipoteca por adelantado para reducir el plazo?",
+          "list": null
+        }
+      ],
+      "itemHash": "986e4e2b361b4a9d"
+    },
+    {
+      "id": "es-mf-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'corrientes de ingresos' is a calque; Spanish says 'fuentes de ingresos'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Estoy intentando diversificar mis fuentes de ingresos en lugar de depender solo de mi sueldo.",
+          "list": null
+        }
+      ],
+      "itemHash": "4fd9b8da9e8c87c7"
+    },
+    {
+      "id": "es-mf-b1-4",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "A generic subject needs the article: 'El interés compuesto'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El interés compuesto significa que tus ahorros crecen más rápido cuanto más tiempo los mantienes invertidos.",
+          "list": null
+        }
+      ],
+      "itemHash": "f086c00f90b1f29b"
+    },
+    {
+      "id": "es-mf-b1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'pena' means sorrow or a criminal sentence; a loan penalty is 'penalización'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cuál es la penalización por amortizar anticipadamente este préstamo?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Cuál es la comisión por pago anticipado de este préstamo?"
+          ]
+        }
+      ],
+      "itemHash": "8e50bf4e1cacfb21"
+    },
+    {
+      "id": "es-mf-b1-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'rastrear' (to trace) is a calque here.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevo un presupuesto mensual para controlar en qué se me va el dinero.",
+          "list": null
+        }
+      ],
+      "itemHash": "255dd24638fa781e"
+    },
+    {
+      "id": "es-mf-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'contribuciones de pensiones' and 'antes del impuesto' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mis aportaciones al plan de pensiones se descuentan de mi sueldo antes de impuestos.",
+          "list": null
+        }
+      ],
+      "itemHash": "2a586151321d1e1d"
+    },
+    {
+      "id": "es-mf-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The friend asks how you handled debt in the past, but the answer is in the present.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Prioricé pagar primero la deuda con el interés más alto, manteniendo un pequeño fondo de emergencia.",
+          "list": null
+        }
+      ],
+      "itemHash": "612b972a73930fa0"
+    },
+    {
+      "id": "es-mf-b1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The translation of 'stocks and shares ISA' is garbled, and ISAs are a UK-only product irrelevant to Spanish speakers.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: What is the difference between a savings account and an investment fund?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "¿Cuál es la diferencia entre una cuenta de ahorro y un fondo de inversión?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Fondo de inversión' = investment fund."
+          ]
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "93d7702248c648b1"
+    },
+    {
+      "id": "es-mo-b1-59",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Rastreo mi gasto' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Controlo mis gastos para evitar los innecesarios.",
+          "list": null
+        }
+      ],
+      "itemHash": "f8fe7c9ef38ab5eb"
+    },
+    {
+      "id": "es-mo-b1-60",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'a cuánta gente presta' means 'how many people lend'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Los tipos de interés influyen en cuánto dinero pide prestado la gente.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Las tasas de interés afectan a cuánto dinero pide prestado la gente."
+          ]
+        }
+      ],
+      "itemHash": "e46b5ec2cc368d6d"
+    },
+    {
+      "id": "es-mo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cuál es la forma más segura de crear un fondo de ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "emergencia",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Money kept aside for unexpected problems."
+          ]
+        }
+      ],
+      "itemHash": "0e432b3e1a663ed5"
+    },
+    {
+      "id": "es-mf-b2-2",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The hint uses British 'Behavioural'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Economía conductual' (behavioral economics) studies how psychology affects economic choices."
+          ]
+        }
+      ],
+      "itemHash": "487284e613f84175"
+    },
+    {
+      "id": "es-mf-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The established terms are 'flexibilización cuantitativa' and 'oferta monetaria'; 'alivio' and 'suministro de dinero' are wrong.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La flexibilización cuantitativa consiste en que los bancos centrales aumentan la oferta monetaria para estimular la actividad económica.",
+          "list": null
+        }
+      ],
+      "itemHash": "b48625ae42dc9ff3"
+    },
+    {
+      "id": "es-mf-b2-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Growth investing is 'inversión en crecimiento'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Qué distingue la inversión en valor de la inversión en crecimiento como estrategias de cartera?",
+          "list": null
+        }
+      ],
+      "itemHash": "57aaefc7ee28160e"
+    },
+    {
+      "id": "es-mf-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'los criterios de la ESG' treats ESG as an organization; it is 'criterios ESG'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Los criterios ESG influyen cada vez más en las decisiones de inversión institucional en todas las clases de activos.",
+          "list": null
+        }
+      ],
+      "itemHash": "1a860a3006f42797"
+    },
+    {
+      "id": "es-mo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "La inflación erosiona el poder ___ cuando los salarios no siguen el ritmo.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "adquisitivo",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Poder ___' = purchasing power."
+          ]
+        }
+      ],
+      "itemHash": "8a8a15c106c21c21"
+    },
+    {
+      "id": "es-mo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. In a seminar, someone says household debt is a private matter, not a policy issue.",
+          "list": null
+        }
+      ],
+      "itemHash": "8bf392de6505c7b0"
+    }
+  ]
+}

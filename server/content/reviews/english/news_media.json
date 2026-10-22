@@ -1,0 +1,234 @@
+{
+  "language": "english",
+  "category": "news_media",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:12:08.172Z",
+  "contentHash": "50a9d3c4ee00c339",
+  "summary": "Strong, well-graded media vocabulary. Remaining issues: three cloze items without a blank, a flashcard with identical sides, a dialogue_turn without a situation, a few British forms ('per cent', 'favouring', 'hold power to account'), and missing contractions.",
+  "findings": [
+    {
+      "id": "en-nm-a1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'What's' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "What's in the news today?"
+          ]
+        }
+      ],
+      "itemHash": "c248f1b04b959164"
+    },
+    {
+      "id": "en-nm-a1-8",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'don't' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I don't watch much television.",
+            "I don't watch much TV."
+          ]
+        }
+      ],
+      "itemHash": "739fa34bd3327a0a"
+    },
+    {
+      "id": "en-ne-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask someone which sources they use to stay informed.",
+          "list": null
+        }
+      ],
+      "itemHash": "230c41eda3ff6191"
+    },
+    {
+      "id": "en-nm-a2-1",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'per cent' is British; US English writes 'percent'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: According to the report, the economy grew by two percent last year.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "According to the report, the economy grew by two percent last year.",
+          "list": null
+        }
+      ],
+      "itemHash": "53a363d7cae7c600"
+    },
+    {
+      "id": "en-ne-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Did you ___ about this event yesterday?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "hear",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "After 'did', use the base form of the verb."
+          ]
+        }
+      ],
+      "itemHash": "c5e7cf1f4bb7a08e"
+    },
+    {
+      "id": "en-nm-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'It's' is common in speech.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "It's increasingly difficult to distinguish between credible journalism and misinformation."
+          ]
+        }
+      ],
+      "itemHash": "92d2ad0e03d512e5"
+    },
+    {
+      "id": "en-nm-b1-3",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'favouring' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Framed' means presented from a particular angle; 'bias' means favoring one view."
+          ]
+        }
+      ],
+      "itemHash": "798541ca70aa03c9"
+    },
+    {
+      "id": "en-ne-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Why do people share articles ___ reading them?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "without",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A preposition followed by an -ing form."
+          ]
+        }
+      ],
+      "itemHash": "eba9068f10fb1fd6"
+    },
+    {
+      "id": "en-nm-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'hold power to account' is British; US English says 'hold the powerful accountable'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Investigative journalism serves a vital democratic function by holding the powerful accountable.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Investigative journalism serves a vital democratic function by holding the powerful accountable.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Investigative journalism serves a vital democratic function by holding power to account."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hold someone accountable' = make them answer for their actions."
+          ]
+        }
+      ],
+      "itemHash": "0820017e94239bb4"
+    },
+    {
+      "id": "en-ne-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sensational headlines can ___ public understanding of complex issues.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "distort",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'twist or misrepresent'."
+          ]
+        }
+      ],
+      "itemHash": "0569c306b81d511e"
+    },
+    {
+      "id": "en-ne-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend says social networks should simply delete anything false.",
+          "list": null
+        }
+      ],
+      "itemHash": "6434f9da1b8db957"
+    }
+  ]
+}

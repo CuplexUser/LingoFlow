@@ -1,0 +1,463 @@
+{
+  "language": "french",
+  "category": "family_friends",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:51:42.667Z",
+  "contentHash": "954862dc47dcd098",
+  "summary": "Mostly natural family French at A1–A2. Errors: 'Tu te débrouilles bien avec' (manage) for get on with, 'd'un œil à l'autre' for see eye to eye, 'la communauté de près' for close-knit, 'séparés ... reconnecté' for grew apart and reconnected, and 'famille mixte' for a blended family. Three cloze items lack a blank, one dialogue_turn has no situation, and several hints explain English grammar.",
+  "findings": [
+    {
+      "id": "fr-fa-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Avoir' for family members: j'ai deux frères."
+          ]
+        }
+      ],
+      "itemHash": "980dad3f6c446d70"
+    },
+    {
+      "id": "fr-fa-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the informal question should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Des enfants' — French needs the article where English says 'any'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tu as des enfants ?",
+            "Avez-vous des enfants ?"
+          ]
+        }
+      ],
+      "itemHash": "15dbd2d0abdf34ad"
+    },
+    {
+      "id": "fr-fa-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'À la campagne' = in the countryside."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mes parents habitent à la campagne."
+          ]
+        }
+      ],
+      "itemHash": "a5e5b9f5be940c92"
+    },
+    {
+      "id": "fr-fa-13",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English structure; French uses 'avoir' for age.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French uses 'avoir' + ans: she 'has' seventy years."
+          ]
+        }
+      ],
+      "itemHash": "574c3ed4e2157a62"
+    },
+    {
+      "id": "fr-fa-17",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint is about the English apostrophe; a female best friend should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use 's'appeler' for names."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ma meilleure amie s'appelle Sam."
+          ]
+        }
+      ],
+      "itemHash": "a2c30db5fe9671d7"
+    },
+    {
+      "id": "fr-fa-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes English; a female cousin should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aller' + infinitive for a planned future event."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ma cousine va se marier au printemps prochain.",
+            "Mon cousin se marie au printemps prochain."
+          ]
+        }
+      ],
+      "itemHash": "81c873e0316ac68e"
+    },
+    {
+      "id": "fr-fa-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'usually' is dropped; the prompt uses British 'at the weekends'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We usually meet up on weekends.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "D'habitude, on se retrouve le week-end.",
+          "list": null
+        }
+      ],
+      "itemHash": "97e83bd9b5f3398e"
+    },
+    {
+      "id": "fr-fa-22",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'une famille nombreuse' is the standard term.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nous sommes une famille nombreuse : nous sommes sept."
+          ]
+        }
+      ],
+      "itemHash": "61c94980634286b9"
+    },
+    {
+      "id": "fr-fa-24",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'se débrouiller' means to manage/cope; getting on with people is 's'entendre'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tu t'entends bien avec tes voisins ?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vous vous entendez bien avec vos voisins ?"
+          ]
+        }
+      ],
+      "itemHash": "ebb6df57d1a3089c"
+    },
+    {
+      "id": "fr-fa-a2-49",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'sœur' is written with the ligature œ.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "On a fêté l'anniversaire de ma sœur hier.",
+          "list": null
+        }
+      ],
+      "itemHash": "74142b6bd6eb4a8a"
+    },
+    {
+      "id": "fr-fa-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'___ mes parents tous les soirs.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "appelle",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Appeler' doubles its l: j'appelle."
+          ]
+        }
+      ],
+      "itemHash": "13123ad09aee3ca3"
+    },
+    {
+      "id": "fr-fa-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'voir d'un œil à l'autre' is a nonsense calque of 'see eye to eye'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ma sœur et moi ne sommes pas toujours d'accord, mais nous nous soutenons.",
+          "list": null
+        }
+      ],
+      "itemHash": "543c207f27a43f45"
+    },
+    {
+      "id": "fr-fa-27",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'depuis mon départ' is vague; moving out is 'quitter la maison'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ma relation avec mes parents s'est améliorée depuis que j'ai quitté la maison.",
+          "list": null
+        }
+      ],
+      "itemHash": "e81b8584aadd224b"
+    },
+    {
+      "id": "fr-fa-28",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'la vie est occupée' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "J'essaie de rester en contact avec de vieux amis, même quand je suis débordé.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'essaie de rester en contact avec de vieux amis, même quand je suis débordée."
+          ]
+        }
+      ],
+      "itemHash": "6cf562c5961cc607"
+    },
+    {
+      "id": "fr-fa-29",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The English hint uses British 'humour'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Contrast the two halves with 'mais'."
+          ]
+        }
+      ],
+      "itemHash": "21eaa51f17808814"
+    },
+    {
+      "id": "fr-fa-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'je lutte pour trouver du temps autour des engagements' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nous habitons très loin, et avec le travail j'ai du mal à trouver du temps.",
+          "list": null
+        }
+      ],
+      "itemHash": "43120f2f95567273"
+    },
+    {
+      "id": "fr-fa-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'la communauté de près' is meaningless; close-knit is 'soudée'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ayant grandi dans une petite ville, j'apprécie la communauté très soudée qui y vit.",
+          "list": null
+        }
+      ],
+      "itemHash": "ec65de958c5fd51f"
+    },
+    {
+      "id": "fr-fa-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'séparés' means split up, and 'reconnecté' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Nous nous sommes perdus de vue après l'université, mais nous avons repris contact récemment.",
+          "list": null
+        }
+      ],
+      "itemHash": "60448f92c5d4d917"
+    },
+    {
+      "id": "fr-fa-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Les traditions familiales nous aident à rester ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "unis",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "proches",
+            "soudés"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'close together'."
+          ]
+        }
+      ],
+      "itemHash": "bad85ce1c67158d7"
+    },
+    {
+      "id": "fr-fa-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'famille mixte' means a mixed-race/mixed-faith family; a blended family is 'famille recomposée'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La dynamique au sein d'une famille recomposée peut être complexe, mais profondément enrichissante.",
+          "list": null
+        }
+      ],
+      "itemHash": "3aff75800acc172b"
+    },
+    {
+      "id": "fr-fa-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'élevé à valoriser' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "On m'a appris à placer la loyauté et l'honnêteté au-dessus de tout.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai été élevé dans le respect de la loyauté et de l'honnêteté avant tout."
+          ]
+        }
+      ],
+      "itemHash": "3e777bab58cb96cf"
+    },
+    {
+      "id": "fr-fa-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Personal boundaries are 'limites', not 'frontières'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Des limites saines peuvent renforcer les relations à long terme.",
+          "list": null
+        }
+      ],
+      "itemHash": "99c8384453795e6d"
+    },
+    {
+      "id": "fr-fa-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Comment les attentes familiales ___-elles les choix personnels ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "influencent",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to influence', in an inverted question."
+          ]
+        }
+      ],
+      "itemHash": "dfeb3c9ef805f7af"
+    },
+    {
+      "id": "fr-fa-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend is sad that you see each other less than before.",
+          "list": null
+        }
+      ],
+      "itemHash": "62a9a972e3d71e57"
+    }
+  ]
+}

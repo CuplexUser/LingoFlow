@@ -1,0 +1,407 @@
+{
+  "language": "russian",
+  "category": "conversation",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:15:07.103Z",
+  "contentHash": "776e9b292432816a",
+  "summary": "Natural, well-hinted conversational Russian. Recurring gaps: about a dozen answers accept only the masculine speaker or addressee form, two flashcards show the Russian word on both sides, one cloze has a distractor ('слышал') that also fits, and '___ намерения' is unidiomatic. The 'about-english' lint on ru-cv-a1-8 is a false alarm.",
+  "findings": [
+    {
+      "id": "ru-co-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the formal 'вас' is equally correct for 'your'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'How do they call you?'. Formal: 'Как вас зовут?'"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Как вас зовут?"
+          ]
+        }
+      ],
+      "itemHash": "b01223f39ad59d71"
+    },
+    {
+      "id": "ru-co-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Из' + genitive = from. 'США' is the abbreviation for the USA."
+          ]
+        }
+      ],
+      "itemHash": "075cb8b379c273ae"
+    },
+    {
+      "id": "ru-co-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; informal 'ты' is equally correct.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Откуда' = from where. No verb needed."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Откуда ты?"
+          ]
+        }
+      ],
+      "itemHash": "0118795932bf76f1"
+    },
+    {
+      "id": "ru-cv-a1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The everyday reply to 'How are you?' is 'Хорошо, спасибо'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Хорошо, спасибо.",
+            "У меня всё хорошо, спасибо."
+          ]
+        }
+      ],
+      "itemHash": "5d0f30c2dec3170e"
+    },
+    {
+      "id": "ru-cv-a1-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint mentions 'рада' but it isn't accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Рада с тобой познакомиться.",
+            "Рад познакомиться.",
+            "Рада познакомиться."
+          ]
+        }
+      ],
+      "itemHash": "1b1ecd7f9bcdef7e"
+    },
+    {
+      "id": "ru-cv-a2-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'переехала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я переехала в Москву три года назад."
+          ]
+        }
+      ],
+      "itemHash": "7eeb40a4eb5f32af"
+    },
+    {
+      "id": "ru-cv-b1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'согласна'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я согласна с тобой, но вижу это иначе."
+          ]
+        }
+      ],
+      "itemHash": "5db56e5f6dbbabff"
+    },
+    {
+      "id": "ru-cv-b1-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'считаю светские разговоры трудными' is stiff; small talk is usually 'светская беседа'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Мне трудно даются светские беседы, но они необходимы.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я считаю светские разговоры трудными, но необходимыми."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Даваться трудно' = to come hard to someone. 'Светская беседа' = small talk."
+          ]
+        }
+      ],
+      "itemHash": "42537a781c0dc9c7"
+    },
+    {
+      "id": "ru-cv-b1-10",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'подумала'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Это хорошее замечание, о котором я не подумала."
+          ]
+        }
+      ],
+      "itemHash": "538cc0e550965701"
+    },
+    {
+      "id": "ru-cv-b1-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'предпочла'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я бы предпочла обсудить это наедине."
+          ]
+        }
+      ],
+      "itemHash": "16a5cc03879d8dea"
+    },
+    {
+      "id": "ru-cv-b1-13",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical; the front must be English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: conversation partner",
+          "list": null
+        }
+      ],
+      "itemHash": "03007e43c4a0cf82"
+    },
+    {
+      "id": "ru-co-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'была застенчивой'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Раньше я была застенчивой, но теперь уверенно выражаю свои мысли."
+          ]
+        }
+      ],
+      "itemHash": "da760ab07ffe0a83"
+    },
+    {
+      "id": "ru-cv-b2-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint says the short form agrees with the subject, but 'склонна' is not accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я склонна больше слушать, чем говорить в групповых дискуссиях."
+          ]
+        }
+      ],
+      "itemHash": "92da524f3f74f502"
+    },
+    {
+      "id": "ru-cv-b2-8",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'это было без намерения' is not idiomatic; Russian says 'без умысла'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Fill in the blank: Я не хотел тебя обидеть — я сказал это без ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "умысла",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Без умысла' = without ill intent, unintentionally. 'Без' takes the genitive."
+          ]
+        }
+      ],
+      "itemHash": "0853403022d74d56"
+    },
+    {
+      "id": "ru-cv-b2-10",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical; the front must be English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: eloquence",
+          "list": null
+        }
+      ],
+      "itemHash": "4edb0638a63e69cb"
+    },
+    {
+      "id": "ru-co-a2-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The shorter 'Дайте подумать' is the most common form.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Дайте подумать.",
+            "Дай мне подумать секунду."
+          ]
+        }
+      ],
+      "itemHash": "2966afba70b7872e"
+    },
+    {
+      "id": "ru-co-a2-3",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'слышал' also fits ('I didn't hear you, can you repeat?'), so two options are correct.",
+      "fix": [
+        {
+          "field": "clozeOptions",
+          "text": null,
+          "list": [
+            "понял",
+            "встретил",
+            "видел",
+            "знал"
+          ]
+        }
+      ],
+      "itemHash": "859cf43c0b214ab2"
+    },
+    {
+      "id": "ru-co-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The addressee may be female ('купила').",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Кстати, где ты купила эту куртку?"
+          ]
+        }
+      ],
+      "itemHash": "6a4849026bc95966"
+    },
+    {
+      "id": "ru-co-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'хотела'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я не хотела тебя перебивать."
+          ]
+        }
+      ],
+      "itemHash": "a01f1b640d100d9d"
+    },
+    {
+      "id": "ru-co-b1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'уверена ... выразила'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я не уверена, что ясно выразила свою мысль."
+          ]
+        }
+      ],
+      "itemHash": "746f0ef549241926"
+    },
+    {
+      "id": "ru-co-b2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The fixed expression is 'у меня такое ощущение'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "У меня такое ощущение, что мы говорим о разном.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "У меня ощущение, что мы говорим о разном."
+          ]
+        }
+      ],
+      "itemHash": "4f82a7eeec0680e6"
+    },
+    {
+      "id": "ru-co-b2-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'не согласна'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я имею в виду не то, что не согласна, а то, что мне нужно больше информации."
+          ]
+        }
+      ],
+      "itemHash": "a7cef8ab304cbf7e"
+    }
+  ]
+}

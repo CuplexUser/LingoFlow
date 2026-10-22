@@ -1,0 +1,665 @@
+{
+  "language": "german",
+  "category": "essentials",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:32:06.368Z",
+  "contentHash": "8d664b1f01ffb88f",
+  "summary": "The A1 phrases are fine, but the file has many machine-translation failures. Five cloze items are still English sentences ('I ___ from Spain' → 'am', 'werdest ausgeschüttet haben'). Other errors: wrong verbs ('bewerte' for review, 'aufheben' and 'reformieren' for rephrase), 'zu' in flashcard infinitives, 'Ich habe auf zwanzig Minuten gewartet', and two garbled B2 sentences. Three cloze items lack a blank and two dialogue_turn items lack a situation.",
+  "findings": [
+    {
+      "id": "de-es-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the formal greeting should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wie geht's?' is informal; formally: 'Wie geht es Ihnen?'"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hallo, wie geht es dir?",
+            "Hallo, wie geht es Ihnen?",
+            "Guten Tag, wie geht es Ihnen?"
+          ]
+        }
+      ],
+      "itemHash": "c7df9d5b25bc0d72"
+    },
+    {
+      "id": "de-es-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; informal 'deine Hilfe' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Danke für' + accusative. 'Ihre' is formal, 'deine' informal."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vielen Dank für deine Hilfe.",
+            "Danke schön für Ihre Hilfe."
+          ]
+        }
+      ],
+      "itemHash": "eecbaad273ea5902"
+    },
+    {
+      "id": "de-es-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Nicht' goes at the end of the sentence here."
+          ]
+        }
+      ],
+      "itemHash": "26abd6c2b90e1fe0"
+    },
+    {
+      "id": "de-es-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Generic hint; in public, Germans ask for 'die Toilette', not 'das Badezimmer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Entschuldigung, wo ist die Toilette?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Entschuldigung, wo ist das Badezimmer?",
+            "Entschuldigung, wo sind die Toiletten?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "In a restaurant or shop, ask for 'die Toilette'."
+          ]
+        }
+      ],
+      "itemHash": "bd0bf42075d87894"
+    },
+    {
+      "id": "de-es-a1-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English and the answer is the English word 'am'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich ___ aus Spanien.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "komme",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German says 'I come from': kommen + aus."
+          ]
+        }
+      ],
+      "itemHash": "71596eeb423fdfac"
+    },
+    {
+      "id": "de-es-a1-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Wiedersehen' alone is clipped; the standard is 'Auf Wiedersehen' or 'Tschüss'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tschüss, bis später!",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Auf Wiedersehen, bis später!",
+            "Wiedersehen, bis später!"
+          ]
+        }
+      ],
+      "itemHash": "575e703fff4bd3a4"
+    },
+    {
+      "id": "de-es-a1-14",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Informal and short forms are equally correct.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Schön, dich kennenzulernen.",
+            "Freut mich."
+          ]
+        }
+      ],
+      "itemHash": "362e8cf5d82d5a14"
+    },
+    {
+      "id": "de-es-a1-53",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'please' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Könnten Sie das bitte wiederholen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kannst du das bitte wiederholen?"
+          ]
+        }
+      ],
+      "itemHash": "12dc09d66234c921"
+    },
+    {
+      "id": "de-es-a1-54",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English present continuous.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German has no continuous tense: 'ich lerne' covers 'I learn' and 'I am learning'."
+          ]
+        }
+      ],
+      "itemHash": "7a2368b28548279c"
+    },
+    {
+      "id": "de-es-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The formal request should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Könnten Sie bitte langsamer sprechen?",
+            "Kannst du bitte langsamer sprechen?"
+          ]
+        }
+      ],
+      "itemHash": "a3b2ffd6c113a545"
+    },
+    {
+      "id": "de-es-a2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer 'ging hin' is wrong.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Gestern ___ ich zur Schule.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ging",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Simple past of 'gehen'; verb in second position after 'Gestern'."
+          ]
+        }
+      ],
+      "itemHash": "cf844954a0bb30e1"
+    },
+    {
+      "id": "de-es-a2-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Dictionary forms take no 'zu': 'sich entschuldigen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "sich entschuldigen",
+          "list": null
+        }
+      ],
+      "itemHash": "1a1219079212cee9"
+    },
+    {
+      "id": "de-es-a2-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Leaving something behind by accident is 'liegen lassen' or 'vergessen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe meine Tasche im Bus liegen lassen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich habe meine Tasche im Bus vergessen."
+          ]
+        }
+      ],
+      "itemHash": "63731ec135872cfe"
+    },
+    {
+      "id": "de-es-a2-12",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sie ___ Englisch und Französisch.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sprechen' changes its vowel: ich spreche, sie spricht."
+          ]
+        }
+      ],
+      "itemHash": "596f95909e8dcfb1"
+    },
+    {
+      "id": "de-es-a2-63",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'bewerten' means to evaluate; the cloze also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich ___ normalerweise abends neue Wörter.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "wiederhole",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wiederholen' = to review / go over again."
+          ]
+        }
+      ],
+      "itemHash": "135e6f82420ad316"
+    },
+    {
+      "id": "de-es-b1-4",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "You walk 'in den Park', not 'zum Park' (which means up to it).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Obwohl es regnete, gingen wir in den Park.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Obwohl es geregnet hat, sind wir in den Park gegangen."
+          ]
+        }
+      ],
+      "itemHash": "b81709eac8fb14ec"
+    },
+    {
+      "id": "de-es-b1-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; the answer 'werdest ausgeschüttet haben' is gibberish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich ___ seit drei Jahren hier.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "wohne",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German uses the present tense with 'seit' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "9b6767ab8d877929"
+    },
+    {
+      "id": "de-es-b1-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'auf zwanzig Minuten gewartet' means 'waited for the twenty minutes'; ongoing duration is present + 'seit'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich warte seit zwanzig Minuten.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'seit' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "3cd729f0bfb752bc"
+    },
+    {
+      "id": "de-es-b1-12",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Dictionary forms take no 'zu', and the verb is reflexive: 'sich beschweren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "sich beschweren",
+          "list": null
+        }
+      ],
+      "itemHash": "0525a9dab242e436"
+    },
+    {
+      "id": "de-es-b1-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich habe die Idee verstanden, aber ein Detail ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "verpasst",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'verpassen' (to miss)."
+          ]
+        }
+      ],
+      "itemHash": "1a5da6083a92b010"
+    },
+    {
+      "id": "de-es-b1-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your tutor asks what you are working on at the moment.",
+          "list": null
+        }
+      ],
+      "itemHash": "a20a55898636dc41"
+    },
+    {
+      "id": "de-es-b2-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A general statement uses 'seinen Ton', not formal 'Ihren'; 'wichtig' weakens 'essential'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Es ist unerlässlich, seinen Ton an die Situation anzupassen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Es ist wichtig, seinen Ton an die Situation anzupassen."
+          ]
+        }
+      ],
+      "itemHash": "5e6f8fe63a2c9536"
+    },
+    {
+      "id": "de-es-b2-4",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; German uses 'je ... desto'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Je mehr du übst, ___ selbstbewusster wirst du.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "desto",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "umso"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Je ... desto/umso' = the more ... the more."
+          ]
+        }
+      ],
+      "itemHash": "2a75d5d3bef1aac8"
+    },
+    {
+      "id": "de-es-b2-5",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'gesprochen' doesn't mean 'spoken up'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hätte ich die Antwort gewusst, hätte ich mich zu Wort gemeldet.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Verb-first 'Hätte ich...' replaces 'wenn'; 'sich zu Wort melden' = to speak up."
+          ]
+        }
+      ],
+      "itemHash": "814202b4b0a5f9d0"
+    },
+    {
+      "id": "de-es-b2-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'die Frage aufheben' means to cancel the question; rephrasing is 'umformulieren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich würde die Frage lieber umformulieren, als eine irreführende Antwort zu geben.",
+          "list": null
+        }
+      ],
+      "itemHash": "b0437b1ebe9b9c66"
+    },
+    {
+      "id": "de-es-b2-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'zu paraphrasen' is not German; the verb is 'paraphrasieren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "paraphrasieren",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "umschreiben"
+          ]
+        }
+      ],
+      "itemHash": "d445c6df30abe397"
+    },
+    {
+      "id": "de-es-b2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Artikulation ist nicht dasselbe wie Verbose zu sein' is garbled ('Verbose' is English).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sich gewandt auszudrücken ist nicht dasselbe, wie weitschweifig zu sein.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gewandt' = articulate; 'weitschweifig' = verbose."
+          ]
+        }
+      ],
+      "itemHash": "b0fa7a535baa6055"
+    },
+    {
+      "id": "de-es-b2-77",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'aus dem Kontext der meisten Zeit' is broken and the verb is missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich kann die Bedeutung meistens aus dem Kontext erschließen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Erschließen' = to infer; 'meistens' = most of the time."
+          ]
+        }
+      ],
+      "itemHash": "c23e7a1587b118f0"
+    },
+    {
+      "id": "de-es-b2-78",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Könnten Sie die ___ dieses Ausdrucks erklären?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nuance",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A fine shade of meaning."
+          ]
+        }
+      ],
+      "itemHash": "0d0e5527a7c2e5df"
+    },
+    {
+      "id": "de-es-b2-79",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'gelegentliche Fehler' should be the adverb 'gelegentlich'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. An interviewer asks how confident you feel speaking German.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Ich bin zuversichtlich, obwohl ich gelegentlich noch Fehler mache.",
+          "list": null
+        }
+      ],
+      "itemHash": "6283dc4f497453b6"
+    },
+    {
+      "id": "de-es-b2-80",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'reformieren' means to reform (an institution); rephrasing is 'umformulieren'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich würde den Satz lieber umformulieren, als ihn direkt zu übersetzen.",
+          "list": null
+        }
+      ],
+      "itemHash": "13c030ca8b3e5197"
+    }
+  ]
+}

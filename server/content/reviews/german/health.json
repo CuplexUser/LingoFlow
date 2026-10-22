@@ -1,0 +1,588 @@
+{
+  "language": "german",
+  "category": "health",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:36:13.975Z",
+  "contentHash": "8fd28b4dbbbbcf2f",
+  "summary": "A1 is mostly fine; from A2 on there are many machine-translation errors. 'Bedingung' is used for a medical condition (twice), 'eine Halsschmerzen', 'wenn ich gehe' for when I move, 'Antibiotika arbeiten', four garbled B2 sentences ('einen Verweis ... begrüßen', 'die meine vorhandenen Medikamente gegeben haben', 'bevor ich mich an die Operation bin'), a lowercase noun, three cloze items without a blank, and a dialogue_turn whose answer says the opposite of the prompt.",
+  "findings": [
+    {
+      "id": "de-he-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sich fühlen' is reflexive: ich fühle mich."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mir geht es nicht gut.",
+            "Mir geht's nicht gut."
+          ]
+        }
+      ],
+      "itemHash": "b674e2792704e4ee"
+    },
+    {
+      "id": "de-he-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'das nächste Krankenhaus' is the everyday phrasing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Das Krankenhaus' = hospital; 'nächste' = nearest."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wo ist das nächste Krankenhaus?"
+          ]
+        }
+      ],
+      "itemHash": "717882c33a93ee72"
+    },
+    {
+      "id": "de-he-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Kopfschmerzen' is plural; no article."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mir tut der Kopf weh."
+          ]
+        }
+      ],
+      "itemHash": "e3c214e778b2fe14"
+    },
+    {
+      "id": "de-he-14",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint about 'chemist's' is about British English.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gibt es' = is there; 'in der Nähe' = nearby."
+          ]
+        }
+      ],
+      "itemHash": "65c2f93f8a45033f"
+    },
+    {
+      "id": "de-he-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'Ich habe Bauchschmerzen' is the most common way to say this.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich habe Bauchschmerzen.",
+            "Mir tut der Bauch weh."
+          ]
+        }
+      ],
+      "itemHash": "7646e3fc0c4251ab"
+    },
+    {
+      "id": "de-he-16",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Arzt",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Arzt",
+            "die Ärztin"
+          ]
+        }
+      ],
+      "itemHash": "4f9ff2dec075b747"
+    },
+    {
+      "id": "de-he-17",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Standard German is 'allergisch gegen'; 'auf' is regional/colloquial.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich bin allergisch gegen Penicillin.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich bin allergisch auf Penicillin.",
+            "Ich habe eine Penicillinallergie."
+          ]
+        }
+      ],
+      "itemHash": "354866e78c0a10b1"
+    },
+    {
+      "id": "de-he-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Strangers in an emergency are addressed formally.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Können Sie einen Krankenwagen rufen?"
+          ]
+        }
+      ],
+      "itemHash": "876bd2e1ad4f4aba"
+    },
+    {
+      "id": "de-he-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'eine Halsschmerzen' mixes singular article and plural noun, and the past tense says the pain is over.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe seit drei Tagen Halsschmerzen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'seit' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "76c129f3d7e941d4"
+    },
+    {
+      "id": "de-he-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "You make an appointment 'beim Arzt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kann ich heute einen Termin beim Arzt bekommen?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Kann ich heute einen Termin beim Arzt vereinbaren?"
+          ]
+        }
+      ],
+      "itemHash": "22e22c29b662db96"
+    },
+    {
+      "id": "de-he-22",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "German says 'sich den Knöchel verstauchen', usually in the Perfekt.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe mir beim Wandern den Knöchel verstaucht.",
+          "list": null
+        }
+      ],
+      "itemHash": "e31dd62d76e1761e"
+    },
+    {
+      "id": "de-he-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Body locations use 'am', and German drops the possessive.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe einen Ausschlag am Arm.",
+          "list": null
+        }
+      ],
+      "itemHash": "c1fbf57daf9106bc"
+    },
+    {
+      "id": "de-he-25",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'wenn ich gehe' means 'when I walk'; moving is 'mich bewege'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Schmerz wird schlimmer, wenn ich mich bewege.",
+          "list": null
+        }
+      ],
+      "itemHash": "58d25840525d108d"
+    },
+    {
+      "id": "de-he-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; the answer also drops 'started'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich habe angefangen, ___ Mahlzeiten zu kochen.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "gesündere",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Comparative of 'gesund', with an adjective ending."
+          ]
+        }
+      ],
+      "itemHash": "12c16de0e323b58c"
+    },
+    {
+      "id": "de-he-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Bedingung' means a requirement, not a medical condition; this is a 'Vorerkrankung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe eine Vorerkrankung, die regelmäßige Medikamente erfordert.",
+          "list": null
+        }
+      ],
+      "itemHash": "cdb6a49a87c345d6"
+    },
+    {
+      "id": "de-he-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Bedingung' does not mean a medical condition.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wäre es sicher, mit dieser Erkrankung Sport zu treiben?",
+          "list": null
+        }
+      ],
+      "itemHash": "c4c169f137ceec21"
+    },
+    {
+      "id": "de-he-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The sentence has no verb for the second opinion.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich hätte gern eine zweite Meinung, bevor ich mich für eine Operation entscheide.",
+          "list": null
+        }
+      ],
+      "itemHash": "987dc134c987eafe"
+    },
+    {
+      "id": "de-he-27",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'wurden immer schlimmer' implies the worsening has stopped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Symptome haben allmählich begonnen und werden immer schlimmer.",
+          "list": null
+        }
+      ],
+      "itemHash": "68e2f11e61c5069f"
+    },
+    {
+      "id": "de-he-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Medicine 'wirkt'; 'arbeiten' means to do a job.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie lange dauert es, bis die Antibiotika wirken?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie lange sollte ich warten, bis die Antibiotika wirken?"
+          ]
+        }
+      ],
+      "itemHash": "fe34f83d41faff8f"
+    },
+    {
+      "id": "de-he-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Low-Natrium-Diät auf den Rat' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Auf Anraten meines Arztes ernähre ich mich natriumarm.",
+          "list": null
+        }
+      ],
+      "itemHash": "4f6c8c6ee55dcab6"
+    },
+    {
+      "id": "de-he-31",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ich bekomme ... sechs Stunden' is a calque and 'ich habe ... aufgewacht' takes 'bin'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich schlafe meistens etwa sechs Stunden, aber in letzter Zeit wache ich nachts oft auf.",
+          "list": null
+        }
+      ],
+      "itemHash": "1df45dca99d15abc"
+    },
+    {
+      "id": "de-he-32",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'emphasises' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Derzeit' = currently; medicine 'gegen' a condition."
+          ]
+        }
+      ],
+      "itemHash": "504b8419fdfa604a"
+    },
+    {
+      "id": "de-he-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich habe weniger Zucker gegessen, und das hat meine Energie ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "verbessert",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'verbessern'."
+          ]
+        }
+      ],
+      "itemHash": "cdb01d988e833885"
+    },
+    {
+      "id": "de-he-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'einen Verweis auf einen Spezialisten ... begrüßen' is a garbled calque; a referral is an 'Überweisung'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich wäre für eine Überweisung zu einem Facharzt für weitere Untersuchungen dankbar.",
+          "list": null
+        }
+      ],
+      "itemHash": "03a0208c5fc893b2"
+    },
+    {
+      "id": "de-he-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'die dieses unbehandelt zu lassen' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Welche langfristigen Folgen hat es, wenn man das unbehandelt lässt?",
+          "list": null
+        }
+      ],
+      "itemHash": "cdf65de6194a419a"
+    },
+    {
+      "id": "de-he-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'diskutieren' is an anglicism here; doctors and patients 'besprechen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich möchte die Risiken und Vorteile besprechen, bevor ich in den Eingriff einwillige.",
+          "list": null
+        }
+      ],
+      "itemHash": "e2ef020ceb7e6887"
+    },
+    {
+      "id": "de-he-34",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Beweise' are proof in court; scientific evidence is 'die Datenlage' or 'Studien'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Datenlage deutet darauf hin, dass eine frühe Intervention die Ergebnisse deutlich verbessert.",
+          "list": null
+        }
+      ],
+      "itemHash": "d4a91cd017f55e8e"
+    },
+    {
+      "id": "de-he-35",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The answer says 'contraindications that my medication has given'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gibt es Kontraindikationen mit den Medikamenten, die ich bereits nehme?",
+          "list": null
+        }
+      ],
+      "itemHash": "92a580b615ec16d6"
+    },
+    {
+      "id": "de-he-36",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'bevor ich mich an die Operation bin' is ungrammatical.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich möchte nicht-invasive Alternativen prüfen, bevor ich mich für eine Operation entscheide.",
+          "list": null
+        }
+      ],
+      "itemHash": "b67e388a0b6eb5e3"
+    },
+    {
+      "id": "de-he-38",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Behandlungsverlauf' means the progress of a treatment; 'Familiengeschichte' means family saga, not medical history.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wäre angesichts meiner familiären Vorbelastung eine vorbeugende Behandlung ratsam?",
+          "list": null
+        }
+      ],
+      "itemHash": "4996d894db79cd10"
+    },
+    {
+      "id": "de-he-b2-69",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Präventive Pflege' means preventive nursing care; preventive medicine is 'Vorsorge'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Vorsorge ist wirksamer als eine reaktive Behandlung.",
+          "list": null
+        }
+      ],
+      "itemHash": "dd43eb1d4ec2e3bc"
+    },
+    {
+      "id": "de-he-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Welche Maßnahmen können den ___ zur psychischen Gesundheitsversorgung verbessern?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Zugang",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A masculine noun meaning 'access'."
+          ]
+        }
+      ],
+      "itemHash": "a66d883927048fe9"
+    },
+    {
+      "id": "de-he-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation, and the answer says routines 'are more than' motivation instead of 'matter more'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how to stay motivated to exercise.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nachhaltige Routinen sind wichtiger als kurzfristige Motivation.",
+          "list": null
+        }
+      ],
+      "itemHash": "becc9a0aae1cce8f"
+    }
+  ]
+}

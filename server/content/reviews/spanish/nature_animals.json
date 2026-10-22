@@ -1,0 +1,425 @@
+{
+  "language": "spanish",
+  "category": "nature_animals",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:30:22.171Z",
+  "contentHash": "8810c45e27fc89b6",
+  "summary": "Literal translation errors throughout: 'las luces del norte' for the aurora, 'El río ha inundado', 'reorganización' for rewilding, 'un murmullo de estelares' for a starling murmuration, 'caminar o ciclo', 'la permafrost', 'por sí solo' (number agreement), weather with 'ser' instead of 'hacer', and the walking dropped from 'I walked in the forest'. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-na-a1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes English 'it is'; Spain says 'fuera'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Estar' + gerund for weather happening now; Spanish has no subject 'it'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Está lloviendo fuera.",
+            "Está lloviendo."
+          ]
+        }
+      ],
+      "itemHash": "017e43465736a60d"
+    },
+    {
+      "id": "es-na-a1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'¿Cómo es el tiempo?' asks about the general climate; for today Spanish says '¿Qué tiempo hace?'",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Qué tiempo hace hoy?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Cómo está el tiempo hoy?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Weather uses 'hacer': ¿qué tiempo hace?"
+          ]
+        }
+      ],
+      "itemHash": "8d591dcb2eb05378"
+    },
+    {
+      "id": "es-na-a1-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'pájaros' is the everyday word.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hay muchos pájaros en el jardín."
+          ]
+        }
+      ],
+      "itemHash": "8bbe6ed38bb45c53"
+    },
+    {
+      "id": "es-na-a1-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes English; 'Hoy hace sol' is the most natural Spanish.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish often says 'hace sol' (it is sunny)."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hoy hace sol.",
+            "Hoy brilla el sol."
+          ]
+        }
+      ],
+      "itemHash": "69e488b55382998d"
+    },
+    {
+      "id": "es-na-a1-10",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Estuve en el bosque' means 'I was in the forest'; walking is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ayer caminé por el bosque.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ayer di un paseo por el bosque.",
+            "Caminé por el bosque ayer."
+          ]
+        }
+      ],
+      "itemHash": "bf9f9e06844b2bd1"
+    },
+    {
+      "id": "es-na-a1-40",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "For a current impression 'está muy tranquilo' is the more natural choice.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "El bosque está muy tranquilo."
+          ]
+        }
+      ],
+      "itemHash": "8747cbd8bc98a495"
+    },
+    {
+      "id": "es-na-a2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Weather uses 'hacer'; 'Ha sido inusualmente cálido' has no subject and is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ha hecho un calor inusual para esta época del año.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Está haciendo un calor poco habitual para esta época del año."
+          ]
+        }
+      ],
+      "itemHash": "7b149481e17babc0"
+    },
+    {
+      "id": "es-na-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The northern lights are 'la aurora boreal', not 'las luces del norte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cuál es la mejor época del año para ver la aurora boreal?",
+          "list": null
+        }
+      ],
+      "itemHash": "a3707cfaa8320447"
+    },
+    {
+      "id": "es-na-a2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "A river 'se desborda'; 'ha inundado' needs an object, and 'lluvia pesada' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El río se ha desbordado después de varios días de lluvias intensas.",
+          "list": null
+        }
+      ],
+      "itemHash": "b3ba3212488bcb9b"
+    },
+    {
+      "id": "es-na-a2-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English 'deer'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ciervo' = deer; plural 'ciervos'."
+          ]
+        }
+      ],
+      "itemHash": "1faa0bdb1626a075"
+    },
+    {
+      "id": "es-na-a2-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The prompt uses British 'rubbish'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I recycle my trash to help protect the environment.",
+          "list": null
+        }
+      ],
+      "itemHash": "8beb1e1df6898ae3"
+    },
+    {
+      "id": "es-na-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'vas caminando por el campo' describes walking in progress, not going for walks.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cada cuánto sales a caminar por el campo?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Con qué frecuencia sales a caminar por el campo?"
+          ]
+        }
+      ],
+      "itemHash": "05e05a127b631253"
+    },
+    {
+      "id": "es-na-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cómo podemos ___ a los animales salvajes?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "proteger",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to keep safe'."
+          ]
+        }
+      ],
+      "itemHash": "1b18452d71edb63e"
+    },
+    {
+      "id": "es-na-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'reorganización' means reorganization; rewilding is 'renaturalización'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Los proyectos de renaturalización buscan restaurar los ecosistemas naturales reintroduciendo especies autóctonas.",
+          "list": null
+        }
+      ],
+      "itemHash": "abc8a6fc2a7cb38c"
+    },
+    {
+      "id": "es-na-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'un murmullo de estelares' is nonsense; starlings are 'estorninos', and Spanish describes the flock's display.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tuve la suerte de ver la danza de una bandada de estorninos al atardecer.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Estornino' = starling; Spanish describes a murmuration as the 'danza' of a flock.",
+            "'Al atardecer' = at dusk."
+          ]
+        }
+      ],
+      "itemHash": "328e9202fd997f61"
+    },
+    {
+      "id": "es-na-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'caminar o ciclo' is ungrammatical ('ciclo' is a noun).",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Intento reducir los plásticos de un solo uso, comer menos carne e ir a pie o en bici en lugar de en coche.",
+          "list": null
+        }
+      ],
+      "itemHash": "3f84378a5718d93d"
+    },
+    {
+      "id": "es-na-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Qué hace que las poblaciones de animales ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "disminuyan",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Hacer que' + present subjunctive."
+          ]
+        }
+      ],
+      "itemHash": "f36526fe4e673374"
+    },
+    {
+      "id": "es-na-b2-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'permafrost' is masculine in Spanish; feedback loops are 'bucles', not 'lazos'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Los puntos de inflexión del sistema climático, como el deshielo del permafrost, podrían desencadenar bucles de retroalimentación irreversibles.",
+          "list": null
+        }
+      ],
+      "itemHash": "5113657386ce95f1"
+    },
+    {
+      "id": "es-na-b2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'por sí solo' must agree with 'mecanismos': 'por sí solos'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Pueden los mecanismos de mercado por sí solos abordar eficazmente las externalidades ambientales, o es necesaria la intervención estatal?",
+          "list": null
+        }
+      ],
+      "itemHash": "1dee160b0daf9e3c"
+    },
+    {
+      "id": "es-na-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'argumenta por' is a calque; Spanish says 'defiende'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La tradición filosófica de la ecología profunda defiende un valor intrínseco de la naturaleza, independiente de su utilidad para el ser humano.",
+          "list": null
+        }
+      ],
+      "itemHash": "aa7be3e0c46679bb"
+    },
+    {
+      "id": "es-na-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Las estrategias de conservación deben tener en cuenta tanto la ecología como los medios de ___ locales.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "vida",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Medios de ___' = livelihoods."
+          ]
+        }
+      ],
+      "itemHash": "c94b581c8477be4a"
+    },
+    {
+      "id": "es-na-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A council member asks where the environmental budget should go.",
+          "list": null
+        }
+      ],
+      "itemHash": "9884564d8890cc1c"
+    }
+  ]
+}

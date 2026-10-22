@@ -1,0 +1,542 @@
+{
+  "language": "german",
+  "category": "travel",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:34:15.278Z",
+  "contentHash": "7adabe366202eefb",
+  "summary": "Many serious mistranslations: 'Vorstand' (board of directors) for boarding pass, 'Ich bin verloren' (I am doomed) for I am lost, 'beide Beine der Reise', 'Zeilen ändere' for change lines, 'die Bräuche zu löschen' for clear customs, 'Ich fahre lieber' for travel light, 'Nachbarschaft' for neighborhood, a lowercase noun, and a wrong platform question. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "de-tr-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Der Bahnhof' = train station; 'wo ist' = where is."
+          ]
+        }
+      ],
+      "itemHash": "6bfbb3b52647f8b6"
+    },
+    {
+      "id": "de-tr-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'Fahrkarte' and 'dieses Ticket' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wie viel kostet...?' = how much does ... cost?"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie viel kostet dieses Ticket?",
+            "Wie viel kostet die Fahrkarte?"
+          ]
+        }
+      ],
+      "itemHash": "fcbfb320a2c3b317"
+    },
+    {
+      "id": "de-tr-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Welche Plattform verlässt der Zug?' asks which platform the train is leaving (as an object); a train platform is 'Gleis'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Von welchem Gleis fährt der Zug ab?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Gleis' = platform/track; 'abfahren' = to depart."
+          ]
+        }
+      ],
+      "itemHash": "928ffd401add3d68"
+    },
+    {
+      "id": "de-tr-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English word order.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Yes/no questions start with the verb in German."
+          ]
+        }
+      ],
+      "itemHash": "31f11a14d7ac165f"
+    },
+    {
+      "id": "de-tr-16",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Flughafen",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Flughafen"
+          ]
+        }
+      ],
+      "itemHash": "26f8dc6ee27559e0"
+    },
+    {
+      "id": "de-tr-19",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ich bin verloren' means 'I am doomed'; lost on foot is 'Ich habe mich verlaufen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe mich verlaufen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich habe mich verirrt."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sich verlaufen' = to get lost on foot."
+          ]
+        }
+      ],
+      "itemHash": "468256e35b8923e9"
+    },
+    {
+      "id": "de-tr-10",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'nach meiner Reservierung einchecken' means 'check in after my reservation'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich möchte einchecken, ich habe eine Reservierung.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich habe reserviert und möchte einchecken."
+          ]
+        }
+      ],
+      "itemHash": "7b1f17683a685e75"
+    },
+    {
+      "id": "de-tr-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'austauschen' means to swap; changing money is 'wechseln' or 'umtauschen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich möchte etwas Geld wechseln.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich möchte etwas Geld umtauschen."
+          ]
+        }
+      ],
+      "itemHash": "d1606ac8dda5c618"
+    },
+    {
+      "id": "de-tr-21",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Tours go 'durch die Altstadt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gibt es Führungen durch die Altstadt?",
+          "list": null
+        }
+      ],
+      "itemHash": "1eece6bd4c6d00d7"
+    },
+    {
+      "id": "de-tr-23",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A shuttle 'fährt', not 'läuft'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie oft fährt der Flughafen-Shuttle?",
+          "list": null
+        }
+      ],
+      "itemHash": "7253e87b3e3547b7"
+    },
+    {
+      "id": "de-tr-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Checked bags are 'aufgegeben'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe zwei Gepäckstücke zum Aufgeben.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich möchte zwei Taschen aufgeben."
+          ]
+        }
+      ],
+      "itemHash": "ac6b28f1005981a0"
+    },
+    {
+      "id": "de-tr-25",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A window seat is a 'Fensterplatz'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Kann ich einen Fensterplatz bekommen?",
+          "list": null
+        }
+      ],
+      "itemHash": "57c037daf8e1d7a0"
+    },
+    {
+      "id": "de-tr-26",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Die Check-out-Zeit beträgt elf Uhr' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Check-out ist um elf Uhr.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Das Zimmer muss bis elf Uhr geräumt werden."
+          ]
+        }
+      ],
+      "itemHash": "43ee77eb46a57808"
+    },
+    {
+      "id": "de-tr-a2-52",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Vorstand' means board of directors; the cloze also has no blank.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich habe heute Morgen meine ___ verloren.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Bordkarte",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Bordkarte' = boarding pass (feminine)."
+          ]
+        }
+      ],
+      "itemHash": "2e928198e63909ec"
+    },
+    {
+      "id": "de-tr-27",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Ich fragte mich, ob' is a calque of 'I was wondering if'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Könnten Sie mir vielleicht ein gutes Restaurant hier in der Gegend empfehlen?",
+          "list": null
+        }
+      ],
+      "itemHash": "77dd511616b2b4fe"
+    },
+    {
+      "id": "de-tr-28",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'beide Beine der Reise' is literal nonsense; 'ich ... buchen' is also wrong.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gibt es einen Rabatt, wenn ich Hin- und Rückfahrt zusammen buche?",
+          "list": null
+        }
+      ],
+      "itemHash": "190f322c632413cf"
+    },
+    {
+      "id": "de-tr-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A train change is 'Umsteigen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Die Fahrt dauert etwa drei Stunden mit einmal Umsteigen.",
+          "list": null
+        }
+      ],
+      "itemHash": "bad0d2e0d32943ed"
+    },
+    {
+      "id": "de-tr-30",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ich fahre lieber, wenn möglich' drops 'travel light' entirely.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wenn möglich, reise ich mit leichtem Gepäck.",
+          "list": null
+        }
+      ],
+      "itemHash": "7ab3081db0caa3f3"
+    },
+    {
+      "id": "de-tr-32",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'rebook' is 'umbuchen'; cancelled flights are 'gestrichen' or 'annulliert'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich musste zu einem höheren Tarif umbuchen, nachdem mein ursprünglicher Flug gestrichen worden war.",
+          "list": null
+        }
+      ],
+      "itemHash": "b147701c07c00725"
+    },
+    {
+      "id": "de-tr-b1-61",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Nachbarschaft' means the neighbors; a city area is 'Viertel'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Welches Viertel ist am besten für regionale Küche?",
+          "list": null
+        }
+      ],
+      "itemHash": "c17294ee1ca845cf"
+    },
+    {
+      "id": "de-tr-b1-62",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Alleinreisen hat mir geholfen, ___ zu werden.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "unabhängiger",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Comparative of 'unabhängig' (independent)."
+          ]
+        }
+      ],
+      "itemHash": "d48bd77320e583c3"
+    },
+    {
+      "id": "de-tr-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Nachbarschaft' means neighbors, not a city area.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Könnten Sie mir ein sicheres Viertel in der Nähe der Innenstadt empfehlen?",
+          "list": null
+        }
+      ],
+      "itemHash": "72fb2058a6bfd804"
+    },
+    {
+      "id": "de-tr-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Zeilen ändern' means changing lines of text; changing trains is 'umsteigen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Gibt es eine schnellere Verbindung, wenn ich einmal umsteige?",
+          "list": null
+        }
+      ],
+      "itemHash": "7c96a01e96ec7d9b"
+    },
+    {
+      "id": "de-tr-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'meine Verbindung mit Minuten zu ersparen' is nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Trotz der Verspätungen habe ich meinen Anschluss mit ein paar Minuten Puffer erreicht.",
+          "list": null
+        }
+      ],
+      "itemHash": "17baa20c94178876"
+    },
+    {
+      "id": "de-tr-36",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Disputing a fee is 'anfechten' or 'Einspruch einlegen'; 'es' should refer to the feminine 'Gebühr'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mir wurde zu Unrecht eine Übergepäckgebühr berechnet, und ich möchte sie anfechten.",
+          "list": null
+        }
+      ],
+      "itemHash": "8f85fb5f49f827f9"
+    },
+    {
+      "id": "de-tr-38",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Züge über Flüge bevorzugen' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Bei Reisen unter fünf Stunden nehme ich meistens lieber den Zug als das Flugzeug.",
+          "list": null
+        }
+      ],
+      "itemHash": "33d061e6f27784d8"
+    },
+    {
+      "id": "de-tr-39",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Die Überstellung ... die Bräuche zu löschen' (delete the customs/traditions) is nonsense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der Zwischenstopp gibt mir gerade genug Zeit, um durch den Zoll zu gehen und mein Gepäck neu aufzugeben.",
+          "list": null
+        }
+      ],
+      "itemHash": "ba30bd04fa2ba070"
+    },
+    {
+      "id": "de-tr-b2-70",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'more' is dropped: 'nachhaltig' should be comparative.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Effiziente öffentliche Verkehrsmittel machten die gesamte Reise nachhaltiger.",
+          "list": null
+        }
+      ],
+      "itemHash": "a43391d19edae0f3"
+    },
+    {
+      "id": "de-tr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'verletzen' means to injure.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Wie kann der Tourismus lokale Gemeinschaften unterstützen, ohne ihnen zu ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "schaden",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Schaden' + dative = to harm."
+          ]
+        }
+      ],
+      "itemHash": "aa52f9de425f9df2"
+    },
+    {
+      "id": "de-tr-b2-72",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'Kontingenzen' is not German for contingency plans.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks how you managed a trip with several tight flight connections.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Ich hatte einen Plan B für den Fall, dass die Flüge Verspätung haben.",
+          "list": null
+        }
+      ],
+      "itemHash": "ac5c627e477ed8b3"
+    }
+  ]
+}

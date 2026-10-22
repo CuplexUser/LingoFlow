@@ -1,0 +1,1331 @@
+{
+  "language": "italian",
+  "category": "numbers_math",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:03:00.806Z",
+  "contentHash": "a9e502231c74c7e9",
+  "summary": "The weakest numbers file so far: about a dozen answers are bare digits, several are junk from machine translation ('no' for nine, 'destinazione', 'tre punti:', 'scarpa stringa', 'anche' for even), and × is taught as 'volte' instead of 'per'. Prompts and hints about English, and English cloze sentences, have been rewritten into Italian exercises, with English idioms replaced by Italian number idioms.",
+  "findings": [
+    {
+      "id": "it-num-a1-3",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Distractors 'tow', 'troppo', 'a' are leftovers of the English to/too/two pun; hint is about English.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "dodici",
+            "due",
+            "tre",
+            "dieci"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pronounced 'DOO-eh'. Don't confuse it with dodici (12)."
+          ]
+        }
+      ],
+      "itemHash": "266092cad4fc6d76"
+    },
+    {
+      "id": "it-num-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint quotes an English proverb; Italian has its own.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italians say 'Non c'è due senza ___' — things come in threes."
+          ]
+        }
+      ],
+      "itemHash": "a5a6fedaa1dee548"
+    },
+    {
+      "id": "it-num-a1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 4.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "quattro",
+          "list": null
+        }
+      ],
+      "itemHash": "4d4aca54ac58686e"
+    },
+    {
+      "id": "it-num-a1-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 5, repeated in the options, with junk distractors.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "cinque",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "cinqe",
+            "cinque",
+            "cingue",
+            "cinquie"
+          ]
+        }
+      ],
+      "itemHash": "78920c269be9634a"
+    },
+    {
+      "id": "it-num-a1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 6.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "sei",
+          "list": null
+        }
+      ],
+      "itemHash": "bd223236859c453b"
+    },
+    {
+      "id": "it-num-a1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 7.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "sette",
+          "list": null
+        }
+      ],
+      "itemHash": "f0a45c24260406c8"
+    },
+    {
+      "id": "it-num-a1-9",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer and options are digits plus 'no'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "A spider has how many legs? Choose the Italian number word.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "otto",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "sei",
+            "sette",
+            "otto",
+            "nove"
+          ]
+        }
+      ],
+      "itemHash": "4a6ae07493ac013b"
+    },
+    {
+      "id": "it-num-a1-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'no' is a mistranslation of 'nine'; also Italian cats have seven lives, not nine.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "nove",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Count on: sette, otto, ___, dieci."
+          ]
+        }
+      ],
+      "itemHash": "1f61d217ef6f5d63"
+    },
+    {
+      "id": "it-num-a1-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 10.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "dieci",
+          "list": null
+        }
+      ],
+      "itemHash": "4881263be4611389"
+    },
+    {
+      "id": "it-num-a1-12",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 7 and the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Una settimana ha ___ giorni.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sette",
+          "list": null
+        }
+      ],
+      "itemHash": "827f9352b6112cf7"
+    },
+    {
+      "id": "it-num-a1-13",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Prompt asks about English; × is read 'per' in Italian, so 'volte' as the × term is misleading.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is '+' called in Italian math?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "meno",
+            "più",
+            "per",
+            "uguale"
+          ]
+        }
+      ],
+      "itemHash": "7d6804233a96f567"
+    },
+    {
+      "id": "it-num-a1-16",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'piu'' uses an apostrophe instead of the accent; common alternatives are missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Due più tre fa cinque.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Due più tre uguale cinque.",
+            "Due più tre è uguale a cinque.",
+            "Due più tre sono cinque."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: più (plus), and 'fa' or 'uguale' for equals."
+          ]
+        }
+      ],
+      "itemHash": "31ff3119390cb1c8"
+    },
+    {
+      "id": "it-num-a1-18",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "Distractors use digits or are incomplete ('cinque volte').",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "cinque per cinque",
+            "cinque più cinque",
+            "cinque meno cinque",
+            "cinque diviso cinque"
+          ]
+        }
+      ],
+      "itemHash": "340b6f85b95ef39d"
+    },
+    {
+      "id": "it-num-a1-19",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 11.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "undici",
+          "list": null
+        }
+      ],
+      "itemHash": "910f0a840d30975b"
+    },
+    {
+      "id": "it-num-a1-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 12.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "dodici",
+          "list": null
+        }
+      ],
+      "itemHash": "319ffca8bfbbef10"
+    },
+    {
+      "id": "it-num-a1-21",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Asks about the English word 'thirteen'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which number is 'tredici'?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "tre + dici. Don't confuse it with trenta (30)."
+          ]
+        }
+      ],
+      "itemHash": "51e51592410aeaf2"
+    },
+    {
+      "id": "it-num-a1-22",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 5 and the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Ho ___ dita in ogni mano.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "cinque",
+          "list": null
+        }
+      ],
+      "itemHash": "72e96c15ab2abe25"
+    },
+    {
+      "id": "it-num-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 50, options include English 'fifty', hint is about English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you write 50 in Italian?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "cinquanta",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "cinque",
+            "cinquanta",
+            "quindici",
+            "quinto"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Built on cinque. Don't confuse it with quindici (15)."
+          ]
+        }
+      ],
+      "itemHash": "41abccc02afa56f8"
+    },
+    {
+      "id": "it-num-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 100.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "cento",
+          "list": null
+        }
+      ],
+      "itemHash": "928a0e0f1243be00"
+    },
+    {
+      "id": "it-num-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "× is read 'per' in Italian; 'volte' is a calque of 'times' in this sense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "per",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "più",
+            "meno",
+            "per",
+            "diviso"
+          ]
+        }
+      ],
+      "itemHash": "f3c2d0446770e359"
+    },
+    {
+      "id": "it-num-a2-7",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Tre volte quattro uguale a dodici' is unidiomatic; Italian says 'Tre per quattro fa dodici'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tre per quattro fa dodici.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tre per quattro uguale dodici.",
+            "Tre per quattro è uguale a dodici."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: per (times), and 'fa' or 'uguale' for equals."
+          ]
+        }
+      ],
+      "itemHash": "9a374dd667c76032"
+    },
+    {
+      "id": "it-num-a2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 5.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "cinque",
+          "list": null
+        }
+      ],
+      "itemHash": "31c5c59d50e951e1"
+    },
+    {
+      "id": "it-num-a2-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Correct option appears twice; hint about hyphens is English-only.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "venticinque",
+            "ventecinque",
+            "cinqueventi",
+            "venti e cinque"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian writes it as one word, no hyphen: venti + cinque."
+          ]
+        }
+      ],
+      "itemHash": "ea2b3653dcff533e"
+    },
+    {
+      "id": "it-num-a2-10",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: In un giorno ci sono ___ ore.",
+          "list": null
+        }
+      ],
+      "itemHash": "9f45ed617f37cba8"
+    },
+    {
+      "id": "it-num-a2-12",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'un punteggio' (from 'a score') and 'a)' are junk distractors.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "un paio",
+            "una dozzina",
+            "una decina",
+            "un centinaio"
+          ]
+        }
+      ],
+      "itemHash": "0bfb4fff991e7d1a"
+    },
+    {
+      "id": "it-num-a2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says English; Italian reads the full number, not two pairs.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say the year 1999 in Italian?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "millenovecentonovantanove",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian reads the whole number as one word: mille-novecento-novantanove."
+          ]
+        }
+      ],
+      "itemHash": "35e35bd6e10582cf"
+    },
+    {
+      "id": "it-num-a2-14",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'destinazione' is junk; the answer is 'dozzina'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Una ___ di uova sono dodici uova.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dozzina",
+          "list": null
+        }
+      ],
+      "itemHash": "e447ced00c1abd6d"
+    },
+    {
+      "id": "it-num-a2-15",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Correct option repeated, 'dispari' unrelated, hint is about English hyphens.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tre-sette",
+            "trentasette",
+            "trentesette",
+            "settetrenta"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Tens + units in one word: trenta + sette."
+          ]
+        }
+      ],
+      "itemHash": "6f791ea9be1e1272"
+    },
+    {
+      "id": "it-num-a2-17",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 2.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "secondo",
+          "list": null
+        }
+      ],
+      "itemHash": "c0f9eda7fa46caed"
+    },
+    {
+      "id": "it-num-a2-18",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Options repeat 'tre' and 'terzo'.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "tre",
+            "terzo",
+            "treesimo",
+            "trentesimo"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The first ten ordinals are irregular: primo, secondo, ___. From 11 on, add -esimo."
+          ]
+        }
+      ],
+      "itemHash": "bec3c5b46a67cf70"
+    },
+    {
+      "id": "it-num-a2-19",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "English cloze; with 'she' the ordinal must be feminine.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: È arrivata ___ — appena fuori dal podio.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "quarta",
+          "list": null
+        }
+      ],
+      "itemHash": "e87a1b80cea78734"
+    },
+    {
+      "id": "it-num-a2-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says English; answer starts with a digit.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you read the phone number 555-0199 in Italian?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "cinque cinque cinque, zero uno nove nove",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Phone numbers are said digit by digit. 0 is 'zero'."
+          ]
+        }
+      ],
+      "itemHash": "9aaeb48d31436241"
+    },
+    {
+      "id": "it-num-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'una metà' fits the pizza hint and should be accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "un mezzo",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "mezzo",
+            "una metà",
+            "metà"
+          ]
+        }
+      ],
+      "itemHash": "cef7ce354e9aa730"
+    },
+    {
+      "id": "it-num-b1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "US quarter-coin hint is English-only.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Four equal parts. 'Un quarto d'ora' is fifteen minutes."
+          ]
+        }
+      ],
+      "itemHash": "bce704c9365c55ea"
+    },
+    {
+      "id": "it-num-b1-3",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'due su tre' is a valid reading of 2/3; '3°' and 'due' are junk.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "due tre",
+            "secondo terzo",
+            "due terzi",
+            "due terze"
+          ]
+        }
+      ],
+      "itemHash": "e1c8c9eb7cad1f3d"
+    },
+    {
+      "id": "it-num-b1-4",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: I ___ della classe hanno superato l'esame — trenta studenti su quaranta.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "30 su 40 = 75%."
+          ]
+        }
+      ],
+      "itemHash": "959aece1d9cfce68"
+    },
+    {
+      "id": "it-num-b1-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "\"C'e'\" uses an apostrophe for the accent; variants are missing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "C'è il venti per cento di sconto.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "C'è il venti percento di sconto.",
+            "C'è il 20% di sconto.",
+            "C'è uno sconto del venti per cento.",
+            "Venti per cento di sconto."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sconto' = discount."
+          ]
+        }
+      ],
+      "itemHash": "654acee561c7d7de"
+    },
+    {
+      "id": "it-num-b1-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'divisione' is a noun where a verb is needed; cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Dobbiamo ___ il conto in tre — circa venti euro a testa.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dividere",
+          "list": null
+        }
+      ],
+      "itemHash": "6271ebf0f2e8fc9f"
+    },
+    {
+      "id": "it-num-b1-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'tre punti:' is truncated and wrong; Italian uses a decimal comma.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "tre virgola cinque",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian uses a decimal comma, read 'virgola'."
+          ]
+        }
+      ],
+      "itemHash": "a88f38847a7dfa7a"
+    },
+    {
+      "id": "it-num-b1-14",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "Bare 'dieci' is not a parallel distractor.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "al massimo dieci",
+            "almeno dieci",
+            "a malapena dieci",
+            "esattamente dieci"
+          ]
+        }
+      ],
+      "itemHash": "c403959816d474d8"
+    },
+    {
+      "id": "it-num-b1-15",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "English cloze, and 'nei suoi anni trenta' is a calque.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Ha ___ i trent'anni — ne ha compiuti trentacinque la settimana scorsa.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "superato",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "passato"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ha superato i trent'anni' = he's past thirty."
+          ]
+        }
+      ],
+      "itemHash": "ff623712ae86c504"
+    },
+    {
+      "id": "it-num-b1-16",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Asks what an English phrase means instead of how to say it.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'a pair of shoes' in Italian?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "un paio di scarpe",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "una scarpa",
+            "un paio di scarpe",
+            "poche scarpe",
+            "tante scarpe"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Un paio' = a pair. Its plural is irregular: due paia."
+          ]
+        }
+      ],
+      "itemHash": "d96d4335150ec14c"
+    },
+    {
+      "id": "it-num-b1-17",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'anche' means 'also'; even numbers are 'numeri pari'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "pari",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "numeri pari"
+          ]
+        }
+      ],
+      "itemHash": "e48fb78a9a242b12"
+    },
+    {
+      "id": "it-num-b1-18",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Il biglietto costa ___ euro, centesimo più centesimo meno.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "più o meno venti"
+          ]
+        }
+      ],
+      "itemHash": "903a6c7284594d94"
+    },
+    {
+      "id": "it-num-b1-19",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'il doppio del prezzo' is equally correct.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "il doppio del prezzo"
+          ]
+        }
+      ],
+      "itemHash": "e8b0baa74bb7449b"
+    },
+    {
+      "id": "it-num-b1-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says English; '2 e mezzo milione' is wrong (Italian: due milioni e mezzo).",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 2,500,000 in the most natural spoken Italian?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "due milioni e mezzo",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "venticinquecentomila",
+            "cinque milioni",
+            "due milioni e mezzo",
+            "due milioni cinquecento"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'E mezzo' = and a half, after the noun."
+          ]
+        }
+      ],
+      "itemHash": "346fd52588d9cedd"
+    },
+    {
+      "id": "it-num-b2-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Tests an English idiom; replaced with an Italian number idiom.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Idiom: 'to bend over backwards for someone'",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "farsi in quattro",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'to make oneself into four'."
+          ]
+        }
+      ],
+      "itemHash": "ef80dbe51f3e8af7"
+    },
+    {
+      "id": "it-num-b2-2",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks the meaning of an English idiom; Italian has 'al settimo cielo'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'on cloud nine' in Italian?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "al settimo cielo",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "al nono cielo",
+            "al settimo cielo",
+            "tra le nuvole",
+            "al terzo piano"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Italian happiness is the seventh heaven. 'Tra le nuvole' means daydreaming."
+          ]
+        }
+      ],
+      "itemHash": "797c215d4ab7c89f"
+    },
+    {
+      "id": "it-num-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'aggiungere' is a literal 'add'; the Italian idiom is 'i conti non tornano'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: I conti non ___ — i costi sono troppo alti.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "tornano",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'I conti non tornano' = the numbers don't add up."
+          ]
+        }
+      ],
+      "itemHash": "5fd22a2915581f97"
+    },
+    {
+      "id": "it-num-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Answer is a dictionary paraphrase, not the Italian expression.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "fare a metà",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "fare fifty-fifty",
+            "fare metà e metà"
+          ]
+        }
+      ],
+      "itemHash": "1c575c4eb2c980df"
+    },
+    {
+      "id": "it-num-b2-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'è improbabile che' needs the subjunctive, not 'riusciremo'; the item asks the meaning of an English phrase.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which Italian sentence means 'the odds are against us'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Abbiamo poche probabilità di farcela.",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Abbiamo bisogno di più persone.",
+            "I numeri sono sbagliati.",
+            "Abbiamo poche probabilità di farcela.",
+            "La gara è giusta."
+          ]
+        }
+      ],
+      "itemHash": "7ec0f8b607bee829"
+    },
+    {
+      "id": "it-num-b2-6",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: È la sospettata ___ — l'ispettore si concentra solo su di lei.",
+          "list": null
+        }
+      ],
+      "itemHash": "f0a9e0d4049cd63c"
+    },
+    {
+      "id": "it-num-b2-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint lists English terms.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Somma, differenza, prodotto, ___."
+          ]
+        }
+      ],
+      "itemHash": "71e277f876259bd8"
+    },
+    {
+      "id": "it-num-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'facile da lavorare con' is an anglicism; prompt asks about an English term.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is 'un numero tondo'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "un numero che finisce con zero ed è facile da usare",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "un numero circolare in geometria",
+            "un numero che finisce con zero ed è facile da usare",
+            "un numero qualsiasi",
+            "un quadrato perfetto"
+          ]
+        }
+      ],
+      "itemHash": "d97471778210e536"
+    },
+    {
+      "id": "it-num-b2-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "The sentence has no finite verb ('concordati').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Due terzi degli intervistati erano d'accordo con la proposta.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Due terzi degli intervistati hanno approvato la proposta.",
+            "I due terzi degli intervistati erano d'accordo con la proposta."
+          ]
+        }
+      ],
+      "itemHash": "41f7762d12cb3737"
+    },
+    {
+      "id": "it-num-b2-10",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: ___ mi farebbe risalire su un aereo dopo quell'esperienza.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nessuna cifra"
+          ]
+        }
+      ],
+      "itemHash": "4aed296b4d3735b0"
+    },
+    {
+      "id": "it-num-b2-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Options are 'per ...' fragments of a translated English definition.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which Italian phrase means 'to zero in on something'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "concentrarsi con precisione su qualcosa",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "ignorare qualcosa",
+            "azzerare qualcosa",
+            "concentrarsi con precisione su qualcosa",
+            "contare fino a zero"
+          ]
+        }
+      ],
+      "itemHash": "638510f4e6e87f0c"
+    },
+    {
+      "id": "it-num-b2-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Answer is a paraphrase; the expression is 'contare su qualcuno'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "contare su qualcuno",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "fare affidamento su qualcuno"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Same image as English: 'Puoi sempre contare su di me.'"
+          ]
+        }
+      ],
+      "itemHash": "eb152a892124e17c"
+    },
+    {
+      "id": "it-num-b2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'scarpa stringa' is a literal 'shoestring'; Italian says 'con quattro soldi'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Dopo anni di tagli, l'associazione va avanti con ___ soldi.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "quattro",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Con quattro soldi' = on a shoestring, with very little money."
+          ]
+        }
+      ],
+      "itemHash": "bf92805d50a41bf4"
+    }
+  ]
+}

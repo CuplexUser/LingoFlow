@@ -1,0 +1,844 @@
+{
+  "language": "german",
+  "category": "conversation",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:33:21.276Z",
+  "contentHash": "3ebf09d41768a793",
+  "summary": "Very poor beyond A1. Four cloze items are still English (one answered 'hättet ausgeschüttet'), and there are many literal calques with wrong meanings: 'aufholen' for catch up, 'ausgestiegen' for outgoing, 'Es trifft mich' for it strikes me, 'erwischt' for didn't catch that, 'aktuelle Veranstaltungen' for current events, 'gemeinsam Boden'. Also wrong tenses, 'zu' in flashcard infinitives, an mc_sentence with English words, three clozes without a blank, and a dialogue_turn without a situation.",
+  "findings": [
+    {
+      "id": "de-co-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the formal question should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Heißen' = to be called. Formal: Wie heißen Sie?"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie heißen Sie?"
+          ]
+        }
+      ],
+      "itemHash": "426e73ffca101c0f"
+    },
+    {
+      "id": "de-co-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'Ich heiße' and 'aus den USA' are the most natural forms.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aus den USA' takes the plural article; 'kommen aus' is the usual verb."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich heiße Alex und komme aus den USA.",
+            "Mein Name ist Alex und ich komme aus den Vereinigten Staaten."
+          ]
+        }
+      ],
+      "itemHash": "b210cbc4717809ae"
+    },
+    {
+      "id": "de-co-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'Woher kommst du?' and the formal form are standard.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Woher' = from where. Formal: Woher kommen Sie?"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Woher kommst du?",
+            "Woher kommen Sie?"
+          ]
+        }
+      ],
+      "itemHash": "51e251d3ff245588"
+    },
+    {
+      "id": "de-cv-a1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The informal form should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich freue mich, dich kennenzulernen."
+          ]
+        }
+      ],
+      "itemHash": "6078873dfe4aa0e4"
+    },
+    {
+      "id": "de-cv-a1-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Abschied' is the noun 'farewell' (and must be capitalized); goodbye is 'tschüss' or 'auf Wiedersehen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "tschüss",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "auf Wiedersehen"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Informal: tschüss; formal: auf Wiedersehen."
+          ]
+        }
+      ],
+      "itemHash": "3f080529655e670f"
+    },
+    {
+      "id": "de-cv-a1-8",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English and the answer 'am' is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich ___ Student.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "bin",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "First person of 'sein'. No article before jobs and roles."
+          ]
+        }
+      ],
+      "itemHash": "7ce9b19560640359"
+    },
+    {
+      "id": "de-co-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'an Wochenenden' is stiff; Germans say 'am Wochenende'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Was machen Sie normalerweise am Wochenende?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Was machst du normalerweise am Wochenende?"
+          ]
+        }
+      ],
+      "itemHash": "53a897292a62ab43"
+    },
+    {
+      "id": "de-co-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'meine Abende lesen oder gehen' is ungrammatical; activities after 'verbringen' take 'mit' + noun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Meine Abende verbringe ich normalerweise mit Lesen oder Spazierengehen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich verbringe meine Abende normalerweise mit Lesen oder Spazierengehen."
+          ]
+        }
+      ],
+      "itemHash": "39c8af936aca26ea"
+    },
+    {
+      "id": "de-cv-a2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Sie ___ drei Sprachen fließend.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sprechen' changes its vowel: sie spricht."
+          ]
+        }
+      ],
+      "itemHash": "68ef9365e3804cf5"
+    },
+    {
+      "id": "de-cv-a2-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'Ingenieurin'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich arbeite als Ingenieurin."
+          ]
+        }
+      ],
+      "itemHash": "26f2177afc71478a"
+    },
+    {
+      "id": "de-cv-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "German has a word for siblings: 'Geschwister'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Haben Sie Geschwister?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Hast du Geschwister?",
+            "Haben Sie Brüder oder Schwestern?"
+          ]
+        }
+      ],
+      "itemHash": "f59299df32b10597"
+    },
+    {
+      "id": "de-cv-a2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'im letzten Sommer' is stiff; spoken German uses the Perfekt and 'letzten Sommer'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich habe letzten Sommer meine Großeltern besucht.",
+          "list": null
+        }
+      ],
+      "itemHash": "208271ae44d70e28"
+    },
+    {
+      "id": "de-cv-a2-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German nouns are capitalized: 'Hobby'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "ein Hobby",
+          "list": null
+        }
+      ],
+      "itemHash": "59f65e76b707ad1c"
+    },
+    {
+      "id": "de-cv-a2-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'im letzten Monat' is stiff; spoken German uses the Perfekt.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wir haben uns letzten Monat auf einer Party kennengelernt.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir trafen uns letzten Monat auf einer Party."
+          ]
+        }
+      ],
+      "itemHash": "92e1b634d6bc09ee"
+    },
+    {
+      "id": "de-cv-a2-12",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "German uses the present with 'schon' for an ongoing state; 'Wie lange haben Sie hier gelebt?' implies you no longer live there.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wie lange wohnen Sie schon hier?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wie lange wohnst du schon hier?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'schon' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "ee18d273435c23ca"
+    },
+    {
+      "id": "de-co-a2-57",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'erwischen' means to catch (a bus, a thief), not to hear.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tut mir leid, das habe ich nicht verstanden.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Entschuldigung, das habe ich nicht mitbekommen."
+          ]
+        }
+      ],
+      "itemHash": "5b1d4a19482af50f"
+    },
+    {
+      "id": "de-co-a2-59",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Was machst du normalerweise ___ der Arbeit?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "nach",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A preposition meaning 'after'."
+          ]
+        }
+      ],
+      "itemHash": "abe08f5b371a934b"
+    },
+    {
+      "id": "de-co-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Veranstaltungen' are organized events like concerts; current events are 'das aktuelle Geschehen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich spreche gerne über Bücher und das aktuelle Geschehen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ich unterhalte mich gerne über Bücher und aktuelle Themen."
+          ]
+        }
+      ],
+      "itemHash": "9ed274507263cb54"
+    },
+    {
+      "id": "de-co-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Konsistenz' is an anglicism for regular practice; 'Regelmäßigkeit' or 'Beständigkeit' is natural.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Meiner Meinung nach ist Regelmäßigkeit wichtiger als Intensität.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Meiner Meinung nach ist Beständigkeit wichtiger als Intensität."
+          ]
+        }
+      ],
+      "itemHash": "426197acaca6b7b5"
+    },
+    {
+      "id": "de-co-11",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The informal form should be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Über welche Themen sprichst du gerne?",
+            "Welche Themen besprichst du gerne?"
+          ]
+        }
+      ],
+      "itemHash": "086f26a3e53392dd"
+    },
+    {
+      "id": "de-cv-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ich bin mehr ausgestiegen' means 'I dropped out more'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Früher war ich sehr schüchtern, aber inzwischen bin ich offener geworden.",
+          "list": null
+        }
+      ],
+      "itemHash": "8bc7ee6280aaceeb"
+    },
+    {
+      "id": "de-cv-b1-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; the answer 'hättet ausgeschüttet' is gibberish.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ich wäre mitgekommen, wenn ich Zeit ___ hätte.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "gehabt",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive: hätte + past participle."
+          ]
+        }
+      ],
+      "itemHash": "06d655e04a4e3c69"
+    },
+    {
+      "id": "de-cv-b1-6",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "The note is about English-speaking cultures, not German.",
+      "fix": [
+        {
+          "field": "culturalNote",
+          "text": "Germans are often fairly direct with criticism; a brief positive remark first is polite but not strictly expected.",
+          "list": null
+        }
+      ],
+      "itemHash": "95250c856225e502"
+    },
+    {
+      "id": "de-cv-b1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'aufholen' means to make up lost ground, not to catch up with friends.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Wir sollten uns öfter treffen und austauschen.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Wir sollten uns öfter treffen."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sich austauschen' = to share news."
+          ]
+        }
+      ],
+      "itemHash": "a869fe9b1eb493df"
+    },
+    {
+      "id": "de-cv-b1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes an English tense German doesn't have.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Wollte' (simple past of 'wollen') expresses the intention you had."
+          ]
+        }
+      ],
+      "itemHash": "b8c04d18b96595e5"
+    },
+    {
+      "id": "de-cv-b1-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Dictionary forms take no 'zu'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "unterbrechen",
+          "list": null
+        }
+      ],
+      "itemHash": "103a733cdf007d61"
+    },
+    {
+      "id": "de-cv-b1-11",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Ihren Punkt sehen' is an anglicism; German says 'Ihren Standpunkt verstehen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich verstehe aber Ihren Standpunkt und stimme teilweise zu.",
+          "list": null
+        }
+      ],
+      "itemHash": "5ca238e3ee255528"
+    },
+    {
+      "id": "de-co-b1-65",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Ihren Punkt sehen' is an anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich verstehe Ihren Standpunkt, aber ich bin anderer Meinung.",
+          "list": null
+        }
+      ],
+      "itemHash": "a3a7fd196d48b885"
+    },
+    {
+      "id": "de-co-b1-67",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Zuerst war ich nervös, dann habe ich mich ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "entspannt",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past participle of 'sich entspannen'."
+          ]
+        }
+      ],
+      "itemHash": "41de5bfb9420fb61"
+    },
+    {
+      "id": "de-co-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'jetzt drückte' mixes 'now' with the past tense.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Früher war ich schüchtern, aber jetzt drücke ich meine Ideen selbstbewusst aus.",
+          "list": null
+        }
+      ],
+      "itemHash": "631a744694fd4b5b"
+    },
+    {
+      "id": "de-co-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Disagreeing with each other is 'nicht einer Meinung sein'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Obwohl wir nicht einer Meinung sind, respektiere ich Ihre Sichtweise.",
+          "list": null
+        }
+      ],
+      "itemHash": "53467e478b2b178d"
+    },
+    {
+      "id": "de-cv-b2-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Es trifft mich' means 'it hits/hurts me'; 'it strikes me' is 'Mir fällt auf'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mir fällt auf, dass wir mehr gemeinsam haben, als wir ursprünglich dachten.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mir fällt auf, dass...' = it strikes me that..."
+          ]
+        }
+      ],
+      "itemHash": "4171da1f7a97d8aa"
+    },
+    {
+      "id": "de-cv-b2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Hätte sie sich klarer ___, wäre das Missverständnis nicht entstanden.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ausgedrückt",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Verb-first 'Hätte sie...' replaces 'wenn'; past participle of 'sich ausdrücken'."
+          ]
+        }
+      ],
+      "itemHash": "914fec7530053968"
+    },
+    {
+      "id": "de-cv-b2-6",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Ich sehe, woher du kommst' is a calque and 'eine andere Entscheidung' means another decision; the note is about English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich verstehe deinen Standpunkt, sehe das aber anders.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "In German workplaces, acknowledging the other view briefly and then stating your own clearly is considered professional.",
+          "list": null
+        }
+      ],
+      "itemHash": "0d7dbda416ec7a54"
+    },
+    {
+      "id": "de-cv-b2-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'wenn ich den Kontext kenne' is present tense; the unreal past needs 'gekannt hätte'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ich hätte es anders ausgedrückt, wenn ich den Kontext gekannt hätte.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Past subjunctive in both clauses."
+          ]
+        }
+      ],
+      "itemHash": "235a02fba96c8813"
+    },
+    {
+      "id": "de-cv-b2-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "The options are English words.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Nuance / Voreingenommenheit / Tonfall / Register",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nuance",
+          "list": null
+        }
+      ],
+      "itemHash": "14b66d666190acf8"
+    },
+    {
+      "id": "de-cv-b2-10",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'zum einfühlen' is wrong; the dictionary form is 'sich einfühlen'. The prompt uses British 'empathise'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "to empathize",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sich einfühlen",
+          "list": null
+        }
+      ],
+      "itemHash": "deac4c390a76e86c"
+    },
+    {
+      "id": "de-cv-b2-11",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'Die Frage ist' loses 'crux'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Der springende Punkt ist, dass wir klarer kommunizieren müssen.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Der springende Punkt' = the crux of the matter."
+          ]
+        }
+      ],
+      "itemHash": "fada7e367744e8af"
+    },
+    {
+      "id": "de-cv-b2-12",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'argumentieren' means to present arguments, and 'gemeinsam Boden' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Anstatt zu streiten, sollten wir versuchen, eine gemeinsame Basis zu finden.",
+          "list": null
+        }
+      ],
+      "itemHash": "0583b5815a018a73"
+    },
+    {
+      "id": "de-co-b2-73",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'wiederholen' means to repeat, not rephrase.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Lassen Sie mich das anders formulieren, damit klarer wird, was ich meine.",
+          "list": null
+        }
+      ],
+      "itemHash": "ec406b7b2b06ad7b"
+    },
+    {
+      "id": "de-co-b2-74",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'ausarbeiten' means to work out in detail.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Würden Sie dieses Argument bitte näher ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ausführen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Näher ausführen' = to elaborate."
+          ]
+        }
+      ],
+      "itemHash": "f97dba4e8b106e86"
+    },
+    {
+      "id": "de-co-b2-75",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A colleague has just explained a complex issue very carefully.",
+          "list": null
+        }
+      ],
+      "itemHash": "eba0cfbb5dd83509"
+    }
+  ]
+}

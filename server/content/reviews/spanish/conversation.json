@@ -1,0 +1,366 @@
+{
+  "language": "spanish",
+  "category": "conversation",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:14:16.986Z",
+  "contentHash": "127d9d27be787022",
+  "summary": "Lively, mostly natural conversational Spanish. Fixes: a question missing its preposition ('¿Qué tipo de temas te gusta hablar?'), a flashcard with the same word on both sides, a dropped clause in 'De haberlo sabido', the anglicism 'disfrutar + infinitive', missing feminine/usted alternatives, and five generic hints.",
+  "findings": [
+    {
+      "id": "sp-co-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the formal question should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'How do you call yourself?' — reflexive 'llamarse'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Cómo se llama usted?",
+            "¿Cómo se llama?"
+          ]
+        }
+      ],
+      "itemHash": "29413b3034802862"
+    },
+    {
+      "id": "sp-co-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ser de' + place for origin. 'Los Estados Unidos' is also correct."
+          ]
+        }
+      ],
+      "itemHash": "c8e463cc04c0fad3"
+    },
+    {
+      "id": "sp-co-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; the formal form should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'De dónde' = from where; 'ser' for origin."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿De dónde es usted?",
+            "¿De dónde es?"
+          ]
+        }
+      ],
+      "itemHash": "394c65b6ef54c152"
+    },
+    {
+      "id": "sp-cv-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Grande' usually follows the noun when it means 'big'."
+          ]
+        }
+      ],
+      "itemHash": "9e400a638c1a0612"
+    },
+    {
+      "id": "sp-cv-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Informal 'tú' form; languages are lowercase in Spanish."
+          ]
+        }
+      ],
+      "itemHash": "d5d066dc1db9b8bc"
+    },
+    {
+      "id": "sp-cv-a1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "With two subjects, 'me gustan' is the prescriptive form and must be accepted.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me gustan la música y el deporte."
+          ]
+        }
+      ],
+      "itemHash": "3b915dc4c850903a"
+    },
+    {
+      "id": "sp-cv-a1-10",
+      "severity": "improvement",
+      "kind": "other",
+      "problem": "The flashcard front lists two words with a quiz hint, which doesn't work as a flashcard.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: a friend",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Feminine: una amiga."
+          ]
+        }
+      ],
+      "itemHash": "5c9ce1d13da1d090"
+    },
+    {
+      "id": "sp-cv-a1-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'Encantada'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Encantada de conocerte."
+          ]
+        }
+      ],
+      "itemHash": "b8631f1644a2c183"
+    },
+    {
+      "id": "sp-cv-a2-9",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'disfrutar + infinitive' is an anglicism; standard Spanish uses 'disfruto cocinando' or 'me encanta cocinar'. The hint teaches the anglicism.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Disfruto cocinando los fines de semana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me gusta cocinar los fines de semana.",
+            "Me encanta cocinar los fines de semana.",
+            "Disfruto cocinar los fines de semana."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Disfrutar' + gerund, or simply 'me gusta' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "90311ff2e26af87b"
+    },
+    {
+      "id": "sp-cv-a2-17",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint contains the full answer.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'What do you dedicate yourself to?' — the natural way to ask about someone's job."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿En qué trabajas?",
+            "¿Cuál es tu trabajo?"
+          ]
+        }
+      ],
+      "itemHash": "78c1df726234cf55"
+    },
+    {
+      "id": "sp-co-5",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Disfruto hablar' is an anglicism; 'Me gusta hablar' or 'Disfruto hablando' is standard.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me gusta hablar de libros y de temas de actualidad.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Disfruto hablando de libros y temas actuales.",
+            "Disfruto hablar sobre libros y temas actuales."
+          ]
+        }
+      ],
+      "itemHash": "3bf5135b4e107595"
+    },
+    {
+      "id": "sp-co-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'hablar' needs the preposition 'de' before the question word: '¿De qué tipo de temas...?'",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿De qué tipo de temas te gusta hablar?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Qué tipo de temas te gusta tratar?",
+            "¿De qué temas te gusta hablar?"
+          ]
+        }
+      ],
+      "itemHash": "fc23fd3baa954496"
+    },
+    {
+      "id": "sp-cv-b1-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'cansada'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Prefiero quedarme en casa esta noche porque estoy cansada."
+          ]
+        }
+      ],
+      "itemHash": "056fa24717a50c8e"
+    },
+    {
+      "id": "sp-cv-b1-15",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'segura'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "No estoy segura de si estoy de acuerdo con ese punto de vista."
+          ]
+        }
+      ],
+      "itemHash": "6a54da4abe72e2a3"
+    },
+    {
+      "id": "sp-cv-b1-21",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'honesta'; 'Para serte sincero' is equally common.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Para ser honesta, me cuesta hablar de mis sentimientos.",
+            "Para serte sincero, me cuesta hablar de mis sentimientos.",
+            "La verdad es que me cuesta hablar de mis sentimientos."
+          ]
+        }
+      ],
+      "itemHash": "101ab7154613b7cf"
+    },
+    {
+      "id": "sp-co-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'tímida'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Antes era tímida, pero ahora expreso mis ideas con confianza."
+          ]
+        }
+      ],
+      "itemHash": "d387ad0f0ecfe198"
+    },
+    {
+      "id": "sp-cv-b2-16",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'De haberlo sabido' drops 'that you were coming'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "De haber sabido que venías, me habría preparado más.",
+          "list": null
+        }
+      ],
+      "itemHash": "b266b178aebee7e0"
+    },
+    {
+      "id": "sp-cv-b2-17",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical; the front must be English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Vocabulary: to add nuance to (a statement or argument)",
+          "list": null
+        }
+      ],
+      "itemHash": "59c7f2ffd8b363c1"
+    },
+    {
+      "id": "sp-cv-b2-21",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'el tono completo' is a calque; Spanish says 'todo el tono'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La forma en que expresas algo puede cambiar todo el tono de una conversación.",
+          "list": null
+        }
+      ],
+      "itemHash": "aa5801472d8a4f37"
+    }
+  ]
+}

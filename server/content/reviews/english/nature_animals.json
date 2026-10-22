@@ -1,0 +1,225 @@
+{
+  "language": "english",
+  "category": "nature_animals",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:13:29.610Z",
+  "contentHash": "82e618c658018ccb",
+  "summary": "Accurate environmental vocabulary with good progression. Issues: three cloze items without a blank, a flashcard with identical sides, a dialogue_turn without a situation, British 'rubbish' and 'autumn', an imprecise 'dusk' gloss, and missing contractions.",
+  "findings": [
+    {
+      "id": "en-na-a1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'It's' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "It's raining outside."
+          ]
+        }
+      ],
+      "itemHash": "2db4c9ca71a14356"
+    },
+    {
+      "id": "en-na-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'What's' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "What's the weather like today?"
+          ]
+        }
+      ],
+      "itemHash": "09de36a16c7ee429"
+    },
+    {
+      "id": "en-na-a1-6",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "'autumn' is mostly British; Americans usually say 'fall'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after fall (autumn)."
+          ]
+        }
+      ],
+      "itemHash": "874e918af8480e74"
+    },
+    {
+      "id": "en-na-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask what kind of creature you are looking at.",
+          "list": null
+        }
+      ],
+      "itemHash": "2dd7da363f9b0a4d"
+    },
+    {
+      "id": "en-na-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'rubbish' is British; Americans say 'trash'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I recycle my trash to help protect the environment.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "I recycle my trash to help protect the environment.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I recycle my rubbish to help protect the environment.",
+            "I recycle my garbage to help protect the environment."
+          ]
+        }
+      ],
+      "itemHash": "f7820ed0f3288989"
+    },
+    {
+      "id": "en-na-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How can we ___ wild animals?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "protect",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'keep safe from harm'."
+          ]
+        }
+      ],
+      "itemHash": "ab1dcfda4f37c391"
+    },
+    {
+      "id": "en-na-b1-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I've' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I've recently become more aware of the impact of my diet on carbon emissions."
+          ]
+        }
+      ],
+      "itemHash": "37c6cfea81dd2841"
+    },
+    {
+      "id": "en-na-b1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "'Dusk' is the dim light after sunset, not sunset itself.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = as it gets dark.",
+            "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
+          ]
+        }
+      ],
+      "itemHash": "84c2d33f05fcd6e3"
+    },
+    {
+      "id": "en-na-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What causes animal populations to ___?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "decline",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'decrease' or 'go down'."
+          ]
+        }
+      ],
+      "itemHash": "5608629df23b08b6"
+    },
+    {
+      "id": "en-na-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Conservation strategies must consider both ecology and local ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "livelihoods",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The ways people earn a living."
+          ]
+        }
+      ],
+      "itemHash": "b44c3b7cf0df24ee"
+    },
+    {
+      "id": "en-na-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A city council has a small budget for environmental projects and asks for your input.",
+          "list": null
+        }
+      ],
+      "itemHash": "030f439b5932df00"
+    }
+  ]
+}

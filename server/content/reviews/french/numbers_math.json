@@ -1,0 +1,1221 @@
+{
+  "language": "french",
+  "category": "numbers_math",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T19:40:02.687Z",
+  "contentHash": "05b99ec8cb612f30",
+  "summary": "Machine-translated from the English course with many leftovers: digits as answers (50, 37, 11, '19 99'), mistranslations ('heures' for ×, 'même' for even, 'montant' for sum, 'chaussures' for shoestring), and prompts/hints about English. Cloze prompts were English sentences and are rewritten in French; English idioms are replaced with French number idioms.",
+  "findings": [
+    {
+      "id": "fr-num-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The counting form of 1 is 'un', not 'une'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "un",
+          "list": null
+        }
+      ],
+      "itemHash": "6a1071bb9c09e188"
+    },
+    {
+      "id": "fr-num-a1-3",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Distractors 'remorquage', 'aussi', 'à' are leftovers of the English to/too/two pun; hint is about English.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "douze",
+            "deux",
+            "trois",
+            "dix"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The x is silent unless a vowel follows: deux amis."
+          ]
+        }
+      ],
+      "itemHash": "a34c6411176c3b4c"
+    },
+    {
+      "id": "fr-num-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint quotes an English proverb; French has its own.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French says 'Jamais deux sans ___' — bad luck comes in threes."
+          ]
+        }
+      ],
+      "itemHash": "9105d028fa152c47"
+    },
+    {
+      "id": "fr-num-a1-6",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "Distractors 'fife', 'fiv', '5 r' are English or junk; a spelling question needs French misspellings.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "cinque",
+            "cinq",
+            "sinq",
+            "cing"
+          ]
+        }
+      ],
+      "itemHash": "6fa131b9c2c112f5"
+    },
+    {
+      "id": "fr-num-a1-12",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Il y a ___ jours dans une semaine.",
+          "list": null
+        }
+      ],
+      "itemHash": "4724fc54b4ba9f4f"
+    },
+    {
+      "id": "fr-num-a1-13",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Prompt asks about English, and 'heures' is a mistranslation of 'times' (×); French says 'fois'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is '+' called in French math?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "moins",
+            "plus",
+            "fois",
+            "égale"
+          ]
+        }
+      ],
+      "itemHash": "76ecb0496012cf5d"
+    },
+    {
+      "id": "fr-num-a1-16",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'font', 'égalent' and 'est égal à' are common alternatives; hint names English words.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Deux plus trois font cinq.",
+            "Deux plus trois égalent cinq.",
+            "Deux plus trois est égal à cinq."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: plus, and 'égale' or 'font' for equals."
+          ]
+        }
+      ],
+      "itemHash": "8ef0f6766690fe3c"
+    },
+    {
+      "id": "fr-num-a1-18",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'cinq et cinq' is colloquially correct ('cinq et cinq font dix'), so it is not clearly wrong.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "cinq divisé par cinq",
+            "cinq plus cinq",
+            "cinq fois cinq",
+            "cinq moins cinq"
+          ]
+        }
+      ],
+      "itemHash": "a34d0563cf91ea59"
+    },
+    {
+      "id": "fr-num-a1-19",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 11 instead of the French word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "onze",
+          "list": null
+        }
+      ],
+      "itemHash": "79ca1532d9b5b894"
+    },
+    {
+      "id": "fr-num-a1-21",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Asks about the English word 'thirteen'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which number is 'treize'?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Don't confuse treize (13) with trente (30)."
+          ]
+        }
+      ],
+      "itemHash": "db92f59865e61821"
+    },
+    {
+      "id": "fr-num-a1-22",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: J'ai ___ doigts à chaque main.",
+          "list": null
+        }
+      ],
+      "itemHash": "b54942f22eda61a6"
+    },
+    {
+      "id": "fr-num-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 50, options repeat it, and the hint is about English 'fivety'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you write 50 in French?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "cinquante",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "cinquante",
+            "quinze",
+            "cinquième",
+            "cinq-dix"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Built on cinq. Don't confuse it with quinze (15)."
+          ]
+        }
+      ],
+      "itemHash": "0bb7b40cc725b2b8"
+    },
+    {
+      "id": "fr-num-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "× is read 'fois'; 'heures' (hours) is a mistranslation of 'times'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "fois",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "plus",
+            "moins",
+            "fois",
+            "divisé par"
+          ]
+        }
+      ],
+      "itemHash": "161e297c81e7d26a"
+    },
+    {
+      "id": "fr-num-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'font' and 'égalent' are common alternatives; hint names English words.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Trois fois quatre font douze.",
+            "Trois fois quatre égalent douze."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: fois (times), and 'égale' or 'font' for equals."
+          ]
+        }
+      ],
+      "itemHash": "8fc540c54fa6d261"
+    },
+    {
+      "id": "fr-num-a2-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "The correct option appears twice and '5 et 20 ans' is junk.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "vingt-cinq",
+            "deux cinq",
+            "vingt et cinq",
+            "cinq-vingt"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Tens, hyphen, units: vingt-cinq. Only 21, 31, 41… use 'et' (vingt et un)."
+          ]
+        }
+      ],
+      "itemHash": "68fafd778899b702"
+    },
+    {
+      "id": "fr-num-a2-10",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Il y a ___ heures dans une journée.",
+          "list": null
+        }
+      ],
+      "itemHash": "0337d40ec7b5dddc"
+    },
+    {
+      "id": "fr-num-a2-12",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'un score' and 'a montant brut' are mistranslations of English 'a score' and 'a gross'.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "une paire",
+            "une douzaine",
+            "une dizaine",
+            "une centaine"
+          ]
+        }
+      ],
+      "itemHash": "02974536e58899d2"
+    },
+    {
+      "id": "fr-num-a2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says 'in English' and the answer '19 99' is digits; French reads the full number.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say the year 1999 in French?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "mille neuf cent quatre-vingt-dix-neuf",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "dix-neuf cent quatre-vingt-dix-neuf",
+            "mil neuf cent quatre-vingt-dix-neuf"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French reads the whole number: mille neuf cent… and 99 is quatre-vingt-dix-neuf (4 × 20 + 19)."
+          ]
+        }
+      ],
+      "itemHash": "61805244f7b99f8a"
+    },
+    {
+      "id": "fr-num-a2-14",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Une ___ d'œufs, c'est douze œufs.",
+          "list": null
+        }
+      ],
+      "itemHash": "93d302fedc6d3816"
+    },
+    {
+      "id": "fr-num-a2-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 37 and the hint is about English hyphens.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "trente-sept",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "trois-sept",
+            "trente-sept",
+            "trente et sept",
+            "sept-trente"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Tens, hyphen, units: trente-sept."
+          ]
+        }
+      ],
+      "itemHash": "4f3b2a77b785d9a3"
+    },
+    {
+      "id": "fr-num-a2-16",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The masculine 'premier' is the default form and must be accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "premier",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "première"
+          ]
+        }
+      ],
+      "itemHash": "6be9f3b1e1f7dc18"
+    },
+    {
+      "id": "fr-num-a2-17",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'second/seconde' is an accepted synonym; the hint should make the time link explicit in French.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "second",
+            "seconde"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The runner-up. 'Second' is a synonym — and 'une seconde' is also a unit of time."
+          ]
+        }
+      ],
+      "itemHash": "babf7ab239a72f9b"
+    },
+    {
+      "id": "fr-num-a2-18",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'troisième' appears twice; the hint about irregular first three ordinals is English, in French only 'premier' is irregular.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "trois",
+            "troisième",
+            "trentième",
+            "troisièmement"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Add -ième to the number: trois → ___. Only 'premier' is irregular."
+          ]
+        }
+      ],
+      "itemHash": "2b1bf2ce105db362"
+    },
+    {
+      "id": "fr-num-a2-19",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Elle a terminé ___ — juste au pied du podium.",
+          "list": null
+        }
+      ],
+      "itemHash": "33e4e396f4ae20da"
+    },
+    {
+      "id": "fr-num-a2-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Prompt says 'in English' and the hint gives English words for 0.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you read the phone number 555-0199 in French, digit by digit?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "cinq cinq cinq zéro un neuf neuf"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "0 is 'zéro'. French numbers are normally read in pairs, but this one goes digit by digit."
+          ]
+        }
+      ],
+      "itemHash": "039523471441566f"
+    },
+    {
+      "id": "fr-num-b1-1",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Needs an article, and 'un demi' should be accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "une moitié",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "la moitié",
+            "moitié",
+            "un demi"
+          ]
+        }
+      ],
+      "itemHash": "153a080dbc050bf8"
+    },
+    {
+      "id": "fr-num-b1-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The US quarter-coin hint is English-only.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Four equal parts. 'Un quart d'heure' is fifteen minutes."
+          ]
+        }
+      ],
+      "itemHash": "88b6630491af0c82"
+    },
+    {
+      "id": "fr-num-b1-3",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'deux sur trois' is a valid French reading of 2/3, so it is not wrong.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "deux trois",
+            "deuxième troisième",
+            "deux tiers",
+            "deux tierces"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Halves, thirds and quarters are special: demi, tiers, quart. From 1/5 on, use the ordinal: deux cinquièmes."
+          ]
+        }
+      ],
+      "itemHash": "838c3dbe2898c64a"
+    },
+    {
+      "id": "fr-num-b1-4",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: ___ de la classe ont réussi l'examen — trente élèves sur quarante.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Les trois quarts",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "trois quarts"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "30 sur 40 = 75 %."
+          ]
+        }
+      ],
+      "itemHash": "373fb45c7a02d3ec"
+    },
+    {
+      "id": "fr-num-b1-5",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The % symbol is read 'pour cent'; 'pourcentage' means 'percentage'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "pour cent",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "pourcent"
+          ]
+        }
+      ],
+      "itemHash": "0f272d77f5cca668"
+    },
+    {
+      "id": "fr-num-b1-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Common variants are missing and the hint mentions English 'per cent'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il y a vingt pour cent de réduction.",
+            "20 % de réduction.",
+            "Il y a 20 % de remise."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Réduction' or 'remise' = discount."
+          ]
+        }
+      ],
+      "itemHash": "3fa9c9ea2ea398b2"
+    },
+    {
+      "id": "fr-num-b1-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The result of an addition is 'la somme'; 'montant' means an amount of money.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "la somme",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "somme"
+          ]
+        }
+      ],
+      "itemHash": "f88a33781f61a41a"
+    },
+    {
+      "id": "fr-num-b1-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'fractionné' is a wrong past participle; the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Il faut ___ l'addition en trois — environ vingt euros chacun.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "partager",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "diviser"
+          ]
+        }
+      ],
+      "itemHash": "58fb313e66d49d85"
+    },
+    {
+      "id": "fr-num-b1-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "French uses a decimal comma: 3,5 is 'trois virgule cinq'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "trois virgule cinq",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French uses a decimal comma, read 'virgule'."
+          ]
+        }
+      ],
+      "itemHash": "b68254bccd23c6dc"
+    },
+    {
+      "id": "fr-num-b1-15",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "English cloze, and 'dans sa trentaine' is a calque; French says 'avoir la trentaine'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Il a la ___ — il a eu trente-cinq ans la semaine dernière.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "trentaine",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Avoir la trentaine' = to be in one's thirties."
+          ]
+        }
+      ],
+      "itemHash": "022aa29914f37d0b"
+    },
+    {
+      "id": "fr-num-b1-16",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "Asks what an English phrase means instead of how to say it in French.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'a pair of shoes' in French?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "une paire de chaussures",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "une chaussure",
+            "une paire de chaussures",
+            "quelques chaussures",
+            "de nombreuses chaussures"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Une paire' = a pair."
+          ]
+        }
+      ],
+      "itemHash": "a8d6fd16e3dae1f6"
+    },
+    {
+      "id": "fr-num-b1-17",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'même' is 'even' as in 'same/even so'; even numbers are 'nombres pairs'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "pairs",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "nombres pairs",
+            "pair"
+          ]
+        }
+      ],
+      "itemHash": "37a8c450cf3f8d5e"
+    },
+    {
+      "id": "fr-num-b1-18",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Le billet coûte ___ euros, à quelques centimes près.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "à peu près vingt"
+          ]
+        }
+      ],
+      "itemHash": "a03772b0697b60d8"
+    },
+    {
+      "id": "fr-num-b1-19",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'le double du prix' is equally correct.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "le double du prix"
+          ]
+        }
+      ],
+      "itemHash": "a5973b398d434697"
+    },
+    {
+      "id": "fr-num-b1-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Prompt asks for English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 2,500,000 in the most natural spoken French?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Et demi' = and a half."
+          ]
+        }
+      ],
+      "itemHash": "b78543095c030aeb"
+    },
+    {
+      "id": "fr-num-b2-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Tests an English idiom with a French paraphrase; replaced with a French number idiom.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Idiom: 'to be dressed to the nines'",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "être sur son trente-et-un",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'to be on one's thirty-one'."
+          ]
+        }
+      ],
+      "itemHash": "3d43e21d28f9e71e"
+    },
+    {
+      "id": "fr-num-b2-2",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks the meaning of an English idiom; French has 'au septième ciel'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'on cloud nine' in French?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "au septième ciel",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "au neuvième ciel",
+            "au septième ciel",
+            "dans les nuages",
+            "au troisième étage"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French happiness lives two levels lower: the seventh heaven. 'Dans les nuages' means daydreaming."
+          ]
+        }
+      ],
+      "itemHash": "297533521934622c"
+    },
+    {
+      "id": "fr-num-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ajouter' is a literal translation of 'add'; the French idiom is 'le compte n'y est pas'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Le compte n'y ___ pas — les coûts sont bien trop élevés.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "est",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Le compte n'y est pas' = the numbers don't add up."
+          ]
+        }
+      ],
+      "itemHash": "38fe6ead98a16998"
+    },
+    {
+      "id": "fr-num-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Answer is a dictionary paraphrase, not the French idiom.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "faire moitié-moitié",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "faire fifty-fifty",
+            "partager moitié-moitié"
+          ]
+        }
+      ],
+      "itemHash": "29fc7ee37fd62add"
+    },
+    {
+      "id": "fr-num-b2-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'il est peu probable que' requires the subjunctive, not 'réussirons'; options are lowercase fragments of an English-meaning question.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which French sentence means 'the odds are against us'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nous avons peu de chances de réussir.",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Nous avons besoin de plus de monde.",
+            "Les chiffres sont faux.",
+            "Nous avons peu de chances de réussir.",
+            "La concurrence est équitable."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Chances' = odds."
+          ]
+        }
+      ],
+      "itemHash": "582f05a3926207f5"
+    },
+    {
+      "id": "fr-num-b2-6",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: C'est la suspecte ___ — l'inspecteur ne s'intéresse qu'à elle.",
+          "list": null
+        }
+      ],
+      "itemHash": "40259edd9fb2d529"
+    },
+    {
+      "id": "fr-num-b2-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint lists English terms.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Somme, différence, produit, ___."
+          ]
+        }
+      ],
+      "itemHash": "b7785fbe21033d37"
+    },
+    {
+      "id": "fr-num-b2-8",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'facile à travailler avec' is an anglicism; the prompt asks about an English term.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is 'un nombre rond'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "un nombre qui se termine par zéro et qui est facile à manipuler",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "un nombre circulaire en géométrie",
+            "un nombre qui se termine par zéro et qui est facile à manipuler",
+            "un nombre pair",
+            "un carré parfait"
+          ]
+        }
+      ],
+      "itemHash": "b70d089aeef1d978"
+    },
+    {
+      "id": "fr-num-b2-10",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "English cloze, and 'Pas de montant' is not idiomatic French.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: ___ je ne reprendrais l'avion après cette expérience.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Pour rien au monde",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Not for anything in the world' — nothing could persuade you."
+          ]
+        }
+      ],
+      "itemHash": "595e25f6fb427ef7"
+    },
+    {
+      "id": "fr-num-b2-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Options are 'pour/de' fragments of a translated English definition.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which French phrase means 'to zero in on something'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "se concentrer précisément sur quelque chose",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "ignorer quelque chose",
+            "remettre quelque chose à zéro",
+            "se concentrer précisément sur quelque chose",
+            "compter jusqu'à zéro"
+          ]
+        }
+      ],
+      "itemHash": "8f50f47987de46e3"
+    },
+    {
+      "id": "fr-num-b2-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Answer is padded with a paraphrase; the expression is simply 'compter sur quelqu'un'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "compter sur quelqu'un",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Same image as English: 'Tu peux toujours compter sur moi.'"
+          ]
+        }
+      ],
+      "itemHash": "62cba84eafb95845"
+    },
+    {
+      "id": "fr-num-b2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'chaussures' is a literal translation of 'shoestring'; the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Après des années de coupes, l'association fonctionne avec un budget très ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "serré",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "réduit",
+            "limité"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Un budget serré' = a tight budget."
+          ]
+        }
+      ],
+      "itemHash": "fc2083dc67cc748c"
+    }
+  ]
+}

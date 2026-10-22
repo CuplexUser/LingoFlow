@@ -89,28 +89,6 @@ export function SetupPage({
         </label>
 
         <label>
-          Native Language
-          <select
-            value={draftSettings.nativeLanguage}
-            onChange={(event) => {
-              const nextNative = event.target.value;
-              const patch: Partial<LearnerSettings> = { nativeLanguage: nextNative };
-              if (draftSettings.targetLanguage === nextNative) {
-                const fallbackTarget = languages.find((language) => language.id !== nextNative)?.id || "";
-                if (fallbackTarget) {
-                  patch.targetLanguage = fallbackTarget;
-                }
-              }
-              onDraftChange(patch);
-            }}
-          >
-            {languages.map((language) => (
-              <option key={language.id} value={language.id}>{language.label}</option>
-            ))}
-          </select>
-        </label>
-
-        <label>
           Learning Language
           <select
             value={draftSettings.targetLanguage}

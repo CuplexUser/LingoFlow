@@ -1,0 +1,227 @@
+{
+  "language": "russian",
+  "category": "culture_history",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:11:09.992Z",
+  "contentHash": "05494e4b95636297",
+  "summary": "A rich culture file with mostly accurate notes. Errors: it says Gagarin flew 'в открытый космос' (that term means a spacewalk, first done by Leonov in 1965), it dates the Stalinist 'Seven Sisters' to 1947–1953 instead of 1947–1957, and a hint calls reflexive passive verbs participles. Three B2 items are A2-level, and a few hints use British spelling.",
+  "findings": [
+    {
+      "id": "ru-ch-a1-14",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'centrepiece' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A traditional heated urn for brewing tea — a centerpiece of Russian hospitality."
+          ]
+        }
+      ],
+      "itemHash": "60477fd37e0812ba"
+    },
+    {
+      "id": "ru-ch-a2-5",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'посетила'.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Прошлым летом я посетила Третьяковскую галерею."
+          ]
+        }
+      ],
+      "itemHash": "1449f78a11bdd9da"
+    },
+    {
+      "id": "ru-ch-b1-3",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A custom passed down through generations. Feminine noun."
+          ]
+        }
+      ],
+      "itemHash": "1808dda9344b68dc"
+    },
+    {
+      "id": "ru-ch-b1-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'symbolise' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Символизировать' = to symbolize. 'В русской культуре' = prepositional case."
+          ]
+        }
+      ],
+      "itemHash": "99abb2748eda4420"
+    },
+    {
+      "id": "ru-ch-b1-10",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "Baikal holds about 20% of the world's unfrozen surface fresh water, not of all its fresh water.",
+      "fix": [
+        {
+          "field": "culturalNote",
+          "text": "Lake Baikal holds about 20% of the world's unfrozen surface fresh water and is a UNESCO World Heritage Site.",
+          "list": null
+        }
+      ],
+      "itemHash": "5eebdc5bcabd756b"
+    },
+    {
+      "id": "ru-ch-b1-14",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Открытый космос' means open space as in a spacewalk, first done by Leonov in 1965; Gagarin simply flew into space.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Fill in the blank: В 1961 году Гагарин первым ___ в космос.",
+          "list": null
+        }
+      ],
+      "itemHash": "2428218f2d1e5215"
+    },
+    {
+      "id": "ru-ch-b1-17",
+      "severity": "error",
+      "kind": "cultural-note",
+      "problem": "The Seven Sisters were built 1947–1957 (the last, Hotel Ukraina, opened in 1957), not 1947–1953.",
+      "fix": [
+        {
+          "field": "culturalNote",
+          "text": "The seven Stalinist skyscrapers (the 'Seven Sisters') were built in 1947–1957 and still shape Moscow's skyline today.",
+          "list": null
+        }
+      ],
+      "itemHash": "1b8daaed09adcd73"
+    },
+    {
+      "id": "ru-ch-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A2 sentence at B2; the hint calls it polite although it uses 'ты'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Could you explain to me where this tradition comes from and what it means today?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Не могли бы вы объяснить мне, откуда пошла эта традиция и что она значит сегодня?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Не могли бы вы' = polite 'could you'; 'откуда пошла' = where it comes from."
+          ]
+        }
+      ],
+      "itemHash": "1b6c5b0f9bfd5c39"
+    },
+    {
+      "id": "ru-ch-b2-2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A2 sentence with a generic hint at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Studying local history helps me understand how people here see the world.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Изучение местной истории помогает мне понять, как местные жители смотрят на мир.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verbal noun subject ('изучение') + 'помогать' + dative + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "e5374c060b14e6a4"
+    },
+    {
+      "id": "ru-ch-b2-3",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "A five-word A2 sentence with a generic hint at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: This legend is still passed down from generation to generation here.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Эту легенду здесь до сих пор передают из поколения в поколение.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An impersonal 3rd-person plural ('передают') renders the English passive; 'до сих пор' = still."
+          ]
+        }
+      ],
+      "itemHash": "4a80e32c57cce236"
+    },
+    {
+      "id": "ru-ch-b2-14",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'jeweller' is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Вершина чего-то' = the pinnacle of something. 'Ювелиров' = genitive plural of 'ювелир' (jeweler)."
+          ]
+        }
+      ],
+      "itemHash": "c70e20125dfd668c"
+    },
+    {
+      "id": "ru-ch-b2-17",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "'прославляется' and 'оспаривается' are reflexive passive verbs, not short-form passive participles.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Одними … другими' = by some … by others (instrumental). Two passive -ся verbs in parallel."
+          ]
+        }
+      ],
+      "itemHash": "fcd87c42b015288b"
+    }
+  ]
+}

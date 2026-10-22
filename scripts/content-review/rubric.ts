@@ -77,7 +77,7 @@ Every item has an id, a CEFR level (a1-b2), a prompt, a correctAnswer and Englis
 - multiple_choice: a question with authored options; correctAnswer must be one of them, and the other options must be plausible but clearly wrong.
 - cloze_sentence: the prompt is a target-language sentence with a ___ blank, correctAnswer fills it, and clozeOptions (when present) must contain correctAnswer.
 - roleplay and dialogue_turn: the learner picks the best reply; answerEnglish is its English meaning.
-- Typed and spoken answers are compared to correctAnswer exactly, ignoring case and final punctuation. Any other translation a teacher would accept (masculine/feminine speaker, formal/informal you, common word-order variants) must be listed in acceptedAnswers, or a correct learner is marked wrong.
+- Answers, including the option a learner picks, are compared to correctAnswer exactly, ignoring case and all punctuation. So an acceptedAnswers entry that differs only in case or punctuation is redundant, and options that differ only in case or punctuation (German "ein Paar" / "ein paar") cannot be told apart. Any other translation a teacher would accept (masculine/feminine speaker, formal/informal you, common word-order variants) must be listed in acceptedAnswers, or a correct learner is marked wrong.
 
 ## What to check
 
@@ -94,7 +94,7 @@ The work order also lists automatic lint findings for the file. Confirm or dismi
 
 ## Fixes
 
-A fix replaces whole fields of the item. Use "text" for ${TEXT_FIELDS.join(", ")}, and "list" for ${LIST_FIELDS.join(", ")}; set the unused one to null. Set both to null to remove a field. When you change correctAnswer, keep options or clozeOptions consistent with it. Never change id, level or exerciseType. Keep fixes minimal: correct the item, don't restyle it.
+The result is linted with your fixes applied, and a fix that introduces a mechanical defect is rejected with the reason; correct it and submit again. A fix replaces whole fields of the item. Use "text" for ${TEXT_FIELDS.join(", ")}, and "list" for ${LIST_FIELDS.join(", ")}; set the unused one to null. Set both to null to remove a field. When you change correctAnswer, keep options or clozeOptions consistent with it. Never change id, level or exerciseType. Keep fixes minimal: correct the item, don't restyle it.
 
 Severity "error" is for content that teaches something wrong or cannot be answered correctly. Severity "improvement" is for content that works but is unnatural, unhelpful or missing an accepted alternative.
 

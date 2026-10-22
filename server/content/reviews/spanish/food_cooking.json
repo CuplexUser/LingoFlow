@@ -1,0 +1,504 @@
+{
+  "language": "spanish",
+  "category": "food_cooking",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:20:26.060Z",
+  "contentHash": "b5e10e875e504877",
+  "summary": "Many serious machine-translation errors: 'coágulos de ajo' (blood clots) for garlic cloves, 'receta agridulce' for sourdough, 'Tendré a experimentar', 'curso principal', 'marronamiento', 'el cultivo' for sourcing, umami's list repeating 'amargo' and missing 'ácido', and 'sustituir los chips de ensalada'. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-fo-1",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Spanish 'has hunger': tener + hambre."
+          ]
+        }
+      ],
+      "itemHash": "ae33dfb4f1d96c6b"
+    },
+    {
+      "id": "es-fo-2",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; '¿Me trae...?' or '¿Me da...?' is how people order.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "In a café, ask the waiter to bring it: '¿Me trae...?'"
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Me trae un vaso de agua, por favor?",
+            "¿Me da un vaso de agua, por favor?"
+          ]
+        }
+      ],
+      "itemHash": "390c4cd78e476e5e"
+    },
+    {
+      "id": "es-fo-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "Generic hint; 'Quisiera' is the common polite form.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Me gustaría' or 'quisiera' = I would like."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quisiera un café con leche."
+          ]
+        }
+      ],
+      "itemHash": "6451e468eab5c890"
+    },
+    {
+      "id": "es-fo-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'curso principal' is a calque of 'main course'; Spanish says 'plato principal' (or 'segundo plato').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "plato principal",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "segundo plato",
+            "el plato principal"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "It comes after the first course ('primer plato')."
+          ]
+        }
+      ],
+      "itemHash": "e40ad689d29eb006"
+    },
+    {
+      "id": "es-fo-a1-39",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Soup is served in a 'plato', not a 'tazón'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me gustaría un plato de sopa.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quisiera un plato de sopa.",
+            "Me gustaría un tazón de sopa."
+          ]
+        }
+      ],
+      "itemHash": "a46cc3ba4651837a"
+    },
+    {
+      "id": "es-fo-a1-41",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Cocinaré' is future; the prompt describes a routine.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cocino arroz para cenar.",
+          "list": null
+        }
+      ],
+      "itemHash": "c77c181b43506394"
+    },
+    {
+      "id": "es-fo-6",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'¿Podríamos tener la cuenta?' is a calque; diners ask the waiter to bring it.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Nos trae la cuenta, por favor?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Nos podría traer la cuenta, por favor?",
+            "La cuenta, por favor."
+          ]
+        }
+      ],
+      "itemHash": "79718c1595d2a3c6"
+    },
+    {
+      "id": "es-fo-23",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'recomendar' needs the indirect object pronoun.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Puede recomendarme un buen restaurante cerca de aquí?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Me puede recomendar un buen restaurante cerca de aquí?"
+          ]
+        }
+      ],
+      "itemHash": "08b72ee945970c79"
+    },
+    {
+      "id": "es-fo-24",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'a mi cocina' reads as 'to my kitchen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Siempre le pongo ajo y aceite de oliva a todo lo que cocino.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Siempre añado ajo y aceite de oliva a mis platos."
+          ]
+        }
+      ],
+      "itemHash": "5496645dda66c6e3"
+    },
+    {
+      "id": "es-fo-26",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sustituir los chips de ensalada' means 'replace the salad chips'; British 'chips' are 'patatas fritas', and the hint reverses the meaning of 'substitute X for Y'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Se pueden cambiar las patatas fritas por ensalada?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Es posible cambiar las papas fritas por ensalada?",
+            "¿Es posible sustituir las patatas fritas por ensalada?"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Cambiar A por B' = swap A for B."
+          ]
+        }
+      ],
+      "itemHash": "a76fd50952699219"
+    },
+    {
+      "id": "es-fo-a2-49",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'intentar una receta' is a calque; Spanish says 'probar' and uses 'ir a' for tonight's plan.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Esta noche voy a probar una receta nueva.",
+          "list": null
+        }
+      ],
+      "itemHash": "8344a8e6cdc9e732"
+    },
+    {
+      "id": "es-fo-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "___ en un pequeño restaurante familiar.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Comimos",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Preterite of 'comer', 'we' form."
+          ]
+        }
+      ],
+      "itemHash": "ab9591d1b3131ae0"
+    },
+    {
+      "id": "es-fo-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'coágulos' means blood clots; garlic cloves are 'dientes de ajo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La receta lleva dos dientes de ajo y una pizca de sal.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "La receta requiere dos dientes de ajo y una pizca de sal."
+          ]
+        }
+      ],
+      "itemHash": "9af42f02b30c2073"
+    },
+    {
+      "id": "es-fo-27",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Tendré a experimentar' is nonsense (future of 'tener').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Suelo experimentar con distintas cocinas cuando cocino en casa.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Soler' + infinitive = to tend to."
+          ]
+        }
+      ],
+      "itemHash": "38d9a1f097ae9fe5"
+    },
+    {
+      "id": "es-fo-28",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Food doneness takes 'estar', not 'ser'; 'sobrecocido' is uncommon.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Esto está un poco pasado, pero el sabor sigue siendo muy bueno.",
+          "list": null
+        }
+      ],
+      "itemHash": "2a37234e445dae2e"
+    },
+    {
+      "id": "es-fo-29",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'¿Sería capaz de atender una opción?' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Podrían ofrecer una opción sin gluten?",
+          "list": null
+        }
+      ],
+      "itemHash": "92c5dc2d64f5d612"
+    },
+    {
+      "id": "es-fo-30",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'La cocina lenta a fuego lento' is redundant; the hint uses British 'flavour'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cocinar a fuego lento desarrolla mucho mejor el sabor.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'A fuego lento' = on low heat."
+          ]
+        }
+      ],
+      "itemHash": "56c1ae81b61d7879"
+    },
+    {
+      "id": "es-fo-32",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'Encuentro que ... hace una diferencia' are calques.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me parece que marinar la carne toda la noche marca una gran diferencia.",
+          "list": null
+        }
+      ],
+      "itemHash": "b81bb2dab7ad844d"
+    },
+    {
+      "id": "es-fo-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'agridulce' means sweet-and-sour; sourdough is 'masa madre'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Sí, lo hice esta mañana; es una receta de masa madre que he ido perfeccionando.",
+          "list": null
+        }
+      ],
+      "itemHash": "b810030ea5fbb313"
+    },
+    {
+      "id": "es-fo-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Empecé a preparar comidas para ___ tiempo durante la semana.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ahorrar",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'to save'."
+          ]
+        }
+      ],
+      "itemHash": "63fcbc436365e75f"
+    },
+    {
+      "id": "es-fo-34",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'El cultivo' means growing, not sourcing; the note uses British 'emphasising'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Elegir productos de temporada y de cultivo local es una opción tanto ecológica como culinaria.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": "Farm-to-table dining has become a significant movement in many countries, emphasizing shorter supply chains and fresher ingredients.",
+          "list": null
+        }
+      ],
+      "itemHash": "f2a4f54e74f1baaf"
+    },
+    {
+      "id": "es-fo-36",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The list repeats 'amargo' and omits 'sour' ('ácido').",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El umami se describe a menudo como el quinto sabor, junto con el dulce, el ácido, el salado y el amargo.",
+          "list": null
+        }
+      ],
+      "itemHash": "814e11e610d06e26"
+    },
+    {
+      "id": "es-fo-38",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'marronamiento' is not a Spanish word; browning is 'pardeamiento' or 'dorado'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La reacción de Maillard —el dorado de las proteínas con el calor— es fundamental para desarrollar la profundidad del sabor.",
+          "list": null
+        }
+      ],
+      "itemHash": "21a1599f11c94daa"
+    },
+    {
+      "id": "es-fo-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cómo pueden las ciudades reducir el ___ de alimentos en las cadenas de suministro?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "desperdicio",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'waste'."
+          ]
+        }
+      ],
+      "itemHash": "038cd7a4dd03d26b"
+    },
+    {
+      "id": "es-fo-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend asks whether they should cut out carbs completely.",
+          "list": null
+        }
+      ],
+      "itemHash": "566b93e396bd2a17"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "language": "russian",
+  "category": "news_media",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:08:23.634Z",
+  "contentHash": "23682bb03d214b39",
+  "summary": "Accurate, idiomatic media Russian. The weak spots are multiple-choice items whose distractors can also be correct ('выпуск' for broadcast, 'Последние новости' for breaking news, 'получила международный охват'), a garbled stress hint ('соBYtий'), and a missing feminine addressee form.",
+  "findings": [
+    {
+      "id": "ru-nm-a2-8",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'выпуск' (as in 'выпуск новостей') can also mean a broadcast, so it isn't clearly wrong.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "статья",
+            "трансляция",
+            "заметка",
+            "подписка"
+          ]
+        }
+      ],
+      "itemHash": "89cd2b5c21292f0d"
+    },
+    {
+      "id": "ru-nm-a2-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The addressee may be female ('слышала').",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ты слышала о происшествии по радио?"
+          ]
+        }
+      ],
+      "itemHash": "961e319c74659540"
+    },
+    {
+      "id": "ru-nm-mc-a2-1",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'Последние новости' is also commonly used for breaking news, so the item has two defensible answers.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Старые новости",
+            "Срочные новости",
+            "Спортивные новости",
+            "Важные события"
+          ]
+        }
+      ],
+      "itemHash": "e2c28c7d8a199c94"
+    },
+    {
+      "id": "ru-nm-mc-b1-1",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'Новость получила международный охват' is close enough in meaning to count as correct.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "История была взята международными новостями.",
+            "Материал подхватили международные издания.",
+            "Публикацию взяли зарубежные порталы.",
+            "Материал опровергли международные издания."
+          ]
+        }
+      ],
+      "itemHash": "9d1e0187fe0303cd"
+    },
+    {
+      "id": "ru-nm-pron-b2-1",
+      "severity": "error",
+      "kind": "bad-hint",
+      "problem": "The stress hint contains garbled Latin letters ('соBYtий').",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Stress: корреспонДЕНТ, трансЛЯцию, собЫтий."
+          ]
+        }
+      ],
+      "itemHash": "172a7cb74d761a93"
+    }
+  ]
+}

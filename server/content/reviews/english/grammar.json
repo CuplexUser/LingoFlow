@@ -1,0 +1,360 @@
+{
+  "language": "english",
+  "category": "grammar",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:10:58.753Z",
+  "contentHash": "d2f03574efbd1182",
+  "summary": "The grammar explanations are accurate, but seven cloze items store the whole sentence as correctAnswer instead of the word that fills the blank, so a learner who types the right word is marked wrong. One cloze prompt ('Rarely ___ I see') contradicts its answer, three cloze items lack a blank, and contractions are not accepted.",
+  "findings": [
+    {
+      "id": "en-gr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'They' always takes 'are'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "They're my friends."
+          ]
+        }
+      ],
+      "itemHash": "2ef0d6979b0abdc7"
+    },
+    {
+      "id": "en-gr-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'don't' is the everyday form.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I don't like coffee."
+          ]
+        }
+      ],
+      "itemHash": "1646403dddfbbf5f"
+    },
+    {
+      "id": "en-gr-14",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "In a cloze item the answer must be the word that fills the blank, not the whole sentence.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "studies",
+          "list": null
+        }
+      ],
+      "itemHash": "af237dce1e40eff2"
+    },
+    {
+      "id": "en-gr-17",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "In a cloze item the answer must be the word that fills the blank, not the whole sentence.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "an",
+          "list": null
+        }
+      ],
+      "itemHash": "509b2d8c74eaa685"
+    },
+    {
+      "id": "en-gr-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm not' is the everyday form.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "I'm not tired."
+          ]
+        }
+      ],
+      "itemHash": "813786a19b0e0ef2"
+    },
+    {
+      "id": "en-gr-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask your teacher to check whether your sentence is right.",
+          "list": null
+        }
+      ],
+      "itemHash": "87564515b49a4d53"
+    },
+    {
+      "id": "en-gr-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Cloze answer is the whole sentence; 'cinema' is also British (US: the movies).",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the correct form: 'I ___ to the movies last Saturday.' (go)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "went",
+          "list": null
+        }
+      ],
+      "itemHash": "6dbc57e8f6052a2c"
+    },
+    {
+      "id": "en-gr-23",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "In a cloze item the answer must fill the blank, not be the whole sentence.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "more interesting",
+          "list": null
+        }
+      ],
+      "itemHash": "be7db9ea6a03299d"
+    },
+    {
+      "id": "en-gr-6",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'we'll' is the everyday form.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "If it rains, we'll stay inside."
+          ]
+        }
+      ],
+      "itemHash": "93efcd90d66153c8"
+    },
+    {
+      "id": "en-gr-a2-50",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'we'll' is the everyday form.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "If it rains, we'll stay home."
+          ]
+        }
+      ],
+      "itemHash": "8fe2eacacc52afad"
+    },
+    {
+      "id": "en-gr-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Should I use 'much' or 'many' with countable nouns? — Use '___'.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "many",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Many' goes with things you can count; 'much' with things you can't."
+          ]
+        }
+      ],
+      "itemHash": "79f22e785e05dc82"
+    },
+    {
+      "id": "en-gr-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'd learn' is the everyday form.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "If I had more time, I'd learn a third language."
+          ]
+        }
+      ],
+      "itemHash": "6e0fe36de23dfc00"
+    },
+    {
+      "id": "en-gr-27",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "In a cloze item the answer must fill the blank, not be the whole sentence.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "was written",
+          "list": null
+        }
+      ],
+      "itemHash": "d9c64d10bfdacff2"
+    },
+    {
+      "id": "en-gr-31",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'waking up early' is equally natural.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "She is used to waking up early.",
+            "She's used to waking up early.",
+            "She's used to waking early."
+          ]
+        }
+      ],
+      "itemHash": "bba22648581bf086"
+    },
+    {
+      "id": "en-gr-33",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "In a cloze item the answer must fill the blank, not be the whole sentence.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "who",
+          "list": null
+        }
+      ],
+      "itemHash": "debd65efa623f140"
+    },
+    {
+      "id": "en-gr-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "When should I use the ___ voice? — When the action matters more than who did it.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "passive",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The opposite of the active voice."
+          ]
+        }
+      ],
+      "itemHash": "3331ca13d4f5c5a8"
+    },
+    {
+      "id": "en-gr-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The prompt has 'see' but the answer has 'seen'; filling the blank with 'have' gives the ungrammatical 'Rarely have I see'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Fill in the blank: 'Rarely ___ I seen such attention to detail.' (have)",
+          "list": null
+        }
+      ],
+      "itemHash": "77c98cc55dccee47"
+    },
+    {
+      "id": "en-gr-36",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "In a cloze item the answer must fill the blank, not be the whole sentence.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "must be",
+          "list": null
+        }
+      ],
+      "itemHash": "9b818b568ec28085"
+    },
+    {
+      "id": "en-gr-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Not only ___ she finish on time, but she also improved the draft.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "did",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Not only' at the start triggers auxiliary inversion."
+          ]
+        }
+      ],
+      "itemHash": "e4f52b30664f1c48"
+    },
+    {
+      "id": "en-gr-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation to respond to.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your teacher rewrites your sentence with a fronted phrase and asks if you notice a difference.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Yes — how does emphasis change when we front a phrase?",
+          "list": null
+        }
+      ],
+      "itemHash": "413246cc622dbabb"
+    }
+  ]
+}

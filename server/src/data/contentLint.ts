@@ -803,6 +803,10 @@ function lintItem(
   return findings;
 }
 
+function englishPromptMap(english: Record<string, ContentItem[]>, category: string) {
+  return new Map((english[category] || []).map((item) => [String(item.prompt || ""), item]));
+}
+
 // Lint every language (or just `languages`) and return all findings.
 function lintContent(languages: string[] = listLanguages()): LintFinding[] {
   const english = loadLanguageItems("english");
@@ -810,15 +814,19 @@ function lintContent(languages: string[] = listLanguages()): LintFinding[] {
   for (const language of languages) {
     const byCategory = loadLanguageItems(language);
     for (const [category, items] of Object.entries(byCategory)) {
-      const englishByPrompt = new Map(
-        (english[category] || []).map((item) => [String(item.prompt || ""), item])
-      );
+      const englishByPrompt = englishPromptMap(english, category);
       for (const item of items) {
         findings.push(...lintItem(item, language, category, englishByPrompt));
       }
     }
   }
   return findings;
+}
+
+// Lint items that are not (yet) on disk, such as items with proposed fixes applied.
+function lintItems(items: ContentItem[], language: string, category: string): LintFinding[] {
+  const englishByPrompt = englishPromptMap(loadLanguageItems("english"), category);
+  return items.flatMap((item) => lintItem(item, language, category, englishByPrompt));
 }
 
 // Per-language depth figures, for comparing a course against the most curated one.
@@ -857,6 +865,7 @@ function loadBaseline(): string[] {
 module.exports = {
   RULES,
   lintContent,
+  lintItems,
   contentDepth,
   detectLanguage,
   listLanguages,

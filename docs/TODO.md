@@ -71,7 +71,7 @@ Russian is hand-edited; the other courses are largely machine translations of th
   English idioms with German answers). Rewrite them as Spanish and Russian did ("How do you write 37
   in German words?"). Their known errors are in `server/content/lint-baseline.json`; remove entries
   with `npm run lint:content -- --update-baseline` as they are fixed.
-- [ ] **Run the AI review per course** (fr, de, it, sv, es, en; 16 work orders each), triage the
+- [ ] **Run the AI review per course** (fr, de, it, sv, es; 16 work orders each), triage the
   findings with `--findings`, apply with `--apply`, and check the diff. Start with
   `--severity=error`.
 - [ ] **Work down the lint warnings** — stock "Practice this phrase out loud." hints, untranslated

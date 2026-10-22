@@ -1,0 +1,536 @@
+{
+  "language": "spanish",
+  "category": "news_media",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:25:43.496Z",
+  "contentHash": "9a5ac7c4b6dce0bf",
+  "summary": "Many machine-translation errors: wrong tenses and persons ('Leí' for a daily habit, 'Me suscribió', 'Compare'), nonsense calques ('entrevistar historias', 'La curación Algorítmica ... alimenta crea', 'El recortado', 'ha borroso', 'al tener el poder de rendir cuentas'), and dropped meanings ('breaking', 'news outlet'). Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-nm-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'Leí' is the past tense; the prompt describes a daily habit.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Leo las noticias todas las mañanas.",
+          "list": null
+        }
+      ],
+      "itemHash": "755469b29a5272e9"
+    },
+    {
+      "id": "es-nm-a1-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The simple past and 'enterarse' are the most common forms in Latin America.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Te enteraste del terremoto?",
+            "¿Oíste lo del terremoto?",
+            "¿Te has enterado del terremoto?"
+          ]
+        }
+      ],
+      "itemHash": "3b194bda4de82907"
+    },
+    {
+      "id": "es-nm-a1-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'La noticia está en televisión' means 'the news item is on TV'; the news program is 'las noticias' or 'el telediario'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Las noticias son a las seis en la tele.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "El telediario es a las seis.",
+            "Las noticias empiezan a las seis en la televisión."
+          ]
+        }
+      ],
+      "itemHash": "44b115bd97db9214"
+    },
+    {
+      "id": "es-nm-a1-8",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English 'much'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Mucho' agrees with the noun: mucha televisión."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "No veo mucho la tele."
+          ]
+        }
+      ],
+      "itemHash": "42ea51427220d01a"
+    },
+    {
+      "id": "es-nm-a1-10",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'Tengo mis noticias de internet' is a literal calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me informo por internet.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Leo las noticias en internet."
+          ]
+        }
+      ],
+      "itemHash": "13ccc9b6c3aa049c"
+    },
+    {
+      "id": "es-ne-a1-40",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "A news story is a 'noticia', and 'es sobre' is a calque of 'trata de'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Esta noticia trata del tiempo.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Esta noticia es sobre el tiempo."
+          ]
+        }
+      ],
+      "itemHash": "b70be199d908e9b4"
+    },
+    {
+      "id": "es-nm-a2-4",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'sobre la lectura' means 'about reading'; 'prefer A to B' is 'preferir A a B'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Prefiero escuchar pódcast a leer prensa escrita.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Prefiero escuchar podcasts a leer prensa escrita.",
+            "Prefiero escuchar podcasts antes que leer prensa escrita."
+          ]
+        }
+      ],
+      "itemHash": "5af94d8ad88d5076"
+    },
+    {
+      "id": "es-nm-a2-5",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'¿En qué noticias confías?' asks which news items, not which outlet.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿En qué medio de comunicación confías más?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿En qué medio confías más?"
+          ]
+        }
+      ],
+      "itemHash": "1e460ecde9d1106d"
+    },
+    {
+      "id": "es-nm-a2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'breaking' is dropped, and 'Había' is the wrong past tense for a single event.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Hubo una noticia de última hora sobre las inundaciones.",
+          "list": null
+        }
+      ],
+      "itemHash": "9cba957b80d6581f"
+    },
+    {
+      "id": "es-nm-a2-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Social media is normally 'las redes sociales'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Las redes sociales son ahora la principal fuente de noticias para muchos jóvenes.",
+          "list": null
+        }
+      ],
+      "itemHash": "22735754ca844ef2"
+    },
+    {
+      "id": "es-nm-a2-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "You subscribe 'al periódico'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cancelé mi suscripción al periódico y me pasé a una aplicación de noticias.",
+          "list": null
+        }
+      ],
+      "itemHash": "02419ace3664dedf"
+    },
+    {
+      "id": "es-ne-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; the present perfect with 'ayer' is also wrong.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿___ hablar de este evento ayer?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Oíste",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ayer' takes the preterite: oír → oíste."
+          ]
+        }
+      ],
+      "itemHash": "f233d2b3f7751ff7"
+    },
+    {
+      "id": "es-nm-b1-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'desinformación errónea' is redundant.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Cada vez es más difícil distinguir entre el periodismo fiable y la desinformación.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Cada vez es más difícil distinguir entre el periodismo creíble y la desinformación."
+          ]
+        }
+      ],
+      "itemHash": "62068fb60f4dcab0"
+    },
+    {
+      "id": "es-nm-b1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Media bias is 'sesgo', not 'prejuicios'; the hint uses British 'favouring'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El sesgo de los medios puede afectar a la forma en que el público percibe e interpreta los acontecimientos.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Sesgo' = bias; 'favoring' one view."
+          ]
+        }
+      ],
+      "itemHash": "ce8fa9b47a79216c"
+    },
+    {
+      "id": "es-nm-b1-4",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'entrevistar historias' means 'interview stories'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Intento contrastar las noticias con varias fuentes antes de formarme una opinión.",
+          "list": null
+        }
+      ],
+      "itemHash": "63b9d2d98599a6ab"
+    },
+    {
+      "id": "es-nm-b1-7",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'mantener la historia' is a calque of 'hold the story'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La redacción decidió retener la noticia hasta tener pruebas más sólidas.",
+          "list": null
+        }
+      ],
+      "itemHash": "5fcf719ff3c53232"
+    },
+    {
+      "id": "es-nm-b1-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Me suscribió' means 'he/she subscribed me'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Estoy suscrito a dos periódicos de calidad y a una revista política semanal.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Estoy suscrita a dos periódicos de calidad y a una revista política semanal."
+          ]
+        }
+      ],
+      "itemHash": "4c1c1e4c77087a12"
+    },
+    {
+      "id": "es-ne-b1-59",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Compare' is subjunctive/imperative; the first-person present is 'comparo'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Comparo varias fuentes antes de fiarme de un titular.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Comparo varias fuentes antes de confiar en un titular."
+          ]
+        }
+      ],
+      "itemHash": "cbcecf2c0b28b1c2"
+    },
+    {
+      "id": "es-ne-b1-60",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Social media is 'las redes sociales'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Las redes sociales pueden difundir rápidamente información tanto cierta como falsa.",
+          "list": null
+        }
+      ],
+      "itemHash": "3e483c3aeea90b7b"
+    },
+    {
+      "id": "es-ne-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Por qué la gente comparte artículos ___ leerlos?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sin",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A preposition meaning 'without'."
+          ]
+        }
+      ],
+      "itemHash": "c102bf0a45c1d38f"
+    },
+    {
+      "id": "es-nm-b2-2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'La curación Algorítmica de las noticias alimenta crea' is garbled.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La selección algorítmica de noticias crea cámaras de eco que refuerzan las creencias existentes.",
+          "list": null
+        }
+      ],
+      "itemHash": "3c828e669388d677"
+    },
+    {
+      "id": "es-nm-b2-3",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'el ciclo de noticias las 24 horas' is missing 'de'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo ha alterado el ciclo informativo de 24 horas los estándares periodísticos y el debate público?",
+          "list": null
+        }
+      ],
+      "itemHash": "a1dfbf5fcae5a420"
+    },
+    {
+      "id": "es-nm-b2-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'al tener el poder de rendir cuentas' means 'by having the power to be accountable'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El periodismo de investigación cumple una función democrática vital al obligar al poder a rendir cuentas.",
+          "list": null
+        }
+      ],
+      "itemHash": "81eb9faffd770a8d"
+    },
+    {
+      "id": "es-nm-b2-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'ha borroso' is ungrammatical (an adjective used as a participle); 'conflación' is not standard.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La mezcla de opinión y hechos en los artículos de opinión ha difuminado importantes límites epistémicos.",
+          "list": null
+        }
+      ],
+      "itemHash": "2cfdeafdc3ba877b"
+    },
+    {
+      "id": "es-nm-b2-6",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'ever' is dropped.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Pueden los medios estatales ser alguna vez compatibles con una auténtica independencia editorial?",
+          "list": null
+        }
+      ],
+      "itemHash": "22f70dbb98afec56"
+    },
+    {
+      "id": "es-nm-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'El recortado' means 'the cutting'; paywalling is charging for access.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Los muros de pago del periodismo de calidad plantean importantes preguntas sobre la equidad en el acceso a la información.",
+          "list": null
+        }
+      ],
+      "itemHash": "fb34f2245ad78a2c"
+    },
+    {
+      "id": "es-ne-b2-69",
+      "severity": "improvement",
+      "kind": "meaning-mismatch",
+      "problem": "'una fuente transparente' means one transparent source, not transparent sourcing.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "El periodismo responsable requiere transparencia en las fuentes y contexto.",
+          "list": null
+        }
+      ],
+      "itemHash": "1ec5c6b6ea6c1971"
+    },
+    {
+      "id": "es-ne-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Los titulares sensacionalistas pueden ___ la comprensión pública de cuestiones complejas.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "distorsionar",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'twist or misrepresent'."
+          ]
+        }
+      ],
+      "itemHash": "f9f7da10c403294f"
+    },
+    {
+      "id": "es-ne-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'el control libre de expresión y desinformación' is garbled.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A friend says social networks should simply delete anything false.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo deberían equilibrar las plataformas la libertad de expresión y el control de la desinformación?",
+          "list": null
+        }
+      ],
+      "itemHash": "52abfd15b251618a"
+    }
+  ]
+}

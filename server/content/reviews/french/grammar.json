@@ -1,0 +1,1013 @@
+{
+  "language": "french",
+  "category": "grammar",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:54:28.500Z",
+  "contentHash": "50ed2447468752d3",
+  "summary": "The French answers are mostly correct, but as in the other courses this file is the English grammar course: English fill-in prompts, English grammar hints, and whole sentences as cloze answers. Each item has been rewritten as French grammar practice. Actual French errors: 'Si il' (should be 'S'il'), 'Elle se réveille tôt' for 'she is used to waking early', a missing reflexive, 'projet' for draft, and an emphasis question that mistranslates 'front a phrase'.",
+  "findings": [
+    {
+      "id": "fr-gr-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in prompt with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is a teacher.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "No article before professions after 'être'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Elle est professeure.",
+            "Elle est prof."
+          ]
+        }
+      ],
+      "itemHash": "ed5b552f93b7747e"
+    },
+    {
+      "id": "fr-gr-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The only hint is generic.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ce sont' is used before a plural noun phrase."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ce sont mes amies.",
+            "Ils sont mes amis."
+          ]
+        }
+      ],
+      "itemHash": "a367a23dce400bb3"
+    },
+    {
+      "id": "fr-gr-3",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with a hint about 'do not'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I don't like coffee.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ne ... pas' wraps the verb; 'ne' becomes 'n'' before a vowel."
+          ]
+        }
+      ],
+      "itemHash": "229ac3f84f0d6b30"
+    },
+    {
+      "id": "fr-gr-13",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in; also, French drops the article in 'nous sommes étudiants'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We are students.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nous sommes étudiants.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nous sommes étudiantes.",
+            "On est étudiants."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "No article before a role after 'être'."
+          ]
+        }
+      ],
+      "itemHash": "287c1cb12f68a14b"
+    },
+    {
+      "id": "fr-gr-14",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Il ___ l'anglais tous les jours. (étudier)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "étudie",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "-er verbs end in -e in the 'il' form."
+          ]
+        }
+      ],
+      "itemHash": "be5fd3e18079e982"
+    },
+    {
+      "id": "fr-gr-15",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English 'there is/are'; French 'il y a' covers both.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Il y a' = there is / there are — one form for both."
+          ]
+        }
+      ],
+      "itemHash": "55751cddc48e22d3"
+    },
+    {
+      "id": "fr-gr-16",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about do-support.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Do you like tea?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French has no auxiliary 'do': use intonation, 'est-ce que' or inversion."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Est-ce que tu aimes le thé ?",
+            "Aimes-tu le thé ?",
+            "Vous aimez le thé ?"
+          ]
+        }
+      ],
+      "itemHash": "c88f3ba9c126cc7d"
+    },
+    {
+      "id": "fr-gr-17",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze tests English a/an and the answer is a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Elle a ___ parapluie.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "un",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Parapluie' is masculine."
+          ]
+        }
+      ],
+      "itemHash": "3d5cb45a3e3b245a"
+    },
+    {
+      "id": "fr-gr-18",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes English; a female speaker says 'fatiguée'.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Ne ... pas' around the verb. Feminine: fatiguée."
+          ]
+        }
+      ],
+      "itemHash": "357e32c7c9a4abd8"
+    },
+    {
+      "id": "fr-gr-19",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about the present continuous.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The cats are sleeping.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French has no continuous tense: 'ils dorment' covers both."
+          ]
+        }
+      ],
+      "itemHash": "cefbc39ad3aea2ad"
+    },
+    {
+      "id": "fr-gr-a1-39",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English -s.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aller' is irregular: elle va."
+          ]
+        }
+      ],
+      "itemHash": "176dbbb8553c3358"
+    },
+    {
+      "id": "fr-gr-a1-40",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint is about English 'are'; feminine and 'contents' should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Heureux' is the same in the masculine plural; feminine: heureuses."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Elles sont heureuses.",
+            "Ils sont contents."
+          ]
+        }
+      ],
+      "itemHash": "97c5f33132a2a6bc"
+    },
+    {
+      "id": "fr-gr-4",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint is about English; the feminine form is missing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Aller' takes 'être' in the passé composé."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Je suis allée au supermarché hier.",
+            "Hier, je suis allé au supermarché."
+          ]
+        }
+      ],
+      "itemHash": "7f8492b2d9a0d8f0"
+    },
+    {
+      "id": "fr-gr-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about has/have.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She has been waiting for an hour.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'depuis' for something still going on."
+          ]
+        }
+      ],
+      "itemHash": "e675368218a501eb"
+    },
+    {
+      "id": "fr-gr-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'Si il' must elide to 'S'il'; the hint describes English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "S'il pleut, nous resterons à l'intérieur.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + present, then the future. 'Si' becomes 's'' before 'il'."
+          ]
+        }
+      ],
+      "itemHash": "1c4284263ea44021"
+    },
+    {
+      "id": "fr-gr-20",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Samedi dernier, je ___ au cinéma.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "suis allé",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "suis allée"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passé composé of 'aller' with 'être'."
+          ]
+        }
+      ],
+      "itemHash": "f19cbb9176550708"
+    },
+    {
+      "id": "fr-gr-21",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about was/were.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: He was working at seven this morning.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The imparfait describes an action in progress in the past."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il était en train de travailler à sept heures ce matin."
+          ]
+        }
+      ],
+      "itemHash": "26b32ae658686091"
+    },
+    {
+      "id": "fr-gr-22",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English present perfect.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Present tense + 'depuis' for duration up to now."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Nous habitons ici depuis cinq ans.",
+            "Ça fait cinq ans qu'on habite ici."
+          ]
+        }
+      ],
+      "itemHash": "e31edc9d5aecb3ec"
+    },
+    {
+      "id": "fr-gr-23",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ce livre est ___ intéressant que l'autre.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "plus",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Plus ... que' = more ... than."
+          ]
+        }
+      ],
+      "itemHash": "16df95f42ed31085"
+    },
+    {
+      "id": "fr-gr-24",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about have/has.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: Have you been to Paris?",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Déjà' = ever. French uses 'être allé' or 'avoir été'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vous êtes déjà allé à Paris ?",
+            "Tu es déjà allé à Paris ?",
+            "Avez-vous déjà été à Paris ?"
+          ]
+        }
+      ],
+      "itemHash": "c7adb122e0c22cd6"
+    },
+    {
+      "id": "fr-gr-26",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in with an English hint.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: You should drink more water.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Conditional of 'devoir' + infinitive for advice."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Vous devriez boire plus d'eau."
+          ]
+        }
+      ],
+      "itemHash": "4e65c6990b3dc729"
+    },
+    {
+      "id": "fr-gr-a2-51",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks about English much/many and has no blank; the answer is mistranslated.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "J'ai ___ amis à Paris. (many)",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "beaucoup d'",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Beaucoup de' never changes; 'de' elides before a vowel."
+          ]
+        }
+      ],
+      "itemHash": "e6c6475d41028253"
+    },
+    {
+      "id": "fr-gr-7",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes the English second conditional.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + imparfait, then the conditional."
+          ]
+        }
+      ],
+      "itemHash": "75aeb4a7d404a24f"
+    },
+    {
+      "id": "fr-gr-8",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about 'will have'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: By the time she arrives, we will have finished dinner.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "French uses the future after 'quand'; future perfect in the main clause."
+          ]
+        }
+      ],
+      "itemHash": "a9c024d55cbbc145"
+    },
+    {
+      "id": "fr-gr-9",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English -ing.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Malgré' + noun: malgré sa fatigue."
+          ]
+        }
+      ],
+      "itemHash": "71c973114b613561"
+    },
+    {
+      "id": "fr-gr-27",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Le rapport a ___ rédigé par l'équipe la semaine dernière.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "été",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Passive: être + participle, here in the passé composé."
+          ]
+        }
+      ],
+      "itemHash": "e5ebd78c060cd80a"
+    },
+    {
+      "id": "fr-gr-28",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English tense shift.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Plus-que-parfait 'avait envoyé' in reported speech."
+          ]
+        }
+      ],
+      "itemHash": "c30545ecf602f5ef"
+    },
+    {
+      "id": "fr-gr-29",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about had/have.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: I wish I had more time to practice.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'J'aimerais' + infinitive, or 'si seulement j'avais...'."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Si seulement j'avais plus de temps pour m'entraîner !"
+          ]
+        }
+      ],
+      "itemHash": "8dcefe64040ee087"
+    },
+    {
+      "id": "fr-gr-30",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about English inversion.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non seulement ..., mais ... aussi'; no inversion needed."
+          ]
+        }
+      ],
+      "itemHash": "0d407b0842c6376f"
+    },
+    {
+      "id": "fr-gr-31",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "English fill-in; 'Elle se réveille tôt' drops 'is used to'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: She is used to waking up early.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Elle a l'habitude de se réveiller tôt.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Avoir l'habitude de' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "fc3368ef548dbc0d"
+    },
+    {
+      "id": "fr-gr-33",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze tests English who/which and the answer is a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "La personne ___ a appelé n'a laissé aucun message.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "qui",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Qui' is the subject relative pronoun."
+          ]
+        }
+      ],
+      "itemHash": "dae79de2ed855bac"
+    },
+    {
+      "id": "fr-gr-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Quand dois-je utiliser la voix ___ ?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "passive",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The opposite of the active voice."
+          ]
+        }
+      ],
+      "itemHash": "46ef8ff039413293"
+    },
+    {
+      "id": "fr-gr-10",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint describes English inversion.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + plus-que-parfait, then conditionnel passé."
+          ]
+        }
+      ],
+      "itemHash": "f95a99006a164ab0"
+    },
+    {
+      "id": "fr-gr-11",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about inversion.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Rarely have I seen such attention to detail.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Rarement' goes between the auxiliary and the participle."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "J'ai rarement vu un tel souci du détail."
+          ]
+        }
+      ],
+      "itemHash": "c70cb43922f43759"
+    },
+    {
+      "id": "fr-gr-34",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in about 'no sooner'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: No sooner had she arrived than the meeting began.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "À peine était-elle arrivée que la réunion a commencé."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Dès que' = as soon as; literary: 'À peine ... que'."
+          ]
+        }
+      ],
+      "itemHash": "5ac0ef43c13fb3f2"
+    },
+    {
+      "id": "fr-gr-35",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "The hint describes English; the French subjunctive version should be accepted.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Il est grand temps de' + infinitive, or 'que' + subjunctive."
+          ]
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Il est grand temps que nous abordions les problèmes structurels de fond."
+          ]
+        }
+      ],
+      "itemHash": "a6a6cdec3ac7d60e"
+    },
+    {
+      "id": "fr-gr-36",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "The cloze is English and the answer a whole sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Les données doivent être ___ avant de tirer des conclusions.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "analysées",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The participle agrees with 'les données' (feminine plural)."
+          ]
+        }
+      ],
+      "itemHash": "ed967f6690bddfcb"
+    },
+    {
+      "id": "fr-gr-37",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'une candidate forte' is a calque; the hint describes English.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Si elle postulait, elle serait une excellente candidate pour le poste.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Si' + imparfait, then the conditional."
+          ]
+        }
+      ],
+      "itemHash": "efeb37aefaae9fe1"
+    },
+    {
+      "id": "fr-gr-38",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English fill-in; 'devenir fluide' is not idiomatic for speaking fluently.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The more you practice, the more fluently you speak.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Plus vous pratiquez, plus vous parlez couramment.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Plus tu pratiques, plus tu parles couramment."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Plus ..., plus ...' with no article."
+          ]
+        }
+      ],
+      "itemHash": "57a878c09a5ff461"
+    },
+    {
+      "id": "fr-gr-b2-69",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'préparer' needs the reflexive here: 'je me serais préparé'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Si je l'avais su plus tôt, je me serais préparé autrement.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Si je l'avais su plus tôt, je me serais préparée autrement."
+          ]
+        }
+      ],
+      "itemHash": "3e1de1194b18a521"
+    },
+    {
+      "id": "fr-gr-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence with no blank; 'projet' doesn't mean draft.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Non seulement elle a terminé à l'heure, ___ elle a aussi amélioré le brouillon.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "mais",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Non seulement ..., ___ ... aussi'."
+          ]
+        }
+      ],
+      "itemHash": "45315e66ea245a0a"
+    },
+    {
+      "id": "fr-gr-b2-71",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'quand on fait une phrase' doesn't mean fronting a phrase; the dialogue_turn also lacks a situation.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. Your teacher moves a phrase to the start of your sentence and asks if you notice a difference.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Oui. Comment l'accent change-t-il quand on place un groupe de mots en tête de phrase ?",
+          "list": null
+        }
+      ],
+      "itemHash": "39ee4581fb82bd6d"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "language": "english",
+  "category": "culture_history",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T20:13:11.496Z",
+  "contentHash": "33273d07a7802a75",
+  "summary": "The cultural and historical content is accurate and well graded. Fixes are mostly British spellings ('characterised', 'globalisation', 'colonising', 'prioritised', 'acknowledgement'), plus the recurring structural defects and one empty filler culturalNote.",
+  "findings": [
+    {
+      "id": "en-cu-a1-41",
+      "severity": "error",
+      "kind": "other",
+      "problem": "Flashcard front and back are identical.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask for the name of the festival you are watching.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "What's this festival called?"
+          ]
+        }
+      ],
+      "itemHash": "8297c55eaa1fcbc8"
+    },
+    {
+      "id": "en-ch-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'I'm used to' is what natives say.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "The local folk music here is quite different from what I'm used to."
+          ]
+        }
+      ],
+      "itemHash": "6804652714464805"
+    },
+    {
+      "id": "en-cu-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Why do people ___ this holiday?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "celebrate",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A verb meaning 'mark a special day with festivities'."
+          ]
+        }
+      ],
+      "itemHash": "28e213c8ac88f271"
+    },
+    {
+      "id": "en-ch-b1-2",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'colonising' in the hint is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Colonialism' = the practice of colonizing other countries; 'lasting impact' = long-term effect."
+          ]
+        }
+      ],
+      "itemHash": "99fefe84f436591d"
+    },
+    {
+      "id": "en-ch-b1-6",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'acknowledgement' is British; US spelling is 'acknowledgment'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Ask: How does a country reconcile pride in its history with acknowledgment of past wrongs?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "How does a country reconcile pride in its history with acknowledgment of past wrongs?",
+          "list": null
+        }
+      ],
+      "itemHash": "5e10bf3d515ed6f0"
+    },
+    {
+      "id": "en-ch-b1-7",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'characterised' is British spelling.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "The Renaissance was characterized by a renewed interest in classical antiquity and humanist philosophy.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Characterized by' = defined or typified by; 'antiquity' = ancient times.",
+            "'Humanist' thought placed humans, not God, at the center of intellectual life."
+          ]
+        }
+      ],
+      "itemHash": "857228ba4910fba8"
+    },
+    {
+      "id": "en-ch-b1-8",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'Globalisation' is British spelling.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Globalization has accelerated cultural exchange but also threatened the survival of minority languages.",
+          "list": null
+        }
+      ],
+      "itemHash": "cd09d9b49676d0cc"
+    },
+    {
+      "id": "en-cu-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which historical ___ do you find most fascinating?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "period",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A span of time in history, like the Middle Ages."
+          ]
+        }
+      ],
+      "itemHash": "a9b4764c7c1a7208"
+    },
+    {
+      "id": "en-ch-b2-3",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "'prioritised' in the hint is British spelling.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Epistemic' = relating to knowledge; 'placed reason above' = prioritized rationality over faith."
+          ]
+        }
+      ],
+      "itemHash": "dc70205a3524e975"
+    },
+    {
+      "id": "en-cu-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Cultural heritage can strengthen social ___ across generations.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "cohesion",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "A noun meaning 'the bonds that hold a group together'."
+          ]
+        }
+      ],
+      "itemHash": "705c15e0c2f0854b"
+    },
+    {
+      "id": "en-cu-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn item needs a situation, and its culturalNote is empty filler.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. City planners want to replace a historic market with a modern shopping center.",
+          "list": null
+        },
+        {
+          "field": "culturalNote",
+          "text": null,
+          "list": null
+        }
+      ],
+      "itemHash": "883203e47d98e39a"
+    }
+  ]
+}

@@ -1,0 +1,1496 @@
+{
+  "language": "german",
+  "category": "numbers_math",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-21T19:38:16.868Z",
+  "contentHash": "c87419b9a2ebdf55",
+  "summary": "The file is a weak machine translation of the English course: many answers are wrong (digits instead of words, 'eine' for 'eins', 'sogar' for 'gerade', 'vgl', 'ANHANG', 'schuhe'), German nouns are lowercased, and many prompts/hints still ask about English (spelling, hyphens, years, English idioms). Cloze prompts are mostly English sentences and have been rewritten as German sentences; English idioms have been replaced with German number idioms.",
+  "findings": [
+    {
+      "id": "de-num-a1-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The counting form of 1 is 'eins', not 'eine'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "eins",
+          "list": null
+        }
+      ],
+      "itemHash": "b8b5400921ad0be8"
+    },
+    {
+      "id": "de-num-a1-3",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Distractors 'roheisen', 'auch', 'bis' are leftovers from the English to/too/two pun, and the hint is about English homophones.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "zwölf",
+            "zwei",
+            "drei",
+            "zehn"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Pronounced 'tsvai'. On the phone Germans often say 'zwo' so it isn't confused with 'drei'."
+          ]
+        }
+      ],
+      "itemHash": "1bd6caef7da5c9f2"
+    },
+    {
+      "id": "de-num-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint quotes an English proverb; German has its own equivalent.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Germans say 'Aller guten Dinge sind ___' — all good things come in threes."
+          ]
+        }
+      ],
+      "itemHash": "b9ca5fb5dfb7476b"
+    },
+    {
+      "id": "de-num-a1-6",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "Distractors 'fichte' (spruce) and 'fiv' are unrelated or English-like; a spelling question needs plausible misspellings of fünf.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "funf",
+            "fünf",
+            "fümf",
+            "fünv"
+          ]
+        }
+      ],
+      "itemHash": "1aacff8abb959545"
+    },
+    {
+      "id": "de-num-a1-7",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer is the digit 6 instead of the German word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "sechs",
+          "list": null
+        }
+      ],
+      "itemHash": "878f3026289be3af"
+    },
+    {
+      "id": "de-num-a1-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Prompt asks to spell the number but one option is the digit '6'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "A spider has how many legs? Choose the German number word.",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "sechs",
+            "sieben",
+            "acht",
+            "neun"
+          ]
+        }
+      ],
+      "itemHash": "c43d48e6c7f3cefa"
+    },
+    {
+      "id": "de-num-a1-10",
+      "severity": "improvement",
+      "kind": "cultural-note",
+      "problem": "In German-speaking countries cats have seven lives, not nine, so the hint teaches an English-only saying.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Count on: sieben, acht, ___, zehn."
+          ]
+        }
+      ],
+      "itemHash": "f30a2f2f7e46dad9"
+    },
+    {
+      "id": "de-num-a1-12",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English; it should be a German sentence.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Eine Woche hat ___ Tage.",
+          "list": null
+        }
+      ],
+      "itemHash": "b49c2372c855f830"
+    },
+    {
+      "id": "de-num-a1-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt asks about English, and the distractor 'zeiten' is not how German reads ×; it is 'mal'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is '+' called in German math?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "minus",
+            "plus",
+            "mal",
+            "gleich"
+          ]
+        }
+      ],
+      "itemHash": "9565fda007a6b039"
+    },
+    {
+      "id": "de-num-a1-16",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'ist', 'ist gleich' and 'gleich' are equally common; the hint names English words.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Zwei plus drei ist fünf.",
+            "Zwei plus drei ist gleich fünf.",
+            "Zwei plus drei gleich fünf."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: plus, and 'ist', 'sind' or 'ist gleich' for equals."
+          ]
+        }
+      ],
+      "itemHash": "1847b78d75d2c85a"
+    },
+    {
+      "id": "de-num-a1-18",
+      "severity": "improvement",
+      "kind": "bad-distractors",
+      "problem": "'fünf und fünf' is colloquially correct German for 5 + 5, so it isn't clearly wrong.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "fünf durch fünf",
+            "fünf plus fünf",
+            "fünfmal fünf",
+            "fünf minus fünf"
+          ]
+        }
+      ],
+      "itemHash": "994ea477def493bb"
+    },
+    {
+      "id": "de-num-a1-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer is the digit 12 instead of the German word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "zwölf",
+          "list": null
+        }
+      ],
+      "itemHash": "e794f0a32fbc1391"
+    },
+    {
+      "id": "de-num-a1-21",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt asks about the English word and the answer '13)' has a stray parenthesis.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which number is 'dreizehn'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "13",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "12",
+            "13",
+            "14",
+            "30"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "drei + zehn. Don't confuse it with dreißig (30)."
+          ]
+        }
+      ],
+      "itemHash": "ebc316266f1e8af6"
+    },
+    {
+      "id": "de-num-a1-22",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Ich habe an jeder Hand ___ Finger.",
+          "list": null
+        }
+      ],
+      "itemHash": "7f580d0da8fad62d"
+    },
+    {
+      "id": "de-num-a2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 50; the hint is about English 'fivety'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you write 50 in German?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fünfzig",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "fünfundzwanzig",
+            "fünfzig",
+            "fünfzehn",
+            "fünftel"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "fünf + -zig. Don't confuse it with fünfzehn (15)."
+          ]
+        }
+      ],
+      "itemHash": "4b3b678f67d809d4"
+    },
+    {
+      "id": "de-num-a2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer is the digit 100 instead of the German word.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "hundert",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "einhundert"
+          ]
+        }
+      ],
+      "itemHash": "46b2a7c0e206bce2"
+    },
+    {
+      "id": "de-num-a2-5",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "× is read 'mal' in German; 'zeiten' is a literal mistranslation of 'times'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "mal",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "plus",
+            "minus",
+            "mal",
+            "geteilt durch"
+          ]
+        }
+      ],
+      "itemHash": "af58123a9f5be98e"
+    },
+    {
+      "id": "de-num-a2-7",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'ist' / 'ist gleich' and the split spelling 'drei mal' are common; hint names English words.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Dreimal vier ist zwölf.",
+            "Drei mal vier ist zwölf.",
+            "Drei mal vier ist gleich zwölf.",
+            "Drei mal vier sind zwölf."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Use: mal (times), and 'ist' or 'sind' for equals."
+          ]
+        }
+      ],
+      "itemHash": "bc8ccac910ae5116"
+    },
+    {
+      "id": "de-num-a2-9",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "The correct option appears twice and the hint about hyphens is English-only; German writes 25 as one word.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "fünfundzwanzig",
+            "zweiundfünfzig",
+            "fünfzwanzig",
+            "zwanzigfünf"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German says the units first: fünf-und-zwanzig, written as one word."
+          ]
+        }
+      ],
+      "itemHash": "ca948abd3a5f9c3f"
+    },
+    {
+      "id": "de-num-a2-10",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Ein Tag hat ___ Stunden.",
+          "list": null
+        }
+      ],
+      "itemHash": "0f62aacc2fa8c4ba"
+    },
+    {
+      "id": "de-num-a2-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Million is a noun and must be capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "eine Million",
+          "list": null
+        }
+      ],
+      "itemHash": "2075de482aa7ffe3"
+    },
+    {
+      "id": "de-num-a2-12",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "Dutzend must be capitalized; 'eine partitur' and 'brutto' are mistranslations of 'a score' and 'a gross'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "ein Dutzend",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "ein Paar",
+            "ein Dutzend",
+            "ein Viertel",
+            "ein Zehntel"
+          ]
+        }
+      ],
+      "itemHash": "2ad91e0db176ac1a"
+    },
+    {
+      "id": "de-num-a2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says 'in English', and German years are read with 'hundert': neunzehnhundertneunundneunzig.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say the year 1999 in German?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "neunzehnhundertneunundneunzig",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German reads years before 2000 with 'hundert': neunzehn-hundert-neunundneunzig, written as one word."
+          ]
+        }
+      ],
+      "itemHash": "9be6c0106f913fa6"
+    },
+    {
+      "id": "de-num-a2-14",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze sentence and lowercase noun.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Ein ___ Eier sind zwölf Eier.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Dutzend",
+          "list": null
+        }
+      ],
+      "itemHash": "3d5586b2d59ca523"
+    },
+    {
+      "id": "de-num-a2-15",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer '30-seven' is not German and the hint is about English hyphens.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "siebenunddreißig",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "drei-sieben",
+            "dreißig sieben",
+            "siebenunddreißig",
+            "dreißigsieben"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Units first, then 'und', then the tens — all one word."
+          ]
+        }
+      ],
+      "itemHash": "96af213fdd268a90"
+    },
+    {
+      "id": "de-num-a2-17",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "Hint says it also means a unit of time, which is only true of English 'second' (German: Sekunde).",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The runner-up finishes in this place."
+          ]
+        }
+      ],
+      "itemHash": "a5ffa901b026e308"
+    },
+    {
+      "id": "de-num-a2-18",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'drei' appears twice among the options.",
+      "fix": [
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "drei",
+            "dritte",
+            "dreite",
+            "drittens"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Irregular: erste, zweite, ___ (not 'dreite')."
+          ]
+        }
+      ],
+      "itemHash": "d74a3a9de7f95b64"
+    },
+    {
+      "id": "de-num-a2-19",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Answer 'vgl' is an abbreviation for 'compare', not 'fourth'; the cloze is in English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Sie landete auf dem ___ Platz — knapp am Podest vorbei.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "vierten",
+          "list": null
+        }
+      ],
+      "itemHash": "2437d9d4725dbd77"
+    },
+    {
+      "id": "de-num-a2-20",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "Prompt says 'in English', and the digit 1 is 'eins', not 'eine'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you read the phone number 555-0199 in German?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "fünf fünf fünf, null eins neun neun",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "fünf fünf fünf null eins neun neun"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Phone numbers are said digit by digit. 0 is 'null'."
+          ]
+        }
+      ],
+      "itemHash": "2ee44df9a966c785"
+    },
+    {
+      "id": "de-num-b1-1",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Hälfte is a noun and must be capitalized; 'ein Halb' should be accepted.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "eine Hälfte",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "die Hälfte",
+            "ein Halb",
+            "einhalb"
+          ]
+        }
+      ],
+      "itemHash": "446b6544b5db1462"
+    },
+    {
+      "id": "de-num-b1-2",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Viertel must be capitalized; the US quarter-coin hint is English-only.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "ein Viertel",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Viertel"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Four equal parts. Fifteen minutes is eine ___stunde."
+          ]
+        }
+      ],
+      "itemHash": "cabff75e7b88b003"
+    },
+    {
+      "id": "de-num-b1-3",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Drittel is a noun and must be capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "zwei Drittel",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "zwei drei",
+            "zweites drittes",
+            "zwei Drittel",
+            "zwei bis drei"
+          ]
+        }
+      ],
+      "itemHash": "b0a1511459ec3bf6"
+    },
+    {
+      "id": "de-num-b1-4",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze sentence and lowercase noun Viertel.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: ___ der Klasse haben den Test bestanden — dreißig von vierzig Schülern.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Drei Viertel",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "30 von 40 = 75 %."
+          ]
+        }
+      ],
+      "itemHash": "4fc5af743b78ef58"
+    },
+    {
+      "id": "de-num-b1-5",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Prozent is a noun and must be capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Prozent",
+          "list": null
+        }
+      ],
+      "itemHash": "df6bf19554509698"
+    },
+    {
+      "id": "de-num-b1-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Es gibt zwanzig Prozent' drops 'off' and means nothing on its own; it needs 'Rabatt'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Es gibt zwanzig Prozent Rabatt.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Zwanzig Prozent Rabatt.",
+            "Es gibt 20 Prozent Rabatt."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Rabatt' = discount. Number, then Prozent, then Rabatt."
+          ]
+        }
+      ],
+      "itemHash": "46ba93097330a74b"
+    },
+    {
+      "id": "de-num-b1-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Menschen is a noun and must be capitalized in the answer and options.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "etwa hundert Menschen",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "genau hundert Menschen",
+            "etwa hundert Menschen",
+            "kaum hundert Menschen",
+            "über hundert Menschen"
+          ]
+        }
+      ],
+      "itemHash": "bcacde281e5279ef"
+    },
+    {
+      "id": "de-num-b1-8",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Summe must be capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "die Summe",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Summe"
+          ]
+        }
+      ],
+      "itemHash": "051fc7e0c3110076"
+    },
+    {
+      "id": "de-num-b1-9",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Differenz must be capitalized.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "die Differenz",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Differenz"
+          ]
+        }
+      ],
+      "itemHash": "dcf93afa7301078e"
+    },
+    {
+      "id": "de-num-b1-10",
+      "severity": "error",
+      "kind": "bad-distractors",
+      "problem": "'ANHANG' (appendix) is a mistranslation leftover, not a number.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is the 'Produkt' of 4 and 5?",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "9",
+            "1",
+            "20",
+            "45"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Produkt' is the result of multiplication."
+          ]
+        }
+      ],
+      "itemHash": "34d8dc9317922f92"
+    },
+    {
+      "id": "de-num-b1-11",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'teil' is not a valid form here; the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Wir müssen die Rechnung durch drei ___ — etwa zwanzig Euro pro Person.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "teilen",
+          "list": null
+        }
+      ],
+      "itemHash": "a8da95c426fcb177"
+    },
+    {
+      "id": "de-num-b1-12",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "'ungefähr' and 'circa' are equally valid; hint example is English.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "ungefähr",
+            "circa"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Das Projekt kostet ___ zehntausend Euro.'"
+          ]
+        }
+      ],
+      "itemHash": "55ec4a910ecb0d65"
+    },
+    {
+      "id": "de-num-b1-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "German uses a decimal comma: 3,5 is 'drei Komma fünf', not 'drei punkte fünf'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "drei Komma fünf",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German uses a decimal comma, read 'Komma'."
+          ]
+        }
+      ],
+      "itemHash": "4e80bedaf41091ce"
+    },
+    {
+      "id": "de-num-b1-15",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "English cloze, and 'in seinen dreißiger jahren' is a stiff calque; Germans say 'Mitte dreißig'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Er ist ___ — er ist letzte Woche 35 geworden.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Mitte dreißig",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Mitte 30",
+            "in den Dreißigern",
+            "in seinen Dreißigern"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German says 'Anfang / Mitte / Ende dreißig' for early, mid and late thirties."
+          ]
+        }
+      ],
+      "itemHash": "c943003585a8a8a5"
+    },
+    {
+      "id": "de-num-b1-16",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "The item conflates 'ein paar' (a few) and 'ein Paar' (a pair) and lowercases nouns.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'a pair of shoes' in German?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "ein Paar Schuhe",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "ein Schuh",
+            "ein Paar Schuhe",
+            "ein paar Schuhe",
+            "viele Schuhe"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Capital P: 'ein Paar' = a pair; lowercase 'ein paar' = a few."
+          ]
+        }
+      ],
+      "itemHash": "899066fedd2a3e3a"
+    },
+    {
+      "id": "de-num-b1-17",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'sogar' is 'even' as in 'even so'; even numbers are 'gerade Zahlen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "gerade",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "gerade Zahlen"
+          ]
+        }
+      ],
+      "itemHash": "7db46fc5f630665c"
+    },
+    {
+      "id": "de-num-b1-18",
+      "severity": "improvement",
+      "kind": "english-only-exercise",
+      "problem": "The cloze sentence is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Das Ticket kostet ___ Euro, ein paar Cent mehr oder weniger.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "ungefähr zwanzig",
+            "circa zwanzig"
+          ]
+        }
+      ],
+      "itemHash": "7f9aa23c54aa9557"
+    },
+    {
+      "id": "de-num-b1-19",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Preis must be capitalized and the prompt asks about English 'twice'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'double the price' in German?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "der doppelte Preis",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "doppelter Preis",
+            "das Doppelte"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "doppelt = double; 'zweimal so teuer' = twice as expensive."
+          ]
+        }
+      ],
+      "itemHash": "c82c573a8943c655"
+    },
+    {
+      "id": "de-num-b1-20",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Prompt says 'English'; Millionen must be capitalized; 'Punkt' distractor should be the wrong one (Komma is valid German).",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 2,500,000 in the most natural spoken German?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "zweieinhalb Millionen",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "zweihundertfünfzigtausend",
+            "zwei Punkt fünf Millionen",
+            "zweieinhalb Millionen",
+            "zwei Millionen fünfhundert"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Zweieinhalb' = two and a half."
+          ]
+        }
+      ],
+      "itemHash": "73a2542e3ba6bc0d"
+    },
+    {
+      "id": "de-num-b2-1",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Tests an English idiom with a lowercase German paraphrase; replaced with a German number idiom.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Idiom: 'in private, just the two of us'",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "unter vier Augen",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'under four eyes'."
+          ]
+        }
+      ],
+      "itemHash": "955459e83f0cf7b6"
+    },
+    {
+      "id": "de-num-b2-2",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks what an English idiom means; German has its own version, 'auf Wolke sieben'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "How do you say 'on cloud nine' in German?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "auf Wolke sieben",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "auf Wolke neun",
+            "auf Wolke sieben",
+            "auf Wolke drei",
+            "über den Wolken"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Germans float two clouds lower than English speakers."
+          ]
+        }
+      ],
+      "itemHash": "b84701a9865ba776"
+    },
+    {
+      "id": "de-num-b2-3",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'hinzufügen' is a literal translation of 'add'; the German idiom is 'die Rechnung geht nicht auf'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Die Rechnung geht einfach nicht ___ — die Kosten sind viel zu hoch.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "auf",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Die Rechnung geht nicht auf' = the numbers don't add up."
+          ]
+        }
+      ],
+      "itemHash": "a33ad12842906ce8"
+    },
+    {
+      "id": "de-num-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The answer is a lowercase dictionary paraphrase, not the German idiom.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "halbe-halbe machen",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "fifty-fifty machen"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Literally 'make half-half'. 'Fifty-fifty machen' is also common."
+          ]
+        }
+      ],
+      "itemHash": "d10ed084d89a06fa"
+    },
+    {
+      "id": "de-num-b2-5",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "Asks the meaning of an English idiom with lowercase, clumsy German options.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which German sentence means 'the odds are against us'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Die Chancen stehen schlecht für uns.",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "Wir brauchen mehr Leute.",
+            "Die Zahlen sind falsch.",
+            "Die Chancen stehen schlecht für uns.",
+            "Der Wettbewerb ist fair."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Chancen' = odds, chances."
+          ]
+        }
+      ],
+      "itemHash": "658b11cf7af5aca1"
+    },
+    {
+      "id": "de-num-b2-6",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze and lowercase noun Nummer.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Sie ist die Verdächtige ___ — die Kommissarin konzentriert sich ganz auf sie.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Nummer eins",
+          "list": null
+        }
+      ],
+      "itemHash": "b32cd8f96805c424"
+    },
+    {
+      "id": "de-num-b2-7",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Quotient is a noun and must be capitalized; hint lists English terms.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "der Quotient",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Quotient"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Summe, Differenz, Produkt, ___."
+          ]
+        }
+      ],
+      "itemHash": "f5be8a59061f86ec"
+    },
+    {
+      "id": "de-num-b2-8",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "The answer is truncated mid-sentence and nouns are lowercase.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "What is a 'runde Zahl'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "eine Zahl, die auf Null endet und leicht zu merken ist",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "eine Kreiszahl in der Geometrie",
+            "eine Zahl, die auf Null endet und leicht zu merken ist",
+            "jede beliebige Zahl",
+            "jede Quadratzahl"
+          ]
+        }
+      ],
+      "itemHash": "4cdd9ee27bc47049"
+    },
+    {
+      "id": "de-num-b2-10",
+      "severity": "error",
+      "kind": "english-only-exercise",
+      "problem": "English cloze; German has a fitting number idiom, 'Keine zehn Pferde'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: ___ Pferde bringen mich nach dieser Erfahrung wieder in ein Flugzeug.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Keine zehn",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "German idiom: 'not even ten horses' — nothing could make me do it."
+          ]
+        }
+      ],
+      "itemHash": "e77894175c2a8ad4"
+    },
+    {
+      "id": "de-num-b2-11",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "Options mix 'um ... zu' fragments and miss the reflexive 'sich'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which German phrase means 'to zero in on something'?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "sich genau auf etwas konzentrieren",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "etwas ignorieren",
+            "etwas auf null setzen",
+            "sich genau auf etwas konzentrieren",
+            "bis null zählen"
+          ]
+        }
+      ],
+      "itemHash": "2a4d678da43e185f"
+    },
+    {
+      "id": "de-num-b2-12",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "The answer is a clumsy paraphrase missing 'sich'; German uses the same image, 'auf jemanden zählen'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "auf jemanden zählen",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "sich auf jemanden verlassen"
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Same image as English: 'Du kannst immer auf mich zählen.'"
+          ]
+        }
+      ],
+      "itemHash": "dd686f5109ca133c"
+    },
+    {
+      "id": "de-num-b2-13",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'schuhe' is a literal translation of 'shoestring'; the cloze is English.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Complete: Nach Jahren der Kürzungen läuft die Hilfsorganisation nur noch auf ___.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Sparflamme",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Auf Sparflamme' = on a low flame — running on almost no money."
+          ]
+        }
+      ],
+      "itemHash": "d3ea566c40607e83"
+    },
+    {
+      "id": "de-num-b2-14",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'ANHANG' is a mistranslation leftover and appears twice; the answer must be a factor of 12.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Which of these is a 'Teiler' (factor) of 12?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "4",
+          "list": null
+        },
+        {
+          "field": "options",
+          "text": null,
+          "list": [
+            "5",
+            "4",
+            "7",
+            "9"
+          ]
+        }
+      ],
+      "itemHash": "6b83d9ac160864ab"
+    }
+  ]
+}

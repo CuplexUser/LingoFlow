@@ -1,0 +1,472 @@
+{
+  "language": "spanish",
+  "category": "sports_fitness",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:24:06.915Z",
+  "contentHash": "c8543e821c7a102e",
+  "summary": "Basic vocabulary is fine, but many sentences are literal translations with wrong meanings: 'Voy corriendo' for 'I go running', 'tomar tres semanas de entrenamiento' (the opposite of time off), 'He tirado un músculo', 'La duración' for periodization, 'capacitación' for athletic training, and a dropped 'walk'. Three cloze items lack a blank and one dialogue_turn has no situation.",
+  "findings": [
+    {
+      "id": "es-sf-a1-2",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Voy corriendo' means 'I'm going (somewhere) at a run'; going running is 'salir a correr'. The hint is generic.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Salgo a correr todas las mañanas.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Salgo a correr cada mañana.",
+            "Corro todas las mañanas."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Salir a correr' = to go running."
+          ]
+        }
+      ],
+      "itemHash": "7288250e4e9dad9b"
+    },
+    {
+      "id": "es-sf-a1-3",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Sports in general are 'practicados', not 'jugados'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Practicas algún deporte?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Haces algún deporte?",
+            "¿Juegas a algún deporte?"
+          ]
+        }
+      ],
+      "itemHash": "2867e66cd4118270"
+    },
+    {
+      "id": "es-sf-a1-4",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint is about the English gerund.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Me gusta' + infinitive."
+          ]
+        }
+      ],
+      "itemHash": "1a5b6d7931766157"
+    },
+    {
+      "id": "es-sf-a1-7",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'walk' is dropped: 'Voy a trabajar' just means 'I go to work'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Voy andando al trabajo todos los días.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Voy caminando al trabajo todos los días.",
+            "Voy a pie al trabajo todos los días."
+          ]
+        }
+      ],
+      "itemHash": "979ab0094e3e4439"
+    },
+    {
+      "id": "es-sf-a1-9",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'deportista' or 'deportiva'; 'deportista' is more usual for people.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "No soy muy deportista.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "No soy muy deportivo.",
+            "No soy muy deportiva."
+          ]
+        }
+      ],
+      "itemHash": "bd70f9283aa75d67"
+    },
+    {
+      "id": "es-sp-a1-39",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'Voy corriendo' doesn't mean 'I go running'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Salgo a correr por la mañana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Corro por la mañana."
+          ]
+        }
+      ],
+      "itemHash": "bbca8647627f0524"
+    },
+    {
+      "id": "es-sf-a2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "For an ongoing routine Spanish uses the present (or 'llevo'), not 'he ido'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Últimamente voy al gimnasio tres veces por semana.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Últimamente voy al gimnasio tres veces a la semana.",
+            "He estado yendo al gimnasio tres veces a la semana."
+          ]
+        }
+      ],
+      "itemHash": "45a5a13f948e003c"
+    },
+    {
+      "id": "es-sf-a2-2",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'una carrera' is a race; joining for a run is 'a correr'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Te gustaría venir a correr conmigo el domingo?",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "¿Te gustaría acompañarme a correr el domingo?"
+          ]
+        }
+      ],
+      "itemHash": "a3bcce71c37bc93f"
+    },
+    {
+      "id": "es-sf-a2-3",
+      "severity": "error",
+      "kind": "unnatural",
+      "problem": "'He tirado un músculo' is a literal calque; Spanish says 'me di un tirón'. 'Ayer' also requires the preterite.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ayer me di un tirón en un músculo mientras entrenaba.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Ayer me hice un tirón entrenando."
+          ]
+        }
+      ],
+      "itemHash": "41a90b2f0e9efb19"
+    },
+    {
+      "id": "es-sf-a2-6",
+      "severity": "error",
+      "kind": "grammar-spelling",
+      "problem": "'inscribirse en' (not 'a'), the article is missing, and it should be 'para el mes que viene'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me inscribí en una media maratón para el mes que viene.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Me apunté a una media maratón para el próximo mes."
+          ]
+        }
+      ],
+      "itemHash": "6b764db150a8a34e"
+    },
+    {
+      "id": "es-sf-a2-9",
+      "severity": "improvement",
+      "kind": "grammar-spelling",
+      "problem": "The event needs the article: 'en los cien metros'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Ganó la medalla de oro en los cien metros.",
+          "list": null
+        }
+      ],
+      "itemHash": "71f4cd431015f70c"
+    },
+    {
+      "id": "es-sp-a2-51",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank cannot be answered.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Cuánto ___ tu entrenamiento habitual?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "dura",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Durar' = to last."
+          ]
+        }
+      ],
+      "itemHash": "85fb08a28d87374f"
+    },
+    {
+      "id": "es-sf-b1-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'consistencia' is an anglicism for regularity; 'hábito de fitness' is a calque.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La constancia es más importante que la intensidad cuando se crea el hábito de hacer ejercicio.",
+          "list": null
+        }
+      ],
+      "itemHash": "5cf4fb3f8c8b35a7"
+    },
+    {
+      "id": "es-sf-b1-2",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'He estado entrenando ... y ya puedo ver' is a calque; Spanish uses 'llevar' and 'notar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Llevo un tiempo entrenando cinco días a la semana y ya noto mejoras en mi resistencia.",
+          "list": null
+        }
+      ],
+      "itemHash": "f79927a83ef8ca3b"
+    },
+    {
+      "id": "es-sf-b1-4",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'tomar tres semanas de entrenamiento' means taking three weeks of training, the opposite of time off.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Tuve que dejar de entrenar tres semanas por una lesión por sobrecarga.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Tuve que tomarme tres semanas de descanso por una lesión por sobrecarga."
+          ]
+        }
+      ],
+      "itemHash": "74677249d7b096e3"
+    },
+    {
+      "id": "es-sf-b1-10",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'¿Has encontrado que...?' is a calque; Spanish says 'notar'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "¿Has notado que hacer ejercicio con regularidad ha cambiado cómo te sientes en el día a día?",
+          "list": null
+        }
+      ],
+      "itemHash": "5bdb1d24512a31fb"
+    },
+    {
+      "id": "es-sp-b1-60",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'es más fácil en mis rodillas' is a calque of 'easier on my knees'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Me pasé al ciclismo porque castiga menos las rodillas.",
+          "list": null
+        }
+      ],
+      "itemHash": "3784e4c7a6fb4bef"
+    },
+    {
+      "id": "es-sp-b1-61",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'coherente' is wrong for 'consistent' here.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "¿Qué estrategia usas para ser ___ con el entrenamiento?",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "constante",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "An adjective meaning 'regular and persistent'."
+          ]
+        }
+      ],
+      "itemHash": "2515212dd3362193"
+    },
+    {
+      "id": "es-sf-b2-2",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'La duración' means duration, not periodization; 'ciclos de formación' means education cycles.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La periodización —la planificación sistemática de los ciclos de entrenamiento— es fundamental para alcanzar el máximo rendimiento deportivo.",
+          "list": null
+        }
+      ],
+      "itemHash": "8b004926befc6bb2"
+    },
+    {
+      "id": "es-sf-b2-4",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "'tecnología usable' means 'usable technology'; wearables are 'dispositivos ponibles' or 'wearables'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "La proliferación de dispositivos ponibles ha cambiado radicalmente la forma en que los atletas controlan su rendimiento.",
+          "list": null
+        }
+      ],
+      "itemHash": "859868829c6eebba"
+    },
+    {
+      "id": "es-sf-b2-6",
+      "severity": "error",
+      "kind": "meaning-mismatch",
+      "problem": "'fitness' is dropped and 'la vida laboral y la vida' is incomplete.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Mantener el equilibrio entre el trabajo, la vida personal y el ejercicio en una profesión sedentaria requiere esfuerzo y planificación conscientes.",
+          "list": null
+        }
+      ],
+      "itemHash": "715fc15376b5eb0d"
+    },
+    {
+      "id": "es-sp-b2-69",
+      "severity": "error",
+      "kind": "wrong-answer",
+      "problem": "'capacitación' is job training; athletic training is 'entrenamiento'.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Un plan de entrenamiento equilibrado reduce el riesgo de sobreentrenamiento.",
+          "list": null
+        }
+      ],
+      "itemHash": "10f9cbe0e7dc5838"
+    },
+    {
+      "id": "es-sp-b2-70",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A cloze_sentence item with no blank; 'capacitación' is also the wrong word.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "El rendimiento mejora cuando la ___ se trata como parte del entrenamiento.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "recuperación",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "The rest period that lets the body repair itself."
+          ]
+        }
+      ],
+      "itemHash": "3a445eb61d8894fe"
+    },
+    {
+      "id": "es-sp-b2-71",
+      "severity": "error",
+      "kind": "other",
+      "problem": "A dialogue_turn needs a situation; 'largas temporadas' drops 'off-'.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Choose the best response. A coach says her athletes lose focus between seasons.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "¿Cómo pueden los atletas mantener la motivación durante los largos periodos entre temporadas?",
+          "list": null
+        }
+      ],
+      "itemHash": "ba3032bd24e42e1f"
+    }
+  ]
+}

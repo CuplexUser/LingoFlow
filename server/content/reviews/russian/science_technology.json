@@ -1,0 +1,151 @@
+{
+  "language": "russian",
+  "category": "science_technology",
+  "reviewer": "Claude (Opus 5.5)",
+  "rubricVersion": 2,
+  "reviewedAt": "2026-10-22T04:10:06.514Z",
+  "contentHash": "6e8581bd2849afc3",
+  "summary": "Good modern tech vocabulary. The main problem is three B2 pronunciation items that are A2-level sentences with generic hints. Also, 'благодаря' is used for a negative cause, and one past-tense answer lacks its feminine form.",
+  "findings": [
+    {
+      "id": "ru-st-a2-3",
+      "severity": "improvement",
+      "kind": "missing-alternative",
+      "problem": "A female speaker says 'забыла'; 'свой' is optional.",
+      "fix": [
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Я забыла свой пароль.",
+            "Я забыл пароль.",
+            "Я забыла пароль."
+          ]
+        }
+      ],
+      "itemHash": "6bb16cca6aaa4174"
+    },
+    {
+      "id": "ru-st-b2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "A four-word A2 sentence with a generic hint at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: We should discuss the ethics of new technologies before they become widespread.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Нужно обсудить этику новых технологий, прежде чем они получат широкое распространение.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Прежде чем' = before; 'получить широкое распространение' = to become widespread."
+          ]
+        }
+      ],
+      "itemHash": "330364114e941002"
+    },
+    {
+      "id": "ru-st-b2-2",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A2 sentence with a generic hint at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Protecting my personal data matters more to me than convenience.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Защита моих персональных данных для меня важнее удобства.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "Comparative 'важнее' + genitive (удобства) = more important than convenience."
+          ]
+        }
+      ],
+      "itemHash": "b2be1851b0cf0cc3"
+    },
+    {
+      "id": "ru-st-b2-3",
+      "severity": "improvement",
+      "kind": "cefr-mismatch",
+      "problem": "An A2 sentence with a generic hint at B2.",
+      "fix": [
+        {
+          "field": "prompt",
+          "text": "Say: Don't forget to back up your files regularly, otherwise you may lose everything.",
+          "list": null
+        },
+        {
+          "field": "correctAnswer",
+          "text": "Не забывай регулярно делать резервные копии файлов, иначе можешь потерять всё.",
+          "list": null
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Делать резервную копию' = to back up; 'иначе' = otherwise."
+          ]
+        }
+      ],
+      "itemHash": "c884ff5ce66ce372"
+    },
+    {
+      "id": "ru-sc-a2-2",
+      "severity": "improvement",
+      "kind": "bad-hint",
+      "problem": "The hint says 'потерял' is masculine but gives no feminine form for female learners.",
+      "fix": [
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Зависнуть' = to freeze/crash (perfective). 'Потерял' = lost (masculine; feminine 'потеряла')."
+          ]
+        }
+      ],
+      "itemHash": "28202898c9f43205"
+    },
+    {
+      "id": "ru-sc-b2-1",
+      "severity": "improvement",
+      "kind": "unnatural",
+      "problem": "Standard usage keeps 'благодаря' for positive causes; for a harmful effect 'из-за' is the natural choice.",
+      "fix": [
+        {
+          "field": "correctAnswer",
+          "text": "Распространение дезинформации ускорилось из-за алгоритмических систем рекомендаций.",
+          "list": null
+        },
+        {
+          "field": "acceptedAnswers",
+          "text": null,
+          "list": [
+            "Распространение дезинформации ускорилось благодаря алгоритмическим системам рекомендаций."
+          ]
+        },
+        {
+          "field": "hints",
+          "text": null,
+          "list": [
+            "'Из-за' + genitive = because of (for a negative cause). 'Ускорилось' = has accelerated (reflexive perfective)."
+          ]
+        }
+      ],
+      "itemHash": "72a6ec7e418b0415"
+    }
+  ]
+}
