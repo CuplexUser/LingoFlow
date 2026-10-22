@@ -1,79 +1,337 @@
 # 🗣️ LingoFlow
 
-A focused language learning app built with React + Express. Adaptive CEFR progression, persistent learner data, and a variety of exercise types across seven languages.
+A language learning app for seven languages, with a path of short lessons from A1 to B2,
+a variety of exercise types, graded stories and daily practice. This repo holds the web
+app (React) and the API (Express) that both the web app and the Android app use.
 
-[![TypeScript](https://badgen.net/badge/TypeScript/React%2019%20%2B%20Express%205/3178c6)]()
-[![Languages](https://badgen.net/badge/languages/7/4a90e2)]()
-[![Tests](https://badgen.net/badge/tests/Vitest%20%2B%20Node%20test%20runner/2ea44f)]()
+**Try it:** [lingoflow.cuplex.se](https://lingoflow.cuplex.se) · **Android:** the
+`Lingoflow-Android` repo, a Capacitor app that talks to the same API.
 
-<!-- No live demo link currently — worth deploying a public instance (or a demo
-     account with seeded progress) so visitors can try it without cloning + npm install. -->
+![TypeScript](https://badgen.net/badge/TypeScript/React%2019%20%2B%20Express%205/3178c6)
+![Languages](https://badgen.net/badge/languages/7/4a90e2)
+![Tests](https://badgen.net/badge/tests/Vitest%20%2B%20Node%20test%20runner/2ea44f)
+
+## How it fits together
+
+| Part | Where it runs | What it does |
+| --- | --- | --- |
+| Web client (`client/`) | Vercel | React 19 app. Vercel rewrites `/api/*` to Cloud Run, so the browser stays same-origin. |
+| API (`server/`) | Google Cloud Run (`europe-west3`) | Express 5 API: accounts, courses, sessions, progress, stories, text-to-speech and billing. |
+| Database | Neon Postgres in production, SQLite locally | The same queries run on both (see [Database](#database)). |
+| Android app | Google Play, separate repo | Sends `X-LingoFlow-Client: android`. A1 is free there and A2 to B2 need Premium, bought through Google Play and RevenueCat. The web app has no level cap. |
 
 ## Features
 
 ### Learning
 
-- 15 course categories: Essentials, Conversation, Travel, Work, Health, Family & Friends, Food & Cooking, Grammar, Hobbies & Leisure, Sports & Fitness, News & Media, Money & Finance, Science & Technology, Culture & History, Nature & Animals
-- CEFR-based adaptive progression (A1 → B2) — category levels unlock based on mastery
-- 7 languages: English, Spanish, Russian, Italian, Swedish, French, German
-- Daily challenge sessions — one fresh cross-category session per day
-- Post-session mistake review — optional mini-session drilled from session errors
-- Session autosave and resume — in-progress sessions survive page refresh or tab close
-- Per-language course switching — independent progress tracked per language
-- **Story Reader** (Read tab) — comprehensible-input reading mode with a leveled story library (A1–B2). Each level offers several stories; level tabs drive a per-level list that marks finished stories and opens to the first unread one. Tap any word for a bottom lookup drawer (gloss, part of speech, optional grammar note, listen button) backed by the same three-tier word system as exercise tooltips. Glossary words get a solid accent underline, grammar-hint words a dotted underline. Stories run from short A1 pieces to multi-paragraph B1 reads, with sentence-level audio, a Show/Hide English toggle, an inline cultural note, and looked-up/saved counters. "Finish story" records completion and suggests the next unread story; "Save to review" persists unknown words so they resurface in practice sessions via spaced repetition. Reading grants no XP (anti-score-inflation).
+- **7 languages:** English, Spanish, Russian, Italian, Swedish, French and German, each
+  with its own progress.
+- **16 categories:** Essentials, Conversation, Travel, Work, Health, Family & Friends,
+  Food & Cooking, Grammar, Hobbies & Leisure, Sports & Fitness, News & Media, Money &
+  Finance, Science & Technology, Culture & History, Nature & Animals, and Numbers & Math.
+- **CEFR levels A1 to B2.** On the web, a category's levels unlock with mastery.
+- **Learning path** (`/api/path`, used by the Android app): each level is a row of units,
+  one per category with enough content. A unit has two to four lessons depending on how
+  many exercises it has, and its last lesson reviews it. A placement check sets where the
+  path starts, and checks let a learner test out of one unit, a section of four units or
+  the rest of a level.
+- **Daily challenge:** one fresh session a day, drawn from several categories.
+- **Spaced repetition:** due and weak items come back first; words marked "I knew this"
+  stay out until they are due.
+- **Mistake review:** an optional short session of the questions just missed.
+- **Autosave and resume:** a session in progress survives a refresh or a closed tab.
 
-### Exercise Types
+### Exercise types
 
-- **Translation** — auto-rotated through multiple-choice, sentence-builder, cloze, dictation, and dialogue variants
-- **Flashcard** — flip-to-reveal with "I knew this" / "Need review" buttons
-- **Sentence builder** — drag tokens into order with progressive hints (audio → token pulse)
-- **Cloze deletion** — fill the gap from multiple choice options
-- **Dictation** — typed transcription of a spoken sentence
-- **Matching** — pair prompts to answers
-- **Pronunciation** — Web Speech API recognition, accepts ≥ 90% similarity
-- **Roleplay** — guided dialogue completion
-- **Practice modes** — dedicated speaking, listening, word-matching, and previous-mistakes drill sessions; the mistakes mode pulls the worst-performing items across all categories, ranked by error count then accuracy
-- **Speed Match** — a timed self-competition mini-game in the Practice tab. Each run shows 6 word pairs to tap-match against a 20-second countdown bar; clearing a run starts the next after a short countdown break, and the game ends the moment a run beats the clock. Words are drawn from flashcards marked "Known" plus bookmarks, topped up from the per-language practice word pool. Your score (total correct matches) is compared against a per-language personal best that persists.
+- **Translation:** rotates through multiple choice, sentence building, cloze, dictation
+  and dialogue variants, in both directions.
+- **Flashcard:** turn the card over, then "I knew this" or "Need review".
+- **Sentence builder:** put word tiles in order, with hints (audio, then the next tile).
+- **Cloze:** fill the gap from a few options.
+- **Dictation:** type a sentence you hear.
+- **Matching:** pair prompts with answers.
+- **Pronunciation:** speech recognition, passing at 90% similarity or more.
+- **Roleplay:** complete a guided dialogue.
+
+### Practice
+
+- **Practice modes:** speaking, listening, word matching, and a drill of your
+  previous mistakes across all categories, worst first.
+- **Speed Match:** match 6 word pairs against a 20-second timer; clearing a run starts
+  the next one after a short break, and the game ends when a run runs out of time. Words
+  come from flashcards marked "Known" and bookmarks, topped up from the language's
+  practice word pool. Each language keeps a personal best.
+
+### Reading
+
+- **Story Reader** (the Read tab): graded stories from short A1 pieces to multi-paragraph
+  B1 reads, a few per level. The list marks finished stories and opens at the first
+  unread one.
+- Tap a word for its meaning, part of speech, an optional grammar note and audio. Words
+  from the glossary have a solid underline, and words with a grammar hint a dotted one.
+- Each sentence has audio, English can be shown or hidden, and each story has a cultural
+  note.
+- "Save to review" puts unknown words into spaced repetition. Reading earns no XP.
+
+### Progress and stats
+
+- XP, streak, learner level and category mastery, per user and language.
+- Stats page: completion, accuracy, streak, a 6-month activity grid, an XP trend, a
+  session chart, category mastery, mistake types and the weakest objectives.
+- Achievements, kept on the server (`/api/user/achievements`), so the web and the app
+  share them.
+- A "streak at risk" warning on days without practice.
+- Bookmarks: save any exercise, then listen to your bookmarks at the speed you choose.
+- A share card after each session, for X, WhatsApp, Facebook, Telegram or the system
+  share sheet.
+
+### Community and admin
+
+- Any signed-in user can submit an exercise. Submissions wait for moderation (pending,
+  then approved or rejected), and approved ones can appear in sessions.
+- Admins are the first registered user and anyone in `CONTRIBUTION_REVIEWER_EMAILS`.
+  They review submissions and see the **content coverage** page: exercise counts per
+  language, category and level, with cells colored red (a level under 5), amber (under
+  10) or green (all 10 or more).
+
+### Accounts
+
+- Email and password, with email verification and password reset.
+- Google sign-in: the OAuth redirect on the web, an ID token from Credential Manager in
+  the Android app (`POST /api/auth/google/native`).
+- Account deletion.
+- Light and dark themes, and a responsive layout.
+
+## Tech stack
+
+| Layer | Technology |
+| --- | --- |
+| Frontend | React 19, Vite, TypeScript, Chart.js |
+| Backend | Express 5, TypeScript run with Node's type stripping, bundled with esbuild |
+| Database | PostgreSQL / Neon (`pg`) or SQLite (`better-sqlite3`) |
+| Auth | JWT (30-day lifetime), bcrypt, Google OAuth 2 |
+| Speech | Gemini text-to-speech, cached in Cloud Storage |
+| Billing | RevenueCat (Google Play subscriptions for the Android app) |
+| Tests | Vitest and Testing Library (client), Node's test runner (server) |
+
+## Quick start
+
+```bash
+npm install
+npm run dev
+```
+
+- Web app: `http://localhost:5173`
+- API: `http://localhost:4000/api`
+
+Locally the API uses SQLite, so no database server is needed. Copy `server/.env.example`
+to `server/.env` to set the variables in [Configuration](#configuration).
+
+## Scripts
+
+```bash
+npm run dev                # API (:4000) and web app (:5173) together
+npm run build              # Production web bundle
+npm run start              # Serve the API and the built web app
+npm run test               # Server and client tests
+npm run test:server:pg     # Server tests against Postgres
+npm run verify             # Lint and client tests
+npm run lint               # ESLint (lint:fix to fix)
+npm run lint:content       # Check the course content files
+npm run review:content     # Content review tool
+npm run format             # Prettier (format:check to check only)
+npm run translate:language # Generate content for a language with LibreTranslate
+npm run db:import-sqlite   # Copy a SQLite database into Postgres
+```
 
 <details>
-<summary><b>Word Hints & Tooltips</b></summary>
+<summary><b>Configuration</b></summary>
 
-Hover over any word in a reverse-translation exercise (translating to English) or in a cloze sentence to see a tooltip. Three sources are checked in priority order:
+Set these in `server/.env` locally, and as environment variables or Secret Manager
+secrets on Cloud Run.
 
-1. **Grammar hints** (dotted underline, dark tooltip) — words matched by the `'word' = meaning` pattern in the exercise `hints` array.
-2. **Glossary translations** (solid accent underline, accent tooltip) — words covered by the optional `wordGlossary` field on the exercise.
-3. **Auto-fetched translations** (same accent style) — for any word not covered by the above, the client pre-fetches a translation from the server when the exercise loads. The server checks the `word_translations` SQLite cache first (populated at startup from the content files), then calls a self-hosted [LibreTranslate](https://libretranslate.com) instance. Each unique word is looked up at most once and cached permanently.
+| Variable | Description |
+| --- | --- |
+| `LINGOFLOW_AUTH_SECRET` | JWT signing secret. Change it in production. |
+| `DATABASE_URL` | Postgres connection string. Without it the API uses SQLite. |
+| `LINGOFLOW_DB_DRIVER` | `sqlite` or `postgres`, to override the choice above. |
+| `LINGOFLOW_DB_PATH` | Where the SQLite file lives (default: `server/data/lingoflow.db`). |
+| `PUBLIC_APP_URL` | The web app's address, used in emails and after Google sign-in. |
+| `GOOGLE_OAUTH_CLIENT_ID` | Google OAuth web client ID. The Android app's ID tokens are checked against it too. |
+| `GOOGLE_OAUTH_CLIENT_SECRET` | Google OAuth web client secret. |
+| `GOOGLE_OAUTH_REDIRECT_URI` | The callback registered with Google (default: `http://localhost:4000/api/auth/google/callback`). |
+| `RESEND_API_KEY` | Sends email through [Resend](https://resend.com). Takes priority over SMTP. |
+| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE` | SMTP, used when `RESEND_API_KEY` is unset. |
+| `EMAIL_FROM` | The sender for both Resend and SMTP. |
+| `CONTRIBUTION_REVIEWER_EMAILS` | Moderators, separated by commas. |
+| `LIBRETRANSLATE_URL`, `LIBRETRANSLATE_API_KEY` | LibreTranslate, for word lookups the content doesn't cover. |
+| `GEMINI_API_KEY` | Enables `/api/tts`. Without it the endpoint answers 503. |
+| `TTS_CACHE_BUCKET` | Cloud Storage bucket for TTS audio. Without it only a memory cache is used. |
+| `TTS_MODEL` | Gemini TTS model (default: `gemini-3.8-flash-lite-tts`). |
+| `TTS_VOICES` | Voices per language, such as `ru-RU=Charon` (default: Kore). |
+| `TTS_DAILY_GENERATION_LIMIT` | New clips a day per instance (default: 1000; each user also gets at most 150). Cached clips are unlimited. |
+| `TTS_DISABLED` | `1` turns `/api/tts` off, and clients use their own speech. |
+| `REVENUECAT_SECRET_API_KEY` | RevenueCat secret key (API v1), to read a subscriber's entitlements. Without it Premium purchases never unlock. |
+| `REVENUECAT_WEBHOOK_AUTH` | The `Authorization` header value RevenueCat's webhook sends. |
+| `REVENUECAT_ENTITLEMENT_ID` | The entitlement that means Premium (default: `premium`). |
+| `PREMIUM_ACCOUNT_EMAILS` | Accounts with Premium without a subscription, such as a Play review account. |
+| `VISITOR_HASH_SALT` | Salt for the hashed visitor counts on the sign-in page. |
+| `LOG_LEVEL` | `debug`, `info`, `warn` or `error` (default: `info`). |
+| `PORT` | Listen port (default: 4000; Cloud Run sets it). |
 
-At server startup, the `word_translations` table is wiped and rebuilt from authoritative content sources: `wordGlossary` fields, `"Vocabulary: X"` flashcard pairs, and single-word hint patterns. This ensures known exercise vocabulary is always translated correctly without any API call.
+The web client reads `VITE_API_BASE` (default: `/api`).
 
-Set `LIBRETRANSLATE_URL` and `LIBRETRANSLATE_API_KEY` in `server/.env` to enable the API fallback. Self-hosting with Docker:
+</details>
 
-```bash
-# Start a LibreTranslate instance with API key support
-docker run -it -p 5000:5000 libretranslate/libretranslate --api-keys
-# Generate a key (in a second terminal)
-docker exec <container-id> ltmanage keys add
+## Database
+
+The API runs on SQLite or PostgreSQL, chosen at startup:
+
+| Condition | Driver |
+| --- | --- |
+| `DATABASE_URL` is set | PostgreSQL (`pg`) |
+| `DATABASE_URL` is unset | SQLite (`better-sqlite3`), at `server/data/lingoflow.db` |
+| `LINGOFLOW_DB_DRIVER=sqlite\|postgres` | Overrides the above |
+
+SQLite is the local default, and the test suite runs on it. Production uses Neon.
+
+There is one copy of every query. `server/src/db.ts` writes dialect-neutral SQL with `?`
+placeholders, and `server/src/db/dialect.ts` translates it for Postgres (identity
+columns, timestamp defaults, `?` to `$1..$n`). The schema and its migrations run at
+startup through `initSchema()`, and running them again changes nothing. More detail is in
+[docs/database.md](docs/database.md).
+
+**Using Neon locally:** put the **pooled** connection string in `server/.env` and start
+the server once to create the schema:
+
+```
+DATABASE_URL=postgresql://user:pass@ep-xxx-pooler.region.aws.neon.tech/db?sslmode=require
 ```
 
-Fetched translations are validated before caching: punctuation-only responses and strings identical to the source word are discarded. Translations are normalized — trailing punctuation stripped, ALL-CAPS lowercased, first character lowercased.
-
-The repo also includes an interactive TypeScript utility for generating new language content from English via LibreTranslate:
+**Importing a SQLite database:**
 
 ```bash
-npm run translate:language
+npm run db:import-sqlite                       # from server/data/lingoflow.db
+npm run db:import-sqlite -- --from ./backup.db # from another file
+npm run db:import-sqlite -- --dry-run          # only report row counts
 ```
 
-The tool reads `server/.env`, lets you select a supported target language and category files, rate-limits API calls if needed, and writes only new files under `server/content/languages/<language>/`. It never overwrites existing category files.
+The import copies every table in foreign-key order and resets the identity sequences
+afterwards, so new rows don't collide with imported ones. It is safe to run again: rows
+that already exist are skipped.
 
-The wizard first asks **what to generate** — course categories, the **practice word** pool, or **Story Reader stories**. Choosing practice words translates the English word list in `server/content/practice_words/_template.json` into the target language, writing `server/content/practice_words/<language>.json`. Translations are batched (`TRANSLATE_BATCH_SIZE` words per request), so a ~1000-word pool costs roughly 20 API calls rather than one per word.
+`scripts/repair-xp.ts` and `scripts/set-xp.ts` open the SQLite file directly and don't
+work against Postgres.
 
-Choosing **Stories** reads the hand-authored `server/content/stories/english.json`, translates each sentence and title English → target, then runs a reverse target → English pass to build a per-word glossary. Each glossary entry borrows its part-of-speech (and an exact-match grammar note) from the English source glossary, and the file is written in the same compact one-line-per-entry layout as the hand-authored stories. Output goes to `server/content/stories/<language>.json`. As with all jobs it never overwrites an existing file, so delete a language's existing story file first if you want to regenerate it from the longer English source.
+## Deployment
 
-To stop MT from carrying English proper nouns straight through (e.g. a Spanish story still set in London), `scripts/libretranslate/story-localization.json` provides per-culture overrides keyed by source story id. `terms` swap culturally-specific words — place names and currency — so each language gets a native setting (the B1 letter becomes Barcelona / Paris / Berlin / Rome / Stockholm), and `culturalNote` replaces the explanatory note with one describing the target culture. The native spelling (e.g. `Roma`) is fed to MT and kept out of the glossary, while the English exonym (`Rome`) is shown as the reference; anything omitted from the map falls back to the English source.
+<details>
+<summary><b>Web app on Vercel</b></summary>
 
-The generator code is split for clarity under `scripts/libretranslate/`: `terminal-menu.ts` (generic interactive prompts), `content-generator.ts` (translation + JSON file IO), and `index.ts` (the wizard that wires them together).
+Vercel hosts only the web client. `vercel.json` installs the client workspace, builds it,
+serves `client/dist` and rewrites `/api/*` to the Cloud Run API, so the default
+`VITE_API_BASE` works unchanged.
 
-**Content authors** can add curated per-word translations to any exercise via a `wordGlossary` object:
+1. Import the repo into a Vercel project. No framework preset is needed.
+2. Vercel needs no server variables; they live on Cloud Run. `APP_VERSION` is optional
+   (see `scripts/write-version.js`).
+3. If the Cloud Run address changes, update the `/api/(.*)` rewrite in `vercel.json`.
+
+A change to the API needs only a Cloud Run deploy; Vercel deploys when the web client
+changes.
+
+</details>
+
+<details>
+<summary><b>API on Google Cloud Run</b></summary>
+
+The repo's `Dockerfile` builds an API-only image: the esbuild bundle, `server/content/`
+and production dependencies, listening on `$PORT`. It always uses Postgres, so the SQLite
+binding isn't built.
+
+1. **Project:** enable the Cloud Run, Cloud Build, Artifact Registry and Secret Manager
+   APIs. The service runs in `europe-west3` (Frankfurt), next to Neon's
+   `aws-eu-central-1`.
+2. **Secrets:** create these in Secret Manager and give the Cloud Run runtime service
+   account `roles/secretmanager.secretAccessor` on each: `DATABASE_URL` (Neon's pooled
+   string), `LINGOFLOW_AUTH_SECRET` (the same as before, or everyone is signed out),
+   `GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`, `RESEND_API_KEY`,
+   `CONTRIBUTION_REVIEWER_EMAILS`, `GEMINI_API_KEY`, `LIBRETRANSLATE_API_KEY`,
+   `REVENUECAT_SECRET_API_KEY` and `REVENUECAT_WEBHOOK_AUTH`.
+3. **Deploy:** by hand with `gcloud run deploy lingoflow-api --source . --region
+   europe-west3`, or with the **Deploy API to Cloud Run** workflow
+   (`.github/workflows/deploy-cloud-run.yml`). The workflow signs in with Workload Identity
+   Federation and needs the repository variables `GCP_PROJECT_ID`, `GCP_REGION`,
+   `GCP_WIF_PROVIDER`, `GCP_DEPLOY_SERVICE_ACCOUNT`, `PUBLIC_APP_URL`, `EMAIL_FROM`,
+   `GOOGLE_OAUTH_REDIRECT_URI`, `TTS_CACHE_BUCKET` and `LIBRETRANSLATE_URL`.
+4. **Check:** `curl https://<service-url>/api/health` returns `{"ok":true}`.
+5. **Web app:** point the `/api/(.*)` rewrite in `vercel.json` at
+   `https://<service-url>/api/$1`, and set `PUBLIC_APP_URL` to the web app's domain.
+6. **RevenueCat:** set the webhook to `https://<service-url>/api/billing/revenuecat-webhook`,
+   with `REVENUECAT_WEBHOOK_AUTH` as its authorization header.
+7. **Text-to-speech:** create a bucket in the same region and let the runtime service
+   account use it, then set `TTS_CACHE_BUCKET`:
+
+   ```sh
+   gcloud storage buckets create gs://<bucket> --location europe-west3 --uniform-bucket-level-access
+   gcloud storage buckets add-iam-policy-binding gs://<bucket> --member serviceAccount:<runtime-service-account> --role roles/storage.objectAdmin
+   ```
+
+   A sentence is generated the first time someone plays it (a few seconds), then served
+   from the bucket. Clients use their own speech whenever the endpoint fails or is slow.
+
+</details>
+
+<details>
+<summary><b>Running on your own server</b></summary>
+
+```bash
+npm ci
+npm run build   # bundles the web client into server/dist/client
+npm run start   # serves everything from http://localhost:4000
+```
+
+To build only the API: `npm run build --prefix server`, then
+`npm run start:dist --prefix server`.
+
+- Install with `npm ci`, never `npm update`: `server/` and `client/` share the one root
+  lockfile, and `npm ci` installs exactly what it lists.
+- If CI builds `dist/` for you, the server only needs `npm ci --omit=dev`. Otherwise keep
+  the dev dependencies, which include the build tools.
+- Never copy `node_modules` between machines. `better-sqlite3` is a native module built
+  for one platform and Node version. A Postgres-only server never loads it.
+
+</details>
+
+## Writing content
+
+Course content is JSON under `server/content/`: exercises per language and category in
+`languages/<language>/`, practice word pools in `practice_words/`, and stories in
+`stories/`. `npm run lint:content` checks it, and
+[docs/content-quality-checklist.md](docs/content-quality-checklist.md) covers what good
+content looks like.
+
+<details>
+<summary><b>Word hints and translations</b></summary>
+
+Words in a cloze sentence or a translation into English show a tooltip. Three sources are
+checked in order:
+
+1. **Grammar hints** (dotted underline): words matched by the `'word' = meaning` pattern
+   in the exercise's `hints`.
+2. **Glossary** (solid underline): words in the exercise's optional `wordGlossary`.
+3. **Looked-up translations** (same style): any other word. The client asks the server
+   when the exercise loads; the server checks its `word_translations` cache first, then
+   asks [LibreTranslate](https://libretranslate.com). Each word is looked up once and
+   cached.
+
+At startup the cache is rebuilt from the content itself (`wordGlossary` fields,
+`"Vocabulary: X"` flashcards and single-word hints), so known words never need a lookup.
+Looked-up translations are cleaned before they're cached: answers that are only
+punctuation or the same as the word are dropped, trailing punctuation is removed, and
+the text is lowercased.
+
+A glossary on an exercise looks like this:
 
 ```json
 {
@@ -90,419 +348,171 @@ The generator code is split for clarity under `scripts/libretranslate/`: `termin
 }
 ```
 
-Keys are lowercased word forms exactly as they appear in `correctAnswer`; values are short English glosses. The field is optional and validated at server startup.
+Keys are the lowercased words as they appear in `correctAnswer`; values are short English
+glosses. The server checks the field at startup.
 
-</details>
-
-### Session Experience
-
-- Live XP tally updates per correct answer during a session
-- Correct-answer flash (900 ms green banner) before auto-advance
-- Keyboard shortcuts: `1`–`4` select a multiple-choice option, `Enter` submits
-- Hint system with audio playback for build-sentence exercises
-- Reveal answer flow for when the learner is stuck
-- Session share card — one-line summary shareable to X, WhatsApp, Facebook, Telegram, or native share sheet
-
-### Progress & Stats
-
-- XP, streak, learner level, and category mastery persisted per user per language
-- Stats dashboard: completion %, accuracy %, streak, mastered category count
-- 6-month activity grid (GitHub-style heatmap), XP trend chart, session bar chart
-- Category mastery rail, error type breakdown donut, weakest objectives list
-- Daily streak badge with "streak at risk" warning when no practice has been logged today
-- Bookmarks — save any exercise for review; bookmarks page with text-to-speech playback and speed control
-
-### Community Contributions
-
-- Any signed-in user can submit a new exercise for a language/category
-- Submissions enter a moderation queue (pending → approved/rejected)
-- Approved contributions can appear in sessions
-
-### Admin Panel
-
-Visible only to the first registered user and anyone listed in `CONTRIBUTION_REVIEWER_EMAILS`.
-
-- **Content coverage page** — KPI cards (total exercises, avg per cell, fill status), stacked CEFR bar chart per language, horizontal category fill chart with target line, gap distribution donut, and a color-coded grid table (red = any level < 5, amber = any level < 10, green = all ≥ 10). Individual level counts inside each cell are colored to pinpoint which level is the gap.
-
-### Auth
-
-- Email/password registration with email verification
-- Google OAuth2 sign-in
-- Forgot password / reset password flow
-- Account deletion (password confirmation + explicit irreversible-action flag required; local accounts only)
-
-### UI
-
-- Light / dark theme switcher (persisted)
-- Responsive layout
-
----
-
-## Tech Stack
-
-| Layer    | Technology                          |
-|----------|-------------------------------------|
-| Frontend | React 19, Vite, TypeScript          |
-| Backend  | Express 5, TypeScript (strip-types) |
-| Database | SQLite (`better-sqlite3`) or PostgreSQL / Neon (`pg`) |
-| Auth     | JWT (30-day TTL), bcrypt, Google OAuth2 |
-| Charts   | Hand-rolled SVG — no chart library  |
-| Tests    | Vitest (client), Node test runner (server) |
-
----
-
-## Database
-
-LingoFlow runs on either SQLite or PostgreSQL. The driver is selected at startup:
-
-| Condition | Driver |
-|---|---|
-| `DATABASE_URL` is set | PostgreSQL (`pg`) |
-| `DATABASE_URL` is unset | SQLite (`better-sqlite3`), at `server/data/lingoflow.db` |
-| `LINGOFLOW_DB_DRIVER=sqlite\|postgres` | Overrides the above |
-
-SQLite is the default for local development and is what the test suite always runs
-against, so no database server is needed to work on the app. Postgres (Neon) is
-intended for hosted deployments.
-
-There is one copy of every query. `server/src/db.ts` writes dialect-neutral SQL with
-`?` placeholders; `server/src/db/dialect.ts` translates it for Postgres (identity
-columns, timestamp defaults, `?` → `$1..$n`). Schema creation and migrations run once
-at startup through `initSchema()` and are idempotent on both backends.
-
-### Pointing at Neon
-
-Put the **pooled** connection string in `server/.env`:
-
-```
-DATABASE_URL=postgresql://user:pass@ep-xxx-pooler.region.aws.neon.tech/db?sslmode=require
-```
-
-Start the server once and it creates the schema.
-
-### Importing an existing SQLite database
+To run LibreTranslate yourself with Docker:
 
 ```bash
-npm run db:import-sqlite                       # from server/data/lingoflow.db
-npm run db:import-sqlite -- --from ./backup.db # from somewhere else
-npm run db:import-sqlite -- --dry-run          # report row counts only
+docker run -it -p 5000:5000 libretranslate/libretranslate --api-keys
+docker exec <container-id> ltmanage keys add   # in a second terminal
 ```
-
-The import copies all tables in FK-safe order, resyncs identity sequences afterwards
-(so the next insert does not collide on a primary key), and is safe to re-run —
-existing rows are reported as skipped.
-
-> `scripts/repair-xp.ts` and `scripts/set-xp.ts` open the SQLite file directly and are
-> SQLite-only maintenance tools; they do not work against Postgres.
-
----
-
-## Quick Start
-
-```bash
-npm install
-npm run dev
-```
-
-- Frontend: `http://localhost:5173`
-- Backend API: `http://localhost:4000/api`
-
----
-
-<details>
-<summary><b>Environment Variables</b></summary>
-
-Create `server/.env` (copy `server/.env.example`) for local development.
-
-| Variable | Side | Description |
-|----------|------|-------------|
-| `LINGOFLOW_AUTH_SECRET` | server | JWT signing secret — change in production |
-| `GOOGLE_OAUTH_CLIENT_ID` | server | Google OAuth2 web client ID |
-| `GOOGLE_OAUTH_CLIENT_SECRET` | server | Google OAuth2 web client secret |
-| `GOOGLE_OAUTH_REDIRECT_URI` | server | Callback URL registered in Google console (default: `http://localhost:4000/api/auth/google/callback`) |
-| `PUBLIC_APP_URL` | server | Base URL used in verification/reset emails (e.g. `https://app.example.com`) |
-| `RESEND_API_KEY` | server | Preferred email delivery — [Resend](https://resend.com) HTTPS API. Takes priority over SMTP when set |
-| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE`, `EMAIL_FROM` | server | SMTP fallback for transactional emails, used when `RESEND_API_KEY` is unset. `EMAIL_FROM` is used for both delivery paths |
-| `CONTRIBUTION_REVIEWER_EMAILS` | server | Comma-separated moderator email list |
-| `LOG_LEVEL` | server | `debug` \| `info` \| `warn` \| `error` (default: `info`) |
-| `PORT` | server | Listen port (default: `4000`; Cloud Run sets it) |
-| `GEMINI_API_KEY` | server | Gemini API key for `/api/tts` (Gemini TTS); without it the endpoint answers 503 |
-| `TTS_CACHE_BUCKET` | server | Cloud Storage bucket that caches `/api/tts` audio (optional; without it only an in-memory cache is used) |
-| `TTS_MODEL` | server | Gemini TTS model (default: `gemini-3.8-flash-lite-tts`) |
-| `TTS_DAILY_GENERATION_LIMIT` | server | New `/api/tts` clips per day per instance (default: `1000`; each user also gets at most 150); cached clips are unlimited |
-| `TTS_VOICES` | server | Per-language Gemini voice overrides for `/api/tts`, e.g. `ru-RU=Charon` (default voice: Kore) |
-| `TTS_DISABLED` | server | `1` turns `/api/tts` off; clients then use their own TTS |
-| `REVENUECAT_SECRET_API_KEY` | server | RevenueCat secret API key (v1), used to read a subscriber's entitlements |
-| `REVENUECAT_WEBHOOK_AUTH` | server | Shared secret RevenueCat sends as the webhook `Authorization` header |
-| `REVENUECAT_ENTITLEMENT_ID` | server | Entitlement that unlocks the Android app (default: `premium`) |
-| `VITE_API_BASE` | client | API base path/URL (default: `/api`) |
-
-**Admin access:** the first registered user (id = 1) is automatically an admin. Additional admins are granted via `CONTRIBUTION_REVIEWER_EMAILS`.
 
 </details>
 
 <details>
-<summary><b>Production Build & Server Deployment</b></summary>
+<summary><b>Generating a language with LibreTranslate</b></summary>
 
-```bash
-npm run build   # bundles client into server/dist/client
-npm run start   # serves everything from http://localhost:4000
-```
+`npm run translate:language` starts a wizard that reads `server/.env` and translates from
+English. It writes only new files under `server/content/` and never overwrites one, so
+delete a file first to generate it again. It can generate:
 
-Or build the server bundle separately:
+- **Course categories:** pick a language and the category files.
+- **Practice words:** translates `practice_words/_template.json` into
+  `practice_words/<language>.json`, in batches, so about 1,000 words take about 20 calls.
+- **Stories:** translates `stories/english.json` sentence by sentence into
+  `stories/<language>.json`, then translates back to build a glossary for each word, with
+  parts of speech and grammar notes taken from the English glossary.
 
-```bash
-npm run build --prefix server    # typecheck + minified bundle → server/dist/index.js
-npm run start:dist --prefix server
-```
+`scripts/libretranslate/story-localization.json` gives each language its own setting, so
+a Spanish story isn't set in London. `terms` swaps place names and currencies (the B1
+letter comes from Barcelona, Paris, Berlin, Rome or Stockholm), and `culturalNote`
+replaces the note with one about the target culture. Anything missing falls back to the
+English story.
 
-Do **not** run `npm update` on the server — that resolves to newer versions and rewrites the lockfile, which is non-reproducible. Update dependencies locally, commit the single root lockfile (npm workspaces — `server/` and `client/` share it, there are no per-workspace lockfiles), then install from it on the server with `npm ci` (a clean, reproducible install that fails if `package.json` and the lockfile disagree).
-
-```bash
-git pull
-npm ci
-npm run build          # bundles client into server/dist/client
-# then restart the service (pm2 / systemd / etc.)
-```
-
-If you build the artifacts in CI and ship `dist/` to the server, the runtime box only needs production deps:
-
-```bash
-npm ci --omit=dev
-```
-
-Otherwise keep dev dependencies — the build tools (`vite`, `esbuild`, `tsc`) live under `devDependencies`.
-
-**Native modules:** never copy `node_modules` from another machine. `better-sqlite3` is a native module whose binary is platform- and ABI-specific; `npm ci` fetches the correct prebuilt binary for the server's OS and Node version. The lockfile itself is platform-neutral. The Node version must be one with a published `better-sqlite3` prebuild (any current LTS) — otherwise the install falls back to compiling from source and needs a C/C++ toolchain. A Postgres-only deployment avoids this entirely: the driver modules are required lazily, so `better-sqlite3` is never loaded when `DATABASE_URL` is set.
+The code is in `scripts/libretranslate/`: `terminal-menu.ts` (prompts),
+`content-generator.ts` (translation and files) and `index.ts` (the wizard).
 
 </details>
 
-<details>
-<summary><b>Deploying to Vercel</b></summary>
-
-Vercel hosts the web client only. `vercel.json` installs just the client workspace,
-builds it (`npm run build`), serves `client/dist` from the CDN, and rewrites `/api/*` to
-the Cloud Run API (see the next section). The browser only ever talks to the Vercel
-domain, so the default `VITE_API_BASE` (`/api`) needs no override and requests stay
-same-origin.
-
-1. Import the repo into a Vercel project (dashboard or `vercel link`). No framework
-   preset is needed — `vercel.json` covers the build/output configuration.
-2. No server env vars are needed on Vercel; they live on Cloud Run. The only optional
-   one is `APP_VERSION` (see `scripts/write-version.js`).
-3. If the Cloud Run service URL changes, update the `/api/(.*)` rewrite destination in
-   `vercel.json`.
-
-</details>
+## Project structure
 
 <details>
-<summary><b>Deploying the API to Google Cloud Run</b></summary>
-
-The API runs on Cloud Run so the web app and the Android app share one long-running
-backend. The web client stays on Vercel, which forwards `/api/*` to the service, so the
-web app stays same-origin.
-
-The repo-root `Dockerfile` builds an API-only image: the esbuild bundle plus
-`server/content/`, production dependencies only, listening on `$PORT`. It always runs
-on Postgres; the SQLite native binding is deliberately not built.
-
-1. **Google Cloud project:** enable the Cloud Run, Cloud Build, Artifact Registry and
-   Secret Manager APIs. The service runs in `europe-west3` (Frankfurt), the same city as
-   Neon's `aws-eu-central-1`, so database round trips stay short.
-2. **Secrets:** create each one in Secret Manager: `DATABASE_URL` (Neon **pooled**
-   string), `LINGOFLOW_AUTH_SECRET` (must match Vercel's, or every existing session is
-   signed out), `GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`, `RESEND_API_KEY`,
-   `CONTRIBUTION_REVIEWER_EMAILS`, `GEMINI_API_KEY`, `LIBRETRANSLATE_API_KEY`, and — once
-   RevenueCat is set up, together with adding them to the workflow's `--set-secrets` —
-   `REVENUECAT_SECRET_API_KEY` and `REVENUECAT_WEBHOOK_AUTH`. Give the Cloud Run runtime
-   service account `roles/secretmanager.secretAccessor` on each.
-3. **First deploy:** run the **Deploy API to Cloud Run** workflow
-   (`.github/workflows/deploy-cloud-run.yml`). It needs these GitHub repository variables:
-   `GCP_PROJECT_ID`, `GCP_REGION`, `GCP_WIF_PROVIDER`, `GCP_DEPLOY_SERVICE_ACCOUNT`,
-   `PUBLIC_APP_URL`, `EMAIL_FROM`, `GOOGLE_OAUTH_REDIRECT_URI`, `TTS_CACHE_BUCKET` and
-   `LIBRETRANSLATE_URL`. It authenticates with
-   Workload Identity Federation, so no key is stored. The workflow uses
-   `gcloud run deploy --source .`, which you can also run by hand with the same flags.
-4. **Verify:** `curl https://<service-url>/api/health` returns `{"ok":true}`.
-5. **Web app:** the `/api/(.*)` rewrite in `vercel.json` points at
-   `https://<service-url>/api/$1`. Set `PUBLIC_APP_URL` to the Vercel domain, so Google
-   sign-in and verification emails return users to the web app.
-6. **RevenueCat:** set the webhook URL to `https://<service-url>/api/billing/revenuecat-webhook`,
-   with the authorization header value equal to `REVENUECAT_WEBHOOK_AUTH`.
-7. **Text-to-speech** (`GET /api/tts`, used by the Android app): set `GEMINI_API_KEY` (a
-   Gemini API key; speech comes from `gemini-3.8-flash-lite-tts`). Create a bucket for the
-   audio cache in the same region, and let the Cloud Run runtime service account read and
-   write it:
-
-   ```sh
-   gcloud storage buckets create gs://<bucket> --location europe-west3 --uniform-bucket-level-access
-   gcloud storage buckets add-iam-policy-binding gs://<bucket>      --member serviceAccount:<runtime-service-account> --role roles/storage.objectAdmin
-   ```
-
-   Set `TTS_CACHE_BUCKET` to `<bucket>`. A sentence is generated the first time someone
-   plays it (a few seconds) and served from the bucket afterwards. The voice is Kore;
-   `TTS_VOICES` overrides it per language (`ru-RU=Charon,...`), `TTS_MODEL` changes the
-   model, and `TTS_DISABLED=1` turns the endpoint off. Clients fall back to their own TTS
-   whenever it fails or is slow.
-
-</details>
-
-<details>
-<summary><b>Project Structure</b></summary>
+<summary><b>Folders and main files</b></summary>
 
 ```
-client/
-  src/
-    App.tsx               # App shell — owns all top-level state
-    api.ts                # Typed HTTP client
-    constants.ts          # Page paths, defaults
-    styles.css            # All app styles (no CSS-in-JS)
-    components/
-      AdminPage.tsx        # Admin wrapper page (coverage + future sections)
-      AuthPage.tsx
-      BookmarksPage.tsx
-      ContentStatsPage.tsx # Content coverage charts and grid
-      ContributePage.tsx
-      LearnPage.tsx
-      PracticePage.tsx
-      SessionPlayer.tsx
-      SetupPage.tsx
-      StatsPage.tsx
-      session/             # Session engine, speech, snapshot hooks
-    hooks/                 # useAppNavigation, useAuthenticatedAppData, etc.
-    types/                 # course.ts, session.ts, contribution.ts
-    utils/                 # theme / path helpers
-    __tests__/             # Vitest + Testing Library
+client/src/
+  App.tsx, AppProvider.tsx  # App root; state is shared through the contexts in context/
+  api.ts                    # Typed API client
+  components/               # Pages (Learn, Practice, Story, Stats, Bookmarks, Admin, ...)
+    session/                # Session player: question panels, speech, autosave
+    story/                  # Story Reader
+  hooks/                    # Navigation, data loading and other hooks
+  styles/                   # CSS by area (tokens, shell, session, stats, ...)
+  types/                    # Course, session and contribution types
+  __tests__/                # Vitest and Testing Library
 
-server/
-  src/
-    index.ts              # Express setup + route registration + answer evaluation
-    db.ts                 # Schema, migrations, all queries (dialect-neutral SQL)
-    db/
-      driver.ts           # Driver factory + the better-sqlite3-shaped facade db.ts uses
-      sqliteDriver.ts     # better-sqlite3 backend
-      postgresDriver.ts   # node-postgres backend (Neon)
-      dialect.ts          # SQLite -> Postgres SQL translation, ? -> $n placeholders
-    data.ts               # Content + session logic entrypoint
-    data/
-      contentLoader.ts    # Loads JSON files from content/languages/
-      sessionGenerator.ts # Question set builder (difficulty, spaced repetition)
-      constants.ts        # Categories, CEFR levels, XP multipliers
-    routes/
-      authRoutes.ts
-      courseRoutes.ts     # Course catalog + admin content-stats endpoint
-      sessionRoutes.ts
-      userRoutes.ts
-    auth/
-      tokenService.ts
-      password.ts
-    __tests__/            # Node test runner integration tests
-  content/
-    languages/            # Per-language JSON exercise files
-      english/
-      spanish/
-      russian/
-      italian/
-      swedish/
-      french/
-      german/
-    practice_words/       # Per-language practice word pools (+ _template.json)
-      _template.json      # Canonical English word list (translation source)
-      english.json
-      spanish.json
-      ...
+server/src/
+  index.ts                  # Express setup, routes and answer checking
+  db.ts                     # Schema, migrations and every query
+  db/                       # SQLite and Postgres drivers, SQL dialect translation
+  data.ts, data/            # Content loading, session generation, practice pools, stories
+  xpRules.ts                # XP formulas, also sent to clients with each session
+  routes/
+    authRoutes.ts           # Accounts and Google sign-in
+    courseRoutes.ts         # Course catalog, stories, word lookups, admin content stats
+    pathRoutes.ts           # Learning path, placement and checkpoints
+    sessionRoutes.ts        # Sessions, daily challenge, practice, Speed Match
+    ttsRoutes.ts            # Text-to-speech
+    userRoutes.ts           # Settings, progress, stats, bookmarks, achievements, community, billing
+  auth/                     # Tokens and passwords
+  __tests__/                # Node test runner integration tests
+
+server/content/
+  languages/<language>/     # Exercises, one JSON file per category
+  practice_words/           # Practice word pools (_template.json is the English source)
+  stories/                  # Story Reader stories per language
 ```
 
 </details>
 
----
-
-## Available Scripts
-
-```bash
-npm run install:all     # Install all workspace dependencies
-npm run dev             # Start server (:4000) + client (:5173) concurrently
-npm run translate:language # Interactive LibreTranslate content generator
-npm run build           # Production client bundle
-npm run start           # Serve backend + built frontend
-npm run lint            # ESLint (flat config)
-npm run lint:fix        # Auto-fix lint issues
-npm run format           # Prettier
-npm run format:check    # Verify formatting without writing
-npm run test            # Full test suite (server + client)
-npm run verify           # Lint + client tests
-```
-
----
+## API reference
 
 <details>
-<summary><b>API Reference</b></summary>
+<summary><b>Endpoints</b></summary>
 
 ### Public
 
 | Method | Path | Description |
-|--------|------|-------------|
+| --- | --- | --- |
 | `GET` | `/api/health` | Health check |
-| `POST` | `/api/auth/register` | Create account |
+| `POST` | `/api/auth/register` | Create an account |
 | `POST` | `/api/auth/login` | Sign in |
-| `POST` | `/api/auth/verify-email` | Verify email token |
-| `POST` | `/api/auth/resend-verification` | Resend verification email |
-| `POST` | `/api/auth/forgot-password` | Request password reset link |
-| `POST` | `/api/auth/reset-password` | Apply password reset |
-| `GET` | `/api/auth/google/start` | Begin Google OAuth2 flow |
-| `GET` | `/api/auth/google/callback` | Google OAuth2 callback |
-| `GET` | `/api/languages` | List available course languages |
-| `POST` | `/api/visitors/login` | Track login page visit (telemetry) |
+| `POST` | `/api/auth/verify-email` | Verify an email address |
+| `POST` | `/api/auth/resend-verification` | Send the verification email again |
+| `POST` | `/api/auth/forgot-password` | Ask for a password reset link |
+| `POST` | `/api/auth/reset-password` | Set a new password |
+| `GET` | `/api/auth/google/start` | Start Google sign-in (web) |
+| `GET` | `/api/auth/google/callback` | Google sign-in callback (web) |
+| `POST` | `/api/auth/google/native` | Sign in with a Google ID token (Android) |
+| `GET` | `/api/languages` | Available languages |
+| `POST` | `/api/visitors/login` | Count a sign-in page visit |
+| `POST` | `/api/billing/revenuecat-webhook` | RevenueCat events (checked against `REVENUECAT_WEBHOOK_AUTH`) |
 
-### Authenticated (Bearer token required)
+### Signed in (Bearer token)
 
 | Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/auth/me` | Current user info |
-| `POST` | `/api/auth/delete-account` | Delete account (local auth only) |
+| --- | --- | --- |
+| `GET` | `/api/auth/me` | The current user |
+| `POST` | `/api/auth/delete-account` | Delete the account |
+| `GET` / `PUT` | `/api/settings` | Learner settings |
 | `GET` | `/api/course?language=<id>` | Course catalog with progress |
-| `GET` | `/api/content/metrics?language=<id>` | Level coverage metrics |
-| `POST` | `/api/session/start` | Start a new session; pass `mode: "mistakes"` and `category: "__mistakes__"` for a cross-category mistake review |
+| `GET` | `/api/content/metrics?language=<id>` | Content per level |
+| `POST` | `/api/session/start` | Start a session; `mode: "mistakes"` with `category: "__mistakes__"` drills past mistakes |
 | `POST` | `/api/session/daily` | Start the daily challenge |
-| `POST` | `/api/session/complete` | Submit session results |
-| `GET` | `/api/settings` | Get learner settings |
-| `PUT` | `/api/settings` | Save learner settings |
-| `GET` | `/api/progress?language=<id>` | Learner progress for a language |
-| `GET` | `/api/progress-overview` | Progress summary across all languages |
-| `GET` | `/api/stats?language=<id>` | Stats dashboard data |
-| `GET` | `/api/bookmarks?language=<id>` | List bookmarks |
-| `POST` | `/api/bookmarks` | Add a bookmark |
+| `POST` | `/api/session/complete` | Submit a session's answers |
+| `GET` | `/api/path?language=<id>` | The learning path |
+| `POST` | `/api/path/start` | Set where the path starts |
+| `POST` | `/api/path/lesson` | Start a path lesson |
+| `POST` | `/api/path/checkpoint` | Start a check (`scope`: `unit`, `section` or `level`) |
+| `POST` | `/api/placement/start`, `/api/placement/complete` | The placement check |
+| `GET` | `/api/practice/speed-match?language=<id>` | Speed Match words and personal best |
+| `POST` | `/api/practice/speed-match/score` | Save a Speed Match score |
+| `GET` | `/api/progress?language=<id>` | Progress in one language |
+| `GET` | `/api/progress-overview` | Progress in every language |
+| `GET` | `/api/stats?language=<id>` | Stats page data |
+| `GET` | `/api/user/achievements` | Earned achievements (`?all=1` for every one, with progress) |
+| `GET` / `POST` | `/api/bookmarks` | List or add bookmarks |
 | `DELETE` | `/api/bookmarks/:questionId` | Remove a bookmark |
-| `GET` | `/api/stories?language=<id>&level=<lvl>&category=<cat>` | List story summaries (filterable) |
-| `GET` | `/api/stories/:id` | Fetch a full story (sentences, glossary, cultural note) |
-| `POST` | `/api/stories/:id/complete` | Mark a story finished (idempotent, per user) |
-| `GET` | `/api/saved-words?language=<id>` | List words saved from the Story Reader |
-| `POST` | `/api/saved-words` | Save a word to review (idempotent; enters the SRS queue) |
+| `GET` | `/api/stories?language=<id>&level=<lvl>&category=<cat>` | Story list |
+| `GET` | `/api/stories/recommended`, `/api/stories/stats` | The next story to read, and reading stats |
+| `GET` | `/api/stories/:id` | A whole story |
+| `POST` | `/api/stories/:id/progress`, `/api/stories/:id/complete` | Save reading progress, or finish a story |
+| `GET` / `POST` | `/api/saved-words` | List or save words to review |
 | `DELETE` | `/api/saved-words/:word?language=<id>` | Remove a saved word |
-| `POST` | `/api/community/contribute` | Submit a community exercise |
-| `GET` | `/api/community/contributions` | List contributions (own or all) |
-| `PATCH` | `/api/community/contributions/:id` | Update moderation status |
-| `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Batch word translations (SQLite-cached, LibreTranslate fallback) |
+| `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Word translations |
+| `GET` | `/api/tts` | Speech audio for a sentence |
+| `POST` | `/api/billing/sync` | Read the user's subscription from RevenueCat |
+| `POST` | `/api/community/contribute` | Submit an exercise |
+| `GET` | `/api/community/contributions` | List contributions (your own, or all) |
+| `GET` | `/api/community/contributions/pending-count` | Submissions waiting for review |
+| `PATCH` | `/api/community/contributions/:id` | Change a submission's status |
 
-### Admin only
+### Admins only
 
 | Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/visitors/stats` | Login page visit aggregate metrics |
-| `GET` | `/api/admin/content-stats` | Exercise counts by language × category × CEFR level |
+| --- | --- | --- |
+| `GET` | `/api/visitors/stats` | Sign-in page visits |
+| `GET` | `/api/admin/content-stats` | Exercise counts by language, category and level |
+| `GET` | `/api/admin/word-translations/counts` | Cached word translations per language |
+| `POST` | `/api/admin/word-translations/rebuild` | Rebuild the word translation cache |
 
 </details>
 
----
+## Development notes
 
-## Dev Unlock
+- **Unlock everything:** development builds show a Setup switch, "Dev only: unlock all
+  lessons". The server honors it only when `NODE_ENV` isn't `production`.
+- **Native module:** `better-sqlite3` needs a Node version with a published prebuild (any
+  current LTS); otherwise it compiles from source and needs a C++ toolchain. If installing
+  fails on Windows, update Node and npm, delete every `node_modules` folder and install
+  again.
+- **Missing data in the web app:** check that the API is running on `:4000`.
+- **Lint differences:** if `eslint .` behaves differently from `npm run lint`, a global
+  ESLint is probably being picked up; use `npx eslint .` or the npm script.
 
-In non-production builds a Setup toggle appears: **"Dev only: unlock all lessons"**. This bypasses the normal category unlock progression for the signed-in user. The server only honours this flag when `NODE_ENV !== "production"`.
+## More documentation
 
----
-
-## Troubleshooting
-
-- `better-sqlite3` is a native module. Use Node LTS (20.x or 22.x). If install fails on Windows: update Node/npm, delete all `node_modules` folders, and reinstall.
-- If the frontend loads but data is missing, confirm the backend is running on `:4000`.
-- If `eslint .` behaves differently from `npm run lint`, a global ESLint install may be taking precedence — prefer `npx eslint .` or the npm script.
+- [docs/database.md](docs/database.md): the database layer in detail
+- [docs/content-quality-checklist.md](docs/content-quality-checklist.md): writing content
+- [docs/TODO.md](docs/TODO.md) and [docs/Completed.md](docs/Completed.md): plans and history
