@@ -11,6 +11,9 @@
     "acceptedAnswers": [
       "Я бы хотела кофе и сэндвич.",
       "Мне, пожалуйста, кофе и сэндвич."
+    ],
+    "skills": [
+      "food_cooking.ordering"
     ]
   },
   {
@@ -21,6 +24,9 @@
     "correctAnswer": "У вас есть вегетарианские блюда?",
     "hints": [
       "'У вас есть' = do you have; 'блюда' = dishes."
+    ],
+    "skills": [
+      "food_cooking.what-you-eat"
     ]
   },
   {
@@ -31,6 +37,9 @@
     "correctAnswer": "Сегодня вечером я готовлю рис с овощами.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "food_cooking.home-cooking"
     ]
   },
   {
@@ -41,6 +50,9 @@
     "correctAnswer": "Можно добавить меньше соли, пожалуйста?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "food_cooking.at-a-restaurant"
     ]
   },
   {
@@ -51,6 +63,9 @@
     "correctAnswer": "Суп вкуснее, если он томится около часа.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -64,6 +79,9 @@
     ],
     "acceptedAnswers": [
       "Я забыла один ингредиент, поэтому изменила рецепт."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -74,6 +92,9 @@
     "correctAnswer": "Это блюдо сочетает сладкие, острые и копчёные вкусы.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -84,6 +105,9 @@
     "correctAnswer": "Какая техника делает соус более однородным?",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -94,6 +118,9 @@
     "correctAnswer": "Можно мне воду без льда?",
     "hints": [
       "'Без' + genitive: лёд → без льда."
+    ],
+    "skills": [
+      "food_cooking.ordering"
     ]
   },
   {
@@ -107,6 +134,9 @@
     ],
     "acceptedAnswers": [
       "Я впервые испекла хлеб дома."
+    ],
+    "skills": [
+      "food_cooking.home-cooking"
     ]
   },
   {
@@ -117,6 +147,9 @@
     "correctAnswer": "Какие ингредиенты делают это блюдо таким вкусным?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -127,6 +160,9 @@
     "correctAnswer": "Я предпочитаю простые, но сбалансированные рецепты.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -138,7 +174,10 @@
     "hints": [
       "Also means 'cuisine' — 'русская кухня' = Russian cuisine."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "ru-fo-a1-2",
@@ -149,7 +188,10 @@
     "hints": [
       "Literally 'I want to eat' — the most natural way to say you are hungry in Russian."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "food_cooking.ordering"
+    ]
   },
   {
     "id": "ru-fo-a1-3",
@@ -160,7 +202,10 @@
     "hints": [
       "A near-identical borrowing from French. Plural: ингредиенты."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "ru-fo-a1-4",
@@ -171,7 +216,10 @@
     "hints": [
       "Stress: нрАвится, готОвить. 'Мне нравится + infinitive' = I like to..."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "ru-fo-a1-5",
@@ -188,6 +236,9 @@
       "солёный",
       "вкусный",
       "горький"
+    ],
+    "skills": [
+      "food_cooking.what-you-eat"
     ]
   },
   {
@@ -199,7 +250,10 @@
     "hints": [
       "Masculine noun. Plural: рецепты. Also used for medical prescriptions."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "ru-fo-a1-7",
@@ -210,7 +264,10 @@
     "hints": [
       "No verb 'to be' in Russian present tense. 'Свежий' = fresh, agrees with masculine noun 'хлеб'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "ru-fo-a1-8",
@@ -221,7 +278,10 @@
     "hints": [
       "Three core food categories. 'Овощи' is always plural in everyday use."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "ru-fo-a1-9",
@@ -231,6 +291,9 @@
     "correctAnswer": "Можно посмотреть меню?",
     "hints": [
       "'Меню' is indeclinable — it never changes form, regardless of case."
+    ],
+    "skills": [
+      "food_cooking.ordering"
     ]
   },
   {
@@ -241,6 +304,9 @@
     "correctAnswer": "Обычно я завтракаю в семь утра.",
     "hints": [
       "'Завтракать' = to have breakfast (imperfective verb). 'В семь утра' = at seven in the morning."
+    ],
+    "skills": [
+      "food_cooking.home-cooking"
     ]
   },
   {
@@ -252,7 +318,10 @@
     "hints": [
       "'Нужно + infinitive' = I need to. 'Муку' and 'масло' are accusative singular."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "food_cooking.home-cooking"
+    ]
   },
   {
     "id": "ru-fo-a2-3",
@@ -270,7 +339,10 @@
       "солёное",
       "солёным"
     ],
-    "translation": "This soup is too salty: add a little water."
+    "translation": "This soup is too salty: add a little water.",
+    "skills": [
+      "food_cooking.at-a-restaurant"
+    ]
   },
   {
     "id": "ru-fo-a2-4",
@@ -281,7 +353,10 @@
     "hints": [
       "Stress: предпочитАю, жАреное, варЁному. 'Варёному' is dative — used after 'предпочитать'."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "food_cooking.home-cooking"
+    ]
   },
   {
     "id": "ru-fo-a2-5",
@@ -293,7 +368,10 @@
     "hints": [
       "'Мне, пожалуйста, …' is the standard way to order in Russian — no verb needed."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "food_cooking.at-a-restaurant"
+    ]
   },
   {
     "id": "ru-fo-a2-6",
@@ -304,7 +382,10 @@
     "hints": [
       "Three core cooking verbs. 'Печь' is also the word for a traditional Russian stove/oven."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.home-cooking"
+    ]
   },
   {
     "id": "ru-fo-a2-7",
@@ -315,7 +396,10 @@
     "hints": [
       "'Рецепт блинов' = recipe for blini (genitive). 'Моей бабушки' = genitive possession."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "food_cooking.home-cooking"
+    ]
   },
   {
     "id": "ru-fo-b1-1",
@@ -328,6 +412,9 @@
     ],
     "acceptedAnswers": [
       "Я мариновала курицу всю ночь перед тем, как жарить её на гриле."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -339,7 +426,10 @@
     "hints": [
       "'Дать + dative + infinitive' = to let something do something. 'Не менее' = no less than / at least."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "food_cooking.cooking-techniques"
+    ]
   },
   {
     "id": "ru-fo-b1-3",
@@ -357,7 +447,10 @@
       "мукой",
       "муку"
     ],
-    "translation": "To thicken the sauce, add a little flour and stir well."
+    "translation": "To thicken the sauce, add a little flour and stir well.",
+    "skills": [
+      "food_cooking.cooking-techniques"
+    ]
   },
   {
     "id": "ru-fo-b1-4",
@@ -369,7 +462,10 @@
       "Listen for 'говяжьем бульоне' (beef broth) and 'квашеной капусты' (sauerkraut)."
     ],
     "exerciseType": "dictation_sentence",
-    "culturalNote": "Borscht is one of the most iconic dishes of Eastern European cuisine, and debates over the 'correct' recipe still rage on."
+    "culturalNote": "Borscht is one of the most iconic dishes of Eastern European cuisine, and debates over the 'correct' recipe still rage on.",
+    "skills": [
+      "food_cooking.cooking-techniques"
+    ]
   },
   {
     "id": "ru-fo-b1-5",
@@ -380,7 +476,10 @@
     "hints": [
       "'Томить' is slow cooking on low heat; 'тушить' usually means braising with liquid in a covered pan."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.cooking-techniques"
+    ]
   },
   {
     "id": "ru-fo-b1-6",
@@ -390,6 +489,9 @@
     "correctAnswer": "Я всегда пробую блюдо, прежде чем добавить ещё специй.",
     "hints": [
       "'Прежде чем + infinitive' = before doing. 'Специй' is genitive plural of 'специи' (spices)."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -402,7 +504,10 @@
       "'Знаешь, как + infinitive' = do you know how to. 'Приготовить' is perfective here — to make (a complete batch)."
     ],
     "exerciseType": "build_sentence",
-    "culturalNote": "Kvass is a traditional Russian fermented drink made from bread, widely enjoyed in summer."
+    "culturalNote": "Kvass is a traditional Russian fermented drink made from bread, widely enjoyed in summer.",
+    "skills": [
+      "food_cooking.cooking-techniques"
+    ]
   },
   {
     "id": "ru-fo-b1-8",
@@ -412,6 +517,9 @@
     "correctAnswer": "Пельмени переварились и развалились в бульоне.",
     "hints": [
       "'Перевариться' = to overcook (perfective, reflexive). 'Развалиться' = to fall apart (perfective)."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -422,6 +530,9 @@
     "correctAnswer": "Ферментация была одним из древнейших способов сохранения продуктов задолго до появления холодильников.",
     "hints": [
       "'Задолго до' + genitive = long before. 'Одним из' + genitive superlative = one of the oldest."
+    ],
+    "skills": [
+      "food_cooking.food-and-society"
     ]
   },
   {
@@ -440,7 +551,10 @@
       "повышения",
       "повышением"
     ],
-    "translation": "Eating too much salt can lead to higher blood pressure."
+    "translation": "Eating too much salt can lead to higher blood pressure.",
+    "skills": [
+      "food_cooking.food-and-society"
+    ]
   },
   {
     "id": "ru-fo-b2-3",
@@ -450,6 +564,9 @@
     "correctAnswer": "Реакция Майяра отвечает за золотистую корочку и сложные ароматы, которые появляются при обжарке мяса.",
     "hints": [
       "'Отвечать за' + accusative = to be responsible for. 'При обжарке' = during searing ('при' + prepositional of a verbal noun)."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -461,7 +578,10 @@
     "hints": [
       "The fifth basic taste alongside sweet, sour, salty, and bitter. Borrowed directly from Japanese into Russian."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.flavor"
+    ]
   },
   {
     "id": "ru-fo-b2-6",
@@ -471,6 +591,9 @@
     "correctAnswer": "Медленное приготовление при низких температурах позволяет коллагену в жёстких кусках мяса превращаться в желатин.",
     "hints": [
       "'Позволять + dative + infinitive' = to allow something to do something. 'Превращаться в' + accusative = to turn into."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -484,7 +607,10 @@
       "Use short descriptive sentences with dashes (replacing 'is'). 'Дрожжевое' = yeasted/leavened."
     ],
     "exerciseType": "roleplay",
-    "culturalNote": "Cabbage pie is a classic home-cooked dish in Russian cuisine, especially popular during holidays."
+    "culturalNote": "Cabbage pie is a classic home-cooked dish in Russian cuisine, especially popular during holidays.",
+    "skills": [
+      "food_cooking.food-and-society"
+    ]
   },
   {
     "id": "ru-fo-b2-8",
@@ -494,6 +620,9 @@
     "correctAnswer": "Растущий интерес к местным и сезонным продуктам изменил подход ресторанов к составлению меню.",
     "hints": [
       "'Подход к' + dative = approach to. 'Составление меню' (verbal noun) = menu planning."
+    ],
+    "skills": [
+      "food_cooking.food-and-society"
     ]
   }
 ]

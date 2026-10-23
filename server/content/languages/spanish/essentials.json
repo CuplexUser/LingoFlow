@@ -11,6 +11,9 @@
     "acceptedAnswers": [
       "Hola, ¿cómo está?",
       "Hola, ¿cómo está usted?"
+    ],
+    "skills": [
+      "essentials.greetings"
     ]
   },
   {
@@ -25,6 +28,9 @@
     "acceptedAnswers": [
       "Muchas gracias por su ayuda.",
       "Muchas gracias por la ayuda."
+    ],
+    "skills": [
+      "essentials.politeness"
     ]
   },
   {
@@ -38,6 +44,9 @@
     ],
     "acceptedAnswers": [
       "No entiendo esta frase."
+    ],
+    "skills": [
+      "essentials.not-understanding"
     ]
   },
   {
@@ -52,6 +61,9 @@
     "acceptedAnswers": [
       "Disculpa, ¿dónde está el baño?",
       "Perdón, ¿dónde está el baño?"
+    ],
+    "skills": [
+      "essentials.politeness"
     ]
   },
   {
@@ -63,7 +75,10 @@
     "hints": [
       "A greeting used in the morning."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "sp-es-a1-6",
@@ -74,7 +89,10 @@
     "hints": [
       "'Me llamo' literally means 'I call myself'. Double l sounds like English y."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "sp-es-a1-7",
@@ -85,7 +103,10 @@
     "hints": [
       "A polite acceptance."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "sp-es-a1-8",
@@ -96,7 +117,10 @@
     "hints": [
       "A common farewell."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "sp-es-a1-9",
@@ -106,6 +130,9 @@
     "correctAnswer": "Lo siento.",
     "hints": [
       "An apology phrase."
+    ],
+    "skills": [
+      "essentials.not-understanding"
     ]
   },
   {
@@ -117,7 +144,10 @@
     "hints": [
       "Natives usually put 'bien' right after the verb, before the language."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.not-understanding"
+    ]
   },
   {
     "id": "sp-es-a1-11",
@@ -128,7 +158,10 @@
     "hints": [
       "A casual way to say goodbye."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "sp-es-a1-12",
@@ -140,7 +173,10 @@
       "A polite word used when asking for something."
     ],
     "exerciseType": "flashcard",
-    "imageUrl": "/images/placeholder.svg"
+    "imageUrl": "/images/placeholder.svg",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "sp-es-a1-13",
@@ -152,7 +188,10 @@
     "hints": [
       "They are asking your name."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "sp-es-a1-14",
@@ -163,7 +202,10 @@
     "hints": [
       "A greeting when meeting someone new."
     ],
-    "culturalNote": "In many Spanish-speaking countries, people greet with a kiss on the cheek or a handshake."
+    "culturalNote": "In many Spanish-speaking countries, people greet with a kiss on the cheek or a handshake.",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "sp-es-a1-15",
@@ -173,6 +215,9 @@
     "correctAnswer": "¿Cómo está usted?",
     "hints": [
       "Use the formal form of address."
+    ],
+    "skills": [
+      "essentials.greetings"
     ]
   },
   {
@@ -186,6 +231,9 @@
     ],
     "acceptedAnswers": [
       "¿Podría hablar más despacio, por favor?"
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -196,6 +244,9 @@
     "correctAnswer": "Estoy aprendiendo español todos los días.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -210,6 +261,9 @@
     "acceptedAnswers": [
       "¿Podrías repetir eso una vez más?",
       "¿Podría repetirlo una vez más?"
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -225,6 +279,9 @@
       "¿Podrías escribírmelo?",
       "¿Me lo podría escribir?",
       "¿Podrías escribir eso para mí?"
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -236,7 +293,10 @@
     "hints": [
       "Use 'necesitar' followed by a noun."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "id": "sp-es-a2-6",
@@ -246,6 +306,9 @@
     "correctAnswer": "¿A qué hora cierra la tienda?",
     "hints": [
       "Pay attention to the question structure."
+    ],
+    "skills": [
+      "essentials.errands"
     ]
   },
   {
@@ -257,7 +320,10 @@
     "hints": [
       "Use the conditional for polite requests."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.errands"
+    ]
   },
   {
     "id": "sp-es-a2-8",
@@ -269,7 +335,10 @@
     "hints": [
       "They are asking what you want to drink."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.errands"
+    ]
   },
   {
     "id": "sp-es-a2-9",
@@ -279,6 +348,9 @@
     "correctAnswer": "Llevo dos meses viviendo aquí.",
     "hints": [
       "Use 'llevar + time + gerund' for duration."
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -290,7 +362,10 @@
     "hints": [
       "Pay attention to the sentence structure."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.errands"
+    ]
   },
   {
     "id": "sp-es-a2-11",
@@ -300,6 +375,9 @@
     "correctAnswer": "Normalmente me despierto a las siete.",
     "hints": [
       "Use a reflexive verb for waking up."
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -311,7 +389,10 @@
     "hints": [
       "The standard polite reply to 'gracias'."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "id": "sp-es-a2-13",
@@ -329,6 +410,9 @@
       "aprendo",
       "aprendido",
       "aprender"
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -339,6 +423,9 @@
     "correctAnswer": "¿Sabes dónde está la parada de autobús?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -349,6 +436,9 @@
     "correctAnswer": "Dejé mi chaqueta en el restaurante.",
     "hints": [
       "Use the preterite tense for a completed action."
+    ],
+    "skills": [
+      "essentials.errands"
     ]
   },
   {
@@ -359,6 +449,9 @@
     "correctAnswer": "Cometí un error, pero lo intentaré de nuevo.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -369,6 +462,9 @@
     "correctAnswer": "Me gustaría mejorar mi pronunciación.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -379,6 +475,9 @@
     "correctAnswer": "Entiendo la idea, pero necesito más práctica.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -393,6 +492,9 @@
     "acceptedAnswers": [
       "Me siento más seguro cuando hablo con frases más largas.",
       "Me siento más segura cuando hablo con frases más largas."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -404,7 +506,10 @@
     "hints": [
       "Notice the subjunctive after 'es importante que'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "id": "sp-es-b1-6",
@@ -422,6 +527,9 @@
       "es",
       "será",
       "ser"
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -432,6 +540,9 @@
     "correctAnswer": "Aunque es difícil, sigo intentándolo.",
     "hints": [
       "Use 'aunque' as a connector."
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -443,7 +554,10 @@
     "hints": [
       "Express an opinion with 'creo que'."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.talking-about-learning"
+    ]
   },
   {
     "id": "sp-es-b1-9",
@@ -455,7 +569,10 @@
     "hints": [
       "A polite way to decline."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "id": "sp-es-b1-10",
@@ -465,6 +582,9 @@
     "correctAnswer": "Vivía en Madrid antes de mudarme aquí.",
     "hints": [
       "Use the imperfect tense for habitual past actions."
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -476,7 +596,10 @@
     "hints": [
       "Use the conditional for polite requests."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "id": "sp-es-b1-12",
@@ -494,6 +617,9 @@
       "dices",
       "decir",
       "dirás"
+    ],
+    "skills": [
+      "essentials.requests-and-complaints"
     ]
   },
   {
@@ -504,6 +630,9 @@
     "correctAnswer": "Si tengo tiempo mañana, visitaré el mercado.",
     "hints": [
       "Use present tense in the 'si' clause and future in the main clause."
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -514,6 +643,9 @@
     "correctAnswer": "Llevo tres horas estudiando sin descanso.",
     "hints": [
       "Use 'llevar + time + gerund' for ongoing duration."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -524,6 +656,9 @@
     "correctAnswer": "Es necesario que lleguemos a tiempo.",
     "hints": [
       "Use the subjunctive after 'es necesario que'."
+    ],
+    "skills": [
+      "essentials.requests-and-complaints"
     ]
   },
   {
@@ -534,6 +669,9 @@
     "correctAnswer": "Puedo explicar mi opinión con argumentos claros.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -544,6 +682,9 @@
     "correctAnswer": "Quiero hablar con naturalidad, no solo correctamente.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -554,6 +695,9 @@
     "correctAnswer": "Aunque cometa pequeños errores, puedo mantener fluida la conversación.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -564,6 +708,9 @@
     "correctAnswer": "Intento elegir expresiones que suenen naturales en contexto.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -574,6 +721,9 @@
     "correctAnswer": "Si lo hubiera sabido antes, me habría preparado mejor.",
     "hints": [
       "Use the pluperfect subjunctive with the conditional perfect."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -585,7 +735,10 @@
     "hints": [
       "Use the subjunctive after 'es poco probable que'."
     ],
-    "culturalNote": "The expression 'de la noche a la mañana' is a common Spanish idiom meaning 'overnight' or 'suddenly'."
+    "culturalNote": "The expression 'de la noche a la mañana' is a common Spanish idiom meaning 'overnight' or 'suddenly'.",
+    "skills": [
+      "essentials.advanced-patterns"
+    ]
   },
   {
     "id": "sp-es-b2-7",
@@ -606,6 +759,9 @@
     ],
     "acceptedAnswers": [
       "tuviese"
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -617,7 +773,10 @@
     "hints": [
       "Use a subjunctive reduplication for 'no matter what'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   },
   {
     "id": "sp-es-b2-9",
@@ -630,6 +789,9 @@
     ],
     "acceptedAnswers": [
       "Cuanto más practico, más segura me siento."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -640,6 +802,9 @@
     "correctAnswer": "Dudo que hayan considerado todas las posibilidades.",
     "hints": [
       "Use the present perfect subjunctive after 'dudo que'."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -651,7 +816,10 @@
     "hints": [
       "Use 'tanto... como...' for 'both... and...'."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   },
   {
     "id": "sp-es-b2-12",
@@ -663,7 +831,10 @@
     "hints": [
       "Politely disagree and offer your perspective."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   },
   {
     "id": "sp-es-b2-13",
@@ -676,6 +847,9 @@
     ],
     "acceptedAnswers": [
       "Si hubiéramos empezado antes, ahora no iríamos con prisas."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -686,6 +860,9 @@
     "correctAnswer": "Lo que más importa no es la perfección, sino la perseverancia.",
     "hints": [
       "Use 'no es... sino...' for 'not... but rather...'."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -696,6 +873,9 @@
     "correctAnswer": "Ojalá pudiera expresarme con tanta fluidez en español como en inglés.",
     "hints": [
       "Use 'ojalá' with the imperfect subjunctive for unreal wishes."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   }
 ]

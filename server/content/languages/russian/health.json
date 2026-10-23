@@ -10,6 +10,9 @@
     ],
     "acceptedAnswers": [
       "Я плохо себя чувствую сегодня."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -20,6 +23,9 @@
     "correctAnswer": "Где находится ближайшая аптека?",
     "hints": [
       "'Ближайшая' = nearest; it agrees with feminine 'аптека'."
+    ],
+    "skills": [
+      "health.finding-help"
     ]
   },
   {
@@ -30,6 +36,9 @@
     "correctAnswer": "У меня болит голова с самого утра.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -40,6 +49,9 @@
     "correctAnswer": "У меня аллергия на арахис.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -50,6 +62,9 @@
     "correctAnswer": "Мне принимать это лекарство до или после еды?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "health.treatment"
     ]
   },
   {
@@ -60,6 +75,9 @@
     "correctAnswer": "Боль усиливается, когда я быстро хожу.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "health.conditions"
     ]
   },
   {
@@ -70,6 +88,9 @@
     "correctAnswer": "Мне нужно полное обследование, потому что эти симптомы не проходят.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "health.specialist-care"
     ]
   },
   {
@@ -80,6 +101,9 @@
     "correctAnswer": "Можете подробно объяснить варианты лечения?",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "health.specialist-care"
     ]
   },
   {
@@ -90,6 +114,9 @@
     "correctAnswer": "У меня болит горло, когда я глотаю.",
     "hints": [
       "'У меня болит' + body part; 'глотать' = to swallow."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -100,6 +127,9 @@
     "correctAnswer": "Мне нужна запись на этот осмотр?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -110,6 +140,9 @@
     "correctAnswer": "Я чувствую усталость уже несколько дней.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "health.conditions"
     ]
   },
   {
@@ -120,6 +153,9 @@
     "correctAnswer": "Мне бы хотелось получить второе мнение перед началом лечения.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "health.specialist-care"
     ]
   },
   {
@@ -131,7 +167,10 @@
     "hints": [
       "'Лекарство' = medicine in general. 'Таблетка' = a specific tablet or pill."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.finding-help"
+    ]
   },
   {
     "id": "ru-he-a1-2",
@@ -142,7 +181,10 @@
     "hints": [
       "Masculine noun. 'Отдыхать' = to rest (verb)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.your-body"
+    ]
   },
   {
     "id": "ru-he-a1-3",
@@ -153,7 +195,10 @@
     "hints": [
       "'Врач' is used for any doctor regardless of gender. 'Медсестра' = female nurse; 'медбрат' = male nurse."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.finding-help"
+    ]
   },
   {
     "id": "ru-he-a1-4",
@@ -163,6 +208,9 @@
     "correctAnswer": "У меня температура.",
     "hints": [
       "Russians simply say they 'have temperature' — no separate word for fever is needed."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -180,6 +228,9 @@
       "поликлиника",
       "больница",
       "скорая"
+    ],
+    "skills": [
+      "health.finding-help"
     ]
   },
   {
@@ -191,7 +242,10 @@
     "hints": [
       "Stress: болИт, головА. The most common way to describe pain: 'У меня болит + body part (nominative)'."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "health.your-body"
+    ]
   },
   {
     "id": "ru-he-a1-7",
@@ -206,6 +260,9 @@
     "acceptedAnswers": [
       "Я простудилась.",
       "У меня простуда."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -217,7 +274,10 @@
     "hints": [
       "'Упражнение' = a single exercise. 'Физическая активность' = physical activity in general."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.your-body"
+    ]
   },
   {
     "id": "ru-he-a1-9",
@@ -227,6 +287,9 @@
     "correctAnswer": "Вызовите скорую!",
     "hints": [
       "'Вызвать скорую' = to call an ambulance. 'Скорая' is short for 'скорая помощь' (emergency help)."
+    ],
+    "skills": [
+      "health.finding-help"
     ]
   },
   {
@@ -237,6 +300,9 @@
     "correctAnswer": "Я кашляю уже три дня.",
     "hints": [
       "'Кашлять' = to cough (imperfective). Present tense + 'уже' for ongoing duration."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -248,7 +314,10 @@
     "hints": [
       "'Рецепт' = prescription (also recipe). 'На это лекарство' = for this medication (accusative)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "health.medicine"
+    ]
   },
   {
     "id": "ru-he-a2-3",
@@ -266,7 +335,10 @@
       "спать",
       "принимать"
     ],
-    "translation": "The doctor told me to drink more water and rest."
+    "translation": "The doctor told me to drink more water and rest.",
+    "skills": [
+      "health.medicine"
+    ]
   },
   {
     "id": "ru-he-a2-4",
@@ -277,7 +349,10 @@
     "hints": [
       "Stress: принимАю, лекАрство. 'Принимать лекарство' = to take medicine (not 'пить' in formal contexts)."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "health.medicine"
+    ]
   },
   {
     "id": "ru-he-a2-5",
@@ -289,7 +364,10 @@
     "hints": [
       "'Что вы посоветуете от + genitive' = what do you recommend for. 'Боли в горле' = sore throat (genitive)."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "health.medicine"
+    ]
   },
   {
     "id": "ru-he-a2-6",
@@ -300,7 +378,10 @@
     "hints": [
       "Both are borrowed words. Plural: симптомы, диагнозы."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.at-the-doctor"
+    ]
   },
   {
     "id": "ru-he-a2-7",
@@ -311,7 +392,10 @@
     "hints": [
       "'Со вчерашнего дня' = since yesterday (genitive). Compare with 'с самого утра' for 'since this morning'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "health.at-the-doctor"
+    ]
   },
   {
     "id": "ru-he-b1-1",
@@ -325,6 +409,9 @@
     "acceptedAnswers": [
       "Врач сказал мне отдыхать неделю и избегать стресса.",
       "Врач сказал, чтобы я отдыхал неделю и избегал стресса."
+    ],
+    "skills": [
+      "health.treatment"
     ]
   },
   {
@@ -336,7 +423,10 @@
     "hints": [
       "'Повышенное давление' = elevated/high blood pressure. 'Немного' = slightly."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "health.conditions"
+    ]
   },
   {
     "id": "ru-he-b1-3",
@@ -354,7 +444,10 @@
       "восстановительную",
       "восстановительный"
     ],
-    "translation": "After the surgery, the patient was prescribed a course of rehabilitation therapy."
+    "translation": "After the surgery, the patient was prescribed a course of rehabilitation therapy.",
+    "skills": [
+      "health.treatment"
+    ]
   },
   {
     "id": "ru-he-b1-4",
@@ -365,7 +458,10 @@
     "hints": [
       "Listen for 'хронический стресс' and 'иммунную систему' (accusative)."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "health.conditions"
+    ]
   },
   {
     "id": "ru-he-b1-5",
@@ -376,7 +472,10 @@
     "hints": [
       "'Острый' also means sharp or spicy — context determines the meaning."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.conditions"
+    ]
   },
   {
     "id": "ru-he-b1-6",
@@ -386,6 +485,9 @@
     "correctAnswer": "Её выписали из больницы через пять дней.",
     "hints": [
       "'Выписать из больницы' = to discharge from hospital (perfective). 'Через пять дней' = after five days."
+    ],
+    "skills": [
+      "health.treatment"
     ]
   },
   {
@@ -398,7 +500,10 @@
     "hints": [
       "'Записаться к + dative' = to make an appointment with. 'Терапевт' = GP/general practitioner."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "health.treatment"
+    ]
   },
   {
     "id": "ru-he-b1-8",
@@ -409,7 +514,10 @@
     "hints": [
       "'Стоять в очереди на' + accusative = to be on a waiting list for. Present tense + 'уже' for ongoing duration."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "health.treatment"
+    ]
   },
   {
     "id": "ru-he-b2-1",
@@ -419,6 +527,9 @@
     "correctAnswer": "Профилактическая медицина снижает долгосрочную нагрузку на систему здравоохранения.",
     "hints": [
       "'Снижать нагрузку на' + accusative = to reduce the burden on. 'Здравоохранение' = public healthcare."
+    ],
+    "skills": [
+      "health.risks-and-outcomes"
     ]
   },
   {
@@ -437,7 +548,10 @@
       "бесконтрольным приёмом",
       "бесконтрольному приёму"
     ],
-    "translation": "Doctors warn about the risks of taking antibiotics without control or a prescription."
+    "translation": "Doctors warn about the risks of taking antibiotics without control or a prescription.",
+    "skills": [
+      "health.risks-and-outcomes"
+    ]
   },
   {
     "id": "ru-he-b2-3",
@@ -447,6 +561,9 @@
     "correctAnswer": "Психическое здоровье всё больше признаётся столь же важным, как и физическое.",
     "hints": [
       "'Признаваться' = to be recognized (imperfective passive). 'Столь же … как и' = just as … as."
+    ],
+    "skills": [
+      "health.risks-and-outcomes"
     ]
   },
   {
@@ -458,7 +575,10 @@
     "hints": [
       "'Противопоказание' = contraindication. Plural: противопоказания. Common in medical instructions."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.risks-and-outcomes"
+    ]
   },
   {
     "id": "ru-he-b2-6",
@@ -468,6 +588,9 @@
     "correctAnswer": "Исследование выявило значимую корреляцию между недосыпанием и сердечно-сосудистыми заболеваниями.",
     "hints": [
       "'Выявить' = to identify/reveal (perfective). 'Между' + instrumental for 'between'."
+    ],
+    "skills": [
+      "health.risks-and-outcomes"
     ]
   },
   {
@@ -480,6 +603,9 @@
     "hints": [
       "'Держаться' = to persist/stay (of temperature). 'Нет аппетита' = no appetite (genitive after 'нет')."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "health.specialist-care"
+    ]
   }
 ]

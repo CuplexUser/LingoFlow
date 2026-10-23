@@ -7,6 +7,9 @@
     "correctAnswer": "Hello, how are you?",
     "hints": [
       "'How are you?' is a greeting; the usual reply is short, like 'Fine, thanks.'"
+    ],
+    "skills": [
+      "essentials.greetings"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "Thank you very much for your help.",
     "hints": [
       "'Thank you for' + a noun: 'for your help', 'for the coffee'."
+    ],
+    "skills": [
+      "essentials.politeness"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "I do not understand this sentence.",
     "hints": [
       "Negation puts 'do not' (often 'don't') before the verb."
+    ],
+    "skills": [
+      "essentials.not-understanding"
     ]
   },
   {
@@ -37,6 +46,9 @@
     "correctAnswer": "Excuse me, where is the bathroom?",
     "hints": [
       "'Excuse me' gets a stranger's attention. Americans say 'bathroom' or 'restroom'."
+    ],
+    "skills": [
+      "essentials.politeness"
     ]
   },
   {
@@ -48,7 +60,10 @@
     "hints": [
       "A basic introduction."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "en-es-a1-6",
@@ -60,7 +75,10 @@
       "A polite word you add to requests."
     ],
     "exerciseType": "flashcard",
-    "imageUrl": "/images/placeholder.svg"
+    "imageUrl": "/images/placeholder.svg",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "en-es-a1-7",
@@ -71,7 +89,10 @@
     "hints": [
       "A short positive reply."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "en-es-a1-8",
@@ -82,7 +103,10 @@
     "hints": [
       "Pick a polite reply."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "en-es-a1-9",
@@ -93,7 +117,10 @@
     "hints": [
       "A greeting for the start of the day."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "en-es-a1-10",
@@ -104,7 +131,10 @@
     "hints": [
       "Use the correct form of 'to be'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "en-es-a1-11",
@@ -114,6 +144,9 @@
     "correctAnswer": "Goodbye, see you later!",
     "hints": [
       "A common farewell."
+    ],
+    "skills": [
+      "essentials.greetings"
     ]
   },
   {
@@ -125,7 +158,10 @@
     "hints": [
       "Which word do you use to apologize?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "en-es-a1-13",
@@ -136,7 +172,10 @@
     "hints": [
       "Ask for assistance politely."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "en-es-a1-14",
@@ -147,7 +186,10 @@
     "hints": [
       "A greeting when meeting someone new."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "en-es-a1-15",
@@ -157,6 +199,9 @@
     "correctAnswer": "I am sorry, I do not know.",
     "hints": [
       "Practice admitting you do not know something."
+    ],
+    "skills": [
+      "essentials.not-understanding"
     ]
   },
   {
@@ -167,7 +212,10 @@
     "hints": [
       "A polite clarification request."
     ],
-    "id": "en-es-a1-53"
+    "id": "en-es-a1-53",
+    "skills": [
+      "essentials.not-understanding"
+    ]
   },
   {
     "level": "a1",
@@ -178,7 +226,10 @@
       "Present continuous can also work in context."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-es-a1-54"
+    "id": "en-es-a1-54",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "level": "a1",
@@ -189,7 +240,10 @@
       "Core classroom question."
     ],
     "exerciseType": "flashcard",
-    "id": "en-es-a1-55"
+    "id": "en-es-a1-55",
+    "skills": [
+      "essentials.not-understanding"
+    ]
   },
   {
     "level": "a1",
@@ -200,7 +254,10 @@
       "Polite expression for support."
     ],
     "exerciseType": "pronunciation",
-    "id": "en-es-a1-56"
+    "id": "en-es-a1-56",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "en-es-4",
@@ -210,6 +267,9 @@
     "correctAnswer": "Could you speak more slowly, please?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -220,6 +280,9 @@
     "correctAnswer": "I am learning English every day.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -230,6 +293,9 @@
     "correctAnswer": "Could you repeat that one more time?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -242,7 +308,10 @@
       "Describe a daily routine.",
       "Use the present tense."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.now-and-yesterday"
+    ]
   },
   {
     "id": "en-es-a2-5",
@@ -253,7 +322,10 @@
     "hints": [
       "Use the past tense of 'go'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "essentials.now-and-yesterday"
+    ]
   },
   {
     "id": "en-es-a2-6",
@@ -264,7 +336,10 @@
     "hints": [
       "A polite request for directions."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "id": "en-es-a2-7",
@@ -275,7 +350,10 @@
     "hints": [
       "Ask politely for help."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "id": "en-es-a2-8",
@@ -286,7 +364,10 @@
     "hints": [
       "Use the past tense of 'buy'."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "essentials.errands"
+    ]
   },
   {
     "id": "en-es-a2-9",
@@ -297,7 +378,10 @@
     "hints": [
       "Which word means the paper you get after paying?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "essentials.errands"
+    ]
   },
   {
     "id": "en-es-a2-10",
@@ -308,7 +392,10 @@
     "hints": [
       "To say you are sorry for something."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "id": "en-es-a2-11",
@@ -318,6 +405,9 @@
     "correctAnswer": "I left my bag on the bus.",
     "hints": [
       "Use the past tense of 'leave'."
+    ],
+    "skills": [
+      "essentials.errands"
     ]
   },
   {
@@ -329,7 +419,10 @@
     "hints": [
       "Use the correct present tense form."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "essentials.now-and-yesterday"
+    ]
   },
   {
     "level": "a2",
@@ -339,7 +432,10 @@
     "hints": [
       "Use this during misunderstandings."
     ],
-    "id": "en-es-a2-61"
+    "id": "en-es-a2-61",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "level": "a2",
@@ -350,7 +446,10 @@
       "Good for checking comprehension."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-es-a2-62"
+    "id": "en-es-a2-62",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "level": "a2",
@@ -361,7 +460,10 @@
       "Use adverbs with routine verbs."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-es-a2-63"
+    "id": "en-es-a2-63",
+    "skills": [
+      "essentials.now-and-yesterday"
+    ]
   },
   {
     "level": "a2",
@@ -372,7 +474,10 @@
       "Shows near-miss actions."
     ],
     "exerciseType": "pronunciation",
-    "id": "en-es-a2-64"
+    "id": "en-es-a2-64",
+    "skills": [
+      "essentials.errands"
+    ]
   },
   {
     "id": "en-es-6",
@@ -382,6 +487,9 @@
     "correctAnswer": "I made a mistake, but I will try again.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -392,6 +500,9 @@
     "correctAnswer": "I would like to improve my pronunciation.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -402,6 +513,9 @@
     "correctAnswer": "I understand the idea, but I need more practice.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -413,7 +527,10 @@
     "hints": [
       "Connect two ideas with 'although'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.ongoing-and-regret"
+    ]
   },
   {
     "id": "en-es-b1-5",
@@ -424,7 +541,10 @@
     "hints": [
       "Use present perfect continuous."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "essentials.ongoing-and-regret"
+    ]
   },
   {
     "id": "en-es-b1-6",
@@ -435,7 +555,10 @@
     "hints": [
       "Give a helpful explanation."
     ],
-    "exerciseType": "dialogue_turn"
+    "exerciseType": "dialogue_turn",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "id": "en-es-b1-7",
@@ -446,7 +569,10 @@
     "hints": [
       "Express regret about a past action."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.ongoing-and-regret"
+    ]
   },
   {
     "id": "en-es-b1-8",
@@ -457,7 +583,10 @@
     "hints": [
       "Use an indirect question for politeness."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "id": "en-es-b1-9",
@@ -468,7 +597,10 @@
     "hints": [
       "Which word means speaking a language smoothly?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "essentials.talking-about-learning"
+    ]
   },
   {
     "id": "en-es-b1-10",
@@ -478,6 +610,9 @@
     "correctAnswer": "The instructions were not clear enough.",
     "hints": [
       "Use 'enough' after the adjective."
+    ],
+    "skills": [
+      "essentials.requests-and-complaints"
     ]
   },
   {
@@ -490,7 +625,10 @@
       "Use present perfect continuous for duration.",
       "Connect the two ideas."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "essentials.ongoing-and-regret"
+    ]
   },
   {
     "id": "en-es-b1-12",
@@ -501,7 +639,10 @@
     "hints": [
       "To express dissatisfaction about something."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "level": "b1",
@@ -511,7 +652,10 @@
     "hints": [
       "Present perfect continuous for duration."
     ],
-    "id": "en-es-b1-69"
+    "id": "en-es-b1-69",
+    "skills": [
+      "essentials.talking-about-learning"
+    ]
   },
   {
     "level": "b1",
@@ -522,7 +666,10 @@
       "Collaborative discussion language."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-es-b1-70"
+    "id": "en-es-b1-70",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "level": "b1",
@@ -533,7 +680,10 @@
       "Natural reflection sentence."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-es-b1-71"
+    "id": "en-es-b1-71",
+    "skills": [
+      "essentials.talking-about-learning"
+    ]
   },
   {
     "level": "b1",
@@ -544,7 +694,10 @@
       "Goal-focused phrasing."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-es-b1-72"
+    "id": "en-es-b1-72",
+    "skills": [
+      "essentials.talking-about-learning"
+    ]
   },
   {
     "id": "en-es-8",
@@ -554,6 +707,9 @@
     "correctAnswer": "I can explain my opinion with clear arguments.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -564,6 +720,9 @@
     "correctAnswer": "I want to speak naturally, not only correctly.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -575,6 +734,9 @@
     "hints": [
       "Consider the register.",
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -586,7 +748,10 @@
     "hints": [
       "Use the comparative structure 'the more... the more...'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "essentials.advanced-patterns"
+    ]
   },
   {
     "id": "en-es-b2-5",
@@ -597,7 +762,10 @@
     "hints": [
       "Use inverted third conditional."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.advanced-patterns"
+    ]
   },
   {
     "id": "en-es-b2-6",
@@ -608,7 +776,10 @@
     "hints": [
       "Respond professionally and politely."
     ],
-    "exerciseType": "dialogue_turn"
+    "exerciseType": "dialogue_turn",
+    "skills": [
+      "essentials.clarifying"
+    ]
   },
   {
     "id": "en-es-b2-7",
@@ -619,7 +790,10 @@
     "hints": [
       "Which word means open to more than one interpretation?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "essentials.clarifying"
+    ]
   },
   {
     "id": "en-es-b2-8",
@@ -630,7 +804,10 @@
     "hints": [
       "Focus on natural phrasing and word order."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   },
   {
     "id": "en-es-b2-9",
@@ -640,6 +817,9 @@
     "correctAnswer": "I would rather rephrase the question than give a misleading answer.",
     "hints": [
       "Use 'would rather... than...' for preferences."
+    ],
+    "skills": [
+      "essentials.clarifying"
     ]
   },
   {
@@ -651,7 +831,10 @@
     "hints": [
       "Use 'despite' followed by a noun phrase."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   },
   {
     "id": "en-es-b2-11",
@@ -662,7 +845,10 @@
     "hints": [
       "To express the same idea using different words."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.clarifying"
+    ]
   },
   {
     "id": "en-es-b2-12",
@@ -672,6 +858,9 @@
     "correctAnswer": "Nuance is what separates adequate language from truly fluent speech.",
     "hints": [
       "Consider the register."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -683,7 +872,10 @@
     "hints": [
       "Focus on natural phrasing and word order."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   },
   {
     "level": "b2",
@@ -693,7 +885,10 @@
     "hints": [
       "Academic-style phrasing."
     ],
-    "id": "en-es-b2-77"
+    "id": "en-es-b2-77",
+    "skills": [
+      "essentials.advanced-patterns"
+    ]
   },
   {
     "level": "b2",
@@ -704,7 +899,10 @@
       "Useful for advanced accuracy."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-es-b2-78"
+    "id": "en-es-b2-78",
+    "skills": [
+      "essentials.clarifying"
+    ]
   },
   {
     "level": "b2",
@@ -715,7 +913,10 @@
       "Use concession for balanced statements."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-es-b2-79"
+    "id": "en-es-b2-79",
+    "skills": [
+      "essentials.advanced-patterns"
+    ]
   },
   {
     "level": "b2",
@@ -726,6 +927,9 @@
       "Shows advanced strategy."
     ],
     "exerciseType": "dictation_sentence",
-    "id": "en-es-b2-80"
+    "id": "en-es-b2-80",
+    "skills": [
+      "essentials.clarifying"
+    ]
   }
 ]

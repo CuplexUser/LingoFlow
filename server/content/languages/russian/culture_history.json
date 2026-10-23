@@ -8,7 +8,10 @@
     "hints": [
       "A simple opinion sentence."
     ],
-    "imageUrl": "/images/museum-arch.svg"
+    "imageUrl": "/images/museum-arch.svg",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-2",
@@ -19,7 +22,10 @@
     "hints": [
       "Match the phrase."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-3",
@@ -30,7 +36,10 @@
     "hints": [
       "A simple description."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-4",
@@ -42,7 +51,10 @@
       "Russia's most famous fortress and seat of government."
     ],
     "exerciseType": "flashcard",
-    "culturalNote": "The Moscow Kremlin is a symbol of Russia and a UNESCO World Heritage Site."
+    "culturalNote": "The Moscow Kremlin is a symbol of Russia and a UNESCO World Heritage Site.",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-5",
@@ -53,7 +65,10 @@
     "hints": [
       "'Красная' here means beautiful/red — the word originally meant beautiful in Old Russian."
     ],
-    "culturalNote": "In Old Russian the word 'красная' meant 'beautiful', not 'red in color' — hence the name of Red Square."
+    "culturalNote": "In Old Russian the word 'красная' meant 'beautiful', not 'red in color' — hence the name of Red Square.",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-6",
@@ -64,7 +79,10 @@
     "hints": [
       "A religious building, common across Russian towns."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-7",
@@ -74,6 +92,9 @@
     "correctAnswer": "Мне нравится русское искусство.",
     "hints": [
       "'Нравиться' + dative: 'Мне нравится' = I like."
+    ],
+    "skills": [
+      "culture_history.arts-and-festivals"
     ]
   },
   {
@@ -84,6 +105,9 @@
     "correctAnswer": "Здесь платный вход?",
     "hints": [
       "A practical question at any museum or monument."
+    ],
+    "skills": [
+      "culture_history.places"
     ]
   },
   {
@@ -94,6 +118,9 @@
     "correctAnswer": "Этот дворец очень старый.",
     "hints": [
       "'Дворец' is masculine — adjectives must agree: 'старый'."
+    ],
+    "skills": [
+      "culture_history.places"
     ]
   },
   {
@@ -105,7 +132,10 @@
     "hints": [
       "A structure built to honor someone or something."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-11",
@@ -117,7 +147,10 @@
       "Russia is world-famous for this art form."
     ],
     "exerciseType": "flashcard",
-    "culturalNote": "The Bolshoi and Mariinsky theaters are the two main centers of Russian ballet."
+    "culturalNote": "The Bolshoi and Mariinsky theaters are the two main centers of Russian ballet.",
+    "skills": [
+      "culture_history.arts-and-festivals"
+    ]
   },
   {
     "id": "ru-ch-a1-12",
@@ -127,6 +160,9 @@
     "correctAnswer": "Большой театр очень знаменит.",
     "hints": [
       "'Знаменит' is a short-form adjective — common in formal descriptions of places."
+    ],
+    "skills": [
+      "culture_history.arts-and-festivals"
     ]
   },
   {
@@ -139,7 +175,10 @@
       "One of Russia's most iconic souvenirs — dolls inside dolls inside dolls."
     ],
     "exerciseType": "flashcard",
-    "culturalNote": "The matryoshka doll appeared in the late 19th century and became a symbol of Russia around the world."
+    "culturalNote": "The matryoshka doll appeared in the late 19th century and became a symbol of Russia around the world.",
+    "skills": [
+      "culture_history.arts-and-festivals"
+    ]
   },
   {
     "id": "ru-ch-a1-14",
@@ -151,7 +190,10 @@
       "A traditional heated urn for brewing tea — a centerpiece of Russian hospitality."
     ],
     "exerciseType": "flashcard",
-    "culturalNote": "The samovar has been an essential part of the Russian tea tradition for three centuries."
+    "culturalNote": "The samovar has been an essential part of the Russian tea tradition for three centuries.",
+    "skills": [
+      "culture_history.arts-and-festivals"
+    ]
   },
   {
     "id": "ru-ch-a1-15",
@@ -170,6 +212,9 @@
       "поэта",
       "поэтом",
       "поэты"
+    ],
+    "skills": [
+      "culture_history.arts-and-festivals"
     ]
   },
   {
@@ -181,7 +226,10 @@
     "hints": [
       "Sacred images central to the Russian Orthodox tradition — not a phone app icon!"
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "culture_history.arts-and-festivals"
+    ]
   },
   {
     "id": "ru-ch-a1-17",
@@ -192,7 +240,10 @@
     "hints": [
       "'Хочу' + infinitive = I want to do something. 'Посетить' is the perfective infinitive."
     ],
-    "culturalNote": "The Hermitage in St Petersburg is one of the largest museums in the world, holding more than 3 million items."
+    "culturalNote": "The Hermitage in St Petersburg is one of the largest museums in the world, holding more than 3 million items.",
+    "skills": [
+      "culture_history.places"
+    ]
   },
   {
     "id": "ru-ch-a1-18",
@@ -203,7 +254,10 @@
     "hints": [
       "Careful — the same word covers both 'history' and 'story' in Russian!"
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "culture_history.arts-and-festivals"
+    ]
   },
   {
     "id": "ru-ch-a1-19",
@@ -220,7 +274,10 @@
     "hints": [
       "Open it up and find a smaller one inside — and again, and again."
     ],
-    "exerciseType": "multiple_choice"
+    "exerciseType": "multiple_choice",
+    "skills": [
+      "culture_history.arts-and-festivals"
+    ]
   },
   {
     "id": "ru-ch-a1-20",
@@ -231,7 +288,10 @@
     "hints": [
       "A Latin-origin word used in many European languages — can you spot the pattern?"
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "culture_history.arts-and-festivals"
+    ]
   },
   {
     "id": "ru-ch-a2",
@@ -242,7 +302,10 @@
     "hints": [
       "'Пьют' = they drink (3rd-person plural, used impersonally). 'С вареньем' = with jam (instrumental case)."
     ],
-    "culturalNote": "Tea is central to Russian hospitality and is often served with jam, honey, or sweets."
+    "culturalNote": "Tea is central to Russian hospitality and is often served with jam, honey, or sweets.",
+    "skills": [
+      "culture_history.customs"
+    ]
   },
   {
     "id": "ru-ch-a2-2",
@@ -252,6 +315,9 @@
     "correctAnswer": "Это здание очень старое.",
     "hints": [
       "Describe the place."
+    ],
+    "skills": [
+      "culture_history.sights"
     ]
   },
   {
@@ -262,6 +328,9 @@
     "correctAnswer": "Гид говорит очень понятно.",
     "hints": [
       "Talk about a guide."
+    ],
+    "skills": [
+      "culture_history.sights"
     ]
   },
   {
@@ -273,7 +342,10 @@
     "hints": [
       "Use a dash instead of 'is' when both subject and predicate are nouns in Russian."
     ],
-    "culturalNote": "Maslenitsa is celebrated in the week before Lent; the main treat is bliny (pancakes)."
+    "culturalNote": "Maslenitsa is celebrated in the week before Lent; the main treat is bliny (pancakes).",
+    "skills": [
+      "culture_history.customs"
+    ]
   },
   {
     "id": "ru-ch-a2-5",
@@ -287,6 +359,9 @@
     "culturalNote": "The Tretyakov Gallery in Moscow holds the world's largest collection of Russian art.",
     "acceptedAnswers": [
       "Прошлым летом я посетила Третьяковскую галерею."
+    ],
+    "skills": [
+      "culture_history.sights"
     ]
   },
   {
@@ -305,6 +380,9 @@
       "обуви",
       "обувью",
       "обувной"
+    ],
+    "skills": [
+      "culture_history.customs"
     ]
   },
   {
@@ -315,6 +393,9 @@
     "correctAnswer": "Когда была построена эта церковь?",
     "hints": [
       "Passive past: 'была построена' = was built. 'Церковь' is feminine."
+    ],
+    "skills": [
+      "culture_history.sights"
     ]
   },
   {
@@ -326,7 +407,10 @@
     "hints": [
       "'Основал' is the perfective past of 'основывать' = to found/establish."
     ],
-    "culturalNote": "St Petersburg was founded in 1703 and served as the capital of Russia until 1918."
+    "culturalNote": "St Petersburg was founded in 1703 and served as the capital of Russia until 1918.",
+    "skills": [
+      "culture_history.sights"
+    ]
   },
   {
     "id": "ru-ch-a2-9",
@@ -337,7 +421,10 @@
     "hints": [
       "'Больше, чем' = more than. New Year is the main winter holiday in Russia."
     ],
-    "culturalNote": "Russia's New Year tree tradition carried over from the Soviet era, when religious Christmas celebrations were discouraged."
+    "culturalNote": "Russia's New Year tree tradition carried over from the Soviet era, when religious Christmas celebrations were discouraged.",
+    "skills": [
+      "culture_history.customs"
+    ]
   },
   {
     "id": "ru-ch-a2-10",
@@ -349,7 +436,10 @@
       "Stories passed down through generations — think of Baba Yaga!"
     ],
     "exerciseType": "flashcard",
-    "culturalNote": "Baba Yaga is the most famous character in Russian folk tales."
+    "culturalNote": "Baba Yaga is the most famous character in Russian folk tales.",
+    "skills": [
+      "culture_history.customs"
+    ]
   },
   {
     "id": "ru-ch-a2-11",
@@ -360,7 +450,10 @@
     "hints": [
       "'Написал' (perfective past) = composed. Russian uses 'написал' for both written and musical works."
     ],
-    "culturalNote": "'Swan Lake' (1876) is one of the most frequently performed ballets in the world."
+    "culturalNote": "'Swan Lake' (1876) is one of the most frequently performed ballets in the world.",
+    "skills": [
+      "culture_history.sights"
+    ]
   },
   {
     "id": "ru-ch-a2-12",
@@ -379,6 +472,9 @@
       "космос",
       "космоса",
       "космосом"
+    ],
+    "skills": [
+      "culture_history.sights"
     ]
   },
   {
@@ -390,7 +486,10 @@
     "hints": [
       "1917 saw two of them in Russia — February and October."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "culture_history.sights"
+    ]
   },
   {
     "id": "ru-ch-a2-14",
@@ -400,6 +499,9 @@
     "correctAnswer": "Из чего сделана эта статуя?",
     "hints": [
       "'Из чего' = out of what. 'Сделана' is a short-form passive participle, feminine to agree with 'статуя'."
+    ],
+    "skills": [
+      "culture_history.sights"
     ]
   },
   {
@@ -418,7 +520,10 @@
       "It began as the Winter Palace of the tsars — and grew from there."
     ],
     "exerciseType": "multiple_choice",
-    "culturalNote": "The Hermitage occupies five historic buildings, including the Winter Palace."
+    "culturalNote": "The Hermitage occupies five historic buildings, including the Winter Palace.",
+    "skills": [
+      "culture_history.sights"
+    ]
   },
   {
     "id": "ru-ch-a2-16",
@@ -429,7 +534,10 @@
     "hints": [
       "'Бывают' = occur/take place regularly. 'Каждое лето' = every summer (accusative time expression)."
     ],
-    "culturalNote": "The White Nights are a period from May to July when the sun barely sets in St Petersburg."
+    "culturalNote": "The White Nights are a period from May to July when the sun barely sets in St Petersburg.",
+    "skills": [
+      "culture_history.customs"
+    ]
   },
   {
     "id": "ru-ch-a2-17",
@@ -441,7 +549,10 @@
       "Larger and grander than a church. Saint Basil's on Red Square is a famous example."
     ],
     "exerciseType": "flashcard",
-    "culturalNote": "St Basil's Cathedral on Red Square is a 16th-century architectural masterpiece."
+    "culturalNote": "St Basil's Cathedral on Red Square is a 16th-century architectural masterpiece.",
+    "skills": [
+      "culture_history.sights"
+    ]
   },
   {
     "id": "ru-ch-a2-18",
@@ -460,6 +571,9 @@
       "опера",
       "оперой",
       "опере"
+    ],
+    "skills": [
+      "culture_history.sights"
     ]
   },
   {
@@ -471,7 +585,10 @@
     "hints": [
       "'Отмечается' = is celebrated (impersonal passive). '9 мая' = the ninth of May."
     ],
-    "culturalNote": "Victory Day is one of Russia's main public holidays, marking the victory in the Second World War."
+    "culturalNote": "Victory Day is one of Russia's main public holidays, marking the victory in the Second World War.",
+    "skills": [
+      "culture_history.customs"
+    ]
   },
   {
     "id": "ru-ch-a2-20",
@@ -489,7 +606,10 @@
       "There were actually two revolutions that year — February and October."
     ],
     "exerciseType": "multiple_choice",
-    "culturalNote": "The October Revolution of 1917 led to the establishment of Soviet rule and radically changed the course of world history."
+    "culturalNote": "The October Revolution of 1917 led to the establishment of Soviet rule and radically changed the course of world history.",
+    "skills": [
+      "culture_history.sights"
+    ]
   },
   {
     "id": "ru-ch-b1",
@@ -501,7 +621,10 @@
     "hints": [
       "Answer like a guide."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "culture_history.historical-change"
+    ]
   },
   {
     "id": "ru-ch-b1-2",
@@ -513,7 +636,10 @@
     "hints": [
       "Answer simply and clearly."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "culture_history.historical-change"
+    ]
   },
   {
     "id": "ru-ch-b1-3",
@@ -524,7 +650,10 @@
     "hints": [
       "A custom passed down through generations. Feminine noun."
     ],
-    "exerciseType": "matching"
+    "exerciseType": "matching",
+    "skills": [
+      "culture_history.heritage"
+    ]
   },
   {
     "id": "ru-ch-b1-4",
@@ -535,7 +664,10 @@
     "hints": [
       "'Оказать влияние на' = to have an influence on. Accusative after 'на'."
     ],
-    "culturalNote": "Tolstoy, Dostoevsky, and Chekhov are among the most widely translated writers in the world."
+    "culturalNote": "Tolstoy, Dostoevsky, and Chekhov are among the most widely translated writers in the world.",
+    "skills": [
+      "culture_history.historical-change"
+    ]
   },
   {
     "id": "ru-ch-b1-5",
@@ -546,7 +678,10 @@
     "hints": [
       "'Соединять с' = to connect with. 'С Владивостоком' is in the instrumental case."
     ],
-    "culturalNote": "The Trans-Siberian Railway is the longest railway in the world (about 9,288 km)."
+    "culturalNote": "The Trans-Siberian Railway is the longest railway in the world (about 9,288 km).",
+    "skills": [
+      "culture_history.historical-change"
+    ]
   },
   {
     "id": "ru-ch-b1-6",
@@ -557,7 +692,10 @@
     "hints": [
       "Russian dash replaces 'is' between two nouns. 'Русской' = genitive feminine adjective."
     ],
-    "culturalNote": "The banya is a traditional Russian bathhouse, often visited together with family or friends."
+    "culturalNote": "The banya is a traditional Russian bathhouse, often visited together with family or friends.",
+    "skills": [
+      "culture_history.heritage"
+    ]
   },
   {
     "id": "ru-ch-b1-7",
@@ -575,6 +713,9 @@
       "праздник",
       "праздника",
       "праздники"
+    ],
+    "skills": [
+      "culture_history.heritage"
     ]
   },
   {
@@ -585,6 +726,9 @@
     "correctAnswer": "Советская эпоха оставила глубокий след в российской архитектуре.",
     "hints": [
       "'Оставить след в' = to leave a mark on. 'В архитектуре' uses the prepositional case."
+    ],
+    "skills": [
+      "culture_history.historical-change"
     ]
   },
   {
@@ -595,6 +739,9 @@
     "correctAnswer": "Что символизирует этот знак в русской культуре?",
     "hints": [
       "'Символизировать' = to symbolize. 'В русской культуре' = prepositional case."
+    ],
+    "skills": [
+      "culture_history.heritage"
     ]
   },
   {
@@ -606,7 +753,10 @@
     "hints": [
       "Superlatives in Russian: 'самое глубокое' = the deepest (neuter adjective agreeing with 'озеро')."
     ],
-    "culturalNote": "Lake Baikal holds about 20% of the world's unfrozen surface fresh water and is a UNESCO World Heritage Site."
+    "culturalNote": "Lake Baikal holds about 20% of the world's unfrozen surface fresh water and is a UNESCO World Heritage Site.",
+    "skills": [
+      "culture_history.heritage"
+    ]
   },
   {
     "id": "ru-ch-b1-11",
@@ -617,7 +767,10 @@
     "hints": [
       "'Считается' + instrumental = is considered to be. 'Основоположником' is instrumental of 'основоположник'."
     ],
-    "culturalNote": "Pushkin's novel in verse 'Eugene Onegin' is often called an encyclopedia of 19th-century Russian life."
+    "culturalNote": "Pushkin's novel in verse 'Eugene Onegin' is often called an encyclopedia of 19th-century Russian life.",
+    "skills": [
+      "culture_history.historical-change"
+    ]
   },
   {
     "id": "ru-ch-b1-12",
@@ -635,6 +788,9 @@
       "произведения",
       "произведение",
       "произведениями"
+    ],
+    "skills": [
+      "culture_history.historical-change"
     ]
   },
   {
@@ -645,6 +801,9 @@
     "correctAnswer": "Здесь разрешено фотографировать?",
     "hints": [
       "'Разрешено' + infinitive = is it permitted to. A practical question in any Russian museum."
+    ],
+    "skills": [
+      "culture_history.heritage"
     ]
   },
   {
@@ -664,6 +823,9 @@
       "полетела",
       "полетели",
       "полететь"
+    ],
+    "skills": [
+      "culture_history.historical-change"
     ]
   },
   {
@@ -682,7 +844,10 @@
       "This spring festival precedes the Orthodox Lent — and involves a lot of butter."
     ],
     "exerciseType": "multiple_choice",
-    "culturalNote": "Bliny symbolize the sun at Maslenitsa — golden, round, and hot."
+    "culturalNote": "Bliny symbolize the sun at Maslenitsa — golden, round, and hot.",
+    "skills": [
+      "culture_history.heritage"
+    ]
   },
   {
     "id": "ru-ch-b1-16",
@@ -693,7 +858,10 @@
     "hints": [
       "'Группа городов' = a group of cities (genitive plural). 'К северо-востоку от' = to the north-east of."
     ],
-    "culturalNote": "The Golden Ring towns — Suzdal, Vladimir, and Rostov — preserve masterpieces of medieval architecture."
+    "culturalNote": "The Golden Ring towns — Suzdal, Vladimir, and Rostov — preserve masterpieces of medieval architecture.",
+    "skills": [
+      "culture_history.heritage"
+    ]
   },
   {
     "id": "ru-ch-b1-17",
@@ -712,6 +880,9 @@
       "высотки",
       "высотками",
       "высотка"
+    ],
+    "skills": [
+      "culture_history.historical-change"
     ]
   },
   {
@@ -722,6 +893,9 @@
     "correctAnswer": "Эта фреска датируется XII веком.",
     "hints": [
       "'Датироваться' + instrumental = to date from. 'XII веком' is the instrumental: 'the 12th century'."
+    ],
+    "skills": [
+      "culture_history.historical-change"
     ]
   },
   {
@@ -733,7 +907,10 @@
     "hints": [
       "Noun + dash + noun: no verb 'is' needed. 'Берёза' is the subject, 'символ' the predicate noun."
     ],
-    "culturalNote": "The birch is celebrated in Russian poetry and folk songs as an image of the homeland."
+    "culturalNote": "The birch is celebrated in Russian poetry and folk songs as an image of the homeland.",
+    "skills": [
+      "culture_history.heritage"
+    ]
   },
   {
     "id": "ru-ch-b1-20",
@@ -744,7 +921,10 @@
     "hints": [
       "'Исследовать' = to explore/investigate. 'Психологию вины' is the accusative object."
     ],
-    "culturalNote": "'Crime and Punishment' (1866) has been translated into more than 170 languages."
+    "culturalNote": "'Crime and Punishment' (1866) has been translated into more than 170 languages.",
+    "skills": [
+      "culture_history.historical-change"
+    ]
   },
   {
     "id": "ru-ch-b2",
@@ -755,7 +935,10 @@
     "hints": [
       "'Не могли бы вы' = polite 'could you'; 'откуда пошла' = where it comes from."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
+    ]
   },
   {
     "id": "ru-ch-b2-2",
@@ -766,7 +949,10 @@
     "hints": [
       "A verbal noun subject ('изучение') + 'помогать' + dative + infinitive."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "culture_history.interpreting-history"
+    ]
   },
   {
     "id": "ru-ch-b2-3",
@@ -777,7 +963,10 @@
     "hints": [
       "An impersonal 3rd-person plural ('передают') renders the English passive; 'до сих пор' = still."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
+    ]
   },
   {
     "id": "ru-ch-b2-4",
@@ -788,7 +977,10 @@
     "hints": [
       "'На протяжении' + genitive = over the course of. Imperfective 'формировало' stresses the ongoing process."
     ],
-    "culturalNote": "The Russian Orthodox Church has had a profound influence on art, architecture, and social customs."
+    "culturalNote": "The Russian Orthodox Church has had a profound influence on art, architecture, and social customs.",
+    "skills": [
+      "culture_history.interpreting-history"
+    ]
   },
   {
     "id": "ru-ch-b2-5",
@@ -798,6 +990,9 @@
     "correctAnswer": "Интеллигенция сыграла ключевую роль в формировании дореволюционной России.",
     "hints": [
       "'Сыграть роль в' = to play a role in. 'В формировании' — verbal noun in prepositional case."
+    ],
+    "skills": [
+      "culture_history.interpreting-history"
     ]
   },
   {
@@ -808,6 +1003,9 @@
     "correctAnswer": "Советская пропаганда изменила то, как россияне воспринимали свою собственную историю.",
     "hints": [
       "'То, как' introduces a clause meaning 'the way in which'. Perfective 'изменила' = transformed (fully)."
+    ],
+    "skills": [
+      "culture_history.interpreting-history"
     ]
   },
   {
@@ -826,6 +1024,9 @@
       "наследие",
       "наследия",
       "наследию"
+    ],
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
     ]
   },
   {
@@ -837,7 +1038,10 @@
     "hints": [
       "'Возникшее' is an active past participle (short relative clause) agreeing with 'движение' (neuter)."
     ],
-    "culturalNote": "Constructivism influenced graphic design, architecture, and industrial production around the world."
+    "culturalNote": "Constructivism influenced graphic design, architecture, and industrial production around the world.",
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
+    ]
   },
   {
     "id": "ru-ch-b2-9",
@@ -855,6 +1059,9 @@
       "источники",
       "источниками",
       "источнику"
+    ],
+    "skills": [
+      "culture_history.interpreting-history"
     ]
   },
   {
@@ -866,7 +1073,10 @@
     "hints": [
       "'На рубеже' = at the turn of. 'Расцвёл' = bloomed/flourished (perfective past of 'расцветать')."
     ],
-    "culturalNote": "The Silver Age gave the world poets such as Akhmatova, Blok, Pasternak, and Tsvetaeva."
+    "culturalNote": "The Silver Age gave the world poets such as Akhmatova, Blok, Pasternak, and Tsvetaeva.",
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
+    ]
   },
   {
     "id": "ru-ch-b2-11",
@@ -876,6 +1086,9 @@
     "correctAnswer": "Экспансия Российской империи на восток определила как её культуру, так и её конфликты.",
     "hints": [
       "'Как…, так и…' = both… and…. 'Определила' = shaped/determined (perfective past, feminine)."
+    ],
+    "skills": [
+      "culture_history.interpreting-history"
     ]
   },
   {
@@ -894,6 +1107,9 @@
       "дилемм",
       "дилеммами",
       "дилемма"
+    ],
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
     ]
   },
   {
@@ -904,6 +1120,9 @@
     "correctAnswer": "Чем история этого региона отличалась от истории остальной страны?",
     "hints": [
       "'Чем … отличаться от' = to differ in what way from. 'Остальной страны' = genitive of 'остальная страна'."
+    ],
+    "skills": [
+      "culture_history.interpreting-history"
     ]
   },
   {
@@ -915,7 +1134,10 @@
     "hints": [
       "'Вершина чего-то' = the pinnacle of something. 'Ювелиров' = genitive plural of 'ювелир' (jeweler)."
     ],
-    "culturalNote": "Carl Fabergé created 50 imperial eggs for Alexander III and Nicholas II between 1885 and 1916."
+    "culturalNote": "Carl Fabergé created 50 imperial eggs for Alexander III and Nicholas II between 1885 and 1916.",
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
+    ]
   },
   {
     "id": "ru-ch-b2-15",
@@ -933,6 +1155,9 @@
       "влияет",
       "влияние",
       "влиял"
+    ],
+    "skills": [
+      "culture_history.interpreting-history"
     ]
   },
   {
@@ -944,7 +1169,10 @@
     "hints": [
       "'Новаторский' = pioneering/innovative. 'В использовании' = in the use of (prepositional verbal noun)."
     ],
-    "culturalNote": "'Battleship Potemkin' (1925) is regarded as one of the greatest films of all time."
+    "culturalNote": "'Battleship Potemkin' (1925) is regarded as one of the greatest films of all time.",
+    "skills": [
+      "russian.culture_history.arts-and-traditions"
+    ]
   },
   {
     "id": "ru-ch-b2-17",
@@ -954,6 +1182,9 @@
     "correctAnswer": "Концепция «русской души» одними прославляется, другими оспаривается.",
     "hints": [
       "'Одними … другими' = by some … by others (instrumental). Two passive -ся verbs in parallel."
+    ],
+    "skills": [
+      "culture_history.interpreting-history"
     ]
   }
 ]

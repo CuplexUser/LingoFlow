@@ -7,6 +7,9 @@
     "correctAnswer": "Привет, как дела?",
     "hints": [
       "'Привет' is informal; with strangers use 'Здравствуйте'."
+    ],
+    "skills": [
+      "essentials.greetings"
     ]
   },
   {
@@ -21,6 +24,9 @@
     "acceptedAnswers": [
       "Большое спасибо за помощь.",
       "Большое спасибо за вашу помощь."
+    ],
+    "skills": [
+      "essentials.politeness"
     ]
   },
   {
@@ -31,6 +37,9 @@
     "correctAnswer": "Я не понимаю это предложение.",
     "hints": [
       "'Не' goes right before the verb."
+    ],
+    "skills": [
+      "essentials.not-understanding"
     ]
   },
   {
@@ -44,6 +53,9 @@
     ],
     "acceptedAnswers": [
       "Извините, где туалет?"
+    ],
+    "skills": [
+      "essentials.politeness"
     ]
   },
   {
@@ -56,7 +68,10 @@
       "A greeting used in the first half of the day."
     ],
     "exerciseType": "flashcard",
-    "imageUrl": "/images/placeholder.svg"
+    "imageUrl": "/images/placeholder.svg",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "ru-es-a1-6",
@@ -67,7 +82,10 @@
     "hints": [
       "Use the standard way to introduce yourself in Russian."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "ru-es-a1-7",
@@ -78,7 +96,10 @@
     "hints": [
       "A polite affirmative reply."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "ru-es-a1-8",
@@ -89,7 +110,10 @@
     "hints": [
       "A polite way to decline."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "ru-es-a1-9",
@@ -103,6 +127,9 @@
     "exerciseType": "pronunciation",
     "acceptedAnswers": [
       "Извините."
+    ],
+    "skills": [
+      "essentials.politeness"
     ]
   },
   {
@@ -114,7 +141,10 @@
     "hints": [
       "Combine a farewell with a future meeting."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "ru-es-a1-11",
@@ -126,7 +156,10 @@
     "hints": [
       "Give a positive reply to 'How are you?'"
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "ru-es-a1-12",
@@ -136,6 +169,9 @@
     "correctAnswer": "Я немного говорю по-русски.",
     "hints": [
       "Use немного (a little) before the verb."
+    ],
+    "skills": [
+      "essentials.greetings"
     ]
   },
   {
@@ -147,7 +183,10 @@
     "hints": [
       "Use the imperative form with пожалуйста."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "ru-es-a1-14",
@@ -158,7 +197,10 @@
     "hints": [
       "A question about price."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "ru-es-a1-15",
@@ -169,7 +211,10 @@
     "hints": [
       "An evening greeting."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "ru-es-4",
@@ -179,6 +224,9 @@
     "correctAnswer": "Можете говорить медленнее, пожалуйста?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -189,6 +237,9 @@
     "correctAnswer": "Я учу русский язык каждый день.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -199,6 +250,9 @@
     "correctAnswer": "Не могли бы вы повторить это ещё раз?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -212,6 +266,9 @@
     ],
     "acceptedAnswers": [
       "Не могли бы вы записать мне это?"
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -223,7 +280,10 @@
     "hints": [
       "Use ещё (yet/still) with negation."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "id": "ru-es-a2-6",
@@ -233,6 +293,9 @@
     "correctAnswer": "Что означает это слово?",
     "hints": [
       "Ask about the meaning of a word."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -249,6 +312,9 @@
     "exerciseType": "roleplay",
     "acceptedAnswers": [
       "Извините, я не знаю. Я не местная."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -260,7 +326,10 @@
     "hints": [
       "Use обычно for habitual actions."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.now-and-yesterday"
+    ]
   },
   {
     "id": "ru-es-a2-9",
@@ -278,6 +347,9 @@
       "учит",
       "учишь",
       "учим"
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -288,6 +360,9 @@
     "correctAnswer": "Мне нужно купить карту города.",
     "hints": [
       "Use мне нужно + infinitive for necessity."
+    ],
+    "skills": [
+      "essentials.errands"
     ]
   },
   {
@@ -300,7 +375,10 @@
       "A polite way to ask for directions.",
       "Use the formal Вы form."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "essentials.getting-help"
+    ]
   },
   {
     "id": "ru-es-a2-12",
@@ -311,7 +389,10 @@
     "hints": [
       "Contrast present and past using но (but)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.now-and-yesterday"
+    ]
   },
   {
     "id": "ru-es-a2-13",
@@ -321,6 +402,9 @@
     "correctAnswer": "Мне очень нравится этот город.",
     "hints": [
       "Use the dative construction: мне нравится."
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -331,6 +415,9 @@
     "correctAnswer": "Где я могу купить зарядку для телефона?",
     "hints": [
       "Use могу (can) + infinitive."
+    ],
+    "skills": [
+      "essentials.errands"
     ]
   },
   {
@@ -345,6 +432,9 @@
     ],
     "acceptedAnswers": [
       "После работы я пошла в магазин."
+    ],
+    "skills": [
+      "essentials.errands"
     ]
   },
   {
@@ -358,6 +448,9 @@
     ],
     "acceptedAnswers": [
       "Я сделала ошибку, но попробую снова."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -371,6 +464,9 @@
     ],
     "acceptedAnswers": [
       "Я хотела бы улучшить своё произношение."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -381,6 +477,9 @@
     "correctAnswer": "Я понимаю идею, но мне нужно больше практики.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -391,6 +490,9 @@
     "correctAnswer": "Я чувствую себя увереннее, когда говорю более длинными предложениями.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -413,6 +515,9 @@
     ],
     "acceptedAnswers": [
       "учила"
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -424,6 +529,9 @@
     "hints": [
       "Use мне кажется for expressing opinions.",
       "Note the genitive case after у."
+    ],
+    "skills": [
+      "essentials.requests-and-complaints"
     ]
   },
   {
@@ -435,7 +543,10 @@
     "hints": [
       "Russian uses present tense with уже for ongoing duration."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.ongoing-and-regret"
+    ]
   },
   {
     "id": "ru-es-b1-8",
@@ -448,7 +559,10 @@
       "Respond politely and show willingness to improve.",
       "Use perfective постараюсь for a one-time effort."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.requests-and-complaints"
+    ]
   },
   {
     "id": "ru-es-b1-9",
@@ -458,6 +572,9 @@
     "correctAnswer": "Хотя я делаю ошибки, я продолжаю стараться.",
     "hints": [
       "Use хотя (although) to build a concessive clause."
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -472,6 +589,9 @@
     ],
     "acceptedAnswers": [
       "Раньше я думала, что русский язык очень сложный, но теперь он мне нравится."
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -482,6 +602,9 @@
     "correctAnswer": "Не могли бы вы порекомендовать хороший учебник для среднего уровня?",
     "hints": [
       "Use the polite conditional construction."
+    ],
+    "skills": [
+      "essentials.requests-and-complaints"
     ]
   },
   {
@@ -493,7 +616,10 @@
     "hints": [
       "Use мне нужно + infinitive."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.talking-about-learning"
+    ]
   },
   {
     "id": "ru-es-b1-14",
@@ -503,6 +629,9 @@
     "correctAnswer": "Чем больше я учусь, тем легче становится.",
     "hints": [
       "Use the чем... тем... construction for comparatives."
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -522,6 +651,9 @@
       "подготовлюсь",
       "подготовился",
       "подготовка"
+    ],
+    "skills": [
+      "essentials.ongoing-and-regret"
     ]
   },
   {
@@ -535,6 +667,9 @@
     ],
     "acceptedAnswers": [
       "Я могу чётко аргументировать своё мнение."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -545,6 +680,9 @@
     "correctAnswer": "Я хочу говорить естественно, а не только правильно.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -555,6 +693,9 @@
     "correctAnswer": "Даже когда я делаю небольшие ошибки, я могу поддерживать разговор.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -565,6 +706,9 @@
     "correctAnswer": "Я стараюсь выбирать выражения, которые естественно звучат в контексте.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -577,7 +721,10 @@
       "Use an abstract noun (владение) as the subject.",
       "Instrumental case: падежной системой."
     ],
-    "culturalNote": "Russian has six grammatical cases, each changing noun endings to express different relationships."
+    "culturalNote": "Russian has six grammatical cases, each changing noun endings to express different relationships.",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   },
   {
     "id": "ru-es-b2-6",
@@ -587,6 +734,9 @@
     "correctAnswer": "Несмотря на сложность русской грамматики, регулярная практика ведёт к прогрессу.",
     "hints": [
       "Use несмотря на + accusative for 'despite'."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -605,6 +755,9 @@
       "что",
       "чтобы",
       "где"
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -619,6 +772,9 @@
     ],
     "acceptedAnswers": [
       "Я бы утверждала, что контекст важнее заучивания правил."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -630,6 +786,9 @@
     "hints": [
       "Use a perfective gerund (деепричастие): изучив.",
       "This is an advanced grammatical structure."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -641,7 +800,10 @@
     "hints": [
       "Use abstract vocabulary: тонкости, ударение, значение."
     ],
-    "culturalNote": "Russian word stress is not fixed and can distinguish between different words, e.g. за́мок (castle) vs замо́к (lock)."
+    "culturalNote": "Russian word stress is not fixed and can distinguish between different words, e.g. за́мок (castle) vs замо́к (lock).",
+    "skills": [
+      "essentials.clarifying"
+    ]
   },
   {
     "id": "ru-es-b2-11",
@@ -654,7 +816,10 @@
       "A modest, natural response.",
       "Use the idiom есть куда расти (there is room for growth)."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "essentials.clarifying"
+    ]
   },
   {
     "id": "ru-es-b2-12",
@@ -664,6 +829,9 @@
     "correctAnswer": "Нельзя недооценивать важность практики аудирования.",
     "hints": [
       "Use нельзя + infinitive for 'one must not'."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -674,6 +842,9 @@
     "correctAnswer": "Само собой разумеется, что погружение ускоряет усвоение языка.",
     "hints": [
       "Use the fixed phrase само собой разумеется."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -687,6 +858,9 @@
     ],
     "acceptedAnswers": [
       "Если бы не терпеливые учителя, я бы никогда не достигла этого уровня."
+    ],
+    "skills": [
+      "essentials.advanced-patterns"
     ]
   },
   {
@@ -697,6 +871,9 @@
     "correctAnswer": "Повторите, пожалуйста?",
     "hints": [
       "Use polite singular/plural form."
+    ],
+    "skills": [
+      "essentials.not-understanding"
     ]
   },
   {
@@ -707,6 +884,9 @@
     "correctAnswer": "Мне нужно немного больше времени.",
     "hints": [
       "A useful phrase for class and conversation."
+    ],
+    "skills": [
+      "essentials.not-understanding"
     ]
   },
   {
@@ -718,7 +898,10 @@
     "hints": [
       "The most common word of gratitude."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "essentials.politeness"
+    ]
   },
   {
     "id": "ru-es-a1-20",
@@ -729,7 +912,10 @@
     "hints": [
       "Use the standard introduction pattern."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "essentials.greetings"
+    ]
   },
   {
     "id": "ru-es-a2-16",
@@ -742,6 +928,9 @@
     ],
     "hints": [
       "Use past tense for a completed action."
+    ],
+    "skills": [
+      "essentials.errands"
     ]
   },
   {
@@ -755,6 +944,9 @@
     ],
     "acceptedAnswers": [
       "Где можно попрактиковаться в разговорной речи?"
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -765,6 +957,9 @@
     "correctAnswer": "Это слово трудно произнести.",
     "hints": [
       "Use short-form adverb трудно."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -783,6 +978,9 @@
       "учит",
       "учишь",
       "учим"
+    ],
+    "skills": [
+      "essentials.now-and-yesterday"
     ]
   },
   {
@@ -793,6 +991,9 @@
     "correctAnswer": "Можете говорить немного медленнее?",
     "hints": [
       "A polite listening-support request."
+    ],
+    "skills": [
+      "essentials.getting-help"
     ]
   },
   {
@@ -803,6 +1004,9 @@
     "correctAnswer": "Я понимаю идею, но мне нужно больше примеров.",
     "hints": [
       "Use contrast with но."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -813,6 +1017,9 @@
     "correctAnswer": "Как я могу быстрее расширить словарный запас?",
     "hints": [
       "Use быстрее for comparative speed."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -823,6 +1030,9 @@
     "correctAnswer": "Я делаю меньше ошибок, когда регулярно повторяю материал.",
     "hints": [
       "Use меньше with countable plural here."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -833,6 +1043,9 @@
     "correctAnswer": "Я стараюсь говорить более естественно.",
     "hints": [
       "Use стараюсь + infinitive."
+    ],
+    "skills": [
+      "essentials.talking-about-learning"
     ]
   },
   {
@@ -843,6 +1056,9 @@
     "correctAnswer": "Контекст часто помогает мне выводить значение незнакомых слов.",
     "hints": [
       "Use abstract academic-style phrasing."
+    ],
+    "skills": [
+      "essentials.clarifying"
     ]
   },
   {
@@ -853,6 +1069,9 @@
     "correctAnswer": "Не могли бы вы уточнить оттенок значения этого выражения?",
     "hints": [
       "Use formal politeness and precise vocabulary."
+    ],
+    "skills": [
+      "essentials.clarifying"
     ]
   },
   {
@@ -866,6 +1085,9 @@
     ],
     "acceptedAnswers": [
       "Беглость речи улучшается при регулярной практике."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -876,6 +1098,9 @@
     "correctAnswer": "Я ценю обратную связь, которая конкретна и конструктивна.",
     "hints": [
       "Use a relative clause with которая."
+    ],
+    "skills": [
+      "essentials.communicating-well"
     ]
   },
   {
@@ -889,6 +1114,9 @@
       "Use a polite and natural appreciative tone."
     ],
     "exerciseType": "roleplay",
-    "culturalNote": "Russian learners often value direct but respectful correction in class."
+    "culturalNote": "Russian learners often value direct but respectful correction in class.",
+    "skills": [
+      "essentials.communicating-well"
+    ]
   }
 ]

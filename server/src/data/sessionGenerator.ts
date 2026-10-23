@@ -1,4 +1,5 @@
 const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER } = require("./constants.ts");
+const { fallbackSkillId } = require("./skills.ts");
 
 function shuffle(items, randomFn = Math.random) {
   const cloned = [...items];
@@ -591,6 +592,11 @@ function createQuestion(item, pool, questionType, category, language, englishRol
     answerEnglish: answerEnglish || undefined,
     acceptedAnswers: [...buildAcceptedAnswers(answer), ...buildAuthoredAcceptedAnswers(item)],
     objective: deriveObjective(category, item.level),
+    // Course items carry resolved skills (data.ts); anything added at runtime counts toward
+    // its unit's generated skill.
+    skills: Array.isArray(item.skills) && item.skills.length
+      ? item.skills
+      : [fallbackSkillId(item.category || category, resolveDifficulty(item))],
     sourceCategory: item.category || category,
     expectedMistakeTypes: getMistakeProfile(category),
     ...buildMediaFields(item)

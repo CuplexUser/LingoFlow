@@ -1,0 +1,1514 @@
+{
+  "skills": [
+    {
+      "id": "essentials.greetings",
+      "label": "Greetings and introductions",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "essentials"
+      ],
+      "description": "Hello, good morning, my name is, nice to meet you."
+    },
+    {
+      "id": "essentials.politeness",
+      "label": "Please, thank you and sorry",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "essentials"
+      ],
+      "description": "The small words that make any request polite."
+    },
+    {
+      "id": "essentials.not-understanding",
+      "label": "When you don't understand",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "essentials"
+      ],
+      "description": "Saying you don't follow and asking what a word means."
+    },
+    {
+      "id": "essentials.getting-help",
+      "label": "Getting things explained",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "essentials"
+      ],
+      "description": "Asking someone to slow down, repeat or show you."
+    },
+    {
+      "id": "essentials.now-and-yesterday",
+      "label": "Now, usually and yesterday",
+      "kind": "grammar",
+      "level": "a2",
+      "units": [
+        "essentials"
+      ],
+      "description": "Present tense for habits, past tense for what happened."
+    },
+    {
+      "id": "essentials.errands",
+      "label": "Errands and small mishaps",
+      "kind": "vocab",
+      "level": "a2",
+      "units": [
+        "essentials"
+      ],
+      "description": "Shopping, receipts and things you forgot or lost."
+    },
+    {
+      "id": "essentials.talking-about-learning",
+      "label": "Talking about your learning",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "essentials"
+      ],
+      "description": "Mistakes, practice and sounding natural."
+    },
+    {
+      "id": "essentials.requests-and-complaints",
+      "label": "Polite questions and complaints",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "essentials"
+      ],
+      "description": "Indirect questions, comparing options and saying what went wrong."
+    },
+    {
+      "id": "essentials.ongoing-and-regret",
+      "label": "Ongoing actions and regrets",
+      "kind": "grammar",
+      "level": "b1",
+      "units": [
+        "essentials"
+      ],
+      "description": "Have been doing, should have done, although."
+    },
+    {
+      "id": "essentials.clarifying",
+      "label": "Clarifying and rephrasing",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "essentials"
+      ],
+      "description": "Fixing confusion, paraphrasing and explaining nuance."
+    },
+    {
+      "id": "essentials.communicating-well",
+      "label": "Communicating well",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "essentials"
+      ],
+      "description": "Tone, clarity, empathy and fluency."
+    },
+    {
+      "id": "essentials.advanced-patterns",
+      "label": "Advanced sentence patterns",
+      "kind": "grammar",
+      "level": "b2",
+      "units": [
+        "essentials"
+      ],
+      "description": "The more…the more, had I known, although."
+    },
+    {
+      "id": "conversation.meeting",
+      "label": "Meeting someone",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "conversation"
+      ],
+      "description": "Hi, how are you, nice to meet you, see you."
+    },
+    {
+      "id": "conversation.about-you",
+      "label": "Saying who you are",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "conversation"
+      ],
+      "description": "Where you're from, where you live, what you like."
+    },
+    {
+      "id": "conversation.your-life",
+      "label": "Your life story",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "conversation"
+      ],
+      "description": "Family, work, moves and past visits."
+    },
+    {
+      "id": "conversation.free-time",
+      "label": "Free time",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "conversation"
+      ],
+      "description": "Weekends, evenings and hobbies."
+    },
+    {
+      "id": "conversation.keeping-up",
+      "label": "Keeping up",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "conversation"
+      ],
+      "description": "Asking someone to slow down or say it again."
+    },
+    {
+      "id": "conversation.opinions",
+      "label": "Giving opinions",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "conversation"
+      ],
+      "description": "In my opinion, I see your point, although."
+    },
+    {
+      "id": "conversation.steering",
+      "label": "Steering a conversation",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "conversation"
+      ],
+      "description": "Catching up, interrupting and changing the subject."
+    },
+    {
+      "id": "conversation.how-you-changed",
+      "label": "How you've changed",
+      "kind": "grammar",
+      "level": "b1",
+      "units": [
+        "conversation"
+      ],
+      "description": "Used to, would have, then and now."
+    },
+    {
+      "id": "conversation.disagreeing",
+      "label": "Disagreeing respectfully",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "conversation"
+      ],
+      "description": "Respecting a view you don't share and finding common ground."
+    },
+    {
+      "id": "conversation.real-dialogue",
+      "label": "Real dialogue",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "conversation"
+      ],
+      "description": "Listening, empathy and getting to the point."
+    },
+    {
+      "id": "conversation.rephrasing",
+      "label": "Rephrasing and asking for more",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "conversation"
+      ],
+      "description": "Let me rephrase, would you mind elaborating, had I known."
+    },
+    {
+      "id": "travel.stations-and-tickets",
+      "label": "Stations and tickets",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "travel"
+      ],
+      "description": "Finding the station, the platform and the right bus."
+    },
+    {
+      "id": "travel.travel-basics",
+      "label": "Taxis, bags and getting lost",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "travel"
+      ],
+      "description": "The first words you need away from home."
+    },
+    {
+      "id": "travel.hotel",
+      "label": "At the hotel",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "travel"
+      ],
+      "description": "Rooms, check-in and check-out."
+    },
+    {
+      "id": "travel.flights",
+      "label": "Flights and luggage",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "travel"
+      ],
+      "description": "Bags, seats, shuttles and boarding passes."
+    },
+    {
+      "id": "travel.in-the-city",
+      "label": "Getting around town",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "travel"
+      ],
+      "description": "Buses, tours and changing money."
+    },
+    {
+      "id": "travel.when-plans-change",
+      "label": "When plans go wrong",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "travel"
+      ],
+      "description": "Delays, cancellations and a lost passport."
+    },
+    {
+      "id": "travel.planning",
+      "label": "Planning a trip",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "travel"
+      ],
+      "description": "Booking, journey times and documents."
+    },
+    {
+      "id": "travel.local-tips",
+      "label": "Finding local places",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "travel"
+      ],
+      "description": "Recommendations, neighborhoods and walking distance."
+    },
+    {
+      "id": "travel.connections",
+      "label": "Connections and layovers",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "travel"
+      ],
+      "description": "Changing lines, making connections and planning for delays."
+    },
+    {
+      "id": "travel.fares-and-disputes",
+      "label": "Fares, fees and safety",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "travel"
+      ],
+      "description": "Refund policies, disputing a charge and safe areas."
+    },
+    {
+      "id": "travel.travel-preferences",
+      "label": "How you like to travel",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "travel"
+      ],
+      "description": "Trains or planes, quieter routes and sustainable travel."
+    },
+    {
+      "id": "work.around-the-office",
+      "label": "Around the office",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "work"
+      ],
+      "description": "Rooms, printers and passwords."
+    },
+    {
+      "id": "work.people-at-work",
+      "label": "People at work",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "work"
+      ],
+      "description": "Managers, colleagues and teams."
+    },
+    {
+      "id": "work.work-hours",
+      "label": "Work hours",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "work"
+      ],
+      "description": "When you start, shifts and working from home."
+    },
+    {
+      "id": "work.meetings",
+      "label": "Meetings and time off",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "work"
+      ],
+      "description": "Booking, moving and fitting in meetings."
+    },
+    {
+      "id": "work.requests",
+      "label": "Emails and requests",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "work"
+      ],
+      "description": "Asking for reports, reviews and help."
+    },
+    {
+      "id": "work.tasks-and-deadlines",
+      "label": "Tasks and deadlines",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "work"
+      ],
+      "description": "What's due, what's done and who is responsible."
+    },
+    {
+      "id": "work.progress-and-feedback",
+      "label": "Progress and feedback",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "work"
+      ],
+      "description": "Your role, your progress and asking for feedback."
+    },
+    {
+      "id": "work.next-steps",
+      "label": "Coordinating next steps",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "work"
+      ],
+      "description": "Updates, calls, agendas and moving deadlines."
+    },
+    {
+      "id": "work.flagging-problems",
+      "label": "Flagging problems",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "work"
+      ],
+      "description": "Risks, bottlenecks and priorities."
+    },
+    {
+      "id": "work.strategy",
+      "label": "Strategy and stakeholders",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "work"
+      ],
+      "description": "Aligning priorities, return on investment and the big picture."
+    },
+    {
+      "id": "work.projects",
+      "label": "Running projects",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "work"
+      ],
+      "description": "Timelines, pilots, rollouts and risks."
+    },
+    {
+      "id": "work.measuring-success",
+      "label": "Measuring success",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "work"
+      ],
+      "description": "Metrics, deliverables and opportunity cost."
+    },
+    {
+      "id": "health.your-body",
+      "label": "Saying what hurts",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "health"
+      ],
+      "description": "Headaches, fevers, allergies and feeling unwell."
+    },
+    {
+      "id": "health.finding-help",
+      "label": "Finding medical help",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "health"
+      ],
+      "description": "Doctors, pharmacies, hospitals and ambulances."
+    },
+    {
+      "id": "health.at-the-doctor",
+      "label": "At the doctor's",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "health"
+      ],
+      "description": "Appointments and describing symptoms."
+    },
+    {
+      "id": "health.medicine",
+      "label": "Medicine and prescriptions",
+      "kind": "vocab",
+      "level": "a2",
+      "units": [
+        "health"
+      ],
+      "description": "Doses, side effects and prescriptions."
+    },
+    {
+      "id": "health.healthy-habits",
+      "label": "Healthy habits",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "health"
+      ],
+      "description": "Sleep, exercise and cooking well."
+    },
+    {
+      "id": "health.conditions",
+      "label": "Conditions and symptoms",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "health"
+      ],
+      "description": "Long-term conditions, blood pressure and how symptoms change."
+    },
+    {
+      "id": "health.treatment",
+      "label": "Treatment decisions",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "health"
+      ],
+      "description": "Second opinions, antibiotics, diets and lifestyle changes."
+    },
+    {
+      "id": "health.wellbeing",
+      "label": "Sleep, stress and energy",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "health"
+      ],
+      "description": "How stress, sleep and sugar affect you."
+    },
+    {
+      "id": "health.specialist-care",
+      "label": "Specialists and procedures",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "health"
+      ],
+      "description": "Referrals, consent and alternatives to surgery."
+    },
+    {
+      "id": "health.risks-and-outcomes",
+      "label": "Risks and outcomes",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "health"
+      ],
+      "description": "Long-term effects, evidence and family history."
+    },
+    {
+      "id": "health.prevention",
+      "label": "Prevention and public health",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "health"
+      ],
+      "description": "Preventive care, access to care and lasting routines."
+    },
+    {
+      "id": "family_friends.my-family",
+      "label": "My family",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Brothers, sisters, parents and grandparents."
+    },
+    {
+      "id": "family_friends.friends-and-pets",
+      "label": "Friends and pets",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Best friends, visits and animals at home."
+    },
+    {
+      "id": "family_friends.family-news",
+      "label": "Family news",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Weddings, birthdays, moves and divorces."
+    },
+    {
+      "id": "family_friends.staying-close",
+      "label": "Staying in touch",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Meeting up, calling and how long you've known someone."
+    },
+    {
+      "id": "family_friends.relationships",
+      "label": "Describing relationships",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Getting on, growing apart and reconnecting."
+    },
+    {
+      "id": "family_friends.family-life",
+      "label": "Family life and traditions",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Growing up, traditions and finding time for everyone."
+    },
+    {
+      "id": "family_friends.family-and-society",
+      "label": "Family and society",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Blended families, generations and caring for parents."
+    },
+    {
+      "id": "family_friends.identity-and-bonds",
+      "label": "Identity and lasting bonds",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "family_friends"
+      ],
+      "description": "Upbringing, values, boundaries and long-distance friendship."
+    },
+    {
+      "id": "food_cooking.ordering",
+      "label": "Ordering food and drinks",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "A glass of water, a coffee, the menu, please."
+    },
+    {
+      "id": "food_cooking.what-you-eat",
+      "label": "What you eat",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "Vegetarian, spicy, delicious and what you prefer."
+    },
+    {
+      "id": "food_cooking.at-a-restaurant",
+      "label": "At a restaurant",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "Allergies, recommendations, swaps and the bill."
+    },
+    {
+      "id": "food_cooking.home-cooking",
+      "label": "Cooking at home",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "Recipes, baking times and what you made."
+    },
+    {
+      "id": "food_cooking.diets",
+      "label": "Diets and dietary needs",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "Plant-based, gluten-free and healthier meals."
+    },
+    {
+      "id": "food_cooking.cooking-techniques",
+      "label": "Cooking techniques",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "Recipes, slow cooking, marinating and baking."
+    },
+    {
+      "id": "food_cooking.flavor",
+      "label": "Talking about flavor",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "Spices, umami, browning and fine dining."
+    },
+    {
+      "id": "food_cooking.food-and-society",
+      "label": "Food and society",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "food_cooking"
+      ],
+      "description": "Provenance, seasonality, waste and food culture."
+    },
+    {
+      "id": "grammar.to-be",
+      "label": "To be",
+      "kind": "grammar",
+      "level": "a1",
+      "units": [
+        "grammar"
+      ],
+      "description": "I am, she is, we are, they are."
+    },
+    {
+      "id": "grammar.present-simple",
+      "label": "Present tense",
+      "kind": "grammar",
+      "level": "a1",
+      "units": [
+        "grammar"
+      ],
+      "description": "Everyday verbs in the present, including he/she forms."
+    },
+    {
+      "id": "grammar.questions-and-articles",
+      "label": "Questions, articles and there is",
+      "kind": "grammar",
+      "level": "a1",
+      "units": [
+        "grammar"
+      ],
+      "description": "Do you…?, a or an, there is."
+    },
+    {
+      "id": "grammar.past-tenses",
+      "label": "Past tenses",
+      "kind": "grammar",
+      "level": "a2",
+      "units": [
+        "grammar"
+      ],
+      "description": "What you did, what you were doing and what you used to do."
+    },
+    {
+      "id": "grammar.present-perfect",
+      "label": "Present perfect",
+      "kind": "grammar",
+      "level": "a2",
+      "units": [
+        "grammar"
+      ],
+      "description": "Have you been, I have lived here for."
+    },
+    {
+      "id": "grammar.conditions-and-comparisons",
+      "label": "If, should and comparisons",
+      "kind": "grammar",
+      "level": "a2",
+      "units": [
+        "grammar"
+      ],
+      "description": "If it rains, you should, more interesting than, much or many."
+    },
+    {
+      "id": "grammar.hypotheticals",
+      "label": "Wishes and hypotheticals",
+      "kind": "grammar",
+      "level": "b1",
+      "units": [
+        "grammar"
+      ],
+      "description": "If I had, I wish I had, will have finished."
+    },
+    {
+      "id": "grammar.passive-and-reported",
+      "label": "Passive and reported speech",
+      "kind": "grammar",
+      "level": "b1",
+      "units": [
+        "grammar"
+      ],
+      "description": "The report was written, he told me he had."
+    },
+    {
+      "id": "grammar.linking-and-relatives",
+      "label": "Linking ideas",
+      "kind": "grammar",
+      "level": "b1",
+      "units": [
+        "grammar"
+      ],
+      "description": "Despite, not only, owing to, used to, who and that."
+    },
+    {
+      "id": "grammar.inversion",
+      "label": "Inversion and emphasis",
+      "kind": "grammar",
+      "level": "b2",
+      "units": [
+        "grammar"
+      ],
+      "description": "Had I known, rarely have I, no sooner, were she to."
+    },
+    {
+      "id": "grammar.complex-structures",
+      "label": "Complex structures",
+      "kind": "grammar",
+      "level": "b2",
+      "units": [
+        "grammar"
+      ],
+      "description": "Relative clauses, it is high time, modal passives, the more…the more."
+    },
+    {
+      "id": "hobbies_leisure.free-time-activities",
+      "label": "Free-time activities",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Reading, hiking, chess, swimming and painting."
+    },
+    {
+      "id": "hobbies_leisure.talking-hobbies",
+      "label": "Talking about hobbies",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Do you have any hobbies? I love music."
+    },
+    {
+      "id": "hobbies_leisure.what-you-do",
+      "label": "What you do and how often",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Tennis on Saturdays, movies at home, cycling."
+    },
+    {
+      "id": "hobbies_leisure.new-hobbies",
+      "label": "Starting something new",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Learning guitar, joining a club, have you ever tried."
+    },
+    {
+      "id": "hobbies_leisure.unwinding",
+      "label": "Unwinding",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Gardening, pottery, yoga and switching off."
+    },
+    {
+      "id": "hobbies_leisure.social-and-goals",
+      "label": "Hobbies, people and goals",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Team sports, clubs, training and staying motivated."
+    },
+    {
+      "id": "hobbies_leisure.leisure-habits",
+      "label": "Leisure habits",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Reading, guitar and painting, and what they do for you."
+    },
+    {
+      "id": "hobbies_leisure.hobbies-and-identity",
+      "label": "Hobbies and who you are",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "hobbies_leisure"
+      ],
+      "description": "Passions, solitary pursuits and what leisure means."
+    },
+    {
+      "id": "sports_fitness.sports",
+      "label": "Sports",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Football, basketball, cycling and swimming."
+    },
+    {
+      "id": "sports_fitness.staying-active",
+      "label": "Staying active",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Running, walking, the gym and how often you exercise."
+    },
+    {
+      "id": "sports_fitness.training",
+      "label": "Training and classes",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Gym routines, classes, races and invitations."
+    },
+    {
+      "id": "sports_fitness.body-care",
+      "label": "Looking after your body",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Warming up, stretching, water and injuries."
+    },
+    {
+      "id": "sports_fitness.fitness-habits",
+      "label": "Building a fitness habit",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Consistency, goals, motivation and what changed."
+    },
+    {
+      "id": "sports_fitness.training-and-health",
+      "label": "Training and health",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Injuries, trainers, nutrition and mental health."
+    },
+    {
+      "id": "sports_fitness.elite-sport",
+      "label": "Elite sport",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Commercialization, doping, genetics and resilience."
+    },
+    {
+      "id": "sports_fitness.training-science",
+      "label": "Training science and technology",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "sports_fitness"
+      ],
+      "description": "Periodization, wearables, recovery and balance."
+    },
+    {
+      "id": "news_media.news-words",
+      "label": "News words",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "news_media"
+      ],
+      "description": "Journalists, newspapers, the front page."
+    },
+    {
+      "id": "news_media.following-news",
+      "label": "Following the news",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "news_media"
+      ],
+      "description": "When and where you get your news."
+    },
+    {
+      "id": "news_media.reporting",
+      "label": "What the news says",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "news_media"
+      ],
+      "description": "Reports, press conferences, breaking news and documentaries."
+    },
+    {
+      "id": "news_media.media-habits",
+      "label": "Your media habits",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "news_media"
+      ],
+      "description": "Podcasts, social media, apps and outlets you trust."
+    },
+    {
+      "id": "news_media.reliable-sources",
+      "label": "Judging sources",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "news_media"
+      ],
+      "description": "Checking stories, comparing sources and spotting misinformation."
+    },
+    {
+      "id": "news_media.how-news-works",
+      "label": "How the news is made",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "news_media"
+      ],
+      "description": "Bias, headlines, editors, investigations and press freedom."
+    },
+    {
+      "id": "news_media.journalism-and-democracy",
+      "label": "Journalism and democracy",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "news_media"
+      ],
+      "description": "Local news, investigations, state media and paywalls."
+    },
+    {
+      "id": "news_media.information-age",
+      "label": "Truth online",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "news_media"
+      ],
+      "description": "Echo chambers, deepfakes, opinion and moderation."
+    },
+    {
+      "id": "money_finance.paying",
+      "label": "Paying for things",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Prices, cards, cash and receipts."
+    },
+    {
+      "id": "money_finance.your-money",
+      "label": "Your money",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Salary, saving, the ATM and not having enough."
+    },
+    {
+      "id": "money_finance.banking",
+      "label": "Banking",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Accounts, transfers, direct debits, loans and exchange rates."
+    },
+    {
+      "id": "money_finance.budgeting",
+      "label": "Spending and budgeting",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Rent, tax, budgets and cutting back."
+    },
+    {
+      "id": "money_finance.saving-and-debt",
+      "label": "Saving and debt",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Emergency funds, mortgages, loans and interest."
+    },
+    {
+      "id": "money_finance.managing-money",
+      "label": "Managing your money",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Budgets, pensions, subscriptions and income streams."
+    },
+    {
+      "id": "money_finance.economics",
+      "label": "The economy",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Inflation, quantitative easing, debt crises and regulation."
+    },
+    {
+      "id": "money_finance.investing",
+      "label": "Investing and behavior",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "money_finance"
+      ],
+      "description": "Financial literacy, investment strategies and ESG."
+    },
+    {
+      "id": "science_technology.devices",
+      "label": "Phones and computers",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "science_technology"
+      ],
+      "description": "Laptops, batteries, charging and fast computers."
+    },
+    {
+      "id": "science_technology.online",
+      "label": "Getting online",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "science_technology"
+      ],
+      "description": "Wi-Fi, passwords, emails and slow connections."
+    },
+    {
+      "id": "science_technology.apps-and-settings",
+      "label": "Apps and settings",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "science_technology"
+      ],
+      "description": "Updates, passwords, backups, storage and reminders."
+    },
+    {
+      "id": "science_technology.using-tech",
+      "label": "Using technology",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "science_technology"
+      ],
+      "description": "Video calls, cameras, websites, books and discoveries."
+    },
+    {
+      "id": "science_technology.tech-and-society",
+      "label": "Technology and society",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "science_technology"
+      ],
+      "description": "AI, automation, data, screen time and children online."
+    },
+    {
+      "id": "science_technology.innovation",
+      "label": "Innovation",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "science_technology"
+      ],
+      "description": "Renewable energy, quantum computing, open source and backups."
+    },
+    {
+      "id": "science_technology.ethics-and-regulation",
+      "label": "Ethics and regulation",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "science_technology"
+      ],
+      "description": "Regulating AI, gene editing and safe innovation."
+    },
+    {
+      "id": "science_technology.tech-and-change",
+      "label": "Technology and change",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "science_technology"
+      ],
+      "description": "Converging sciences, the digital divide, deepfakes and labor."
+    },
+    {
+      "id": "culture_history.places",
+      "label": "Museums and old places",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Museums, galleries, castles and old buildings."
+    },
+    {
+      "id": "culture_history.arts-and-festivals",
+      "label": "Art, music and festivals",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Paintings, sculpture, theater and holidays."
+    },
+    {
+      "id": "culture_history.sights",
+      "label": "Historic sights",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Castles, monuments, collections and exhibitions."
+    },
+    {
+      "id": "culture_history.customs",
+      "label": "Customs and traditions",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Festivals, folk music and why people celebrate."
+    },
+    {
+      "id": "culture_history.historical-change",
+      "label": "Turning points in history",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Revolutions, the Renaissance, colonialism and partition."
+    },
+    {
+      "id": "culture_history.heritage",
+      "label": "Heritage and identity",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Oral traditions, ruins, diaries and local traditions."
+    },
+    {
+      "id": "culture_history.interpreting-history",
+      "label": "Interpreting history",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Mythology, the Enlightenment, historiography and bias."
+    },
+    {
+      "id": "culture_history.culture-debates",
+      "label": "Debates about culture",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "culture_history"
+      ],
+      "description": "Repatriation, appropriation, the canon and tourism."
+    },
+    {
+      "id": "nature_animals.animals",
+      "label": "Animals and pets",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Dogs, cats, birds and tigers."
+    },
+    {
+      "id": "nature_animals.weather",
+      "label": "Weather and the outdoors",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Rain, sun, winter and the forest."
+    },
+    {
+      "id": "nature_animals.weather-events",
+      "label": "Seasons and weather events",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Warm spells, floods, storms and the northern lights."
+    },
+    {
+      "id": "nature_animals.wildlife",
+      "label": "Wildlife",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Deer, whales and dangerous animals."
+    },
+    {
+      "id": "nature_animals.caring-for-nature",
+      "label": "Caring for nature",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Recycling, gardens, trees and clean rivers."
+    },
+    {
+      "id": "nature_animals.ecosystems",
+      "label": "Habitats and species",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Deforestation, rewilding, migration and declining populations."
+    },
+    {
+      "id": "nature_animals.green-living",
+      "label": "Living greener",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Diet, plastic, oceans and green spaces."
+    },
+    {
+      "id": "nature_animals.climate-science",
+      "label": "Climate and biodiversity",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Mass extinction, tipping points and ecosystem services."
+    },
+    {
+      "id": "nature_animals.environmental-policy",
+      "label": "Environmental policy",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "nature_animals"
+      ],
+      "description": "Precaution, markets, conservation and deep ecology."
+    },
+    {
+      "id": "numbers_math.numbers-to-twenty",
+      "label": "Numbers 0 to 20",
+      "kind": "vocab",
+      "level": "a1",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Counting from zero to twenty."
+    },
+    {
+      "id": "numbers_math.simple-sums",
+      "label": "Simple sums",
+      "kind": "function",
+      "level": "a1",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Plus, minus and equals, and counting things."
+    },
+    {
+      "id": "numbers_math.big-numbers",
+      "label": "Big numbers and years",
+      "kind": "vocab",
+      "level": "a2",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Tens, hundreds, thousands, millions and years."
+    },
+    {
+      "id": "numbers_math.times-and-divided",
+      "label": "Multiplying and dividing",
+      "kind": "function",
+      "level": "a2",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Times, divided by and how many in a day."
+    },
+    {
+      "id": "numbers_math.order-and-dozens",
+      "label": "First, second and a dozen",
+      "kind": "vocab",
+      "level": "a2",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Ordinal numbers and counting in dozens."
+    },
+    {
+      "id": "numbers_math.fractions-and-percent",
+      "label": "Fractions and percentages",
+      "kind": "vocab",
+      "level": "b1",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Halves, quarters, thirds, decimals and percent off."
+    },
+    {
+      "id": "numbers_math.estimating",
+      "label": "Estimating and comparing",
+      "kind": "function",
+      "level": "b1",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "About, at least, roughly, twice the price."
+    },
+    {
+      "id": "numbers_math.math-words",
+      "label": "Math words",
+      "kind": "vocab",
+      "level": "b1",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Sum, difference, even numbers and splitting a bill."
+    },
+    {
+      "id": "numbers_math.number-idioms",
+      "label": "Number idioms",
+      "kind": "function",
+      "level": "b2",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "At sixes and sevens, on cloud nine, the odds are against us."
+    },
+    {
+      "id": "numbers_math.advanced-math",
+      "label": "Advanced number talk",
+      "kind": "vocab",
+      "level": "b2",
+      "units": [
+        "numbers_math"
+      ],
+      "description": "Quotients, round numbers, proportions and countless."
+    }
+  ]
+}

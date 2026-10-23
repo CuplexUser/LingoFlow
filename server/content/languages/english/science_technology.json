@@ -8,7 +8,10 @@
     "hints": [
       "You are probably using one right now."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "id": "en-st-a1-2",
@@ -18,6 +21,9 @@
     "correctAnswer": "I use my phone every day.",
     "hints": [
       "A very common modern habit."
+    ],
+    "skills": [
+      "science_technology.devices"
     ]
   },
   {
@@ -28,6 +34,9 @@
     "correctAnswer": "Is there Wi-Fi here?",
     "hints": [
       "A very useful modern question."
+    ],
+    "skills": [
+      "science_technology.online"
     ]
   },
   {
@@ -38,6 +47,9 @@
     "correctAnswer": "My phone battery is dead.",
     "hints": [
       "'Dead' means empty or without power."
+    ],
+    "skills": [
+      "science_technology.devices"
     ]
   },
   {
@@ -48,6 +60,9 @@
     "correctAnswer": "Can I charge my phone here?",
     "hints": [
       "A practical everyday request."
+    ],
+    "skills": [
+      "science_technology.devices"
     ]
   },
   {
@@ -59,7 +74,10 @@
     "hints": [
       "It folds open and has a keyboard."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "id": "en-st-a1-7",
@@ -69,6 +87,9 @@
     "correctAnswer": "I send emails for work.",
     "hints": [
       "A basic digital communication sentence."
+    ],
+    "skills": [
+      "science_technology.online"
     ]
   },
   {
@@ -79,6 +100,9 @@
     "correctAnswer": "What is the password for the Wi-Fi?",
     "hints": [
       "A very common modern question."
+    ],
+    "skills": [
+      "science_technology.online"
     ]
   },
   {
@@ -89,6 +113,9 @@
     "correctAnswer": "I watch videos online.",
     "hints": [
       "A simple statement about digital habits."
+    ],
+    "skills": [
+      "science_technology.online"
     ]
   },
   {
@@ -99,6 +126,9 @@
     "correctAnswer": "My internet connection is very slow.",
     "hints": [
       "A common frustration with technology."
+    ],
+    "skills": [
+      "science_technology.online"
     ]
   },
   {
@@ -109,7 +139,10 @@
     "hints": [
       "Simple technology usage sentence."
     ],
-    "id": "en-sc-a1-39"
+    "id": "en-sc-a1-39",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "level": "a1",
@@ -120,7 +153,10 @@
       "Basic descriptive statement."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-sc-a1-40"
+    "id": "en-sc-a1-40",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "level": "a1",
@@ -131,7 +167,10 @@
       "Everyday tech question."
     ],
     "exerciseType": "flashcard",
-    "id": "en-sc-a1-41"
+    "id": "en-sc-a1-41",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "id": "en-st-a2",
@@ -141,6 +180,9 @@
     "correctAnswer": "I updated the software on my laptop last night.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -151,6 +193,9 @@
     "correctAnswer": "How do I reset my password?",
     "hints": [
       "A common digital question."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -161,6 +206,9 @@
     "correctAnswer": "I backed up my files to the cloud.",
     "hints": [
       "'Backed up' = saved a copy; 'the cloud' = online storage."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -171,6 +219,9 @@
     "correctAnswer": "I use a video call app to stay in touch with my family abroad.",
     "hints": [
       "'Stay in touch' = maintain contact."
+    ],
+    "skills": [
+      "science_technology.using-tech"
     ]
   },
   {
@@ -181,6 +232,9 @@
     "correctAnswer": "Does this phone have a good camera?",
     "hints": [
       "Yes/no question with 'does it have'."
+    ],
+    "skills": [
+      "science_technology.using-tech"
     ]
   },
   {
@@ -191,6 +245,9 @@
     "correctAnswer": "I deleted the app because it was using too much storage.",
     "hints": [
       "'Deleted' = removed; 'storage' = space for files."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -201,6 +258,9 @@
     "correctAnswer": "Scientists have discovered a new species of insect in the rainforest.",
     "hints": [
       "Present perfect for recent scientific news."
+    ],
+    "skills": [
+      "science_technology.using-tech"
     ]
   },
   {
@@ -211,6 +271,9 @@
     "correctAnswer": "How do I enable two-factor authentication?",
     "hints": [
       "Two-factor authentication adds an extra security step."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -221,6 +284,9 @@
     "correctAnswer": "I set up an automatic reminder on my phone.",
     "hints": [
       "'Set up' = configured; 'automatic reminder' = a scheduled alert."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -231,6 +297,9 @@
     "correctAnswer": "I prefer reading physical books to e-books.",
     "hints": [
       "'Prefer X to Y' for comparing two things."
+    ],
+    "skills": [
+      "science_technology.using-tech"
     ]
   },
   {
@@ -241,7 +310,10 @@
     "hints": [
       "Past simple with tech context."
     ],
-    "id": "en-sc-a2-49"
+    "id": "en-sc-a2-49",
+    "skills": [
+      "science_technology.apps-and-settings"
+    ]
   },
   {
     "level": "a2",
@@ -252,7 +324,10 @@
       "Comparative structure."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-sc-a2-50"
+    "id": "en-sc-a2-50",
+    "skills": [
+      "science_technology.using-tech"
+    ]
   },
   {
     "level": "a2",
@@ -263,7 +338,10 @@
       "Functional question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-sc-a2-51"
+    "id": "en-sc-a2-51",
+    "skills": [
+      "science_technology.using-tech"
+    ]
   },
   {
     "id": "en-st-b1",
@@ -273,6 +351,9 @@
     "correctAnswer": "Artificial intelligence is transforming the way we work and communicate.",
     "hints": [
       "Present continuous for ongoing change."
+    ],
+    "skills": [
+      "science_technology.tech-and-society"
     ]
   },
   {
@@ -283,6 +364,9 @@
     "correctAnswer": "I am concerned about the amount of personal data that tech companies collect.",
     "hints": [
       "'I am concerned about' expresses worry."
+    ],
+    "skills": [
+      "science_technology.tech-and-society"
     ]
   },
   {
@@ -293,6 +377,9 @@
     "correctAnswer": "Do you think children should have limited access to social media?",
     "hints": [
       "'Limited access' = restricted use; invite a discussion."
+    ],
+    "skills": [
+      "science_technology.tech-and-society"
     ]
   },
   {
@@ -303,6 +390,9 @@
     "correctAnswer": "Automation has displaced many manufacturing jobs, while creating new roles in tech.",
     "hints": [
       "'Displaced' = replaced or made redundant; contrast with 'while creating'."
+    ],
+    "skills": [
+      "science_technology.tech-and-society"
     ]
   },
   {
@@ -313,6 +403,9 @@
     "correctAnswer": "The algorithm recommends content based on your previous viewing behavior.",
     "hints": [
       "'Algorithm' = a set of rules a computer follows; 'viewing behavior' = what you watch and when."
+    ],
+    "skills": [
+      "science_technology.tech-and-society"
     ]
   },
   {
@@ -323,6 +416,9 @@
     "correctAnswer": "Renewable energy technologies have improved dramatically in efficiency and cost over the last decade.",
     "hints": [
       "Present perfect for change over a time period up to now."
+    ],
+    "skills": [
+      "science_technology.innovation"
     ]
   },
   {
@@ -333,6 +429,9 @@
     "correctAnswer": "How might quantum computing change the landscape of data security?",
     "hints": [
       "'Landscape' here means the overall situation; 'quantum computing' uses quantum mechanics for computation."
+    ],
+    "skills": [
+      "science_technology.innovation"
     ]
   },
   {
@@ -343,6 +442,9 @@
     "correctAnswer": "I try to limit my screen time to protect my sleep quality.",
     "hints": [
       "'Screen time' = time spent looking at devices; 'limit' = set a maximum."
+    ],
+    "skills": [
+      "science_technology.tech-and-society"
     ]
   },
   {
@@ -353,6 +455,9 @@
     "correctAnswer": "Open-source software has democratised access to powerful digital tools.",
     "hints": [
       "'Open-source' = freely available code; 'democratised' = made available to everyone."
+    ],
+    "skills": [
+      "science_technology.innovation"
     ]
   },
   {
@@ -364,7 +469,10 @@
     "hints": [
       "Balance optimism with a practical concern."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "level": "b1",
@@ -374,7 +482,10 @@
     "hints": [
       "General-impact sentence."
     ],
-    "id": "en-sc-b1-59"
+    "id": "en-sc-b1-59",
+    "skills": [
+      "science_technology.tech-and-society"
+    ]
   },
   {
     "level": "b1",
@@ -385,7 +496,10 @@
       "Risk-prevention phrasing."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-sc-b1-60"
+    "id": "en-sc-b1-60",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "level": "b1",
@@ -396,7 +510,10 @@
       "Topic question for discussion."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-sc-b1-61"
+    "id": "en-sc-b1-61",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "id": "en-st-b2",
@@ -406,6 +523,9 @@
     "correctAnswer": "The convergence of AI, biotechnology, and materials science is ushering in a new industrial paradigm.",
     "hints": [
       "'Convergence' = coming together; 'ushering in' = introducing; 'paradigm' = a model or framework."
+    ],
+    "skills": [
+      "science_technology.tech-and-change"
     ]
   },
   {
@@ -416,6 +536,9 @@
     "correctAnswer": "How should governments regulate large language models to prevent misuse while preserving innovation?",
     "hints": [
       "'Large language models' = advanced AI systems; 'misuse' = harmful applications."
+    ],
+    "skills": [
+      "science_technology.ethics-and-regulation"
     ]
   },
   {
@@ -426,6 +549,9 @@
     "correctAnswer": "CRISPR gene editing raises profound ethical questions about the boundaries of human intervention in biology.",
     "hints": [
       "'CRISPR' = a gene-editing technology; 'profound' = deep and serious."
+    ],
+    "skills": [
+      "science_technology.ethics-and-regulation"
     ]
   },
   {
@@ -436,6 +562,9 @@
     "correctAnswer": "The digital divide exacerbates existing socioeconomic inequalities by limiting access to education and economic opportunity.",
     "hints": [
       "'Exacerbates' = makes worse; 'digital divide' = gap between those with and without internet access."
+    ],
+    "skills": [
+      "science_technology.tech-and-change"
     ]
   },
   {
@@ -446,6 +575,9 @@
     "correctAnswer": "Epistemic challenges posed by deepfakes and synthetic media demand new frameworks for verifying information.",
     "hints": [
       "'Epistemic' = relating to knowledge; 'synthetic media' = AI-generated content."
+    ],
+    "skills": [
+      "science_technology.tech-and-change"
     ]
   },
   {
@@ -456,6 +588,9 @@
     "correctAnswer": "Does the acceleration of technological change outpace society's capacity to adapt its institutions?",
     "hints": [
       "'Outpace' = go faster than; 'adapt its institutions' = change laws, norms, and organizations."
+    ],
+    "skills": [
+      "science_technology.tech-and-change"
     ]
   },
   {
@@ -466,6 +601,9 @@
     "correctAnswer": "The ethical framework underpinning AI development remains contested across academic, corporate, and governmental spheres.",
     "hints": [
       "'Underpinning' = supporting from beneath; 'contested' = debated."
+    ],
+    "skills": [
+      "science_technology.ethics-and-regulation"
     ]
   },
   {
@@ -476,6 +614,9 @@
     "correctAnswer": "Post-quantum cryptography is now a strategic priority for governments concerned about long-term data security.",
     "hints": [
       "'Post-quantum cryptography' = encryption designed to resist quantum computer attacks."
+    ],
+    "skills": [
+      "science_technology.tech-and-change"
     ]
   },
   {
@@ -486,7 +627,10 @@
     "hints": [
       "B2 policy-style sentence."
     ],
-    "id": "en-sc-b2-69"
+    "id": "en-sc-b2-69",
+    "skills": [
+      "science_technology.ethics-and-regulation"
+    ]
   },
   {
     "level": "b2",
@@ -497,7 +641,10 @@
       "Balanced argument sentence."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-sc-b2-70"
+    "id": "en-sc-b2-70",
+    "skills": [
+      "science_technology.tech-and-change"
+    ]
   },
   {
     "level": "b2",
@@ -508,6 +655,9 @@
       "High-level question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-sc-b2-71"
+    "id": "en-sc-b2-71",
+    "skills": [
+      "science_technology.ethics-and-regulation"
+    ]
   }
 ]

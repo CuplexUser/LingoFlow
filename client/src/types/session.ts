@@ -11,6 +11,8 @@ type SessionQuestionBase = {
   answerEnglish?: string;
   direction?: "reverse";
   sourceText?: string;
+  /** The skills this question practices (ids from the course's skill catalog). */
+  skills?: string[];
 };
 
 export type MultipleChoiceQuestion = SessionQuestionBase & {

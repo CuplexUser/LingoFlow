@@ -6,7 +6,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 0 in Russian",
     "correctAnswer": "ноль",
-    "hints": ["Pronounced 'nol'. What do you score if you miss every shot?"]
+    "hints": [
+      "Pronounced 'nol'. What do you score if you miss every shot?"
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-2",
@@ -15,7 +20,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 1 in Russian",
     "correctAnswer": "один",
-    "hints": ["Pronounced 'a-DEEN'. There is only ___ sun in our solar system."]
+    "hints": [
+      "Pronounced 'a-DEEN'. There is only ___ sun in our solar system."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-3",
@@ -24,8 +34,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which word means the number 2 in Russian?",
     "correctAnswer": "два",
-    "options": ["два", "дав", "дна", "дуа"],
-    "hints": ["Pronounced 'dva'. It's short and punchy — like two beats of a drum."]
+    "options": [
+      "два",
+      "дав",
+      "дна",
+      "дуа"
+    ],
+    "hints": [
+      "Pronounced 'dva'. It's short and punchy — like two beats of a drum."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-4",
@@ -36,6 +56,9 @@
     "correctAnswer": "три",
     "hints": [
       "Pronounced 'tree'. Russians say 'Бог любит троицу' — good things come in threes."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
     ]
   },
   {
@@ -45,7 +68,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 4 in Russian",
     "correctAnswer": "четыре",
-    "hints": ["Pronounced 'chye-TY-rye'. A table has ___ legs."]
+    "hints": [
+      "Pronounced 'chye-TY-rye'. A table has ___ legs."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-6",
@@ -54,8 +82,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which is the correct spelling of 5 in Russian?",
     "correctAnswer": "пять",
-    "options": ["пать", "пять", "пате", "пить"],
-    "hints": ["Pronounced 'pyat'. You have ___ fingers on one hand."]
+    "options": [
+      "пать",
+      "пять",
+      "пате",
+      "пить"
+    ],
+    "hints": [
+      "Pronounced 'pyat'. You have ___ fingers on one hand."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-7",
@@ -64,7 +102,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 6 in Russian",
     "correctAnswer": "шесть",
-    "hints": ["Pronounced 'shest'. A standard die has ___ sides."]
+    "hints": [
+      "Pronounced 'shest'. A standard die has ___ sides."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-8",
@@ -73,7 +116,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 7 in Russian",
     "correctAnswer": "семь",
-    "hints": ["Pronounced 'syem'. There are ___ days in a week."]
+    "hints": [
+      "Pronounced 'syem'. There are ___ days in a week."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-9",
@@ -82,8 +130,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "A spider has how many legs? Choose the Russian number word.",
     "correctAnswer": "восемь",
-    "options": ["шесть", "семь", "восемь", "девять"],
-    "hints": ["More than seven, fewer than nine. Pronounced 'VO-syem'."]
+    "options": [
+      "шесть",
+      "семь",
+      "восемь",
+      "девять"
+    ],
+    "hints": [
+      "More than seven, fewer than nine. Pronounced 'VO-syem'."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-10",
@@ -92,7 +150,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 9 in Russian",
     "correctAnswer": "девять",
-    "hints": ["Pronounced 'DYE-vyat'. A cat has ___ lives — at least according to the saying."]
+    "hints": [
+      "Pronounced 'DYE-vyat'. A cat has ___ lives — at least according to the saying."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-11",
@@ -101,7 +164,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 10 in Russian",
     "correctAnswer": "десять",
-    "hints": ["Pronounced 'DYE-syat'. You have ___ fingers in total."]
+    "hints": [
+      "Pronounced 'DYE-syat'. You have ___ fingers in total."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-12",
@@ -119,6 +187,9 @@
       "шесть",
       "восемь",
       "пять"
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
     ]
   },
   {
@@ -128,8 +199,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "What does '+' mean in Russian math?",
     "correctAnswer": "плюс",
-    "options": ["минус", "плюс", "умножить", "равно"],
-    "hints": ["Borrowed from Latin — it's almost the same as English 'plus'!"]
+    "options": [
+      "минус",
+      "плюс",
+      "умножить",
+      "равно"
+    ],
+    "hints": [
+      "Borrowed from Latin — it's almost the same as English 'plus'!"
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
+    ]
   },
   {
     "id": "ru-num-a1-14",
@@ -138,7 +219,12 @@
     "exerciseType": "flashcard",
     "prompt": "Math symbol in Russian: −",
     "correctAnswer": "минус",
-    "hints": ["Pronounced 'MEE-nus'. Also borrowed from Latin — you've seen this word before!"]
+    "hints": [
+      "Pronounced 'MEE-nus'. Also borrowed from Latin — you've seen this word before!"
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
+    ]
   },
   {
     "id": "ru-num-a1-15",
@@ -147,7 +233,12 @@
     "exerciseType": "flashcard",
     "prompt": "Math symbol in Russian: =",
     "correctAnswer": "равно",
-    "hints": ["Pronounced 'RAV-na'. From 'равный' (equal). Both sides are равны."]
+    "hints": [
+      "Pronounced 'RAV-na'. From 'равный' (equal). Both sides are равны."
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
+    ]
   },
   {
     "id": "ru-num-a1-16",
@@ -155,7 +246,12 @@
     "difficulty": "a1",
     "prompt": "Read this calculation in Russian: 2 + 3 = 5",
     "correctAnswer": "Два плюс три равно пять.",
-    "hints": ["Use: плюс (plus), равно (equals). Short and logical!"]
+    "hints": [
+      "Use: плюс (plus), равно (equals). Short and logical!"
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
+    ]
   },
   {
     "id": "ru-num-a1-17",
@@ -173,6 +269,9 @@
       "четыре",
       "два",
       "пять"
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
     ]
   },
   {
@@ -182,8 +281,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say '5 + 5' in Russian?",
     "correctAnswer": "пять плюс пять",
-    "options": ["пять и пять", "пять плюс пять", "пять с пять", "пять да пять"],
-    "hints": ["The + symbol is 'плюс' in Russian math."]
+    "options": [
+      "пять и пять",
+      "пять плюс пять",
+      "пять с пять",
+      "пять да пять"
+    ],
+    "hints": [
+      "The + symbol is 'плюс' in Russian math."
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
+    ]
   },
   {
     "id": "ru-num-a1-19",
@@ -192,7 +301,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 11 in Russian",
     "correctAnswer": "одиннадцать",
-    "hints": ["Pronounced 'a-DEEN-nat-tsat'. Literally 'one-on-ten' — the pattern continues for 12–19!"]
+    "hints": [
+      "Pronounced 'a-DEEN-nat-tsat'. Literally 'one-on-ten' — the pattern continues for 12–19!"
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-20",
@@ -201,7 +315,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 12 in Russian",
     "correctAnswer": "двенадцать",
-    "hints": ["Pronounced 'dvye-NAT-tsat'. A year has ___ months."]
+    "hints": [
+      "Pronounced 'dvye-NAT-tsat'. A year has ___ months."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-21",
@@ -210,8 +329,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which number is 'тринадцать' in Russian?",
     "correctAnswer": "13",
-    "options": ["12", "13", "14", "30"],
-    "hints": ["'Три' (three) is at the start — and '-надцать' means 'on ten', so 3+10 = 13."]
+    "options": [
+      "12",
+      "13",
+      "14",
+      "30"
+    ],
+    "hints": [
+      "'Три' (three) is at the start — and '-надцать' means 'on ten', so 3+10 = 13."
+    ],
+    "skills": [
+      "numbers_math.numbers-to-twenty"
+    ]
   },
   {
     "id": "ru-num-a1-22",
@@ -229,6 +358,9 @@
       "четыре",
       "шесть",
       "десять"
+    ],
+    "skills": [
+      "numbers_math.simple-sums"
     ]
   },
   {
@@ -238,7 +370,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: the number 20 in Russian",
     "correctAnswer": "двадцать",
-    "hints": ["Pronounced 'DVAT-tsat'. Two tens. The pattern: двадцать, тридцать, сорок…"]
+    "hints": [
+      "Pronounced 'DVAT-tsat'. Two tens. The pattern: двадцать, тридцать, сорок…"
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-a2-2",
@@ -247,8 +384,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you spell 50 in Russian?",
     "correctAnswer": "пятьдесят",
-    "options": ["пятдесять", "пятьдесят", "пятидесят", "пятьдесять"],
-    "hints": ["Literally 'five-ten' (пять + десять). The soft sign (ь) stays in the middle."]
+    "options": [
+      "пятдесять",
+      "пятьдесят",
+      "пятидесят",
+      "пятьдесять"
+    ],
+    "hints": [
+      "Literally 'five-ten' (пять + десять). The soft sign (ь) stays in the middle."
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-a2-3",
@@ -257,7 +404,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 100 in Russian",
     "correctAnswer": "сто",
-    "hints": ["Pronounced 'sto'. Very short! A century is also ___ years — 'сто лет'."]
+    "hints": [
+      "Pronounced 'sto'. Very short! A century is also ___ years — 'сто лет'."
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-a2-4",
@@ -266,7 +418,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 1,000 in Russian",
     "correctAnswer": "тысяча",
-    "hints": ["Pronounced 'TY-sya-cha'. A millennium is тысяча лет."]
+    "hints": [
+      "Pronounced 'TY-sya-cha'. A millennium is тысяча лет."
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-a2-5",
@@ -283,6 +440,9 @@
     ],
     "hints": [
       "Russian reads × with the verb 'to multiply' plus a preposition."
+    ],
+    "skills": [
+      "numbers_math.times-and-divided"
     ]
   },
   {
@@ -294,6 +454,9 @@
     "correctAnswer": "разделить на",
     "hints": [
       "The verb 'to divide' (perfective) plus the preposition 'на'."
+    ],
+    "skills": [
+      "numbers_math.times-and-divided"
     ]
   },
   {
@@ -302,7 +465,12 @@
     "difficulty": "a2",
     "prompt": "Read this calculation in Russian: 3 × 4 = 12",
     "correctAnswer": "Три умножить на четыре равно двенадцать.",
-    "hints": ["Use: умножить на (times), равно (equals)."]
+    "hints": [
+      "Use: умножить на (times), равно (equals)."
+    ],
+    "skills": [
+      "numbers_math.times-and-divided"
+    ]
   },
   {
     "id": "ru-num-a2-8",
@@ -320,6 +488,9 @@
       "два",
       "двадцать",
       "двенадцать"
+    ],
+    "skills": [
+      "numbers_math.times-and-divided"
     ]
   },
   {
@@ -337,6 +508,9 @@
     ],
     "hints": [
       "Russian compound numbers 21–99 are written as two separate words."
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
     ]
   },
   {
@@ -355,6 +529,9 @@
       "двадцать три",
       "двадцать два",
       "четырнадцать"
+    ],
+    "skills": [
+      "numbers_math.times-and-divided"
     ]
   },
   {
@@ -364,7 +541,12 @@
     "exerciseType": "flashcard",
     "prompt": "Vocabulary: 1,000,000 in Russian",
     "correctAnswer": "миллион",
-    "hints": ["Almost identical to English! Plural: миллионы. 'Он выиграл миллион рублей.'"]
+    "hints": [
+      "Almost identical to English! Plural: миллионы. 'Он выиграл миллион рублей.'"
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-a2-12",
@@ -373,8 +555,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which Russian word means 'a dozen' (twelve of something)?",
     "correctAnswer": "дюжина",
-    "options": ["пара", "дюжина", "сотня", "горстка"],
-    "hints": ["Eggs are sold in this quantity. From French 'douzaine'. Less common now, but still used!"]
+    "options": [
+      "пара",
+      "дюжина",
+      "сотня",
+      "горстка"
+    ],
+    "hints": [
+      "Eggs are sold in this quantity. From French 'douzaine'. Less common now, but still used!"
+    ],
+    "skills": [
+      "numbers_math.order-and-dozens"
+    ]
   },
   {
     "id": "ru-num-a2-13",
@@ -382,7 +574,12 @@
     "difficulty": "a2",
     "prompt": "How do you say the year 1999 in Russian?",
     "correctAnswer": "тысяча девятьсот девяносто девятый год",
-    "hints": ["Russian says the ordinal at the end: literally 'the one-thousand-nine-hundred-ninety-ninth year'."]
+    "hints": [
+      "Russian says the ordinal at the end: literally 'the one-thousand-nine-hundred-ninety-ninth year'."
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-a2-14",
@@ -400,6 +597,9 @@
       "Десяток",
       "Пара",
       "Сотня"
+    ],
+    "skills": [
+      "numbers_math.order-and-dozens"
     ]
   },
   {
@@ -409,8 +609,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you write 37 in Russian words?",
     "correctAnswer": "тридцать семь",
-    "options": ["тридцатьсемь", "три семь", "тридцать семь", "тридцать-семь"],
-    "hints": ["Two separate words: тридцать (30) + семь (7). No hyphen, no merge in Russian."]
+    "options": [
+      "тридцатьсемь",
+      "три семь",
+      "тридцать семь",
+      "тридцать-семь"
+    ],
+    "hints": [
+      "Two separate words: тридцать (30) + семь (7). No hyphen, no merge in Russian."
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-a2-16",
@@ -419,7 +629,12 @@
     "exerciseType": "flashcard",
     "prompt": "Ordinal number: 1st in Russian (masculine)",
     "correctAnswer": "первый",
-    "hints": ["Pronounced 'PYER-vy'. The winner finishes первым. Irregular — not based on 'один'!"]
+    "hints": [
+      "Pronounced 'PYER-vy'. The winner finishes первым. Irregular — not based on 'один'!"
+    ],
+    "skills": [
+      "numbers_math.order-and-dozens"
+    ]
   },
   {
     "id": "ru-num-a2-17",
@@ -428,7 +643,12 @@
     "exerciseType": "flashcard",
     "prompt": "Ordinal number: 2nd in Russian (masculine)",
     "correctAnswer": "второй",
-    "hints": ["Pronounced 'fta-ROY'. The runner-up. Also used in 'второй этаж' (second floor)."]
+    "hints": [
+      "Pronounced 'fta-ROY'. The runner-up. Also used in 'второй этаж' (second floor)."
+    ],
+    "skills": [
+      "numbers_math.order-and-dozens"
+    ]
   },
   {
     "id": "ru-num-a2-18",
@@ -445,6 +665,9 @@
     ],
     "hints": [
       "The first three are irregular: первый, второй, ___. After that, ordinals follow the number."
+    ],
+    "skills": [
+      "numbers_math.order-and-dozens"
     ]
   },
   {
@@ -463,6 +686,9 @@
       "четвёртый",
       "четыре",
       "третьем"
+    ],
+    "skills": [
+      "numbers_math.order-and-dozens"
     ]
   },
   {
@@ -471,7 +697,12 @@
     "difficulty": "a2",
     "prompt": "How do you read the phone number 555-0199 in Russian?",
     "correctAnswer": "пять пять пять, ноль один девять девять",
-    "hints": ["Phone numbers are said digit by digit in Russian. 0 is 'ноль'."]
+    "hints": [
+      "Phone numbers are said digit by digit in Russian. 0 is 'ноль'."
+    ],
+    "skills": [
+      "numbers_math.big-numbers"
+    ]
   },
   {
     "id": "ru-num-b1-1",
@@ -480,7 +711,12 @@
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary in Russian: 1/2",
     "correctAnswer": "половина",
-    "hints": ["Pronounced 'pa-la-VEE-na'. Also used in time: 'половина второго' = half past one."]
+    "hints": [
+      "Pronounced 'pa-la-VEE-na'. Also used in time: 'половина второго' = half past one."
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
+    ]
   },
   {
     "id": "ru-num-b1-2",
@@ -489,7 +725,12 @@
     "exerciseType": "flashcard",
     "prompt": "Fraction vocabulary in Russian: 1/4",
     "correctAnswer": "четверть",
-    "hints": ["Pronounced 'CHYET-vyert'. Also used in time: 'четверть третьего' = quarter past two."]
+    "hints": [
+      "Pronounced 'CHYET-vyert'. Also used in time: 'четверть третьего' = quarter past two."
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
+    ]
   },
   {
     "id": "ru-num-b1-3",
@@ -506,6 +747,9 @@
     ],
     "hints": [
       "'Треть' = a third (a noun). After 'две' it takes the genitive singular."
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
     ]
   },
   {
@@ -524,6 +768,9 @@
       "Две трети",
       "Половина",
       "Три пятых"
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
     ]
   },
   {
@@ -533,7 +780,12 @@
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary in Russian: the symbol '%'",
     "correctAnswer": "процент",
-    "hints": ["From Latin 'per centum'. '20%' = 'двадцать процентов'. Sounds like English!"]
+    "hints": [
+      "From Latin 'per centum'. '20%' = 'двадцать процентов'. Sounds like English!"
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
+    ]
   },
   {
     "id": "ru-num-b1-6",
@@ -541,7 +793,12 @@
     "difficulty": "b1",
     "prompt": "Say '20% off' as a sentence in Russian.",
     "correctAnswer": "Скидка двадцать процентов.",
-    "hints": ["'Скидка' = discount. Literally 'a discount of twenty percent'."]
+    "hints": [
+      "'Скидка' = discount. Literally 'a discount of twenty percent'."
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
+    ]
   },
   {
     "id": "ru-num-b1-7",
@@ -550,8 +807,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which Russian phrase means 'around 100 people'?",
     "correctAnswer": "около ста человек",
-    "options": ["ровно сто человек", "около ста человек", "едва сто человек", "свыше ста человек"],
-    "hints": ["'Около' = around/about. After it, nouns go into the genitive case: ста (of a hundred)."]
+    "options": [
+      "ровно сто человек",
+      "около ста человек",
+      "едва сто человек",
+      "свыше ста человек"
+    ],
+    "hints": [
+      "'Около' = around/about. After it, nouns go into the genitive case: ста (of a hundred)."
+    ],
+    "skills": [
+      "numbers_math.estimating"
+    ]
   },
   {
     "id": "ru-num-b1-8",
@@ -560,7 +827,12 @@
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary in Russian: the result of an addition",
     "correctAnswer": "сумма",
-    "hints": ["'Сумма двух и трёх равна пяти.' Also means 'an amount of money' in everyday Russian!"]
+    "hints": [
+      "'Сумма двух и трёх равна пяти.' Also means 'an amount of money' in everyday Russian!"
+    ],
+    "skills": [
+      "numbers_math.math-words"
+    ]
   },
   {
     "id": "ru-num-b1-9",
@@ -569,7 +841,12 @@
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary in Russian: the result of a subtraction",
     "correctAnswer": "разность",
-    "hints": ["From 'разный' (different). The ___ между 10 и 6 равна 4."]
+    "hints": [
+      "From 'разный' (different). The ___ между 10 и 6 равна 4."
+    ],
+    "skills": [
+      "numbers_math.math-words"
+    ]
   },
   {
     "id": "ru-num-b1-10",
@@ -578,8 +855,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "What is the 'произведение' (product) of 4 and 5?",
     "correctAnswer": "20",
-    "options": ["9", "1", "20", "45"],
-    "hints": ["'Произведение' = the result of multiplication. 4 × 5 = ?"]
+    "options": [
+      "9",
+      "1",
+      "20",
+      "45"
+    ],
+    "hints": [
+      "'Произведение' = the result of multiplication. 4 × 5 = ?"
+    ],
+    "skills": [
+      "numbers_math.math-words"
+    ]
   },
   {
     "id": "ru-num-b1-11",
@@ -597,6 +884,9 @@
       "разделил",
       "умножить",
       "сложить"
+    ],
+    "skills": [
+      "numbers_math.math-words"
     ]
   },
   {
@@ -606,7 +896,12 @@
     "exerciseType": "flashcard",
     "prompt": "A more formal word for 'about / roughly' in Russian",
     "correctAnswer": "приблизительно",
-    "hints": ["'Проект стоит ___ десять тысяч евро.' A long word, but sounds very precise!"]
+    "hints": [
+      "'Проект стоит ___ десять тысяч евро.' A long word, but sounds very precise!"
+    ],
+    "skills": [
+      "numbers_math.estimating"
+    ]
   },
   {
     "id": "ru-num-b1-13",
@@ -614,7 +909,12 @@
     "difficulty": "b1",
     "prompt": "How do you say the decimal 3.5 in Russian?",
     "correctAnswer": "три целых пять десятых",
-    "hints": ["Russian formally says 'three whole five tenths'. Informally, people sometimes say 'три пять' (3.5)."]
+    "hints": [
+      "Russian formally says 'three whole five tenths'. Informally, people sometimes say 'три пять' (3.5)."
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
+    ]
   },
   {
     "id": "ru-num-b1-14",
@@ -623,8 +923,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which Russian phrase means 'not less than 10'?",
     "correctAnswer": "не менее десяти",
-    "options": ["не более десяти", "не менее десяти", "едва десять", "ровно десять"],
-    "hints": ["'Не менее' = no less than (minimum). 'Не более' = no more than (maximum)."]
+    "options": [
+      "не более десяти",
+      "не менее десяти",
+      "едва десять",
+      "ровно десять"
+    ],
+    "hints": [
+      "'Не менее' = no less than (minimum). 'Не более' = no more than (maximum)."
+    ],
+    "skills": [
+      "numbers_math.estimating"
+    ]
   },
   {
     "id": "ru-num-b1-15",
@@ -646,6 +956,9 @@
       "чуть больше сорока",
       "чуть меньше тридцати",
       "ровно тридцать"
+    ],
+    "skills": [
+      "numbers_math.estimating"
     ]
   },
   {
@@ -655,8 +968,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "How do you say 'a pair of' in Russian?",
     "correctAnswer": "пара",
-    "options": ["парочка", "пара", "двойка", "два"],
-    "hints": ["'Пара обуви' = a pair of shoes. 'Пара' also informally means a couple/two of something."]
+    "options": [
+      "парочка",
+      "пара",
+      "двойка",
+      "два"
+    ],
+    "hints": [
+      "'Пара обуви' = a pair of shoes. 'Пара' also informally means a couple/two of something."
+    ],
+    "skills": [
+      "numbers_math.math-words"
+    ]
   },
   {
     "id": "ru-num-b1-17",
@@ -665,7 +988,12 @@
     "exerciseType": "flashcard",
     "prompt": "Number vocabulary in Russian: the opposite of 'нечётный' (odd) numbers",
     "correctAnswer": "чётный",
-    "hints": ["2, 4, 6, 8 — это ___ числа. They divide exactly by 2. 'Чётный' and 'нечётный' are important in Russian number grammar!"]
+    "hints": [
+      "2, 4, 6, 8 — это ___ числа. They divide exactly by 2. 'Чётный' and 'нечётный' are important in Russian number grammar!"
+    ],
+    "skills": [
+      "numbers_math.math-words"
+    ]
   },
   {
     "id": "ru-num-b1-18",
@@ -686,6 +1014,9 @@
     ],
     "acceptedAnswers": [
       "приблизительно"
+    ],
+    "skills": [
+      "numbers_math.estimating"
     ]
   },
   {
@@ -694,7 +1025,12 @@
     "difficulty": "b1",
     "prompt": "How do you say 'double the price' in Russian?",
     "correctAnswer": "вдвое больше / в два раза больше",
-    "hints": ["'В два раза больше' = twice as much. Very common structure in Russian comparisons."]
+    "hints": [
+      "'В два раза больше' = twice as much. Very common structure in Russian comparisons."
+    ],
+    "skills": [
+      "numbers_math.estimating"
+    ]
   },
   {
     "id": "ru-num-b1-20",
@@ -711,6 +1047,9 @@
     ],
     "hints": [
       "'С половиной' = and a half — a very useful pattern."
+    ],
+    "skills": [
+      "numbers_math.fractions-and-percent"
     ]
   },
   {
@@ -720,8 +1059,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "What does the Russian expression 'один в поле не воин' mean?",
     "correctAnswer": "one person alone cannot accomplish much; you need others",
-    "options": ["one soldier is enough to win a battle", "one person alone cannot accomplish much; you need others", "a lone wolf is the strongest", "never trust anyone"],
-    "hints": ["Literally 'one in the field is not a warrior'. The Russian equivalent of 'no man is an island'."]
+    "options": [
+      "one soldier is enough to win a battle",
+      "one person alone cannot accomplish much; you need others",
+      "a lone wolf is the strongest",
+      "never trust anyone"
+    ],
+    "hints": [
+      "Literally 'one in the field is not a warrior'. The Russian equivalent of 'no man is an island'."
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
+    ]
   },
   {
     "id": "ru-num-b2-3",
@@ -739,6 +1088,9 @@
       "сходятся",
       "сходиться",
       "сходимся"
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
     ]
   },
   {
@@ -750,6 +1102,9 @@
     "correctAnswer": "рассчитывать на кого-то",
     "hints": [
       "'Я всегда могу на тебя рассчитывать.' The verb 'рассчитывать' literally means to calculate!"
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
     ]
   },
   {
@@ -759,8 +1114,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "Which phrase means 'it is unlikely we will succeed' in Russian?",
     "correctAnswer": "шансы не в нашу пользу",
-    "options": ["шансы на нашей стороне", "шансы не в нашу пользу", "у нас все козыри", "результат предрешён"],
-    "hints": ["'Не в нашу пользу' = not in our favor. The odds are against us."]
+    "options": [
+      "шансы на нашей стороне",
+      "шансы не в нашу пользу",
+      "у нас все козыри",
+      "результат предрешён"
+    ],
+    "hints": [
+      "'Не в нашу пользу' = not in our favor. The odds are against us."
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
+    ]
   },
   {
     "id": "ru-num-b2-6",
@@ -778,6 +1143,9 @@
       "номер два",
       "один номер",
       "номер первый"
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
     ]
   },
   {
@@ -787,7 +1155,12 @@
     "exerciseType": "flashcard",
     "prompt": "Math vocabulary in Russian: the result of dividing two numbers",
     "correctAnswer": "частное",
-    "hints": ["Сумма, разность, произведение, ___. The four basic math results in Russian."]
+    "hints": [
+      "Сумма, разность, произведение, ___. The four basic math results in Russian."
+    ],
+    "skills": [
+      "numbers_math.advanced-math"
+    ]
   },
   {
     "id": "ru-num-b2-8",
@@ -804,6 +1177,9 @@
     ],
     "hints": [
       "100, 50 and 1000 are round numbers; 47 and 83 are not."
+    ],
+    "skills": [
+      "numbers_math.advanced-math"
     ]
   },
   {
@@ -814,6 +1190,9 @@
     "correctAnswer": "Две трети респондентов поддержали предложение.",
     "hints": [
       "'Две трети' is followed by the genitive plural 'респондентов'; the verb is usually plural."
+    ],
+    "skills": [
+      "numbers_math.advanced-math"
     ]
   },
   {
@@ -832,6 +1211,9 @@
       "Ничего",
       "Никто",
       "Всё"
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
     ]
   },
   {
@@ -841,8 +1223,18 @@
     "exerciseType": "multiple_choice",
     "prompt": "What is the Russian equivalent of 'to zero in on something' (to focus precisely)?",
     "correctAnswer": "сосредоточиться на чём-то",
-    "options": ["избегать чего-то", "сосредоточиться на чём-то", "сбросить до нуля", "обходить стороной"],
-    "hints": ["'Сосредоточиться' = to concentrate / focus. The camera zooming in on one target."]
+    "options": [
+      "избегать чего-то",
+      "сосредоточиться на чём-то",
+      "сбросить до нуля",
+      "обходить стороной"
+    ],
+    "hints": [
+      "'Сосредоточиться' = to concentrate / focus. The camera zooming in on one target."
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
+    ]
   },
   {
     "id": "ru-num-b2-12",
@@ -853,6 +1245,9 @@
     "correctAnswer": "на седьмом небе",
     "hints": [
       "Russians float two levels lower — on the seventh heaven, not the ninth cloud."
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
     ]
   },
   {
@@ -871,6 +1266,9 @@
       "скромный",
       "скромным",
       "скромная"
+    ],
+    "skills": [
+      "numbers_math.number-idioms"
     ]
   },
   {
@@ -888,6 +1286,9 @@
     ],
     "hints": [
       "A divisor divides the number with no remainder."
+    ],
+    "skills": [
+      "numbers_math.advanced-math"
     ]
   },
   {
@@ -901,6 +1302,9 @@
     ],
     "acceptedAnswers": [
       "Я побывала в бесчисленных городах по всей Европе."
+    ],
+    "skills": [
+      "numbers_math.advanced-math"
     ]
   }
 ]

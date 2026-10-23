@@ -11,6 +11,9 @@
     "acceptedAnswers": [
       "¿Cómo se llama usted?",
       "¿Cómo se llama?"
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -21,6 +24,9 @@
     "correctAnswer": "Me llamo Alex y soy de Estados Unidos.",
     "hints": [
       "'Ser de' + place for origin. 'Los Estados Unidos' is also correct."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -35,6 +41,9 @@
     "acceptedAnswers": [
       "¿De dónde es usted?",
       "¿De dónde es?"
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -45,6 +54,9 @@
     "correctAnswer": "Vivo en una ciudad grande.",
     "hints": [
       "'Grande' usually follows the noun when it means 'big'."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -56,7 +68,10 @@
     "hints": [
       "In Spanish, you use 'tener' (to have) for age."
     ],
-    "culturalNote": "Spanish uses 'tener años' (to have years) rather than 'ser' (to be) when talking about age."
+    "culturalNote": "Spanish uses 'tener años' (to have years) rather than 'ser' (to be) when talking about age.",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "sp-cv-a1-6",
@@ -70,6 +85,9 @@
     "exerciseType": "build_sentence",
     "acceptedAnswers": [
       "Me gustan la música y el deporte."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -82,7 +100,10 @@
     "hints": [
       "A standard reply to a casual greeting."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "id": "sp-cv-a1-8",
@@ -93,7 +114,10 @@
     "hints": [
       "Informal 'tú' form; languages are lowercase in Spanish."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "sp-cv-a1-9",
@@ -103,6 +127,9 @@
     "correctAnswer": "Tengo dos hermanos y una hermana.",
     "hints": [
       "Use 'tener' for possession."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -114,7 +141,10 @@
     "hints": [
       "Feminine: una amiga."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "sp-cv-a1-11",
@@ -124,6 +154,9 @@
     "correctAnswer": "Soy estudiante.",
     "hints": [
       "Use 'ser' for occupation."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -138,6 +171,9 @@
     "exerciseType": "build_sentence",
     "acceptedAnswers": [
       "Encantada de conocerte."
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -156,6 +192,9 @@
       "Te",
       "Se",
       "Nos"
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -167,7 +206,10 @@
     "hints": [
       "Use the first-person present of 'trabajar'."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "sp-cv-a1-15",
@@ -178,7 +220,10 @@
     "hints": [
       "Which word means someone who lives near you?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "sp-cv-a1-16",
@@ -188,6 +233,9 @@
     "correctAnswer": "Soy de España y hablo español.",
     "hints": [
       "Use 'ser' for origin and 'hablar' for language."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -199,7 +247,10 @@
     "hints": [
       "Use 'tener' for possession."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "sp-cv-a1-18",
@@ -209,6 +260,9 @@
     "correctAnswer": "¿Cuántos años tienes?",
     "hints": [
       "Use 'tener' when asking about age in Spanish."
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -219,6 +273,9 @@
     "correctAnswer": "Es un placer conocerte en persona.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -229,6 +286,9 @@
     "correctAnswer": "¿Qué sueles hacer los fines de semana?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -239,6 +299,9 @@
     "correctAnswer": "Normalmente paso las tardes leyendo o caminando.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -249,6 +312,9 @@
     "correctAnswer": "El fin de semana pasado fui al cine con mis amigos.",
     "hints": [
       "Use the preterite for completed past actions."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -259,6 +325,9 @@
     "correctAnswer": "¿Cuánto tiempo llevas viviendo aquí?",
     "hints": [
       "Use 'llevar + gerund' for duration."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -270,7 +339,10 @@
     "hints": [
       "Use the present progressive for current actions."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.free-time"
+    ]
   },
   {
     "id": "sp-cv-a2-7",
@@ -282,7 +354,10 @@
     "hints": [
       "They are asking about your evening plans."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.free-time"
+    ]
   },
   {
     "id": "sp-cv-a2-8",
@@ -300,6 +375,9 @@
       "Me",
       "Nos",
       "Lo"
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -315,6 +393,9 @@
       "Me gusta cocinar los fines de semana.",
       "Me encanta cocinar los fines de semana.",
       "Disfruto cocinar los fines de semana."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -326,7 +407,10 @@
     "hints": [
       "Use the conditional of 'gustar' for polite invitations."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.free-time"
+    ]
   },
   {
     "id": "sp-cv-a2-11",
@@ -336,6 +420,9 @@
     "correctAnswer": "Me mudé a esta ciudad hace dos años.",
     "hints": [
       "Use 'hace + time' for expressions of time ago."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -346,6 +433,9 @@
     "correctAnswer": "Mi estación favorita es el otoño porque me encantan los colores.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -357,7 +447,10 @@
     "hints": [
       "Use the preterite of 'ir' for a completed past action."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "sp-cv-a2-14",
@@ -368,7 +461,10 @@
     "hints": [
       "A person you work alongside every day."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "sp-cv-a2-15",
@@ -379,7 +475,10 @@
     "hints": [
       "Which word describes someone who is unfriendly or unpleasant?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "sp-cv-a2-16",
@@ -390,7 +489,10 @@
     "hints": [
       "Use 'llevar + gerund' for time spent on an ongoing action."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "sp-cv-a2-17",
@@ -404,6 +506,9 @@
     "acceptedAnswers": [
       "¿En qué trabajas?",
       "¿Cuál es tu trabajo?"
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -414,6 +519,9 @@
     "correctAnswer": "La conocí en una fiesta el año pasado.",
     "hints": [
       "Use the preterite of 'conocer' for meeting someone for the first time."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -428,6 +536,9 @@
     "acceptedAnswers": [
       "Disfruto hablando de libros y temas actuales.",
       "Disfruto hablar sobre libros y temas actuales."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -438,6 +549,9 @@
     "correctAnswer": "En mi opinión, la constancia es más importante que la intensidad.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -452,6 +566,9 @@
     "acceptedAnswers": [
       "¿Qué tipo de temas te gusta tratar?",
       "¿De qué temas te gusta hablar?"
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -465,6 +582,9 @@
     ],
     "acceptedAnswers": [
       "Prefiero quedarme en casa esta noche porque estoy cansada."
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -475,6 +595,9 @@
     "correctAnswer": "Aunque tenemos gustos diferentes, siempre encontramos algo que hacer juntos.",
     "hints": [
       "Use 'aunque' as a concessive connector."
+    ],
+    "skills": [
+      "conversation.how-you-changed"
     ]
   },
   {
@@ -493,6 +616,9 @@
       "estás",
       "estarás",
       "estar"
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -503,6 +629,9 @@
     "correctAnswer": "Antes salía todos los viernes, pero ahora prefiero actividades más tranquilas.",
     "hints": [
       "Use the imperfect for past habits."
+    ],
+    "skills": [
+      "conversation.how-you-changed"
     ]
   },
   {
@@ -515,7 +644,10 @@
     "hints": [
       "Show empathy and offer support."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "sp-cv-b1-9",
@@ -525,6 +657,9 @@
     "correctAnswer": "Me parece que viajar amplía la mente.",
     "hints": [
       "Use 'me parece que' to express opinions."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -535,6 +670,9 @@
     "correctAnswer": "La conozco desde que éramos niños.",
     "hints": [
       "Use present tense with 'desde que' for ongoing states."
+    ],
+    "skills": [
+      "conversation.how-you-changed"
     ]
   },
   {
@@ -546,7 +684,10 @@
     "hints": [
       "Use the first conditional: si + present, future."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "sp-cv-b1-12",
@@ -556,6 +697,9 @@
     "correctAnswer": "Lo que más me gusta de esta ciudad es la comida.",
     "hints": [
       "Use 'lo que' for 'what' as a relative pronoun."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -567,7 +711,10 @@
     "hints": [
       "Use the conditional of 'deber' for suggestions."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "sp-cv-b1-14",
@@ -577,6 +724,9 @@
     "correctAnswer": "Me dijo que no podía venir a la fiesta.",
     "hints": [
       "Use reported speech with the imperfect tense."
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -590,6 +740,9 @@
     ],
     "acceptedAnswers": [
       "No estoy segura de si estoy de acuerdo con ese punto de vista."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -601,7 +754,10 @@
     "hints": [
       "Use 'llevar + gerund' for an ongoing action up to the present."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.how-you-changed"
+    ]
   },
   {
     "id": "sp-cv-b1-17",
@@ -612,7 +768,10 @@
     "hints": [
       "Trust or self-assurance in yourself or another person."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.opinions"
+    ]
   },
   {
     "id": "sp-cv-b1-18",
@@ -623,7 +782,10 @@
     "hints": [
       "Which word means to cut someone off while they are speaking?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "sp-cv-b1-19",
@@ -635,7 +797,10 @@
       "Give a balanced opinion using 'aunque' to introduce a concession."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Expressing a nuanced opinion with 'aunque' (although) is a mark of conversational maturity in Spanish."
+    "culturalNote": "Expressing a nuanced opinion with 'aunque' (although) is a mark of conversational maturity in Spanish.",
+    "skills": [
+      "conversation.opinions"
+    ]
   },
   {
     "id": "sp-cv-b1-20",
@@ -646,7 +811,10 @@
     "hints": [
       "Use 'ojalá' with the imperfect subjunctive for wishes about the present."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.how-you-changed"
+    ]
   },
   {
     "id": "sp-cv-b1-21",
@@ -661,6 +829,9 @@
       "Para ser honesta, me cuesta hablar de mis sentimientos.",
       "Para serte sincero, me cuesta hablar de mis sentimientos.",
       "La verdad es que me cuesta hablar de mis sentimientos."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -674,6 +845,9 @@
     ],
     "acceptedAnswers": [
       "Antes era tímida, pero ahora expreso mis ideas con confianza."
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   },
   {
@@ -684,6 +858,9 @@
     "correctAnswer": "Aunque no estamos de acuerdo, respeto tu perspectiva.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -694,6 +871,9 @@
     "correctAnswer": "Aprecio las conversaciones sinceras, incluso cuando son difíciles.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -704,6 +884,9 @@
     "correctAnswer": "Es una lástima que tan poca gente cuestione lo que lee en internet.",
     "hints": [
       "Use the subjunctive after 'es una lástima que'."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -714,6 +897,9 @@
     "correctAnswer": "Cuanto más diversas sean las perspectivas, más rica se vuelve la conversación.",
     "hints": [
       "Use 'cuanto más... más...' for correlative comparisons."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -735,6 +921,9 @@
     ],
     "acceptedAnswers": [
       "hubiese conocido"
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   },
   {
@@ -746,7 +935,10 @@
     "hints": [
       "Use 'independientemente de lo que' with the subjunctive."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.disagreeing"
+    ]
   },
   {
     "id": "sp-cv-b2-8",
@@ -758,7 +950,10 @@
     "hints": [
       "Acknowledge their view and offer a nuanced counterpoint."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.disagreeing"
+    ]
   },
   {
     "id": "sp-cv-b2-9",
@@ -768,6 +963,9 @@
     "correctAnswer": "Me habría encantado asistir, de no haber hecho ya otros planes.",
     "hints": [
       "Use 'de no haber + participle' as an alternative conditional."
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   },
   {
@@ -779,7 +977,10 @@
     "hints": [
       "Use 'lo que más me llama la atención' for emphasis."
     ],
-    "culturalNote": "In many Latin American communities, the sense of togetherness and mutual support is deeply rooted in daily life."
+    "culturalNote": "In many Latin American communities, the sense of togetherness and mutual support is deeply rooted in daily life.",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "sp-cv-b2-11",
@@ -789,6 +990,9 @@
     "correctAnswer": "Ojalá la gente escuchara más y juzgara menos.",
     "hints": [
       "Use 'ojalá' with the imperfect subjunctive for wishes."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -799,6 +1003,9 @@
     "correctAnswer": "Huelga decir que el respeto mutuo es la base de cualquier relación.",
     "hints": [
       "Use the idiomatic expression 'huelga decir que'."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -810,7 +1017,10 @@
     "hints": [
       "Use 'no solo... sino que también...' for emphasis."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "sp-cv-b2-14",
@@ -820,6 +1030,9 @@
     "correctAnswer": "De no ser por el humor, muchas conversaciones difíciles nunca tendrían lugar.",
     "hints": [
       "Use 'de no ser por' for a formal conditional."
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   },
   {
@@ -830,6 +1043,9 @@
     "correctAnswer": "Creo firmemente que la empatía es la clave para entendernos unos a otros.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -841,7 +1057,10 @@
     "hints": [
       "Use 'de haber + participle' as a formal alternative to the third conditional."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "id": "sp-cv-b2-17",
@@ -852,7 +1071,10 @@
     "hints": [
       "To add nuance or subtlety to an argument or statement."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "id": "sp-cv-b2-18",
@@ -863,7 +1085,10 @@
     "hints": [
       "Which word means a prejudice or slant that distorts judgment?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.disagreeing"
+    ]
   },
   {
     "id": "sp-cv-b2-19",
@@ -875,7 +1100,10 @@
       "Open with 'depende' and present both sides of the argument."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Spanish-speaking cultures often value tradition deeply; acknowledging complexity in debate signals critical thinking."
+    "culturalNote": "Spanish-speaking cultures often value tradition deeply; acknowledging complexity in debate signals critical thinking.",
+    "skills": [
+      "conversation.disagreeing"
+    ]
   },
   {
     "id": "sp-cv-b2-20",
@@ -886,7 +1114,10 @@
     "hints": [
       "Use 'no solo... sino que también...' for a two-part emphatic structure."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "sp-cv-b2-21",
@@ -896,6 +1127,9 @@
     "correctAnswer": "La forma en que expresas algo puede cambiar todo el tono de una conversación.",
     "hints": [
       "'La forma en que' introduces a relative clause about how something is done."
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   }
 ]

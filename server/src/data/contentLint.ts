@@ -9,6 +9,7 @@ const fs: typeof import("fs") = require("fs");
 const path: typeof import("path") = require("path");
 const { CATEGORIES } = require("./constants.ts");
 const { CONTENT_DIR } = require("../paths.ts");
+const { loadSkillCatalog, sourceKey } = require("./skills.ts");
 
 type Severity = "error" | "warning";
 
@@ -28,6 +29,9 @@ type ContentItem = {
   culturalNote?: string;
   [key: string]: unknown;
 };
+
+// An exam asks two questions per skill, so a skill needs a spare item beyond that.
+const MIN_SKILL_ITEMS = 3;
 
 type LintFinding = {
   language: string;
@@ -139,6 +143,23 @@ const RULES: Record<string, { severity: Severity; description: string }> = {
   "hint-reveals-answer": {
     severity: "warning",
     description: "A hint contains the full multi-word answer."
+  },
+  "skill-unknown": {
+    severity: "error",
+    description: "An item lists a skill that is not in server/content/skills for its course."
+  },
+  "skill-wrong-unit": {
+    severity: "error",
+    description: "An item lists a skill from another unit or level, so the knowledge map would show it in the wrong place."
+  },
+  "skill-missing": {
+    severity: "warning",
+    description:
+      "An item has no skill of its own or from the English item it translates, so it only counts toward its unit's basics."
+  },
+  "skill-thin": {
+    severity: "warning",
+    description: `A skill has fewer than ${MIN_SKILL_ITEMS} items in a course, too few for an exam to measure it.`
   }
 };
 
@@ -654,6 +675,16 @@ function lintItem(
   }
   if (hints.some((hint) => !hint.trim())) report("placeholder-text", "a hint is empty");
 
+  // Skill tags name a skill of this course's catalog, from the item's own unit and level.
+  const skills = skillsFor(language);
+  for (const skillId of Array.isArray(item.skills) ? item.skills.map(String) : []) {
+    const skill = skills.get(skillId);
+    if (!skill) report("skill-unknown", `"${skillId}" is not in the skill catalog`);
+    else if (!skill.units.includes(category) || skill.level !== String(item.level)) {
+      report("skill-wrong-unit", `"${skillId}" belongs to ${skill.units.join(", ")} ${skill.level}`);
+    }
+  }
+
   // Untranslated answers, and prompts that already show the answer.
   if (!isEnglishCourse && !isMultipleChoiceQuestion(item)) {
     const normalizedAnswer = normalize(answer);
@@ -853,6 +884,65 @@ function lintItem(
   return findings;
 }
 
+let skillCatalog: ReturnType<typeof loadSkillCatalog> | null = null;
+
+function skillsFor(language: string): Map<string, { units: string[]; level: string }> {
+  skillCatalog ||= loadSkillCatalog();
+  return new Map(
+    [...skillCatalog.shared, ...(skillCatalog.byLanguage[language] || [])].map((skill: any) => [skill.id, skill])
+  );
+}
+
+// The course a language inherits skill tags from, named by `skillsFrom` in its _meta.json.
+function skillSourceOf(language: string): string | undefined {
+  const metaPath = path.join(CONTENT_DIR, language, "_meta.json");
+  return fs.existsSync(metaPath) ? JSON.parse(fs.readFileSync(metaPath, "utf8")).skillsFrom : undefined;
+}
+
+// Course-wide skill checks: items left without any skill, and skills too thin for an exam.
+function lintSkills(language: string, byCategory: Record<string, ContentItem[]>): LintFinding[] {
+  const findings: LintFinding[] = [];
+  const source = skillSourceOf(language);
+  const inherited = new Map<string, string[]>();
+  if (source) {
+    for (const items of Object.values(loadLanguageItems(source))) {
+      for (const item of items) inherited.set(sourceKey(String(item.id)), (item.skills as string[]) || []);
+    }
+  }
+  const known = skillsFor(language);
+  const counts = new Map<string, { count: number; category: string }>();
+  for (const [category, items] of Object.entries(byCategory)) {
+    for (const item of items) {
+      const own = Array.isArray(item.skills) ? item.skills.map(String) : [];
+      const tags = (own.length ? own : inherited.get(sourceKey(String(item.id))) || []).filter((id) => known.has(id));
+      if (!tags.length) {
+        findings.push({
+          language,
+          category,
+          id: String(item.id),
+          rule: "skill-missing",
+          severity: RULES["skill-missing"].severity,
+          message: "no skill tag of its own or from the English item"
+        });
+      }
+      for (const tag of tags) counts.set(tag, { count: (counts.get(tag)?.count || 0) + 1, category });
+    }
+  }
+  for (const [skillId, { count, category }] of counts) {
+    if (count < MIN_SKILL_ITEMS) {
+      findings.push({
+        language,
+        category,
+        id: skillId,
+        rule: "skill-thin",
+        severity: RULES["skill-thin"].severity,
+        message: `${count} item${count === 1 ? "" : "s"}; an exam needs at least ${MIN_SKILL_ITEMS}`
+      });
+    }
+  }
+  return findings;
+}
+
 function englishPromptMap(english: Record<string, ContentItem[]>, category: string) {
   return new Map((english[category] || []).map((item) => [String(item.prompt || ""), item]));
 }
@@ -878,6 +968,7 @@ function lintAll(languages: string[]): LintFinding[] {
         findings.push(...lintItem(item, language, category, englishByPrompt));
       }
     }
+    findings.push(...lintSkills(language, byCategory));
   }
   return findings;
 }

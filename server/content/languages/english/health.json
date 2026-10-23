@@ -7,6 +7,9 @@
     "correctAnswer": "I do not feel well.",
     "hints": [
       "'Feel well' is about your health; 'do not' often shortens to 'don't'."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "Where is the nearest hospital?",
     "hints": [
       "'Nearest' is the superlative of 'near': near, nearer, nearest."
+    ],
+    "skills": [
+      "health.finding-help"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "I have a headache.",
     "hints": [
       "Aches and pains use 'have a': a headache, a stomachache, a sore throat."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -38,7 +47,10 @@
     "hints": [
       "Use 'I have a...' for symptoms."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "health.your-body"
+    ]
   },
   {
     "id": "en-he-14",
@@ -48,6 +60,9 @@
     "correctAnswer": "Is there a pharmacy nearby?",
     "hints": [
       "A pharmacy is also called a chemist's."
+    ],
+    "skills": [
+      "health.finding-help"
     ]
   },
   {
@@ -58,6 +73,9 @@
     "correctAnswer": "My stomach hurts.",
     "hints": [
       "'Hurts' is the verb for pain."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -69,7 +87,10 @@
     "hints": [
       "Think of who you visit when you are ill."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "health.finding-help"
+    ]
   },
   {
     "id": "en-he-17",
@@ -79,6 +100,9 @@
     "correctAnswer": "I am allergic to penicillin.",
     "hints": [
       "An important phrase in a medical emergency."
+    ],
+    "skills": [
+      "health.your-body"
     ]
   },
   {
@@ -89,6 +113,9 @@
     "correctAnswer": "Can you call an ambulance?",
     "hints": [
       "Use 'can you' for urgent requests."
+    ],
+    "skills": [
+      "health.finding-help"
     ]
   },
   {
@@ -100,7 +127,10 @@
     "hints": [
       "Short, clear phrase for emergencies."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "health.finding-help"
+    ]
   },
   {
     "level": "a1",
@@ -111,7 +141,10 @@
       "Useful health question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-he-a1-40"
+    "id": "en-he-a1-40",
+    "skills": [
+      "health.finding-help"
+    ]
   },
   {
     "level": "a1",
@@ -122,7 +155,10 @@
       "Healthy habit statement."
     ],
     "exerciseType": "flashcard",
-    "id": "en-he-a1-41"
+    "id": "en-he-a1-41",
+    "skills": [
+      "health.your-body"
+    ]
   },
   {
     "id": "en-he-4",
@@ -132,6 +168,9 @@
     "correctAnswer": "I have had a sore throat for three days.",
     "hints": [
       "Use the present perfect for ongoing symptoms."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -142,6 +181,9 @@
     "correctAnswer": "Can I make an appointment with the doctor today?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -152,6 +194,9 @@
     "correctAnswer": "I need to take these tablets twice a day.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "health.medicine"
     ]
   },
   {
@@ -162,6 +207,9 @@
     "correctAnswer": "I have been feeling dizzy since this morning.",
     "hints": [
       "Use 'since' for a specific starting point in the past."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -172,6 +220,9 @@
     "correctAnswer": "What are the side effects of this medication?",
     "hints": [
       "Use 'what are' to ask about multiple things."
+    ],
+    "skills": [
+      "health.medicine"
     ]
   },
   {
@@ -182,6 +233,9 @@
     "correctAnswer": "I twisted my ankle while hiking.",
     "hints": [
       "'While' links two actions happening at the same time."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -192,6 +246,9 @@
     "correctAnswer": "Do I need a prescription for this medicine?",
     "hints": [
       "Yes/no question with 'do I need'."
+    ],
+    "skills": [
+      "health.medicine"
     ]
   },
   {
@@ -202,6 +259,9 @@
     "correctAnswer": "I have a rash on my arm.",
     "hints": [
       "Describe the symptom and its location."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -213,7 +273,10 @@
     "hints": [
       "Use 'gets worse' to describe worsening symptoms."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "health.at-the-doctor"
+    ]
   },
   {
     "id": "en-he-26",
@@ -223,6 +286,9 @@
     "correctAnswer": "Is this contagious?",
     "hints": [
       "Simple yes/no question with 'is this'."
+    ],
+    "skills": [
+      "health.at-the-doctor"
     ]
   },
   {
@@ -233,7 +299,10 @@
     "hints": [
       "Advice with 'should'."
     ],
-    "id": "en-he-a2-49"
+    "id": "en-he-a2-49",
+    "skills": [
+      "health.healthy-habits"
+    ]
   },
   {
     "level": "a2",
@@ -244,7 +313,10 @@
       "Routine health question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-he-a2-50"
+    "id": "en-he-a2-50",
+    "skills": [
+      "health.healthy-habits"
+    ]
   },
   {
     "level": "a2",
@@ -255,7 +327,10 @@
       "Lifestyle improvement phrase."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-he-a2-51"
+    "id": "en-he-a2-51",
+    "skills": [
+      "health.healthy-habits"
+    ]
   },
   {
     "id": "en-he-7",
@@ -265,6 +340,9 @@
     "correctAnswer": "I have a pre-existing condition that requires regular medication.",
     "hints": [
       "'Pre-existing condition' means a health issue you already had before."
+    ],
+    "skills": [
+      "health.conditions"
     ]
   },
   {
@@ -275,6 +353,9 @@
     "correctAnswer": "Would it be safe to exercise with this condition?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "health.conditions"
     ]
   },
   {
@@ -285,6 +366,9 @@
     "correctAnswer": "I would like a second opinion before deciding on surgery.",
     "hints": [
       "'A second opinion' means consulting another doctor."
+    ],
+    "skills": [
+      "health.treatment"
     ]
   },
   {
@@ -295,6 +379,9 @@
     "correctAnswer": "The symptoms started gradually and have been getting worse.",
     "hints": [
       "Use present perfect continuous for an ongoing trend."
+    ],
+    "skills": [
+      "health.conditions"
     ]
   },
   {
@@ -305,6 +392,9 @@
     "correctAnswer": "How long should I wait before the antibiotics start working?",
     "hints": [
       "Use 'should I' for advice-seeking questions."
+    ],
+    "skills": [
+      "health.treatment"
     ]
   },
   {
@@ -315,6 +405,9 @@
     "correctAnswer": "I have been following a low-sodium diet on my doctor's advice.",
     "hints": [
       "Present perfect continuous shows an ongoing action started in the past."
+    ],
+    "skills": [
+      "health.treatment"
     ]
   },
   {
@@ -325,6 +418,9 @@
     "correctAnswer": "I am concerned that my blood pressure has been fluctuating.",
     "hints": [
       "Express worry with 'I am concerned that'."
+    ],
+    "skills": [
+      "health.conditions"
     ]
   },
   {
@@ -336,7 +432,10 @@
     "hints": [
       "Give specific detail and use 'lately' for recent changes."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "health.wellbeing"
+    ]
   },
   {
     "id": "en-he-32",
@@ -346,6 +445,9 @@
     "correctAnswer": "I am currently taking medication for high blood pressure.",
     "hints": [
       "'Currently' emphasises something happening right now."
+    ],
+    "skills": [
+      "health.conditions"
     ]
   },
   {
@@ -356,6 +458,9 @@
     "correctAnswer": "Are there any lifestyle changes I should make alongside this treatment?",
     "hints": [
       "Use 'alongside' to mean 'in addition to'."
+    ],
+    "skills": [
+      "health.treatment"
     ]
   },
   {
@@ -366,7 +471,10 @@
     "hints": [
       "Health impact sentence."
     ],
-    "id": "en-he-b1-59"
+    "id": "en-he-b1-59",
+    "skills": [
+      "health.wellbeing"
+    ]
   },
   {
     "level": "b1",
@@ -377,7 +485,10 @@
       "Coping strategy prompt."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-he-b1-60"
+    "id": "en-he-b1-60",
+    "skills": [
+      "health.wellbeing"
+    ]
   },
   {
     "level": "b1",
@@ -388,7 +499,10 @@
       "Cause-effect form."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-he-b1-61"
+    "id": "en-he-b1-61",
+    "skills": [
+      "health.wellbeing"
+    ]
   },
   {
     "id": "en-he-10",
@@ -398,6 +512,9 @@
     "correctAnswer": "I would appreciate a referral to a specialist for further investigation.",
     "hints": [
       "Formal, polite language for medical requests."
+    ],
+    "skills": [
+      "health.specialist-care"
     ]
   },
   {
@@ -408,6 +525,9 @@
     "correctAnswer": "What are the long-term implications of leaving this untreated?",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "health.risks-and-outcomes"
     ]
   },
   {
@@ -418,6 +538,9 @@
     "correctAnswer": "I would like to discuss the risks and benefits before consenting to the procedure.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "health.specialist-care"
     ]
   },
   {
@@ -428,6 +551,9 @@
     "correctAnswer": "The evidence suggests that early intervention significantly improves outcomes.",
     "hints": [
       "Formal, evidence-based language typical of medical discussions."
+    ],
+    "skills": [
+      "health.risks-and-outcomes"
     ]
   },
   {
@@ -438,6 +564,9 @@
     "correctAnswer": "Are there contraindications given my existing medication?",
     "hints": [
       "'Contraindications' are reasons a treatment should not be used."
+    ],
+    "skills": [
+      "health.specialist-care"
     ]
   },
   {
@@ -448,6 +577,9 @@
     "correctAnswer": "I want to explore non-invasive alternatives before committing to surgery.",
     "hints": [
       "'Non-invasive' means no cutting or entering the body."
+    ],
+    "skills": [
+      "health.specialist-care"
     ]
   },
   {
@@ -458,6 +590,9 @@
     "correctAnswer": "The deterioration in my condition appears to correlate with increased stress levels.",
     "hints": [
       "'Deterioration' means worsening; 'correlate with' means linked to."
+    ],
+    "skills": [
+      "health.risks-and-outcomes"
     ]
   },
   {
@@ -468,6 +603,9 @@
     "correctAnswer": "Would a preventive course of treatment be advisable given my family history?",
     "hints": [
       "'Preventive' means aimed at stopping a problem before it starts."
+    ],
+    "skills": [
+      "health.risks-and-outcomes"
     ]
   },
   {
@@ -478,7 +616,10 @@
     "hints": [
       "Advanced health framing."
     ],
-    "id": "en-he-b2-69"
+    "id": "en-he-b2-69",
+    "skills": [
+      "health.prevention"
+    ]
   },
   {
     "level": "b2",
@@ -489,7 +630,10 @@
       "Public-health discussion prompt."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-he-b2-70"
+    "id": "en-he-b2-70",
+    "skills": [
+      "health.prevention"
+    ]
   },
   {
     "level": "b2",
@@ -500,6 +644,9 @@
       "Abstract comparison sentence."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-he-b2-71"
+    "id": "en-he-b2-71",
+    "skills": [
+      "health.prevention"
+    ]
   }
 ]

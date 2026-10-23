@@ -63,6 +63,12 @@ function validateCourseItem(item: unknown, languageId: string, categoryId: strin
   if (exerciseType && !SUPPORTED_EXERCISE_TYPES.includes(exerciseType)) {
     throw new Error(`${prefix}.exerciseType is not supported`);
   }
+  if (
+    item.skills !== undefined &&
+    (!Array.isArray(item.skills) || item.skills.some((skill) => typeof skill !== "string" || !skill.trim()))
+  ) {
+    throw new Error(`${prefix}.skills must be an array of skill ids`);
+  }
   if (item.wordGlossary !== undefined) {
     if (
       typeof item.wordGlossary !== "object" ||
@@ -127,7 +133,7 @@ function loadLanguageFromDirectory(dirPath: string, dirName: string) {
     throw new Error(`${dirName}/_meta.json is missing`);
   }
 
-  const meta = parseJsonFile(metaPath) as { id: string; label: string; flag: string };
+  const meta = parseJsonFile(metaPath) as { id: string; label: string; flag: string; skillsFrom?: string };
   if (!meta.id || !meta.label || !meta.flag) {
     throw new Error(`${dirName}/_meta.json must have id, label, and flag`);
   }
@@ -157,7 +163,7 @@ function loadLanguageFromDirectory(dirPath: string, dirName: string) {
     throw new Error(`${dirName} has unknown category files: ${unknownCategories.join(", ")}`);
   }
 
-  return { id: meta.id, label: meta.label, flag: meta.flag, course: courseParts };
+  return { id: meta.id, label: meta.label, flag: meta.flag, skillsFrom: meta.skillsFrom, course: courseParts };
 }
 
 function loadLanguageFromFile(filePath: string) {
@@ -195,6 +201,8 @@ function loadLanguageContent() {
   const languages: Array<{ id: string; label: string; flag: string; contentSha256: string }> = [];
   const course: Record<string, Record<string, any[]>> = {};
   const contentMeta: Record<string, { sha256: string; itemCount: number; loadedAt: string; fileName: string }> = {};
+  // Which course each language takes its skill tags from (see data/skills.ts).
+  const skillSources: Record<string, string | undefined> = {};
   const seenLanguageIds = new Set<string>();
   const loadedAt = new Date().toISOString();
 
@@ -226,6 +234,7 @@ function loadLanguageContent() {
     });
 
     course[parsed.id] = parsed.course;
+    skillSources[parsed.id] = (parsed as { skillsFrom?: string }).skillsFrom;
     contentMeta[parsed.id] = {
       sha256,
       itemCount,
@@ -234,7 +243,7 @@ function loadLanguageContent() {
     };
   }
 
-  return { languages, course, contentMeta };
+  return { languages, course, contentMeta, skillSources };
 }
 
 module.exports = {

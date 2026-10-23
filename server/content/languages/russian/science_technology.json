@@ -7,6 +7,9 @@
     "correctAnswer": "Батарея моего телефона почти разряжена.",
     "hints": [
       "Talk about your device."
+    ],
+    "skills": [
+      "science_technology.devices"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "Wi-Fi не работает.",
     "hints": [
       "A common connection problem."
+    ],
+    "skills": [
+      "science_technology.online"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "Мой ноутбук сегодня тормозит.",
     "hints": [
       "A simple device complaint."
+    ],
+    "skills": [
+      "science_technology.devices"
     ]
   },
   {
@@ -37,6 +46,9 @@
     "correctAnswer": "Мне нужно обновить приложение.",
     "hints": [
       "Think about software updates."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -47,6 +59,9 @@
     "correctAnswer": "Можешь прислать мне ссылку?",
     "hints": [
       "Ask for a URL."
+    ],
+    "skills": [
+      "science_technology.using-tech"
     ]
   },
   {
@@ -62,6 +77,9 @@
       "Я забыла свой пароль.",
       "Я забыл пароль.",
       "Я забыла пароль."
+    ],
+    "skills": [
+      "science_technology.apps-and-settings"
     ]
   },
   {
@@ -73,7 +91,10 @@
     "hints": [
       "Match the tech term."
     ],
-    "exerciseType": "matching"
+    "exerciseType": "matching",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "id": "ru-st-b1-2",
@@ -84,7 +105,10 @@
     "hints": [
       "A practical instruction."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "id": "ru-st-b1-3",
@@ -97,7 +121,10 @@
       "Offer a quick fix.",
       "Try closing the application and opening it again."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "id": "ru-st-b2",
@@ -108,7 +135,10 @@
     "hints": [
       "'Прежде чем' = before; 'получить широкое распространение' = to become widespread."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "science_technology.ethics-and-regulation"
+    ]
   },
   {
     "id": "ru-st-b2-2",
@@ -119,7 +149,10 @@
     "hints": [
       "Comparative 'важнее' + genitive (удобства) = more important than convenience."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "science_technology.ethics-and-regulation"
+    ]
   },
   {
     "id": "ru-st-b2-3",
@@ -130,7 +163,10 @@
     "hints": [
       "'Делать резервную копию' = to back up; 'иначе' = otherwise."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "science_technology.tech-and-change"
+    ]
   },
   {
     "id": "ru-sc-a1-1",
@@ -141,7 +177,10 @@
     "hints": [
       "Always used in the plural in Russian. Genitive: данных."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.online"
+    ]
   },
   {
     "id": "ru-sc-a1-2",
@@ -152,7 +191,10 @@
     "hints": [
       "Neuter noun. Plural: устройства. Covers phones, tablets, laptops, etc."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "id": "ru-sc-a1-3",
@@ -163,7 +205,10 @@
     "hints": [
       "Neuter noun. The verb form is 'исследовать' (to research/investigate)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.online"
+    ]
   },
   {
     "id": "ru-sc-a1-4",
@@ -174,7 +219,10 @@
     "hints": [
       "'Заряжать' = to charge (imperfective). 'Каждую ночь' = every night (accusative with 'каждый')."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "id": "ru-sc-a1-5",
@@ -191,6 +239,9 @@
       "экран",
       "интернет",
       "сеть"
+    ],
+    "skills": [
+      "science_technology.online"
     ]
   },
   {
@@ -202,7 +253,10 @@
     "hints": [
       "Stress: телефОн, рабОтает. A high-frequency complaint phrase."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "science_technology.devices"
+    ]
   },
   {
     "id": "ru-sc-a1-7",
@@ -212,6 +266,9 @@
     "correctAnswer": "Где зарядка?",
     "hints": [
       "'Зарядка' is the everyday informal word for a charger. The formal term is 'зарядное устройство'."
+    ],
+    "skills": [
+      "science_technology.devices"
     ]
   },
   {
@@ -222,6 +279,9 @@
     "correctAnswer": "Я каждый день ищу информацию в интернете.",
     "hints": [
       "'Искать' = to search (imperfective). 'В интернете' = online (prepositional case)."
+    ],
+    "skills": [
+      "science_technology.using-tech"
     ]
   },
   {
@@ -233,7 +293,10 @@
     "hints": [
       "'Зависнуть' = to freeze/crash (perfective). 'Потерял' = lost (masculine; feminine 'потеряла')."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "science_technology.apps-and-settings"
+    ]
   },
   {
     "id": "ru-sc-a2-3",
@@ -251,7 +314,10 @@
       "выключи",
       "выключен"
     ],
-    "translation": "Don't forget to save the document before you turn off the computer."
+    "translation": "Don't forget to save the document before you turn off the computer.",
+    "skills": [
+      "science_technology.apps-and-settings"
+    ]
   },
   {
     "id": "ru-sc-a2-4",
@@ -262,7 +328,10 @@
     "hints": [
       "Stress: скачАй, приложЕние, аккАунт. Two imperative verbs in sequence."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "science_technology.apps-and-settings"
+    ]
   },
   {
     "id": "ru-sc-a2-5",
@@ -274,7 +343,10 @@
     "hints": [
       "'Одновременно' = simultaneously/at the same time. 'Кнопку' = button (accusative)."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "science_technology.apps-and-settings"
+    ]
   },
   {
     "id": "ru-sc-a2-6",
@@ -285,7 +357,10 @@
     "hints": [
       "Both are perfective. 'Скачать' = download; 'загрузить' = upload (or to load in general)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.apps-and-settings"
+    ]
   },
   {
     "id": "ru-sc-a2-7",
@@ -296,7 +371,10 @@
     "hints": [
       "'Работать на' + prepositional = to work on (a platform). 'Маке' is prepositional of 'Мак'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "science_technology.using-tech"
+    ]
   },
   {
     "id": "ru-sc-b1-1",
@@ -306,6 +384,9 @@
     "correctAnswer": "Смартфоны изменили то, как мы общаемся.",
     "hints": [
       "Perfective past 'изменили' for a completed change. 'То, как' = the way (how)."
+    ],
+    "skills": [
+      "science_technology.tech-and-society"
     ]
   },
   {
@@ -317,7 +398,10 @@
     "hints": [
       "'Чтобы + infinitive' = in order to. 'В безопасности' = safely/in safety (prepositional)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "id": "ru-sc-b1-3",
@@ -335,7 +419,10 @@
       "массива",
       "массивом"
     ],
-    "translation": "A neural network is trained on a large set of data."
+    "translation": "A neural network is trained on a large set of data.",
+    "skills": [
+      "science_technology.tech-and-society"
+    ]
   },
   {
     "id": "ru-sc-b1-4",
@@ -346,7 +433,10 @@
     "hints": [
       "Listen for 'под угрозой' (under threat/at risk) at the end."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "science_technology.tech-and-society"
+    ]
   },
   {
     "id": "ru-sc-b1-5",
@@ -357,7 +447,10 @@
     "hints": [
       "Often abbreviated as ИИ in Russian, equivalent to AI. 'Искусственный' = artificial."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.tech-and-society"
+    ]
   },
   {
     "id": "ru-sc-b1-6",
@@ -367,6 +460,9 @@
     "correctAnswer": "Электромобили с каждым годом становятся всё более доступными.",
     "hints": [
       "'С каждым годом' = with every passing year. 'Всё более' = increasingly (ever more)."
+    ],
+    "skills": [
+      "science_technology.innovation"
     ]
   },
   {
@@ -378,7 +474,10 @@
     "hints": [
       "'Определять' = to determine (imperfective). 'Местоположение' = location/position."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "science_technology.innovation"
+    ]
   },
   {
     "id": "ru-sc-b1-8",
@@ -388,6 +487,9 @@
     "correctAnswer": "Разработчик исправил ошибку в последней версии.",
     "hints": [
       "'Исправить ошибку' = to fix a bug (perfective). 'В последней версии' = prepositional case."
+    ],
+    "skills": [
+      "science_technology.innovation"
     ]
   },
   {
@@ -401,6 +503,9 @@
     ],
     "acceptedAnswers": [
       "Распространение дезинформации ускорилось благодаря алгоритмическим системам рекомендаций."
+    ],
+    "skills": [
+      "science_technology.tech-and-change"
     ]
   },
   {
@@ -419,7 +524,10 @@
       "шифрованию",
       "шифрованием"
     ],
-    "translation": "Quantum computing could make most current encryption methods obsolete."
+    "translation": "Quantum computing could make most current encryption methods obsolete.",
+    "skills": [
+      "science_technology.tech-and-change"
+    ]
   },
   {
     "id": "ru-sc-b2-3",
@@ -429,6 +537,9 @@
     "correctAnswer": "Этические последствия автономных систем вооружения по-прежнему вызывают острые споры.",
     "hints": [
       "'По-прежнему' = still/as before. 'Вызывать споры' = to provoke/generate debate."
+    ],
+    "skills": [
+      "science_technology.ethics-and-regulation"
     ]
   },
   {
@@ -440,7 +551,10 @@
     "hints": [
       "Often shortened to 'открытый исходный код' or simply 'опенсорс' in informal tech contexts."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "science_technology.tech-and-change"
+    ]
   },
   {
     "id": "ru-sc-b2-6",
@@ -450,6 +564,9 @@
     "correctAnswer": "Биометрическая аутентификация поднимает серьёзные вопросы о хранении и возможном злоупотреблении персональными данными.",
     "hints": [
       "'Поднимать вопросы' = to raise questions. 'Злоупотребление' + instrumental = misuse of."
+    ],
+    "skills": [
+      "science_technology.ethics-and-regulation"
     ]
   },
   {
@@ -462,7 +579,10 @@
     "hints": [
       "'Скорее … чем' = more likely … than. 'Характер работы' = the nature of the work."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "science_technology.ethics-and-regulation"
+    ]
   },
   {
     "id": "ru-sc-b2-8",
@@ -472,6 +592,9 @@
     "correctAnswer": "Темп технологических изменений всё больше опережает способность общества их регулировать.",
     "hints": [
       "'Опережать' = to outpace/outstrip (imperfective). 'Способность + infinitive' = capacity to do something."
+    ],
+    "skills": [
+      "science_technology.tech-and-change"
     ]
   }
 ]

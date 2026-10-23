@@ -7,6 +7,9 @@
     "correctAnswer": "She is a teacher.",
     "hints": [
       "Use the correct form of 'to be' for she."
+    ],
+    "skills": [
+      "grammar.to-be"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "They are my friends.",
     "hints": [
       "'They' takes 'are'; together they shorten to 'they're'."
+    ],
+    "skills": [
+      "grammar.to-be"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "I do not like coffee.",
     "hints": [
       "For present simple negative, use 'do not'."
+    ],
+    "skills": [
+      "grammar.present-simple"
     ]
   },
   {
@@ -37,6 +46,9 @@
     "correctAnswer": "We are students.",
     "hints": [
       "'We' uses 'are'."
+    ],
+    "skills": [
+      "grammar.to-be"
     ]
   },
   {
@@ -48,7 +60,10 @@
     "hints": [
       "Third person singular adds -s or -es to the verb."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "grammar.present-simple"
+    ]
   },
   {
     "id": "en-gr-15",
@@ -58,6 +73,9 @@
     "correctAnswer": "There is a book on the table.",
     "hints": [
       "Use 'there is' for one thing, 'there are' for more than one."
+    ],
+    "skills": [
+      "grammar.questions-and-articles"
     ]
   },
   {
@@ -68,6 +86,9 @@
     "correctAnswer": "Do you like tea?",
     "hints": [
       "Yes/no questions in present simple use 'do'."
+    ],
+    "skills": [
+      "grammar.questions-and-articles"
     ]
   },
   {
@@ -79,7 +100,10 @@
     "hints": [
       "Use 'an' before a vowel sound."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "grammar.questions-and-articles"
+    ]
   },
   {
     "id": "en-gr-18",
@@ -90,7 +114,10 @@
     "hints": [
       "Negative of 'to be': add 'not'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "grammar.to-be"
+    ]
   },
   {
     "id": "en-gr-19",
@@ -100,6 +127,9 @@
     "correctAnswer": "The cats are sleeping.",
     "hints": [
       "Plural subject uses 'are' in the present continuous."
+    ],
+    "skills": [
+      "grammar.to-be"
     ]
   },
   {
@@ -110,7 +140,10 @@
     "hints": [
       "Notice the -s in third person singular."
     ],
-    "id": "en-gr-a1-39"
+    "id": "en-gr-a1-39",
+    "skills": [
+      "grammar.present-simple"
+    ]
   },
   {
     "level": "a1",
@@ -121,7 +154,10 @@
       "Use 'are' with 'they'."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-gr-a1-40"
+    "id": "en-gr-a1-40",
+    "skills": [
+      "grammar.to-be"
+    ]
   },
   {
     "level": "a1",
@@ -132,7 +168,10 @@
       "Grammar-check question."
     ],
     "exerciseType": "flashcard",
-    "id": "en-gr-a1-41"
+    "id": "en-gr-a1-41",
+    "skills": [
+      "grammar.questions-and-articles"
+    ]
   },
   {
     "id": "en-gr-4",
@@ -142,6 +181,9 @@
     "correctAnswer": "I went to the supermarket yesterday.",
     "hints": [
       "'Went' is the irregular past tense of 'go'."
+    ],
+    "skills": [
+      "grammar.past-tenses"
     ]
   },
   {
@@ -152,6 +194,9 @@
     "correctAnswer": "She has been waiting for an hour.",
     "hints": [
       "Third person singular uses 'has' in perfect tenses."
+    ],
+    "skills": [
+      "grammar.present-perfect"
     ]
   },
   {
@@ -162,6 +207,9 @@
     "correctAnswer": "If it rains, we will stay inside.",
     "hints": [
       "First conditional: 'if' + present simple, 'will' + infinitive."
+    ],
+    "skills": [
+      "grammar.conditions-and-comparisons"
     ]
   },
   {
@@ -173,7 +221,10 @@
     "hints": [
       "Use the simple past for a completed past event."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "grammar.past-tenses"
+    ]
   },
   {
     "id": "en-gr-21",
@@ -183,6 +234,9 @@
     "correctAnswer": "He was working at seven this morning.",
     "hints": [
       "He/she/it uses 'was' in past continuous."
+    ],
+    "skills": [
+      "grammar.past-tenses"
     ]
   },
   {
@@ -193,6 +247,9 @@
     "correctAnswer": "We have lived here for five years.",
     "hints": [
       "Present perfect with 'for' expresses duration up to now."
+    ],
+    "skills": [
+      "grammar.present-perfect"
     ]
   },
   {
@@ -204,7 +261,10 @@
     "hints": [
       "Long adjectives use 'more' for comparatives."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "grammar.conditions-and-comparisons"
+    ]
   },
   {
     "id": "en-gr-24",
@@ -214,6 +274,9 @@
     "correctAnswer": "Have you been to Paris?",
     "hints": [
       "Question form of present perfect with 'you'."
+    ],
+    "skills": [
+      "grammar.present-perfect"
     ]
   },
   {
@@ -224,6 +287,9 @@
     "correctAnswer": "She used to play the piano when she was young.",
     "hints": [
       "'Used to' expresses a past habit that no longer continues."
+    ],
+    "skills": [
+      "grammar.past-tenses"
     ]
   },
   {
@@ -234,6 +300,9 @@
     "correctAnswer": "You should drink more water.",
     "hints": [
       "'Should' is followed by the base infinitive."
+    ],
+    "skills": [
+      "grammar.conditions-and-comparisons"
     ]
   },
   {
@@ -244,7 +313,10 @@
     "hints": [
       "Present perfect for duration."
     ],
-    "id": "en-gr-a2-49"
+    "id": "en-gr-a2-49",
+    "skills": [
+      "grammar.present-perfect"
+    ]
   },
   {
     "level": "a2",
@@ -255,7 +327,10 @@
       "First conditional pattern."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-gr-a2-50"
+    "id": "en-gr-a2-50",
+    "skills": [
+      "grammar.conditions-and-comparisons"
+    ]
   },
   {
     "level": "a2",
@@ -266,7 +341,10 @@
       "Countability grammar prompt."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-gr-a2-51"
+    "id": "en-gr-a2-51",
+    "skills": [
+      "grammar.conditions-and-comparisons"
+    ]
   },
   {
     "id": "en-gr-7",
@@ -276,6 +354,9 @@
     "correctAnswer": "If I had more time, I would learn a third language.",
     "hints": [
       "Second conditional: 'if' + past simple, 'would' + infinitive."
+    ],
+    "skills": [
+      "grammar.hypotheticals"
     ]
   },
   {
@@ -286,6 +367,9 @@
     "correctAnswer": "By the time she arrives, we will have finished dinner.",
     "hints": [
       "Future perfect for an action completed before a future point."
+    ],
+    "skills": [
+      "grammar.hypotheticals"
     ]
   },
   {
@@ -296,6 +380,9 @@
     "correctAnswer": "Despite feeling tired, she continued working.",
     "hints": [
       "'Despite' is followed by a noun or gerund (-ing form)."
+    ],
+    "skills": [
+      "grammar.linking-and-relatives"
     ]
   },
   {
@@ -307,7 +394,10 @@
     "hints": [
       "Passive past simple: was/were + past participle."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "grammar.passive-and-reported"
+    ]
   },
   {
     "id": "en-gr-28",
@@ -317,6 +407,9 @@
     "correctAnswer": "He told me that he had already sent the email.",
     "hints": [
       "Reported speech shifts tense: 'has sent' → 'had sent'."
+    ],
+    "skills": [
+      "grammar.passive-and-reported"
     ]
   },
   {
@@ -327,6 +420,9 @@
     "correctAnswer": "I wish I had more time to practice.",
     "hints": [
       "'I wish' + past simple expresses a present regret."
+    ],
+    "skills": [
+      "grammar.hypotheticals"
     ]
   },
   {
@@ -337,6 +433,9 @@
     "correctAnswer": "Not only did she win the race, but she also broke the record.",
     "hints": [
       "'Not only... but also' requires inversion after 'not only'."
+    ],
+    "skills": [
+      "grammar.linking-and-relatives"
     ]
   },
   {
@@ -347,6 +446,9 @@
     "correctAnswer": "She is used to waking early.",
     "hints": [
       "'Be used to' is followed by the gerund (-ing)."
+    ],
+    "skills": [
+      "grammar.linking-and-relatives"
     ]
   },
   {
@@ -357,6 +459,9 @@
     "correctAnswer": "The meeting was canceled owing to the poor weather conditions.",
     "hints": [
       "'Owing to' is a formal way of saying 'because of'."
+    ],
+    "skills": [
+      "grammar.linking-and-relatives"
     ]
   },
   {
@@ -368,7 +473,10 @@
     "hints": [
       "Use 'who' for people; 'which' for things."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "grammar.linking-and-relatives"
+    ]
   },
   {
     "level": "b1",
@@ -378,7 +486,10 @@
     "hints": [
       "Use past form after 'wish' for present unreal situations."
     ],
-    "id": "en-gr-b1-59"
+    "id": "en-gr-b1-59",
+    "skills": [
+      "grammar.hypotheticals"
+    ]
   },
   {
     "level": "b1",
@@ -389,7 +500,10 @@
       "Relative clause example."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-gr-b1-60"
+    "id": "en-gr-b1-60",
+    "skills": [
+      "grammar.linking-and-relatives"
+    ]
   },
   {
     "level": "b1",
@@ -400,7 +514,10 @@
       "Usage question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-gr-b1-61"
+    "id": "en-gr-b1-61",
+    "skills": [
+      "grammar.passive-and-reported"
+    ]
   },
   {
     "id": "en-gr-10",
@@ -410,6 +527,9 @@
     "correctAnswer": "Had I known about the delay, I would have taken an earlier train.",
     "hints": [
       "Inverted third conditional: 'Had I...' replaces 'If I had...'"
+    ],
+    "skills": [
+      "grammar.inversion"
     ]
   },
   {
@@ -420,6 +540,9 @@
     "correctAnswer": "Rarely have I seen such attention to detail.",
     "hints": [
       "Fronted negative adverbs require subject-auxiliary inversion."
+    ],
+    "skills": [
+      "grammar.inversion"
     ]
   },
   {
@@ -430,6 +553,9 @@
     "correctAnswer": "The proposal, which had been drafted over several months, was ultimately rejected.",
     "hints": [
       "Non-defining relative clause in commas; past perfect passive."
+    ],
+    "skills": [
+      "grammar.complex-structures"
     ]
   },
   {
@@ -440,6 +566,9 @@
     "correctAnswer": "No sooner had she arrived than the meeting began.",
     "hints": [
       "'No sooner' triggers inversion; 'than' follows rather than 'when'."
+    ],
+    "skills": [
+      "grammar.inversion"
     ]
   },
   {
@@ -450,6 +579,9 @@
     "correctAnswer": "It is high time we addressed the underlying structural issues.",
     "hints": [
       "'It is high time' + past subjunctive expresses urgency."
+    ],
+    "skills": [
+      "grammar.complex-structures"
     ]
   },
   {
@@ -461,7 +593,10 @@
     "hints": [
       "Modal passive: modal + be + past participle."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "grammar.complex-structures"
+    ]
   },
   {
     "id": "en-gr-37",
@@ -471,6 +606,9 @@
     "correctAnswer": "Were she to apply, she would be a strong candidate for the position.",
     "hints": [
       "Inverted conditional with 'were to' for formal, hypothetical situations."
+    ],
+    "skills": [
+      "grammar.inversion"
     ]
   },
   {
@@ -481,6 +619,9 @@
     "correctAnswer": "The more you practice, the more fluent you become.",
     "hints": [
       "'The more... the more...' is a comparative structure expressing proportional change."
+    ],
+    "skills": [
+      "grammar.complex-structures"
     ]
   },
   {
@@ -491,7 +632,10 @@
     "hints": [
       "Inverted third conditional."
     ],
-    "id": "en-gr-b2-69"
+    "id": "en-gr-b2-69",
+    "skills": [
+      "grammar.inversion"
+    ]
   },
   {
     "level": "b2",
@@ -502,7 +646,10 @@
       "Inversion after negative adverbials."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-gr-b2-70"
+    "id": "en-gr-b2-70",
+    "skills": [
+      "grammar.inversion"
+    ]
   },
   {
     "level": "b2",
@@ -513,6 +660,9 @@
       "Advanced grammar awareness question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-gr-b2-71"
+    "id": "en-gr-b2-71",
+    "skills": [
+      "grammar.inversion"
+    ]
   }
 ]

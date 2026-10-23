@@ -17,6 +17,15 @@ Use this checklist before merging content-heavy updates.
   `clozeOptions` with the answer plus three wrong words; other words that fit the gap go in
   `acceptedAnswers`, never among the options (rules `cloze-*`; how to write them is in the
   review rubric, `scripts/content-review/rubric.ts`).
+- Every item belongs to 1 or 2 **skills**, which the knowledge map and unit exams are built on.
+  The catalog is `server/content/skills/_shared.json` (skills every course uses, 2–4 per unit)
+  plus `<course>.json` for a course's own, such as Russian grammar. Items list theirs in
+  `skills`. A course with `"skillsFrom": "english"` in its `_meta.json` inherits each English
+  item's skills by id (`de-fo-a2-51` takes `en-fo-a2-51`'s), so it only tags items it adds or
+  rewrites; an item whose sentence differs from the English one under the same id needs its own
+  tag. A skill must belong to the item's unit and level (`skill-unknown`, `skill-wrong-unit`), and
+  a skill with fewer than 3 items in a course is too thin for an exam (`skill-thin`). The
+  `skills` test fails on any item left without a skill.
 - Learners can report an exercise from the wrong-answer panel. Admins see the reports, most
   reported first, under "Learner reports" on the content stats page
   (`GET /api/admin/content-reports`); review those items first.

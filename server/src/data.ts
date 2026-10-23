@@ -1,13 +1,28 @@
 const { createHash } = require("crypto");
 const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER, STORY_BASE_XP, QUIZ_BONUS_MAX } = require("./data/constants.ts");
 const { loadLanguageContent } = require("./data/contentLoader.ts");
+const { loadSkillCatalog, createSkillIndex } = require("./data/skills.ts");
 const { createCourseSelectors, createSessionGenerator, recommendedLevelFromMastery } = require("./data/sessionGenerator.ts");
 const { getPracticePool } = require("./data/practicePool.ts");
 const { loadStories } = require("./data/storyLoader.ts");
 const { createContentMetrics } = require("./data/contentMetrics.ts");
 const { getContentFingerprints, upsertContentFingerprints, resetCategoryProgress } = require("./db.ts");
 
-const { languages: LANGUAGES, course: COURSE, contentMeta: LANGUAGE_CONTENT_META } = loadLanguageContent();
+const {
+  languages: LANGUAGES,
+  course: COURSE,
+  contentMeta: LANGUAGE_CONTENT_META,
+  skillSources: SKILL_SOURCES
+} = loadLanguageContent();
+
+// Every item carries its resolved skills from here on (its own, inherited from English, or
+// its unit's generated fallback), so questions and history can be grouped by skill.
+const SKILLS = createSkillIndex(COURSE, loadSkillCatalog(), SKILL_SOURCES);
+for (const [language, categories] of Object.entries(COURSE as Record<string, Record<string, any[]>>)) {
+  for (const items of Object.values(categories)) {
+    for (const item of items) item.skills = SKILLS.getItemSkills(language, item.id);
+  }
+}
 
 // Fraction of a category's items that must change before progress is reset.
 // Small fixes (typos, reworded answers) stay below this and preserve progress;
@@ -291,6 +306,7 @@ module.exports = {
   LANGUAGES,
   CATEGORIES,
   COURSE,
+  SKILLS,
   LEVEL_ORDER,
   LEVEL_XP_MULTIPLIER,
   LANGUAGE_CONTENT_META,

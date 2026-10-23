@@ -7,6 +7,9 @@
     "correctAnswer": "I am hungry.",
     "hints": [
       "English uses 'be' for hunger, not 'have'."
+    ],
+    "skills": [
+      "food_cooking.ordering"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "Can I have a glass of water, please?",
     "hints": [
       "'Can I have …?' is a polite way to ask for something; 'please' goes at the end."
+    ],
+    "skills": [
+      "food_cooking.ordering"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "I would like a coffee with milk.",
     "hints": [
       "'I would like' (I'd like) is more polite than 'I want'."
+    ],
+    "skills": [
+      "food_cooking.ordering"
     ]
   },
   {
@@ -37,6 +46,9 @@
     "correctAnswer": "Is this vegetarian?",
     "hints": [
       "A short, useful restaurant question."
+    ],
+    "skills": [
+      "food_cooking.what-you-eat"
     ]
   },
   {
@@ -47,6 +59,9 @@
     "correctAnswer": "The food is delicious.",
     "hints": [
       "A great compliment to give in a restaurant."
+    ],
+    "skills": [
+      "food_cooking.what-you-eat"
     ]
   },
   {
@@ -58,7 +73,10 @@
     "hints": [
       "It comes after the starter."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "en-fo-16",
@@ -68,6 +86,9 @@
     "correctAnswer": "What is the soup of the day?",
     "hints": [
       "A common restaurant question."
+    ],
+    "skills": [
+      "food_cooking.ordering"
     ]
   },
   {
@@ -78,6 +99,9 @@
     "correctAnswer": "I do not eat meat.",
     "hints": [
       "A simple dietary restriction statement."
+    ],
+    "skills": [
+      "food_cooking.what-you-eat"
     ]
   },
   {
@@ -89,7 +113,10 @@
     "hints": [
       "A polite first request in a restaurant."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "food_cooking.ordering"
+    ]
   },
   {
     "id": "en-fo-19",
@@ -99,6 +126,9 @@
     "correctAnswer": "I prefer tea to coffee.",
     "hints": [
       "Use 'prefer X to Y' to compare two things."
+    ],
+    "skills": [
+      "food_cooking.what-you-eat"
     ]
   },
   {
@@ -109,7 +139,10 @@
     "hints": [
       "Simple ordering phrase."
     ],
-    "id": "en-fo-a1-39"
+    "id": "en-fo-a1-39",
+    "skills": [
+      "food_cooking.ordering"
+    ]
   },
   {
     "level": "a1",
@@ -120,7 +153,10 @@
       "Restaurant question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-fo-a1-40"
+    "id": "en-fo-a1-40",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "level": "a1",
@@ -131,7 +167,10 @@
       "Basic cooking routine."
     ],
     "exerciseType": "flashcard",
-    "id": "en-fo-a1-41"
+    "id": "en-fo-a1-41",
+    "skills": [
+      "food_cooking.what-you-eat"
+    ]
   },
   {
     "id": "en-fo-4",
@@ -141,6 +180,9 @@
     "correctAnswer": "Does this dish contain any nuts?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "food_cooking.at-a-restaurant"
     ]
   },
   {
@@ -151,6 +193,9 @@
     "correctAnswer": "I usually cook dinner at home in the evenings.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "food_cooking.home-cooking"
     ]
   },
   {
@@ -161,6 +206,9 @@
     "correctAnswer": "Could we have the bill, please?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "food_cooking.at-a-restaurant"
     ]
   },
   {
@@ -171,6 +219,9 @@
     "correctAnswer": "I made pasta with tomato sauce for dinner last night.",
     "hints": [
       "Simple past tense for a completed action."
+    ],
+    "skills": [
+      "food_cooking.home-cooking"
     ]
   },
   {
@@ -181,6 +232,9 @@
     "correctAnswer": "How long does it take to prepare this recipe?",
     "hints": [
       "Use 'how long does it take to' for time questions."
+    ],
+    "skills": [
+      "food_cooking.home-cooking"
     ]
   },
   {
@@ -191,6 +245,9 @@
     "correctAnswer": "I would like to try the local speciality.",
     "hints": [
       "'Would like to' for polite wishes."
+    ],
+    "skills": [
+      "food_cooking.at-a-restaurant"
     ]
   },
   {
@@ -201,6 +258,9 @@
     "correctAnswer": "Can you recommend a good restaurant near here?",
     "hints": [
       "'Can you recommend' is a common way to ask for suggestions."
+    ],
+    "skills": [
+      "food_cooking.at-a-restaurant"
     ]
   },
   {
@@ -211,6 +271,9 @@
     "correctAnswer": "I always add garlic and olive oil to my cooking.",
     "hints": [
       "'I always' expresses a regular habit."
+    ],
+    "skills": [
+      "food_cooking.home-cooking"
     ]
   },
   {
@@ -221,6 +284,9 @@
     "correctAnswer": "The service here is excellent.",
     "hints": [
       "A polite compliment about a restaurant."
+    ],
+    "skills": [
+      "food_cooking.at-a-restaurant"
     ]
   },
   {
@@ -231,6 +297,9 @@
     "correctAnswer": "Is it possible to substitute the chips for salad?",
     "hints": [
       "'Substitute X for Y' means replace X with Y."
+    ],
+    "skills": [
+      "food_cooking.at-a-restaurant"
     ]
   },
   {
@@ -241,7 +310,10 @@
     "hints": [
       "Present continuous plan sentence."
     ],
-    "id": "en-fo-a2-49"
+    "id": "en-fo-a2-49",
+    "skills": [
+      "food_cooking.home-cooking"
+    ]
   },
   {
     "level": "a2",
@@ -252,7 +324,10 @@
       "Cooking-time question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-fo-a2-50"
+    "id": "en-fo-a2-50",
+    "skills": [
+      "food_cooking.home-cooking"
+    ]
   },
   {
     "level": "a2",
@@ -263,7 +338,10 @@
       "Past dining sentence."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-fo-a2-51"
+    "id": "en-fo-a2-51",
+    "skills": [
+      "food_cooking.at-a-restaurant"
+    ]
   },
   {
     "id": "en-fo-7",
@@ -273,6 +351,9 @@
     "correctAnswer": "I have recently started following a plant-based diet.",
     "hints": [
       "Present perfect with 'recently' for a recent change."
+    ],
+    "skills": [
+      "food_cooking.diets"
     ]
   },
   {
@@ -283,6 +364,9 @@
     "correctAnswer": "The recipe calls for two cloves of garlic and a pinch of salt.",
     "hints": [
       "'Calls for' in a recipe context means 'requires'."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -293,6 +377,9 @@
     "correctAnswer": "Could you tell me what makes this dish different from traditional versions?",
     "hints": [
       "'Could you tell me what' introduces an indirect question."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -303,6 +390,9 @@
     "correctAnswer": "I tend to experiment with different cuisines when I cook at home.",
     "hints": [
       "'I tend to' softens a personal habit."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -313,6 +403,9 @@
     "correctAnswer": "This is slightly overcooked, but the flavor is still very good.",
     "hints": [
       "Soften a complaint with 'slightly' and follow up with a positive."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -323,6 +416,9 @@
     "correctAnswer": "Would you be able to cater for a gluten-free option?",
     "hints": [
       "'Would you be able to' is very polite; 'cater for' means provide for."
+    ],
+    "skills": [
+      "food_cooking.diets"
     ]
   },
   {
@@ -333,6 +429,9 @@
     "correctAnswer": "Slow cooking on a low heat develops the flavor much better.",
     "hints": [
       "'Develops the flavor' is a cooking technique description."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -343,6 +442,9 @@
     "correctAnswer": "I am hosting a dinner party next Saturday and need inspiration.",
     "hints": [
       "Present continuous for a planned future event."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -353,6 +455,9 @@
     "correctAnswer": "I find that marinating the meat overnight makes a significant difference.",
     "hints": [
       "'I find that' introduces a personal discovery."
+    ],
+    "skills": [
+      "food_cooking.cooking-techniques"
     ]
   },
   {
@@ -364,7 +469,10 @@
     "hints": [
       "Give a positive answer with a detail."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "food_cooking.cooking-techniques"
+    ]
   },
   {
     "level": "b1",
@@ -374,7 +482,10 @@
     "hints": [
       "Comparison sentence."
     ],
-    "id": "en-fo-b1-59"
+    "id": "en-fo-b1-59",
+    "skills": [
+      "food_cooking.diets"
+    ]
   },
   {
     "level": "b1",
@@ -385,7 +496,10 @@
       "Substitution question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-fo-b1-60"
+    "id": "en-fo-b1-60",
+    "skills": [
+      "food_cooking.diets"
+    ]
   },
   {
     "level": "b1",
@@ -396,7 +510,10 @@
       "Purpose clause."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-fo-b1-61"
+    "id": "en-fo-b1-61",
+    "skills": [
+      "food_cooking.diets"
+    ]
   },
   {
     "id": "en-fo-10",
@@ -406,6 +523,9 @@
     "correctAnswer": "The interplay of spices in this curry creates an exceptionally nuanced flavor profile.",
     "hints": [
       "'Interplay' means the interaction; 'nuanced' means subtle and complex."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -417,6 +537,9 @@
     "hints": [
       "Focus on natural phrasing and word order.",
       "'Renaissance' means a revival of interest."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -427,6 +550,9 @@
     "correctAnswer": "How does the provenance of the ingredients affect the finished dish?",
     "hints": [
       "'Provenance' means the origin or source of something."
+    ],
+    "skills": [
+      "food_cooking.food-and-society"
     ]
   },
   {
@@ -438,7 +564,10 @@
     "hints": [
       "'Sourcing' means finding and obtaining; 'culinary' relates to cooking."
     ],
-    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients."
+    "culturalNote": "Farm-to-table dining has become a significant movement in many countries, emphasising shorter supply chains and fresher ingredients.",
+    "skills": [
+      "food_cooking.food-and-society"
+    ]
   },
   {
     "id": "en-fo-35",
@@ -448,6 +577,9 @@
     "correctAnswer": "The chef's tasting menu is an exercise in restraint and precision.",
     "hints": [
       "'Restraint' here means not over-doing it; 'precision' means exactness."
+    ],
+    "skills": [
+      "food_cooking.flavor"
     ]
   },
   {
@@ -459,7 +591,10 @@
     "hints": [
       "'Alongside' here means in addition to."
     ],
-    "culturalNote": "The concept of umami was identified by Japanese chemist Kikunae Ikeda in 1908 and is now widely recognized in global culinary science."
+    "culturalNote": "The concept of umami was identified by Japanese chemist Kikunae Ikeda in 1908 and is now widely recognized in global culinary science.",
+    "skills": [
+      "food_cooking.flavor"
+    ]
   },
   {
     "id": "en-fo-37",
@@ -469,6 +604,9 @@
     "correctAnswer": "Would you say the rise of fusion cuisine has enriched or diluted culinary traditions?",
     "hints": [
       "'Enriched' means made richer; 'diluted' means weakened; it is a debate question."
+    ],
+    "skills": [
+      "food_cooking.food-and-society"
     ]
   },
   {
@@ -480,7 +618,10 @@
     "hints": [
       "'Maillard reaction' = a chemical process that creates flavor compounds; 'fundamental' = essential."
     ],
-    "culturalNote": "The Maillard reaction, discovered by Louis-Camille Maillard in 1912, explains why seared meat, toasted bread, and roasted coffee share a characteristic richness."
+    "culturalNote": "The Maillard reaction, discovered by Louis-Camille Maillard in 1912, explains why seared meat, toasted bread, and roasted coffee share a characteristic richness.",
+    "skills": [
+      "food_cooking.flavor"
+    ]
   },
   {
     "level": "b2",
@@ -490,7 +631,10 @@
     "hints": [
       "Abstract cultural food concept."
     ],
-    "id": "en-fo-b2-69"
+    "id": "en-fo-b2-69",
+    "skills": [
+      "food_cooking.food-and-society"
+    ]
   },
   {
     "level": "b2",
@@ -501,7 +645,10 @@
       "Policy-level food question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-fo-b2-70"
+    "id": "en-fo-b2-70",
+    "skills": [
+      "food_cooking.food-and-society"
+    ]
   },
   {
     "level": "b2",
@@ -512,6 +659,9 @@
       "B2 nutrition phrasing."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-fo-b2-71"
+    "id": "en-fo-b2-71",
+    "skills": [
+      "food_cooking.food-and-society"
+    ]
   }
 ]

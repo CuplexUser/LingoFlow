@@ -5,8 +5,13 @@
     "difficulty": "a1",
     "prompt": "Vocabulary: word",
     "correctAnswer": "слово",
-    "hints": ["A basic unit of language."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "A basic unit of language."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.grammar-words"
+    ]
   },
   {
     "id": "ru-gr-a1-f02",
@@ -14,8 +19,13 @@
     "difficulty": "a1",
     "prompt": "Vocabulary: sentence",
     "correctAnswer": "предложение",
-    "hints": ["A group of words that expresses a complete thought."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "A group of words that expresses a complete thought."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.grammar-words"
+    ]
   },
   {
     "id": "ru-gr-a1-f03",
@@ -23,8 +33,13 @@
     "difficulty": "a1",
     "prompt": "Vocabulary: question",
     "correctAnswer": "вопрос",
-    "hints": ["What you ask to get information."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "What you ask to get information."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.grammar-words"
+    ]
   },
   {
     "id": "ru-gr-a1-f04",
@@ -32,8 +47,13 @@
     "difficulty": "a1",
     "prompt": "Vocabulary: answer",
     "correctAnswer": "ответ",
-    "hints": ["What you give when someone asks you something."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "What you give when someone asks you something."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.grammar-words"
+    ]
   },
   {
     "id": "ru-gr-a1-f05",
@@ -41,8 +61,13 @@
     "difficulty": "a1",
     "prompt": "Vocabulary: plural",
     "correctAnswer": "множественное число",
-    "hints": ["More than one — for example, 'books' instead of 'book'."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "More than one — for example, 'books' instead of 'book'."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.grammar-words"
+    ]
   },
   {
     "id": "ru-gr-a1-f06",
@@ -50,8 +75,13 @@
     "difficulty": "a1",
     "prompt": "Vocabulary: verb",
     "correctAnswer": "глагол",
-    "hints": ["A word that expresses an action or state."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "A word that expresses an action or state."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.grammar-words"
+    ]
   },
   {
     "id": "ru-gr-a1-f07",
@@ -59,8 +89,13 @@
     "difficulty": "a1",
     "prompt": "Vocabulary: noun",
     "correctAnswer": "существительное",
-    "hints": ["A word that names a person, place, or thing."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "A word that names a person, place, or thing."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.grammar-words"
+    ]
   },
   {
     "id": "ru-gr-a1-s01",
@@ -68,7 +103,9 @@
     "difficulty": "a1",
     "prompt": "Say: I am reading a short story now.",
     "correctAnswer": "Сейчас я читаю короткий рассказ.",
-    "hints": ["'Сейчас' = now; it usually opens the sentence."],
+    "hints": [
+      "'Сейчас' = now; it usually opens the sentence."
+    ],
     "exerciseType": "build_sentence",
     "wordGlossary": {
       "сейчас": "now",
@@ -76,7 +113,10 @@
       "читаю": "I am reading",
       "короткий": "short",
       "рассказ": "story"
-    }
+    },
+    "skills": [
+      "russian.grammar.present-and-past"
+    ]
   },
   {
     "id": "ru-gr-a1-s02",
@@ -84,7 +124,9 @@
     "difficulty": "a1",
     "prompt": "Say: Yesterday I studied for two hours.",
     "correctAnswer": "Вчера я занимался два часа.",
-    "hints": ["'Вчера' = yesterday; leads the sentence naturally."],
+    "hints": [
+      "'Вчера' = yesterday; leads the sentence naturally."
+    ],
     "exerciseType": "build_sentence",
     "wordGlossary": {
       "вчера": "yesterday",
@@ -92,7 +134,10 @@
       "занимался": "studied / was studying",
       "два": "two",
       "часа": "hours (gen. sg.)"
-    }
+    },
+    "skills": [
+      "russian.grammar.present-and-past"
+    ]
   },
   {
     "id": "ru-gr-a1-s03",
@@ -100,7 +145,9 @@
     "difficulty": "a1",
     "prompt": "Say: Every morning I write three new words.",
     "correctAnswer": "Каждое утро я записываю три новых слова.",
-    "hints": ["'Каждое утро' = every morning."],
+    "hints": [
+      "'Каждое утро' = every morning."
+    ],
     "exerciseType": "build_sentence",
     "wordGlossary": {
       "каждое": "every",
@@ -110,7 +157,10 @@
       "три": "three",
       "новых": "new (gen. pl.)",
       "слова": "words (gen. sg.)"
-    }
+    },
+    "skills": [
+      "russian.grammar.present-and-past"
+    ]
   },
   {
     "id": "ru-gr-a1-s04",
@@ -118,8 +168,13 @@
     "difficulty": "a1",
     "prompt": "Choose the informal version: Where are you from?",
     "correctAnswer": "Откуда ты?",
-    "hints": ["'Ты' is informal — use it with friends."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Ты' is informal — use it with friends."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-s05",
@@ -127,8 +182,13 @@
     "difficulty": "a1",
     "prompt": "Choose the formal version: Where are you from?",
     "correctAnswer": "Откуда вы?",
-    "hints": ["'Вы' is formal — use it with strangers and superiors."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Вы' is formal — use it with strangers and superiors."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-s06",
@@ -136,13 +196,18 @@
     "difficulty": "a1",
     "prompt": "Say: I do not understand.",
     "correctAnswer": "Я не понимаю.",
-    "hints": ["Negation in Russian: put 'не' directly before the verb."],
+    "hints": [
+      "Negation in Russian: put 'не' directly before the verb."
+    ],
     "exerciseType": "build_sentence",
     "wordGlossary": {
       "я": "I",
       "не": "not",
       "понимаю": "I understand"
-    }
+    },
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-s07",
@@ -150,14 +215,19 @@
     "difficulty": "a1",
     "prompt": "Say: This is not my book.",
     "correctAnswer": "Это не моя книга.",
-    "hints": ["'Не' goes before the word it negates."],
+    "hints": [
+      "'Не' goes before the word it negates."
+    ],
     "exerciseType": "build_sentence",
     "wordGlossary": {
       "это": "this",
       "не": "not",
       "моя": "my (fem.)",
       "книга": "book"
-    }
+    },
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-s08",
@@ -165,13 +235,18 @@
     "difficulty": "a1",
     "prompt": "Ask: What is your name?",
     "correctAnswer": "Как тебя зовут?",
-    "hints": ["Literally: 'How do they call you?' — a fixed phrase."],
+    "hints": [
+      "Literally: 'How do they call you?' — a fixed phrase."
+    ],
     "exerciseType": "build_sentence",
     "wordGlossary": {
       "как": "how",
       "тебя": "you (gen./acc.)",
       "зовут": "they call"
-    }
+    },
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-p01",
@@ -179,8 +254,13 @@
     "difficulty": "a1",
     "prompt": "Say: I study Russian every day.",
     "correctAnswer": "Я каждый день изучаю русский язык.",
-    "hints": ["'Каждый день' can sit before or after the verb."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Каждый день' can sit before or after the verb."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.present-and-past"
+    ]
   },
   {
     "id": "ru-gr-a1-p02",
@@ -188,8 +268,13 @@
     "difficulty": "a1",
     "prompt": "Say: He is not here.",
     "correctAnswer": "Его здесь нет.",
-    "hints": ["Absence is expressed with 'нет' + genitive."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "Absence is expressed with 'нет' + genitive."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-p03",
@@ -197,8 +282,13 @@
     "difficulty": "a1",
     "prompt": "Say: I need more time to practice.",
     "correctAnswer": "Мне нужно больше времени для практики.",
-    "hints": ["'Мне нужно' = I need — impersonal construction with dative."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Мне нужно' = I need — impersonal construction with dative."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.present-and-past"
+    ]
   },
   {
     "id": "ru-gr-a1-mc01",
@@ -212,8 +302,13 @@
       "книга → книге",
       "книга → книгой"
     ],
-    "hints": ["Feminine nouns ending in -а take -и in the nominative plural."],
-    "exerciseType": "mc_sentence"
+    "hints": [
+      "Feminine nouns ending in -а take -и in the nominative plural."
+    ],
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-mc02",
@@ -227,8 +322,13 @@
       "Я не понял урок.",
       "Урок закончился."
     ],
-    "hints": ["'Полезный' agrees with masculine 'урок'."],
-    "exerciseType": "mc_sentence"
+    "hints": [
+      "'Полезный' agrees with masculine 'урок'."
+    ],
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.ty-vy-and-negation"
+    ]
   },
   {
     "id": "ru-gr-a1-d01",
@@ -236,8 +336,13 @@
     "difficulty": "a1",
     "prompt": "Listen and build the sentence you hear.",
     "correctAnswer": "Я учу новые слова каждый день.",
-    "hints": ["Listen for the frequency phrase at the end."],
-    "exerciseType": "dictation_sentence"
+    "hints": [
+      "Listen for the frequency phrase at the end."
+    ],
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "russian.grammar.present-and-past"
+    ]
   },
   {
     "id": "ru-gr-a2-f01",
@@ -245,8 +350,13 @@
     "difficulty": "a2",
     "prompt": "Vocabulary: to repeat / to revise",
     "correctAnswer": "повторять",
-    "hints": ["Also means 'to say again'."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "Also means 'to say again'."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.rules-and-mistakes"
+    ]
   },
   {
     "id": "ru-gr-a2-f02",
@@ -254,8 +364,13 @@
     "difficulty": "a2",
     "prompt": "Vocabulary: mistake / error",
     "correctAnswer": "ошибка",
-    "hints": ["What you make when you get something wrong."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "What you make when you get something wrong."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.rules-and-mistakes"
+    ]
   },
   {
     "id": "ru-gr-a2-f03",
@@ -263,8 +378,13 @@
     "difficulty": "a2",
     "prompt": "Vocabulary: rule",
     "correctAnswer": "правило",
-    "hints": ["Grammar is full of these."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "Grammar is full of these."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.rules-and-mistakes"
+    ]
   },
   {
     "id": "ru-gr-a2-s01",
@@ -272,8 +392,13 @@
     "difficulty": "a2",
     "prompt": "Say: Tomorrow I will practice with my friend.",
     "correctAnswer": "Завтра я буду практиковаться с другом.",
-    "hints": ["Future imperfective = 'буду' + infinitive."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Future imperfective = 'буду' + infinitive."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.past-and-future"
+    ]
   },
   {
     "id": "ru-gr-a2-s02",
@@ -281,8 +406,13 @@
     "difficulty": "a2",
     "prompt": "Say: If I have time, I will review the lesson.",
     "correctAnswer": "Если у меня будет время, я повторю урок.",
-    "hints": ["In Russian 'if' clauses, the future tense is used, not the present."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "In Russian 'if' clauses, the future tense is used, not the present."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.polite-forms-and-if"
+    ]
   },
   {
     "id": "ru-gr-a2-s03",
@@ -290,8 +420,13 @@
     "difficulty": "a2",
     "prompt": "Say: We were cooking when the guests arrived.",
     "correctAnswer": "Мы готовили, когда пришли гости.",
-    "hints": ["Background action (imperfective) vs. completed interrupting event (perfective)."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Background action (imperfective) vs. completed interrupting event (perfective)."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.past-and-future"
+    ]
   },
   {
     "id": "ru-gr-a2-s04",
@@ -299,8 +434,13 @@
     "difficulty": "a2",
     "prompt": "Say this politely to a stranger: Could you repeat that?",
     "correctAnswer": "Не могли бы вы повторить это?",
-    "hints": ["'Не могли бы вы' is the polite conditional request form."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Не могли бы вы' is the polite conditional request form."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.polite-forms-and-if"
+    ]
   },
   {
     "id": "ru-gr-a2-s05",
@@ -308,8 +448,13 @@
     "difficulty": "a2",
     "prompt": "Say this to a close friend: Could you repeat that?",
     "correctAnswer": "Ты можешь повторить это?",
-    "hints": ["With friends, a simple present-tense question is natural."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "With friends, a simple present-tense question is natural."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.polite-forms-and-if"
+    ]
   },
   {
     "id": "ru-gr-a2-s06",
@@ -317,8 +462,13 @@
     "difficulty": "a2",
     "prompt": "Say: I understand this rule better now.",
     "correctAnswer": "Теперь я лучше понимаю это правило.",
-    "hints": ["'Теперь' = now, implying a change from before."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Теперь' = now, implying a change from before."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.rules-and-mistakes"
+    ]
   },
   {
     "id": "ru-gr-a2-s07",
@@ -326,8 +476,13 @@
     "difficulty": "a2",
     "prompt": "Say: I have no questions.",
     "correctAnswer": "У меня нет вопросов.",
-    "hints": ["'Нет' + genitive for absence or non-existence."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Нет' + genitive for absence or non-existence."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.first-cases"
+    ]
   },
   {
     "id": "ru-gr-a2-p01",
@@ -335,8 +490,13 @@
     "difficulty": "a2",
     "prompt": "Say: I practiced yesterday for an hour.",
     "correctAnswer": "Вчера я занимался час.",
-    "hints": ["'Час' (one hour) needs no preposition here."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Час' (one hour) needs no preposition here."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.past-and-future"
+    ]
   },
   {
     "id": "ru-gr-a2-p02",
@@ -344,8 +504,13 @@
     "difficulty": "a2",
     "prompt": "Say: This exercise was more difficult than I expected.",
     "correctAnswer": "Это упражнение оказалось труднее, чем я ожидал.",
-    "hints": ["'Оказалось' = turned out to be; 'чем' introduces the comparison."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Оказалось' = turned out to be; 'чем' introduces the comparison."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.rules-and-mistakes"
+    ]
   },
   {
     "id": "ru-gr-a2-c01",
@@ -363,6 +528,9 @@
       "повторяет",
       "повторять",
       "повторяешь"
+    ],
+    "skills": [
+      "russian.grammar.past-and-future"
     ]
   },
   {
@@ -381,6 +549,9 @@
       "быть",
       "имею",
       "ест"
+    ],
+    "skills": [
+      "russian.grammar.first-cases"
     ]
   },
   {
@@ -395,8 +566,13 @@
       "Я вижу кошке.",
       "Я вижу кошкой."
     ],
-    "hints": ["The direct object of 'видеть' takes the accusative case."],
-    "exerciseType": "mc_sentence"
+    "hints": [
+      "The direct object of 'видеть' takes the accusative case."
+    ],
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.first-cases"
+    ]
   },
   {
     "id": "ru-gr-a2-mc02",
@@ -410,8 +586,13 @@
       "У неё нет времену.",
       "У неё нет временем."
     ],
-    "hints": ["'Нет' + genitive to express absence."],
-    "exerciseType": "mc_sentence"
+    "hints": [
+      "'Нет' + genitive to express absence."
+    ],
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.first-cases"
+    ]
   },
   {
     "id": "ru-gr-a2-mc03",
@@ -425,8 +606,13 @@
       "Я читаю книгу завтра.",
       "Я прочитал книгу."
     ],
-    "hints": ["A one-off completed future action uses the perfective present (which acts as future)."],
-    "exerciseType": "mc_sentence"
+    "hints": [
+      "A one-off completed future action uses the perfective present (which acts as future)."
+    ],
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.past-and-future"
+    ]
   },
   {
     "id": "ru-gr-a2-d01",
@@ -434,8 +620,13 @@
     "difficulty": "a2",
     "prompt": "Listen and build the sentence you hear.",
     "correctAnswer": "Вчера я повторял новые слова.",
-    "hints": ["Listen for the past tense verb and the time word."],
-    "exerciseType": "dictation_sentence"
+    "hints": [
+      "Listen for the past tense verb and the time word."
+    ],
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "russian.grammar.past-and-future"
+    ]
   },
   {
     "id": "ru-gr-a2-r01",
@@ -444,8 +635,13 @@
     "prompt": "Roleplay: Ask your teacher to explain a rule again.",
     "correctAnswer": "Можете объяснить это правило ещё раз?",
     "answerEnglish": "Could you explain this rule again?",
-    "hints": ["'Ещё раз' = one more time / again."],
-    "exerciseType": "roleplay"
+    "hints": [
+      "'Ещё раз' = one more time / again."
+    ],
+    "exerciseType": "roleplay",
+    "skills": [
+      "russian.grammar.polite-forms-and-if"
+    ]
   },
   {
     "id": "ru-gr-b1-f01",
@@ -453,8 +649,13 @@
     "difficulty": "b1",
     "prompt": "Vocabulary: aspect — perfective",
     "correctAnswer": "совершенный вид",
-    "hints": ["Used for completed, one-off actions."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "Used for completed, one-off actions."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.aspect"
+    ]
   },
   {
     "id": "ru-gr-b1-f02",
@@ -462,8 +663,13 @@
     "difficulty": "b1",
     "prompt": "Vocabulary: aspect — imperfective",
     "correctAnswer": "несовершенный вид",
-    "hints": ["Used for ongoing, repeated, or habitual actions."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "Used for ongoing, repeated, or habitual actions."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.aspect"
+    ]
   },
   {
     "id": "ru-gr-b1-f03",
@@ -471,8 +677,13 @@
     "difficulty": "b1",
     "prompt": "Vocabulary: ending (of a word)",
     "correctAnswer": "окончание",
-    "hints": ["The part of a word that changes with case, gender, or number."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "The part of a word that changes with case, gender, or number."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.endings"
+    ]
   },
   {
     "id": "ru-gr-b1-s01",
@@ -480,8 +691,13 @@
     "difficulty": "b1",
     "prompt": "Say: I have been studying Russian for six months.",
     "correctAnswer": "Я изучаю русский язык уже шесть месяцев.",
-    "hints": ["Russian uses the present tense for actions that started in the past and continue now."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Russian uses the present tense for actions that started in the past and continue now."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.practice-talk"
+    ]
   },
   {
     "id": "ru-gr-b1-s02",
@@ -489,8 +705,13 @@
     "difficulty": "b1",
     "prompt": "Say: I would travel more if flights were cheaper.",
     "correctAnswer": "Я бы больше путешествовал, если бы билеты были дешевле.",
-    "hints": ["Both clauses use past tense + 'бы' for hypothetical situations."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Both clauses use past tense + 'бы' for hypothetical situations."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.conditionals-and-participles"
+    ]
   },
   {
     "id": "ru-gr-b1-s03",
@@ -498,8 +719,13 @@
     "difficulty": "b1",
     "prompt": "Say: I had already left when the message arrived.",
     "correctAnswer": "Я уже ушёл, когда пришло сообщение.",
-    "hints": ["Both verbs are past tense; 'уже' signals the earlier action."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Both verbs are past tense; 'уже' signals the earlier action."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.aspect"
+    ]
   },
   {
     "id": "ru-gr-b1-s04",
@@ -507,8 +733,13 @@
     "difficulty": "b1",
     "prompt": "Say: Regular practice helps me make fewer mistakes.",
     "correctAnswer": "Регулярная практика помогает мне делать меньше ошибок.",
-    "hints": ["'Помогать' + dative + infinitive = to help someone do something."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Помогать' + dative + infinitive = to help someone do something."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.endings"
+    ]
   },
   {
     "id": "ru-gr-b1-s05",
@@ -516,8 +747,13 @@
     "difficulty": "b1",
     "prompt": "Say: I make fewer mistakes when I check my endings carefully.",
     "correctAnswer": "Я делаю меньше ошибок, когда внимательно проверяю окончания.",
-    "hints": ["'Внимательно' = carefully; 'окончания' = endings."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Внимательно' = carefully; 'окончания' = endings."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.endings"
+    ]
   },
   {
     "id": "ru-gr-b1-s06",
@@ -525,8 +761,13 @@
     "difficulty": "b1",
     "prompt": "Say: I want to sound more natural when I speak.",
     "correctAnswer": "Я хочу звучать более естественно, когда говорю.",
-    "hints": ["'Звучать' = to sound; 'более естественно' = more naturally."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Звучать' = to sound; 'более естественно' = more naturally."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.endings"
+    ]
   },
   {
     "id": "ru-gr-b1-s07",
@@ -534,8 +775,13 @@
     "difficulty": "b1",
     "prompt": "Say: I read the whole book. (completed action)",
     "correctAnswer": "Я прочитал всю книгу.",
-    "hints": ["Completed action → perfective aspect."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Completed action → perfective aspect."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.aspect"
+    ]
   },
   {
     "id": "ru-gr-b1-s08",
@@ -543,8 +789,13 @@
     "difficulty": "b1",
     "prompt": "Say: I was reading all evening. (ongoing action)",
     "correctAnswer": "Я читал весь вечер.",
-    "hints": ["Ongoing background action → imperfective aspect."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Ongoing background action → imperfective aspect."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.aspect"
+    ]
   },
   {
     "id": "ru-gr-b1-p01",
@@ -552,8 +803,13 @@
     "difficulty": "b1",
     "prompt": "Say: I gradually develop my feeling for the language.",
     "correctAnswer": "Я постепенно развиваю чувство языка.",
-    "hints": ["'Чувство языка' = feel for the language — a natural set phrase."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Чувство языка' = feel for the language — a natural set phrase."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.practice-talk"
+    ]
   },
   {
     "id": "ru-gr-b1-p02",
@@ -561,8 +817,13 @@
     "difficulty": "b1",
     "prompt": "Say: I try to spend weekends reviewing what I have learned.",
     "correctAnswer": "Я стараюсь проводить выходные, повторяя то, что изучил.",
-    "hints": ["'Повторяя' is a verbal adverb — describes how you spend weekends."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Повторяя' is a verbal adverb — describes how you spend weekends."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.practice-talk"
+    ]
   },
   {
     "id": "ru-gr-b1-c01",
@@ -580,6 +841,9 @@
       "будет",
       "был",
       "будь"
+    ],
+    "skills": [
+      "russian.grammar.conditionals-and-participles"
     ]
   },
   {
@@ -601,6 +865,9 @@
     ],
     "acceptedAnswers": [
       "видела"
+    ],
+    "skills": [
+      "russian.grammar.aspect"
     ]
   },
   {
@@ -619,6 +886,9 @@
       "слушать",
       "слушает",
       "слушающий"
+    ],
+    "skills": [
+      "russian.grammar.conditionals-and-participles"
     ]
   },
   {
@@ -627,8 +897,13 @@
     "difficulty": "b1",
     "prompt": "Listen and build the sentence you hear.",
     "correctAnswer": "Я стараюсь регулярно повторять падежные окончания.",
-    "hints": ["Listen for 'падежные окончания' — case endings."],
-    "exerciseType": "dictation_sentence"
+    "hints": [
+      "Listen for 'падежные окончания' — case endings."
+    ],
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "russian.grammar.endings"
+    ]
   },
   {
     "id": "ru-gr-b1-d02",
@@ -636,8 +911,13 @@
     "difficulty": "b1",
     "prompt": "Listen and build the sentence you hear.",
     "correctAnswer": "Я всегда нахожу время для повторения правил.",
-    "hints": ["Listen for 'нахожу время' — I find time."],
-    "exerciseType": "dictation_sentence"
+    "hints": [
+      "Listen for 'нахожу время' — I find time."
+    ],
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "russian.grammar.practice-talk"
+    ]
   },
   {
     "id": "ru-gr-b1-mc01",
@@ -651,8 +931,13 @@
       "Вчера я читаю всю книгу.",
       "Вчера я буду читать всю книгу."
     ],
-    "hints": ["A completed single action in the past uses the perfective."],
-    "exerciseType": "mc_sentence"
+    "hints": [
+      "A completed single action in the past uses the perfective."
+    ],
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.aspect"
+    ]
   },
   {
     "id": "ru-gr-b1-mc02",
@@ -669,7 +954,10 @@
     "hints": [
       "Russian word order is flexible, but an adjective stays next to its noun: 'старого друга'."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.conditionals-and-participles"
+    ]
   },
   {
     "id": "ru-gr-b1-r01",
@@ -678,8 +966,13 @@
     "prompt": "Roleplay: Tell your teacher you mixed up two verb forms and ask which one is correct.",
     "correctAnswer": "Я перепутал эти две формы. Какая из них правильная?",
     "answerEnglish": "I mixed up these two forms. Which one is correct?",
-    "hints": ["'Перепутать' = to mix up / confuse; 'какая из них' = which of them."],
-    "exerciseType": "roleplay"
+    "hints": [
+      "'Перепутать' = to mix up / confuse; 'какая из них' = which of them."
+    ],
+    "exerciseType": "roleplay",
+    "skills": [
+      "russian.grammar.endings"
+    ]
   },
   {
     "id": "ru-gr-b2-f01",
@@ -687,8 +980,13 @@
     "difficulty": "b2",
     "prompt": "Vocabulary: word order",
     "correctAnswer": "порядок слов",
-    "hints": ["Russian word order is flexible but not random."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "Russian word order is flexible but not random."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.word-order-and-stress"
+    ]
   },
   {
     "id": "ru-gr-b2-f02",
@@ -696,8 +994,13 @@
     "difficulty": "b2",
     "prompt": "Vocabulary: stress (in a word)",
     "correctAnswer": "ударение",
-    "hints": ["The syllable that is pronounced more strongly."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "The syllable that is pronounced more strongly."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.word-order-and-stress"
+    ]
   },
   {
     "id": "ru-gr-b2-f03",
@@ -705,8 +1008,13 @@
     "difficulty": "b2",
     "prompt": "Vocabulary: exception (to a rule)",
     "correctAnswer": "исключение",
-    "hints": ["Every language has these — words or patterns that break the rule."],
-    "exerciseType": "flashcard"
+    "hints": [
+      "Every language has these — words or patterns that break the rule."
+    ],
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.grammar.word-order-and-stress"
+    ]
   },
   {
     "id": "ru-gr-b2-s01",
@@ -714,8 +1022,13 @@
     "difficulty": "b2",
     "prompt": "Say: By the time we arrive, they will have finished dinner.",
     "correctAnswer": "К тому времени, как мы приедем, они уже закончат ужин.",
-    "hints": ["'К тому времени, как' = by the time; both verbs use perfective future."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'К тому времени, как' = by the time; both verbs use perfective future."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.complex-tenses"
+    ]
   },
   {
     "id": "ru-gr-b2-s02",
@@ -723,8 +1036,13 @@
     "difficulty": "b2",
     "prompt": "Say: Had I known earlier, I would have changed the plan.",
     "correctAnswer": "Если бы я знал раньше, я бы изменил план.",
-    "hints": ["Counterfactual: past tense + 'бы' in both clauses."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Counterfactual: past tense + 'бы' in both clauses."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.complex-tenses"
+    ]
   },
   {
     "id": "ru-gr-b2-s03",
@@ -732,8 +1050,13 @@
     "difficulty": "b2",
     "prompt": "Say: If I had practiced more, I would be more confident now.",
     "correctAnswer": "Если бы я больше практиковался, сейчас я был бы увереннее.",
-    "hints": ["Mixed conditional: past cause, present result — both clauses use 'бы'."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "Mixed conditional: past cause, present result — both clauses use 'бы'."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.complex-tenses"
+    ]
   },
   {
     "id": "ru-gr-b2-s04",
@@ -741,8 +1064,13 @@
     "difficulty": "b2",
     "prompt": "Say: The more I read, the better I understand.",
     "correctAnswer": "Чем больше я читаю, тем лучше понимаю.",
-    "hints": ["'Чем больше... тем лучше...' = the more... the better..."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Чем больше... тем лучше...' = the more... the better..."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.complex-tenses"
+    ]
   },
   {
     "id": "ru-gr-b2-s05",
@@ -750,8 +1078,13 @@
     "difficulty": "b2",
     "prompt": "Say: I value detailed feedback on my written work.",
     "correctAnswer": "Я ценю подробную обратную связь по моим письменным работам.",
-    "hints": ["'Обратная связь' = feedback — a fixed phrase."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Обратная связь' = feedback — a fixed phrase."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.precise-expression"
+    ]
   },
   {
     "id": "ru-gr-b2-s06",
@@ -762,7 +1095,10 @@
     "hints": [
       "'При + verbal noun' sets the context; comparative genitive for 'more than'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.precise-expression"
+    ]
   },
   {
     "id": "ru-gr-b2-s07",
@@ -770,8 +1106,13 @@
     "difficulty": "b2",
     "prompt": "Ask: Could you clarify the difference between these two forms?",
     "correctAnswer": "Не могли бы вы уточнить разницу между этими двумя формами?",
-    "hints": ["'Между' + instrumental for 'between'."],
-    "exerciseType": "build_sentence"
+    "hints": [
+      "'Между' + instrumental for 'between'."
+    ],
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.grammar.precise-expression"
+    ]
   },
   {
     "id": "ru-gr-b2-p01",
@@ -779,8 +1120,13 @@
     "difficulty": "b2",
     "prompt": "Say: I systematically deepen my knowledge of Russian.",
     "correctAnswer": "Я системно углубляю знания русского языка.",
-    "hints": ["'Углублять' = to deepen — imperfective for ongoing effort."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Углублять' = to deepen — imperfective for ongoing effort."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.precise-expression"
+    ]
   },
   {
     "id": "ru-gr-b2-p02",
@@ -788,8 +1134,13 @@
     "difficulty": "b2",
     "prompt": "Say: Systematic practice has improved my confidence in speaking.",
     "correctAnswer": "Системная практика повысила мою уверенность в разговорной речи.",
-    "hints": ["'Повысить' = to raise / improve — perfective past for a lasting result."],
-    "exerciseType": "pronunciation"
+    "hints": [
+      "'Повысить' = to raise / improve — perfective past for a lasting result."
+    ],
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.grammar.precise-expression"
+    ]
   },
   {
     "id": "ru-gr-b2-c01",
@@ -807,6 +1158,9 @@
       "лёгкий",
       "легко",
       "лёгкая"
+    ],
+    "skills": [
+      "russian.grammar.complex-tenses"
     ]
   },
   {
@@ -825,6 +1179,9 @@
       "углубляет",
       "углублять",
       "углубляешь"
+    ],
+    "skills": [
+      "russian.grammar.precise-expression"
     ]
   },
   {
@@ -843,6 +1200,9 @@
       "вниманием",
       "вниманию",
       "внимательно"
+    ],
+    "skills": [
+      "russian.grammar.precise-expression"
     ]
   },
   {
@@ -851,8 +1211,13 @@
     "difficulty": "b2",
     "prompt": "Listen and build the sentence you hear.",
     "correctAnswer": "Чем больше практикуешься, тем меньше ошибок делаешь.",
-    "hints": ["Listen for the parallel 'чем... тем...' structure."],
-    "exerciseType": "dictation_sentence"
+    "hints": [
+      "Listen for the parallel 'чем... тем...' structure."
+    ],
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "russian.grammar.complex-tenses"
+    ]
   },
   {
     "id": "ru-gr-b2-d02",
@@ -860,8 +1225,13 @@
     "difficulty": "b2",
     "prompt": "Listen and build the sentence you hear.",
     "correctAnswer": "Я ценю подробную обратную связь по моим письменным работам.",
-    "hints": ["Listen for 'обратную связь' — a set phrase meaning 'feedback'."],
-    "exerciseType": "dictation_sentence"
+    "hints": [
+      "Listen for 'обратную связь' — a set phrase meaning 'feedback'."
+    ],
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "russian.grammar.precise-expression"
+    ]
   },
   {
     "id": "ru-gr-b2-mc01",
@@ -878,7 +1248,10 @@
     "hints": [
       "Time words usually open a neutral Russian sentence; the newest information goes at the end."
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.word-order-and-stress"
+    ]
   },
   {
     "id": "ru-gr-b2-mc02",
@@ -892,8 +1265,13 @@
       "Я никогда был не в Париже.",
       "Не я никогда был в Париже."
     ],
-    "hints": ["Russian uses double negation: 'никогда не' = never (not never)."],
-    "exerciseType": "mc_sentence"
+    "hints": [
+      "Russian uses double negation: 'никогда не' = never (not never)."
+    ],
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "russian.grammar.word-order-and-stress"
+    ]
   },
   {
     "id": "ru-gr-b2-r01",
@@ -902,8 +1280,13 @@
     "prompt": "Roleplay: Explain to a classmate why you find verb aspect difficult.",
     "correctAnswer": "Вид глагола мне даётся трудно, потому что одно действие может выражаться по-разному.",
     "answerEnglish": "Verb aspect is hard for me, because one action can be expressed in different ways.",
-    "hints": ["'Даётся трудно' = I find it hard; 'по-разному' = in different ways."],
-    "exerciseType": "roleplay"
+    "hints": [
+      "'Даётся трудно' = I find it hard; 'по-разному' = in different ways."
+    ],
+    "exerciseType": "roleplay",
+    "skills": [
+      "russian.grammar.precise-expression"
+    ]
   },
   {
     "id": "ru-gr-b2-r02",
@@ -912,7 +1295,12 @@
     "prompt": "Roleplay: Ask a teacher which of your two sentences sounds more natural.",
     "correctAnswer": "Скажите, пожалуйста, какое из этих двух предложений звучит естественнее?",
     "answerEnglish": "Could you tell me which of these two sentences sounds more natural?",
-    "hints": ["'Какое из этих двух' = which of these two; 'звучит' = sounds."],
-    "exerciseType": "roleplay"
+    "hints": [
+      "'Какое из этих двух' = which of these two; 'звучит' = sounds."
+    ],
+    "exerciseType": "roleplay",
+    "skills": [
+      "russian.grammar.word-order-and-stress"
+    ]
   }
 ]

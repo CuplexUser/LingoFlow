@@ -7,6 +7,9 @@
     "correctAnswer": "What is your name?",
     "hints": [
       "Start with the question word; 'what's' is the short form of 'what is'."
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "My name is Alex and I am from the United States.",
     "hints": [
       "'From' says where you come from; 'the United States' always takes 'the'."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "Where are you from?",
     "hints": [
       "In English questions the preposition often goes last: 'Where … from?'"
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -38,7 +47,10 @@
     "hints": [
       "A friendly greeting."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "id": "en-cv-a1-5",
@@ -50,7 +62,10 @@
       "A word you say when leaving."
     ],
     "exerciseType": "flashcard",
-    "imageUrl": "/images/placeholder.svg"
+    "imageUrl": "/images/placeholder.svg",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "id": "en-cv-a1-6",
@@ -61,7 +76,10 @@
     "hints": [
       "Ask about someone's age."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "en-cv-a1-7",
@@ -72,7 +90,10 @@
     "hints": [
       "Reply with a friendly greeting."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "id": "en-cv-a1-8",
@@ -83,7 +104,10 @@
     "hints": [
       "Use the correct form of 'to be'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "en-cv-a1-9",
@@ -94,7 +118,10 @@
     "hints": [
       "Talk about where you live."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "en-cv-a1-10",
@@ -104,6 +131,9 @@
     "correctAnswer": "I like music and films.",
     "hints": [
       "Share your interests simply."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -115,7 +145,10 @@
     "hints": [
       "Which word means someone who lives near you?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "en-cv-a1-12",
@@ -126,7 +159,10 @@
     "hints": [
       "A casual farewell."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "level": "a1",
@@ -136,7 +172,10 @@
     "hints": [
       "Polite first-meeting phrase."
     ],
-    "id": "en-co-a1-49"
+    "id": "en-co-a1-49",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "level": "a1",
@@ -147,7 +186,10 @@
       "Common opener."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-co-a1-50"
+    "id": "en-co-a1-50",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "level": "a1",
@@ -158,7 +200,10 @@
       "Simple personal information."
     ],
     "exerciseType": "flashcard",
-    "id": "en-co-a1-51"
+    "id": "en-co-a1-51",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "en-co-3",
@@ -168,6 +213,9 @@
     "correctAnswer": "It is nice to meet you in person.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.keeping-up"
     ]
   },
   {
@@ -178,6 +226,9 @@
     "correctAnswer": "What do you usually do on weekends?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -188,6 +239,9 @@
     "correctAnswer": "I usually spend my evenings reading or walking.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -200,7 +254,10 @@
       "Use the past tense.",
       "Talk about when you arrived."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "en-cv-a2-5",
@@ -211,7 +268,10 @@
     "hints": [
       "Use the correct present tense form."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "en-cv-a2-6",
@@ -222,7 +282,10 @@
     "hints": [
       "Answer with your job."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "en-cv-a2-7",
@@ -233,7 +296,10 @@
     "hints": [
       "Ask about someone's family."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "en-cv-a2-8",
@@ -244,7 +310,10 @@
     "hints": [
       "Use the past tense for a completed event."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "en-cv-a2-9",
@@ -255,7 +324,10 @@
     "hints": [
       "An activity you enjoy in your free time."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.free-time"
+    ]
   },
   {
     "id": "en-cv-a2-10",
@@ -266,7 +338,10 @@
     "hints": [
       "Which word means not common or typical?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.free-time"
+    ]
   },
   {
     "id": "en-cv-a2-11",
@@ -276,6 +351,9 @@
     "correctAnswer": "We met at a party last month.",
     "hints": [
       "Use the past tense of 'meet'."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -287,7 +365,10 @@
     "hints": [
       "Use present perfect for duration."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "level": "a2",
@@ -297,7 +378,10 @@
     "hints": [
       "Polite repair phrase."
     ],
-    "id": "en-co-a2-57"
+    "id": "en-co-a2-57",
+    "skills": [
+      "conversation.keeping-up"
+    ]
   },
   {
     "level": "a2",
@@ -308,7 +392,10 @@
       "Useful listening support."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-co-a2-58"
+    "id": "en-co-a2-58",
+    "skills": [
+      "conversation.keeping-up"
+    ]
   },
   {
     "level": "a2",
@@ -319,7 +406,10 @@
       "Routine question pattern."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-co-a2-59"
+    "id": "en-co-a2-59",
+    "skills": [
+      "conversation.free-time"
+    ]
   },
   {
     "id": "en-co-5",
@@ -329,6 +419,9 @@
     "correctAnswer": "I enjoy talking about books and current events.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -339,6 +432,9 @@
     "correctAnswer": "In my opinion, consistency is more important than intensity.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -349,6 +445,9 @@
     "correctAnswer": "What kind of topics do you enjoy discussing?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -360,7 +459,10 @@
     "hints": [
       "Contrast past and present with 'used to' and present perfect."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.how-you-changed"
+    ]
   },
   {
     "id": "en-cv-b1-5",
@@ -371,7 +473,10 @@
     "hints": [
       "Use the third conditional."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "conversation.how-you-changed"
+    ]
   },
   {
     "id": "en-cv-b1-6",
@@ -383,7 +488,10 @@
       "Express a balanced opinion."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "In many English-speaking cultures, softening criticism with a positive remark first is considered polite."
+    "culturalNote": "In many English-speaking cultures, softening criticism with a positive remark first is considered polite.",
+    "skills": [
+      "conversation.opinions"
+    ]
   },
   {
     "id": "en-cv-b1-7",
@@ -394,7 +502,10 @@
     "hints": [
       "'Catch up' means to talk and share news."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "en-cv-b1-8",
@@ -405,7 +516,10 @@
     "hints": [
       "Use present perfect continuous for an ongoing intention."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "en-cv-b1-9",
@@ -416,7 +530,10 @@
     "hints": [
       "Which word describes a situation that feels uncomfortable?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "en-cv-b1-10",
@@ -427,7 +544,10 @@
     "hints": [
       "To stop someone while they are speaking."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "en-cv-b1-11",
@@ -437,6 +557,9 @@
     "correctAnswer": "However, I see your point and I partially agree.",
     "hints": [
       "Use 'however' to introduce a different perspective."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -448,7 +571,10 @@
     "hints": [
       "A polite way to redirect a conversation."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "level": "b1",
@@ -458,7 +584,10 @@
     "hints": [
       "Balanced disagreement."
     ],
-    "id": "en-co-b1-65"
+    "id": "en-co-b1-65",
+    "skills": [
+      "conversation.opinions"
+    ]
   },
   {
     "level": "b1",
@@ -469,7 +598,10 @@
       "Follow-up question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-co-b1-66"
+    "id": "en-co-b1-66",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "level": "b1",
@@ -480,7 +612,10 @@
       "Story transition phrase."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-co-b1-67"
+    "id": "en-co-b1-67",
+    "skills": [
+      "conversation.how-you-changed"
+    ]
   },
   {
     "id": "en-co-7",
@@ -490,6 +625,9 @@
     "correctAnswer": "I used to be shy, but now I express my ideas confidently.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   },
   {
@@ -500,6 +638,9 @@
     "correctAnswer": "Although we disagree, I respect your perspective.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -510,6 +651,9 @@
     "correctAnswer": "I appreciate honest conversations, even when they are difficult.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -521,7 +665,10 @@
     "hints": [
       "Use 'it strikes me that' for a reflective observation."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "en-cv-b2-5",
@@ -532,7 +679,10 @@
     "hints": [
       "Use the past participle in an inverted conditional."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "id": "en-cv-b2-6",
@@ -545,7 +695,10 @@
       "Consider the register."
     ],
     "exerciseType": "dialogue_turn",
-    "culturalNote": "Acknowledging the other person's viewpoint before disagreeing is valued in professional English."
+    "culturalNote": "Acknowledging the other person's viewpoint before disagreeing is valued in professional English.",
+    "skills": [
+      "conversation.disagreeing"
+    ]
   },
   {
     "id": "en-cv-b2-7",
@@ -556,7 +709,10 @@
     "hints": [
       "Focus on natural phrasing and word order."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "en-cv-b2-8",
@@ -567,7 +723,10 @@
     "hints": [
       "Use inverted third conditional for a formal tone."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "id": "en-cv-b2-9",
@@ -578,7 +737,10 @@
     "hints": [
       "Which word means a subtle difference in meaning?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "en-cv-b2-10",
@@ -589,7 +751,10 @@
     "hints": [
       "To understand and share another person's feelings."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "en-cv-b2-11",
@@ -599,6 +764,9 @@
     "correctAnswer": "The crux of the matter is that we need clearer communication.",
     "hints": [
       "'The crux of the matter' is an idiomatic expression meaning the central point."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -610,7 +778,10 @@
     "hints": [
       "Use 'rather than' to present an alternative."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.disagreeing"
+    ]
   },
   {
     "level": "b2",
@@ -620,7 +791,10 @@
     "hints": [
       "Advanced conversation control."
     ],
-    "id": "en-co-b2-73"
+    "id": "en-co-b2-73",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "level": "b2",
@@ -631,7 +805,10 @@
       "Formal discussion prompt."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-co-b2-74"
+    "id": "en-co-b2-74",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "level": "b2",
@@ -642,6 +819,9 @@
       "High-level feedback phrase."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-co-b2-75"
+    "id": "en-co-b2-75",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   }
 ]

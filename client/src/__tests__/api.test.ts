@@ -26,7 +26,8 @@ describe("normalizeActiveSession", () => {
           clozeAnswer: "dricker",
           acceptedClozeAnswers: ["tar"],
           clozeOptions: ["dricker", "äter"],
-          translation: "I drink coffee."
+          translation: "I drink coffee.",
+          skills: ["food_cooking.ordering"]
         }
       ]
     });
@@ -40,6 +41,7 @@ describe("normalizeActiveSession", () => {
       expect(normalized.questions[1].clozeOptions).toEqual(["dricker", "äter"]);
       expect(normalized.questions[1].acceptedClozeAnswers).toEqual(["tar"]);
       expect(normalized.questions[1].translation).toBe("I drink coffee.");
+      expect(normalized.questions[1].skills).toEqual(["food_cooking.ordering"]);
     }
   });
 });

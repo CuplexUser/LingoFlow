@@ -10,6 +10,9 @@
     ],
     "acceptedAnswers": [
       "Как вас зовут?"
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -20,6 +23,9 @@
     "correctAnswer": "Меня зовут Алекс, и я из США.",
     "hints": [
       "'Из' + genitive = from. 'США' is the abbreviation for the USA."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -33,6 +39,9 @@
     ],
     "acceptedAnswers": [
       "Откуда ты?"
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -43,6 +52,9 @@
     "correctAnswer": "Привет! Как ты?",
     "hints": [
       "'Привет' is informal; use 'Здравствуйте' for formal greetings."
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -57,6 +69,9 @@
     "acceptedAnswers": [
       "Хорошо, спасибо.",
       "У меня всё хорошо, спасибо."
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -68,7 +83,10 @@
     "hints": [
       "The casual way to say farewell."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "id": "ru-cv-a1-7",
@@ -78,6 +96,9 @@
     "correctAnswer": "Очень приятно.",
     "hints": [
       "Used when meeting someone for the first time."
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -88,6 +109,9 @@
     "correctAnswer": "Вы говорите по-английски?",
     "hints": [
       "Language adverbs take the prefix по- and end in -и: 'по-русски', 'по-французски'."
+    ],
+    "skills": [
+      "conversation.about-you"
     ]
   },
   {
@@ -98,6 +122,9 @@
     "correctAnswer": "Я не понимаю.",
     "hints": [
       "An essential survival phrase when you are lost in a conversation."
+    ],
+    "skills": [
+      "russian.conversation.words-and-questions"
     ]
   },
   {
@@ -108,6 +135,9 @@
     "correctAnswer": "Пожалуйста, говорите медленнее.",
     "hints": [
       "'Медленнее' is the comparative of 'медленно' (slowly)."
+    ],
+    "skills": [
+      "russian.conversation.words-and-questions"
     ]
   },
   {
@@ -124,6 +154,9 @@
       "Рада с тобой познакомиться.",
       "Рад познакомиться.",
       "Рада познакомиться."
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -135,7 +168,10 @@
     "hints": [
       "'Сколько лет' literally means 'how many years'. Age is expressed with the genitive plural."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "ru-cv-a1-13",
@@ -147,7 +183,10 @@
     "hints": [
       "Mirror the formal greeting and add a polite response."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.meeting"
+    ]
   },
   {
     "id": "ru-co-3",
@@ -157,6 +196,9 @@
     "correctAnswer": "Приятно познакомиться лично.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.keeping-up"
     ]
   },
   {
@@ -167,6 +209,9 @@
     "correctAnswer": "Что ты обычно делаешь по выходным?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -177,6 +222,9 @@
     "correctAnswer": "Обычно я провожу вечера за чтением или прогулкой.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -187,6 +235,9 @@
     "correctAnswer": "Кем ты работаешь?",
     "hints": [
       "'Кем' is the instrumental case — used after 'работать' (to work as)."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -197,6 +248,9 @@
     "correctAnswer": "Я живу здесь уже два года.",
     "hints": [
       "'Уже' (already/for) marks ongoing duration in Russian present tense."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -215,6 +269,9 @@
       "познакомился",
       "познакомлюсь",
       "знакомство"
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -225,6 +282,9 @@
     "correctAnswer": "Какие у тебя хобби?",
     "hints": [
       "'Какие' agrees with the plural noun 'хобби'."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -235,6 +295,9 @@
     "correctAnswer": "Я предпочитаю кофе чаю.",
     "hints": [
       "'Предпочитать' takes the accusative for the preferred item and dative for the comparison."
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -247,7 +310,10 @@
     "hints": [
       "A polite response followed by a returning question."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.keeping-up"
+    ]
   },
   {
     "id": "ru-cv-a2-10",
@@ -257,6 +323,9 @@
     "correctAnswer": "Я изучаю русский язык, потому что люблю культуру.",
     "hints": [
       "'Потому что' = because. It introduces the reason clause."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -271,6 +340,9 @@
     "exerciseType": "build_sentence",
     "acceptedAnswers": [
       "Я переехала в Москву три года назад."
+    ],
+    "skills": [
+      "conversation.your-life"
     ]
   },
   {
@@ -282,7 +354,10 @@
     "hints": [
       "'Обычно' sets a habitual tone. 'Вечером' is the instrumental case for 'in the evening'."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.free-time"
+    ]
   },
   {
     "id": "ru-cv-a2-13",
@@ -293,7 +368,10 @@
     "hints": [
       "Which word means the person who lives next door?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "ru-co-5",
@@ -303,6 +381,9 @@
     "correctAnswer": "Мне нравится говорить о книгах и текущих событиях.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -313,6 +394,9 @@
     "correctAnswer": "По моему мнению, регулярность важнее интенсивности.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -323,6 +407,9 @@
     "correctAnswer": "Какие темы вы любите обсуждать?",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -336,6 +423,9 @@
     ],
     "acceptedAnswers": [
       "Я согласна с тобой, но вижу это иначе."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -346,6 +436,9 @@
     "correctAnswer": "Вы когда-нибудь жили за границей?",
     "hints": [
       "'Когда-нибудь' = ever (used in questions and hypotheticals)."
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -364,6 +457,9 @@
       "разбираешься",
       "разбирается",
       "разбираться"
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -374,6 +470,9 @@
     "correctAnswer": "Это зависит от ситуации.",
     "hints": [
       "'Зависеть от' = to depend on. 'Ситуации' is in the genitive case."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -387,6 +486,9 @@
     ],
     "acceptedAnswers": [
       "Я считаю светские разговоры трудными, но необходимыми."
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -399,7 +501,10 @@
     "hints": [
       "'На мой взгляд' = in my view. A balanced, diplomatic answer."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.opinions"
+    ]
   },
   {
     "id": "ru-cv-b1-10",
@@ -412,6 +517,9 @@
     ],
     "acceptedAnswers": [
       "Это хорошее замечание, о котором я не подумала."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -426,6 +534,9 @@
     "exerciseType": "build_sentence",
     "acceptedAnswers": [
       "Я бы предпочла обсудить это наедине."
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -437,7 +548,10 @@
     "hints": [
       "Use the 'чем... тем...' construction for the more... the more."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.opinions"
+    ]
   },
   {
     "id": "ru-cv-b1-13",
@@ -448,7 +562,10 @@
     "hints": [
       "A person you are talking with; a conversation partner."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "ru-co-7",
@@ -461,6 +578,9 @@
     ],
     "acceptedAnswers": [
       "Раньше я была застенчивой, но теперь уверенно выражаю свои мысли."
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   },
   {
@@ -471,6 +591,9 @@
     "correctAnswer": "Хотя мы не согласны, я уважаю твою точку зрения.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -481,6 +604,9 @@
     "correctAnswer": "Я ценю откровенные разговоры, даже когда они трудные.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -491,6 +617,9 @@
     "correctAnswer": "Чем больше мы общаемся, тем лучше понимаем друг друга.",
     "hints": [
       "'Чем … тем' = the more … the more. A classic Russian comparative construction."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -505,6 +634,9 @@
     "exerciseType": "pronunciation",
     "acceptedAnswers": [
       "Я склонна больше слушать, чем говорить в групповых дискуссиях."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -515,6 +647,9 @@
     "correctAnswer": "Это чувство трудно выразить словами.",
     "hints": [
       "Russian uses an impersonal construction here: 'it is hard to express with words'."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -525,6 +660,9 @@
     "correctAnswer": "Недоразумения часто возникают из-за культурных различий в стиле общения.",
     "hints": [
       "'Из-за' + genitive = because of. 'Возникать' = to arise (imperfective)."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   },
   {
@@ -543,6 +681,9 @@
       "умысел",
       "умыслом",
       "умыслу"
+    ],
+    "skills": [
+      "conversation.rephrasing"
     ]
   },
   {
@@ -554,7 +695,10 @@
     "hints": [
       "Use 'если бы не + noun' for a counterfactual condition."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "id": "ru-cv-b2-10",
@@ -565,7 +709,10 @@
     "hints": [
       "Eloquence; the art of speaking fluently and persuasively."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "ru-cv-b2-11",
@@ -576,7 +723,10 @@
     "hints": [
       "Which word means an indirect suggestion or hint?"
     ],
-    "exerciseType": "mc_sentence"
+    "exerciseType": "mc_sentence",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "ru-co-a1-1",
@@ -587,7 +737,10 @@
     "hints": [
       "The basic unit of spoken or written language."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.conversation.words-and-questions"
+    ]
   },
   {
     "id": "ru-co-a1-2",
@@ -598,7 +751,10 @@
     "hints": [
       "A key phrase for keeping a conversation going when you miss something."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "russian.conversation.words-and-questions"
+    ]
   },
   {
     "id": "ru-co-a1-3",
@@ -609,7 +765,10 @@
     "hints": [
       "What you ask when you need information."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.conversation.words-and-questions"
+    ]
   },
   {
     "id": "ru-co-a1-4",
@@ -620,7 +779,10 @@
     "hints": [
       "Use 'что означает' to ask about meaning."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "russian.conversation.words-and-questions"
+    ]
   },
   {
     "id": "ru-co-a1-5",
@@ -637,6 +799,9 @@
       "До свидания",
       "Привет",
       "Спасибо"
+    ],
+    "skills": [
+      "conversation.meeting"
     ]
   },
   {
@@ -648,7 +813,10 @@
     "hints": [
       "What you give in response to a question."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "russian.conversation.words-and-questions"
+    ]
   },
   {
     "id": "ru-co-a1-7",
@@ -659,7 +827,10 @@
     "hints": [
       "'Немного' = a little. Language adverbs use 'по-' prefix."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.about-you"
+    ]
   },
   {
     "id": "ru-co-a2-1",
@@ -669,6 +840,9 @@
     "correctAnswer": "Можно задать тебе вопрос?",
     "hints": [
       "'Задать вопрос' is the natural collocation for 'to ask a question'."
+    ],
+    "skills": [
+      "conversation.keeping-up"
     ]
   },
   {
@@ -684,6 +858,9 @@
     "acceptedAnswers": [
       "Дайте подумать.",
       "Дай мне подумать секунду."
+    ],
+    "skills": [
+      "conversation.keeping-up"
     ]
   },
   {
@@ -702,7 +879,10 @@
       "видел",
       "знал"
     ],
-    "translation": "Sorry, I didn't understand you. Can you say it again?"
+    "translation": "Sorry, I didn't understand you. Can you say it again?",
+    "skills": [
+      "conversation.keeping-up"
+    ]
   },
   {
     "id": "ru-co-a2-4",
@@ -713,7 +893,10 @@
     "hints": [
       "Use 'как по-русски' to ask for a translation into Russian."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "conversation.keeping-up"
+    ]
   },
   {
     "id": "ru-co-a2-5",
@@ -725,7 +908,10 @@
     "hints": [
       "Use a formal greeting, introduce yourself, and add a polite phrase."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.your-life"
+    ]
   },
   {
     "id": "ru-co-a2-6",
@@ -736,7 +922,10 @@
     "hints": [
       "Informal verbs for casual talk. 'Поболтать' is the perfective (to have a chat)."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.keeping-up"
+    ]
   },
   {
     "id": "ru-co-a2-7",
@@ -750,6 +939,9 @@
     "exerciseType": "build_sentence",
     "acceptedAnswers": [
       "Кстати, где ты купила эту куртку?"
+    ],
+    "skills": [
+      "conversation.free-time"
     ]
   },
   {
@@ -763,6 +955,9 @@
     ],
     "acceptedAnswers": [
       "Я не хотела тебя перебивать."
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -774,7 +969,10 @@
     "hints": [
       "'Привести пример' = to give/cite an example. Use the polite conditional."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "ru-co-b1-3",
@@ -792,7 +990,10 @@
       "начинается",
       "завершается"
     ],
-    "translation": "If I understood you correctly, you mean the project is delayed?"
+    "translation": "If I understood you correctly, you mean the project is delayed?",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "ru-co-b1-4",
@@ -803,7 +1004,10 @@
     "hints": [
       "Listen for 'прежде чем' (before) and the infinitive phrase."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "ru-co-b1-5",
@@ -814,7 +1018,10 @@
     "hints": [
       "Both are common; 'перейти к делу' is idiomatic in business contexts."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "ru-co-b1-6",
@@ -828,6 +1035,9 @@
     "exerciseType": "build_sentence",
     "acceptedAnswers": [
       "Я не уверена, что ясно выразила свою мысль."
+    ],
+    "skills": [
+      "conversation.steering"
     ]
   },
   {
@@ -838,6 +1048,9 @@
     "correctAnswer": "Честно говоря, мне трудно возражать людям в лицо.",
     "hints": [
       "'Честно говоря' = to be honest (a discourse marker). 'В лицо' = face to face, to someone's face."
+    ],
+    "skills": [
+      "conversation.opinions"
     ]
   },
   {
@@ -850,7 +1063,10 @@
     "hints": [
       "Use a short acknowledgement and a question to keep the speaker going."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.steering"
+    ]
   },
   {
     "id": "ru-co-b2-1",
@@ -863,6 +1079,9 @@
     ],
     "acceptedAnswers": [
       "У меня ощущение, что мы говорим о разном."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -881,7 +1100,10 @@
       "краткосрочной",
       "долгосрочную"
     ],
-    "translation": "Let me clarify: do you mean the short term or the long term?"
+    "translation": "Let me clarify: do you mean the short term or the long term?",
+    "skills": [
+      "conversation.rephrasing"
+    ]
   },
   {
     "id": "ru-co-b2-3",
@@ -894,6 +1116,9 @@
     ],
     "acceptedAnswers": [
       "Я имею в виду не то, что не согласна, а то, что мне нужно больше информации."
+    ],
+    "skills": [
+      "conversation.disagreeing"
     ]
   },
   {
@@ -905,7 +1130,10 @@
     "hints": [
       "What is said between the lines in a conversation."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "conversation.real-dialogue"
+    ]
   },
   {
     "id": "ru-co-b2-6",
@@ -917,7 +1145,10 @@
     "hints": [
       "'Однако' is more formal than 'но'. 'Позвольте + infinitive' softens the challenge."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "conversation.disagreeing"
+    ]
   },
   {
     "id": "ru-co-b2-7",
@@ -927,6 +1158,9 @@
     "correctAnswer": "Тишина в комнате говорила громче любых слов.",
     "hints": [
       "A figurative use of 'говорить' (to speak). 'Громче' is the comparative of 'громко'."
+    ],
+    "skills": [
+      "conversation.real-dialogue"
     ]
   }
 ]

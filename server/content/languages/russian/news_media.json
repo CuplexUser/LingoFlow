@@ -7,6 +7,9 @@
     "correctAnswer": "Я читаю новости каждое утро.",
     "hints": [
       "Use simple present for daily habits."
+    ],
+    "skills": [
+      "news_media.following-news"
     ]
   },
   {
@@ -24,6 +27,9 @@
       "телевидение",
       "радио",
       "подкаст"
+    ],
+    "skills": [
+      "news_media.news-words"
     ]
   },
   {
@@ -34,6 +40,9 @@
     "correctAnswer": "Эта статья интересная.",
     "hints": [
       "A simple opinion sentence."
+    ],
+    "skills": [
+      "news_media.following-news"
     ]
   },
   {
@@ -45,7 +54,10 @@
     "hints": [
       "The person who writes or reports the news."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.news-words"
+    ]
   },
   {
     "id": "ru-nm-a1-5",
@@ -55,6 +67,9 @@
     "correctAnswer": "Я смотрю новости по телевизору.",
     "hints": [
       "Use 'по телевизору' for 'on TV'."
+    ],
+    "skills": [
+      "news_media.following-news"
     ]
   },
   {
@@ -72,6 +87,9 @@
       "газета",
       "канал",
       "сайт"
+    ],
+    "skills": [
+      "news_media.news-words"
     ]
   },
   {
@@ -82,6 +100,9 @@
     "correctAnswer": "Новости идут в семь часов.",
     "hints": [
       "Use 'идут' (are on/playing) for TV programs."
+    ],
+    "skills": [
+      "news_media.following-news"
     ]
   },
   {
@@ -93,7 +114,10 @@
     "hints": [
       "Think of a TV or YouTube channel."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.news-words"
+    ]
   },
   {
     "id": "ru-nm-a1-9",
@@ -103,6 +127,9 @@
     "correctAnswer": "Он репортёр.",
     "hints": [
       "No verb 'to be' needed in Russian present tense."
+    ],
+    "skills": [
+      "news_media.news-words"
     ]
   },
   {
@@ -120,6 +147,9 @@
       "радио",
       "журнал",
       "новость"
+    ],
+    "skills": [
+      "news_media.news-words"
     ]
   },
   {
@@ -130,6 +160,9 @@
     "correctAnswer": "Я предпочитаю читать новости онлайн, а не смотреть их по телевизору.",
     "hints": [
       "Use 'предпочитаю + infinitive + а не + infinitive'."
+    ],
+    "skills": [
+      "news_media.media-habits"
     ]
   },
   {
@@ -147,6 +180,9 @@
       "название новостной статьи",
       "подпись к фотографии",
       "дата публикации"
+    ],
+    "skills": [
+      "news_media.reporting"
     ]
   },
   {
@@ -157,6 +193,9 @@
     "correctAnswer": "Репортёр взял интервью у нескольких свидетелей.",
     "hints": [
       "Use past tense for a completed action."
+    ],
+    "skills": [
+      "news_media.reporting"
     ]
   },
   {
@@ -175,7 +214,10 @@
       "читать",
       "читаешь"
     ],
-    "translation": "Every day I read the news online."
+    "translation": "Every day I read the news online.",
+    "skills": [
+      "news_media.media-habits"
+    ]
   },
   {
     "id": "ru-nm-a2-5",
@@ -185,6 +227,9 @@
     "correctAnswer": "Эта программа выходит каждый вечер.",
     "hints": [
       "'Выходит' means 'airs' or 'comes out' for media."
+    ],
+    "skills": [
+      "news_media.media-habits"
     ]
   },
   {
@@ -196,7 +241,10 @@
     "hints": [
       "The person who checks and edits articles."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.reporting"
+    ]
   },
   {
     "id": "ru-nm-a2-7",
@@ -206,6 +254,9 @@
     "correctAnswer": "Она пишет для популярной газеты.",
     "hints": [
       "Use the genitive case after 'для'."
+    ],
+    "skills": [
+      "news_media.reporting"
     ]
   },
   {
@@ -223,6 +274,9 @@
       "трансляция",
       "заметка",
       "подписка"
+    ],
+    "skills": [
+      "news_media.reporting"
     ]
   },
   {
@@ -236,6 +290,9 @@
     ],
     "acceptedAnswers": [
       "Ты слышала о происшествии по радио?"
+    ],
+    "skills": [
+      "news_media.reporting"
     ]
   },
   {
@@ -246,6 +303,9 @@
     "correctAnswer": "Важно проверять информацию перед тем, как ею делиться.",
     "hints": [
       "Use 'важно + infinitive'."
+    ],
+    "skills": [
+      "news_media.reliable-sources"
     ]
   },
   {
@@ -263,6 +323,9 @@
       "быстро распространиться в интернете",
       "быть удалённым",
       "быть опубликованным в печати"
+    ],
+    "skills": [
+      "news_media.reliable-sources"
     ]
   },
   {
@@ -273,6 +336,9 @@
     "correctAnswer": "Документальный фильм рассказал о том, как создаются новости.",
     "hints": [
       "'рассказать о том, как ...' introduces a clause; 'создаются' is reflexive passive."
+    ],
+    "skills": [
+      "news_media.how-news-works"
     ]
   },
   {
@@ -284,7 +350,10 @@
     "hints": [
       "Both are widely used in Russian media discourse."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.reliable-sources"
+    ]
   },
   {
     "id": "ru-nm-b1-5",
@@ -294,6 +363,9 @@
     "correctAnswer": "На пресс-конференции присутствовало пятьдесят журналистов.",
     "hints": [
       "Use the genitive plural after numerals from 5 upwards."
+    ],
+    "skills": [
+      "news_media.how-news-works"
     ]
   },
   {
@@ -312,7 +384,10 @@
       "опубликовали",
       "опубликовать"
     ],
-    "translation": "The journalist published an article about corruption in the city administration."
+    "translation": "The journalist published an article about corruption in the city administration.",
+    "skills": [
+      "news_media.how-news-works"
+    ]
   },
   {
     "id": "ru-nm-b1-7",
@@ -322,6 +397,9 @@
     "correctAnswer": "Социальные сети изменили то, как люди потребляют новости.",
     "hints": [
       "Use the perfective past 'изменили' for a completed change."
+    ],
+    "skills": [
+      "news_media.reliable-sources"
     ]
   },
   {
@@ -339,6 +417,9 @@
       "средства массовой информации",
       "система медиаинтеграции",
       "служба мониторинга изданий"
+    ],
+    "skills": [
+      "news_media.how-news-works"
     ]
   },
   {
@@ -349,6 +430,9 @@
     "correctAnswer": "Редактор отклонил статью, потому что в ней не было источников.",
     "hints": [
       "Use 'потому что' for a causal clause."
+    ],
+    "skills": [
+      "news_media.how-news-works"
     ]
   },
   {
@@ -360,7 +444,10 @@
     "hints": [
       "Listen for the dative (министру) and the genitive after 'несколько' (вопросов)."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "news_media.how-news-works"
+    ]
   },
   {
     "id": "ru-nm-b2-1",
@@ -370,6 +457,9 @@
     "correctAnswer": "Журналисты проверяют факты перед публикацией статьи.",
     "hints": [
       "'перед' takes the instrumental; 'публикацией статьи' = before publication of the article."
+    ],
+    "skills": [
+      "news_media.journalism-and-democracy"
     ]
   },
   {
@@ -380,6 +470,9 @@
     "correctAnswer": "Редакционная коллегия решила отозвать материал после появления новых доказательств.",
     "hints": [
       "'Отозвать' means to officially withdraw a published statement."
+    ],
+    "skills": [
+      "news_media.journalism-and-democracy"
     ]
   },
   {
@@ -391,7 +484,10 @@
     "hints": [
       "'узнавать новости из' + genitive (социальных сетей)."
     ],
-    "culturalNote": "Social media platforms are now a common way Russian speakers follow the news, alongside television and traditional outlets."
+    "culturalNote": "Social media platforms are now a common way Russian speakers follow the news, alongside television and traditional outlets.",
+    "skills": [
+      "news_media.information-age"
+    ]
   },
   {
     "id": "ru-nm-b2-4",
@@ -409,7 +505,10 @@
       "публикует",
       "напечатал"
     ],
-    "translation": "All the major outlets published this news."
+    "translation": "All the major outlets published this news.",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-b2-5",
@@ -419,6 +518,9 @@
     "correctAnswer": "Сегодня почти у каждого издания есть свой сайт и приложение.",
     "hints": [
       "Possession with 'у + genitive ... есть'; 'у каждого издания'."
+    ],
+    "skills": [
+      "news_media.information-age"
     ]
   },
   {
@@ -437,7 +539,10 @@
       "экологические издания",
       "иностранная пресса"
     ],
-    "culturalNote": "The term 'жёлтая пресса' (literally 'yellow press') is used in Russian much like 'tabloid press' in English."
+    "culturalNote": "The term 'жёлтая пресса' (literally 'yellow press') is used in Russian much like 'tabloid press' in English.",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-b2-7",
@@ -447,6 +552,9 @@
     "correctAnswer": "Многие репортёры ведут прямые трансляции с места событий.",
     "hints": [
       "'вести трансляцию' = to run a broadcast; 'с места событий' = from the scene."
+    ],
+    "skills": [
+      "news_media.journalism-and-democracy"
     ]
   },
   {
@@ -459,7 +567,10 @@
     "hints": [
       "Use a formal conditional request with 'не могли бы вы'."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-b2-10",
@@ -470,7 +581,10 @@
     "hints": [
       "Use the perfective past 'изменилась' for a noticeable completed shift."
     ],
-    "culturalNote": "'Редакционная политика' (editorial policy) refers to the standards and editorial stance an outlet applies to what it publishes."
+    "culturalNote": "'Редакционная политика' (editorial policy) refers to the standards and editorial stance an outlet applies to what it publishes.",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-vocab-a1-1",
@@ -481,7 +595,10 @@
     "hints": [
       "Usually used in the plural in Russian."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.news-words"
+    ]
   },
   {
     "id": "ru-nm-vocab-a1-2",
@@ -492,7 +609,10 @@
     "hints": [
       "A piece of writing published in a newspaper or online."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.news-words"
+    ]
   },
   {
     "id": "ru-nm-vocab-a1-3",
@@ -503,7 +623,10 @@
     "hints": [
       "The bold title at the top of a news story."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.news-words"
+    ]
   },
   {
     "id": "ru-nm-vocab-a1-4",
@@ -514,7 +637,10 @@
     "hints": [
       "Where information originates from."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.news-words"
+    ]
   },
   {
     "id": "ru-nm-vocab-a2-1",
@@ -525,7 +651,10 @@
     "hints": [
       "A journalist reporting from a specific location."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.reporting"
+    ]
   },
   {
     "id": "ru-nm-vocab-a2-2",
@@ -536,7 +665,10 @@
     "hints": [
       "An almost identical borrowing from English — neuter, indeclinable."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.reporting"
+    ]
   },
   {
     "id": "ru-nm-vocab-b1-1",
@@ -547,7 +679,10 @@
     "hints": [
       "'Пресса' is a feminine noun; 'свобода' takes genitive after it."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.how-news-works"
+    ]
   },
   {
     "id": "ru-nm-vocab-b1-2",
@@ -558,7 +693,10 @@
     "hints": [
       "Control or suppression of published material."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.how-news-works"
+    ]
   },
   {
     "id": "ru-nm-vocab-b2-1",
@@ -569,7 +707,10 @@
     "hints": [
       "Both terms are used; 'информационный пузырь' is more common in Russian."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.information-age"
+    ]
   },
   {
     "id": "ru-nm-vocab-b2-2",
@@ -580,7 +721,10 @@
     "hints": [
       "The ability to critically evaluate media content."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.information-age"
+    ]
   },
   {
     "id": "ru-nm-sent-a1-1",
@@ -591,7 +735,10 @@
     "hints": [
       "'Радио' is indeclinable — it doesn't change form."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "news_media.following-news"
+    ]
   },
   {
     "id": "ru-nm-sent-a2-1",
@@ -602,7 +749,10 @@
     "hints": [
       "'Задать вопрос' is the natural collocation for 'ask a question'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "news_media.reporting"
+    ]
   },
   {
     "id": "ru-nm-sent-b1-1",
@@ -613,7 +763,10 @@
     "hints": [
       "Use 'отличить ... от ...' for 'distinguish ... from ...'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "news_media.reliable-sources"
+    ]
   },
   {
     "id": "ru-nm-pron-a1-1",
@@ -624,7 +777,10 @@
     "hints": [
       "Stress: чи-ТА-ю, га-ЗЕ-ту."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "news_media.following-news"
+    ]
   },
   {
     "id": "ru-nm-pron-a2-1",
@@ -635,7 +791,10 @@
     "hints": [
       "Stress: ре-пор-ТЁР, ин-тер-ВЬЮ, о-чевИ-дцев."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "news_media.reporting"
+    ]
   },
   {
     "id": "ru-nm-pron-b1-1",
@@ -646,7 +805,10 @@
     "hints": [
       "Stress: жур-на-ЛИСТ, о-пуб-ли-КО-вал, рас-слЕ-до-ва-ние."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "news_media.how-news-works"
+    ]
   },
   {
     "id": "ru-nm-mc-a2-1",
@@ -663,6 +825,9 @@
       "Срочные новости",
       "Спортивные новости",
       "Важные события"
+    ],
+    "skills": [
+      "news_media.reporting"
     ]
   },
   {
@@ -680,6 +845,9 @@
       "Материал подхватили международные издания.",
       "Публикацию взяли зарубежные порталы.",
       "Материал опровергли международные издания."
+    ],
+    "skills": [
+      "news_media.how-news-works"
     ]
   },
   {
@@ -692,7 +860,10 @@
     "hints": [
       "Use a polite opening and the conditional 'хотел бы'."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "news_media.media-habits"
+    ]
   },
   {
     "id": "ru-nm-culture-b1-1",
@@ -703,7 +874,10 @@
     "hints": [
       "Use dashes instead of 'это' at the start of a definition sentence."
     ],
-    "culturalNote": "Первый канал (Channel One) is the most-watched TV channel in Russia and a significant part of the media landscape learners encounter in authentic Russian content."
+    "culturalNote": "Первый канал (Channel One) is the most-watched TV channel in Russia and a significant part of the media landscape learners encounter in authentic Russian content.",
+    "skills": [
+      "news_media.how-news-works"
+    ]
   },
   {
     "id": "ru-nm-culture-b2-1",
@@ -714,7 +888,10 @@
     "hints": [
       "Use 'играть роль в' + prepositional verbal noun (распространении) with the genitive object (новостей)."
     ],
-    "culturalNote": "Russian-language news reaches audiences far beyond Russia itself — across the former Soviet states and a large diaspora — so major outlets routinely publish for readers in many time zones."
+    "culturalNote": "Russian-language news reaches audiences far beyond Russia itself — across the former Soviet states and a large diaspora — so major outlets routinely publish for readers in many time zones.",
+    "skills": [
+      "news_media.information-age"
+    ]
   },
   {
     "id": "ru-nm-a1-11",
@@ -725,7 +902,10 @@
     "hints": [
       "A picture taken with a camera."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.news-words"
+    ]
   },
   {
     "id": "ru-nm-a1-12",
@@ -735,6 +915,9 @@
     "correctAnswer": "Я слушаю радио утром.",
     "hints": [
       "'Радио' is indeclinable; 'утром' is the adverb 'in the morning'."
+    ],
+    "skills": [
+      "news_media.following-news"
     ]
   },
   {
@@ -745,6 +928,9 @@
     "correctAnswer": "Я читаю этот журнал каждую неделю.",
     "hints": [
       "'каждую неделю' is accusative for regular time."
+    ],
+    "skills": [
+      "news_media.media-habits"
     ]
   },
   {
@@ -763,7 +949,10 @@
       "на",
       "через"
     ],
-    "translation": "I watch the news on TV."
+    "translation": "I watch the news on TV.",
+    "skills": [
+      "news_media.media-habits"
+    ]
   },
   {
     "id": "ru-nm-a2-12",
@@ -780,6 +969,9 @@
       "вечерняя газета",
       "свежая газета",
       "ежедневная газета"
+    ],
+    "skills": [
+      "news_media.media-habits"
     ]
   },
   {
@@ -790,6 +982,9 @@
     "correctAnswer": "Газета опубликовала интервью с мэром.",
     "hints": [
       "'интервью с' + instrumental (с мэром)."
+    ],
+    "skills": [
+      "news_media.how-news-works"
     ]
   },
   {
@@ -808,7 +1003,10 @@
       "прочитать",
       "написали"
     ],
-    "translation": "Thousands of people have read this article."
+    "translation": "Thousands of people have read this article.",
+    "skills": [
+      "news_media.reliable-sources"
+    ]
   },
   {
     "id": "ru-nm-b1-13",
@@ -819,7 +1017,10 @@
     "hints": [
       "'в телефоне' = on one's phone (colloquial)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "news_media.reliable-sources"
+    ]
   },
   {
     "id": "ru-nm-b1-14",
@@ -829,6 +1030,9 @@
     "correctAnswer": "Интервью длилось почти час.",
     "hints": [
       "'интервью' is neuter indeclinable, so the verb is 'длилось'."
+    ],
+    "skills": [
+      "news_media.how-news-works"
     ]
   },
   {
@@ -840,7 +1044,10 @@
     "hints": [
       "What you buy to receive a paper or service regularly."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.reliable-sources"
+    ]
   },
   {
     "id": "ru-nm-b2-8",
@@ -850,6 +1057,9 @@
     "correctAnswer": "Газета извинилась за ошибку во вчерашней статье.",
     "hints": [
       "'извиниться за' + accusative; 'во вчерашней статье' is prepositional."
+    ],
+    "skills": [
+      "news_media.journalism-and-democracy"
     ]
   },
   {
@@ -860,6 +1070,9 @@
     "correctAnswer": "Канал транслирует новости на нескольких языках.",
     "hints": [
       "'на ... языках' = in ... languages (prepositional plural)."
+    ],
+    "skills": [
+      "news_media.journalism-and-democracy"
     ]
   },
   {
@@ -878,7 +1091,10 @@
       "ведёт",
       "водил"
     ],
-    "translation": "The correspondent reported live from the scene."
+    "translation": "The correspondent reported live from the scene.",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-b2-13",
@@ -889,7 +1105,10 @@
     "hints": [
       "'отправить' takes accusative (статью) + dative recipient (редактору)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-b2-14",
@@ -906,6 +1125,9 @@
       "Пресс-конференция началась.",
       "Пресс-конференцию отменили.",
       "Пресс-конференция закончилась."
+    ],
+    "skills": [
+      "news_media.journalism-and-democracy"
     ]
   },
   {
@@ -916,6 +1138,9 @@
     "correctAnswer": "Многие читатели оставляют комментарии под статьями.",
     "hints": [
       "'под' + instrumental (под статьями)."
+    ],
+    "skills": [
+      "news_media.information-age"
     ]
   },
   {
@@ -927,7 +1152,10 @@
     "hints": [
       "Broadcasting in real time, as it happens."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-pron-b2-1",
@@ -938,7 +1166,10 @@
     "hints": [
       "Stress: корреспонДЕНТ, трансЛЯцию, собЫтий."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "news_media.journalism-and-democracy"
+    ]
   },
   {
     "id": "ru-nm-mc-b2-1",
@@ -955,6 +1186,9 @@
       "срочное интервью",
       "личное интервью",
       "прямое интервью"
+    ],
+    "skills": [
+      "news_media.journalism-and-democracy"
     ]
   }
 ]

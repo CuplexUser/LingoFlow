@@ -95,6 +95,22 @@ test("a cloze option that also fits the gap is an error, and a case difference a
   assert.ok(rules.includes("cloze-case-tell:warning"));
 });
 
+test("a skill tag must exist and belong to the item's unit and level", () => {
+  const rulesFor = (skills: string[], level = "a1") =>
+    lintItems([{
+      id: "es-test-3", level, difficulty: level, prompt: "Say: I am hungry.", correctAnswer: "Tengo hambre.",
+      hints: ["'Tener hambre' = to be hungry."], skills
+    }], "spanish", "food_cooking")
+      .map((finding: any) => `${finding.rule}:${finding.severity}`)
+      .filter((rule: string) => rule.startsWith("skill-"));
+  assert.deepEqual(rulesFor(["food_cooking.ordering"]), []);
+  assert.deepEqual(rulesFor(["food_cooking.no-such-skill"]), ["skill-unknown:error"]);
+  assert.deepEqual(rulesFor(["travel.hotel"]), ["skill-wrong-unit:error"]);
+  assert.deepEqual(rulesFor(["food_cooking.ordering"], "b2"), ["skill-wrong-unit:error"]);
+  // Russian's own skills are not available to other courses.
+  assert.deepEqual(rulesFor(["russian.grammar.aspect"]), ["skill-unknown:error"]);
+});
+
 test("cloze rules leave the English source alone", () => {
   const findings = lintItems([{
     id: "en-test-1", level: "a2", difficulty: "a2", exerciseType: "cloze_sentence",

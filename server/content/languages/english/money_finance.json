@@ -7,6 +7,9 @@
     "correctAnswer": "How much does this cost?",
     "hints": [
       "'Does' carries the question, so 'cost' stays without -s."
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "I do not have enough money.",
     "hints": [
       "'Enough' comes before the noun: enough money, enough time."
+    ],
+    "skills": [
+      "money_finance.your-money"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "Can I pay by card?",
     "hints": [
       "You pay 'by card' but 'in cash'."
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -37,6 +46,9 @@
     "correctAnswer": "The price is too high.",
     "hints": [
       "Use 'too + adjective' for something excessive."
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -47,6 +59,9 @@
     "correctAnswer": "Do you accept cash?",
     "hints": [
       "A useful question when paying for something."
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -58,7 +73,10 @@
     "hints": [
       "Different from a credit card."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "en-mf-a1-7",
@@ -68,6 +86,9 @@
     "correctAnswer": "I need to go to the ATM.",
     "hints": [
       "An ATM is an automatic cash machine."
+    ],
+    "skills": [
+      "money_finance.your-money"
     ]
   },
   {
@@ -78,6 +99,9 @@
     "correctAnswer": "My salary is paid every month.",
     "hints": [
       "State how often you are paid."
+    ],
+    "skills": [
+      "money_finance.your-money"
     ]
   },
   {
@@ -88,6 +112,9 @@
     "correctAnswer": "Can I have a receipt, please?",
     "hints": [
       "A receipt is proof that you paid."
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -98,6 +125,9 @@
     "correctAnswer": "I save a little money each month.",
     "hints": [
       "'A little' is used with uncountable nouns."
+    ],
+    "skills": [
+      "money_finance.your-money"
     ]
   },
   {
@@ -108,7 +138,10 @@
     "hints": [
       "Basic finance phrase."
     ],
-    "id": "en-mo-a1-39"
+    "id": "en-mo-a1-39",
+    "skills": [
+      "money_finance.your-money"
+    ]
   },
   {
     "level": "a1",
@@ -119,7 +152,10 @@
       "Price sentence."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-mo-a1-40"
+    "id": "en-mo-a1-40",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "en-mf-a2-1",
@@ -129,6 +165,9 @@
     "correctAnswer": "I have a savings account at the bank.",
     "hints": [
       "A savings account earns interest on deposits."
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -139,6 +178,9 @@
     "correctAnswer": "Is there a charge for using this service?",
     "hints": [
       "'A charge' means a fee or cost."
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -149,6 +191,9 @@
     "correctAnswer": "I spend too much money on eating out.",
     "hints": [
       "'Spend money on' + noun/gerund."
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -159,6 +204,9 @@
     "correctAnswer": "What is the current exchange rate for euros?",
     "hints": [
       "The exchange rate is how much one currency is worth in another."
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -169,6 +217,9 @@
     "correctAnswer": "I transferred the money online this morning.",
     "hints": [
       "'Transferred' = moved money from one account to another."
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -179,6 +230,9 @@
     "correctAnswer": "My rent comes out of my account on the first of the month.",
     "hints": [
       "'Comes out of' means is deducted from."
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -189,6 +243,9 @@
     "correctAnswer": "Can I set up a direct debit for this payment?",
     "hints": [
       "A direct debit is an automatic recurring bank payment."
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -199,6 +256,9 @@
     "correctAnswer": "I am trying to cut back on unnecessary spending.",
     "hints": [
       "'Cut back on' means reduce."
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -209,6 +269,9 @@
     "correctAnswer": "I took out a loan to buy my first car.",
     "hints": [
       "'Take out a loan' means borrow money from a bank."
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -219,6 +282,9 @@
     "correctAnswer": "Do I need to pay any tax on this income?",
     "hints": [
       "Income tax is paid on money you earn."
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -229,7 +295,10 @@
     "hints": [
       "Budget vocabulary."
     ],
-    "id": "en-mo-a2-49"
+    "id": "en-mo-a2-49",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "level": "a2",
@@ -240,7 +309,10 @@
       "Past simple for changes."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-mo-a2-50"
+    "id": "en-mo-a2-50",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "level": "a2",
@@ -251,7 +323,10 @@
       "Planning question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-mo-a2-51"
+    "id": "en-mo-a2-51",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "id": "en-mf-b1-1",
@@ -261,6 +336,9 @@
     "correctAnswer": "I have been trying to build up an emergency fund covering three months of expenses.",
     "hints": [
       "'Build up' = accumulate gradually; an emergency fund is money set aside for unexpected costs."
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -271,6 +349,9 @@
     "correctAnswer": "Would it be worth overpaying on my mortgage to reduce the term?",
     "hints": [
       "'Overpaying' = paying more than the minimum; 'term' = the length of the mortgage."
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -281,6 +362,9 @@
     "correctAnswer": "I am trying to diversify my income streams rather than relying solely on my salary.",
     "hints": [
       "'Diversify' = spread; 'income streams' = different sources of money."
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -291,6 +375,9 @@
     "correctAnswer": "Compound interest means that your savings grow faster the longer you keep them invested.",
     "hints": [
       "'Compound interest' = interest earned on both the original amount and previous interest."
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -301,6 +388,9 @@
     "correctAnswer": "What is the penalty for early repayment of this loan?",
     "hints": [
       "'Early repayment' = paying off a loan before the agreed end date."
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -311,6 +401,9 @@
     "correctAnswer": "I keep a monthly budget to track where my money is going.",
     "hints": [
       "'Keep a budget' = maintain a record; 'track' = monitor."
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -321,6 +414,9 @@
     "correctAnswer": "My pension contributions are deducted from my salary before tax.",
     "hints": [
       "'Deducted' = removed; 'before tax' = pre-tax; passive voice here."
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -332,7 +428,10 @@
     "hints": [
       "Give a practical, specific strategy."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.saving-and-debt"
+    ]
   },
   {
     "id": "en-mf-b1-9",
@@ -342,6 +441,9 @@
     "correctAnswer": "I reviewed my subscriptions and canceled the ones I was not using.",
     "hints": [
       "'Reviewed' = went through carefully; 'subscriptions' = regular paid services."
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -353,7 +455,10 @@
     "hints": [
       "ISA = Individual Savings Account; a key UK financial product."
     ],
-    "culturalNote": "ISAs (Individual Savings Accounts) are tax-efficient savings wrappers available to UK residents, allowing them to save or invest a fixed amount per year without paying tax on gains or interest."
+    "culturalNote": "ISAs (Individual Savings Accounts) are tax-efficient savings wrappers available to UK residents, allowing them to save or invest a fixed amount per year without paying tax on gains or interest.",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "level": "b1",
@@ -363,7 +468,10 @@
     "hints": [
       "Purpose clause at B1."
     ],
-    "id": "en-mo-b1-59"
+    "id": "en-mo-b1-59",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "level": "b1",
@@ -374,7 +482,10 @@
       "Common finance concept."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-mo-b1-60"
+    "id": "en-mo-b1-60",
+    "skills": [
+      "money_finance.saving-and-debt"
+    ]
   },
   {
     "level": "b1",
@@ -385,7 +496,10 @@
       "Practical finance question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-mo-b1-61"
+    "id": "en-mo-b1-61",
+    "skills": [
+      "money_finance.saving-and-debt"
+    ]
   },
   {
     "id": "en-mf-b2-1",
@@ -395,6 +509,9 @@
     "correctAnswer": "The correlation between financial literacy and long-term wealth accumulation is well documented.",
     "hints": [
       "'Correlation' = a relationship between two things; 'wealth accumulation' = building up assets."
+    ],
+    "skills": [
+      "money_finance.investing"
     ]
   },
   {
@@ -405,6 +522,9 @@
     "correctAnswer": "To what extent do you think behavioral economics explains irrational financial decision-making?",
     "hints": [
       "'Behavioural economics' studies how psychology affects economic choices."
+    ],
+    "skills": [
+      "money_finance.investing"
     ]
   },
   {
@@ -415,6 +535,9 @@
     "correctAnswer": "Quantitative easing involves central banks increasing the money supply to stimulate economic activity.",
     "hints": [
       "'Quantitative easing' = QE; a monetary policy tool used in financial crises."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -425,6 +548,9 @@
     "correctAnswer": "The regulatory framework governing fintech innovation is struggling to keep pace with technological change.",
     "hints": [
       "'Fintech' = financial technology; 'regulatory framework' = the rules and laws that govern an area."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -435,6 +561,9 @@
     "correctAnswer": "Sovereign debt crises can destabilise entire regional economies if creditors lose confidence.",
     "hints": [
       "'Sovereign debt' = money owed by a government; 'creditors' = those who lend money."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -445,6 +574,9 @@
     "correctAnswer": "What distinguishes value investing from growth investing as portfolio strategies?",
     "hints": [
       "'Value investing' = buying undervalued assets; 'growth investing' = buying high-growth-potential companies."
+    ],
+    "skills": [
+      "money_finance.investing"
     ]
   },
   {
@@ -455,6 +587,9 @@
     "correctAnswer": "Inflationary pressures have eroded real purchasing power, disproportionately affecting lower-income households.",
     "hints": [
       "'Real purchasing power' = what money can actually buy; 'disproportionately' = more than one would expect."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -466,7 +601,10 @@
     "hints": [
       "ESG = Environmental, Social, Governance — factors for ethical investing."
     ],
-    "culturalNote": "ESG investing has grown dramatically as large pension funds and sovereign wealth funds incorporate sustainability into their mandates."
+    "culturalNote": "ESG investing has grown dramatically as large pension funds and sovereign wealth funds incorporate sustainability into their mandates.",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "level": "b2",
@@ -476,7 +614,10 @@
     "hints": [
       "Formal financial wording."
     ],
-    "id": "en-mo-b2-69"
+    "id": "en-mo-b2-69",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "level": "b2",
@@ -487,7 +628,10 @@
       "Cause-effect sentence."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-mo-b2-70"
+    "id": "en-mo-b2-70",
+    "skills": [
+      "money_finance.economics"
+    ]
   },
   {
     "level": "b2",
@@ -498,6 +642,9 @@
       "Policy-level question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-mo-b2-71"
+    "id": "en-mo-b2-71",
+    "skills": [
+      "money_finance.economics"
+    ]
   }
 ]

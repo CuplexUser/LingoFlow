@@ -8,7 +8,10 @@
     "hints": [
       "It lives in Asia and is endangered."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "nature_animals.animals"
+    ]
   },
   {
     "id": "en-na-a1-2",
@@ -18,6 +21,9 @@
     "correctAnswer": "It is raining outside.",
     "hints": [
       "Use 'it is' for weather descriptions."
+    ],
+    "skills": [
+      "nature_animals.weather"
     ]
   },
   {
@@ -28,6 +34,9 @@
     "correctAnswer": "What is the weather like today?",
     "hints": [
       "'What is it like' asks for a description."
+    ],
+    "skills": [
+      "nature_animals.weather"
     ]
   },
   {
@@ -38,6 +47,9 @@
     "correctAnswer": "I love dogs.",
     "hints": [
       "A simple statement of preference."
+    ],
+    "skills": [
+      "nature_animals.animals"
     ]
   },
   {
@@ -48,6 +60,9 @@
     "correctAnswer": "There are many birds in the garden.",
     "hints": [
       "'There are' for plural things."
+    ],
+    "skills": [
+      "nature_animals.animals"
     ]
   },
   {
@@ -59,7 +74,10 @@
     "hints": [
       "It comes after autumn."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "nature_animals.weather"
+    ]
   },
   {
     "id": "en-na-a1-7",
@@ -69,6 +87,9 @@
     "correctAnswer": "The sun is shining today.",
     "hints": [
       "Present continuous for current weather."
+    ],
+    "skills": [
+      "nature_animals.weather"
     ]
   },
   {
@@ -79,6 +100,9 @@
     "correctAnswer": "Do you have any pets?",
     "hints": [
       "A simple question about animals at home."
+    ],
+    "skills": [
+      "nature_animals.animals"
     ]
   },
   {
@@ -89,6 +113,9 @@
     "correctAnswer": "The cat is sleeping on the sofa.",
     "hints": [
       "Present continuous for an ongoing action."
+    ],
+    "skills": [
+      "nature_animals.animals"
     ]
   },
   {
@@ -99,6 +126,9 @@
     "correctAnswer": "I walked in the forest yesterday.",
     "hints": [
       "Simple past for a completed action."
+    ],
+    "skills": [
+      "nature_animals.weather"
     ]
   },
   {
@@ -109,7 +139,10 @@
     "hints": [
       "Simple past observation."
     ],
-    "id": "en-na-a1-39"
+    "id": "en-na-a1-39",
+    "skills": [
+      "nature_animals.animals"
+    ]
   },
   {
     "level": "a1",
@@ -120,7 +153,10 @@
       "Basic description."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-na-a1-40"
+    "id": "en-na-a1-40",
+    "skills": [
+      "nature_animals.weather"
+    ]
   },
   {
     "level": "a1",
@@ -131,7 +167,10 @@
       "Starter question."
     ],
     "exerciseType": "flashcard",
-    "id": "en-na-a1-41"
+    "id": "en-na-a1-41",
+    "skills": [
+      "nature_animals.animals"
+    ]
   },
   {
     "id": "en-na-a2",
@@ -141,6 +180,9 @@
     "correctAnswer": "It has been unusually warm for this time of year.",
     "hints": [
       "Present perfect for a situation up to now; 'unusually' suggests contrast with normal."
+    ],
+    "skills": [
+      "nature_animals.weather-events"
     ]
   },
   {
@@ -151,6 +193,9 @@
     "correctAnswer": "What is the best time of year to see the northern lights?",
     "hints": [
       "A question about natural phenomena and timing."
+    ],
+    "skills": [
+      "nature_animals.weather-events"
     ]
   },
   {
@@ -161,6 +206,9 @@
     "correctAnswer": "The river has flooded after several days of heavy rain.",
     "hints": [
       "Present perfect for a recent event with a visible result."
+    ],
+    "skills": [
+      "nature_animals.weather-events"
     ]
   },
   {
@@ -171,6 +219,9 @@
     "correctAnswer": "I saw a family of deer in the park this morning.",
     "hints": [
       "'Deer' is both singular and plural."
+    ],
+    "skills": [
+      "nature_animals.wildlife"
     ]
   },
   {
@@ -181,6 +232,9 @@
     "correctAnswer": "Are there any dangerous animals in this area?",
     "hints": [
       "A practical question when in nature."
+    ],
+    "skills": [
+      "nature_animals.wildlife"
     ]
   },
   {
@@ -191,6 +245,9 @@
     "correctAnswer": "The storm caused damage to several trees in the neighborhood.",
     "hints": [
       "'Caused damage to' = harmed or destroyed."
+    ],
+    "skills": [
+      "nature_animals.weather-events"
     ]
   },
   {
@@ -201,6 +258,9 @@
     "correctAnswer": "I recycle my rubbish to help protect the environment.",
     "hints": [
       "State an eco-friendly habit with purpose."
+    ],
+    "skills": [
+      "nature_animals.caring-for-nature"
     ]
   },
   {
@@ -211,6 +271,9 @@
     "correctAnswer": "How often do you go walking in the countryside?",
     "hints": [
       "'How often' asks about frequency."
+    ],
+    "skills": [
+      "nature_animals.caring-for-nature"
     ]
   },
   {
@@ -221,6 +284,9 @@
     "correctAnswer": "Whales are the largest mammals on Earth.",
     "hints": [
       "State a scientific fact using the superlative."
+    ],
+    "skills": [
+      "nature_animals.wildlife"
     ]
   },
   {
@@ -231,6 +297,9 @@
     "correctAnswer": "We planted a vegetable garden in the spring.",
     "hints": [
       "Simple past for a seasonal activity."
+    ],
+    "skills": [
+      "nature_animals.caring-for-nature"
     ]
   },
   {
@@ -241,7 +310,10 @@
     "hints": [
       "Past action with nature theme."
     ],
-    "id": "en-na-a2-49"
+    "id": "en-na-a2-49",
+    "skills": [
+      "nature_animals.caring-for-nature"
+    ]
   },
   {
     "level": "a2",
@@ -252,7 +324,10 @@
       "Comparative sentence."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-na-a2-50"
+    "id": "en-na-a2-50",
+    "skills": [
+      "nature_animals.caring-for-nature"
+    ]
   },
   {
     "level": "a2",
@@ -263,7 +338,10 @@
       "Action-oriented question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-na-a2-51"
+    "id": "en-na-a2-51",
+    "skills": [
+      "nature_animals.wildlife"
+    ]
   },
   {
     "id": "en-na-b1",
@@ -273,6 +351,9 @@
     "correctAnswer": "Deforestation is one of the leading causes of habitat loss for many endangered species.",
     "hints": [
       "'Deforestation' = clearing forests; 'habitat loss' = destruction of animal living spaces."
+    ],
+    "skills": [
+      "nature_animals.ecosystems"
     ]
   },
   {
@@ -283,6 +364,9 @@
     "correctAnswer": "I have recently become more aware of the impact of my diet on carbon emissions.",
     "hints": [
       "Present perfect with 'recently' for a new awareness."
+    ],
+    "skills": [
+      "nature_animals.green-living"
     ]
   },
   {
@@ -293,6 +377,9 @@
     "correctAnswer": "What measures are being taken locally to protect pollinators such as bees?",
     "hints": [
       "'Pollinators' = animals that help plants reproduce; 'measures' = actions taken."
+    ],
+    "skills": [
+      "nature_animals.ecosystems"
     ]
   },
   {
@@ -303,6 +390,9 @@
     "correctAnswer": "Rewilding projects aim to restore natural ecosystems by reintroducing native species.",
     "hints": [
       "'Rewilding' = allowing nature to recover; 'native species' = animals or plants originally from an area."
+    ],
+    "skills": [
+      "nature_animals.ecosystems"
     ]
   },
   {
@@ -313,6 +403,9 @@
     "correctAnswer": "The migration patterns of birds are being disrupted by climate change.",
     "hints": [
       "Passive present continuous for an ongoing process."
+    ],
+    "skills": [
+      "nature_animals.ecosystems"
     ]
   },
   {
@@ -323,6 +416,9 @@
     "correctAnswer": "Do you think urban green spaces have a measurable effect on mental health?",
     "hints": [
       "'Green spaces' = parks and gardens; 'measurable effect' = a quantifiable impact."
+    ],
+    "skills": [
+      "nature_animals.green-living"
     ]
   },
   {
@@ -333,6 +429,9 @@
     "correctAnswer": "The ocean absorbs around a quarter of all CO2 emissions, playing a vital role in regulating climate.",
     "hints": [
       "'Absorbs' = takes in; 'vital role' = essential function."
+    ],
+    "skills": [
+      "nature_animals.green-living"
     ]
   },
   {
@@ -345,7 +444,10 @@
       "A 'murmuration' is the collective noun for a flock of starlings; 'at dusk' = at sunset.",
       "Murmurations involve thousands of starlings moving in coordinated, fluid formations."
     ],
-    "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter."
+    "culturalNote": "Murmurations of starlings are a spectacular natural phenomenon common in the UK and other parts of Europe in autumn and winter.",
+    "skills": [
+      "nature_animals.ecosystems"
+    ]
   },
   {
     "id": "en-na-b1-9",
@@ -355,6 +457,9 @@
     "correctAnswer": "Plastic pollution in the ocean poses a severe threat to marine life and food chains.",
     "hints": [
       "'Poses a threat' = presents a danger; 'marine life' = living organisms in the sea."
+    ],
+    "skills": [
+      "nature_animals.green-living"
     ]
   },
   {
@@ -366,7 +471,10 @@
     "hints": [
       "List specific, concrete actions."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "nature_animals.green-living"
+    ]
   },
   {
     "level": "b1",
@@ -376,7 +484,10 @@
     "hints": [
       "Key environmental phrase."
     ],
-    "id": "en-na-b1-59"
+    "id": "en-na-b1-59",
+    "skills": [
+      "nature_animals.ecosystems"
+    ]
   },
   {
     "level": "b1",
@@ -387,7 +498,10 @@
       "Personal impact sentence."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-na-b1-60"
+    "id": "en-na-b1-60",
+    "skills": [
+      "nature_animals.green-living"
+    ]
   },
   {
     "level": "b1",
@@ -398,7 +512,10 @@
       "Scientific reasoning question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-na-b1-61"
+    "id": "en-na-b1-61",
+    "skills": [
+      "nature_animals.ecosystems"
+    ]
   },
   {
     "id": "en-na-b2",
@@ -408,6 +525,9 @@
     "correctAnswer": "The sixth mass extinction event, driven primarily by human activity, is already well underway.",
     "hints": [
       "'Mass extinction' = widespread species die-off; 'well underway' = already in progress."
+    ],
+    "skills": [
+      "nature_animals.climate-science"
     ]
   },
   {
@@ -418,6 +538,9 @@
     "correctAnswer": "To what extent is technological innovation capable of mitigating the effects of anthropogenic climate change?",
     "hints": [
       "'Anthropogenic' = caused by human activity; 'mitigating' = reducing the severity of."
+    ],
+    "skills": [
+      "nature_animals.environmental-policy"
     ]
   },
   {
@@ -428,6 +551,9 @@
     "correctAnswer": "Tipping points in the climate system — such as the thawing of permafrost — could trigger irreversible feedback loops.",
     "hints": [
       "'Tipping points' = thresholds beyond which change becomes self-reinforcing; 'permafrost' = permanently frozen ground in Arctic regions."
+    ],
+    "skills": [
+      "nature_animals.climate-science"
     ]
   },
   {
@@ -438,6 +564,9 @@
     "correctAnswer": "Biodiversity loss undermines ecosystem services that underpin agricultural productivity and water security.",
     "hints": [
       "'Ecosystem services' = benefits humans receive from nature; 'underpin' = support from below."
+    ],
+    "skills": [
+      "nature_animals.climate-science"
     ]
   },
   {
@@ -448,6 +577,9 @@
     "correctAnswer": "The precautionary principle holds that a lack of scientific certainty should not delay protective environmental measures.",
     "hints": [
       "'Precautionary principle' = act to prevent harm even without complete proof."
+    ],
+    "skills": [
+      "nature_animals.environmental-policy"
     ]
   },
   {
@@ -458,6 +590,9 @@
     "correctAnswer": "Can market mechanisms alone effectively address environmental externalities, or is state intervention necessary?",
     "hints": [
       "'Externalities' = costs or benefits not reflected in market prices; 'market mechanisms' = price signals and incentives."
+    ],
+    "skills": [
+      "nature_animals.environmental-policy"
     ]
   },
   {
@@ -468,6 +603,9 @@
     "correctAnswer": "Deep-sea ecosystems remain poorly understood, yet face increasing threats from resource extraction and warming oceans.",
     "hints": [
       "'Resource extraction' = mining or drilling; 'yet' here means 'but also'."
+    ],
+    "skills": [
+      "nature_animals.climate-science"
     ]
   },
   {
@@ -478,6 +616,9 @@
     "correctAnswer": "The philosophical tradition of deep ecology argues for an intrinsic value of nature independent of human utility.",
     "hints": [
       "'Deep ecology' = a philosophy that values nature for its own sake; 'intrinsic value' = value in itself."
+    ],
+    "skills": [
+      "nature_animals.environmental-policy"
     ]
   },
   {
@@ -488,7 +629,10 @@
     "hints": [
       "Advanced environmental vocabulary."
     ],
-    "id": "en-na-b2-69"
+    "id": "en-na-b2-69",
+    "skills": [
+      "nature_animals.climate-science"
+    ]
   },
   {
     "level": "b2",
@@ -499,7 +643,10 @@
       "Balanced policy sentence."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-na-b2-70"
+    "id": "en-na-b2-70",
+    "skills": [
+      "nature_animals.environmental-policy"
+    ]
   },
   {
     "level": "b2",
@@ -510,6 +657,9 @@
       "Analytical question."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-na-b2-71"
+    "id": "en-na-b2-71",
+    "skills": [
+      "nature_animals.environmental-policy"
+    ]
   }
 ]

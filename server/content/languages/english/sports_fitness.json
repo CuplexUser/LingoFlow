@@ -8,7 +8,10 @@
     "hints": [
       "It is the most popular sport in the world."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "sports_fitness.sports"
+    ]
   },
   {
     "id": "en-sf-a1-2",
@@ -18,6 +21,9 @@
     "correctAnswer": "I go running every morning.",
     "hints": [
       "'Go' + -ing for activities: go running, go swimming."
+    ],
+    "skills": [
+      "sports_fitness.staying-active"
     ]
   },
   {
@@ -28,6 +34,9 @@
     "correctAnswer": "Do you play any sports?",
     "hints": [
       "A common conversation starter."
+    ],
+    "skills": [
+      "sports_fitness.sports"
     ]
   },
   {
@@ -38,6 +47,9 @@
     "correctAnswer": "I like swimming in the sea.",
     "hints": [
       "'Like' + gerund for enjoyment."
+    ],
+    "skills": [
+      "sports_fitness.sports"
     ]
   },
   {
@@ -48,6 +60,9 @@
     "correctAnswer": "My favorite sport is basketball.",
     "hints": [
       "State your preference."
+    ],
+    "skills": [
+      "sports_fitness.sports"
     ]
   },
   {
@@ -58,6 +73,9 @@
     "correctAnswer": "Where is the gym?",
     "hints": [
       "A useful question when at a hotel or leisure center."
+    ],
+    "skills": [
+      "sports_fitness.staying-active"
     ]
   },
   {
@@ -68,6 +86,9 @@
     "correctAnswer": "I walk to work every day.",
     "hints": [
       "State a daily physical activity."
+    ],
+    "skills": [
+      "sports_fitness.staying-active"
     ]
   },
   {
@@ -79,7 +100,10 @@
     "hints": [
       "You use a bicycle."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "sports_fitness.sports"
+    ]
   },
   {
     "id": "en-sf-a1-9",
@@ -89,6 +113,9 @@
     "correctAnswer": "I am not very sporty.",
     "hints": [
       "An honest statement about your fitness habits."
+    ],
+    "skills": [
+      "sports_fitness.staying-active"
     ]
   },
   {
@@ -99,6 +126,9 @@
     "correctAnswer": "How many times a week do you exercise?",
     "hints": [
       "Use 'how many times' for frequency."
+    ],
+    "skills": [
+      "sports_fitness.staying-active"
     ]
   },
   {
@@ -109,7 +139,10 @@
     "hints": [
       "Daily routine sentence."
     ],
-    "id": "en-sp-a1-39"
+    "id": "en-sp-a1-39",
+    "skills": [
+      "sports_fitness.staying-active"
+    ]
   },
   {
     "level": "a1",
@@ -120,7 +153,10 @@
       "Use frequency phrases."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-sp-a1-40"
+    "id": "en-sp-a1-40",
+    "skills": [
+      "sports_fitness.staying-active"
+    ]
   },
   {
     "level": "a1",
@@ -131,7 +167,10 @@
       "Basic sports question."
     ],
     "exerciseType": "flashcard",
-    "id": "en-sp-a1-41"
+    "id": "en-sp-a1-41",
+    "skills": [
+      "sports_fitness.sports"
+    ]
   },
   {
     "id": "en-sf-a2-1",
@@ -141,6 +180,9 @@
     "correctAnswer": "I have been going to the gym three times a week.",
     "hints": [
       "Present perfect continuous for an ongoing routine."
+    ],
+    "skills": [
+      "sports_fitness.training"
     ]
   },
   {
@@ -151,6 +193,9 @@
     "correctAnswer": "Would you like to join me for a run on Sunday?",
     "hints": [
       "'Would you like to' is a polite invitation."
+    ],
+    "skills": [
+      "sports_fitness.training"
     ]
   },
   {
@@ -161,6 +206,9 @@
     "correctAnswer": "I pulled a muscle during my workout yesterday.",
     "hints": [
       "'Pulled a muscle' is the phrase for a mild muscle injury."
+    ],
+    "skills": [
+      "sports_fitness.body-care"
     ]
   },
   {
@@ -171,6 +219,9 @@
     "correctAnswer": "I need to warm up before I start training.",
     "hints": [
       "'Warm up' means gentle exercise before main activity."
+    ],
+    "skills": [
+      "sports_fitness.body-care"
     ]
   },
   {
@@ -181,6 +232,9 @@
     "correctAnswer": "What sports facilities does this hotel have?",
     "hints": [
       "'Facilities' means available equipment or rooms."
+    ],
+    "skills": [
+      "sports_fitness.training"
     ]
   },
   {
@@ -191,6 +245,9 @@
     "correctAnswer": "I signed up for a half-marathon next month.",
     "hints": [
       "'Signed up for' means registered for."
+    ],
+    "skills": [
+      "sports_fitness.training"
     ]
   },
   {
@@ -201,6 +258,9 @@
     "correctAnswer": "I try to drink plenty of water after exercise.",
     "hints": [
       "'I try to' expresses an intention you sometimes achieve."
+    ],
+    "skills": [
+      "sports_fitness.body-care"
     ]
   },
   {
@@ -211,6 +271,9 @@
     "correctAnswer": "How long does the yoga class last?",
     "hints": [
       "'How long does it last' asks about duration."
+    ],
+    "skills": [
+      "sports_fitness.training"
     ]
   },
   {
@@ -221,6 +284,9 @@
     "correctAnswer": "She won the gold medal in the hundred meters.",
     "hints": [
       "Past simple for completed achievement."
+    ],
+    "skills": [
+      "sports_fitness.training"
     ]
   },
   {
@@ -231,6 +297,9 @@
     "correctAnswer": "I prefer outdoor exercise to the gym.",
     "hints": [
       "'Prefer X to Y' compares two options."
+    ],
+    "skills": [
+      "sports_fitness.training"
     ]
   },
   {
@@ -241,7 +310,10 @@
     "hints": [
       "Use present continuous for current goals."
     ],
-    "id": "en-sp-a2-49"
+    "id": "en-sp-a2-49",
+    "skills": [
+      "sports_fitness.body-care"
+    ]
   },
   {
     "level": "a2",
@@ -252,7 +324,10 @@
       "General truth form."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-sp-a2-50"
+    "id": "en-sp-a2-50",
+    "skills": [
+      "sports_fitness.body-care"
+    ]
   },
   {
     "level": "a2",
@@ -263,7 +338,10 @@
       "Useful gym conversation."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-sp-a2-51"
+    "id": "en-sp-a2-51",
+    "skills": [
+      "sports_fitness.training"
+    ]
   },
   {
     "id": "en-sf-b1-1",
@@ -273,6 +351,9 @@
     "correctAnswer": "Consistency is more important than intensity when building a fitness habit.",
     "hints": [
       "'Consistency' means doing something regularly; 'intensity' means how hard you work."
+    ],
+    "skills": [
+      "sports_fitness.fitness-habits"
     ]
   },
   {
@@ -283,6 +364,9 @@
     "correctAnswer": "I have been training five days a week and can already see improvements in my stamina.",
     "hints": [
       "'Stamina' means the ability to sustain effort; present perfect continuous for ongoing."
+    ],
+    "skills": [
+      "sports_fitness.fitness-habits"
     ]
   },
   {
@@ -293,6 +377,9 @@
     "correctAnswer": "Do you think competitive sport teaches important life skills?",
     "hints": [
       "A discussion question about the value of sport."
+    ],
+    "skills": [
+      "sports_fitness.training-and-health"
     ]
   },
   {
@@ -303,6 +390,9 @@
     "correctAnswer": "I had to take three weeks off training due to an overuse injury.",
     "hints": [
       "'Overuse injury' comes from too much repetitive activity."
+    ],
+    "skills": [
+      "sports_fitness.training-and-health"
     ]
   },
   {
@@ -313,6 +403,9 @@
     "correctAnswer": "My personal trainer recommended incorporating strength work alongside my cardio routine.",
     "hints": [
       "'Incorporating' means adding in; 'cardio' = cardiovascular exercise."
+    ],
+    "skills": [
+      "sports_fitness.training-and-health"
     ]
   },
   {
@@ -323,6 +416,9 @@
     "correctAnswer": "The mental health benefits of regular exercise are well established.",
     "hints": [
       "'Well established' = widely accepted based on evidence."
+    ],
+    "skills": [
+      "sports_fitness.training-and-health"
     ]
   },
   {
@@ -334,7 +430,10 @@
     "hints": [
       "Give a reason and show how it evolved."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "sports_fitness.fitness-habits"
+    ]
   },
   {
     "id": "en-sf-b1-8",
@@ -344,6 +443,9 @@
     "correctAnswer": "Setting realistic short-term goals makes it easier to stay motivated.",
     "hints": [
       "'Realistic' means achievable; 'short-term' means in the near future."
+    ],
+    "skills": [
+      "sports_fitness.fitness-habits"
     ]
   },
   {
@@ -354,6 +456,9 @@
     "correctAnswer": "Professional athletes often follow highly structured nutrition and recovery plans.",
     "hints": [
       "'Structured' = carefully organized; 'nutrition' = what you eat."
+    ],
+    "skills": [
+      "sports_fitness.training-and-health"
     ]
   },
   {
@@ -364,6 +469,9 @@
     "correctAnswer": "Have you found that exercising regularly has changed how you feel day to day?",
     "hints": [
       "'Day to day' means in daily life; present perfect asks about experience."
+    ],
+    "skills": [
+      "sports_fitness.fitness-habits"
     ]
   },
   {
@@ -374,7 +482,10 @@
     "hints": [
       "Present perfect for recent impact."
     ],
-    "id": "en-sp-b1-59"
+    "id": "en-sp-b1-59",
+    "skills": [
+      "sports_fitness.fitness-habits"
+    ]
   },
   {
     "level": "b1",
@@ -385,7 +496,10 @@
       "Explain reason with 'because'."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-sp-b1-60"
+    "id": "en-sp-b1-60",
+    "skills": [
+      "sports_fitness.training-and-health"
+    ]
   },
   {
     "level": "b1",
@@ -396,7 +510,10 @@
       "Reflective sports question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-sp-b1-61"
+    "id": "en-sp-b1-61",
+    "skills": [
+      "sports_fitness.fitness-habits"
+    ]
   },
   {
     "id": "en-sf-b2-1",
@@ -406,6 +523,9 @@
     "correctAnswer": "The commercialisation of elite sport raises questions about its relationship with grassroots participation.",
     "hints": [
       "'Commercialisation' = the process of making something about money; 'grassroots' = community level."
+    ],
+    "skills": [
+      "sports_fitness.elite-sport"
     ]
   },
   {
@@ -416,6 +536,9 @@
     "correctAnswer": "Periodisation — the systematic planning of training cycles — is central to peak athletic performance.",
     "hints": [
       "'Periodisation' = planned variation in training; 'peak performance' = best possible level."
+    ],
+    "skills": [
+      "sports_fitness.training-science"
     ]
   },
   {
@@ -426,6 +549,9 @@
     "correctAnswer": "To what extent does genetics predetermine athletic potential?",
     "hints": [
       "'To what extent' = how much; 'predetermine' = decide in advance."
+    ],
+    "skills": [
+      "sports_fitness.elite-sport"
     ]
   },
   {
@@ -436,6 +562,9 @@
     "correctAnswer": "The proliferation of wearable technology has fundamentally altered how athletes monitor performance.",
     "hints": [
       "'Proliferation' = rapid increase; 'fundamentally altered' = changed at a basic level."
+    ],
+    "skills": [
+      "sports_fitness.training-science"
     ]
   },
   {
@@ -446,6 +575,9 @@
     "correctAnswer": "Doping scandals have eroded public trust in competitive sport, particularly at the elite level.",
     "hints": [
       "'Eroded' = gradually worn away; 'doping' = use of banned performance-enhancing substances."
+    ],
+    "skills": [
+      "sports_fitness.elite-sport"
     ]
   },
   {
@@ -456,6 +588,9 @@
     "correctAnswer": "Maintaining work-life-fitness balance in a sedentary profession requires deliberate effort and planning.",
     "hints": [
       "'Sedentary' = involving a lot of sitting; 'deliberate' = intentional."
+    ],
+    "skills": [
+      "sports_fitness.training-science"
     ]
   },
   {
@@ -466,6 +601,9 @@
     "correctAnswer": "How do you think technology is reshaping the spectator experience in modern sport?",
     "hints": [
       "'Reshaping' = changing the form of; 'spectator' = someone who watches."
+    ],
+    "skills": [
+      "sports_fitness.training-science"
     ]
   },
   {
@@ -476,6 +614,9 @@
     "correctAnswer": "The psychological resilience required at elite level is as demanding as the physical conditioning.",
     "hints": [
       "'Resilience' = ability to bounce back from difficulty; 'conditioning' = physical training state."
+    ],
+    "skills": [
+      "sports_fitness.elite-sport"
     ]
   },
   {
@@ -486,7 +627,10 @@
     "hints": [
       "Formal fitness vocabulary."
     ],
-    "id": "en-sp-b2-69"
+    "id": "en-sp-b2-69",
+    "skills": [
+      "sports_fitness.training-science"
+    ]
   },
   {
     "level": "b2",
@@ -497,7 +641,10 @@
       "Passive form at B2."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-sp-b2-70"
+    "id": "en-sp-b2-70",
+    "skills": [
+      "sports_fitness.training-science"
+    ]
   },
   {
     "level": "b2",
@@ -508,6 +655,9 @@
       "Complex question pattern."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-sp-b2-71"
+    "id": "en-sp-b2-71",
+    "skills": [
+      "sports_fitness.training-science"
+    ]
   }
 ]

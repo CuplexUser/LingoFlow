@@ -285,7 +285,8 @@ function mapSessionQuestion(rawQuestion: RawSessionQuestion): SessionQuestion {
     hints: asStringArray(rawQuestion.hints),
     wordGlossary: asStringRecord(rawQuestion.wordGlossary),
     direction: rawQuestion.direction === "reverse" ? "reverse" as const : undefined,
-    sourceText: asOptionalString(rawQuestion.sourceText)
+    sourceText: asOptionalString(rawQuestion.sourceText),
+    skills: asStringArray(rawQuestion.skills)
   };
   const type = asString(rawQuestion.type);
 

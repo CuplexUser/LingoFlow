@@ -7,6 +7,9 @@
     "correctAnswer": "Мне нужно пойти в банк.",
     "hints": [
       "Use 'need to + infinitive' for necessity."
+    ],
+    "skills": [
+      "money_finance.your-money"
     ]
   },
   {
@@ -24,6 +27,9 @@
       "магазин",
       "больница",
       "библиотека"
+    ],
+    "skills": [
+      "money_finance.your-money"
     ]
   },
   {
@@ -34,6 +40,9 @@
     "correctAnswer": "Можно оплатить картой?",
     "hints": [
       "Use 'Can I + verb' to ask for permission."
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -44,6 +53,9 @@
     "correctAnswer": "Я откладываю деньги, чтобы купить новый ноутбук.",
     "hints": [
       "'Откладывать деньги' = to save (put aside) money; 'чтобы' + infinitive = in order to."
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -61,6 +73,9 @@
       "метод расширенных транзакций",
       "режим автоматического перевода",
       "авторизованный терминал"
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -71,6 +86,9 @@
     "correctAnswer": "Я трачу слишком много денег на кофе каждую неделю.",
     "hints": [
       "Use 'spend money on' for expenses."
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -84,6 +102,9 @@
     ],
     "acceptedAnswers": [
       "Я составила ежемесячный бюджет, чтобы отслеживать расходы."
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -101,6 +122,9 @@
       "процент, начисляемый на кредит или получаемый по вкладу",
       "ежедневный обменный курс",
       "государственный подоходный налог"
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -114,6 +138,9 @@
     ],
     "acceptedAnswers": [
       "Если бы я больше откладывала в прошлом году, я могла бы позволить себе этот отпуск."
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -124,6 +151,9 @@
     "correctAnswer": "Инфляция подрывает покупательную способность, если заработные платы не успевают за ней.",
     "hints": [
       "Use zero conditional for general economic truths."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -134,6 +164,9 @@
     "correctAnswer": "Ожидается, что центральный банк повысит процентные ставки в следующем квартале.",
     "hints": [
       "Use passive 'is expected to' for reported predictions."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -144,6 +177,9 @@
     "correctAnswer": "Диверсификация портфеля снижает подверженность рыночной волатильности.",
     "hints": [
       "Gerund subject; formal register."
+    ],
+    "skills": [
+      "money_finance.investing"
     ]
   },
   {
@@ -155,7 +191,10 @@
     "hints": [
       "A small metal piece used as money."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-2",
@@ -166,7 +205,10 @@
     "hints": [
       "How much something costs."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-3",
@@ -177,7 +219,10 @@
     "hints": [
       "Physical banknotes and coins."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-4",
@@ -188,7 +233,10 @@
     "hints": [
       "You keep your cards and cash in it."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.your-money"
+    ]
   },
   {
     "id": "ru-mo-a1-5",
@@ -199,7 +247,10 @@
     "hints": [
       "A basic shopping question."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-6",
@@ -210,7 +261,10 @@
     "hints": [
       "Use 'У меня' to express what you have or don't have."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.your-money"
+    ]
   },
   {
     "id": "ru-mo-a1-7",
@@ -227,6 +281,9 @@
       "продать",
       "взять",
       "дать"
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -238,7 +295,10 @@
     "hints": [
       "The paper you get after paying."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-9",
@@ -249,7 +309,10 @@
     "hints": [
       "A useful phrase when paying in a shop."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-10",
@@ -260,7 +323,10 @@
     "hints": [
       "What the cashier gives back when you overpay."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-11",
@@ -271,7 +337,10 @@
     "hints": [
       "'Слишком' means 'too' (excessively)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-12",
@@ -282,7 +351,10 @@
     "hints": [
       "A reduction in the original price."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.paying"
+    ]
   },
   {
     "id": "ru-mo-a1-13",
@@ -293,7 +365,10 @@
     "hints": [
       "A plan for how to spend money."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.your-money"
+    ]
   },
   {
     "id": "ru-mo-a1-14",
@@ -304,7 +379,10 @@
     "hints": [
       "Use 'хочу + infinitive' to express a want."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "money_finance.your-money"
+    ]
   },
   {
     "id": "ru-mo-a1-15",
@@ -321,6 +399,9 @@
       "дешёвый",
       "новый",
       "старый"
+    ],
+    "skills": [
+      "money_finance.paying"
     ]
   },
   {
@@ -332,7 +413,10 @@
     "hints": [
       "Money you earn from work."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.your-money"
+    ]
   },
   {
     "id": "ru-mo-a1-17",
@@ -343,7 +427,10 @@
     "hints": [
       "'Счёт' means account. Use 'банковский' as an adjective."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.your-money"
+    ]
   },
   {
     "id": "ru-mo-a2-1",
@@ -354,7 +441,10 @@
     "hints": [
       "Use past tense of 'снять' (to withdraw)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-2",
@@ -365,7 +455,10 @@
     "hints": [
       "Sending money from one account to another."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-3",
@@ -383,6 +476,9 @@
       "расхода",
       "расходом",
       "расходы"
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -394,7 +490,10 @@
     "hints": [
       "'Банковский перевод' = bank transfer. Use instrumental case."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-5",
@@ -406,7 +505,10 @@
     "hints": [
       "Use 'есть ли' for a polite yes/no question."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "id": "ru-mo-a2-6",
@@ -417,7 +519,10 @@
     "hints": [
       "Use 'недостаточно + noun + чтобы + infinitive'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "id": "ru-mo-a2-7",
@@ -428,7 +533,10 @@
     "hints": [
       "Money borrowed from a bank that must be repaid with interest."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-8",
@@ -446,6 +554,9 @@
       "кредита",
       "кредитом",
       "кредиту"
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -457,7 +568,10 @@
     "hints": [
       "Use past tense; 'баланс счёта' = bank balance."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-10",
@@ -469,7 +583,10 @@
     "hints": [
       "'Сократить расходы' = to cut spending."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "id": "ru-mo-a2-11",
@@ -480,7 +597,10 @@
     "hints": [
       "'Курс обмена' = exchange rate; 'выгодный' = favourable."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-12",
@@ -491,7 +611,10 @@
     "hints": [
       "A document requesting payment. The same word means a restaurant bill; the formal tax invoice is a compound."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-13",
@@ -509,6 +632,9 @@
       "чека",
       "чеком",
       "чеку"
+    ],
+    "skills": [
+      "money_finance.budgeting"
     ]
   },
   {
@@ -520,7 +646,10 @@
     "hints": [
       "'Доход' = income; use comparative 'выше, чем'."
     ],
-    "exerciseType": "pronunciation"
+    "exerciseType": "pronunciation",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "id": "ru-mo-a2-15",
@@ -532,7 +661,10 @@
     "hints": [
       "Use 'не могли бы вы' for a polite request."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.banking"
+    ]
   },
   {
     "id": "ru-mo-a2-16",
@@ -543,7 +675,10 @@
     "hints": [
       "'Наличными' is the instrumental form of 'наличные'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.budgeting"
+    ]
   },
   {
     "id": "ru-mo-a2-17",
@@ -560,6 +695,9 @@
       "сделать скидку",
       "открыть вклад",
       "снять деньги"
+    ],
+    "skills": [
+      "money_finance.banking"
     ]
   },
   {
@@ -571,7 +709,10 @@
     "hints": [
       "Use present tense for a habitual ongoing action."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.saving-and-debt"
+    ]
   },
   {
     "id": "ru-mo-b1-2",
@@ -582,7 +723,10 @@
     "hints": [
       "'Годовая процентная ставка' = annual percentage rate (APR)."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.saving-and-debt"
+    ]
   },
   {
     "id": "ru-mo-b1-3",
@@ -600,6 +744,9 @@
       "цена",
       "ценами",
       "цен"
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -611,7 +758,10 @@
     "hints": [
       "Listen for 'ипотека' (mortgage) and 'условия' (terms)."
     ],
-    "exerciseType": "dictation_sentence"
+    "exerciseType": "dictation_sentence",
+    "skills": [
+      "money_finance.saving-and-debt"
+    ]
   },
   {
     "id": "ru-mo-b1-5",
@@ -623,7 +773,10 @@
     "hints": [
       "Offer something in return to strengthen your negotiation."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "id": "ru-mo-b1-6",
@@ -634,7 +787,10 @@
     "hints": [
       "Use first conditional: 'если + present, future'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "id": "ru-mo-b1-7",
@@ -651,6 +807,9 @@
       "общая выручка до расходов",
       "ежемесячный взнос по кредиту",
       "комиссия за банковский перевод"
+    ],
+    "skills": [
+      "money_finance.managing-money"
     ]
   },
   {
@@ -669,6 +828,9 @@
       "просроченный",
       "просроченную",
       "просроченной"
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -681,7 +843,10 @@
     "hints": [
       "Give at least two reasons to make your argument convincing."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "id": "ru-mo-b1-11",
@@ -692,7 +857,10 @@
     "hints": [
       "Use past perfective to show a completed action before another."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "id": "ru-mo-b1-12",
@@ -703,7 +871,10 @@
     "hints": [
       "'Погасить долг' = to pay off debt; use 'за + accusative' for duration."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.saving-and-debt"
+    ]
   },
   {
     "id": "ru-mo-b1-13",
@@ -721,6 +892,9 @@
       "накопленная",
       "накопленным",
       "накопленного"
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -733,7 +907,10 @@
     "hints": [
       "'Взимать комиссию' = to charge a fee; use formal register."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "id": "ru-mo-b1-16",
@@ -744,7 +921,10 @@
     "hints": [
       "Use second conditional for a hypothetical present situation."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.managing-money"
+    ]
   },
   {
     "id": "ru-mo-b1-17",
@@ -761,6 +941,9 @@
       "единовременная выплата в конце срока",
       "фиксированный ежемесячный платёж по кредиту",
       "сумма налогового вычета"
+    ],
+    "skills": [
+      "money_finance.saving-and-debt"
     ]
   },
   {
@@ -772,7 +955,10 @@
     "hints": [
       "'Налог на сверхприбыль' = windfall tax; use past perfective 'ввело'."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.economics"
+    ]
   },
   {
     "id": "ru-mo-b2-2",
@@ -790,6 +976,9 @@
       "цены",
       "ценам",
       "ценами"
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -802,7 +991,10 @@
     "hints": [
       "Use formal register; mention both the risk and the alternative."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "id": "ru-mo-b2-5",
@@ -819,6 +1011,9 @@
       "Количественное ослабление снижает стоимость кредитов.",
       "Монетарный стимул уменьшает государственный долг.",
       "Эмиссия валюты повышает процентные ставки."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -830,7 +1025,10 @@
     "hints": [
       "Use formal 'не могли бы вы' + infinitive; 'долевое финансирование' = equity, 'долговое' = debt."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "id": "ru-mo-b2-7",
@@ -848,6 +1046,9 @@
       "долг",
       "долгом",
       "долги"
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -860,7 +1061,10 @@
     "hints": [
       "Use 'хеджирование' (hedging); explain the benefit clearly in formal language."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "id": "ru-mo-b2-10",
@@ -877,6 +1081,9 @@
       "Правительство снизило налоги для стимулирования экономики.",
       "Центральный банк повысил резервные требования для банков.",
       "Дефицит бюджета был покрыт за счёт эмиссии облигаций."
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -888,7 +1095,10 @@
     "hints": [
       "'Переподписано' = oversubscribed; 'свидетельствует о' = reflects/indicates."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "id": "ru-mo-b2-12",
@@ -906,6 +1116,9 @@
       "ключевая",
       "ключевой",
       "ключевые"
+    ],
+    "skills": [
+      "money_finance.economics"
     ]
   },
   {
@@ -918,7 +1131,10 @@
     "hints": [
       "Present both sides; use 'однако' for contrast and 'зависит от' for nuance."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "id": "ru-mo-b2-15",
@@ -935,6 +1151,9 @@
       "Бычий рынок отличается высокой волатильностью.",
       "Рецессия всегда сопровождается ростом инфляции.",
       "Фондовый рынок не реагирует на монетарную политику."
+    ],
+    "skills": [
+      "money_finance.investing"
     ]
   },
   {
@@ -946,7 +1165,10 @@
     "hints": [
       "'Высокая долговая нагрузка' = overleveraged; 'уязвимы' = vulnerable."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "money_finance.investing"
+    ]
   },
   {
     "id": "ru-mo-b2-17",
@@ -964,6 +1186,9 @@
       "управления",
       "управлением",
       "управлять"
+    ],
+    "skills": [
+      "money_finance.investing"
     ]
   }
 ]

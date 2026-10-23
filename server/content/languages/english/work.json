@@ -7,6 +7,9 @@
     "correctAnswer": "I work in an office.",
     "hints": [
       "'An' before a vowel sound: an office, an hour."
+    ],
+    "skills": [
+      "work.around-the-office"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "My shift starts at nine o'clock.",
     "hints": [
       "'At' for clock times; 'starts' takes -s after a singular subject."
+    ],
+    "skills": [
+      "work.work-hours"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "I am the new employee.",
     "hints": [
       "'The' because there is one specific new employee; 'I am' shortens to 'I'm'."
+    ],
+    "skills": [
+      "work.people-at-work"
     ]
   },
   {
@@ -38,7 +47,10 @@
     "hints": [
       "A useful first-day question."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "work.around-the-office"
+    ]
   },
   {
     "id": "en-wo-14",
@@ -48,6 +60,9 @@
     "correctAnswer": "I need to print this document.",
     "hints": [
       "Use 'I need to' for necessity."
+    ],
+    "skills": [
+      "work.around-the-office"
     ]
   },
   {
@@ -59,7 +74,10 @@
     "hints": [
       "The opposite is 'employer'."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "work.people-at-work"
+    ]
   },
   {
     "id": "en-wo-16",
@@ -69,6 +87,9 @@
     "correctAnswer": "My manager is very helpful.",
     "hints": [
       "A manager is your direct boss."
+    ],
+    "skills": [
+      "work.people-at-work"
     ]
   },
   {
@@ -79,6 +100,9 @@
     "correctAnswer": "What time does the office open?",
     "hints": [
       "Use 'what time does' for asking about schedules."
+    ],
+    "skills": [
+      "work.around-the-office"
     ]
   },
   {
@@ -89,6 +113,9 @@
     "correctAnswer": "I work from home on Fridays.",
     "hints": [
       "'Work from home' means remote working."
+    ],
+    "skills": [
+      "work.work-hours"
     ]
   },
   {
@@ -99,6 +126,9 @@
     "correctAnswer": "My colleague helps me a lot.",
     "hints": [
       "A colleague is someone you work with."
+    ],
+    "skills": [
+      "work.people-at-work"
     ]
   },
   {
@@ -109,7 +139,10 @@
     "hints": [
       "Use present simple for routines."
     ],
-    "id": "en-wo-a1-41"
+    "id": "en-wo-a1-41",
+    "skills": [
+      "work.work-hours"
+    ]
   },
   {
     "level": "a1",
@@ -120,7 +153,10 @@
       "Use this on your first day."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-wo-a1-42"
+    "id": "en-wo-a1-42",
+    "skills": [
+      "work.around-the-office"
+    ]
   },
   {
     "level": "a1",
@@ -131,7 +167,10 @@
       "Hyphenated compound noun."
     ],
     "exerciseType": "flashcard",
-    "id": "en-wo-a1-43"
+    "id": "en-wo-a1-43",
+    "skills": [
+      "work.work-hours"
+    ]
   },
   {
     "level": "a1",
@@ -142,7 +181,10 @@
       "Use 'work with' + team."
     ],
     "exerciseType": "pronunciation",
-    "id": "en-wo-a1-44"
+    "id": "en-wo-a1-44",
+    "skills": [
+      "work.people-at-work"
+    ]
   },
   {
     "level": "a1",
@@ -153,7 +195,10 @@
       "Useful when contacting IT."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-wo-a1-47"
+    "id": "en-wo-a1-47",
+    "skills": [
+      "work.around-the-office"
+    ]
   },
   {
     "level": "a1",
@@ -164,7 +209,10 @@
       "A core workplace noun."
     ],
     "exerciseType": "flashcard",
-    "id": "en-wo-a1-48"
+    "id": "en-wo-a1-48",
+    "skills": [
+      "work.people-at-work"
+    ]
   },
   {
     "id": "en-wo-3",
@@ -174,6 +222,9 @@
     "correctAnswer": "Could you send me the report by Friday?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "work.requests"
     ]
   },
   {
@@ -184,6 +235,9 @@
     "correctAnswer": "I have a meeting at two o'clock this afternoon.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "work.meetings"
     ]
   },
   {
@@ -194,6 +248,9 @@
     "correctAnswer": "Can we reschedule the meeting to Thursday?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "work.meetings"
     ]
   },
   {
@@ -204,6 +261,9 @@
     "correctAnswer": "I will send you the updated version by end of day.",
     "hints": [
       "'By end of day' is a common work deadline phrase."
+    ],
+    "skills": [
+      "work.requests"
     ]
   },
   {
@@ -214,6 +274,9 @@
     "correctAnswer": "Could you copy me in on that email?",
     "hints": [
       "'Copy me in' means add you to the CC field."
+    ],
+    "skills": [
+      "work.requests"
     ]
   },
   {
@@ -224,6 +287,9 @@
     "correctAnswer": "I would like to take two weeks of annual leave in August.",
     "hints": [
       "'Annual leave' is the formal term for holiday days."
+    ],
+    "skills": [
+      "work.meetings"
     ]
   },
   {
@@ -234,6 +300,9 @@
     "correctAnswer": "Who should I contact about IT issues?",
     "hints": [
       "Use 'who should I' to ask who is responsible."
+    ],
+    "skills": [
+      "work.requests"
     ]
   },
   {
@@ -244,6 +313,9 @@
     "correctAnswer": "The deadline is next Monday at noon.",
     "hints": [
       "State the day and time clearly."
+    ],
+    "skills": [
+      "work.tasks-and-deadlines"
     ]
   },
   {
@@ -255,7 +327,10 @@
     "hints": [
       "Give clear availability information."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "work.meetings"
+    ]
   },
   {
     "id": "en-wo-41",
@@ -265,6 +340,9 @@
     "correctAnswer": "I have finished my tasks for today.",
     "hints": [
       "Present perfect for completed actions."
+    ],
+    "skills": [
+      "work.tasks-and-deadlines"
     ]
   },
   {
@@ -275,7 +353,10 @@
     "hints": [
       "Use time markers for clarity."
     ],
-    "id": "en-wo-a2-51"
+    "id": "en-wo-a2-51",
+    "skills": [
+      "work.meetings"
+    ]
   },
   {
     "level": "a2",
@@ -286,7 +367,10 @@
       "Use 'Could you' for polite requests."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-wo-a2-52"
+    "id": "en-wo-a2-52",
+    "skills": [
+      "work.requests"
+    ]
   },
   {
     "level": "a2",
@@ -297,7 +381,10 @@
       "Use this to describe ownership."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-wo-a2-53"
+    "id": "en-wo-a2-53",
+    "skills": [
+      "work.tasks-and-deadlines"
+    ]
   },
   {
     "level": "a2",
@@ -308,7 +395,10 @@
       "Good phrase for progress updates."
     ],
     "exerciseType": "pronunciation",
-    "id": "en-wo-a2-54"
+    "id": "en-wo-a2-54",
+    "skills": [
+      "work.tasks-and-deadlines"
+    ]
   },
   {
     "id": "en-wo-5",
@@ -318,6 +408,9 @@
     "correctAnswer": "I would like to discuss my progress at our next meeting.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "work.progress-and-feedback"
     ]
   },
   {
@@ -328,6 +421,9 @@
     "correctAnswer": "I was not able to attend the conference call due to a scheduling conflict.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "work.next-steps"
     ]
   },
   {
@@ -338,6 +434,9 @@
     "correctAnswer": "I have been working on this project for three months.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "work.progress-and-feedback"
     ]
   },
   {
@@ -348,6 +447,9 @@
     "correctAnswer": "I would appreciate some feedback on my presentation.",
     "hints": [
       "'I would appreciate' is polite and professional."
+    ],
+    "skills": [
+      "work.progress-and-feedback"
     ]
   },
   {
@@ -358,6 +460,9 @@
     "correctAnswer": "Could we arrange a brief call to discuss the next steps?",
     "hints": [
       "'Brief call' means a short telephone or video meeting."
+    ],
+    "skills": [
+      "work.next-steps"
     ]
   },
   {
@@ -368,6 +473,9 @@
     "correctAnswer": "I have identified a bottleneck in the current workflow.",
     "hints": [
       "'Bottleneck' means a point that slows things down."
+    ],
+    "skills": [
+      "work.flagging-problems"
     ]
   },
   {
@@ -378,6 +486,9 @@
     "correctAnswer": "My role involves coordinating between the sales and marketing teams.",
     "hints": [
       "'My role involves' is a professional way to describe your job."
+    ],
+    "skills": [
+      "work.progress-and-feedback"
     ]
   },
   {
@@ -388,6 +499,9 @@
     "correctAnswer": "Could you give me an update on where things stand with the client?",
     "hints": [
       "'Where things stand' means the current situation."
+    ],
+    "skills": [
+      "work.next-steps"
     ]
   },
   {
@@ -398,6 +512,9 @@
     "correctAnswer": "I would like to flag a potential risk before it becomes a problem.",
     "hints": [
       "'Flag' in business means to highlight or draw attention to something."
+    ],
+    "skills": [
+      "work.flagging-problems"
     ]
   },
   {
@@ -408,6 +525,9 @@
     "correctAnswer": "I have been given more responsibilities since my promotion.",
     "hints": [
       "Passive present perfect; 'since my promotion' anchors the time."
+    ],
+    "skills": [
+      "work.progress-and-feedback"
     ]
   },
   {
@@ -418,7 +538,10 @@
     "hints": [
       "Use 'should' for recommendations."
     ],
-    "id": "en-wo-b1-61"
+    "id": "en-wo-b1-61",
+    "skills": [
+      "work.flagging-problems"
+    ]
   },
   {
     "level": "b1",
@@ -429,7 +552,10 @@
       "Polite formal suggestion structure."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-wo-b1-62"
+    "id": "en-wo-b1-62",
+    "skills": [
+      "work.next-steps"
+    ]
   },
   {
     "level": "b1",
@@ -440,7 +566,10 @@
       "Direct but collaborative phrasing."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-wo-b1-63"
+    "id": "en-wo-b1-63",
+    "skills": [
+      "work.next-steps"
+    ]
   },
   {
     "level": "b1",
@@ -451,7 +580,10 @@
       "State dependency clearly."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-wo-b1-64"
+    "id": "en-wo-b1-64",
+    "skills": [
+      "work.flagging-problems"
+    ]
   },
   {
     "id": "en-wo-7",
@@ -461,6 +593,9 @@
     "correctAnswer": "I would like to propose a restructuring of the project timeline.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "work.projects"
     ]
   },
   {
@@ -471,6 +606,9 @@
     "correctAnswer": "The stakeholders have concerns about the projected return on investment.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "work.strategy"
     ]
   },
   {
@@ -481,6 +619,9 @@
     "correctAnswer": "Following up on my previous email, I wanted to clarify the deliverables.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "work.measuring-success"
     ]
   },
   {
@@ -491,6 +632,9 @@
     "correctAnswer": "We need to align on priorities before committing resources to this initiative.",
     "hints": [
       "'Align on' means agree and coordinate on."
+    ],
+    "skills": [
+      "work.strategy"
     ]
   },
   {
@@ -501,6 +645,9 @@
     "correctAnswer": "The board is looking for a compelling narrative to accompany the financial projections.",
     "hints": [
       "'Compelling narrative' means a persuasive story; 'projections' are forecasts."
+    ],
+    "skills": [
+      "work.strategy"
     ]
   },
   {
@@ -511,6 +658,9 @@
     "correctAnswer": "Have you factored in the opportunity cost of delaying the launch?",
     "hints": [
       "'Factor in' means take into account; 'opportunity cost' is what you give up."
+    ],
+    "skills": [
+      "work.measuring-success"
     ]
   },
   {
@@ -521,6 +671,9 @@
     "correctAnswer": "I recommend we pilot the solution with a small cohort before scaling.",
     "hints": [
       "'Pilot' as a verb means to test; 'scaling' means expanding."
+    ],
+    "skills": [
+      "work.projects"
     ]
   },
   {
@@ -531,6 +684,9 @@
     "correctAnswer": "The cross-functional collaboration on this project has been exceptional.",
     "hints": [
       "'Cross-functional' means involving different departments."
+    ],
+    "skills": [
+      "work.measuring-success"
     ]
   },
   {
@@ -541,6 +697,9 @@
     "correctAnswer": "What metrics are we using to evaluate the success of this campaign?",
     "hints": [
       "'Metrics' are measurable indicators of performance."
+    ],
+    "skills": [
+      "work.measuring-success"
     ]
   },
   {
@@ -551,6 +710,9 @@
     "correctAnswer": "The procurement process needs to be streamlined to reduce lead times.",
     "hints": [
       "'Streamlined' means made more efficient; 'lead times' are delays before delivery."
+    ],
+    "skills": [
+      "work.projects"
     ]
   },
   {
@@ -561,7 +723,10 @@
     "hints": [
       "Use precise business vocabulary."
     ],
-    "id": "en-wo-b2-71"
+    "id": "en-wo-b2-71",
+    "skills": [
+      "work.strategy"
+    ]
   },
   {
     "level": "b2",
@@ -572,7 +737,10 @@
       "Strong phrasing for process quality."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-wo-b2-72"
+    "id": "en-wo-b2-72",
+    "skills": [
+      "work.projects"
+    ]
   },
   {
     "level": "b2",
@@ -583,7 +751,10 @@
       "Use 'mitigate' for formal risk language."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-wo-b2-73"
+    "id": "en-wo-b2-73",
+    "skills": [
+      "work.projects"
+    ]
   },
   {
     "level": "b2",
@@ -594,6 +765,9 @@
       "Contrast clauses raise sophistication."
     ],
     "exerciseType": "dictation_sentence",
-    "id": "en-wo-b2-74"
+    "id": "en-wo-b2-74",
+    "skills": [
+      "work.strategy"
+    ]
   }
 ]

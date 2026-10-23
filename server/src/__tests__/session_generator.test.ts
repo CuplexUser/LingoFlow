@@ -404,6 +404,17 @@ function generateFor(items: any[], random: () => number = () => 0.5) {
   return generateSession({ language: "spanish", category: "food_cooking", count: items.length, selfRatedLevel: "a2", random });
 }
 
+test("questions carry their item's skills, or the unit's basics when it has none", () => {
+  const items = [
+    { id: "es-sk-1", level: "a2", difficulty: "a2", prompt: "Say: We ate at a family restaurant.", correctAnswer: "Comimos en un restaurante familiar.", skills: ["food_cooking.at-a-restaurant"] },
+    { id: "es-sk-2", level: "a2", difficulty: "a2", prompt: "Say: I bake bread.", correctAnswer: "Horneo pan." }
+  ];
+  const questions = generateFor([...items, ...SPANISH_FOOD_POOL]).questions;
+  const byId = (id: string) => questions.find((q: any) => q.id === id);
+  assert.deepEqual(byId("es-sk-1")?.skills, ["food_cooking.at-a-restaurant"]);
+  assert.deepEqual(byId("es-sk-2")?.skills, ["food_cooking.a2.general"]);
+});
+
 test("only items authored as cloze become fill-in-the-blank", () => {
   for (const seed of [1, 2, 3, 4, 5]) {
     let state = seed;

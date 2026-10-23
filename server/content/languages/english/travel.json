@@ -7,6 +7,9 @@
     "correctAnswer": "Where is the train station?",
     "hints": [
       "'Where is' + a place; in speech it shortens to 'where's'."
+    ],
+    "skills": [
+      "travel.stations-and-tickets"
     ]
   },
   {
@@ -17,6 +20,9 @@
     "correctAnswer": "How much does this ticket cost?",
     "hints": [
       "'How much' asks a price; 'does' carries the question, so 'cost' has no -s."
+    ],
+    "skills": [
+      "travel.stations-and-tickets"
     ]
   },
   {
@@ -27,6 +33,9 @@
     "correctAnswer": "Which platform does the train leave from?",
     "hints": [
       "'Which' picks from a set of options; 'from' moves to the end of the question."
+    ],
+    "skills": [
+      "travel.stations-and-tickets"
     ]
   },
   {
@@ -38,7 +47,10 @@
     "hints": [
       "Use 'where is' for location questions."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "travel.stations-and-tickets"
+    ]
   },
   {
     "id": "en-tr-14",
@@ -49,7 +61,10 @@
     "hints": [
       "Simple possession statement."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "travel.travel-basics"
+    ]
   },
   {
     "id": "en-tr-15",
@@ -59,6 +74,9 @@
     "correctAnswer": "Is this the right bus for the airport?",
     "hints": [
       "Yes/no question — invert 'is' and subject."
+    ],
+    "skills": [
+      "travel.stations-and-tickets"
     ]
   },
   {
@@ -70,7 +88,10 @@
     "hints": [
       "Think of where you go to catch a flight."
     ],
-    "exerciseType": "flashcard"
+    "exerciseType": "flashcard",
+    "skills": [
+      "travel.travel-basics"
+    ]
   },
   {
     "id": "en-tr-17",
@@ -80,6 +101,9 @@
     "correctAnswer": "I need a taxi, please.",
     "hints": [
       "A polite way to ask for transport."
+    ],
+    "skills": [
+      "travel.travel-basics"
     ]
   },
   {
@@ -90,6 +114,9 @@
     "correctAnswer": "Where can I buy a ticket?",
     "hints": [
       "Use 'where can I' for asking about possibilities."
+    ],
+    "skills": [
+      "travel.stations-and-tickets"
     ]
   },
   {
@@ -101,7 +128,10 @@
     "hints": [
       "A short, important phrase for travelers."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "travel.travel-basics"
+    ]
   },
   {
     "level": "a1",
@@ -111,7 +141,10 @@
     "hints": [
       "Basic transport sentence."
     ],
-    "id": "en-tr-a1-40"
+    "id": "en-tr-a1-40",
+    "skills": [
+      "travel.stations-and-tickets"
+    ]
   },
   {
     "level": "a1",
@@ -122,7 +155,10 @@
       "Location phrase."
     ],
     "exerciseType": "flashcard",
-    "id": "en-tr-a1-42"
+    "id": "en-tr-a1-42",
+    "skills": [
+      "travel.travel-basics"
+    ]
   },
   {
     "id": "en-tr-3",
@@ -132,6 +168,9 @@
     "correctAnswer": "I need a room for two nights.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "travel.hotel"
     ]
   },
   {
@@ -142,6 +181,9 @@
     "correctAnswer": "Does this bus go to the city center?",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "travel.in-the-city"
     ]
   },
   {
@@ -152,6 +194,9 @@
     "correctAnswer": "I would like to check in for my reservation.",
     "hints": [
       "Pay attention to the sentence structure."
+    ],
+    "skills": [
+      "travel.hotel"
     ]
   },
   {
@@ -163,7 +208,10 @@
     "hints": [
       "Use 'I would like to' for polite requests."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "travel.in-the-city"
+    ]
   },
   {
     "id": "en-tr-21",
@@ -173,6 +221,9 @@
     "correctAnswer": "Are there any guided tours of the old town?",
     "hints": [
       "Use 'are there any' to ask about availability."
+    ],
+    "skills": [
+      "travel.in-the-city"
     ]
   },
   {
@@ -183,6 +234,9 @@
     "correctAnswer": "My hotel is about twenty minutes from here.",
     "hints": [
       "Use 'about' to give an approximate time."
+    ],
+    "skills": [
+      "travel.hotel"
     ]
   },
   {
@@ -193,6 +247,9 @@
     "correctAnswer": "How often does the airport shuttle run?",
     "hints": [
       "Use 'how often' to ask about frequency."
+    ],
+    "skills": [
+      "travel.flights"
     ]
   },
   {
@@ -204,7 +261,10 @@
     "hints": [
       "State what you have, then add the purpose."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "travel.flights"
+    ]
   },
   {
     "id": "en-tr-25",
@@ -214,6 +274,9 @@
     "correctAnswer": "Can I get a window seat?",
     "hints": [
       "A simple 'can I' request."
+    ],
+    "skills": [
+      "travel.flights"
     ]
   },
   {
@@ -224,6 +287,9 @@
     "correctAnswer": "The check-out time is eleven o'clock.",
     "hints": [
       "State the time clearly."
+    ],
+    "skills": [
+      "travel.hotel"
     ]
   },
   {
@@ -234,7 +300,10 @@
     "hints": [
       "Hotel check-in phrase."
     ],
-    "id": "en-tr-a2-50"
+    "id": "en-tr-a2-50",
+    "skills": [
+      "travel.hotel"
+    ]
   },
   {
     "level": "a2",
@@ -245,7 +314,10 @@
       "Travel time question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-tr-a2-51"
+    "id": "en-tr-a2-51",
+    "skills": [
+      "travel.in-the-city"
+    ]
   },
   {
     "level": "a2",
@@ -256,7 +328,10 @@
       "Problem report sentence."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-tr-a2-52"
+    "id": "en-tr-a2-52",
+    "skills": [
+      "travel.flights"
+    ]
   },
   {
     "id": "en-tr-5",
@@ -266,6 +341,9 @@
     "correctAnswer": "My flight was delayed because of bad weather.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "travel.when-plans-change"
     ]
   },
   {
@@ -276,6 +354,9 @@
     "correctAnswer": "I lost my passport and need help immediately.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "travel.when-plans-change"
     ]
   },
   {
@@ -286,6 +367,9 @@
     "correctAnswer": "The museum is within walking distance from the hotel.",
     "hints": [
       "Notice the tense or modal used."
+    ],
+    "skills": [
+      "travel.local-tips"
     ]
   },
   {
@@ -296,6 +380,9 @@
     "correctAnswer": "I was wondering if you could recommend a good local restaurant.",
     "hints": [
       "Use 'I was wondering if' for polite, indirect requests."
+    ],
+    "skills": [
+      "travel.local-tips"
     ]
   },
   {
@@ -306,6 +393,9 @@
     "correctAnswer": "Is there a discount if I book both legs of the journey together?",
     "hints": [
       "Conditional question using 'if'."
+    ],
+    "skills": [
+      "travel.planning"
     ]
   },
   {
@@ -317,7 +407,10 @@
     "hints": [
       "Use 'about' for an approximation."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "travel.planning"
+    ]
   },
   {
     "id": "en-tr-30",
@@ -327,6 +420,9 @@
     "correctAnswer": "I prefer to travel light whenever possible.",
     "hints": [
       "'Travel light' is an idiom for packing minimally."
+    ],
+    "skills": [
+      "travel.planning"
     ]
   },
   {
@@ -337,6 +433,9 @@
     "correctAnswer": "What documents do I need for the border crossing?",
     "hints": [
       "Use 'what do I need' to ask about requirements."
+    ],
+    "skills": [
+      "travel.planning"
     ]
   },
   {
@@ -347,6 +446,9 @@
     "correctAnswer": "I had to rebook at a higher fare after my original flight was canceled.",
     "hints": [
       "Use 'had to' for past obligation."
+    ],
+    "skills": [
+      "travel.when-plans-change"
     ]
   },
   {
@@ -358,7 +460,10 @@
     "hints": [
       "Stay calm and polite; offer evidence."
     ],
-    "exerciseType": "roleplay"
+    "exerciseType": "roleplay",
+    "skills": [
+      "travel.when-plans-change"
+    ]
   },
   {
     "level": "b1",
@@ -368,7 +473,10 @@
     "hints": [
       "Reason clause in travel context."
     ],
-    "id": "en-tr-b1-60"
+    "id": "en-tr-b1-60",
+    "skills": [
+      "travel.when-plans-change"
+    ]
   },
   {
     "level": "b1",
@@ -379,7 +487,10 @@
       "Recommendation question."
     ],
     "exerciseType": "build_sentence",
-    "id": "en-tr-b1-61"
+    "id": "en-tr-b1-61",
+    "skills": [
+      "travel.local-tips"
+    ]
   },
   {
     "level": "b1",
@@ -390,7 +501,10 @@
       "Reflection sentence."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-tr-b1-62"
+    "id": "en-tr-b1-62",
+    "skills": [
+      "travel.local-tips"
+    ]
   },
   {
     "id": "en-tr-7",
@@ -400,6 +514,9 @@
     "correctAnswer": "Could you recommend a safe neighborhood near downtown?",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "travel.fares-and-disputes"
     ]
   },
   {
@@ -410,6 +527,9 @@
     "correctAnswer": "I would prefer a quieter route, even if it takes longer.",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "travel.travel-preferences"
     ]
   },
   {
@@ -420,6 +540,9 @@
     "correctAnswer": "Is there a faster connection if I change lines once?",
     "hints": [
       "Focus on natural phrasing and word order."
+    ],
+    "skills": [
+      "travel.connections"
     ]
   },
   {
@@ -430,6 +553,9 @@
     "correctAnswer": "Despite the delays, I managed to make my connection with minutes to spare.",
     "hints": [
       "'Despite' introduces a concession; 'with minutes to spare' is idiomatic."
+    ],
+    "skills": [
+      "travel.connections"
     ]
   },
   {
@@ -440,6 +566,9 @@
     "correctAnswer": "Could you outline the cancellation and refund policy for this fare class?",
     "hints": [
       "'Outline' here means 'explain briefly'. 'Fare class' is a travel-specific term."
+    ],
+    "skills": [
+      "travel.fares-and-disputes"
     ]
   },
   {
@@ -450,6 +579,9 @@
     "correctAnswer": "I was unfairly charged an excess baggage fee and would like to dispute it.",
     "hints": [
       "Passive voice for what happened to you; 'dispute' means formally challenge."
+    ],
+    "skills": [
+      "travel.fares-and-disputes"
     ]
   },
   {
@@ -461,7 +593,10 @@
     "hints": [
       "Gerund subject ('Having...') with 'considerably' as an intensifier."
     ],
-    "exerciseType": "build_sentence"
+    "exerciseType": "build_sentence",
+    "skills": [
+      "travel.travel-preferences"
+    ]
   },
   {
     "id": "en-tr-38",
@@ -471,6 +606,9 @@
     "correctAnswer": "I tend to prefer trains over flights for journeys under five hours.",
     "hints": [
       "'I tend to' softens a personal preference naturally."
+    ],
+    "skills": [
+      "travel.travel-preferences"
     ]
   },
   {
@@ -483,7 +621,10 @@
       "'Clear customs' and 'recheck luggage' are standard travel phrases.",
       "A layover is a stop between flights."
     ],
-    "culturalNote": "In the US and many countries, you must collect and recheck your luggage on international connections even if your final destination is domestic."
+    "culturalNote": "In the US and many countries, you must collect and recheck your luggage on international connections even if your final destination is domestic.",
+    "skills": [
+      "travel.connections"
+    ]
   },
   {
     "level": "b2",
@@ -493,7 +634,10 @@
     "hints": [
       "B2 travel perspective."
     ],
-    "id": "en-tr-b2-70"
+    "id": "en-tr-b2-70",
+    "skills": [
+      "travel.travel-preferences"
+    ]
   },
   {
     "level": "b2",
@@ -504,7 +648,10 @@
       "Complex travel ethics question."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "en-tr-b2-71"
+    "id": "en-tr-b2-71",
+    "skills": [
+      "travel.travel-preferences"
+    ]
   },
   {
     "level": "b2",
@@ -515,6 +662,9 @@
       "Advanced planning phrase."
     ],
     "exerciseType": "dialogue_turn",
-    "id": "en-tr-b2-72"
+    "id": "en-tr-b2-72",
+    "skills": [
+      "travel.connections"
+    ]
   }
 ]

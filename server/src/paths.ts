@@ -12,5 +12,6 @@ module.exports = {
   SERVER_ROOT,
   CONTENT_DIR: path.join(SERVER_ROOT, "content", "languages"),
   PRACTICE_WORDS_DIR: path.join(SERVER_ROOT, "content", "practice_words"),
-  STORIES_DIR: path.join(SERVER_ROOT, "content", "stories")
+  STORIES_DIR: path.join(SERVER_ROOT, "content", "stories"),
+  SKILLS_DIR: path.join(SERVER_ROOT, "content", "skills")
 };
