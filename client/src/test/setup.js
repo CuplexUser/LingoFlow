@@ -36,6 +36,9 @@ afterEach(() => {
   window.history.replaceState({}, "", "/learn");
 });
 
+// jsdom doesn't scroll; navigation calls window.scrollTo on every page change.
+window.scrollTo = () => {};
+
 if (!window.matchMedia) {
   window.matchMedia = () => ({
     matches: false,

@@ -266,12 +266,16 @@ function createCourseSelectors(course) {
   };
 }
 
+// Every option takes the answer's opening and closing marks, so neither gives the answer
+// away, and a Spanish question never keeps its "¿" with a full stop ("¿Es vegetariano.").
 function unifyOptionPunctuation(options: string[], correctAnswer: string): string[] {
   const terminalPunct = /[.!?¿¡]+$/;
+  const openingPunct = /^[¿¡]+/;
   const match = correctAnswer.match(terminalPunct);
   if (!match) return options;
   const terminal = match[0];
-  return options.map((opt) => opt.replace(terminalPunct, "") + terminal);
+  const opening = correctAnswer.match(openingPunct)?.[0] || "";
+  return options.map((opt) => opening + opt.replace(terminalPunct, "").replace(openingPunct, "") + terminal);
 }
 
 function buildAcceptedAnswers(target) {
@@ -1028,6 +1032,13 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     const remaining = sourcePool.filter((item) => !selectedIds.has(item.id) && !notDueSet.has(item.id));
     const levelSmoothed = selectByLevelWindow(remaining, recommendedRank, Math.max(0, targetCount - dueItems.length - weakItems.length), randomFn);
     let selected = [...dueItems, ...weakItems, ...levelSmoothed].slice(0, targetCount);
+    if (skill && selected.length < targetCount) {
+      // A skill has only a handful of items, and once it's known none of them are due, so
+      // practicing it tops up with the items that aren't due yet.
+      const picked = new Set(selected.map((item) => item.id));
+      const rest = shuffle(sourcePool.filter((item) => !picked.has(item.id)), randomFn);
+      selected = [...selected, ...rest].slice(0, targetCount);
+    }
     if (dailyMode) {
       // The confidence and stretch picks honor the exclusions too.
       const curationPool = sourcePool.filter((item) => !notDueSet.has(item.id));

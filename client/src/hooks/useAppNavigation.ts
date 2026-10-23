@@ -88,6 +88,9 @@ export function useAppNavigation({ authenticated }: UseAppNavigationParams) {
     const path = pagePathMap[nextPage] || PAGE_PATHS.learn;
     if (window.location.pathname !== path) {
       window.history.pushState({}, "", path);
+      // The pages share the window's scroll, so a new page starts at its top rather than
+      // where the last one was left.
+      window.scrollTo(0, 0);
     }
     setActivePage(nextPage);
   }, []);

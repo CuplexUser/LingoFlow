@@ -438,6 +438,27 @@ test("a session can keep to some exercise types and to one skill", () => {
   assert.equal(typeOf("es-sk-fl"), "mc_sentence");
   assert.equal(typeOf("es-sk-pr"), "mc_sentence");
   assert.equal(typeOf("es-sk-bu"), "build_sentence");
+
+  // A known skill has nothing due, and practicing it still gives its items.
+  const known = generateSession({
+    language: "spanish",
+    category: "food_cooking",
+    count: 10,
+    selfRatedLevel: "a2",
+    skill: "food_cooking.home-cooking",
+    notDueItemIds: ["es-sk-fl", "es-sk-pr", "es-sk-bu"],
+    random: () => 0.5
+  });
+  assert.deepEqual(known.questions.map((q: any) => q.id).sort(), ["es-sk-bu", "es-sk-fl", "es-sk-pr"]);
+});
+
+test("options take the answer's opening and closing marks, so a question stays well formed", () => {
+  const statement = { id: "es-pu-1", level: "a1", difficulty: "a1", prompt: "Say: I do not eat meat.", correctAnswer: "No como carne.", exerciseType: "mc_sentence", options: ["No como carne.", "¿Es vegetariano?", "¡Qué rico!"] };
+  const question = { id: "es-pu-2", level: "a1", difficulty: "a1", prompt: "Ask: Is this vegetarian?", correctAnswer: "¿Es vegetariano?", exerciseType: "mc_sentence", options: ["¿Es vegetariano?", "No como carne.", "¡Qué rico!"] };
+  const questions = generateFor([statement, question]).questions;
+  const optionsOf = (id: string) => [...questions.find((q: any) => q.id === id).options].sort();
+  assert.deepEqual(optionsOf("es-pu-1"), ["Es vegetariano.", "No como carne.", "Qué rico."]);
+  assert.deepEqual(optionsOf("es-pu-2"), ["¿Es vegetariano?", "¿No como carne?", "¿Qué rico?"]);
 });
 
 test("only items authored as cloze become fill-in-the-blank", () => {
