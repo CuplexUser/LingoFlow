@@ -376,7 +376,14 @@
     "hints": [
       "A regular cost or outgoing payment."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I pay rent every month: it's my main expense.",
+    "clozeOptions": [
+      "расход",
+      "расхода",
+      "расходом",
+      "расходы"
+    ]
   },
   {
     "id": "ru-mo-a2-4",
@@ -432,7 +439,14 @@
     "hints": [
       "A type of borrowing arrangement."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "To buy a car, he took out a loan from the bank.",
+    "clozeOptions": [
+      "кредит",
+      "кредита",
+      "кредитом",
+      "кредиту"
+    ]
   },
   {
     "id": "ru-mo-a2-9",
@@ -488,7 +502,14 @@
     "hints": [
       "Proof of purchase given at checkout."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "After the purchase, the cashier gave me a receipt.",
+    "clozeOptions": [
+      "чек",
+      "чека",
+      "чеком",
+      "чеку"
+    ]
   },
   {
     "id": "ru-mo-a2-14",
@@ -572,7 +593,14 @@
     "hints": [
       "The plural of 'цена' in accusative."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "To avoid overpaying, it's important to compare prices before buying.",
+    "clozeOptions": [
+      "цены",
+      "цена",
+      "ценами",
+      "цен"
+    ]
   },
   {
     "id": "ru-mo-b1-4",
@@ -634,7 +662,14 @@
     "hints": [
       "An adjective meaning overdue or past due."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "He couldn't pay his mortgage, and now he has overdue debt.",
+    "clozeOptions": [
+      "просроченная",
+      "просроченный",
+      "просроченную",
+      "просроченной"
+    ]
   },
   {
     "id": "ru-mo-b1-10",
@@ -679,7 +714,14 @@
     "hints": [
       "Accumulated over time — a participial adjective."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The sooner you start saving, the bigger your accumulated capital will be.",
+    "clozeOptions": [
+      "накопленный",
+      "накопленная",
+      "накопленным",
+      "накопленного"
+    ]
   },
   {
     "id": "ru-mo-b1-15",
@@ -741,7 +783,14 @@
     "hints": [
       "Genitive plural of 'цена' after 'рост'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The fall of the national currency led to rising prices for imported goods.",
+    "clozeOptions": [
+      "цен",
+      "цены",
+      "ценам",
+      "ценами"
+    ]
   },
   {
     "id": "ru-mo-b2-4",
@@ -792,7 +841,14 @@
     "hints": [
       "Genitive singular of 'долг' after 'уровень'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "A high level of government debt can undermine investor confidence.",
+    "clozeOptions": [
+      "долга",
+      "долг",
+      "долгом",
+      "долги"
+    ]
   },
   {
     "id": "ru-mo-b2-9",
@@ -843,7 +899,14 @@
     "hints": [
       "'Ключевая ставка' = the central bank's key policy rate; accusative feminine here."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The central bank decided to leave the key rate unchanged.",
+    "clozeOptions": [
+      "ключевую",
+      "ключевая",
+      "ключевой",
+      "ключевые"
+    ]
   },
   {
     "id": "ru-mo-b2-14",
@@ -894,6 +957,13 @@
     "hints": [
       "A verbal noun meaning 'management', the subject of the sentence; 'управление' + instrumental (активами)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "Smart asset management helps minimize tax liabilities.",
+    "clozeOptions": [
+      "управление",
+      "управления",
+      "управлением",
+      "управлять"
+    ]
   }
 ]

@@ -58,7 +58,14 @@
     "hints": [
       "Third person singular ends in -t."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "He learns English every day.",
+    "clozeOptions": [
+      "lernt",
+      "lerne",
+      "lernst",
+      "lernen"
+    ]
   },
   {
     "id": "de-gr-15",
@@ -97,7 +104,14 @@
     "hints": [
       "Masculine accusative of 'ein'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "She has an umbrella.",
+    "clozeOptions": [
+      "einen",
+      "ein",
+      "eine",
+      "einem"
+    ]
   },
   {
     "id": "de-gr-18",
@@ -201,7 +215,14 @@
     "hints": [
       "Simple past of 'gehen'; verb second after the time phrase."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "Last Saturday I went to the movies.",
+    "clozeOptions": [
+      "ging",
+      "gehe",
+      "gegangen",
+      "gingen"
+    ]
   },
   {
     "id": "de-gr-21",
@@ -238,7 +259,14 @@
     "hints": [
       "German adds -er to every adjective, long or short."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "This book is more interesting than the other one.",
+    "clozeOptions": [
+      "interessanter",
+      "mehr interessant",
+      "interessant",
+      "am interessantesten"
+    ]
   },
   {
     "id": "de-gr-24",
@@ -313,7 +341,14 @@
       "'Viel' takes a plural ending before a plural noun."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-gr-a2-51"
+    "id": "de-gr-a2-51",
+    "translation": "I have a lot of friends in Berlin.",
+    "clozeOptions": [
+      "viele",
+      "viel",
+      "vielen",
+      "vieles"
+    ]
   },
   {
     "id": "de-gr-7",
@@ -361,7 +396,14 @@
     "hints": [
       "Passive: werden + participle, here in the simple past."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The report was written by the team last week.",
+    "clozeOptions": [
+      "wurde",
+      "wird",
+      "war",
+      "hat"
+    ]
   },
   {
     "id": "de-gr-28",
@@ -430,7 +472,14 @@
     "hints": [
       "The relative pronoun agrees with 'die Person' (feminine, nominative)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The person who called didn't leave a message.",
+    "clozeOptions": [
+      "die",
+      "der",
+      "das",
+      "wer"
+    ]
   },
   {
     "level": "b1",
@@ -462,7 +511,14 @@
       "The German grammar term for the passive voice (neuter)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-gr-b1-61"
+    "id": "de-gr-b1-61",
+    "translation": "When should I use the passive?",
+    "clozeOptions": [
+      "Passiv",
+      "Aktiv",
+      "Präteritum",
+      "Perfekt"
+    ]
   },
   {
     "id": "de-gr-10",
@@ -526,7 +582,17 @@
     "hints": [
       "Modal passive: modal + participle + werden."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The data must be analyzed before you can draw conclusions.",
+    "clozeOptions": [
+      "analysiert",
+      "analysieren",
+      "analysiere",
+      "analysierte"
+    ],
+    "acceptedAnswers": [
+      "ausgewertet"
+    ]
   },
   {
     "id": "de-gr-37",
@@ -571,7 +637,14 @@
       "'Nicht nur ... ___ auch' = not only ... but also."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-gr-b2-70"
+    "id": "de-gr-b2-70",
+    "translation": "Not only did she finish on time, she also improved the draft.",
+    "clozeOptions": [
+      "sondern",
+      "aber",
+      "oder",
+      "denn"
+    ]
   },
   {
     "level": "b2",

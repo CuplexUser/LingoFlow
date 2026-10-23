@@ -96,7 +96,14 @@
     "hints": [
       "First person of 'être'; no article before a role."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm a student.",
+    "clozeOptions": [
+      "suis",
+      "es",
+      "est",
+      "sommes"
+    ]
   },
   {
     "id": "fr-cv-a1-9",
@@ -228,7 +235,14 @@
     "hints": [
       "Third person singular of 'parler'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "She speaks three languages fluently.",
+    "clozeOptions": [
+      "parle",
+      "parles",
+      "parlent",
+      "parlons"
+    ]
   },
   {
     "id": "fr-cv-a2-6",
@@ -348,7 +362,14 @@
       "A preposition meaning 'after'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-co-a2-59"
+    "id": "fr-co-a2-59",
+    "translation": "What do you usually do after work?",
+    "clozeOptions": [
+      "après",
+      "avant",
+      "chez",
+      "depuis"
+    ]
   },
   {
     "id": "fr-co-5",
@@ -408,7 +429,14 @@
     "hints": [
       "'Si' + plus-que-parfait (avoir in the imperfect + participle)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I would have joined you if I had been free.",
+    "clozeOptions": [
+      "avais",
+      "aurais",
+      "avait",
+      "étais"
+    ]
   },
   {
     "id": "fr-cv-b1-6",
@@ -537,6 +565,13 @@
     "id": "fr-co-b1-67",
     "acceptedAnswers": [
       "détendue"
+    ],
+    "translation": "I was nervous at first, then I relaxed.",
+    "clozeOptions": [
+      "détendu",
+      "détendre",
+      "détends",
+      "tendu"
     ]
   },
   {
@@ -589,7 +624,14 @@
     "hints": [
       "Past participle of 's'exprimer', agreeing with 'elle'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "If she had expressed herself more clearly, the misunderstanding wouldn't have happened.",
+    "clozeOptions": [
+      "exprimée",
+      "exprimé",
+      "exprimer",
+      "exprimant"
+    ]
   },
   {
     "id": "fr-cv-b2-6",
@@ -692,7 +734,18 @@
       "A verb meaning 'to expand on'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-co-b2-74"
+    "id": "fr-co-b2-74",
+    "translation": "Could you expand on this argument?",
+    "clozeOptions": [
+      "développer",
+      "développé",
+      "développez",
+      "raccourcir"
+    ],
+    "acceptedAnswers": [
+      "approfondir",
+      "expliquer"
+    ]
   },
   {
     "level": "b2",

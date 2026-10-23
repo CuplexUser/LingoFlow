@@ -60,7 +60,14 @@
     "hints": [
       "-er verbs end in -e in the 'il' form."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "He studies English every day.",
+    "clozeOptions": [
+      "étudie",
+      "étudies",
+      "étudient",
+      "étudier"
+    ]
   },
   {
     "id": "fr-gr-15",
@@ -96,7 +103,14 @@
     "hints": [
       "'Parapluie' is masculine."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "She has an umbrella.",
+    "clozeOptions": [
+      "un",
+      "une",
+      "des",
+      "de"
+    ]
   },
   {
     "id": "fr-gr-18",
@@ -201,6 +215,13 @@
     "exerciseType": "cloze_sentence",
     "acceptedAnswers": [
       "suis allée"
+    ],
+    "translation": "Last Saturday I went to the movies.",
+    "clozeOptions": [
+      "suis allé",
+      "ai allé",
+      "suis aller",
+      "vais"
     ]
   },
   {
@@ -239,7 +260,14 @@
     "hints": [
       "'Plus ... que' = more ... than."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "This book is more interesting than the other one.",
+    "clozeOptions": [
+      "plus",
+      "très",
+      "beaucoup",
+      "bien"
+    ]
   },
   {
     "id": "fr-gr-24",
@@ -309,7 +337,14 @@
       "After 'beaucoup', use 'de' with no article; it elides before a vowel."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-gr-a2-51"
+    "id": "fr-gr-a2-51",
+    "translation": "I have a lot of friends in Paris.",
+    "clozeOptions": [
+      "beaucoup d'",
+      "beaucoup des",
+      "beaucoup de",
+      "beaucoup les"
+    ]
   },
   {
     "id": "fr-gr-7",
@@ -350,7 +385,14 @@
     "hints": [
       "Passive: être + participle, here in the passé composé."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The report was written by the team last week.",
+    "clozeOptions": [
+      "été",
+      "était",
+      "être",
+      "est"
+    ]
   },
   {
     "id": "fr-gr-28",
@@ -414,7 +456,14 @@
     "hints": [
       "'Qui' is the subject relative pronoun."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The person who called didn't leave any message.",
+    "clozeOptions": [
+      "qui",
+      "que",
+      "dont",
+      "où"
+    ]
   },
   {
     "level": "b1",
@@ -446,7 +495,14 @@
       "The opposite of the active voice."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-gr-b1-61"
+    "id": "fr-gr-b1-61",
+    "translation": "When should I use the passive voice?",
+    "clozeOptions": [
+      "passive",
+      "passif",
+      "active",
+      "passer"
+    ]
   },
   {
     "id": "fr-gr-10",
@@ -516,7 +572,14 @@
     "hints": [
       "The participle agrees with 'les données' (feminine plural)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The data must be analyzed before drawing conclusions.",
+    "clozeOptions": [
+      "analysées",
+      "analysés",
+      "analysée",
+      "analyser"
+    ]
   },
   {
     "id": "fr-gr-37",
@@ -563,7 +626,14 @@
       "'Non seulement ..., ___ ... aussi'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-gr-b2-70"
+    "id": "fr-gr-b2-70",
+    "translation": "Not only did she finish on time, she also improved the draft.",
+    "clozeOptions": [
+      "mais",
+      "et",
+      "ou",
+      "donc"
+    ]
   },
   {
     "level": "b2",

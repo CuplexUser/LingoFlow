@@ -117,7 +117,17 @@
     "hints": [
       "German says 'I come from': kommen + aus."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm from Spain.",
+    "clozeOptions": [
+      "komme",
+      "kommst",
+      "kommt",
+      "kommen"
+    ],
+    "acceptedAnswers": [
+      "bin"
+    ]
   },
   {
     "id": "de-es-a1-11",
@@ -281,7 +291,17 @@
     "hints": [
       "Simple past of 'gehen'; verb in second position after 'Gestern'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "Yesterday I went to school.",
+    "clozeOptions": [
+      "ging",
+      "gehe",
+      "gingen",
+      "gegangen"
+    ],
+    "acceptedAnswers": [
+      "fuhr"
+    ]
   },
   {
     "id": "de-es-a2-6",
@@ -360,7 +380,14 @@
     "hints": [
       "'Sprechen' changes its vowel from e to i with 'du' and 'er/sie/es'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "She speaks English and French.",
+    "clozeOptions": [
+      "spricht",
+      "sprecht",
+      "sprichst",
+      "spreche"
+    ]
   },
   {
     "level": "a2",
@@ -392,7 +419,14 @@
       "'Wiederholen' = to review / go over again."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-es-a2-63"
+    "id": "de-es-a2-63",
+    "translation": "I usually review new words in the evening.",
+    "clozeOptions": [
+      "wiederhole",
+      "wiederholt",
+      "wiederholen",
+      "vergesse"
+    ]
   },
   {
     "level": "a2",
@@ -458,7 +492,17 @@
     "hints": [
       "German uses the present tense with 'seit' for something still going on."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I've been living here for three years.",
+    "clozeOptions": [
+      "wohne",
+      "wohnte",
+      "wohnst",
+      "gewohnt"
+    ],
+    "acceptedAnswers": [
+      "lebe"
+    ]
   },
   {
     "id": "de-es-b1-6",
@@ -566,7 +610,17 @@
       "Past participle of 'verpassen' (to miss)."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-es-b1-71"
+    "id": "de-es-b1-71",
+    "translation": "I understood the idea, but I missed a detail.",
+    "clozeOptions": [
+      "verpasst",
+      "verpassen",
+      "verpasste",
+      "verstanden"
+    ],
+    "acceptedAnswers": [
+      "übersehen"
+    ]
   },
   {
     "level": "b1",
@@ -625,6 +679,13 @@
     "exerciseType": "cloze_sentence",
     "acceptedAnswers": [
       "umso"
+    ],
+    "translation": "The more you practice, the more confident you become.",
+    "clozeOptions": [
+      "desto",
+      "dann",
+      "als",
+      "wie"
     ]
   },
   {
@@ -746,7 +807,14 @@
       "A fine shade of meaning."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-es-b2-78"
+    "id": "de-es-b2-78",
+    "translation": "Could you explain the nuance of this expression?",
+    "clozeOptions": [
+      "Nuance",
+      "Aussprache",
+      "Herkunft",
+      "Schreibweise"
+    ]
   },
   {
     "level": "b2",

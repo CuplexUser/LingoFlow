@@ -119,6 +119,13 @@
     "exerciseType": "cloze_sentence",
     "acceptedAnswers": [
       "suis"
+    ],
+    "translation": "I'm from Spain.",
+    "clozeOptions": [
+      "viens",
+      "vient",
+      "venez",
+      "vais"
     ]
   },
   {
@@ -288,6 +295,13 @@
     "exerciseType": "cloze_sentence",
     "acceptedAnswers": [
       "suis allée"
+    ],
+    "translation": "Yesterday I went to school.",
+    "clozeOptions": [
+      "suis allé",
+      "ai allé",
+      "suis aller",
+      "vais"
     ]
   },
   {
@@ -364,7 +378,14 @@
     "hints": [
       "Third person singular of 'parler'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "She speaks English and French.",
+    "clozeOptions": [
+      "parle",
+      "parles",
+      "parlent",
+      "parlez"
+    ]
   },
   {
     "level": "a2",
@@ -396,7 +417,14 @@
       "'Réviser' = to review/go over."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-es-a2-63"
+    "id": "fr-es-a2-63",
+    "translation": "I usually review new words in the evening.",
+    "clozeOptions": [
+      "révise",
+      "révises",
+      "révisent",
+      "oublie"
+    ]
   },
   {
     "level": "a2",
@@ -463,7 +491,14 @@
     "hints": [
       "French uses the present + 'depuis' for something still going on."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I've been living here for three years.",
+    "clozeOptions": [
+      "habite",
+      "habites",
+      "habitent",
+      "ai habité"
+    ]
   },
   {
     "id": "fr-es-b1-6",
@@ -574,6 +609,13 @@
     "id": "fr-es-b1-71",
     "acceptedAnswers": [
       "manqué"
+    ],
+    "translation": "I understood the idea, but I missed a detail.",
+    "clozeOptions": [
+      "raté",
+      "rater",
+      "rate",
+      "compris"
     ]
   },
   {
@@ -630,7 +672,14 @@
     "hints": [
       "'Plus ..., plus ...' = the more ..., the more ..."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The more you practice, the more confident you become.",
+    "clozeOptions": [
+      "plus",
+      "très",
+      "si",
+      "aussi"
+    ]
   },
   {
     "id": "fr-es-b2-5",
@@ -751,7 +800,14 @@
       "A fine shade of meaning."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "fr-es-b2-78"
+    "id": "fr-es-b2-78",
+    "translation": "Could you explain the nuance of this expression?",
+    "clozeOptions": [
+      "nuance",
+      "prononciation",
+      "origine",
+      "orthographe"
+    ]
   },
   {
     "level": "b2",

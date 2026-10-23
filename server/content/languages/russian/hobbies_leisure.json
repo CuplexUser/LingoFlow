@@ -289,8 +289,17 @@
     "difficulty": "a2",
     "prompt": "Cloze: По выходным я обычно ____ с друзьями.",
     "correctAnswer": "встречаюсь",
-    "hints": ["Use a verb meaning 'meet up'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use a verb meaning 'meet up'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "On weekends I usually meet up with friends.",
+    "clozeOptions": [
+      "встречаюсь",
+      "встречается",
+      "встречаться",
+      "встречаешься"
+    ]
   },
   {
     "id": "ru-ho-a2-c02",
@@ -298,8 +307,17 @@
     "difficulty": "a2",
     "prompt": "Cloze: Летом мы часто ____ на велосипеде.",
     "correctAnswer": "катаемся",
-    "hints": ["The verb means 'ride' and is used for cycling."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "The verb means 'ride' and is used for cycling."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "In summer we often go cycling.",
+    "clozeOptions": [
+      "катаемся",
+      "катаются",
+      "кататься",
+      "катаюсь"
+    ]
   },
   {
     "id": "ru-ho-a2-mc01",
@@ -458,8 +476,17 @@
     "difficulty": "b1",
     "prompt": "Cloze: Я постепенно ____ технику игры на пианино.",
     "correctAnswer": "осваиваю",
-    "hints": ["Use a verb meaning 'master' or 'get the hang of'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use a verb meaning 'master' or 'get the hang of'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm gradually mastering piano technique.",
+    "clozeOptions": [
+      "осваиваю",
+      "осваивает",
+      "осваивать",
+      "осваиваешь"
+    ]
   },
   {
     "id": "ru-ho-b1-c02",
@@ -467,8 +494,17 @@
     "difficulty": "b1",
     "prompt": "Cloze: Чтение помогает мне ____ от повседневных забот.",
     "correctAnswer": "отвлечься",
-    "hints": ["The verb means 'to switch off' or 'take your mind off something'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "The verb means 'to switch off' or 'take your mind off something'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "Reading helps me take my mind off everyday worries.",
+    "clozeOptions": [
+      "отвлечься",
+      "отвлекаюсь",
+      "отвлёкся",
+      "отвлечение"
+    ]
   },
   {
     "id": "ru-ho-b1-c03",
@@ -476,8 +512,17 @@
     "difficulty": "b1",
     "prompt": "Cloze: Мне ____ заниматься спортом на свежем воздухе.",
     "correctAnswer": "нравится",
-    "hints": ["Impersonal construction — the subject is in dative."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Impersonal construction — the subject is in dative."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "I like exercising outdoors.",
+    "clozeOptions": [
+      "нравится",
+      "нравиться",
+      "нравятся",
+      "нравлюсь"
+    ]
   },
   {
     "id": "ru-ho-b1-d01",
@@ -628,8 +673,17 @@
     "difficulty": "b2",
     "prompt": "Cloze: Я постепенно ____ свой кругозор через чтение и путешествия.",
     "correctAnswer": "расширяю",
-    "hints": ["Use a verb meaning 'broaden' or 'expand'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use a verb meaning 'broaden' or 'expand'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm gradually broadening my horizons through reading and travel.",
+    "clozeOptions": [
+      "расширяю",
+      "расширяет",
+      "расширять",
+      "расширяешь"
+    ]
   },
   {
     "id": "ru-ho-b2-c02",
@@ -637,8 +691,17 @@
     "difficulty": "b2",
     "prompt": "Cloze: Я системно ____ знания в области теории музыки.",
     "correctAnswer": "углубляю",
-    "hints": ["A verb meaning 'deepen' — imperfective for ongoing action."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "A verb meaning 'deepen' — imperfective for ongoing action."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm systematically deepening my knowledge of music theory.",
+    "clozeOptions": [
+      "углубляю",
+      "углубляет",
+      "углублять",
+      "углубляешь"
+    ]
   },
   {
     "id": "ru-ho-b2-c03",
@@ -649,7 +712,14 @@
     "hints": [
       "'Чем больше... тем...' = the more... the..."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The more time I spend drawing, the better I get.",
+    "clozeOptions": [
+      "лучше",
+      "хороший",
+      "хорошо",
+      "лучший"
+    ]
   },
   {
     "id": "ru-ho-b2-d01",

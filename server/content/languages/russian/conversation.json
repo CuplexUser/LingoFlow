@@ -208,7 +208,14 @@
     "hints": [
       "'Познакомиться' = to meet/get acquainted (perfective infinitive)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm very glad to meet you.",
+    "clozeOptions": [
+      "познакомиться",
+      "познакомился",
+      "познакомлюсь",
+      "знакомство"
+    ]
   },
   {
     "id": "ru-cv-a2-7",
@@ -350,7 +357,14 @@
     "hints": [
       "'Разбираться в + prepositional' = to understand / be knowledgeable about."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "To be honest, I don't know much about politics.",
+    "clozeOptions": [
+      "разбираюсь",
+      "разбираешься",
+      "разбирается",
+      "разбираться"
+    ]
   },
   {
     "id": "ru-cv-b1-7",
@@ -522,7 +536,14 @@
     "hints": [
       "'Без умысла' = without ill intent, unintentionally. 'Без' takes the genitive."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I didn't mean to hurt you: I said it without any ill intent.",
+    "clozeOptions": [
+      "умысла",
+      "умысел",
+      "умыслом",
+      "умыслу"
+    ]
   },
   {
     "id": "ru-cv-b2-9",
@@ -680,7 +701,8 @@
       "встретил",
       "видел",
       "знал"
-    ]
+    ],
+    "translation": "Sorry, I didn't understand you. Can you say it again?"
   },
   {
     "id": "ru-co-a2-4",
@@ -769,7 +791,8 @@
       "отменяется",
       "начинается",
       "завершается"
-    ]
+    ],
+    "translation": "If I understood you correctly, you mean the project is delayed?"
   },
   {
     "id": "ru-co-b1-4",
@@ -854,10 +877,11 @@
     "exerciseType": "cloze_sentence",
     "clozeOptions": [
       "краткосрочную",
-      "ближайшую",
-      "срочную",
-      "конкретную"
-    ]
+      "краткосрочная",
+      "краткосрочной",
+      "долгосрочную"
+    ],
+    "translation": "Let me clarify: do you mean the short term or the long term?"
   },
   {
     "id": "ru-co-b2-3",

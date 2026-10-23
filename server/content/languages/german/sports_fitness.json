@@ -290,7 +290,14 @@
       "'Dauern' = to last."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-sp-a2-51"
+    "id": "de-sp-a2-51",
+    "translation": "How long does your workout usually last?",
+    "clozeOptions": [
+      "dauert",
+      "dauern",
+      "dauerst",
+      "gedauert"
+    ]
   },
   {
     "id": "de-sf-b1-1",
@@ -426,6 +433,13 @@
     "id": "de-sp-b1-61",
     "acceptedAnswers": [
       "am Ball"
+    ],
+    "translation": "What strategy do you use to stick with your training?",
+    "clozeOptions": [
+      "dran",
+      "drin",
+      "drauf",
+      "weg"
     ]
   },
   {
@@ -530,7 +544,17 @@
       "The rest period that lets the body recover."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-sp-b2-70"
+    "id": "de-sp-b2-70",
+    "translation": "Performance improves when recovery is treated as part of training.",
+    "clozeOptions": [
+      "Erholung",
+      "Ernährung",
+      "Erhöhung",
+      "Belastung"
+    ],
+    "acceptedAnswers": [
+      "Regeneration"
+    ]
   },
   {
     "level": "b2",

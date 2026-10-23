@@ -100,7 +100,14 @@
     "hints": [
       "First person of 'sein'. No article before jobs and roles."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm a student.",
+    "clozeOptions": [
+      "bin",
+      "ist",
+      "bist",
+      "sind"
+    ]
   },
   {
     "id": "de-cv-a1-9",
@@ -234,7 +241,14 @@
     "hints": [
       "'Sprechen' changes its vowel: sie spricht."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "She speaks three languages fluently.",
+    "clozeOptions": [
+      "spricht",
+      "sprechen",
+      "sprecht",
+      "sprichst"
+    ]
   },
   {
     "id": "de-cv-a2-6",
@@ -358,7 +372,14 @@
       "A preposition meaning 'after'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-co-a2-59"
+    "id": "de-co-a2-59",
+    "translation": "What do you usually do after work?",
+    "clozeOptions": [
+      "nach",
+      "vor",
+      "bei",
+      "seit"
+    ]
   },
   {
     "id": "de-co-5",
@@ -420,7 +441,14 @@
     "hints": [
       "Past subjunctive: hätte + past participle."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I would have come along if I had had time.",
+    "clozeOptions": [
+      "gehabt",
+      "haben",
+      "hatte",
+      "habe"
+    ]
   },
   {
     "id": "de-cv-b1-6",
@@ -532,7 +560,14 @@
       "Past participle of 'sich entspannen'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-co-b1-67"
+    "id": "de-co-b1-67",
+    "translation": "I was nervous at first, then I relaxed.",
+    "clozeOptions": [
+      "entspannt",
+      "entspannen",
+      "entspannte",
+      "aufgeregt"
+    ]
   },
   {
     "id": "de-co-7",
@@ -584,7 +619,14 @@
     "hints": [
       "Verb-first 'Hätte sie...' replaces 'wenn'; past participle of 'sich ausdrücken'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "If she had expressed herself more clearly, the misunderstanding wouldn't have happened.",
+    "clozeOptions": [
+      "ausgedrückt",
+      "ausdrücken",
+      "ausdrückte",
+      "ausgedacht"
+    ]
   },
   {
     "id": "de-cv-b2-6",
@@ -683,7 +725,18 @@
       "'Näher ausführen' = to elaborate."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "de-co-b2-74"
+    "id": "de-co-b2-74",
+    "translation": "Could you please elaborate on this argument?",
+    "clozeOptions": [
+      "ausführen",
+      "ausgeführt",
+      "ausführt",
+      "abkürzen"
+    ],
+    "acceptedAnswers": [
+      "erläutern",
+      "erklären"
+    ]
   },
   {
     "level": "b2",

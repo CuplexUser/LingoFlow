@@ -150,6 +150,13 @@
     "correctAnswer": "sju",
     "hints": [
       "Monday through Sunday."
+    ],
+    "translation": "A week has seven days.",
+    "clozeOptions": [
+      "sju",
+      "sex",
+      "åtta",
+      "fem"
     ]
   },
   {
@@ -214,6 +221,13 @@
     "correctAnswer": "tre",
     "hints": [
       "Spell out the number word, not the digit."
+    ],
+    "translation": "4 − 1 = three",
+    "clozeOptions": [
+      "tre",
+      "fyra",
+      "två",
+      "fem"
     ]
   },
   {
@@ -281,6 +295,13 @@
     "correctAnswer": "fem",
     "hints": [
       "Count them!"
+    ],
+    "translation": "I have five fingers on each hand.",
+    "clozeOptions": [
+      "fem",
+      "fyra",
+      "sex",
+      "tio"
     ]
   },
   {
@@ -392,6 +413,13 @@
     "correctAnswer": "fem",
     "hints": [
       "Split ten into two equal groups."
+    ],
+    "translation": "10 ÷ 2 = five",
+    "clozeOptions": [
+      "fem",
+      "två",
+      "tjugo",
+      "tolv"
     ]
   },
   {
@@ -420,6 +448,13 @@
     "correctAnswer": "tjugofyra",
     "hints": [
       "Not twenty-five, not twenty-three — exactly in between."
+    ],
+    "translation": "A day has twenty-four hours.",
+    "clozeOptions": [
+      "tjugofyra",
+      "tjugotre",
+      "tjugofem",
+      "fjorton"
     ]
   },
   {
@@ -469,6 +504,13 @@
     "correctAnswer": "dussin",
     "hints": [
       "Bakers and recipe writers love this word."
+    ],
+    "translation": "A dozen eggs is twelve eggs.",
+    "clozeOptions": [
+      "dussin",
+      "tjog",
+      "par",
+      "tiotal"
     ]
   },
   {
@@ -542,6 +584,13 @@
     "correctAnswer": "fjärde",
     "hints": [
       "One step after the third-place bronze medal."
+    ],
+    "translation": "She came in fourth, just off the podium.",
+    "clozeOptions": [
+      "fjärde",
+      "fyra",
+      "tredje",
+      "femte"
     ]
   },
   {
@@ -599,9 +648,16 @@
     "difficulty": "b1",
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: ___ av klassen klarade provet — trettio av fyrtio elever.",
-    "correctAnswer": "tre fjärdedelar",
+    "correctAnswer": "Tre fjärdedelar",
     "hints": [
       "30 av 40 = 75 %."
+    ],
+    "translation": "Three quarters of the class passed the test: thirty out of forty students.",
+    "clozeOptions": [
+      "Tre fjärdedelar",
+      "Två tredjedelar",
+      "Hälften",
+      "Tre femtedelar"
     ]
   },
   {
@@ -698,6 +754,13 @@
     "correctAnswer": "dela",
     "hints": [
       "Divide equally between friends at a restaurant."
+    ],
+    "translation": "We have to split the bill three ways, about twenty euros each.",
+    "clozeOptions": [
+      "dela",
+      "delar",
+      "delat",
+      "lägga"
     ]
   },
   {
@@ -750,6 +813,13 @@
     ],
     "acceptedAnswers": [
       "30-årsåldern"
+    ],
+    "translation": "He's in his thirties: he turned thirty-five last week.",
+    "clozeOptions": [
+      "trettioårsåldern",
+      "fyrtioårsåldern",
+      "tjugoårsåldern",
+      "trettio"
     ]
   },
   {
@@ -797,6 +867,13 @@
     "acceptedAnswers": [
       "cirka tjugo",
       "runt tjugo"
+    ],
+    "translation": "The ticket costs about twenty euros, give or take a few cents.",
+    "clozeOptions": [
+      "ungefär tjugo",
+      "exakt tjugo",
+      "ungefär tolv",
+      "minst tjugo"
     ]
   },
   {
@@ -867,6 +944,13 @@
     "correctAnswer": "ihop",
     "hints": [
       "'Det går inte ihop' = it doesn't add up."
+    ],
+    "translation": "The numbers don't add up: the costs are far too high.",
+    "clozeOptions": [
+      "ihop",
+      "ut",
+      "av",
+      "bort"
     ]
   },
   {
@@ -910,6 +994,13 @@
     "correctAnswer": "nummer ett",
     "hints": [
       "To be 'number ___' means to be first or most important."
+    ],
+    "translation": "She's suspect number one: the detective is focusing entirely on her.",
+    "clozeOptions": [
+      "nummer ett",
+      "nummer två",
+      "ett nummer",
+      "nummer första"
     ]
   },
   {
@@ -967,6 +1058,13 @@
     "correctAnswer": "Inga pengar",
     "hints": [
       "'No ___ of money' means nothing can buy or persuade you."
+    ],
+    "translation": "No money in the world would get me to fly again after that experience.",
+    "clozeOptions": [
+      "Inga pengar",
+      "Alla pengar",
+      "Några pengar",
+      "Ingen pengar"
     ]
   },
   {
@@ -1010,6 +1108,13 @@
     "correctAnswer": "sparlåga",
     "hints": [
       "'På sparlåga' = on a low flame — running on almost no money."
+    ],
+    "translation": "After several years of cuts, the organization runs on a shoestring.",
+    "clozeOptions": [
+      "sparlåga",
+      "högvarv",
+      "sparbank",
+      "autopilot"
     ]
   },
   {

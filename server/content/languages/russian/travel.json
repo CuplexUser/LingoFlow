@@ -325,8 +325,17 @@
     "difficulty": "a2",
     "prompt": "Cloze: Я хочу ____ номер на три ночи.",
     "correctAnswer": "забронировать",
-    "hints": ["Use the perfective infinitive meaning 'to book' or 'to reserve'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use the perfective infinitive meaning 'to book' or 'to reserve'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "I'd like to book a room for three nights.",
+    "clozeOptions": [
+      "забронировать",
+      "забронирую",
+      "забронировал",
+      "бронь"
+    ]
   },
   {
     "id": "ru-tr-a2-c02",
@@ -334,8 +343,17 @@
     "difficulty": "a2",
     "prompt": "Cloze: Поезд ____ через десять минут.",
     "correctAnswer": "отправляется",
-    "hints": ["Use a verb meaning 'departs' or 'leaves'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use a verb meaning 'departs' or 'leaves'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "The train leaves in ten minutes.",
+    "clozeOptions": [
+      "отправляется",
+      "отправляются",
+      "отправляться",
+      "отправляюсь"
+    ]
   },
   {
     "id": "ru-tr-a2-mc01",
@@ -512,8 +530,17 @@
     "difficulty": "b1",
     "prompt": "Cloze: Рейс ____ на два часа из-за тумана.",
     "correctAnswer": "задержали",
-    "hints": ["Use past tense of 'задержать' — to delay (perfective, impersonal use)."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use past tense of 'задержать' — to delay (perfective, impersonal use)."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "The flight was delayed two hours because of fog.",
+    "clozeOptions": [
+      "задержали",
+      "задержать",
+      "задержка",
+      "задерживаю"
+    ]
   },
   {
     "id": "ru-tr-b1-c02",
@@ -521,8 +548,17 @@
     "difficulty": "b1",
     "prompt": "Cloze: Нам пришлось ____ в соседнем городе, потому что не было мест.",
     "correctAnswer": "остановиться",
-    "hints": ["Use the perfective of 'останавливаться' — to stay overnight."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use the perfective of 'останавливаться' — to stay overnight."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "We had to stay in the next town because there were no rooms.",
+    "clozeOptions": [
+      "остановиться",
+      "остановились",
+      "остановимся",
+      "остановка"
+    ]
   },
   {
     "id": "ru-tr-b1-c03",
@@ -530,8 +566,17 @@
     "difficulty": "b1",
     "prompt": "Cloze: Я взял с собой только ручную ____.",
     "correctAnswer": "кладь",
-    "hints": ["'Ручная кладь' = hand luggage — a set phrase."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "'Ручная кладь' = hand luggage — a set phrase."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "I only brought carry-on luggage.",
+    "clozeOptions": [
+      "кладь",
+      "клади",
+      "кладью",
+      "кладёт"
+    ]
   },
   {
     "id": "ru-tr-b1-mc01",
@@ -715,8 +760,17 @@
     "difficulty": "b2",
     "prompt": "Cloze: Я предпочитаю путешествовать ____, без лишнего багажа.",
     "correctAnswer": "налегке",
-    "hints": ["An adverb meaning 'light' or 'with little luggage'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "An adverb meaning 'light' or 'with little luggage'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "I prefer to travel light, without extra luggage.",
+    "clozeOptions": [
+      "налегке",
+      "лёгкий",
+      "лёгкого",
+      "облегчить"
+    ]
   },
   {
     "id": "ru-tr-b2-c02",
@@ -724,8 +778,17 @@
     "difficulty": "b2",
     "prompt": "Cloze: Чем раньше покупаешь билеты, тем ____ они стоят.",
     "correctAnswer": "дешевле",
-    "hints": ["'Чем раньше... тем...' = the earlier..., the...; use a comparative."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "'Чем раньше... тем...' = the earlier..., the...; use a comparative."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "The earlier you buy tickets, the cheaper they are.",
+    "clozeOptions": [
+      "дешевле",
+      "дешёвый",
+      "дёшево",
+      "дешёвые"
+    ]
   },
   {
     "id": "ru-tr-b2-c03",
@@ -733,8 +796,17 @@
     "difficulty": "b2",
     "prompt": "Cloze: Несмотря на задержку, мы успели ____ на стыковочный рейс.",
     "correctAnswer": "сесть",
-    "hints": ["'Успеть' + infinitive = to manage to do something in time; 'сесть на рейс' = to catch a flight."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "'Успеть' + infinitive = to manage to do something in time; 'сесть на рейс' = to catch a flight."
+    ],
+    "exerciseType": "cloze_sentence",
+    "translation": "Despite the delay, we made our connecting flight.",
+    "clozeOptions": [
+      "сесть",
+      "сели",
+      "садиться",
+      "сядем"
+    ]
   },
   {
     "id": "ru-tr-b2-mc01",

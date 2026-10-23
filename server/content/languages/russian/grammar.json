@@ -352,20 +352,36 @@
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Cloze: Я регулярно ____ новые правила.",
-    "translation": "I regularly ____ new rules.",
+    "translation": "I regularly review new rules.",
     "correctAnswer": "повторяю",
-    "hints": ["Use a verb meaning 'revise' or 'go over again'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use a verb meaning 'revise' or 'go over again'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "повторяю",
+      "повторяет",
+      "повторять",
+      "повторяешь"
+    ]
   },
   {
     "id": "ru-gr-a2-c02",
     "level": "a2",
     "difficulty": "a2",
     "prompt": "Cloze: У меня ____ вопрос.",
-    "translation": "I ____ a question.",
+    "translation": "I have a question.",
     "correctAnswer": "есть",
-    "hints": ["'У меня есть' = I have."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "'У меня есть' = I have."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "есть",
+      "быть",
+      "имею",
+      "ест"
+    ]
   },
   {
     "id": "ru-gr-a2-mc01",
@@ -553,30 +569,57 @@
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Cloze: Если бы он больше читал, его словарный запас ____ лучше.",
-    "translation": "If he read more, his vocabulary ____ better.",
+    "translation": "If he read more, his vocabulary would be better.",
     "correctAnswer": "был бы",
-    "hints": ["Hypothetical result = past tense + 'бы'."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Hypothetical result = past tense + 'бы'."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "был бы",
+      "будет",
+      "был",
+      "будь"
+    ]
   },
   {
     "id": "ru-gr-b1-c02",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Cloze: Я уже ____ этот фильм, поэтому не хочу смотреть снова.",
-    "translation": "I already ____ this film, so I don't want to watch it again.",
+    "translation": "I've already seen this film, so I don't want to watch it again.",
     "correctAnswer": "видел",
-    "hints": ["Use imperfective past — the fact of having seen it matters, not the single event."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use imperfective past — the fact of having seen it matters, not the single event."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "видел",
+      "вижу",
+      "увижу",
+      "видеть"
+    ],
+    "acceptedAnswers": [
+      "видела"
+    ]
   },
   {
     "id": "ru-gr-b1-c03",
     "level": "b1",
     "difficulty": "b1",
     "prompt": "Cloze: Она писала письмо, ____ музыку.",
-    "translation": "She was writing a letter, ____ to music.",
+    "translation": "She was writing a letter while listening to music.",
     "correctAnswer": "слушая",
-    "hints": ["Use a verbal adverb (деепричастие) to describe a simultaneous action."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Use a verbal adverb (деепричастие) to describe a simultaneous action."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "слушая",
+      "слушать",
+      "слушает",
+      "слушающий"
+    ]
   },
   {
     "id": "ru-gr-b1-d01",
@@ -753,30 +796,54 @@
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Cloze: Чем больше я читаю, тем ____ мне даётся произношение.",
-    "translation": "The more I read, the ____ pronunciation comes to me.",
+    "translation": "The more I read, the easier pronunciation comes to me.",
     "correctAnswer": "легче",
-    "hints": ["'Тем' is followed by a comparative form."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "'Тем' is followed by a comparative form."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "легче",
+      "лёгкий",
+      "легко",
+      "лёгкая"
+    ]
   },
   {
     "id": "ru-gr-b2-c02",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Cloze: Я системно ____ знания о временны́х формах глагола.",
-    "translation": "I am systematically ____ my knowledge of verb tenses.",
+    "translation": "I'm systematically deepening my knowledge of verb tenses.",
     "correctAnswer": "углубляю",
-    "hints": ["Imperfective — an ongoing process of deepening knowledge."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "Imperfective — an ongoing process of deepening knowledge."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "углубляю",
+      "углубляет",
+      "углублять",
+      "углубляешь"
+    ]
   },
   {
     "id": "ru-gr-b2-c03",
     "level": "b2",
     "difficulty": "b2",
     "prompt": "Cloze: Не обращая ____ на ошибки, трудно прогрессировать.",
-    "translation": "Without paying ____ to mistakes, it is hard to progress.",
+    "translation": "If you don't pay attention to your mistakes, it's hard to make progress.",
     "correctAnswer": "внимания",
-    "hints": ["'Обращать внимание на' = to pay attention to; 'внимания' is genitive here."],
-    "exerciseType": "cloze_sentence"
+    "hints": [
+      "'Обращать внимание на' = to pay attention to; 'внимания' is genitive here."
+    ],
+    "exerciseType": "cloze_sentence",
+    "clozeOptions": [
+      "внимания",
+      "вниманием",
+      "вниманию",
+      "внимательно"
+    ]
   },
   {
     "id": "ru-gr-b2-d01",

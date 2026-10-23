@@ -164,7 +164,14 @@
     "hints": [
       "'Муж' = husband. The sentence contrasts where the aunt and her husband live."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "My aunt lives in Moscow, and her husband in St. Petersburg.",
+    "clozeOptions": [
+      "муж",
+      "мужа",
+      "мужем",
+      "мужу"
+    ]
   },
   {
     "id": "ru-ff-a2-7",
@@ -274,7 +281,14 @@
     "hints": [
       "'Дружить' = to be friends/close. Imperfective present tense: 'дружим' (we)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "My brother and I are good friends, even though our personalities are completely different.",
+    "clozeOptions": [
+      "дружим",
+      "дружат",
+      "дружите",
+      "дружить"
+    ]
   },
   {
     "id": "ru-ff-b1-7",
@@ -381,7 +395,14 @@
     "hints": [
       "'Ценить' = to value/cherish (imperfective). 'Беречь' = to take care of/preserve."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "True friendship is rare, and it's worth valuing and protecting.",
+    "clozeOptions": [
+      "ценить",
+      "ценит",
+      "ценю",
+      "ценность"
+    ]
   },
   {
     "id": "ru-ff-b2-7",
@@ -522,7 +543,8 @@
       "семьи",
       "семью",
       "семье"
-    ]
+    ],
+    "translation": "On New Year's we always get together as a whole family."
   },
   {
     "id": "ru-fa-a2-4",
@@ -605,7 +627,8 @@
       "подруги",
       "подруг",
       "подругу"
-    ]
+    ],
+    "translation": "She's not just a colleague to me: we've become real friends."
   },
   {
     "id": "ru-fa-b1-4",
@@ -672,10 +695,11 @@
     "exerciseType": "cloze_sentence",
     "clozeOptions": [
       "качество",
-      "верность",
-      "близость",
-      "число"
-    ]
+      "качества",
+      "качеством",
+      "количество"
+    ],
+    "translation": "As you get older, you start to value not the number of friends but their quality."
   },
   {
     "id": "ru-fa-b2-3",

@@ -110,7 +110,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Russian: В неделе ___ дней.",
     "correctAnswer": "семь",
-    "hints": ["Monday through Sunday — семь дней."]
+    "hints": [
+      "Monday through Sunday — семь дней."
+    ],
+    "translation": "There are seven days in a week.",
+    "clozeOptions": [
+      "семь",
+      "шесть",
+      "восемь",
+      "пять"
+    ]
   },
   {
     "id": "ru-num-a1-13",
@@ -155,7 +164,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Russian: 4 − 1 = ___",
     "correctAnswer": "три",
-    "hints": ["Write the number word, not the digit."]
+    "hints": [
+      "Write the number word, not the digit."
+    ],
+    "translation": "4 − 1 = three",
+    "clozeOptions": [
+      "три",
+      "четыре",
+      "два",
+      "пять"
+    ]
   },
   {
     "id": "ru-num-a1-18",
@@ -202,7 +220,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Russian: На каждой руке у меня ___ пальцев.",
     "correctAnswer": "пять",
-    "hints": ["Count them! Remember: after пять, the noun takes the genitive plural."]
+    "hints": [
+      "Count them! Remember: after пять, the noun takes the genitive plural."
+    ],
+    "translation": "I have five fingers on each hand.",
+    "clozeOptions": [
+      "пять",
+      "четыре",
+      "шесть",
+      "десять"
+    ]
   },
   {
     "id": "ru-num-a2-1",
@@ -284,7 +311,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Russian: 10 ÷ 2 = ___",
     "correctAnswer": "пять",
-    "hints": ["Split ten into two equal groups. Write the word, not the digit."]
+    "hints": [
+      "Split ten into two equal groups. Write the word, not the digit."
+    ],
+    "translation": "10 ÷ 2 = five",
+    "clozeOptions": [
+      "пять",
+      "два",
+      "двадцать",
+      "двенадцать"
+    ]
   },
   {
     "id": "ru-num-a2-9",
@@ -310,7 +346,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Russian: В сутках ___ часа.",
     "correctAnswer": "двадцать четыре",
-    "hints": ["Not twenty-five, not twenty-three — exactly in between. 'Часа' (genitive) after 24."]
+    "hints": [
+      "Not twenty-five, not twenty-three — exactly in between. 'Часа' (genitive) after 24."
+    ],
+    "translation": "There are twenty-four hours in a day.",
+    "clozeOptions": [
+      "двадцать четыре",
+      "двадцать три",
+      "двадцать два",
+      "четырнадцать"
+    ]
   },
   {
     "id": "ru-num-a2-11",
@@ -348,6 +393,13 @@
     "correctAnswer": "Дюжина",
     "hints": [
       "An old-fashioned but charming word for twelve of something."
+    ],
+    "translation": "A dozen eggs is twelve eggs.",
+    "clozeOptions": [
+      "Дюжина",
+      "Десяток",
+      "Пара",
+      "Сотня"
     ]
   },
   {
@@ -402,7 +454,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Она финишировала на ___ месте — чуть-чуть не дотянула до пьедестала. (Russian ordinal for 4th)",
     "correctAnswer": "четвёртом",
-    "hints": ["Четвёртый (4th) → четвёртом (prepositional case after 'на'). One step off the podium!"]
+    "hints": [
+      "Четвёртый (4th) → четвёртом (prepositional case after 'на'). One step off the podium!"
+    ],
+    "translation": "She finished fourth, just short of the podium.",
+    "clozeOptions": [
+      "четвёртом",
+      "четвёртый",
+      "четыре",
+      "третьем"
+    ]
   },
   {
     "id": "ru-num-a2-20",
@@ -456,6 +517,13 @@
     "correctAnswer": "Три четверти",
     "hints": [
       "30 out of 40 = 75%."
+    ],
+    "translation": "Three quarters of the class passed the exam: thirty out of forty students.",
+    "clozeOptions": [
+      "Три четверти",
+      "Две трети",
+      "Половина",
+      "Три пятых"
     ]
   },
   {
@@ -520,7 +588,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Нам нужно ___ счёт на троих — примерно по двадцать евро.",
     "correctAnswer": "разделить",
-    "hints": ["Split the bill equally. 'Разделить' = to divide/share between people."]
+    "hints": [
+      "Split the bill equally. 'Разделить' = to divide/share between people."
+    ],
+    "translation": "We need to split the bill three ways, about twenty euros each.",
+    "clozeOptions": [
+      "разделить",
+      "разделил",
+      "умножить",
+      "сложить"
+    ]
   },
   {
     "id": "ru-num-b1-12",
@@ -562,6 +639,13 @@
     "acceptedAnswers": [
       "за тридцать",
       "тридцать с небольшим"
+    ],
+    "translation": "He's a little over thirty: he turned 35 last week.",
+    "clozeOptions": [
+      "чуть больше тридцати",
+      "чуть больше сорока",
+      "чуть меньше тридцати",
+      "ровно тридцать"
     ]
   },
   {
@@ -590,7 +674,19 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Билет стоит ___ двадцать евро.",
     "correctAnswer": "примерно",
-    "hints": ["'Примерно' = approximately / roughly. Shorter than 'приблизительно' and more conversational."]
+    "hints": [
+      "'Примерно' = approximately / roughly. Shorter than 'приблизительно' and more conversational."
+    ],
+    "translation": "The ticket costs about twenty euros.",
+    "clozeOptions": [
+      "примерно",
+      "ровно",
+      "примерный",
+      "примерная"
+    ],
+    "acceptedAnswers": [
+      "приблизительно"
+    ]
   },
   {
     "id": "ru-num-b1-19",
@@ -634,7 +730,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Этот бизнес-план не ___. Цифры не сходятся.",
     "correctAnswer": "сходится",
-    "hints": ["'Цифры не сходятся' = the numbers don't add up. 'Сходиться' = to converge / to add up."]
+    "hints": [
+      "'Цифры не сходятся' = the numbers don't add up. 'Сходиться' = to converge / to add up."
+    ],
+    "translation": "This business plan doesn't add up. The numbers don't match.",
+    "clozeOptions": [
+      "сходится",
+      "сходятся",
+      "сходиться",
+      "сходимся"
+    ]
   },
   {
     "id": "ru-num-b2-4",
@@ -666,6 +771,13 @@
     "correctAnswer": "номер один",
     "hints": [
       "Works just like the English expression for the prime suspect."
+    ],
+    "translation": "She's suspect number one. The detective has focused on her.",
+    "clozeOptions": [
+      "номер один",
+      "номер два",
+      "один номер",
+      "номер первый"
     ]
   },
   {
@@ -711,7 +823,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: ___ заставило бы меня снова сесть в самолёт после того случая.",
     "correctAnswer": "Ничто",
-    "hints": ["'Ничто' = nothing (formal/emphatic). 'Ничто на свете' = nothing in the world."]
+    "hints": [
+      "'Ничто' = nothing (formal/emphatic). 'Ничто на свете' = nothing in the world."
+    ],
+    "translation": "Nothing would make me get on a plane again after that incident.",
+    "clozeOptions": [
+      "Ничто",
+      "Ничего",
+      "Никто",
+      "Всё"
+    ]
   },
   {
     "id": "ru-num-b2-11",
@@ -741,7 +862,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Фонд работает на очень ___ бюджете.",
     "correctAnswer": "скромном",
-    "hints": ["'Скромный бюджет' = a modest/tight budget. 'Скромный' literally means modest or humble."]
+    "hints": [
+      "'Скромный бюджет' = a modest/tight budget. 'Скромный' literally means modest or humble."
+    ],
+    "translation": "The foundation runs on a very modest budget.",
+    "clozeOptions": [
+      "скромном",
+      "скромный",
+      "скромным",
+      "скромная"
+    ]
   },
   {
     "id": "ru-num-b2-14",
