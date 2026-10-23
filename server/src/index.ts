@@ -96,8 +96,10 @@ const {
   sanitizeStoryForClient,
   computeStoryXp,
   recommendNextStory,
-  reconcileContentFingerprints
+  reconcileContentFingerprints,
+  SKILLS
 } = require("./data.ts");
+const { createKnowledge } = require("./knowledge.ts");
 
 // Database work that used to run as an import side effect. The data layer is async
 // now, so it needs an explicit awaited bootstrap before the server serves traffic.
@@ -134,6 +136,7 @@ const { registerUserRoutes } = require("./routes/userRoutes.ts");
 const { registerAuthRoutes } = require("./routes/authRoutes.ts");
 const { registerTtsRoutes } = require("./routes/ttsRoutes.ts");
 const { createLearningPath, registerPathRoutes } = require("./routes/pathRoutes.ts");
+const { registerKnowledgeRoutes } = require("./routes/knowledgeRoutes.ts");
 const { createTokenService } = require("./auth/tokenService.ts");
 const { hashPassword, verifyPassword } = require("./auth/password.ts");
 
@@ -435,6 +438,14 @@ async function createApp(): Promise<any> {
     evaluateAttempt,
     crypto
   });
+  const knowledge = createKnowledge({
+    database,
+    SKILLS,
+    getAllItems,
+    LEVEL_ORDER,
+    levelNames: learningPath.LEVEL_NAMES,
+    getUnitsByLevel: learningPath.getUnitsByLevel
+  });
   registerSessionRoutes(app, {
     requireAuth,
     database,
@@ -447,12 +458,16 @@ async function createApp(): Promise<any> {
     crypto,
     getLevelCap,
     LEVEL_ORDER,
-    learningPath
+    learningPath,
+    SKILLS
   });
   registerPathRoutes(app, { requireAuth, database, LANGUAGES, getLevelCap }, learningPath);
+  registerKnowledgeRoutes(app, { requireAuth, LANGUAGES, getLevelCap, knowledge });
   registerUserRoutes(app, {
     requireAuth,
     database,
+    getLevelCap,
+    knowledge,
     injectCommunityItem,
     premiumEntitlement: PREMIUM_ENTITLEMENT,
     isComplimentaryPremium

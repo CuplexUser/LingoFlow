@@ -856,7 +856,8 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     random,
     dailyMode = false,
     maxLevel = "",
-    exactLevel = ""
+    exactLevel = "",
+    skill = ""
   }) {
     const randomFn = typeof random === "function" ? random : Math.random;
     const isPracticeMode = Boolean(mode);
@@ -864,13 +865,15 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       ? buildPracticePool(getAllItems, language, practicePool, extraPoolItems)
       : getCategoryItems(language, category);
     // maxLevel caps content for free-tier app users; levels above it never reach the pool.
-    // exactLevel pins a learning-path lesson to its unit's level.
+    // exactLevel pins a learning-path lesson to its unit's level, and skill keeps only the
+    // items that teach one skill.
     const maxLevelRank = levelRank(maxLevel);
     const exactLevelRank = levelRank(exactLevel);
     const all = filterItemsForMode(sourceItems, mode).filter((item) => {
       const rank = levelRank(resolveDifficulty(item));
       return (maxLevelRank < 0 || rank <= maxLevelRank) &&
-        (exactLevelRank < 0 || rank === exactLevelRank);
+        (exactLevelRank < 0 || rank === exactLevelRank) &&
+        (!skill || (Array.isArray(item.skills) && item.skills.includes(skill)));
     });
     if (!all.length) {
       return {

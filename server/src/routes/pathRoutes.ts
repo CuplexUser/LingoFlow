@@ -630,9 +630,11 @@ function createLearningPath(deps: any) {
 
   return {
     lessonsForUnit,
+    LEVEL_NAMES,
     CHECKPOINT_CATEGORY,
     PLACEMENT_CATEGORY,
     normalizeLevel,
+    getUnitsByLevel,
     buildPath,
     applySessionCompletion,
     startLesson,

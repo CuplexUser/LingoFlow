@@ -1778,6 +1778,42 @@ async function getKnownNotDueItemIds(userId: number, language: string, today = t
   return rows.map((row: any) => row.item_id);
 }
 
+// Where every item a learner has met in a language stands, for the knowledge map.
+async function getItemProgressForLanguage(userId: number, language: string) {
+  const rows = await db.prepare(`
+    SELECT item_id, streak, attempts, correct, error_count, last_seen_date, next_due_date, flashcard_known
+    FROM item_progress
+    WHERE user_id = ? AND language = ?
+  `).all(userId, language);
+  return rows.map((row: any) => ({
+    itemId: String(row.item_id),
+    streak: Number(row.streak) || 0,
+    attempts: Number(row.attempts) || 0,
+    correct: Number(row.correct) || 0,
+    errorCount: Number(row.error_count) || 0,
+    lastSeenDate: row.last_seen_date || null,
+    nextDueDate: row.next_due_date || null,
+    flashcardKnown: Number(row.flashcard_known) === 1
+  }));
+}
+
+// A learner's latest answers in a language, newest first.
+async function getRecentAttempts(userId: number, language: string, limit = 3000) {
+  const rows = await db.prepare(`
+    SELECT item_id, question_type, correct, created_at
+    FROM attempt_history
+    WHERE user_id = ? AND language = ?
+    ORDER BY created_at DESC, id DESC
+    LIMIT ?
+  `).all(userId, language, limit);
+  return rows.map((row: any) => ({
+    itemId: String(row.item_id),
+    questionType: String(row.question_type || ""),
+    correct: Number(row.correct) === 1,
+    createdAt: row.created_at
+  }));
+}
+
 async function getMistakeReviewSelection(userId = 1, language, limit = 10) {
   const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(20, limit)) : 10;
   // Fetch a larger pool so we can randomise without losing the worst items
@@ -3593,6 +3629,8 @@ module.exports = {
   isBookmarked,
   getKnownFlashcardItems,
   getKnownNotDueItemIds,
+  getItemProgressForLanguage,
+  getRecentAttempts,
   getSpeedMatchHighscore,
   updateSpeedMatchHighscore,
   saveReviewWord,

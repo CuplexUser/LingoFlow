@@ -35,6 +35,9 @@ app (React) and the API (Express) that both the web app and the Android app use.
   many exercises it has, and its last lesson reviews it. A placement check sets where the
   path starts, and checks let a learner test out of one unit, a section of four units or
   the rest of a level.
+- **Knowledge map** (`/api/knowledge`): every item belongs to one or two skills, and each
+  skill shows as not started, learning, weak, shaky, known or strong, worked out from
+  spaced-repetition progress and recent answers (thresholds in `server/src/knowledge.ts`).
 - **Daily challenge:** one fresh session a day, drawn from several categories.
 - **Spaced repetition:** due and weak items come back first; words marked "I knew this"
   stay out until they are due.
@@ -460,7 +463,7 @@ server/content/
 | `GET` / `PUT` | `/api/settings` | Learner settings |
 | `GET` | `/api/course?language=<id>` | Course catalog with progress |
 | `GET` | `/api/content/metrics?language=<id>` | Content per level |
-| `POST` | `/api/session/start` | Start a session; `mode: "mistakes"` with `category: "__mistakes__"` drills past mistakes |
+| `POST` | `/api/session/start` | Start a session; `mode: "mistakes"` with `category: "__mistakes__"` drills past mistakes; `skill` practices one skill |
 | `POST` | `/api/session/daily` | Start the daily challenge |
 | `POST` | `/api/session/complete` | Submit a session's answers |
 | `GET` | `/api/path?language=<id>` | The learning path |
@@ -468,11 +471,12 @@ server/content/
 | `POST` | `/api/path/lesson` | Start a path lesson |
 | `POST` | `/api/path/checkpoint` | Start a check (`scope`: `unit`, `section` or `level`) |
 | `POST` | `/api/placement/start`, `/api/placement/complete` | The placement check |
+| `GET` | `/api/knowledge?language=<id>` | The knowledge map: skills per unit with their state |
 | `GET` | `/api/practice/speed-match?language=<id>` | Speed Match words and personal best |
 | `POST` | `/api/practice/speed-match/score` | Save a Speed Match score |
 | `GET` | `/api/progress?language=<id>` | Progress in one language |
 | `GET` | `/api/progress-overview` | Progress in every language |
-| `GET` | `/api/stats?language=<id>` | Stats page data |
+| `GET` | `/api/stats?language=<id>` | Stats page data, with the weakest skills in `weakSkills` |
 | `GET` | `/api/user/achievements` | Earned achievements (`?all=1` for every one, with progress) |
 | `GET` / `POST` | `/api/bookmarks` | List or add bookmarks |
 | `DELETE` | `/api/bookmarks/:questionId` | Remove a bookmark |

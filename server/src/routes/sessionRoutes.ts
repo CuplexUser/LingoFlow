@@ -82,7 +82,8 @@ function registerSessionRoutes(
     crypto,
     getLevelCap,
     LEVEL_ORDER,
-    learningPath
+    learningPath,
+    SKILLS
   } = deps;
 
   app.post("/api/session/start", requireAuth, async (req: any, res: any) => {
@@ -90,6 +91,12 @@ function registerSessionRoutes(
     const { language, category, count, mode } = req.body || {};
     if (!language || !category) {
       return res.status(400).json({ error: "language and category are required" });
+    }
+    // "Practice this skill" from the knowledge map: only the skill's items, at its level.
+    const skillId = mode ? "" : String(req.body?.skill || "");
+    const skill = skillId && SKILLS ? SKILLS.getSkill(language, skillId) : null;
+    if (skillId && !skill) {
+      return res.status(400).json({ error: "Unknown skill" });
     }
 
     await database.pruneExpiredActiveSessions(userId, database.toIsoDate());
@@ -111,6 +118,12 @@ function registerSessionRoutes(
       : [];
     // Free-tier app users only get content up to the cap; the daily challenge is exempt.
     const levelCap = await getLevelCap(req);
+    if (skill && levelCap && LEVEL_ORDER.indexOf(skill.level) > LEVEL_ORDER.indexOf(levelCap)) {
+      return res.status(402).json({
+        error: "This content requires LingoFlow Premium",
+        code: "premium_required"
+      });
+    }
     const selfRatedLevel = levelCap &&
       LEVEL_ORDER.indexOf(settings.selfRatedLevel) > LEVEL_ORDER.indexOf(levelCap)
       ? levelCap
@@ -128,7 +141,9 @@ function registerSessionRoutes(
       focusItemIds: mistakeSelection.itemIds,
       extraPoolItems,
       count: safeCount,
-      mode
+      mode,
+      skill: skill?.id || "",
+      exactLevel: skill?.level || ""
     });
 
     if (!session.questions.length) {

@@ -26,7 +26,7 @@ function toUserId(value: unknown): number | null {
 }
 
 function registerUserRoutes(app: any, deps: any): void {
-  const { requireAuth, database, injectCommunityItem, premiumEntitlement, isComplimentaryPremium } = deps;
+  const { requireAuth, database, injectCommunityItem, premiumEntitlement, isComplimentaryPremium, getLevelCap, knowledge } = deps;
   const revenueCatSecretKey = String(process.env.REVENUECAT_SECRET_API_KEY || "").trim();
   const revenueCatWebhookAuth = String(process.env.REVENUECAT_WEBHOOK_AUTH || "").trim();
 
@@ -239,7 +239,11 @@ function registerUserRoutes(app: any, deps: any): void {
     const settings = await database.getSettings(userId);
     const language = String(req.query.language || settings.targetLanguage || "spanish").toLowerCase();
     const stats = await database.getStats(userId, language);
-    res.json(stats);
+    // weakSkills replaces objectiveStats, which stays for a release so older apps keep working.
+    const weakSkills = knowledge
+      ? (await knowledge.buildKnowledge(userId, language, await getLevelCap(req))).weakest
+      : [];
+    res.json({ ...stats, weakSkills });
   });
 
   app.get("/api/visitors/stats", requireAuth, async (req: any, res: any) => {
