@@ -135,7 +135,7 @@ const { registerSessionRoutes } = require("./routes/sessionRoutes.ts");
 const { registerUserRoutes } = require("./routes/userRoutes.ts");
 const { registerAuthRoutes } = require("./routes/authRoutes.ts");
 const { registerTtsRoutes } = require("./routes/ttsRoutes.ts");
-const { createLearningPath, registerPathRoutes } = require("./routes/pathRoutes.ts");
+const { LEVEL_NAMES, createLearningPath, registerPathRoutes } = require("./routes/pathRoutes.ts");
 const { registerKnowledgeRoutes } = require("./routes/knowledgeRoutes.ts");
 const { createTokenService } = require("./auth/tokenService.ts");
 const { hashPassword, verifyPassword } = require("./auth/password.ts");
@@ -429,6 +429,16 @@ async function createApp(): Promise<any> {
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
   registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap });
+  // The knowledge map lists the path's units, and the path's exams read the map, so each
+  // looks the other up when called rather than when created.
+  const knowledge = createKnowledge({
+    database,
+    SKILLS,
+    getAllItems,
+    LEVEL_ORDER,
+    levelNames: LEVEL_NAMES,
+    getUnitsByLevel: (language: string) => learningPath.getUnitsByLevel(language)
+  });
   const learningPath = createLearningPath({
     database,
     CATEGORIES,
@@ -436,15 +446,9 @@ async function createApp(): Promise<any> {
     getAllItems,
     generateSession,
     evaluateAttempt,
-    crypto
-  });
-  const knowledge = createKnowledge({
-    database,
+    crypto,
     SKILLS,
-    getAllItems,
-    LEVEL_ORDER,
-    levelNames: learningPath.LEVEL_NAMES,
-    getUnitsByLevel: learningPath.getUnitsByLevel
+    knowledge
   });
   registerSessionRoutes(app, {
     requireAuth,

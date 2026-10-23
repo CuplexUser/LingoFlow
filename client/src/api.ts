@@ -8,6 +8,7 @@ import type {
   CourseCategory
 } from "./types/course";
 import type { ContributionModerationStatus, ContributionSubmission } from "./types/contribution";
+import type { KnowledgeMap } from "./types/knowledge";
 import type {
   Story,
   StorySummary,
@@ -125,6 +126,8 @@ export type SessionStartPayload = {
   category: string;
   count: number;
   mode?: string;
+  // Practice one skill from the knowledge map.
+  skill?: string;
 };
 
 export type SessionCompletePayload = {
@@ -496,6 +499,8 @@ export const api = {
   getProgressOverview: () => request<ProgressOverview>("/progress-overview"),
   getStats: (language?: string) =>
     request<StatsData>(`/stats${language ? `?language=${encodeURIComponent(language)}` : ""}`),
+  getKnowledge: (language: string) =>
+    request<KnowledgeMap>(`/knowledge?language=${encodeURIComponent(language)}`),
   completeSession: (payload: SessionCompletePayload) =>
     request<CompleteSessionResponse>("/session/complete", { method: "POST", body: JSON.stringify(payload) }),
   getAchievements: () => request<Achievement[]>("/user/achievements"),

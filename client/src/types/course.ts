@@ -1,3 +1,5 @@
+import type { SkillRef } from "./knowledge";
+
 export type LanguageOption = {
   id: string;
   label: string;
@@ -63,6 +65,8 @@ export type StatsData = {
   weeklyGoalProgress?: number;
   weakestCategories?: string[];
   objectiveStats?: StatsObjectiveEntry[];
+  // The skills to work on first.
+  weakSkills?: SkillRef[];
   errorTypeTrend?: ErrorTypeTrendEntry[];
   recommendedCategories?: string[];
   categoryStats?: Array<{

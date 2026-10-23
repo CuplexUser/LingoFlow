@@ -21,6 +21,8 @@ export type SessionContextValue = {
   clearAchievementUnlocks: () => void;
   startCategory: (category: CourseCategory) => Promise<void>;
   startPractice: (mode: PracticeMode, category: CourseCategory) => Promise<void>;
+  // A short session of one skill's items, from the knowledge map or Stats.
+  practiceSkill: (skill: { id: string; label: string; category: string }) => Promise<void>;
   startDailyChallenge: () => Promise<void>;
   finishSession: (report: SessionReport) => Promise<void>;
   startMistakeReview: () => void;

@@ -415,6 +415,31 @@ test("questions carry their item's skills, or the unit's basics when it has none
   assert.deepEqual(byId("es-sk-2")?.skills, ["food_cooking.a2.general"]);
 });
 
+test("a session can keep to some exercise types and to one skill", () => {
+  const items = [
+    ...SPANISH_FOOD_POOL,
+    { id: "es-sk-fl", level: "a2", difficulty: "a2", prompt: "the bread", correctAnswer: "el pan", exerciseType: "flashcard", skills: ["food_cooking.home-cooking"] },
+    { id: "es-sk-pr", level: "a2", difficulty: "a2", prompt: "Say: I bake bread.", correctAnswer: "Horneo pan.", exerciseType: "pronunciation", skills: ["food_cooking.home-cooking"] },
+    { id: "es-sk-bu", level: "a2", difficulty: "a2", prompt: "Say: I cook rice.", correctAnswer: "Cocino arroz.", exerciseType: "build_sentence", skills: ["food_cooking.home-cooking"] }
+  ];
+  const selectors = createCourseSelectors({ spanish: { food_cooking: items } });
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  const session = generateSession({
+    language: "spanish",
+    category: "food_cooking",
+    count: 10,
+    selfRatedLevel: "a2",
+    skill: "food_cooking.home-cooking",
+    questionTypes: ["mc_sentence", "build_sentence"],
+    random: () => 0.5
+  });
+  assert.deepEqual(session.questions.map((q: any) => q.id).sort(), ["es-sk-bu", "es-sk-fl", "es-sk-pr"]);
+  const typeOf = (id: string) => session.questions.find((q: any) => q.id === id)?.type;
+  assert.equal(typeOf("es-sk-fl"), "mc_sentence");
+  assert.equal(typeOf("es-sk-pr"), "mc_sentence");
+  assert.equal(typeOf("es-sk-bu"), "build_sentence");
+});
+
 test("only items authored as cloze become fill-in-the-blank", () => {
   for (const seed of [1, 2, 3, 4, 5]) {
     let state = seed;

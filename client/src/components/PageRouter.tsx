@@ -1,4 +1,5 @@
 import { BookmarksPage } from "./BookmarksPage";
+import { KnowledgePage } from "./KnowledgePage";
 import { ContributePage } from "./ContributePage";
 import { LearnPage } from "./LearnPage";
 import { PracticePage } from "./PracticePage";
@@ -67,6 +68,10 @@ export function PageRouter() {
         onOpenStory={() => navigateToPage("story")}
       />
     );
+  }
+
+  if (activePage === "knowledge") {
+    return <KnowledgePage currentLevel={settings?.selfRatedLevel} />;
   }
 
   if (activePage === "bookmarks") {
@@ -150,6 +155,7 @@ export function PageRouter() {
         progressOverview={progressOverview}
         languages={languages}
         onNavigateToPractice={() => navigateToPage("practice")}
+        onNavigateToKnowledge={() => navigateToPage("knowledge")}
       />
     );
   }

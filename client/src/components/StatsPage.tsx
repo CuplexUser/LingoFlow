@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { api, type Achievement } from "../api";
+import { useSession } from "../context/SessionContext";
+import { SKILL_STATE_LABEL } from "./KnowledgePage";
 import type {
   CourseCategory,
   LanguageOption,
@@ -18,6 +20,7 @@ type StatsPageProps = {
   progressOverview: ProgressOverview | null;
   languages: LanguageOption[];
   onNavigateToPractice: () => void;
+  onNavigateToKnowledge: () => void;
 };
 
 function toTitleFromId(value: string): string {
@@ -413,8 +416,10 @@ export function StatsPage({
   statsData,
   progressOverview,
   languages,
-  onNavigateToPractice
+  onNavigateToPractice,
+  onNavigateToKnowledge
 }: StatsPageProps) {
+  const { practiceSkill } = useSession();
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   useEffect(() => {
     api.getAchievements().then(setAchievements).catch(() => {});
@@ -441,7 +446,9 @@ export function StatsPage({
   const dailyXpHistory = statsData?.dailyXpHistory || [];
   const sessionsByDay = (statsData?.sessionsByDay || []).slice(-7);
   const errorTypes = statsData?.errorTypeTrend || [];
-  const weakObjectives = (statsData?.objectiveStats || []).slice(0, 4);
+  // The weakest skills from the knowledge map, else the older objective accuracy.
+  const weakSkills = (statsData?.weakSkills || []).slice(0, 4);
+  const weakObjectives = statsData?.weakSkills ? [] : (statsData?.objectiveStats || []).slice(0, 4);
 
   const completionPercent = courseCategories.length
     ? Math.round(courseCategories.reduce((s, c) => s + c.mastery, 0) / courseCategories.length)
@@ -598,6 +605,9 @@ export function StatsPage({
       {courseCategories.length > 0 && (
         <ChartCard title="Category mastery" sub={`${courseCategories.length} categories`} right={<span className="chart-card-meta">avg {completionPercent}%</span>}>
           <MasteryRail categories={courseCategories.filter((c) => c.unlocked)}/>
+          <button type="button" className="btn-ghost-lg knowledge-link" onClick={onNavigateToKnowledge}>
+            See every skill you know
+          </button>
         </ChartCard>
       )}
 
@@ -606,6 +616,35 @@ export function StatsPage({
         {errorTypes.length > 0 && (
           <ChartCard title="Where mistakes happen" sub="Error type breakdown" right={<span className="chart-card-meta mono">{errorTypes.reduce((s, e) => s + e.count, 0)} total</span>}>
             <ErrorDonut data={errorTypes}/>
+          </ChartCard>
+        )}
+
+        {weakSkills.length > 0 && (
+          <ChartCard
+            title="Focus next"
+            sub="Your weakest skills right now"
+            right={<button type="button" className="btn-ghost-lg" onClick={onNavigateToKnowledge}>See everything you know</button>}
+          >
+            <ul className="weak-list-new">
+              {weakSkills.map((skill, i) => (
+                <li key={skill.id} className="weak-row-new weak-skill-row">
+                  <span className="weak-rank">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="weak-label">
+                    {skill.label}
+                    <span className="weak-skill-sub"> · {skill.level.toUpperCase()} · {SKILL_STATE_LABEL[skill.state]}</span>
+                  </span>
+                  <span className="weak-pct-new">{skill.accuracy === null ? "–" : `${Math.round(skill.accuracy * 100)}%`}</span>
+                  <button
+                    type="button"
+                    className="btn-ghost-lg"
+                    aria-label={`Practice ${skill.label}`}
+                    onClick={() => void practiceSkill(skill)}
+                  >
+                    Practice
+                  </button>
+                </li>
+              ))}
+            </ul>
           </ChartCard>
         )}
 

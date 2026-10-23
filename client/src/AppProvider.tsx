@@ -80,6 +80,7 @@ export function AppProvider({ children }: AppProviderProps) {
     progressOverview,
     statsData,
     courseCategories,
+    knowledge,
     setSettings,
     setDraftSettings,
     hydrateAuthenticatedApp,
@@ -576,6 +577,27 @@ export function AppProvider({ children }: AppProviderProps) {
     }
   }, [settings, activeCourseLanguage, navigateToPage]);
 
+  const practiceSkill = useCallback(async (skill: { id: string; label: string; category: string }) => {
+    if (!settings || !activeCourseLanguage) return;
+    try {
+      const session = await api.startSession({
+        language: activeCourseLanguage,
+        category: skill.category,
+        count: 10,
+        skill: skill.id
+      });
+      setActiveSessionsByLanguage((prev) => ({
+        ...prev,
+        [activeCourseLanguage]: { ...session, categoryLabel: skill.label }
+      }));
+      setMistakeReviewOffer(null);
+      navigateToPage("learn");
+      setStatusMessage("");
+    } catch (_error) {
+      setStatusMessage("Could not start practice for this skill.");
+    }
+  }, [settings, activeCourseLanguage, navigateToPage]);
+
   const startDailyChallenge = useCallback(async () => {
     if (!settings || !activeCourseLanguage) return;
     try {
@@ -772,6 +794,7 @@ export function AppProvider({ children }: AppProviderProps) {
     progressOverview,
     statsData,
     courseCategories,
+    knowledge,
     bookmarks,
     bookmarksLoading,
     bookmarksError,
@@ -785,7 +808,7 @@ export function AppProvider({ children }: AppProviderProps) {
     updateContributionStatus,
     removeBookmark
   }), [languages, courseLanguages, settings, draftSettings, progress, progressOverview,
-    statsData, courseCategories, bookmarks, bookmarksLoading, bookmarksError,
+    statsData, courseCategories, knowledge, bookmarks, bookmarksLoading, bookmarksError,
     pendingContributionCount, activeLanguageLabel, setDraftSettings,
     switchCourseLanguage, saveSetup, submitContribution, loadContributions,
     updateContributionStatus, removeBookmark]);
@@ -803,6 +826,7 @@ export function AppProvider({ children }: AppProviderProps) {
     clearAchievementUnlocks,
     startCategory,
     startPractice,
+    practiceSkill,
     startDailyChallenge,
     finishSession,
     startMistakeReview,
@@ -813,7 +837,7 @@ export function AppProvider({ children }: AppProviderProps) {
     saveSessionSnapshot
   }), [activeCourseLanguage, activeSession, mistakeReviewOffer, mistakeReviewCount, sessionShareLine, statusMessage,
     achievementUnlocks, clearAchievementUnlocks,
-    startCategory, startPractice, startDailyChallenge, finishSession, startMistakeReview,
+    startCategory, startPractice, practiceSkill, startDailyChallenge, finishSession, startMistakeReview,
     copySessionSummary, shareToPlatform, shareWithNative, clearActiveSession, saveSessionSnapshot]);
 
   return (

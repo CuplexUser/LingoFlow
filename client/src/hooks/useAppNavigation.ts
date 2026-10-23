@@ -3,7 +3,7 @@ import { AUTH_PATHS, PAGE_PATHS } from "../constants";
 import { getPageFromPathname } from "../utils/theme";
 
 export type AuthMode = "login" | "register" | "forgotPassword" | "resetPassword";
-export type AppPage = "bookmarks" | "learn" | "practice" | "story" | "contribute" | "setup" | "stats" | "admin";
+export type AppPage = "bookmarks" | "knowledge" | "learn" | "practice" | "story" | "contribute" | "setup" | "stats" | "admin";
 
 export function getAuthModeFromPathname(pathname: string): AuthMode {
   if (pathname === AUTH_PATHS.register) return "register";
@@ -82,6 +82,7 @@ export function useAppNavigation({ authenticated }: UseAppNavigationParams) {
       setup: PAGE_PATHS.setup,
       stats: PAGE_PATHS.stats,
       bookmarks: PAGE_PATHS.bookmarks,
+      knowledge: PAGE_PATHS.knowledge,
       admin: PAGE_PATHS.admin
     };
     const path = pagePathMap[nextPage] || PAGE_PATHS.learn;

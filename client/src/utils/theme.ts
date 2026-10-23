@@ -2,8 +2,9 @@ import { PAGE_PATHS, type ThemeMode } from "../constants";
 
 export function getPageFromPathname(
   pathname: string
-): "bookmarks" | "learn" | "practice" | "story" | "contribute" | "setup" | "stats" | "admin" {
+): "bookmarks" | "knowledge" | "learn" | "practice" | "story" | "contribute" | "setup" | "stats" | "admin" {
   if (pathname === PAGE_PATHS.bookmarks) return "bookmarks";
+  if (pathname === PAGE_PATHS.knowledge) return "knowledge";
   if (pathname === PAGE_PATHS.contribute) return "contribute";
   if (pathname === PAGE_PATHS.practice) return "practice";
   if (pathname === PAGE_PATHS.story) return "story";

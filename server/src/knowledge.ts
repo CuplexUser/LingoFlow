@@ -52,6 +52,16 @@ type SkillSummary = {
   dueCount: number;
 };
 
+type ExamRow = {
+  level: string;
+  category: string;
+  correct: number;
+  total: number;
+  passed: boolean;
+  perSkill: Record<string, { correct: number; total: number }>;
+  takenAt: string;
+};
+
 type SkillRef = { id: string; label: string; level: string; category: string; state: SkillState; accuracy: number | null };
 
 const ABILITIES: Ability[] = ["reading", "listening", "speaking", "writing"];
@@ -146,6 +156,10 @@ function summarizeSkill(
   };
 }
 
+function lastExamOf(exam: ExamRow | undefined) {
+  return exam ? { correct: exam.correct, total: exam.total, passed: exam.passed, takenAt: exam.takenAt } : null;
+}
+
 function emptyAbilities() {
   return Object.fromEntries(ABILITIES.map((ability) => [ability, { accuracy: null as number | null, attempts: 0 }])) as
     Record<Ability, { accuracy: number | null; attempts: number }>;
@@ -165,10 +179,22 @@ function buildKnowledgeMap(input: {
   progressRows: ProgressRow[];
   attempts: AttemptRow[];
   today: string;
-  passedExamSkills?: Set<string>;
+  // Newest first.
+  exams?: ExamRow[];
 }) {
   const { language, levelOrder, levelNames, levelCap, unitsByLevel, items, skills, progressRows, attempts, today } = input;
-  const passedExamSkills = input.passedExamSkills || new Set<string>();
+  const exams = input.exams || [];
+  // A skill an exam was passed with, each of its questions answered right.
+  const passedExamSkills = new Set<string>();
+  const lastExams = new Map<string, ExamRow>();
+  for (const exam of exams) {
+    const key = `${exam.level}:${exam.category}`;
+    if (!lastExams.has(key)) lastExams.set(key, exam);
+    if (!exam.passed) continue;
+    for (const [skillId, score] of Object.entries(exam.perSkill)) {
+      if (score.total > 0 && score.correct === score.total) passedExamSkills.add(skillId);
+    }
+  }
   const rank = (level: string) => levelOrder.indexOf(level);
   const isPremium = (level: string) => Boolean(levelCap) && rank(level) > rank(levelCap);
 
@@ -263,7 +289,7 @@ function buildKnowledgeMap(input: {
             ...summary
           };
         }),
-        lastExam: null
+        lastExam: lastExamOf(lastExams.get(`${level}:${unit.category}`))
       };
     });
     return {
@@ -303,10 +329,9 @@ function createKnowledge(deps: any) {
   const { database, SKILLS, getAllItems, LEVEL_ORDER, levelNames, getUnitsByLevel } = deps;
 
   async function buildKnowledge(userId: number, language: string, levelCap: string) {
-    const [progressRows, attempts] = [
-      await database.getItemProgressForLanguage(userId, language),
-      await database.getRecentAttempts(userId, language)
-    ];
+    const progressRows = await database.getItemProgressForLanguage(userId, language);
+    const attempts = await database.getRecentAttempts(userId, language);
+    const exams = await database.getUnitExams(userId, language);
     return buildKnowledgeMap({
       language,
       levelOrder: LEVEL_ORDER,
@@ -317,15 +342,22 @@ function createKnowledge(deps: any) {
       skills: SKILLS,
       progressRows,
       attempts,
-      today: database.toIsoDate()
+      today: database.toIsoDate(),
+      exams
     });
   }
 
   return { buildKnowledge };
 }
 
+// One unit's skills in a map built by buildKnowledgeMap, or [] for a premium or unknown unit.
+function unitSkillsOf(map: ReturnType<typeof buildKnowledgeMap>, level: string, category: string) {
+  return map.levels.find((entry) => entry.id === level)?.units.find((unit) => unit.category === category)?.skills || [];
+}
+
 module.exports = {
   THRESHOLDS,
+  unitSkillsOf,
   itemState,
   skillState,
   summarizeSkill,

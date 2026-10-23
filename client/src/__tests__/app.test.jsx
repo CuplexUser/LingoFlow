@@ -23,6 +23,7 @@ const apiMock = vi.hoisted(() => ({
   getProgress: vi.fn(),
   getProgressOverview: vi.fn(),
   getStats: vi.fn(),
+  getKnowledge: vi.fn().mockResolvedValue(null),
   saveSettings: vi.fn(),
   startSession: vi.fn(),
   completeSession: vi.fn(),

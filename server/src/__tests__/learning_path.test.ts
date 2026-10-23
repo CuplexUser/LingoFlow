@@ -398,3 +398,81 @@ test("a lesson carries its XP rules, and finishing it earns what they give", asy
   const daily = await call(srv.base, "POST", "/api/session/daily", headers, { language: "spanish" });
   assert.equal(daily.body.xp.kind, "lesson");
 });
+
+test("a unit exam spreads its questions over the unit's skills, and passing it tests out of the unit", async (t) => {
+  const { SKILLS } = require("../data.ts");
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const user = await signUp(srv.base, "unit-exam");
+  const headers = { ...user.headers, ...APP };
+  const path = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+  // The second unit is still locked, but its level is open, so its exam can test out of it.
+  const unit = path.levels[0].units[1];
+  assert.equal(unit.state, "locked");
+  assert.equal(unit.exam.available, true);
+  assert.equal(unit.exam.lastExam, null);
+  assert.equal(path.levels[1].units[0].exam.available, false);
+
+  const premium = await call(srv.base, "POST", "/api/path/exam", headers, { language: "spanish", level: "a2", category: unit.category });
+  assert.equal(premium.status, 402);
+
+  const exam = await call(srv.base, "POST", "/api/path/exam", headers, { language: "spanish", level: "a1", category: unit.category });
+  assert.equal(exam.status, 200);
+  const skillIds = SKILLS.getUnitSkills("spanish", unit.category, "a1").map((skill: any) => skill.id);
+  assert.deepEqual(exam.body.pathExam.skills.map((skill: any) => skill.id), skillIds.slice(0, 6));
+  assert.ok(exam.body.questions.length >= 6 && exam.body.questions.length <= 12);
+  assert.ok(exam.body.questions.every((question: any) =>
+    ["mc_sentence", "cloze_sentence", "dialogue_turn", "build_sentence"].includes(question.type)));
+  // Every skill is measured.
+  for (const skillId of skillIds.slice(0, 6)) {
+    assert.ok(exam.body.questions.some((question: any) => question.skills.includes(skillId)), skillId);
+  }
+
+  // Failing changes nothing on the path but is remembered.
+  const failed = await finish(srv.base, headers, exam.body, exam.body.questions.map(wrongAttempt));
+  assert.equal(failed.body.path.kind, "exam");
+  assert.equal(failed.body.path.passed, false);
+  assert.equal(failed.body.path.testedOut, false);
+  assert.ok(failed.body.path.skills.every((skill: any) => skill.stateBefore === "not_started" && skill.stateAfter === "weak"));
+  const afterFail = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+  assert.equal(afterFail.levels[0].units[1].done, false);
+  assert.equal(afterFail.levels[0].units[1].exam.lastExam.passed, false);
+
+  const retry = await call(srv.base, "POST", "/api/path/exam", headers, { language: "spanish", level: "a1", category: unit.category });
+  const passed = await finish(srv.base, headers, retry.body, retry.body.questions.map(rightAttempt));
+  assert.equal(passed.body.path.passed, true);
+  assert.equal(passed.body.path.testedOut, true);
+  assert.equal(passed.body.path.correct, retry.body.questions.length);
+  const perSkillTotal = passed.body.path.skills.reduce((sum: number, skill: any) => sum + skill.total, 0);
+  assert.ok(perSkillTotal >= retry.body.questions.length);
+
+  const afterPass = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+  assert.equal(afterPass.levels[0].units[1].testedOut, true);
+  assert.equal(afterPass.levels[0].units[1].exam.lastExam.passed, true);
+  const map = (await call(srv.base, "GET", "/api/knowledge?language=spanish", headers)).body;
+  assert.equal(map.levels[0].units.find((entry: any) => entry.category === unit.category).lastExam.passed, true);
+});
+
+test("a finished unit suggests its exam until one is taken", async (t) => {
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const user = await signUp(srv.base, "exam-suggest");
+  const headers = { ...user.headers, ...APP };
+  const path = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body;
+  const unit = path.levels[0].units[0];
+  assert.equal(unit.exam.suggested, null);
+  for (let lesson = 0; lesson < unit.lessonCount; lesson += 1) {
+    const started = await call(srv.base, "POST", "/api/path/lesson", headers, { language: "spanish", level: "a1", category: unit.category });
+    await finish(srv.base, headers, started.body, started.body.questions.map(rightAttempt));
+  }
+  const finished = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body.levels[0].units[0];
+  assert.equal(finished.done, true);
+  assert.equal(finished.exam.suggested, "finished");
+
+  const exam = await call(srv.base, "POST", "/api/path/exam", headers, { language: "spanish", level: "a1", category: unit.category });
+  const done = await finish(srv.base, headers, exam.body, exam.body.questions.map(rightAttempt));
+  // The unit was already done, so a pass doesn't test out of anything.
+  assert.equal(done.body.path.testedOut, false);
+  const after = (await call(srv.base, "GET", "/api/path?language=spanish", headers)).body.levels[0].units[0];
+  assert.equal(after.exam.suggested, null);
+});

@@ -468,6 +468,15 @@ function buildQuestionTypePlan(items) {
   });
 }
 
+// Keeps a session to the given exercise types (checks leave out the microphone, for one).
+// Any other planned type becomes multiple choice, which every item can make, as mistake
+// drills already do with flashcards.
+function restrictTypes(planned: string[], allowed: string[]): string[] {
+  if (!allowed.length) return planned;
+  const fallback = allowed.includes("mc_sentence") ? "mc_sentence" : allowed[0];
+  return planned.map((type) => (allowed.includes(type) ? type : fallback));
+}
+
 // The word without the punctuation around it: "¿Puedo" → "Puedo", "hambre." → "hambre".
 function bareWord(token: string): string {
   return String(token || "").replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
@@ -857,7 +866,8 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     dailyMode = false,
     maxLevel = "",
     exactLevel = "",
-    skill = ""
+    skill = "",
+    questionTypes = [] as string[]
   }) {
     const randomFn = typeof random === "function" ? random : Math.random;
     const isPracticeMode = Boolean(mode);
@@ -1023,7 +1033,7 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
       const curationPool = sourcePool.filter((item) => !notDueSet.has(item.id));
       selected = applyDailyCuration(selected, curationPool, recommendedRank, randomFn).slice(0, targetCount);
     }
-    const plannedTypes = buildQuestionTypePlan(selected);
+    const plannedTypes = restrictTypes(buildQuestionTypePlan(selected), questionTypes);
     const questions = selected.map((item, idx) => {
       const reversed = randomFn() < 0.35 && isEligibleForReversal(item, plannedTypes[idx], language);
       return createQuestion(item, sourcePool, plannedTypes[idx], category, language, englishRoleplayAnswerByPrompt, randomFn, reversed);

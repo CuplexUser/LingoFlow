@@ -8,6 +8,7 @@ import type {
   ProgressOverview,
   StatsData
 } from "../types/course";
+import type { KnowledgeMap } from "../types/knowledge";
 import type React from "react";
 
 export type CourseContextValue = {
@@ -19,6 +20,8 @@ export type CourseContextValue = {
   progressOverview: ProgressOverview | null;
   statsData: StatsData | null;
   courseCategories: CourseCategory[];
+  // What the learner knows, skill by skill; null until loaded.
+  knowledge: KnowledgeMap | null;
   bookmarks: Bookmark[];
   bookmarksLoading: boolean;
   bookmarksError: string;

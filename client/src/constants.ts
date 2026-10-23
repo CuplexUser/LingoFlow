@@ -1,5 +1,6 @@
 export const PAGE_PATHS = {
   bookmarks: "/bookmarks",
+  knowledge: "/knowledge",
   learn: "/learn",
   practice: "/practice",
   story: "/story",

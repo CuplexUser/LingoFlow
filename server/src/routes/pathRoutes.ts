@@ -5,6 +5,7 @@
 // /api/session/complete can advance the path.
 
 const { sessionXpRules } = require("../xpRules.ts");
+const { itemState, unitSkillsOf } = require("../knowledge.ts");
 
 const UNITS_PER_SECTION = 4;
 // A category needs this many items at a level to make a unit there.
@@ -20,6 +21,15 @@ const CHECKPOINT_PASS_RATIO = 0.8;
 const PLACEMENT_QUESTIONS_PER_LEVEL = 6;
 const PLACEMENT_MAX_QUESTIONS = 12;
 const PLACEMENT_PASS_RATIO = 0.6;
+// A unit exam measures every skill in a unit: twelve questions spread over up to six
+// skills. Passing it tests the learner out of the unit's remaining lessons.
+const EXAM_QUESTIONS = 12;
+const EXAM_MAX_SKILLS = 6;
+const EXAM_MIN_QUESTIONS = 6;
+// Items answered this recently go last, so an exam measures memory more than the last lesson.
+const EXAM_RECENT_DAYS = 2;
+// A finished unit is worth re-examining once more than this share of its items is due.
+const EXAM_DUE_SHARE = 1 / 3;
 const CHECKPOINT_CATEGORY = "__checkpoint__";
 const PLACEMENT_CATEGORY = "__placement__";
 // Checks test what a learner knows, so they skip exercises that need a microphone or
@@ -33,6 +43,8 @@ const LEVEL_NAMES: Record<string, string> = {
   b2: "Upper intermediate"
 };
 
+type ExamSummary = { correct: number; total: number; passed: boolean; takenAt: string };
+
 type PathUnit = {
   category: string;
   label: string;
@@ -43,6 +55,15 @@ type PathUnit = {
   testedOut: boolean;
   done: boolean;
   state: "done" | "skipped" | "current" | "locked" | "premium";
+  exam?: {
+    available: boolean;
+    // Why the app should offer the exam now: the unit was just finished, much of it is due
+    // for review, or placement skipped it and it was never tested.
+    suggested: "finished" | "review_due" | "placed" | null;
+    questionCount: number;
+    passCount: number;
+    lastExam: ExamSummary | null;
+  };
 };
 
 type PathLevel = {
@@ -75,7 +96,7 @@ function lessonsForUnit(itemCount: number): number {
 }
 
 function createLearningPath(deps: any) {
-  const { database, CATEGORIES, LEVEL_ORDER, getAllItems, generateSession, evaluateAttempt, crypto } = deps;
+  const { database, CATEGORIES, LEVEL_ORDER, getAllItems, generateSession, evaluateAttempt, crypto, SKILLS, knowledge } = deps;
 
   function rank(level: unknown): number {
     return LEVEL_ORDER.indexOf(String(level || "").toLowerCase());
@@ -139,11 +160,57 @@ function createLearningPath(deps: any) {
     };
   }
 
+  function describeExam(
+    language: string,
+    level: string,
+    unit: PathUnit,
+    available: boolean,
+    exams: Array<ExamSummary & { level: string; category: string }>,
+    progressRows: any[],
+    unitRow: any
+  ): NonNullable<PathUnit["exam"]> {
+    const taken = exams.filter((exam) => exam.level === level && exam.category === unit.category);
+    const last = taken[0] || null;
+    let suggested: NonNullable<PathUnit["exam"]>["suggested"] = null;
+    if (available && unit.done && !unit.testedOut && unitRow?.updatedAt && !taken.some((exam) => exam.takenAt >= unitRow.updatedAt)) {
+      suggested = "finished";
+    } else if (available && unit.done && dueShare(language, unit.category, level, progressRows) > EXAM_DUE_SHARE) {
+      suggested = "review_due";
+    } else if (available && unit.state === "skipped" && !last) {
+      suggested = "placed";
+    }
+    return {
+      available,
+      suggested,
+      questionCount: EXAM_QUESTIONS,
+      passCount: Math.ceil(EXAM_QUESTIONS * CHECKPOINT_PASS_RATIO),
+      lastExam: last ? { correct: last.correct, total: last.total, passed: last.passed, takenAt: last.takenAt } : null
+    };
+  }
+
+  // The share of a unit's seen items that are due for review.
+  function dueShare(language: string, category: string, level: string, progressRows: any[]): number {
+    const byItem = new Map<string, any>(progressRows.map((row) => [row.itemId, row]));
+    const today = database.toIsoDate();
+    let seen = 0;
+    let due = 0;
+    for (const item of getAllItems(language) as any[]) {
+      if (item.category !== category || itemLevel(item) !== level) continue;
+      const state = itemState(byItem.get(String(item.id)), today);
+      if (state === "not_seen") continue;
+      seen += 1;
+      if (state === "due") due += 1;
+    }
+    return seen ? due / seen : 0;
+  }
+
   async function buildPath(userId: number, language: string, levelCap: string) {
     const state = await database.getPathState(userId, language);
     const settings = await database.getSettings(userId);
     const rows = await database.getPathUnits(userId, language);
     const categoryProgress = await database.getCategoryProgress(userId, language) as any[];
+    const exams = await database.getUnitExams(userId, language) as Array<ExamSummary & { level: string; category: string }>;
+    const progressRows = await database.getItemProgressForLanguage(userId, language) as any[];
 
     const startLevel = normalizeLevel(state?.startLevel || settings.selfRatedLevel);
     // A free learner placed above the cap starts at the cap; Premium opens their real level.
@@ -192,6 +259,10 @@ function createLearningPath(deps: any) {
           unit.state = "current";
           currentIndex = index;
         } else unit.state = "locked";
+      });
+      units.forEach((unit) => {
+        const available = levelState !== "locked" && levelState !== "premium";
+        unit.exam = describeExam(language, level, unit, available, exams, progressRows, progress.get(`${level}:${unit.category}`));
       });
 
       if (levelState === "current" && currentIndex >= 0) {
@@ -302,6 +373,52 @@ function createLearningPath(deps: any) {
       };
     }
 
+    if (record.kind === "exam") {
+      const category = String(record.details.category || "");
+      const skillIds: string[] = Array.isArray(record.details.skills) ? record.details.skills : [];
+      const passCount = Math.ceil(total * CHECKPOINT_PASS_RATIO);
+      const passed = total > 0 && correct >= passCount;
+      const perSkill: Record<string, { correct: number; total: number }> = {};
+      for (const skillId of skillIds) {
+        const skillQuestions = questions.filter((question) => Array.isArray(question.skills) && question.skills.includes(skillId));
+        perSkill[skillId] = {
+          correct: countFirstTryCorrect(skillQuestions, evaluatedAttempts),
+          total: skillQuestions.length
+        };
+      }
+
+      const lessonCount = unitLessonCount(language, record.level, category);
+      const unitRow = (await database.getPathUnits(userId, language) as any[])
+        .find((row) => row.level === record.level && row.category === category);
+      const unitDone = Boolean(unitRow?.testedOut) || (Number(unitRow?.lessonsDone) || 0) >= lessonCount;
+      const testedOut = passed && !unitDone;
+      if (testedOut) await database.markPathUnitsTestedOut(userId, language, record.level, [category], lessonCount);
+      await database.recordUnitExam({ userId, language, level: record.level, category, correct, total, passed, perSkill });
+
+      const after = unitSkillsOf(await knowledge.buildKnowledge(userId, language, ""), record.level, category);
+      const before = record.details.before || {};
+      return {
+        kind: "exam",
+        level: record.level,
+        category,
+        correct,
+        total,
+        passCount,
+        passed,
+        testedOut,
+        skills: skillIds.map((skillId) => {
+          const skill = after.find((entry: any) => entry.id === skillId);
+          return {
+            id: skillId,
+            label: skill?.label || SKILLS.getSkill(language, skillId)?.label || skillId,
+            ...perSkill[skillId],
+            stateBefore: before[skillId] || "not_started",
+            stateAfter: skill?.state || "not_started"
+          };
+        })
+      };
+    }
+
     return null;
   }
 
@@ -398,13 +515,14 @@ function createLearningPath(deps: any) {
   }
 
   // Up to `perCategory` questions of the allowed types from each category at `level`,
-  // tagged with where they came from.
+  // tagged with where they came from. With `skill`, only that skill's items.
   function sampleCheckQuestions(
     language: string,
     level: string,
     categories: string[],
     allowedTypes: Set<string>,
-    perCategory: number
+    perCategory: number,
+    skill = ""
   ): any[][] {
     return categories.map((category) => {
       const generated = generateSession({
@@ -414,7 +532,9 @@ function createLearningPath(deps: any) {
         recentAccuracy: null,
         selfRatedLevel: level,
         exactLevel: level,
-        count: 15
+        count: 15,
+        questionTypes: [...allowedTypes],
+        skill
       });
       return generated.questions
         .filter((question: any) => allowedTypes.has(question.type))
@@ -488,6 +608,81 @@ function createLearningPath(deps: any) {
           kind: "checkpoint",
           questionCount: questions.length,
           passCount: Math.ceil(questions.length * CHECKPOINT_PASS_RATIO)
+        }
+      }
+    };
+  }
+
+  async function startExam(userId: number, language: string, level: string, category: string, levelCap: string) {
+    const path = await buildPath(userId, language, levelCap);
+    const levelEntry = path.levels.find((entry) => entry.id === level);
+    const unit = levelEntry?.units.find((entry) => entry.category === category);
+    if (!levelEntry || !unit) return { status: 404, body: { error: "This unit does not exist" } };
+    if (levelEntry.state === "premium") {
+      return { status: 402, body: { error: "This content requires LingoFlow Premium", code: "premium_required" } };
+    }
+    if (!unit.exam?.available) {
+      return { status: 409, body: { error: "Reach this level before taking its exams.", code: "unit_locked" } };
+    }
+
+    const skills = (SKILLS.getUnitSkills(language, category, level) as any[]).slice(0, EXAM_MAX_SKILLS);
+    const today = database.toIsoDate();
+    const recentCutoff = database.toIsoDate(new Date(Date.now() - 1000 * 60 * 60 * 24 * EXAM_RECENT_DAYS));
+    const recent = new Set(
+      (await database.getItemProgressForLanguage(userId, language) as any[])
+        .filter((row) => row.lastSeenDate && row.lastSeenDate >= recentCutoff)
+        .map((row) => row.itemId)
+    );
+    // One pool per skill, items not answered lately first; taking from each pool in turn
+    // spreads the exam over every skill.
+    const pools = skills.map((skill) => {
+      const [pool] = sampleCheckQuestions(language, level, [category], CHECKPOINT_QUESTION_TYPES, EXAM_QUESTIONS, skill.id);
+      const fresh = shuffled(pool.filter((question: any) => !recent.has(question.id)));
+      const stale = shuffled(pool.filter((question: any) => recent.has(question.id)));
+      return [...fresh, ...stale];
+    });
+    const questions = shuffled(interleave(pools, EXAM_QUESTIONS));
+    if (questions.length < EXAM_MIN_QUESTIONS) {
+      return { status: 404, body: { error: "This unit does not have enough exercises for an exam" } };
+    }
+
+    const before = unitSkillsOf(await knowledge.buildKnowledge(userId, language, ""), level, category);
+    await database.pruneExpiredActiveSessions(userId, today);
+    const sessionId = crypto.randomUUID();
+    await database.createActiveSession({
+      userId,
+      sessionId,
+      language,
+      category: CHECKPOINT_CATEGORY,
+      difficultyLevel: level,
+      questions,
+      expiresAt: sessionExpiry()
+    });
+    await database.createPathSession({
+      sessionId,
+      userId,
+      kind: "exam",
+      level,
+      details: {
+        category,
+        skills: skills.map((skill) => skill.id),
+        before: Object.fromEntries(before.map((skill: any) => [skill.id, skill.state]))
+      }
+    });
+
+    return {
+      status: 200,
+      body: {
+        ...sessionPayload(sessionId, language, CHECKPOINT_CATEGORY, { recommendedLevel: level, difficultyMultiplier: 1 }, questions),
+        pathExam: {
+          kind: "exam",
+          level,
+          category,
+          unitLabel: unit.label,
+          unitNumber: unit.number,
+          questionCount: questions.length,
+          passCount: Math.ceil(questions.length * CHECKPOINT_PASS_RATIO),
+          skills: skills.map((skill) => ({ id: skill.id, label: skill.label }))
         }
       }
     };
@@ -639,6 +834,7 @@ function createLearningPath(deps: any) {
     applySessionCompletion,
     startLesson,
     startCheckpoint,
+    startExam,
     startPlacement,
     completePlacement
   };
@@ -687,6 +883,17 @@ function registerPathRoutes(app: any, deps: any, learningPath: ReturnType<typeof
     return res.status(result.status).json(result.body);
   });
 
+  app.post("/api/path/exam", requireAuth, async (req: any, res: any) => {
+    const language = readLanguage(req.body?.language);
+    const level = String(req.body?.level || "").toLowerCase();
+    const category = String(req.body?.category || "");
+    if (!language || !level || !category) {
+      return res.status(400).json({ error: "language, level and category are required" });
+    }
+    const result = await learningPath.startExam(req.authUserId, language, level, category, await getLevelCap(req));
+    return res.status(result.status).json(result.body);
+  });
+
   app.post("/api/placement/start", requireAuth, async (req: any, res: any) => {
     const language = readLanguage(req.body?.language);
     if (!language) return res.status(400).json({ error: "A supported language is required" });
@@ -710,6 +917,7 @@ function registerPathRoutes(app: any, deps: any, learningPath: ReturnType<typeof
 }
 
 module.exports = {
+  LEVEL_NAMES,
   createLearningPath,
   registerPathRoutes
 };

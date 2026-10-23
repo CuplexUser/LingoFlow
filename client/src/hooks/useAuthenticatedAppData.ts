@@ -9,6 +9,7 @@ import type {
   ProgressOverview,
   StatsData
 } from "../types/course";
+import type { KnowledgeMap } from "../types/knowledge";
 
 type UseAuthenticatedAppDataParams = {
   activeCourseLanguage: string;
@@ -26,14 +27,18 @@ export function useAuthenticatedAppData({
   const [progressOverview, setProgressOverview] = useState<ProgressOverview | null>(null);
   const [statsData, setStatsData] = useState<StatsData | null>(null);
   const [courseCategories, setCourseCategories] = useState<CourseCategory[]>([]);
+  const [knowledge, setKnowledge] = useState<KnowledgeMap | null>(null);
 
   const refreshCourseAndProgress = useCallback(async (targetLanguage: string) => {
-    const [course, nextProgress, stats, overview] = await Promise.all([
+    const [course, nextProgress, stats, overview, nextKnowledge] = await Promise.all([
       api.getCourse(targetLanguage),
       api.getProgress(targetLanguage),
       api.getStats(targetLanguage),
-      api.getProgressOverview()
+      api.getProgressOverview(),
+      // The knowledge map is extra: the rest of the page works without it.
+      api.getKnowledge(targetLanguage).catch(() => null)
     ]);
+    setKnowledge(nextKnowledge);
     setCourseCategories(course);
     setProgress(nextProgress);
     setStatsData(stats);
@@ -68,6 +73,7 @@ export function useAuthenticatedAppData({
     setProgressOverview(null);
     setStatsData(null);
     setCourseCategories([]);
+    setKnowledge(null);
   }, []);
 
   return {
@@ -78,6 +84,7 @@ export function useAuthenticatedAppData({
     progressOverview,
     statsData,
     courseCategories,
+    knowledge,
     setSettings,
     setDraftSettings,
     hydrateAuthenticatedApp,

@@ -3394,12 +3394,30 @@ async function createPathTables(): Promise<void> {
       details_json TEXT NOT NULL DEFAULT '{}',
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
+
+    -- Unit exams taken, for "Last exam" and which skills an exam has confirmed.
+    -- per_skill_json maps each skill id to { correct, total }.
+    CREATE TABLE IF NOT EXISTS unit_exams (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      language TEXT NOT NULL,
+      level TEXT NOT NULL,
+      category TEXT NOT NULL,
+      correct INTEGER NOT NULL,
+      total INTEGER NOT NULL,
+      passed INTEGER NOT NULL DEFAULT 0,
+      per_skill_json TEXT NOT NULL DEFAULT '{}',
+      taken_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_unit_exams_user_language
+    ON unit_exams(user_id, language, taken_at);
   `);
 }
 
 async function getPathUnits(userId: number, language: string) {
   const rows = await db.prepare(`
-    SELECT level, category, lessons_done, tested_out
+    SELECT level, category, lessons_done, tested_out, updated_at
     FROM path_units
     WHERE user_id = ? AND language = ?
   `).all(userId, language);
@@ -3407,8 +3425,52 @@ async function getPathUnits(userId: number, language: string) {
     level: row.level,
     category: row.category,
     lessonsDone: Number(row.lessons_done) || 0,
-    testedOut: Boolean(row.tested_out)
+    testedOut: Boolean(row.tested_out),
+    updatedAt: row.updated_at ? String(row.updated_at) : null
   }));
+}
+
+async function recordUnitExam({ userId, language, level, category, correct, total, passed, perSkill }: {
+  userId: number;
+  language: string;
+  level: string;
+  category: string;
+  correct: number;
+  total: number;
+  passed: boolean;
+  perSkill: Record<string, { correct: number; total: number }>;
+}) {
+  await db.prepare(`
+    INSERT INTO unit_exams (user_id, language, level, category, correct, total, passed, per_skill_json)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `).run(userId, language, level, category, correct, total, passed ? 1 : 0, JSON.stringify(perSkill));
+}
+
+// Every unit exam a learner has taken in a language, newest first.
+async function getUnitExams(userId: number, language: string) {
+  const rows = await db.prepare(`
+    SELECT level, category, correct, total, passed, per_skill_json, taken_at
+    FROM unit_exams
+    WHERE user_id = ? AND language = ?
+    ORDER BY taken_at DESC, id DESC
+  `).all(userId, language);
+  return rows.map((row: any) => {
+    let perSkill: Record<string, { correct: number; total: number }> = {};
+    try {
+      perSkill = JSON.parse(row.per_skill_json || "{}");
+    } catch (_error) {
+      perSkill = {};
+    }
+    return {
+      level: String(row.level),
+      category: String(row.category),
+      correct: Number(row.correct) || 0,
+      total: Number(row.total) || 0,
+      passed: Number(row.passed) === 1,
+      perSkill,
+      takenAt: String(row.taken_at)
+    };
+  });
 }
 
 async function recordPathLesson(
@@ -3514,7 +3576,7 @@ let schemaReady: Promise<void> | null = null;
 // connection) instead of re-confirming a schema that hasn't changed since the last deploy.
 // Forgetting to bump this after a real schema change means that change silently never runs
 // against an already-deployed database.
-const SCHEMA_VERSION = 4;
+const SCHEMA_VERSION = 5;
 
 async function isSchemaCurrent(): Promise<boolean> {
   if (!(await db.tableExists("schema_meta"))) return false;
@@ -3631,6 +3693,8 @@ module.exports = {
   getKnownNotDueItemIds,
   getItemProgressForLanguage,
   getRecentAttempts,
+  recordUnitExam,
+  getUnitExams,
   getSpeedMatchHighscore,
   updateSpeedMatchHighscore,
   saveReviewWord,

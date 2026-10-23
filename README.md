@@ -34,7 +34,8 @@ app (React) and the API (Express) that both the web app and the Android app use.
   one per category with enough content. A unit has two to four lessons depending on how
   many exercises it has, and its last lesson reviews it. A placement check sets where the
   path starts, and checks let a learner test out of one unit, a section of four units or
-  the rest of a level.
+  the rest of a level. A unit exam (up to 12 questions spread over the unit's skills)
+  shows what stuck, updates the knowledge map and, when passed, tests out of the unit.
 - **Knowledge map** (`/api/knowledge`): every item belongs to one or two skills, and each
   skill shows as not started, learning, weak, shaky, known or strong, worked out from
   spaced-repetition progress and recent answers (thresholds in `server/src/knowledge.ts`).
@@ -470,6 +471,7 @@ server/content/
 | `POST` | `/api/path/start` | Set where the path starts |
 | `POST` | `/api/path/lesson` | Start a path lesson |
 | `POST` | `/api/path/checkpoint` | Start a check (`scope`: `unit`, `section` or `level`) |
+| `POST` | `/api/path/exam` | Start a unit exam (`level`, `category`) |
 | `POST` | `/api/placement/start`, `/api/placement/complete` | The placement check |
 | `GET` | `/api/knowledge?language=<id>` | The knowledge map: skills per unit with their state |
 | `GET` | `/api/practice/speed-match?language=<id>` | Speed Match words and personal best |
