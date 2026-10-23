@@ -587,13 +587,62 @@ export function SourceTextWithHints({ sourceText, hints, wordGlossary, language 
   );
 }
 
+export type ContentReportReason = "several-answers" | "wrong-answer" | "other";
+
+const REPORT_REASONS: Array<{ id: ContentReportReason; label: string }> = [
+  { id: "several-answers", label: "More than one answer fits" },
+  { id: "wrong-answer", label: "The answer is wrong" },
+  { id: "other", label: "Something else" }
+];
+
+// "Report a problem" under a wrong answer: the learner picks what is wrong, and the report
+// goes to the content review.
+function ReportProblem({ onReport }: { onReport: (reason: ContentReportReason) => Promise<void> }) {
+  const [state, setState] = useState<"closed" | "choosing" | "sending" | "sent" | "failed">("closed");
+
+  if (state === "sent") return <span>{"Thanks. We'll take a look at this exercise."}</span>;
+  if (state === "closed") {
+    return (
+      <button type="button" className="ghost-button report-problem" onClick={() => setState("choosing")}>
+        Report a problem
+      </button>
+    );
+  }
+  return (
+    <div className="report-reasons" role="group" aria-label="What's wrong with this exercise?">
+      {REPORT_REASONS.map((reason) => (
+        <button
+          key={reason.id}
+          type="button"
+          className="ghost-button"
+          disabled={state === "sending"}
+          onClick={async () => {
+            setState("sending");
+            try {
+              await onReport(reason.id);
+              setState("sent");
+            } catch (_error) {
+              setState("failed");
+            }
+          }}
+        >
+          {reason.label}
+        </button>
+      ))}
+      {state === "failed" ? <span>{"Couldn't send the report. Try again."}</span> : null}
+    </div>
+  );
+}
+
 type FeedbackPanelProps = {
   feedback: SessionFeedback | null;
   builtWords: string[];
   onReveal: () => void;
+  // Shown under a wrong answer when set.
+  onReport?: (reason: ContentReportReason) => Promise<void>;
 };
 
-export function FeedbackPanel({ feedback, builtWords, onReveal }: FeedbackPanelProps) {
+export function FeedbackPanel({ feedback, builtWords, onReveal, onReport }: FeedbackPanelProps) {
   if (!feedback) return null;
 
   return (
@@ -626,6 +675,7 @@ export function FeedbackPanel({ feedback, builtWords, onReveal }: FeedbackPanelP
           Reveal Answer
         </button>
       ) : null}
+      {feedback.type === "error" && onReport ? <ReportProblem onReport={onReport} /> : null}
     </div>
   );
 }

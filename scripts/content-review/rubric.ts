@@ -7,7 +7,7 @@
 
 const { z } = require("zod");
 
-const RUBRIC_VERSION = 2;
+const RUBRIC_VERSION = 3;
 
 const LIST_FIELDS = ["acceptedAnswers", "hints", "options", "clozeOptions"];
 const TEXT_FIELDS = ["prompt", "correctAnswer", "culturalNote", "answerEnglish", "translation"];
@@ -68,14 +68,14 @@ const RUBRIC = `You are reviewing the course content of LingoFlow, a language-le
 
 ## How items are shown to learners
 
-Every item has an id, a CEFR level (a1-b2), a prompt, a correctAnswer and English hints. The exerciseType decides how it renders; items without one rotate through multiple choice, sentence building, cloze and dictation, so their prompt must work as a plain "translate this" task.
+Every item has an id, a CEFR level (a1-b2), a prompt, a correctAnswer and English hints. The exerciseType decides how it renders; items without one rotate through multiple choice, sentence building and dictation, so their prompt must work as a plain "translate this" task.
 
 - Prompts such as "Say: …", "Ask: …" and "Vocabulary: …" hold the English source; correctAnswer is its translation into the course language.
 - "Say aloud: …", pronunciation and dictation items show or play the target sentence itself.
 - flashcard: the front shows the prompt, the back shows correctAnswer. They must differ (English on the front, target language on the back).
 - mc_sentence with a prompt like "a / b / c / d": four target-language words, and the hint asks which one fits. correctAnswer must be one of the four.
 - multiple_choice: a question with authored options; correctAnswer must be one of them, and the other options must be plausible but clearly wrong.
-- cloze_sentence: the prompt is a target-language sentence with a ___ blank, correctAnswer fills it, and clozeOptions (when present) must contain correctAnswer.
+- cloze_sentence: the prompt is a target-language sentence with a ___ blank, and correctAnswer fills it. The learner sees the sentence, its English translation, and clozeOptions to pick from; a wrong pick shows the first hint. See "Fill-in-the-blank" below.
 - roleplay and dialogue_turn: the learner picks the best reply; answerEnglish is its English meaning.
 - Answers, including the option a learner picks, are compared to correctAnswer exactly, ignoring case and all punctuation. So an acceptedAnswers entry that differs only in case or punctuation is redundant, and options that differ only in case or punctuation (German "ein Paar" / "ein paar") cannot be told apart. Any other translation a teacher would accept (masculine/feminine speaker, formal/informal you, common word-order variants) must be listed in acceptedAnswers, or a correct learner is marked wrong.
 
@@ -86,11 +86,24 @@ Every item has an id, a CEFR level (a1-b2), a prompt, a correctAnswer and Englis
 3. Hints, culturalNote and answerEnglish are written in US English, are accurate, and are about the course language. Many courses were machine-translated from the English course, so look for leftovers that only make sense for English: hints about English spelling or hyphens, questions such as "How do you spell 50?" or "What does this English idiom mean?" answered in another language, distractors that are misspelled English words. Rewrite such an item into the equivalent exercise for the course language rather than deleting it.
 4. Distractors (options, clozeOptions, the "a / b / c" words) are real words in the course language, of the same kind as the answer, and wrong.
 5. The item fits its CEFR level.
-6. A culturalNote, when present, is factually right and relevant.
+6. Every cloze_sentence item meets the rules under "Fill-in-the-blank".
+7. A culturalNote, when present, is factually right and relevant.
 
 Leave alone what is merely a matter of taste. Report only problems a teacher would correct; an item with no such problem gets no finding. Do not report the same problem twice. Review every item in the work order, not a sample.
 
 The work order also lists automatic lint findings for the file. Confirm or dismiss them: report the real ones with a fix, and say nothing about false alarms.
+
+## Fill-in-the-blank
+
+A gap must have one right answer that a learner can reason out. Give every cloze_sentence item:
+
+- translation: the whole sentence in natural US English, gap filled ("We ate at a small family restaurant."). It shows the meaning, so the gap tests the form: with "We ate…" shown, the learner must find the right tense and person, not guess the verb.
+- clozeOptions: correctAnswer plus exactly three wrong words. Each is a real word of the course language, of the same kind as the answer, and wrong in this sentence for a reason a teacher could name: another tense or person, the wrong gender, case or agreement, or a word whose meaning contradicts the translation. Prefer forms of the same word, as in ["Comimos", "Comemos", "Comieron", "Comí"]. Never offer a word that would also be right given the translation.
+- acceptedAnswers: other words that fill the gap correctly given the translation (a synonym, "umso" next to "desto"). They count as right and are never shown as options, so leave them out of clozeOptions.
+- Capitalization: options are capitalized like the answer, and all capitalized when the gap starts the sentence (German nouns keep their capital). No option carries punctuation the others lack.
+- hints: the first hint says what the gap needs without giving the word away ("Preterite of 'comer', 'we' form."). Learners see it after a wrong pick.
+
+If the sentence can't be given one right answer (the gap allows several unrelated words even with the translation), move the gap or rewrite the prompt and correctAnswer.
 
 ## Fixes
 

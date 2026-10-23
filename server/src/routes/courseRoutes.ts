@@ -267,6 +267,48 @@ function registerCourseRoutes(app: any, deps: any): void {
     res.json(getContentMetrics({ language }));
   });
 
+  // Learners can flag an exercise from the wrong-answer panel; admins see the reports, with
+  // the item they point at, on the content page.
+  const REPORT_REASONS = new Set(["several-answers", "wrong-answer", "other"]);
+
+  function findCourseItem(language: string, itemId: string): { category: string; item: any } | null {
+    for (const [category, items] of Object.entries(COURSE[language] || {})) {
+      const item = (items as any[]).find((entry) => String(entry?.id) === itemId);
+      if (item) return { category, item };
+    }
+    return null;
+  }
+
+  app.post("/api/content/report", requireAuth, async (req: any, res: any) => {
+    const language = String(req.body?.language || "").trim().toLowerCase();
+    const itemId = String(req.body?.itemId || "").trim();
+    const reason = String(req.body?.reason || "").trim();
+    if (!REPORT_REASONS.has(reason)) {
+      return res.status(400).json({ error: `reason must be one of ${[...REPORT_REASONS].join(", ")}` });
+    }
+    if (!findCourseItem(language, itemId)) {
+      return res.status(404).json({ error: "No such exercise" });
+    }
+    await database.reportContent({ userId: req.authUserId, language, itemId, reason });
+    return res.status(201).json({ ok: true });
+  });
+
+  app.get("/api/admin/content-reports", requireAuth, async (req: any, res: any) => {
+    if (!await canAccessAdminRoutes(req.authUserId)) {
+      return res.status(403).json({ error: "Admin access required" });
+    }
+    const reports = (await database.listContentReports()).map((report: any) => {
+      const found = findCourseItem(report.language, report.itemId);
+      return {
+        ...report,
+        category: found?.category || "",
+        prompt: String(found?.item.prompt || ""),
+        correctAnswer: String(found?.item.correctAnswer || found?.item.target || "")
+      };
+    });
+    return res.json({ reports });
+  });
+
   app.get("/api/admin/content-stats", requireAuth, async (req: any, res: any) => {
     if (!await canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Admin access required" });

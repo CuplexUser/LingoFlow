@@ -57,7 +57,14 @@
     "hints": [
       "Third person singular of -ar verbs ends in -a."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "He studies English every day.",
+    "clozeOptions": [
+      "estudia",
+      "estudio",
+      "estudias",
+      "estudian"
+    ]
   },
   {
     "id": "es-gr-15",
@@ -91,7 +98,14 @@
     "hints": [
       "'Paraguas' is masculine and singular despite the -s."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "She has an umbrella.",
+    "clozeOptions": [
+      "un",
+      "una",
+      "unos",
+      "unas"
+    ]
   },
   {
     "id": "es-gr-18",
@@ -200,7 +214,14 @@
     "hints": [
       "Irregular preterite of 'ir', 'yo' form."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "Last Saturday I went to the movies.",
+    "clozeOptions": [
+      "fui",
+      "iba",
+      "voy",
+      "fue"
+    ]
   },
   {
     "id": "es-gr-21",
@@ -238,7 +259,14 @@
     "hints": [
       "'Más ... que' = more ... than."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "This book is more interesting than the other one.",
+    "clozeOptions": [
+      "más",
+      "menos",
+      "tan",
+      "muy"
+    ]
   },
   {
     "id": "es-gr-24",
@@ -311,7 +339,14 @@
       "'Mucho' agrees in gender and number with the noun."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "es-gr-a2-51"
+    "id": "es-gr-a2-51",
+    "translation": "I have a lot of friends in Madrid.",
+    "clozeOptions": [
+      "muchos",
+      "mucho",
+      "muchas",
+      "mucha"
+    ]
   },
   {
     "id": "es-gr-7",
@@ -352,7 +387,14 @@
     "hints": [
       "Passive: ser + participle, here in the preterite."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The report was written by the team last week.",
+    "clozeOptions": [
+      "fue",
+      "era",
+      "es",
+      "estuvo"
+    ]
   },
   {
     "id": "es-gr-28",
@@ -423,7 +465,14 @@
     "hints": [
       "'Que' is the relative pronoun for both people and things."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The person who called didn't leave any message.",
+    "clozeOptions": [
+      "que",
+      "quien",
+      "cual",
+      "cuyo"
+    ]
   },
   {
     "level": "b1",
@@ -458,7 +507,14 @@
       "The opposite of the active voice."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "es-gr-b1-61"
+    "id": "es-gr-b1-61",
+    "translation": "When should I use the passive voice?",
+    "clozeOptions": [
+      "pasiva",
+      "activa",
+      "pasivo",
+      "pasar"
+    ]
   },
   {
     "id": "es-gr-10",
@@ -533,7 +589,17 @@
     "hints": [
       "Passive 'se' attached to the infinitive."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "The data must be analyzed before drawing conclusions.",
+    "clozeOptions": [
+      "analizarse",
+      "analizar",
+      "analizados",
+      "analizándose"
+    ],
+    "acceptedAnswers": [
+      "ser analizados"
+    ]
   },
   {
     "id": "es-gr-37",
@@ -577,7 +643,14 @@
       "'No solo... ___ que también...'."
     ],
     "exerciseType": "cloze_sentence",
-    "id": "es-gr-b2-70"
+    "id": "es-gr-b2-70",
+    "translation": "Not only did she finish on time, she also improved the draft.",
+    "clozeOptions": [
+      "sino",
+      "pero",
+      "si no",
+      "sin"
+    ]
   },
   {
     "level": "b2",

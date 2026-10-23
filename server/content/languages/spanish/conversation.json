@@ -149,7 +149,14 @@
     "hints": [
       "Use the reflexive pronoun that goes with 'I' in Spanish."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "My name is Ana and I'm from Spain.",
+    "clozeOptions": [
+      "Me",
+      "Te",
+      "Se",
+      "Nos"
+    ]
   },
   {
     "id": "sp-cv-a1-14",
@@ -286,7 +293,14 @@
     "hints": [
       "Use the indirect object pronoun for 'you' (informal)."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "Did you like the movie?",
+    "clozeOptions": [
+      "Te",
+      "Me",
+      "Nos",
+      "Lo"
+    ]
   },
   {
     "id": "sp-cv-a2-9",
@@ -472,7 +486,14 @@
     "hints": [
       "Use the subjunctive of 'estar' after 'me alegra que'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm glad you're here with me.",
+    "clozeOptions": [
+      "estés",
+      "estás",
+      "estarás",
+      "estar"
+    ]
   },
   {
     "id": "sp-cv-b1-7",
@@ -704,7 +725,17 @@
     "hints": [
       "Use the pluperfect subjunctive for unreal past conditions."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I wouldn't have said that if I had known the consequences.",
+    "clozeOptions": [
+      "hubiera conocido",
+      "había conocido",
+      "habría conocido",
+      "haya conocido"
+    ],
+    "acceptedAnswers": [
+      "hubiese conocido"
+    ]
   },
   {
     "id": "sp-cv-b2-7",

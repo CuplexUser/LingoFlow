@@ -544,3 +544,39 @@ test("missing Authorization header returns 401 on all protected routes", async (
     assert.equal(res.status, 401, `Expected 401 for ${endpoint} without auth`);
   }
 });
+
+test("learners report an exercise and admins see the reports with the item", async (t) => {
+  const srv = await TestServer.start();
+  t.after(() => srv.close());
+  const learner = await createAuthHeaders(srv.base, "reporter");
+  const report = (body: Record<string, string>) => fetch(`${srv.base}/api/content/report`, {
+    method: "POST",
+    headers: learner,
+    body: JSON.stringify(body)
+  });
+
+  assert.equal((await report({ language: "spanish", itemId: "es-fo-a2-51", reason: "several-answers" })).status, 201);
+  // Reporting the same problem again counts once.
+  assert.equal((await report({ language: "spanish", itemId: "es-fo-a2-51", reason: "several-answers" })).status, 201);
+  assert.equal((await report({ language: "spanish", itemId: "es-fo-a2-51", reason: "boring" })).status, 400);
+  assert.equal((await report({ language: "spanish", itemId: "no-such-item", reason: "other" })).status, 404);
+
+  const denied = await fetch(`${srv.base}/api/admin/content-reports`, { headers: learner });
+  assert.equal(denied.status, 403);
+
+  const previous = process.env.CONTRIBUTION_REVIEWER_EMAILS;
+  process.env.CONTRIBUTION_REVIEWER_EMAILS = learner.email;
+  const adminSrv = await TestServer.start();
+  t.after(() => {
+    adminSrv.close();
+    process.env.CONTRIBUTION_REVIEWER_EMAILS = previous;
+  });
+  const listed = await fetch(`${adminSrv.base}/api/admin/content-reports`, { headers: learner });
+  assert.equal(listed.status, 200);
+  const { reports } = await listed.json() as any;
+  const entry = reports.find((row: any) => row.itemId === "es-fo-a2-51" && row.reason === "several-answers");
+  assert.ok(entry, "expected the report in the list");
+  assert.equal(entry.reports, 1);
+  assert.equal(entry.category, "food_cooking");
+  assert.equal(entry.correctAnswer, "Comimos");
+});

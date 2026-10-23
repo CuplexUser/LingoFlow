@@ -13,6 +13,13 @@ Use this checklist before merging content-heavy updates.
   language guess misreads) goes in `server/content/lint-accepted.json` with a one-line reason.
   Accepted warnings are hidden from the report, `--status` and work orders; the `content_lint`
   test fails on an entry that no longer matches a warning.
+- Fill-in-the-blank items (`cloze_sentence`) need a `translation` of the whole sentence and
+  `clozeOptions` with the answer plus three wrong words; other words that fit the gap go in
+  `acceptedAnswers`, never among the options (rules `cloze-*`; how to write them is in the
+  review rubric, `scripts/content-review/rubric.ts`).
+- Learners can report an exercise from the wrong-answer panel. Admins see the reports, most
+  reported first, under "Learner reports" on the content stats page
+  (`GET /api/admin/content-reports`); review those items first.
 
 ## AI review through work orders
 

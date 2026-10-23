@@ -5,6 +5,7 @@ const assert = require("node:assert/strict");
 
 const {
   lintContent,
+  lintItems,
   baselineKey,
   loadBaseline,
   loadAccepted,
@@ -54,4 +55,50 @@ test("detectLanguage tells the course languages apart", () => {
   assert.equal(detectLanguage("Non ho tempo oggi, ma sono sempre qui per te."), "italian");
   assert.equal(detectLanguage("У меня болит голова."), "russian");
   assert.equal(detectLanguage("tiger"), "");
+});
+
+function clozeRules(item: Record<string, unknown>): string[] {
+  const base = { id: "es-test-1", level: "a2", difficulty: "a2", exerciseType: "cloze_sentence", hints: ["Preterite of 'comer', 'we' form."] };
+  return lintItems([{ ...base, ...item }], "spanish", "food_cooking")
+    .map((finding: any) => finding.rule)
+    .filter((rule: string) => rule.startsWith("cloze-"));
+}
+
+test("a cloze item needs a translation and three wrong options", () => {
+  assert.deepEqual(
+    clozeRules({ prompt: "___ en un pequeño restaurante familiar.", correctAnswer: "Comimos" }),
+    ["cloze-missing-translation", "cloze-options-missing"]
+  );
+  assert.deepEqual(
+    clozeRules({
+      prompt: "___ en un pequeño restaurante familiar.",
+      correctAnswer: "Comimos",
+      translation: "We ate at a small family restaurant.",
+      clozeOptions: ["Comimos", "Comemos", "Comieron", "Comí"]
+    }),
+    []
+  );
+});
+
+test("a cloze option that also fits the gap is an error, and a case difference a warning", () => {
+  const findings = lintItems([{
+    id: "es-test-2", level: "b1", difficulty: "b1", exerciseType: "cloze_sentence",
+    prompt: "¿Cuáles son las ___ de cocinar en casa?",
+    correctAnswer: "ventajas",
+    acceptedAnswers: ["beneficios"],
+    translation: "What are the advantages of cooking at home?",
+    clozeOptions: ["ventajas", "beneficios", "Recetas", "cucharas"],
+    hints: ["Plural noun: the good sides of something."]
+  }], "spanish", "food_cooking");
+  const rules = findings.map((finding: any) => `${finding.rule}:${finding.severity}`);
+  assert.ok(rules.includes("cloze-option-is-accepted:error"));
+  assert.ok(rules.includes("cloze-case-tell:warning"));
+});
+
+test("cloze rules leave the English source alone", () => {
+  const findings = lintItems([{
+    id: "en-test-1", level: "a2", difficulty: "a2", exerciseType: "cloze_sentence",
+    prompt: "We ___ at a small family restaurant.", correctAnswer: "ate"
+  }], "english", "food_cooking");
+  assert.deepEqual(findings.filter((finding: any) => finding.rule.startsWith("cloze-")), []);
 });

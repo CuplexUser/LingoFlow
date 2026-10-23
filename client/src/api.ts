@@ -171,6 +171,18 @@ export type ContentStoryStats = {
   sentences: number;
 };
 
+// An exercise learners flagged from the wrong-answer panel, with how many did.
+export type ContentReport = {
+  language: string;
+  itemId: string;
+  reason: "several-answers" | "wrong-answer" | "other";
+  reports: number;
+  lastReportedAt: string;
+  category: string;
+  prompt: string;
+  correctAnswer: string;
+};
+
 export type ContentStatsData = {
   languages: { id: string; label: string; flag: string }[];
   categories: { id: string; label: string }[];
@@ -486,6 +498,8 @@ export const api = {
   completeSession: (payload: SessionCompletePayload) =>
     request<CompleteSessionResponse>("/session/complete", { method: "POST", body: JSON.stringify(payload) }),
   getAchievements: () => request<Achievement[]>("/user/achievements"),
+  reportContent: (payload: { language: string; itemId: string; reason: "several-answers" | "wrong-answer" | "other" }) =>
+    request<{ ok: boolean }>("/content/report", { method: "POST", body: JSON.stringify(payload) }),
   getCommunityContributions: (params: {
     scope?: "mine" | "all";
     status?: ContributionModerationStatus | "";
@@ -561,6 +575,7 @@ export const api = {
       { method: "DELETE" }
     ),
   getContentStats: () => request<ContentStatsData>("/admin/content-stats"),
+  getContentReports: () => request<{ reports: ContentReport[] }>("/admin/content-reports"),
   fetchWordTranslations: (lang: string, words: string[]): Promise<Record<string, string>> => {
     if (!words.length) return Promise.resolve({});
     const params = new URLSearchParams({ lang, words: words.join(",") });

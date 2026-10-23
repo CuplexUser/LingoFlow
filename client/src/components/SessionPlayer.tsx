@@ -807,6 +807,9 @@ export function SessionPlayer({ session, onBack, onFinish, onSnapshot }: Session
           feedback={feedback}
           builtWords={builtWords}
           onReveal={revealAnswer}
+          onReport={async (reason) => {
+            await api.reportContent({ language: session.language, itemId: question.id, reason });
+          }}
         />
 
         {question.type !== "practice_words" && question.type !== "flashcard" ? (

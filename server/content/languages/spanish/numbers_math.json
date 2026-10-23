@@ -117,7 +117,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Spanish: Una semana tiene ___ días.",
     "correctAnswer": "siete",
-    "hints": ["Monday through Sunday — siete días."]
+    "hints": [
+      "Monday through Sunday — siete días."
+    ],
+    "translation": "A week has seven days.",
+    "clozeOptions": [
+      "siete",
+      "seis",
+      "ocho",
+      "cinco"
+    ]
   },
   {
     "id": "es-num-a1-13",
@@ -168,7 +177,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Spanish: 4 − 1 = ___",
     "correctAnswer": "tres",
-    "hints": ["Spell out the number word, not the digit."]
+    "hints": [
+      "Spell out the number word, not the digit."
+    ],
+    "translation": "Four minus one equals three.",
+    "clozeOptions": [
+      "tres",
+      "cuatro",
+      "dos",
+      "cinco"
+    ]
   },
   {
     "id": "es-num-a1-18",
@@ -215,7 +233,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Spanish: Tengo ___ dedos en cada mano.",
     "correctAnswer": "cinco",
-    "hints": ["Count them!"]
+    "hints": [
+      "Count them!"
+    ],
+    "translation": "I have five fingers on each hand.",
+    "clozeOptions": [
+      "cinco",
+      "cuatro",
+      "seis",
+      "diez"
+    ]
   },
   {
     "id": "es-num-a2-1",
@@ -301,7 +328,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Spanish: 10 ÷ 2 = ___",
     "correctAnswer": "cinco",
-    "hints": ["Split ten into two equal groups. Write the word, not the digit."]
+    "hints": [
+      "Split ten into two equal groups. Write the word, not the digit."
+    ],
+    "translation": "Ten divided by two equals five.",
+    "clozeOptions": [
+      "cinco",
+      "dos",
+      "veinte",
+      "doce"
+    ]
   },
   {
     "id": "es-num-a2-9",
@@ -320,7 +356,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete in Spanish: Hay ___ horas en un día.",
     "correctAnswer": "veinticuatro",
-    "hints": ["Not twenty-five, not twenty-three — right between them."]
+    "hints": [
+      "Not twenty-five, not twenty-three — right between them."
+    ],
+    "translation": "There are twenty-four hours in a day.",
+    "clozeOptions": [
+      "veinticuatro",
+      "veintitrés",
+      "veinticinco",
+      "catorce"
+    ]
   },
   {
     "id": "es-num-a2-11",
@@ -358,7 +403,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Una ___ de huevos son doce huevos.",
     "correctAnswer": "docena",
-    "hints": ["Bakers and recipe writers love this word. 'Doce' is hiding inside."]
+    "hints": [
+      "Bakers and recipe writers love this word. 'Doce' is hiding inside."
+    ],
+    "translation": "A dozen eggs is twelve eggs.",
+    "clozeOptions": [
+      "docena",
+      "decena",
+      "doce",
+      "quincena"
+    ]
   },
   {
     "id": "es-num-a2-15",
@@ -412,7 +466,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Quedó en ___ lugar — justo fuera del podio. (Spanish ordinal)",
     "correctAnswer": "cuarto",
-    "hints": ["One step after third place. From 'cuatro' (four)."]
+    "hints": [
+      "One step after third place. From 'cuatro' (four)."
+    ],
+    "translation": "He came in fourth place, just off the podium.",
+    "clozeOptions": [
+      "cuarto",
+      "cuatro",
+      "tercer",
+      "quinto"
+    ]
   },
   {
     "id": "es-num-a2-20",
@@ -463,7 +526,19 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: ___ de la clase aprobó el examen — treinta de cuarenta estudiantes.",
     "correctAnswer": "Tres cuartas partes",
-    "hints": ["30 out of 40 = 75%. That's three quarters in Spanish."]
+    "hints": [
+      "30 out of 40 = 75%. That's three quarters in Spanish."
+    ],
+    "translation": "Three quarters of the class passed the exam: thirty out of forty students.",
+    "clozeOptions": [
+      "Tres cuartas partes",
+      "Dos terceras partes",
+      "La mitad",
+      "Tres quintas partes"
+    ],
+    "acceptedAnswers": [
+      "Tres cuartos"
+    ]
   },
   {
     "id": "es-num-b1-5",
@@ -529,7 +604,19 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Tenemos que ___ la cuenta entre tres — unos veinte euros cada uno.",
     "correctAnswer": "dividir",
-    "hints": ["Divide equally between friends at a restaurant. From 'división'."]
+    "hints": [
+      "Divide equally between friends at a restaurant. From 'división'."
+    ],
+    "translation": "We have to split the bill three ways, about twenty euros each.",
+    "clozeOptions": [
+      "dividir",
+      "multiplicar",
+      "dividimos",
+      "sumar"
+    ],
+    "acceptedAnswers": [
+      "repartir"
+    ]
   },
   {
     "id": "es-num-b1-12",
@@ -569,6 +656,13 @@
     "correctAnswer": "treintena",
     "hints": [
       "A noun for the decade of life from 30 to 39. La veintena, la cuarentena… same pattern."
+    ],
+    "translation": "She's in her thirties: she turned 35 last week.",
+    "clozeOptions": [
+      "treintena",
+      "cuarentena",
+      "veintena",
+      "treinta"
     ]
   },
   {
@@ -604,7 +698,20 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: El precio es ___ veinte euros.",
     "correctAnswer": "aproximadamente",
-    "hints": ["'Roughly twenty euros.' A formal, precise way to say 'about'."]
+    "hints": [
+      "'Roughly twenty euros.' A formal, precise way to say 'about'."
+    ],
+    "translation": "The price is approximately twenty euros.",
+    "clozeOptions": [
+      "aproximadamente",
+      "exactamente",
+      "aproximado",
+      "apenas"
+    ],
+    "acceptedAnswers": [
+      "unos",
+      "alrededor de"
+    ]
   },
   {
     "id": "es-num-b1-19",
@@ -659,7 +766,16 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: Ese plan no me ___. Las cuentas no cuadran.",
     "correctAnswer": "cuadra",
-    "hints": ["'No me cuadra' = it doesn't add up / it doesn't make sense to me. Very common expression!"]
+    "hints": [
+      "'No me cuadra' = it doesn't add up / it doesn't make sense to me. Very common expression!"
+    ],
+    "translation": "That plan doesn't add up for me. The numbers don't work out.",
+    "clozeOptions": [
+      "cuadra",
+      "cuadro",
+      "cuadran",
+      "cuadrado"
+    ]
   },
   {
     "id": "es-num-b2-4",
@@ -691,6 +807,13 @@
     "correctAnswer": "número uno",
     "hints": [
       "Works just like the English expression for the prime suspect."
+    ],
+    "translation": "She's the number one suspect. The detective is focusing on her.",
+    "clozeOptions": [
+      "número uno",
+      "número dos",
+      "uno número",
+      "número primero"
     ]
   },
   {
@@ -736,6 +859,13 @@
     "correctAnswer": "Nada en el mundo",
     "hints": [
       "'Nothing in the world' — a strong, emphatic subject."
+    ],
+    "translation": "Nothing in the world would make me go back to that place after that experience.",
+    "clozeOptions": [
+      "Nada en el mundo",
+      "Todo en el mundo",
+      "Nadie en el mundo",
+      "Algo en el mundo"
     ]
   },
   {
@@ -766,7 +896,20 @@
     "exerciseType": "cloze_sentence",
     "prompt": "Complete: La organización funciona con un presupuesto muy ___.",
     "correctAnswer": "ajustado",
-    "hints": ["'Un presupuesto ajustado' = a tight budget. 'Ajustar' means to tighten or adjust."]
+    "hints": [
+      "'Un presupuesto ajustado' = a tight budget. 'Ajustar' means to tighten or adjust."
+    ],
+    "translation": "The organization runs on a very tight budget.",
+    "clozeOptions": [
+      "ajustado",
+      "ajustada",
+      "amplio",
+      "ajustar"
+    ],
+    "acceptedAnswers": [
+      "limitado",
+      "reducido"
+    ]
   },
   {
     "id": "es-num-b2-14",

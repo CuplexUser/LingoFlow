@@ -56,6 +56,25 @@ const RULES: Record<string, { severity: Severity; description: string }> = {
     description:
       "Authored `clozeOptions` do not contain `correctAnswer`, so nothing on screen is correct."
   },
+  "cloze-missing-translation": {
+    severity: "error",
+    description:
+      "A cloze item has no `translation`, so the learner can't tell what the sentence should say."
+  },
+  "cloze-options-missing": {
+    severity: "error",
+    description:
+      "A cloze item has fewer than three `clozeOptions`, so its wrong options are picked at random and may fit the gap too."
+  },
+  "cloze-option-is-accepted": {
+    severity: "error",
+    description: "A cloze option offered as wrong is listed in `acceptedAnswers`, so it fits the gap."
+  },
+  "cloze-case-tell": {
+    severity: "warning",
+    description:
+      "Cloze options are capitalized differently from the answer, which gives the answer away."
+  },
   "digits-for-spelled-number": {
     severity: "error",
     description: "The prompt asks for a number in words, but the answer is written in digits."
@@ -700,6 +719,37 @@ function lintItem(
   };
   checkOptions("options", "options-missing-answer");
   checkOptions("clozeOptions", "cloze-options-missing-answer");
+
+  // Fill-in-the-blank. English is the source the courses are translated from, not a course.
+  if (type === "cloze_sentence" && !isEnglishCourse) {
+    if (!String(item.translation || "").trim()) {
+      report("cloze-missing-translation", "no translation of the whole sentence");
+    }
+    const clozeOptions = Array.isArray(item.clozeOptions)
+      ? item.clozeOptions.map((option) => String(option ?? "").trim()).filter(Boolean)
+      : [];
+    if (clozeOptions.length < 3) {
+      report("cloze-options-missing", `${clozeOptions.length} clozeOptions; write the answer and three wrong words`);
+    }
+    const accepted = Array.isArray(item.acceptedAnswers) ? item.acceptedAnswers.map(normalize) : [];
+    for (const option of clozeOptions) {
+      if (normalize(option) !== normalize(answer) && accepted.includes(normalize(option))) {
+        report("cloze-option-is-accepted", `"${option}" is offered as wrong but fits the gap`);
+      }
+    }
+    // At the start of a sentence every option is capitalized; elsewhere each matches the answer.
+    const startsUpper = (word: string) => {
+      const first = word.replace(/^[^\p{L}]+/u, "").charAt(0);
+      return first !== "" && first !== first.toLocaleLowerCase();
+    };
+    const atStart = /^[^\p{L}\p{N}]*_{2,}/u.test(stripExercisePrefix(prompt));
+    const tells = clozeOptions.filter((option) =>
+      atStart ? !startsUpper(option) : startsUpper(option) !== startsUpper(answer)
+    );
+    if (tells.length) {
+      report("cloze-case-tell", `${tells.map((option) => `"${option}"`).join(", ")} vs "${answer}"`);
+    }
+  }
 
   if (/\b(spell|in words)\b/i.test(prompt) && /\d/.test(answer)) {
     report("digits-for-spelled-number", `"${prompt}" is answered with "${answer}"`);

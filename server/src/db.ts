@@ -3277,6 +3277,53 @@ async function forgetBillingEvent(eventId: string) {
   await db.prepare("DELETE FROM billing_events WHERE event_id = ?").run(eventId);
 }
 
+// Problems learners report with an exercise ("more than one answer fits"). One row per
+// learner, item and reason, so reporting twice counts once.
+async function createContentReportsTable(): Promise<void> {
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS content_reports (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      language TEXT NOT NULL,
+      item_id TEXT NOT NULL,
+      reason TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(user_id, language, item_id, reason)
+    );
+  `);
+}
+
+async function reportContent({ userId, language, itemId, reason }: {
+  userId: number;
+  language: string;
+  itemId: string;
+  reason: string;
+}) {
+  await db.prepare(`
+    INSERT INTO content_reports (user_id, language, item_id, reason)
+    VALUES (?, ?, ?, ?)
+    ON CONFLICT(user_id, language, item_id, reason) DO NOTHING
+  `).run(userId, language, itemId, reason);
+}
+
+// Reported items, most reported first.
+async function listContentReports() {
+  const rows = await db.prepare(`
+    SELECT language, item_id, reason, COUNT(*) AS reports, MAX(created_at) AS last_reported_at
+    FROM content_reports
+    GROUP BY language, item_id, reason
+    ORDER BY reports DESC, last_reported_at DESC
+    LIMIT 500
+  `).all();
+  return rows.map((row: any) => ({
+    language: row.language,
+    itemId: row.item_id,
+    reason: row.reason,
+    reports: Number(row.reports) || 0,
+    lastReportedAt: row.last_reported_at
+  }));
+}
+
 // Learning path. A unit is one category at one CEFR level; path_units counts the lessons
 // finished in each, path_state holds the level a language's path starts at (set by the
 // placement check), and path_sessions tags the active sessions that belong to the path so
@@ -3431,7 +3478,7 @@ let schemaReady: Promise<void> | null = null;
 // connection) instead of re-confirming a schema that hasn't changed since the last deploy.
 // Forgetting to bump this after a real schema change means that change silently never runs
 // against an already-deployed database.
-const SCHEMA_VERSION = 3;
+const SCHEMA_VERSION = 4;
 
 async function isSchemaCurrent(): Promise<boolean> {
   if (!(await db.tableExists("schema_meta"))) return false;
@@ -3481,6 +3528,7 @@ async function runSchemaSetup(): Promise<void> {
   await createWordTranslationsTable();
   await createSubscriptionTables();
   await createPathTables();
+  await createContentReportsTable();
   await markSchemaCurrent();
   await seedDefaultUser();
   await maybeMigrateLegacyJson();
@@ -3594,5 +3642,7 @@ module.exports = {
   savePathState,
   setSelfRatedLevel,
   createPathSession,
+  reportContent,
+  listContentReports,
   getPathSession
 };

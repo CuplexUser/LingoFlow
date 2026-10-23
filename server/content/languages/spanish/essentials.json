@@ -322,7 +322,14 @@
     "hints": [
       "Use the present participle of 'aprender'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I'm learning Spanish every day.",
+    "clozeOptions": [
+      "aprendiendo",
+      "aprendo",
+      "aprendido",
+      "aprender"
+    ]
   },
   {
     "id": "sp-es-a2-14",
@@ -408,7 +415,14 @@
     "hints": [
       "Use the subjunctive of 'ser' after 'no creo que'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I don't think it's easy to learn a new language.",
+    "clozeOptions": [
+      "sea",
+      "es",
+      "será",
+      "ser"
+    ]
   },
   {
     "id": "sp-es-b1-7",
@@ -473,7 +487,14 @@
     "hints": [
       "Use the subjunctive of 'decir' after 'quiero que'."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I want you to tell me the truth.",
+    "clozeOptions": [
+      "digas",
+      "dices",
+      "decir",
+      "dirás"
+    ]
   },
   {
     "id": "sp-es-b1-13",
@@ -575,7 +596,17 @@
     "hints": [
       "Use the imperfect subjunctive after 'ojalá' for wishes."
     ],
-    "exerciseType": "cloze_sentence"
+    "exerciseType": "cloze_sentence",
+    "translation": "I wish I had more time to travel.",
+    "clozeOptions": [
+      "tuviera",
+      "tengo",
+      "tendré",
+      "tenía"
+    ],
+    "acceptedAnswers": [
+      "tuviese"
+    ]
   },
   {
     "id": "sp-es-b2-8",

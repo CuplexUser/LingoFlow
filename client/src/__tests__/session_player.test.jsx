@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { SessionPlayer } from "../components/SessionPlayer";
+import { api } from "../api";
 
 vi.mock("../components/session/useSessionSpeech", () => ({
   useSessionSpeech: ({ onTranscriptCaptured }) => ({
@@ -281,6 +282,21 @@ test("a wrong cloze pick explains what the gap needs", async () => {
 
   expect(screen.getByText("Incorrect. Try again before moving on.")).toBeInTheDocument();
   expect(screen.getByText("Je … desto: the more … the more.", { selector: ".feedback span" })).toBeInTheDocument();
+});
+
+test("a learner can report an exercise from the wrong-answer panel", async () => {
+  const user = userEvent.setup();
+  const report = vi.spyOn(api, "reportContent").mockResolvedValue({ ok: true });
+  render(<SessionPlayer session={clozeSession()} onBack={() => {}} onFinish={() => {}} onSnapshot={() => {}} />);
+
+  await user.click(screen.getByRole("button", { name: "dann" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+  await user.click(screen.getByRole("button", { name: "Report a problem" }));
+  await user.click(screen.getByRole("button", { name: "More than one answer fits" }));
+
+  expect(report).toHaveBeenCalledWith({ language: "german", itemId: "cl1", reason: "several-answers" });
+  expect(await screen.findByText("Thanks. We'll take a look at this exercise.")).toBeInTheDocument();
+  report.mockRestore();
 });
 
 test("keyboard shortcuts select options and submit", async () => {

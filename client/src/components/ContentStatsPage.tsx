@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { api, type ContentLevelStats, type ContentStatsData } from "../api";
+import { api, type ContentLevelStats, type ContentReport, type ContentStatsData } from "../api";
 
 type Props = {
   canModerate: boolean;
@@ -343,6 +343,44 @@ function CoverageGrid({ data }: { data: ContentStatsData }) {
 
 // ── story reader coverage ─────────────────────────────────────────────────────
 
+const REPORT_REASON_LABELS: Record<ContentReport["reason"], string> = {
+  "several-answers": "More than one answer fits",
+  "wrong-answer": "The answer is wrong",
+  other: "Something else"
+};
+
+function LearnerReportsTable({ reports }: { reports: ContentReport[] }) {
+  if (!reports.length) return <p className="stats-subtitle">No reports yet.</p>;
+  return (
+    <div className="coverage-grid-wrap">
+      <table className="coverage-table">
+        <thead>
+          <tr>
+            <th className="cat-header">Exercise</th>
+            <th className="cat-header">Problem</th>
+            <th className="lang-header">Reports</th>
+            <th className="lang-header">Last</th>
+          </tr>
+        </thead>
+        <tbody>
+          {reports.map((report) => (
+            <tr key={`${report.language}/${report.itemId}/${report.reason}`}>
+              <td>
+                <strong>{report.language}/{report.category || "?"}/{report.itemId}</strong>
+                <div>{report.prompt}</div>
+                <div style={{ color: "var(--muted)" }}>{report.correctAnswer}</div>
+              </td>
+              <td>{REPORT_REASON_LABELS[report.reason] || report.reason}</td>
+              <td>{report.reports}</td>
+              <td>{String(report.lastReportedAt || "").slice(0, 10)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function StoryCoverageTable({ data }: { data: ContentStatsData }) {
   const totals = useMemo(() => {
     let stories = 0, sentences = 0, langsWith = 0;
@@ -458,6 +496,7 @@ function SummaryChips({ data }: { data: ContentStatsData }) {
 
 export function ContentStatsPage({ canModerate }: Props) {
   const [data, setData] = useState<ContentStatsData | null>(null);
+  const [reports, setReports] = useState<ContentReport[] | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -467,6 +506,9 @@ export function ContentStatsPage({ canModerate }: Props) {
       .catch((err: unknown) =>
         setError(err instanceof Error ? err.message : "Failed to load content stats.")
       );
+    api.getContentReports()
+      .then((result) => setReports(result.reports))
+      .catch(() => setReports([]));
   }, [canModerate]);
 
   if (!canModerate) return <div className="panel"><p>Access denied.</p></div>;
@@ -483,6 +525,10 @@ export function ContentStatsPage({ canModerate }: Props) {
       </div>
 
       <KpiCards data={data}/>
+
+      <ChartCard title="Learner reports" sub="Exercises learners flagged from the wrong-answer panel, most reported first">
+        {reports ? <LearnerReportsTable reports={reports}/> : <p className="stats-subtitle">Loading reports…</p>}
+      </ChartCard>
 
       <section className="charts-2col">
         <ChartCard title="Exercises per language" sub="Stacked by CEFR level">
