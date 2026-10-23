@@ -24,7 +24,9 @@ describe("normalizeActiveSession", () => {
           prompt: "Fill the blank",
           clozeText: "Jag ___ kaffe.",
           clozeAnswer: "dricker",
-          clozeOptions: ["dricker", "äter"]
+          acceptedClozeAnswers: ["tar"],
+          clozeOptions: ["dricker", "äter"],
+          translation: "I drink coffee."
         }
       ]
     });
@@ -36,6 +38,8 @@ describe("normalizeActiveSession", () => {
     }
     if (normalized.questions[1].type === "cloze_sentence") {
       expect(normalized.questions[1].clozeOptions).toEqual(["dricker", "äter"]);
+      expect(normalized.questions[1].acceptedClozeAnswers).toEqual(["tar"]);
+      expect(normalized.questions[1].translation).toBe("I drink coffee.");
     }
   });
 });

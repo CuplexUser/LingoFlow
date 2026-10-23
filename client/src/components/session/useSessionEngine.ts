@@ -192,7 +192,10 @@ export function useSessionEngine({
     ) {
       return normalizeSentence(selectedOption) === normalizeSentence(question.answer);
     }
-    if (question.type === "cloze_sentence") return selectedOption === question.clozeAnswer;
+    if (question.type === "cloze_sentence") {
+      const fits = [question.clozeAnswer, ...(question.acceptedClozeAnswers || [])].map((value) => normalizeSentence(value));
+      return Boolean(selectedOption) && fits.includes(normalizeSentence(selectedOption));
+    }
     if (question.type === "flashcard") return selectedOption === "known";
     if (question.type === "pronunciation" || question.type === "practice_speak") {
       return isPronunciationCloseEnough(
@@ -344,13 +347,16 @@ export function useSessionEngine({
 
         const answerWords = "answer" in question ? splitSentenceWords(question.answer) : [];
         const showReveal = question.type !== "roleplay" && nextMistakes >= 2;
+        // A cloze item's hint says what the gap needs ("Preterite of 'comer', 'we' form."),
+        // which explains why the pick was wrong better than a general line.
+        const itemHint = question.type === "cloze_sentence" ? question.hints?.[0] || "" : "";
 
         setFeedback({
           type: "error",
           message: "Incorrect. Try again before moving on.",
-          hint: showReveal
+          hint: itemHint || (showReveal
             ? "Use reveal to inspect the correct answer and self-correct."
-            : "Check the meaning and try again.",
+            : "Check the meaning and try again."),
           showReveal,
           answerWords:
             question.type === "build_sentence" || question.type === "dictation_sentence"

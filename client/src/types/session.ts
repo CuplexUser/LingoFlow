@@ -35,6 +35,8 @@ export type ClozeSentenceQuestion = SessionQuestionBase & {
   type: "cloze_sentence";
   answer?: string;
   clozeAnswer: string;
+  // Other words that fit the gap just as well; never among the options.
+  acceptedClozeAnswers?: string[];
   clozeText: string;
   clozeOptions: string[];
   translation?: string;

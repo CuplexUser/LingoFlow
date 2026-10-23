@@ -311,8 +311,10 @@ function mapSessionQuestion(rawQuestion: RawSessionQuestion): SessionQuestion {
       type,
       answer: asOptionalString(rawQuestion.answer),
       clozeAnswer: asString(rawQuestion.clozeAnswer),
+      acceptedClozeAnswers: asStringArray(rawQuestion.acceptedClozeAnswers),
       clozeText: asString(rawQuestion.clozeText),
-      clozeOptions: asStringArray(rawQuestion.clozeOptions)
+      clozeOptions: asStringArray(rawQuestion.clozeOptions),
+      translation: asOptionalString(rawQuestion.translation)
     };
     return question;
   }

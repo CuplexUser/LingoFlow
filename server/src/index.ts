@@ -37,6 +37,7 @@ interface SessionQuestion {
   answer: string;
   acceptedAnswers?: string[];
   clozeAnswer?: string;
+  acceptedClozeAnswers?: string[];
   objective?: string;
 }
 
@@ -339,7 +340,8 @@ function evaluateAttempt(question: SessionQuestion, attempt: SessionAttempt): At
   }
   if (question.type === "cloze_sentence") {
     submitted = attempt?.selectedOption || "";
-    const correct = normalizeSentence(submitted) === normalizeSentence(question.clozeAnswer || "");
+    const fits = [question.clozeAnswer || "", ...(question.acceptedClozeAnswers || [])].map(normalizeSentence);
+    const correct = Boolean(normalizeSentence(submitted)) && fits.includes(normalizeSentence(submitted));
     return {
       correct,
       errorType: correct ? "none" : classifyError(question, submitted),

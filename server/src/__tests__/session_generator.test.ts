@@ -386,3 +386,85 @@ test("authored acceptedAnswers are accepted alongside the main answer", () => {
     "Я забыла тетрадь дома"
   ]);
 });
+
+// ─── Fill in the blank ────────────────────────────────────────────────────────
+
+// Plain sentences give the fallback distractors their words.
+const SPANISH_FOOD_POOL = [
+  { id: "es-p1", level: "a2", difficulty: "a2", prompt: "Say: We had dinner late.", correctAnswer: "Cenamos tarde." },
+  { id: "es-p2", level: "a2", difficulty: "a2", prompt: "Say: They cooked rice.", correctAnswer: "Cocinaron arroz." },
+  { id: "es-p3", level: "a2", difficulty: "a2", prompt: "Say: I want bread and cheese.", correctAnswer: "Quiero pan y queso." },
+  { id: "es-p4", level: "a2", difficulty: "a2", prompt: "Say: The soup is very hot.", correctAnswer: "La sopa está muy caliente." },
+  { id: "es-p5", level: "a2", difficulty: "a2", prompt: "Say: We drink water.", correctAnswer: "Bebemos agua." }
+];
+
+function generateFor(items: any[], random: () => number = () => 0.5) {
+  const selectors = createCourseSelectors({ spanish: { food_cooking: items } });
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  return generateSession({ language: "spanish", category: "food_cooking", count: items.length, selfRatedLevel: "a2", random });
+}
+
+test("only items authored as cloze become fill-in-the-blank", () => {
+  for (const seed of [1, 2, 3, 4, 5]) {
+    let state = seed;
+    const random = () => ((state = (state * 16807) % 2147483647) / 2147483647);
+    const session = generateFor(SPANISH_FOOD_POOL, random);
+    assert.ok(session.questions.length > 0);
+    assert.ok(session.questions.every((q: any) => q.type !== "cloze_sentence"), `seed ${seed} made a cloze question`);
+  }
+});
+
+test("words an authored cloze lists as also right are accepted and never offered as wrong", () => {
+  const cloze = {
+    id: "es-cl-1", level: "a2", difficulty: "a2", exerciseType: "cloze_sentence",
+    prompt: "___ en un pequeño restaurante familiar.", correctAnswer: "Comimos",
+    acceptedAnswers: ["Cenamos"]
+  };
+  for (const value of [0.1, 0.5, 0.9]) {
+    const question = generateFor([cloze, ...SPANISH_FOOD_POOL], () => value).questions.find((q: any) => q.id === "es-cl-1");
+    assert.ok(question, "expected the cloze question");
+    assert.equal(question.type, "cloze_sentence");
+    assert.equal(question.clozeText, "____ en un pequeño restaurante familiar.");
+    assert.deepEqual(question.acceptedClozeAnswers, ["Cenamos"]);
+    assert.ok(question.clozeOptions.includes("Comimos"));
+    assert.ok(!question.clozeOptions.includes("Cenamos"), "an accepted word was offered as a distractor");
+    // The gap starts the sentence, so every option is capitalized like the answer.
+    for (const option of question.clozeOptions) {
+      assert.match(option, /^\p{Lu}/u, `option "${option}" gives the answer away by its case`);
+    }
+    assert.equal(new Set(question.clozeOptions.map((o: string) => o.toLowerCase())).size, question.clozeOptions.length);
+  }
+});
+
+test("a masked word loses its punctuation, which stays in the sentence", () => {
+  const cloze = {
+    id: "es-cl-2", level: "a2", difficulty: "a2", exerciseType: "cloze_sentence",
+    prompt: "Ask: Can I have a glass of water?", correctAnswer: "¿Puedo tomar un vaso de agua?",
+    acceptedAnswers: ["¿Quiero tomar un vaso de agua?"]
+  };
+  const question = generateFor([cloze, ...SPANISH_FOOD_POOL]).questions.find((q: any) => q.id === "es-cl-2");
+  assert.ok(question, "expected the cloze question");
+  assert.equal(question.clozeAnswer, "Puedo");
+  assert.equal(question.clozeText, "¿____ tomar un vaso de agua?");
+  // The same place in the accepted answer holds another word that fits.
+  assert.deepEqual(question.acceptedClozeAnswers, ["Quiero"]);
+  assert.ok(!question.clozeOptions.includes("Quiero"));
+  for (const option of question.clozeOptions) {
+    assert.doesNotMatch(option, /[¿?.,!]/, `option "${option}" carries punctuation`);
+  }
+});
+
+test("authored options always include the answer and drop words that also fit", () => {
+  const cloze = {
+    id: "es-cl-3", level: "a2", difficulty: "a2", exerciseType: "cloze_sentence",
+    prompt: "¿Cuáles son las ___ de cocinar en casa?", correctAnswer: "ventajas",
+    acceptedAnswers: ["beneficios"],
+    clozeOptions: ["recetas", "beneficios", "cucharas", "hornos", "ventanas", "ventajas"]
+  };
+  for (const value of [0.01, 0.5, 0.99]) {
+    const question = generateFor([cloze, ...SPANISH_FOOD_POOL], () => value).questions.find((q: any) => q.id === "es-cl-3");
+    assert.ok(question.clozeOptions.includes("ventajas"));
+    assert.ok(!question.clozeOptions.includes("beneficios"));
+    assert.equal(question.clozeOptions.length, 4);
+  }
+});

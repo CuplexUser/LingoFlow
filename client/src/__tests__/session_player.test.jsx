@@ -236,6 +236,53 @@ test("practice listen uses multiple choice selection", async () => {
   ), { timeout: 2000 });
 });
 
+function clozeSession() {
+  return {
+    language: "german",
+    categoryLabel: "Grammar",
+    recommendedLevel: "b1",
+    questions: [
+      {
+        id: "cl1",
+        type: "cloze_sentence",
+        prompt: "Fill in the blank",
+        clozeText: "Je mehr du übst, ____ selbstbewusster wirst du.",
+        clozeAnswer: "desto",
+        acceptedClozeAnswers: ["umso"],
+        clozeOptions: ["desto", "dann", "als", "wie"],
+        hints: ["Je … desto: the more … the more."]
+      }
+    ]
+  };
+}
+
+test("a cloze gap accepts the other words that fit it", async () => {
+  const user = userEvent.setup();
+  const onFinish = vi.fn();
+  const session = clozeSession();
+  // The server keeps accepted words out of the options; one could still arrive from an older API.
+  session.questions[0].clozeOptions = ["umso", "dann", "als", "wie"];
+  render(<SessionPlayer session={session} onBack={() => {}} onFinish={onFinish} onSnapshot={() => {}} />);
+
+  await user.click(screen.getByRole("button", { name: "umso" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  await waitFor(() => expect(onFinish).toHaveBeenCalledWith(
+    expect.objectContaining({ score: 1, maxScore: 1 })
+  ), { timeout: 2000 });
+});
+
+test("a wrong cloze pick explains what the gap needs", async () => {
+  const user = userEvent.setup();
+  render(<SessionPlayer session={clozeSession()} onBack={() => {}} onFinish={() => {}} onSnapshot={() => {}} />);
+
+  await user.click(screen.getByRole("button", { name: "dann" }));
+  await user.click(screen.getByRole("button", { name: "Check" }));
+
+  expect(screen.getByText("Incorrect. Try again before moving on.")).toBeInTheDocument();
+  expect(screen.getByText("Je … desto: the more … the more.", { selector: ".feedback span" })).toBeInTheDocument();
+});
+
 test("keyboard shortcuts select options and submit", async () => {
   const user = userEvent.setup();
   const onFinish = vi.fn();

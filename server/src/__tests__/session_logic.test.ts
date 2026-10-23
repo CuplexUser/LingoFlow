@@ -41,6 +41,7 @@ interface BaseQuestion {
   answer: string;
   acceptedAnswers?: string[];
   clozeAnswer?: string;
+  acceptedClozeAnswers?: string[];
   pairs?: any[];
 }
 
@@ -128,6 +129,17 @@ test("evaluateAttempt accepts normalized cloze answers and classifies cloze mist
   assert.equal(ok.errorType, "none");
   assert.equal(wrong.correct, false);
   assert.equal(wrong.errorType, "cloze_choice");
+});
+
+test("evaluateAttempt accepts the other words that fit a cloze gap", async () => {
+  const question: BaseQuestion = {
+    id: "cl-2", type: "cloze_sentence", answer: "placeholder", clozeAnswer: "desto", acceptedClozeAnswers: ["umso"]
+  };
+
+  assert.equal((evaluateAttempt(question, { selectedOption: "umso" }) as EvaluationResult).correct, true);
+  assert.equal((evaluateAttempt(question, { selectedOption: "desto" }) as EvaluationResult).correct, true);
+  assert.equal((evaluateAttempt(question, { selectedOption: "dann" }) as EvaluationResult).correct, false);
+  assert.equal((evaluateAttempt(question, { selectedOption: "" }) as EvaluationResult).correct, false);
 });
 
 test("evaluateAttempt scores flashcards with known/unknown behavior", async () => {

@@ -443,7 +443,9 @@ function buildPracticePool(getAllItems, language, practicePool, extraItems = [])
 }
 
 function buildQuestionTypePlan(items) {
-  const cycle = ["mc_sentence", "build_sentence", "cloze_sentence", "dictation_sentence", "dialogue_turn"];
+  // Fill-in-the-blank is left out: masking a word of an ordinary sentence often leaves a gap
+  // that more than one option fits. Cloze comes only from items authored as cloze.
+  const cycle = ["mc_sentence", "build_sentence", "dictation_sentence", "dialogue_turn"];
   let cycleIndex = 0;
   const recent: string[] = [];
   return items.map((item) => {
@@ -463,6 +465,102 @@ function buildQuestionTypePlan(items) {
     if (recent.length > 2) recent.shift();
     return type;
   });
+}
+
+// The word without the punctuation around it: "¿Puedo" → "Puedo", "hambre." → "hambre".
+function bareWord(token: string): string {
+  return String(token || "").replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
+}
+
+function sameWord(a: string, b: string): boolean {
+  return bareWord(a).toLocaleLowerCase() === bareWord(b).toLocaleLowerCase();
+}
+
+function startsUpper(text: string): boolean {
+  const first = bareWord(text).charAt(0);
+  return first !== "" && first !== first.toLocaleLowerCase() && first === first.toLocaleUpperCase();
+}
+
+function capitalize(word: string): string {
+  return word.charAt(0).toLocaleUpperCase() + word.slice(1);
+}
+
+const MIN_CLOZE_DISTRACTORS = 2;
+
+// The gap, its answer, the other words that also fit it, and the options to pick from.
+// Items authored as cloze write the gap into the prompt ("___ en un pequeño restaurante.")
+// and list other words that fit it in `acceptedAnswers`. Older items have no gap, so a word
+// of the answer is masked, and a word at the same place in an accepted answer also fits.
+// Returns null when too few options are left that are surely wrong.
+function buildCloze(item, answer: string, pool, randomFn) {
+  const promptText = stripExercisePrefix(item.prompt);
+  const authored = Array.isArray(item.acceptedAnswers)
+    ? item.acceptedAnswers.map((value) => String(value || "").trim()).filter(Boolean)
+    : [];
+
+  let clozeAnswer: string;
+  let clozeText: string;
+  let accepted: string[];
+  let sentenceStart: boolean;
+  if (/_{2,}/.test(promptText)) {
+    clozeAnswer = answer;
+    clozeText = promptText.replace(/_{2,}/g, "____");
+    accepted = authored;
+    sentenceStart = /^[^\p{L}\p{N}]*____/u.test(clozeText);
+  } else {
+    const answerTokens = answer.split(" ").filter(Boolean);
+    const maskIndex = answerTokens.findIndex((token) => bareWord(token).length > 3);
+    const masked = maskIndex >= 0 ? maskIndex : 0;
+    const token = answerTokens[masked] || "";
+    clozeAnswer = bareWord(token) || token;
+    const tokens = [...answerTokens];
+    tokens[masked] = token.replace(clozeAnswer, "____");
+    clozeText = tokens.join(" ");
+    accepted = authored
+      .map((alternative) => alternative.split(" ").filter(Boolean))
+      .filter((altTokens) =>
+        altTokens.length === answerTokens.length &&
+        altTokens.every((altToken, index) => index === masked || sameWord(altToken, answerTokens[index])))
+      .map((altTokens) => bareWord(altTokens[masked]));
+    sentenceStart = masked === 0;
+  }
+  const acceptedClozeAnswers = [...new Set(accepted.filter((word) => word && !sameWord(word, clozeAnswer)))];
+  const fits = (word: string) => sameWord(word, clozeAnswer) || acceptedClozeAnswers.some((other) => sameWord(word, other));
+
+  const authoredOptions = Array.isArray(item.clozeOptions)
+    ? item.clozeOptions.map((option) => String(option || "").trim()).filter(Boolean)
+    : [];
+  let distractors: string[];
+  if (authoredOptions.length >= 2) {
+    distractors = authoredOptions.filter((option) => !fits(option));
+  } else {
+    // Distractors share the answer's script, since a handful of pool answers hold English
+    // glosses that would leak Latin words into a Cyrillic exercise. They also share how it
+    // starts: capitalized at the start of the sentence, and otherwise the same case as the
+    // answer, so neither gives the answer away.
+    const answerIsLatin = isLatinScript(clozeAnswer);
+    const answerUpper = startsUpper(clozeAnswer);
+    const candidates = pool
+      .flatMap((entry) => resolveAnswer(entry).split(" "))
+      .map((token: string) => bareWord(token))
+      .filter((word: string) => word.length > 2 && isLatinScript(word) === answerIsLatin && !fits(word))
+      .filter((word: string) => sentenceStart || startsUpper(word) === answerUpper)
+      .map((word: string) => (sentenceStart && answerUpper ? capitalize(word) : word));
+    distractors = candidates;
+  }
+  const unique: string[] = [];
+  for (const word of shuffle(distractors, randomFn)) {
+    if (unique.length >= 3) break;
+    if (!unique.some((other) => sameWord(other, word))) unique.push(word);
+  }
+  if (unique.length < MIN_CLOZE_DISTRACTORS) return null;
+
+  return {
+    clozeAnswer,
+    clozeText,
+    clozeOptions: shuffle([clozeAnswer, ...unique], randomFn),
+    ...(acceptedClozeAnswers.length ? { acceptedClozeAnswers } : {})
+  };
 }
 
 function createQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn, reversed = false) {
@@ -583,53 +681,13 @@ function createQuestion(item, pool, questionType, category, language, englishRol
   }
 
   if (resolvedType === "cloze_sentence") {
-    // Preferred authoring style: the sentence with the gap lives in the prompt and
-    // `correctAnswer` is the word(s) that fill it. Mask-a-word out of the answer only as
-    // a fallback for legacy items whose prompt has no authored blank.
-    const promptText = stripExercisePrefix(item.prompt);
-    const hasAuthoredBlank = /_{2,}/.test(promptText);
-
-    const isLatin = (text: string) => isLatinScript(text);
-    // Distractors must share the answer's script — a handful of pool answers hold English
-    // glosses (e.g. "a world-famous art museum") that would otherwise leak Latin words
-    // like "art" into a Cyrillic exercise.
-    const answerIsLatin = isLatin(answer);
-    const authoredClozeOptions = Array.isArray(item.clozeOptions) && item.clozeOptions.length >= 2
-      ? item.clozeOptions.map((o) => String(o || "")).filter(Boolean)
-      : null;
-    const buildFallbackOptions = (correctToken: string) => {
-      const fallbackDistractors = pool
-        .flatMap((entry) => resolveAnswer(entry).split(" "))
-        .map((token: string) => token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, ""))
-        .filter((token) => token.length > 2 && token !== correctToken && isLatin(token) === answerIsLatin);
-      return shuffle(
-        [correctToken, ...shuffle(fallbackDistractors, randomFn).slice(0, 3)],
-        randomFn
-      ).slice(0, 4);
-    };
-
-    let clozeAnswer: string;
-    let clozeText: string;
-    if (hasAuthoredBlank) {
-      clozeAnswer = answer;
-      clozeText = promptText.replace(/_{2,}/g, "____");
-    } else {
-      const answerTokens = answer.split(" ").filter(Boolean);
-      const maskIndex = answerTokens.findIndex((token) => token.length > 3);
-      const selectedMaskIndex = maskIndex >= 0 ? maskIndex : 0;
-      clozeAnswer = answerTokens[selectedMaskIndex];
-      const clozeTokens = [...answerTokens];
-      clozeTokens[selectedMaskIndex] = "____";
-      clozeText = clozeTokens.join(" ");
+    const cloze = buildCloze(item, answer, pool, randomFn);
+    if (!cloze) {
+      return createQuestion(item, pool, "mc_sentence", category, language, englishRoleplayAnswerByPrompt, randomFn);
     }
-    const clozeOptions = authoredClozeOptions
-      ? shuffle(authoredClozeOptions, randomFn).slice(0, 4)
-      : buildFallbackOptions(clozeAnswer);
     return {
       ...base,
-      clozeAnswer,
-      clozeText,
-      clozeOptions,
+      ...cloze,
       ...(item.translation ? { translation: String(item.translation) } : {})
     };
   }

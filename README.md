@@ -43,11 +43,13 @@ app (React) and the API (Express) that both the web app and the Android app use.
 
 ### Exercise types
 
-- **Translation:** rotates through multiple choice, sentence building, cloze, dictation
-  and dialogue variants, in both directions.
+- **Translation:** rotates through multiple choice, sentence building, dictation and
+  dialogue variants, in both directions.
 - **Flashcard:** turn the card over, then "I knew this" or "Need review".
 - **Sentence builder:** put word tiles in order, with hints (audio, then the next tile).
-- **Cloze:** fill the gap from a few options.
+- **Cloze:** fill the gap from a few options. Only items written as cloze get one. Other words
+  that fit the gap (the item's `acceptedAnswers`) count as right and are never offered as wrong
+  options, and a wrong pick shows the item's hint.
 - **Dictation:** type a sentence you hear.
 - **Matching:** pair prompts with answers.
 - **Pronunciation:** speech recognition, passing at 90% similarity or more.
