@@ -1943,7 +1943,7 @@ async function createCommunityExercise({
 
 function parseCommunityExerciseRow(row) {
   if (!row) return null;
-  let hints = [];
+  let hints;
   try {
     hints = JSON.parse(row.hints_json || "[]");
   } catch (_error) {
@@ -2119,7 +2119,7 @@ async function getApprovedCommunityExercises() {
     WHERE moderation_status = 'approved'
   `).all();
   return rows.map((row) => {
-    let hints: string[] = [];
+    let hints: string[];
     try { hints = JSON.parse(row.hints_json || "[]"); } catch (_) { hints = []; }
     return {
       id: row.id as number,
@@ -3455,7 +3455,7 @@ async function getUnitExams(userId: number, language: string) {
     ORDER BY taken_at DESC, id DESC
   `).all(userId, language);
   return rows.map((row: any) => {
-    let perSkill: Record<string, { correct: number; total: number }> = {};
+    let perSkill: Record<string, { correct: number; total: number }>;
     try {
       perSkill = JSON.parse(row.per_skill_json || "{}");
     } catch (_error) {
@@ -3553,7 +3553,7 @@ async function getPathSession(sessionId: string, userId: number) {
     WHERE session_id = ? AND user_id = ?
   `).get(sessionId, userId);
   if (!row) return null;
-  let details: any = {};
+  let details: any;
   try {
     details = JSON.parse(row.details_json || "{}");
   } catch (_error) {

@@ -11,22 +11,22 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@exodus/bytes": "^1.15.0",
-    "@huggingface/transformers": "^4.2.0",
-    "chart.js": "^4.5.1",
-    "react": "^19.2.8",
+    "@exodus/bytes": "^1.16.0",
+    "@huggingface/transformers": "^4.3.1",
+    "chart.js": "^4.6.1",
+    "react": "^19.3.1",
     "react-chartjs-2": "^5.3.1",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^7.0.0",
-    "@testing-library/react": "^16.2.0",
-    "@testing-library/user-event": "^14.6.1",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.4",
-    "jsdom": "^30.0.1",
-    "vite": "^8.1.5",
-    "vitest": "^4.1.2"
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "jsdom": "^30.1.3",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
   }
 }

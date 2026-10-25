@@ -34,25 +34,28 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.0.3",
-    "@eslint/js": "^9.39.4",
-    "@modelcontextprotocol/sdk": "^1.32.1",
-    "@types/node": "^26.1.2",
-    "@typescript-eslint/eslint-plugin": "^8.57.0",
-    "@typescript-eslint/parser": "^8.57.0",
-    "concurrently": "^10.0.4",
-    "esbuild": "^0.28.1",
-    "eslint": "^9.39.4",
+    "@eslint/compat": "^2.1.1",
+    "@eslint/js": "^10.0.1",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "@types/node": "^26.6.5",
+    "@typescript-eslint/eslint-plugin": "^8.72.0",
+    "@typescript-eslint/parser": "^8.72.0",
+    "concurrently": "^10.0.6",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.13.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "husky": "^9.1.7",
-    "prettier": "^3.8.1",
-    "typescript": "^5.9.3",
+    "prettier": "^3.9.10",
+    "typescript": "^6.0.3",
     "zod": "^4.6.7"
   },
   "overrides": {
     "sharp": "^0.35.3",
     "adm-zip": "^0.6.0",
-    "minimatch": "^10.2.6"
+    "minimatch": "^10.2.6",
+    "eslint-plugin-react": {
+      "eslint": "$eslint"
+    }
   }
 }
