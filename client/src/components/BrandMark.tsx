@@ -2,6 +2,7 @@
 // takes the theme's ink, paper and accent so it sits with the wordmark in both light and dark
 // mode. favicon.svg, favicon.ico, the static pages (legal.css) and the Cloud Console logo
 // (images/lingoflow-logo-120.png) use the same colors; keep them in step when this changes.
+// The Android launcher icon is deliberately different (fjord blue) and must not be aligned.
 export function BrandMark({ size = 44 }: { size?: number }) {
   return (
     <svg className="brand-mark" viewBox="18 18 72 72" width={size} height={size} aria-hidden="true" focusable="false">
