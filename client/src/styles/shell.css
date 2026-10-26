@@ -210,38 +210,84 @@
 }
 
 .auth-card {
-  width: min(460px, 100%);
+  width: min(420px, 100%);
+  display: grid;
+  gap: 16px;
+  padding: 28px 28px 20px;
 }
 
-.auth-brand { display: flex; align-items: center; gap: 14px; }
+.auth-brand {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
 .auth-brand .brand-mark { width: 56px; height: 56px; border-radius: 16px; }
 
 .auth-card h1 {
   margin: 0;
-  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.auth-tagline {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.auth-heading {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
 }
 
 .auth-card h2 {
-  margin: 14px 0 10px;
+  margin: 0 0 4px;
   font-size: 1.2rem;
+}
+
+.auth-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .auth-form {
   display: grid;
+  gap: 12px;
+}
+
+.auth-form .primary-button {
+  margin-top: 4px;
+}
+
+.auth-forgot {
+  justify-self: end;
+  margin-top: -4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.auth-card .status,
+.auth-card .feedback {
+  margin: 0;
+}
+
+.auth-wide {
+  width: 100%;
+}
+
+.google-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
-}
-
-.google-auth {
-  margin-top: 14px;
-}
-
-.google-placeholder {
-  width: min(320px, 100%);
 }
 
 .auth-divider {
   position: relative;
-  margin: 12px 0;
   text-align: center;
 }
 
@@ -262,14 +308,23 @@
   font-size: 0.86rem;
 }
 
-.auth-mode-text {
-  margin: 14px 0 0;
+.auth-footer {
+  display: grid;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.auth-footer p {
+  margin: 0;
   color: var(--text-muted);
 }
 
 .auth-legal {
-  margin: 18px 0 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
   font-size: 13px;
 }
 
@@ -277,8 +332,8 @@
   color: var(--text-muted);
 }
 
-.auth-resend-row {
-  margin-top: 10px;
+@media (max-width: 480px) {
+  .auth-card { padding: 22px 18px 16px; }
 }
 
 .mode-link {

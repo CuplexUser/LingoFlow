@@ -1,26 +1,25 @@
-/* Shared styles for the static legal pages (/privacy, /delete-account). They are plain
-   HTML so they load without the app bundle and without third-party fonts. */
+/* Shared styles for the static public pages (/about, /privacy, /delete-account). They are
+   plain HTML so they load without the app bundle and without third-party fonts. */
 :root {
   color-scheme: light dark;
-  --bg: #f7f9ff;
+  --bg: #f5f2ed;
   --surface: #ffffff;
-  --ink: #191c20;
-  --ink-soft: #42474e;
-  --line: #d6dbe3;
-  --primary: #2d628b;
-  --primary-soft: #cde5ff;
-  --berry: #f0607f;
+  --ink: #1a1816;
+  --ink-soft: #4a4742;
+  --line: #e2dcd2;
+  --primary: #b8492d;
+  --accent: #db6143;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #101418;
-    --surface: #1d2024;
-    --ink: #e0e2e8;
-    --ink-soft: #c2c7cf;
-    --line: #42474e;
-    --primary: #9acbfa;
-    --primary-soft: #0b3a5c;
+    --bg: #0f1012;
+    --surface: #181a1d;
+    --ink: #f1ede5;
+    --ink-soft: #c8c2b6;
+    --line: #2a2c30;
+    --primary: #f87b5c;
+    --accent: #f87b5c;
   }
 }
 
@@ -54,7 +53,20 @@ main {
 .brand svg {
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 11px;
+}
+
+/* The app's BrandMark: theme ink tile, paper stroke, accent dot. */
+.mark-tile {
+  fill: var(--ink);
+}
+
+.mark-stroke {
+  stroke: var(--bg);
+}
+
+.mark-dot {
+  fill: var(--accent);
 }
 
 h1 {
@@ -92,6 +104,29 @@ strong {
 
 a {
   color: var(--primary);
+}
+
+.lead {
+  margin: 12px 0;
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .updated {

@@ -1,7 +1,7 @@
-// The LingoFlow mark: an "L" whose base flows into a wave, ending in a lingonberry dot. The
-// Android launcher icon, the favicon and the Google sign-in consent screen draw it on fjord
-// blue; in the web app it takes the theme's ink and accent so it sits with the wordmark
-// beside it in both light and dark mode.
+// The LingoFlow mark: an "L" whose base flows into a wave, ending in a lingonberry dot. It
+// takes the theme's ink, paper and accent so it sits with the wordmark in both light and dark
+// mode. favicon.svg, favicon.ico, the static pages (legal.css) and the Cloud Console logo
+// (images/lingoflow-logo-120.png) use the same colors; keep them in step when this changes.
 export function BrandMark({ size = 44 }: { size?: number }) {
   return (
     <svg className="brand-mark" viewBox="18 18 72 72" width={size} height={size} aria-hidden="true" focusable="false">
