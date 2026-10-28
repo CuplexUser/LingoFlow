@@ -86,16 +86,46 @@ function similarityRatio(left: string | null | undefined, right: string | null |
   return 1 - (levenshteinDistance(a, b) / maxLen);
 }
 
-export function isPronunciationCloseEnough(
-  expected: string | null | undefined,
-  submitted: string | null | undefined,
-  threshold = 0.75
+// Spoken answers are judged word by word. A transcript passes when at most one word
+// differs from the expected sentence: one word said slightly wrong ("gracia" for
+// "gracias"), or, in sentences of four words or more, one word wrong, missing or extra.
+// The server scores with the same rule (isSpokenSentenceMatch in server/src/index.ts),
+// and so does the Android app; keep the three in step.
+const NEAR_MISS_WORD_SIMILARITY = 0.75;
+const MIN_WORDS_FOR_ONE_WRONG_WORD = 4;
+
+function isSpokenSentenceMatch(expectedText: string, spokenText: string): boolean {
+  const expected = normalizeSentence(expectedText).split(" ").filter(Boolean);
+  const spoken = normalizeSentence(spokenText).split(" ").filter(Boolean);
+  if (!expected.length || !spoken.length) return false;
+  // The same letters split differently ("a dónde" for "adónde").
+  if (expected.join("") === spoken.join("")) return true;
+  const allowsWrongWord = expected.length >= MIN_WORDS_FOR_ONE_WRONG_WORD;
+
+  if (expected.length === spoken.length) {
+    const differing = expected
+      .map((word, index) => [word, spoken[index]])
+      .filter(([word, said]) => word !== said);
+    if (differing.length !== 1) return differing.length === 0;
+    const [word, said] = differing[0];
+    return allowsWrongWord || similarityRatio(word, said) >= NEAR_MISS_WORD_SIMILARITY;
+  }
+
+  // One word missing or one extra: dropping a single word from the longer side gives
+  // the shorter one.
+  if (Math.abs(expected.length - spoken.length) !== 1 || !allowsWrongWord) return false;
+  const [longer, shorter] = expected.length > spoken.length ? [expected, spoken] : [spoken, expected];
+  return longer.some((_, skip) =>
+    shorter.every((word, index) => word === longer[index < skip ? index : index + 1])
+  );
+}
+
+// expected lists the answer and any accepted variants; matching any one passes.
+export function isSpokenAnswerMatch(
+  expected: Array<string | null | undefined>,
+  spoken: string | null | undefined
 ): boolean {
-  const normalizedExpected = normalizeSentence(expected);
-  const normalizedSubmitted = normalizeSentence(submitted);
-  if (!normalizedSubmitted) return false;
-  if (normalizedSubmitted === normalizedExpected) return true;
-  return similarityRatio(normalizedExpected, normalizedSubmitted) >= threshold;
+  return expected.some((text) => isSpokenSentenceMatch(String(text || ""), String(spoken || "")));
 }
 
 export function joinBuiltWords(question: SessionQuestion, selectedTokenIndexes: number[]): string {

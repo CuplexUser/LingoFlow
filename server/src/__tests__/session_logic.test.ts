@@ -106,6 +106,35 @@ test("evaluateAttempt accepts close pronunciation matches", async () => {
   assert.equal(wrong.correct, false);
 });
 
+test("spoken answers allow at most one differing word", async () => {
+  const long: BaseQuestion = { id: "p2", type: "pronunciation", answer: "Me gusta mucho leer libros." };
+  const short: BaseQuestion = { id: "p3", type: "practice_speak", answer: "Muchas gracias." };
+  const single: BaseQuestion = { id: "p4", type: "practice_speak", answer: "Gracias." };
+  const spoken = (question: BaseQuestion, textAnswer: string) =>
+    (evaluateAttempt(question, { textAnswer }) as EvaluationResult).correct;
+
+  // Four words or more: one word may be wrong, missing or extra, but not two.
+  assert.equal(spoken(long, "me gusta mucho leer libro"), true);
+  assert.equal(spoken(long, "me gusta mucho comer libros"), true);
+  assert.equal(spoken(long, "me gusta leer libros"), true);
+  assert.equal(spoken(long, "me gusta mucho mucho leer libros"), true);
+  assert.equal(spoken(long, "me gusta mucho comer pan"), false);
+  assert.equal(spoken(long, "gusta leer libros"), false);
+
+  // Shorter answers: the one difference must be a near miss.
+  assert.equal(spoken(short, "muchas gracia"), true);
+  assert.equal(spoken(short, "muchas noches"), false);
+  assert.equal(spoken(short, "gracias"), false);
+  assert.equal(spoken(single, "gracia"), true);
+  assert.equal(spoken(single, "hola"), false);
+  assert.equal(spoken(single, ""), false);
+
+  // Character similarity alone no longer passes a sentence with two slightly wrong words.
+  assert.equal(spoken(long, "me gusta mucho leeer libro"), false);
+  // The same letters split differently still count as right.
+  assert.equal(spoken(single, "gra cias"), true);
+});
+
 test("evaluateAttempt supports practice speak and listen", async () => {
   const speak: BaseQuestion = { id: "ps1", type: "practice_speak", answer: "I read books.", acceptedAnswers: ["I read books"] };
   const listen: BaseQuestion = { id: "pl1", type: "practice_listen", answer: "I eat fruit." };

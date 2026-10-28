@@ -268,12 +268,50 @@ function isAnswerMatch(question: SessionQuestion, submitted: string): boolean {
   return expectedVariants.includes(normalizedSubmitted);
 }
 
+// Spoken answers are judged word by word. A transcript passes when at most one word
+// differs from the expected sentence: one word said slightly wrong ("gracia" for
+// "gracias"), or, in sentences of four words or more, one word wrong, missing or extra.
+// The web client and the Android app apply the same rule for instant feedback
+// (isSpokenAnswerMatch in sessionHelpers.ts); keep the three in step.
+const NEAR_MISS_WORD_SIMILARITY = 0.75;
+const MIN_WORDS_FOR_ONE_WRONG_WORD = 4;
+
+function spokenWords(text: string): string[] {
+  return normalizeSentence(String(text || "").replace(/[«»"“”‘’(){}]/g, ""))
+    .split(" ")
+    .filter(Boolean);
+}
+
+function isSpokenSentenceMatch(expectedText: string, spokenText: string): boolean {
+  const expected = spokenWords(expectedText);
+  const spoken = spokenWords(spokenText);
+  if (!expected.length || !spoken.length) return false;
+  // The same letters split differently ("a dónde" for "adónde").
+  if (expected.join("") === spoken.join("")) return true;
+  const allowsWrongWord = expected.length >= MIN_WORDS_FOR_ONE_WRONG_WORD;
+
+  if (expected.length === spoken.length) {
+    const differing = expected
+      .map((word, index) => [word, spoken[index]])
+      .filter(([word, said]) => word !== said);
+    if (differing.length !== 1) return differing.length === 0;
+    const [word, said] = differing[0];
+    return allowsWrongWord || similarityRatio(word, said) >= NEAR_MISS_WORD_SIMILARITY;
+  }
+
+  // One word missing or one extra: dropping a single word from the longer side gives
+  // the shorter one.
+  if (Math.abs(expected.length - spoken.length) !== 1 || !allowsWrongWord) return false;
+  const [longer, shorter] = expected.length > spoken.length ? [expected, spoken] : [spoken, expected];
+  return longer.some((_, skip) =>
+    shorter.every((word, index) => word === longer[index < skip ? index : index + 1])
+  );
+}
+
 function isPronunciationMatch(question: SessionQuestion, submitted: string): boolean {
   if (isAnswerMatch(question, submitted)) return true;
-  const normalizedExpected = normalizeSentence(question.answer);
-  const normalizedSubmitted = normalizeSentence(submitted);
-  if (!normalizedSubmitted) return false;
-  return similarityRatio(normalizedExpected, normalizedSubmitted) >= 0.9;
+  return [question.answer, ...(question.acceptedAnswers || [])]
+    .some((expected) => isSpokenSentenceMatch(expected, submitted));
 }
 
 function classifyError(question: SessionQuestion, submitted: string): ErrorType {

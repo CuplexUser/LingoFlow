@@ -15,6 +15,31 @@ type WorkerMessage =
 const MAX_RECORDING_MS = 10_000;
 const TARGET_SAMPLE_RATE = 16_000;
 
+// The browser's voices for a BCP 47 tag such as "ru-RU": exact matches first, then other
+// regions of the same language, each in the browser's own order.
+function voicesForLanguage(lang: string): SpeechSynthesisVoice[] {
+  const voices = window.speechSynthesis.getVoices();
+  const wanted = lang.toLowerCase();
+  const base = wanted.split("-")[0];
+  const tagOf = (voice: SpeechSynthesisVoice) => voice.lang.toLowerCase().replace("_", "-");
+  return [
+    ...voices.filter((voice) => tagOf(voice) === wanted),
+    ...voices.filter((voice) => tagOf(voice) !== wanted && tagOf(voice).split("-")[0] === base)
+  ];
+}
+
+function missingVoiceMessage(lang: string): string {
+  const code = lang.split("-")[0];
+  let name = code;
+  try {
+    name = new Intl.DisplayNames([navigator.language], { type: "language" }).of(code) || code;
+  } catch {
+    // Older browsers without Intl.DisplayNames keep the language code.
+  }
+  return `Your browser has no ${name} voice. Add one in your system's speech settings `
+    + "(on Windows: Settings > Time & language > Speech > Add voices), then reload the page.";
+}
+
 async function decodeAndResample(blob: Blob): Promise<Float32Array> {
   const arrayBuffer = await blob.arrayBuffer();
 
@@ -52,6 +77,8 @@ export function useSessionSpeech({ language, onTranscriptCaptured }: UseSessionS
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const modelLoadingRef = useRef(false);
   const pendingRecordRef = useRef(false);
+  // Bumped by every speakText call, so a failure from an older line is ignored.
+  const speechRequestRef = useRef(0);
 
   const supportsSpeech =
     typeof window !== "undefined" &&
@@ -193,6 +220,12 @@ export function useSessionSpeech({ language, onTranscriptCaptured }: UseSessionS
     }
   }
 
+  // Chrome loads its voice list on first request; asking early means the list is ready
+  // by the time a learner presses play.
+  useEffect(() => {
+    if (supportsSpeech) window.speechSynthesis.getVoices();
+  }, [supportsSpeech]);
+
   useEffect(() => {
     return () => {
       if (supportsSpeech) window.speechSynthesis.cancel();
@@ -231,6 +264,9 @@ export function useSessionSpeech({ language, onTranscriptCaptured }: UseSessionS
     }
   }
 
+  // Speaks with the browser's voices. The first voice for the language is the one the
+  // browser would pick itself; if it fails (online voices do when their service can't be
+  // reached), the next voice for the language tries the same line.
   function speakText(text: string, rate = 0.95) {
     if (!supportsSpeech) {
       setSpeechError("Speech is not supported in this browser.");
@@ -239,17 +275,33 @@ export function useSessionSpeech({ language, onTranscriptCaptured }: UseSessionS
     // Slash-separated alternatives (e.g. "word1 / word2 / word3") should be read as a
     // short pause between words, not as the literal word "slash".
     const spokenText = text.replace(/\s*\/\s*/g, ", ");
-    const utterance = new SpeechSynthesisUtterance(spokenText);
-    utterance.lang = getSpeechLanguage(language);
-    utterance.rate = Number.isFinite(rate) ? rate : 0.95;
-    utterance.onstart = () => setSpeechError("");
-    utterance.onerror = (event) => {
-      const code = (event as SpeechSynthesisErrorEvent)?.error;
-      if (code === "canceled" || code === "interrupted") return;
-      setSpeechError("Could not play this audio hint.");
-    };
+    const lang = getSpeechLanguage(language);
+    const voices = voicesForLanguage(lang);
+    const requestId = ++speechRequestRef.current;
+
+    function speakWithVoice(index: number) {
+      const utterance = new SpeechSynthesisUtterance(spokenText);
+      utterance.lang = lang;
+      if (voices[index]) utterance.voice = voices[index];
+      utterance.rate = Number.isFinite(rate) ? rate : 0.95;
+      utterance.onstart = () => setSpeechError("");
+      utterance.onerror = (event) => {
+        const code = (event as SpeechSynthesisErrorEvent)?.error;
+        if (code === "canceled" || code === "interrupted") return;
+        if (requestId !== speechRequestRef.current) return;
+        if (index + 1 < voices.length) {
+          speakWithVoice(index + 1);
+          return;
+        }
+        setSpeechError(voices.length || voicesForLanguage(lang).length
+          ? `Could not play this audio hint (${code || "speech error"}).`
+          : missingVoiceMessage(lang));
+      };
+      window.speechSynthesis.speak(utterance);
+    }
+
     window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
+    speakWithVoice(0);
   }
 
   return {

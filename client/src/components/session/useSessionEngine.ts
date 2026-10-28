@@ -1,6 +1,6 @@
 import { useEffect, useRef, type Dispatch, type SetStateAction } from "react";
 import {
-  isPronunciationCloseEnough,
+  isSpokenAnswerMatch,
   normalizeSentence,
   splitSentenceWords
 } from "./sessionHelpers";
@@ -198,10 +198,9 @@ export function useSessionEngine({
     }
     if (question.type === "flashcard") return selectedOption === "known";
     if (question.type === "pronunciation" || question.type === "practice_speak") {
-      return isPronunciationCloseEnough(
-        question.answer,
-        pronunciationTranscript || selectedOption,
-        0.75
+      return isSpokenAnswerMatch(
+        [question.answer, ...(question.acceptedAnswers || [])],
+        pronunciationTranscript || selectedOption
       );
     }
     if (isPracticeWordsQuestion(question)) {

@@ -132,7 +132,8 @@ if (!window.OfflineAudioContext) {
 if (!window.speechSynthesis) {
   window.speechSynthesis = {
     cancel: () => {},
-    speak: () => {}
+    speak: () => {},
+    getVoices: () => []
   };
 }
 
