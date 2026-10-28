@@ -26,7 +26,7 @@ function toUserId(value: unknown): number | null {
 }
 
 function registerUserRoutes(app: any, deps: any): void {
-  const { requireAuth, database, injectCommunityItem, premiumEntitlement, isComplimentaryPremium, getLevelCap, knowledge } = deps;
+  const { requireAuth, database, injectCommunityItem, premiumEntitlement, isComplimentaryPremium, isComplimentaryPremiumEmail, getLevelCap, knowledge } = deps;
   const revenueCatSecretKey = String(process.env.REVENUECAT_SECRET_API_KEY || "").trim();
   const revenueCatWebhookAuth = String(process.env.REVENUECAT_WEBHOOK_AUTH || "").trim();
 
@@ -164,6 +164,77 @@ function registerUserRoutes(app: any, deps: any): void {
     if (user.id === 1) return true;
     return contributionReviewerEmails.has(String(user.email || "").trim().toLowerCase());
   }
+
+  // Admins are the same accounts that moderate community exercises.
+  async function requireAdmin(req: any, res: any, next: any) {
+    if (!await canModerateCommunityExercises(req.authUserId)) {
+      return res.status(403).json({ error: "Admin access required" });
+    }
+    return next();
+  }
+
+  function parseUserIdParam(value: unknown): number | null {
+    const id = Number.parseInt(String(value || ""), 10);
+    return Number.isInteger(id) && id > 0 ? id : null;
+  }
+
+  app.get("/api/admin/users", requireAuth, requireAdmin, async (req: any, res: any) => {
+    const result = await database.listUsersForAdmin({
+      search: String(req.query.search || "").slice(0, 200),
+      sort: String(req.query.sort || "created"),
+      limit: Number.parseInt(String(req.query.limit || "50"), 10),
+      offset: Number.parseInt(String(req.query.offset || "0"), 10),
+      entitlement: premiumEntitlement
+    });
+    return res.json({
+      total: result.total,
+      users: result.users.map((user: any) => ({
+        ...user,
+        onPremiumAccountList: Boolean(isComplimentaryPremiumEmail?.(user.email))
+      }))
+    });
+  });
+
+  app.get("/api/admin/user-stats", requireAuth, requireAdmin, async (req: any, res: any) => {
+    const days = Number.parseInt(String(req.query.days || "90"), 10);
+    return res.json(await database.getUserGrowthStats({ days, entitlement: premiumEntitlement }));
+  });
+
+  // Premium without a store subscription. The grant applies wherever Premium is checked
+  // (the Android level cap, /api/auth/me, /api/billing/sync) and is never touched by
+  // RevenueCat syncs. expiresAt is an ISO timestamp, or null for no end date.
+  app.put("/api/admin/users/:id/premium", requireAuth, requireAdmin, async (req: any, res: any) => {
+    const userId = parseUserIdParam(req.params.id);
+    if (!userId || !await database.getUserById(userId)) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    const rawExpiry = req.body?.expiresAt;
+    let expiresAt: string | null = null;
+    if (rawExpiry !== undefined && rawExpiry !== null && String(rawExpiry).trim() !== "") {
+      const parsed = new Date(String(rawExpiry));
+      if (Number.isNaN(parsed.getTime())) {
+        return res.status(400).json({ error: "expiresAt must be a valid date" });
+      }
+      if (parsed.getTime() <= Date.now()) {
+        return res.status(400).json({ error: "expiresAt must be in the future" });
+      }
+      expiresAt = parsed.toISOString();
+    }
+    const note = String(req.body?.note || "").trim().slice(0, 200);
+    await database.grantPremium({ userId, grantedBy: req.authUserId, note, expiresAt });
+    console.log("[admin] Premium granted", { userId, grantedBy: req.authUserId, expiresAt });
+    return res.json({ ok: true, grant: await database.getActivePremiumGrant(userId) });
+  });
+
+  app.delete("/api/admin/users/:id/premium", requireAuth, requireAdmin, async (req: any, res: any) => {
+    const userId = parseUserIdParam(req.params.id);
+    if (!userId) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    const revoked = await database.revokePremiumGrant(userId);
+    console.log("[admin] Premium grant revoked", { userId, revokedBy: req.authUserId, revoked });
+    return res.json({ ok: true, revoked });
+  });
 
   app.get("/api/settings", requireAuth, async (req: any, res: any) => {
     const userId = req.authUserId;

@@ -255,6 +255,19 @@ textarea {
   color: var(--text-muted);
 }
 
+.password-form {
+  display: grid;
+  gap: 10px;
+}
+
+.password-form label {
+  max-width: 420px;
+}
+
+.setup-preview .field-hint {
+  color: var(--danger);
+}
+
 .share-actions {
   margin-top: 10px;
   display: flex;

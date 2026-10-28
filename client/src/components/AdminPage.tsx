@@ -6,10 +6,11 @@ import type {
 import { api } from "../api";
 import type { CourseCategory } from "../types/course";
 import type { ContributionModerationStatus } from "../types/contribution";
+import { AdminUsersPanel } from "./AdminUsersPanel";
 import { ContentStatsPage } from "./ContentStatsPage";
 import { ContributionInbox } from "./ContributionInbox";
 
-type AdminTab = "coverage" | "moderation" | "word-cache";
+type AdminTab = "coverage" | "moderation" | "users" | "word-cache";
 
 type Props = {
   canModerate: boolean;
@@ -49,6 +50,13 @@ export function AdminPage({
           Moderation
         </button>
         <button
+          className={`admin-tab-btn${activeTab === "users" ? " active" : ""}`}
+          type="button"
+          onClick={() => setActiveTab("users")}
+        >
+          Users
+        </button>
+        <button
           className={`admin-tab-btn${activeTab === "coverage" ? " active" : ""}`}
           type="button"
           onClick={() => setActiveTab("coverage")}
@@ -72,6 +80,8 @@ export function AdminPage({
           onLoad={onLoadContributions}
           onUpdateStatus={onUpdateContributionStatus}
         />
+      ) : activeTab === "users" ? (
+        <AdminUsersPanel />
       ) : activeTab === "coverage" ? (
         <ContentStatsPage canModerate={canModerate} />
       ) : (

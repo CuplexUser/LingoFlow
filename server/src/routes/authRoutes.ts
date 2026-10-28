@@ -218,7 +218,8 @@ function registerAuthRoutes(app, deps) {
     googleOauthClient,
     googleOauthClientId,
     googleIdTokenVerifier,
-    isPremiumUser
+    isPremiumUser,
+    requestClient
   } = deps;
   const contributionReviewerEmails = new Set(
     String(process.env.CONTRIBUTION_REVIEWER_EMAILS || "")
@@ -231,6 +232,19 @@ function registerAuthRoutes(app, deps) {
     if (!user) return false;
     if (user.id === 1) return true;
     return contributionReviewerEmails.has(String(user.email || "").trim().toLowerCase());
+  }
+
+  // Feeds the admin sign-in stats. Best effort: a failed write never blocks the sign-in.
+  async function recordLogin(req, userId, method) {
+    try {
+      await database.recordLogin({ userId, method, client: requestClient(req) });
+    } catch (error) {
+      logger.warn("login_record_failed", {
+        requestId: req.requestId,
+        userId,
+        reason: error instanceof Error ? error.message : "unknown"
+      });
+    }
   }
 
   function isGoogleOauthConfigured() {
@@ -434,6 +448,7 @@ function registerAuthRoutes(app, deps) {
     });
 
     const token = tokenService.createAuthToken(user.id);
+    await recordLogin(req, user.id, "password");
     await database.syncLearnerNameFromProfile(user.id, user.displayName);
     const freshUser = await database.getUserById(user.id);
     return res.json({
@@ -580,6 +595,7 @@ function registerAuthRoutes(app, deps) {
       const profile = await getGoogleProfileFromAuthorizationCode(code);
       const user = await findOrCreateGoogleUser(profile);
       const token = tokenService.createAuthToken(user.id);
+      await recordLogin(req, user.id, "google");
       return res.redirect(buildAuthReturnUrl(publicAppUrl, { authToken: token }));
     } catch (error) {
       const message = error instanceof Error ? error.message : "unknown";
@@ -613,6 +629,7 @@ function registerAuthRoutes(app, deps) {
         userId: user.id,
         emailFingerprint: emailFingerprint(profile.email)
       });
+      await recordLogin(req, user.id, "google");
       const freshUser = await database.getUserById(user.id);
       return res.json({
         token: tokenService.createAuthToken(user.id),
@@ -633,6 +650,47 @@ function registerAuthRoutes(app, deps) {
     const user = await database.getUserById(req.authUserId);
     if (!user) return res.status(404).json({ error: "User not found" });
     return res.json({ user: await toClientUser(user) });
+  });
+
+  // Signed-in password change. Google accounts have no password here; they change it
+  // at Google (or use "forgot password" to add one).
+  app.post("/api/auth/change-password", sensitiveRateLimit, async (req, res) => {
+    if (!req.authUserId) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    const user = await database.getUserById(req.authUserId);
+    if (!user) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    if (user.authProvider !== "local") {
+      return res.status(400).json({ error: "This account signs in with Google and has no password to change" });
+    }
+
+    const currentPassword = String(req.body?.currentPassword || "");
+    const newPassword = String(req.body?.newPassword || "");
+    if (newPassword.length < 8) {
+      return res.status(400).json({ error: "New password must be at least 8 characters" });
+    }
+
+    // 400 rather than 401: the session is fine, only the typed password is wrong.
+    const localUser = await database.getUserByEmail(user.email);
+    if (!localUser || !currentPassword || !verifyPassword(currentPassword, localUser.passwordHash)) {
+      logger.logAuthEvent("change_password_rejected", {
+        requestId: req.requestId,
+        userId: user.id,
+        reason: "invalid_password"
+      });
+      return res.status(400).json({ error: "Current password is incorrect" });
+    }
+
+    if (!await database.updateUserPassword(user.id, hashPassword(newPassword))) {
+      return res.status(500).json({ error: "Could not change password" });
+    }
+    logger.logAuthEvent("change_password_success", {
+      requestId: req.requestId,
+      userId: user.id
+    });
+    return res.json({ ok: true, message: "Password changed." });
   });
 
   app.post("/api/auth/delete-account", async (req, res) => {

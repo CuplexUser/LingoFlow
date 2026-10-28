@@ -1,4 +1,5 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import { api } from "../api";
 import type { LanguageOption, LearnerSettings } from "../types/course";
 
 type SetupPageProps = {
@@ -196,6 +197,8 @@ export function SetupPage({
         <button className="ghost-button" onClick={onReset}>Reset Draft</button>
       </div>
 
+      <PasswordSection isPasswordAccount={isPasswordAccount} />
+
       <div className="setup-preview">
         <h3>Danger Zone</h3>
         <p>Deleting your account permanently removes your profile, progress, sessions, and submitted exercises.</p>
@@ -248,5 +251,94 @@ export function SetupPage({
         {deleteError ? <div className="feedback">{deleteError}</div> : null}
       </div>
     </section>
+  );
+}
+
+const MIN_PASSWORD_LENGTH = 8;
+
+function PasswordSection({ isPasswordAccount }: { isPasswordAccount: boolean }) {
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [feedback, setFeedback] = useState<{ ok: boolean; text: string } | null>(null);
+
+  if (!isPasswordAccount) {
+    return (
+      <div className="setup-preview">
+        <h3>Password</h3>
+        <p>You sign in with Google, so there is no LingoFlow password to change. Manage your password in your Google account.</p>
+      </div>
+    );
+  }
+
+  const mismatch = Boolean(confirmPassword) && newPassword !== confirmPassword;
+  const ready = Boolean(currentPassword)
+    && newPassword.length >= MIN_PASSWORD_LENGTH
+    && newPassword === confirmPassword;
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!ready) return;
+    setBusy(true);
+    setFeedback(null);
+    try {
+      await api.changePassword({ currentPassword, newPassword });
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+      setFeedback({ ok: true, text: "Password changed." });
+    } catch (error: unknown) {
+      setFeedback({ ok: false, text: error instanceof Error ? error.message : "Could not change password." });
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <form className="setup-preview password-form" onSubmit={handleSubmit}>
+      <h3>Password</h3>
+      <label>
+        Current password
+        <input
+          type="password"
+          value={currentPassword}
+          onChange={(event) => setCurrentPassword(event.target.value)}
+          autoComplete="current-password"
+          disabled={busy}
+        />
+      </label>
+      <label>
+        New password
+        <input
+          type="password"
+          value={newPassword}
+          onChange={(event) => setNewPassword(event.target.value)}
+          placeholder={`At least ${MIN_PASSWORD_LENGTH} characters`}
+          autoComplete="new-password"
+          minLength={MIN_PASSWORD_LENGTH}
+          disabled={busy}
+        />
+      </label>
+      <label>
+        Confirm new password
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+          autoComplete="new-password"
+          disabled={busy}
+        />
+      </label>
+      {mismatch ? <p className="field-hint">The new passwords do not match.</p> : null}
+      <div className="hero-actions">
+        <button className="primary-button" type="submit" disabled={busy || !ready}>
+          {busy ? "Changing password..." : "Change Password"}
+        </button>
+      </div>
+      {feedback ? (
+        <div className={`feedback${feedback.ok ? " success" : ""}`} role="status">{feedback.text}</div>
+      ) : null}
+    </form>
   );
 }

@@ -1307,6 +1307,28 @@ async function consumePasswordResetToken(token, passwordHash, nowIso = toIsoDate
   return await getUserById(row.user_id);
 }
 
+// A signed-in password change. Outstanding reset links stop working, since they were
+// issued for the old password.
+async function updateUserPassword(userId, passwordHash, nowIso = toIsoDateTime()) {
+  if (!passwordHash) return false;
+  const tx = db.transaction(async () => {
+    await db.prepare(`
+      UPDATE password_resets
+      SET consumed_at = ?
+      WHERE user_id = ? AND consumed_at IS NULL
+    `).run(nowIso, userId);
+
+    const result = await db.prepare(`
+      UPDATE users
+      SET password_hash = ?,
+          updated_at = CURRENT_TIMESTAMP
+      WHERE id = ?
+    `).run(passwordHash, userId);
+    return result.changes > 0;
+  });
+  return tx();
+}
+
 // Clamps the shared text-to-speech rate to a sane, audible range. Defaults to the
 // historic 0.92 when callers omit or send a non-numeric value.
 function normalizeSpeechRate(value) {
@@ -3313,6 +3335,345 @@ async function forgetBillingEvent(eventId: string) {
   await db.prepare("DELETE FROM billing_events WHERE event_id = ?").run(eventId);
 }
 
+// The placeholder account seedDefaultUser creates as id 1. Nobody signs in as it, so the
+// admin user list and growth stats leave it out.
+const SEED_USER_EMAIL = "local@lingoflow.dev";
+
+// Admin tables. premium_grants is Premium an admin gives by hand; it is kept apart from
+// subscriptions because every RevenueCat sync overwrites or deletes that row. login_events
+// logs each sign-in, and user_activity records each day a user made an authenticated
+// request, per client ("web" or "android").
+async function createAdminTables(): Promise<void> {
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS premium_grants (
+      user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+      granted_by INTEGER REFERENCES users(id) ON DELETE SET NULL,
+      note TEXT NOT NULL DEFAULT '',
+      expires_at TEXT,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS login_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      method TEXT NOT NULL,
+      client TEXT NOT NULL DEFAULT 'web',
+      created_at TEXT NOT NULL
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_login_events_user
+    ON login_events(user_id, created_at);
+
+    CREATE INDEX IF NOT EXISTS idx_login_events_created
+    ON login_events(created_at);
+
+    CREATE TABLE IF NOT EXISTS user_activity (
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      day TEXT NOT NULL,
+      client TEXT NOT NULL DEFAULT 'web',
+      PRIMARY KEY(user_id, day, client)
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_user_activity_day
+    ON user_activity(day);
+  `);
+}
+
+async function grantPremium({ userId, grantedBy = null, note = "", expiresAt = null }: {
+  userId: number;
+  grantedBy?: number | null;
+  note?: string;
+  expiresAt?: string | null;
+}) {
+  await db.prepare(`
+    INSERT INTO premium_grants (user_id, granted_by, note, expires_at, created_at)
+    VALUES (?, ?, ?, ?, ?)
+    ON CONFLICT(user_id) DO UPDATE SET
+      granted_by = excluded.granted_by,
+      note = excluded.note,
+      expires_at = excluded.expires_at,
+      created_at = excluded.created_at
+  `).run(userId, grantedBy, note, expiresAt, toIsoDateTime());
+}
+
+async function revokePremiumGrant(userId: number): Promise<boolean> {
+  const result = await db.prepare("DELETE FROM premium_grants WHERE user_id = ?").run(userId);
+  return result.changes > 0;
+}
+
+// A NULL expires_at never expires, as with subscriptions.
+async function getActivePremiumGrant(userId: number, nowIso = toIsoDateTime()) {
+  const row = await db.prepare(`
+    SELECT note, expires_at, created_at
+    FROM premium_grants
+    WHERE user_id = ? AND (expires_at IS NULL OR expires_at > ?)
+  `).get(userId, nowIso);
+  if (!row) return null;
+  return { note: row.note, expiresAt: row.expires_at, createdAt: row.created_at };
+}
+
+async function recordLogin({ userId, method, client = "web" }: {
+  userId: number;
+  method: string;
+  client?: string;
+}) {
+  await db.prepare(`
+    INSERT INTO login_events (user_id, method, client, created_at)
+    VALUES (?, ?, ?, ?)
+  `).run(userId, method, client, toIsoDateTime());
+}
+
+async function recordUserActivity({ userId, client = "web", day = toIsoDate() }: {
+  userId: number;
+  client?: string;
+  day?: string;
+}) {
+  await db.prepare(`
+    INSERT INTO user_activity (user_id, day, client)
+    VALUES (?, ?, ?)
+    ON CONFLICT(user_id, day, client) DO NOTHING
+  `).run(userId, day, client);
+}
+
+// SQLite's CURRENT_TIMESTAMP default is "YYYY-MM-DD HH:MM:SS" in UTC with no zone, which
+// browsers parse as local time. The admin API returns ISO-8601 with an explicit Z.
+function toUtcIso(value: unknown): string | null {
+  if (!value) return null;
+  const text = String(value);
+  const parsed = new Date(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(text) ? `${text.replace(" ", "T")}Z` : text);
+  return Number.isNaN(parsed.getTime()) ? text : parsed.toISOString();
+}
+
+const ADMIN_USER_SORTS: Record<string, string> = {
+  created: "u.created_at DESC, u.id DESC",
+  active: "COALESCE(a.last_active_day, '') DESC, u.id DESC",
+  xp: "COALESCE(x.total_xp, 0) DESC, u.id DESC",
+  logins: "COALESCE(l.login_count, 0) DESC, u.id DESC"
+};
+
+// One page of users with their sign-in, activity, XP and Premium state, for the admin
+// Users tab. search matches email or display name.
+async function listUsersForAdmin({
+  search = "",
+  sort = "created",
+  limit = 50,
+  offset = 0,
+  entitlement = "premium",
+  now = new Date()
+}: {
+  search?: string;
+  sort?: string;
+  limit?: number;
+  offset?: number;
+  entitlement?: string;
+  now?: Date;
+} = {}) {
+  const nowIso = toIsoDateTime(now);
+  const activeSince = addDaysIso(toIsoDate(now), -29);
+  const term = String(search || "").trim().toLowerCase();
+  const pattern = `%${term}%`;
+  const safeLimit = Math.max(1, Math.min(200, Number.isInteger(limit) ? limit : 50));
+  const safeOffset = Math.max(0, Number.isInteger(offset) ? offset : 0);
+  const orderBy = ADMIN_USER_SORTS[sort] || ADMIN_USER_SORTS.created;
+  const where = "u.email <> ? AND (? = '' OR LOWER(u.email) LIKE ? OR LOWER(u.display_name) LIKE ?)";
+  const whereParams = [SEED_USER_EMAIL, term, pattern, pattern];
+
+  const totalRow = await db.prepare(`SELECT COUNT(*) AS total FROM users u WHERE ${where}`)
+    .get(...whereParams);
+
+  const rows = await db.prepare(`
+    SELECT
+      u.id, u.email, u.display_name, u.auth_provider, u.email_verified, u.created_at,
+      l.last_login_at, l.login_count,
+      a.last_active_day, a.active_days,
+      x.total_xp,
+      g.expires_at AS grant_expires_at, g.note AS grant_note, g.created_at AS grant_created_at,
+      s.expires_at AS subscription_expires_at, s.store AS subscription_store,
+      CASE WHEN s.user_id IS NULL THEN 0 ELSE 1 END AS has_subscription
+    FROM users u
+    LEFT JOIN (
+      SELECT user_id, MAX(created_at) AS last_login_at, COUNT(*) AS login_count
+      FROM login_events
+      GROUP BY user_id
+    ) l ON l.user_id = u.id
+    LEFT JOIN (
+      SELECT user_id, MAX(day) AS last_active_day,
+        COUNT(DISTINCT CASE WHEN day >= ? THEN day END) AS active_days
+      FROM user_activity
+      GROUP BY user_id
+    ) a ON a.user_id = u.id
+    LEFT JOIN (
+      SELECT user_id, SUM(xp) AS total_xp
+      FROM daily_xp
+      GROUP BY user_id
+    ) x ON x.user_id = u.id
+    LEFT JOIN premium_grants g
+      ON g.user_id = u.id AND (g.expires_at IS NULL OR g.expires_at > ?)
+    LEFT JOIN subscriptions s
+      ON s.user_id = u.id AND s.entitlement = ? AND (s.expires_at IS NULL OR s.expires_at > ?)
+    WHERE ${where}
+    ORDER BY ${orderBy}
+    LIMIT ? OFFSET ?
+  `).all(activeSince, nowIso, entitlement, nowIso, ...whereParams, safeLimit, safeOffset);
+
+  return {
+    total: Number(totalRow?.total) || 0,
+    users: rows.map((row: any) => ({
+      id: Number(row.id),
+      email: row.email,
+      displayName: row.display_name,
+      authProvider: row.auth_provider,
+      emailVerified: Boolean(row.email_verified),
+      createdAt: toUtcIso(row.created_at),
+      lastLoginAt: toUtcIso(row.last_login_at),
+      loginCount: Number(row.login_count) || 0,
+      lastActiveDay: row.last_active_day || null,
+      activeDays30: Number(row.active_days) || 0,
+      totalXp: Number(row.total_xp) || 0,
+      subscription: Number(row.has_subscription)
+        ? { expiresAt: row.subscription_expires_at || null, store: row.subscription_store || "" }
+        : null,
+      grant: row.grant_created_at
+        ? {
+          expiresAt: row.grant_expires_at || null,
+          note: row.grant_note || "",
+          createdAt: toUtcIso(row.grant_created_at)
+        }
+        : null
+    }))
+  };
+}
+
+// Registration growth, activity and sign-ins over the last `days` days (UTC), for the
+// admin Users tab. Activity is only recorded from the release that added user_activity,
+// so trackingSince says where that data starts.
+async function getUserGrowthStats({
+  days = 90,
+  entitlement = "premium",
+  now = new Date()
+}: { days?: number; entitlement?: string; now?: Date } = {}) {
+  const span = Math.max(7, Math.min(730, Number.isInteger(days) ? days : 90));
+  const today = toIsoDate(now);
+  const nowIso = toIsoDateTime(now);
+  const windowStart = addDaysIso(today, -(span - 1));
+  const weekStart = addDaysIso(today, -6);
+  const monthStart = addDaysIso(today, -29);
+
+  const totals = await db.prepare(`
+    SELECT
+      COUNT(*) AS users,
+      SUM(CASE WHEN email_verified = 1 THEN 1 ELSE 0 END) AS verified,
+      SUM(CASE WHEN auth_provider = 'google' THEN 1 ELSE 0 END) AS google,
+      SUM(CASE WHEN created_at >= ? THEN 1 ELSE 0 END) AS new_week,
+      SUM(CASE WHEN created_at >= ? THEN 1 ELSE 0 END) AS new_month,
+      SUM(CASE WHEN created_at < ? THEN 1 ELSE 0 END) AS before_window
+    FROM users
+    WHERE email <> ?
+  `).get(weekStart, monthStart, windowStart, SEED_USER_EMAIL);
+
+  const subscriptions = await db.prepare(`
+    SELECT COUNT(*) AS n FROM subscriptions
+    WHERE entitlement = ? AND (expires_at IS NULL OR expires_at > ?)
+  `).get(entitlement, nowIso);
+  const grants = await db.prepare(`
+    SELECT COUNT(*) AS n FROM premium_grants
+    WHERE expires_at IS NULL OR expires_at > ?
+  `).get(nowIso);
+
+  const active = await db.prepare(`
+    SELECT
+      COUNT(DISTINCT CASE WHEN day = ? THEN user_id END) AS today,
+      COUNT(DISTINCT CASE WHEN day >= ? THEN user_id END) AS week,
+      COUNT(DISTINCT user_id) AS month,
+      COUNT(DISTINCT CASE WHEN client = 'web' THEN user_id END) AS month_web,
+      COUNT(DISTINCT CASE WHEN client = 'android' THEN user_id END) AS month_android
+    FROM user_activity
+    WHERE day >= ?
+  `).get(today, weekStart, monthStart);
+
+  const logins = await db.prepare(`
+    SELECT
+      SUM(CASE WHEN created_at >= ? THEN 1 ELSE 0 END) AS week,
+      COUNT(*) AS month,
+      COUNT(DISTINCT user_id) AS month_users
+    FROM login_events
+    WHERE created_at >= ?
+  `).get(weekStart, monthStart);
+
+  const trackingRow = await db.prepare("SELECT MIN(day) AS first_day FROM user_activity").get();
+
+  const signupRows = await db.prepare(`
+    SELECT substr(created_at, 1, 10) AS day, COUNT(*) AS n
+    FROM users
+    WHERE created_at >= ? AND email <> ?
+    GROUP BY substr(created_at, 1, 10)
+  `).all(windowStart, SEED_USER_EMAIL);
+  const activeRows = await db.prepare(`
+    SELECT day,
+      COUNT(DISTINCT user_id) AS n,
+      COUNT(DISTINCT CASE WHEN client = 'web' THEN user_id END) AS web,
+      COUNT(DISTINCT CASE WHEN client = 'android' THEN user_id END) AS android
+    FROM user_activity
+    WHERE day >= ?
+    GROUP BY day
+  `).all(windowStart);
+  const loginRows = await db.prepare(`
+    SELECT substr(created_at, 1, 10) AS day, COUNT(*) AS n
+    FROM login_events
+    WHERE created_at >= ?
+    GROUP BY substr(created_at, 1, 10)
+  `).all(windowStart);
+
+  const signupsByDay = new Map(signupRows.map((row: any) => [row.day, Number(row.n) || 0]));
+  const activeByDay = new Map(activeRows.map((row: any) => [row.day, row]));
+  const loginsByDay = new Map(loginRows.map((row: any) => [row.day, Number(row.n) || 0]));
+
+  let cumulative = Number(totals?.before_window) || 0;
+  const daily = [];
+  for (let offset = 0; offset < span; offset += 1) {
+    const date = addDaysIso(windowStart, offset);
+    const signups = Number(signupsByDay.get(date)) || 0;
+    const activeRow: any = activeByDay.get(date);
+    cumulative += signups;
+    daily.push({
+      date,
+      signups,
+      totalUsers: cumulative,
+      activeUsers: Number(activeRow?.n) || 0,
+      activeWeb: Number(activeRow?.web) || 0,
+      activeAndroid: Number(activeRow?.android) || 0,
+      logins: Number(loginsByDay.get(date)) || 0
+    });
+  }
+
+  return {
+    days: span,
+    trackingSince: trackingRow?.first_day || null,
+    totals: {
+      users: Number(totals?.users) || 0,
+      verified: Number(totals?.verified) || 0,
+      google: Number(totals?.google) || 0,
+      newLast7Days: Number(totals?.new_week) || 0,
+      newLast30Days: Number(totals?.new_month) || 0,
+      premiumSubscriptions: Number(subscriptions?.n) || 0,
+      premiumGrants: Number(grants?.n) || 0
+    },
+    active: {
+      today: Number(active?.today) || 0,
+      last7Days: Number(active?.week) || 0,
+      last30Days: Number(active?.month) || 0,
+      last30DaysWeb: Number(active?.month_web) || 0,
+      last30DaysAndroid: Number(active?.month_android) || 0
+    },
+    logins: {
+      last7Days: Number(logins?.week) || 0,
+      last30Days: Number(logins?.month) || 0,
+      usersLast30Days: Number(logins?.month_users) || 0
+    },
+    daily
+  };
+}
+
 // Problems learners report with an exercise ("more than one answer fits"). One row per
 // learner, item and reason, so reporting twice counts once.
 async function createContentReportsTable(): Promise<void> {
@@ -3576,7 +3937,7 @@ let schemaReady: Promise<void> | null = null;
 // connection) instead of re-confirming a schema that hasn't changed since the last deploy.
 // Forgetting to bump this after a real schema change means that change silently never runs
 // against an already-deployed database.
-const SCHEMA_VERSION = 5;
+const SCHEMA_VERSION = 6;
 
 async function isSchemaCurrent(): Promise<boolean> {
   if (!(await db.tableExists("schema_meta"))) return false;
@@ -3627,6 +3988,7 @@ async function runSchemaSetup(): Promise<void> {
   await createSubscriptionTables();
   await createPathTables();
   await createContentReportsTable();
+  await createAdminTables();
   await markSchemaCurrent();
   await seedDefaultUser();
   await maybeMigrateLegacyJson();
@@ -3663,6 +4025,7 @@ module.exports = {
   syncLearnerNameFromProfile,
   replacePasswordResetToken,
   consumePasswordResetToken,
+  updateUserPassword,
   getSettings,
   saveSettings,
   getCategoryMastery,
@@ -3737,6 +4100,13 @@ module.exports = {
   getActiveSubscription,
   recordBillingEvent,
   forgetBillingEvent,
+  grantPremium,
+  revokePremiumGrant,
+  getActivePremiumGrant,
+  recordLogin,
+  recordUserActivity,
+  listUsersForAdmin,
+  getUserGrowthStats,
   getPathUnits,
   recordPathLesson,
   markPathUnitsTestedOut,

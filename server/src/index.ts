@@ -179,6 +179,11 @@ function isAppClient(req: AuthenticatedRequest): boolean {
   return String(req.headers["x-lingoflow-client"] || "").trim().toLowerCase() === "android";
 }
 
+// The client a request came from, as recorded in the admin sign-in and activity stats.
+function requestClient(req: AuthenticatedRequest): "android" | "web" {
+  return isAppClient(req) ? "android" : "web";
+}
+
 // Complimentary Premium without a store subscription, such as the account Google Play's
 // reviewers sign in with. PREMIUM_ACCOUNT_EMAILS lists their emails, separated by commas,
 // semicolons or spaces (gcloud --set-env-vars splits on commas, so the deploy uses ";").
@@ -190,8 +195,11 @@ function isComplimentaryPremiumEmail(email: string): boolean {
     .some((entry) => entry.toLowerCase() === normalized);
 }
 
+// Premium an admin granted from the Users tab, or an account in PREMIUM_ACCOUNT_EMAILS.
 async function isComplimentaryPremium(userId: number | null): Promise<boolean> {
-  if (!userId || !String(process.env.PREMIUM_ACCOUNT_EMAILS || "").trim()) return false;
+  if (!userId) return false;
+  if (await database.getActivePremiumGrant(userId)) return true;
+  if (!String(process.env.PREMIUM_ACCOUNT_EMAILS || "").trim()) return false;
   const user = await database.getUserById(userId);
   return Boolean(user && isComplimentaryPremiumEmail(user.email));
 }
@@ -405,6 +413,25 @@ async function createApp(): Promise<any> {
   });
   app.use(logger.requestLogger);
 
+  // Marks the user active today for the admin activity stats: one write per user, client
+  // and UTC day on this instance. Other instances repeat it, which the insert ignores.
+  const activityRecorded = new Map<string, string>();
+  async function recordActivity(userId: number, client: string) {
+    const day = database.toIsoDate();
+    const key = `${userId}:${client}`;
+    if (activityRecorded.get(key) === day) return;
+    activityRecorded.set(key, day);
+    try {
+      await database.recordUserActivity({ userId, client, day });
+    } catch (error) {
+      activityRecorded.delete(key);
+      logger.warn("user_activity_record_failed", {
+        userId,
+        reason: error instanceof Error ? error.message : "unknown"
+      });
+    }
+  }
+
   async function requireAuth(req: AuthenticatedRequest, res: any, next: any) {
     if (!req.authFromToken || !req.authUserId) {
       logger.logAuthEvent("auth_required_rejected", {
@@ -422,6 +449,7 @@ async function createApp(): Promise<any> {
       });
       return res.status(401).json({ error: "Authentication required" });
     }
+    await recordActivity(user.id, requestClient(req));
     return next();
   }
 
@@ -474,7 +502,8 @@ async function createApp(): Promise<any> {
     knowledge,
     injectCommunityItem,
     premiumEntitlement: PREMIUM_ENTITLEMENT,
-    isComplimentaryPremium
+    isComplimentaryPremium,
+    isComplimentaryPremiumEmail
   });
   registerAuthRoutes(app, {
     database,
@@ -489,7 +518,8 @@ async function createApp(): Promise<any> {
     // Verifying an ID token from native sign-in needs only the client ID, not the secret.
     googleIdTokenVerifier: googleOauthClient ||
       (GOOGLE_OAUTH_CLIENT_ID ? new OAuth2Client(GOOGLE_OAUTH_CLIENT_ID) : null),
-    isPremiumUser
+    isPremiumUser,
+    requestClient
   });
 
   registerTtsRoutes(app, { requireAuth, logger });

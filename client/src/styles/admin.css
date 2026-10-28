@@ -1,5 +1,6 @@
 .admin-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   margin-bottom: 16px;
 }
@@ -194,4 +195,201 @@
 
 [data-theme="dark"] .rebuild-error {
   color: #e08080;
+}
+
+/* Users tab. The two series colors were checked for color-vision-deficiency separation
+   and contrast against each theme's surface; web always comes first. */
+:root {
+  --series-web: #347ec4;
+  --series-android: #db6143;
+}
+
+[data-theme="dark"] {
+  --series-web: #4d97de;
+  --series-android: #e2684a;
+}
+
+.admin-users {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-users h2 {
+  margin-bottom: 4px;
+}
+
+.admin-users-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-users-head .stats-subtitle,
+.admin-users > .stats-subtitle {
+  margin-bottom: 0;
+}
+
+.admin-range {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.admin-range-btn {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.admin-range-btn.active {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.admin-chart {
+  position: relative;
+}
+
+.admin-chart svg {
+  display: block;
+  overflow: visible;
+}
+
+.series-web {
+  fill: var(--series-web);
+}
+
+.series-android {
+  fill: var(--series-android);
+}
+
+.admin-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  border-radius: 3px;
+  vertical-align: -1px;
+}
+
+.admin-swatch.series-web {
+  background: var(--series-web);
+}
+
+.admin-swatch.series-android {
+  background: var(--series-android);
+}
+
+.admin-chart-legend {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 6px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.admin-chart-tooltip {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 10px;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+}
+
+.admin-chart-tooltip strong {
+  font-family: var(--font-mono);
+}
+
+.admin-chart-tooltip-date {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.admin-daily-table summary {
+  color: var(--ink-soft);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.admin-daily-table .coverage-table {
+  min-width: 0;
+  margin-top: 8px;
+}
+
+.admin-users-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.admin-users-filters input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.admin-user-email {
+  color: var(--ink-soft);
+  word-break: break-all;
+}
+
+.admin-user-meta {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.admin-premium {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.admin-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.admin-premium-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.admin-premium-actions button {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.admin-grant-form {
+  display: grid;
+  gap: 6px;
+}
+
+.admin-grant-form label {
+  display: grid;
+  gap: 2px;
+  font-size: 12px;
 }

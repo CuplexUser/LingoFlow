@@ -90,6 +90,73 @@ export type ResetPasswordPayload = {
   password: string;
 };
 
+export type ChangePasswordPayload = {
+  currentPassword: string;
+  newPassword: string;
+};
+
+export type AdminUserSort = "created" | "active" | "xp" | "logins";
+
+export type AdminUser = {
+  id: number;
+  email: string;
+  displayName: string;
+  authProvider: string;
+  emailVerified: boolean;
+  createdAt: string | null;
+  lastLoginAt: string | null;
+  loginCount: number;
+  lastActiveDay: string | null;
+  activeDays30: number;
+  totalXp: number;
+  // An active store subscription, an active admin grant, and/or PREMIUM_ACCOUNT_EMAILS.
+  subscription: { expiresAt: string | null; store: string } | null;
+  grant: { expiresAt: string | null; note: string; createdAt: string | null } | null;
+  onPremiumAccountList: boolean;
+};
+
+export type AdminUserListResponse = {
+  total: number;
+  users: AdminUser[];
+};
+
+export type AdminUserStatsDay = {
+  date: string;
+  signups: number;
+  totalUsers: number;
+  activeUsers: number;
+  activeWeb: number;
+  activeAndroid: number;
+  logins: number;
+};
+
+export type AdminUserStats = {
+  days: number;
+  trackingSince: string | null;
+  totals: {
+    users: number;
+    verified: number;
+    google: number;
+    newLast7Days: number;
+    newLast30Days: number;
+    premiumSubscriptions: number;
+    premiumGrants: number;
+  };
+  active: {
+    today: number;
+    last7Days: number;
+    last30Days: number;
+    last30DaysWeb: number;
+    last30DaysAndroid: number;
+  };
+  logins: {
+    last7Days: number;
+    last30Days: number;
+    usersLast30Days: number;
+  };
+  daily: AdminUserStatsDay[];
+};
+
 export type DeleteAccountPayload = {
   password?: string;
   confirmEmail?: string;
@@ -469,6 +536,11 @@ export const api = {
       "/auth/reset-password",
       { method: "POST", body: JSON.stringify(payload) }
     ),
+  changePassword: (payload: ChangePasswordPayload) =>
+    request<MessageResponse>(
+      "/auth/change-password",
+      { method: "POST", body: JSON.stringify(payload) }
+    ),
   deleteAccount: (payload: DeleteAccountPayload) =>
     request<MessageResponse>(
       "/auth/delete-account",
@@ -592,5 +664,20 @@ export const api = {
   rebuildWordTranslations: (): Promise<{ rebuilt: number }> =>
     request<{ rebuilt: number }>("/admin/word-translations/rebuild", { method: "POST" }),
   getWordTranslationCounts: (): Promise<{ libretranslate: number; content: number; total: number }> =>
-    request<{ libretranslate: number; content: number; total: number }>("/admin/word-translations/counts")
+    request<{ libretranslate: number; content: number; total: number }>("/admin/word-translations/counts"),
+  getAdminUsers: (params: { search?: string; sort?: AdminUserSort; limit?: number; offset?: number } = {}) => {
+    const search = new URLSearchParams();
+    if (params.search) search.set("search", params.search);
+    if (params.sort) search.set("sort", params.sort);
+    if (params.limit) search.set("limit", String(params.limit));
+    if (params.offset) search.set("offset", String(params.offset));
+    const query = search.toString();
+    return request<AdminUserListResponse>(`/admin/users${query ? `?${query}` : ""}`);
+  },
+  getAdminUserStats: (days: number) =>
+    request<AdminUserStats>(`/admin/user-stats?days=${encodeURIComponent(String(days))}`),
+  grantPremium: (userId: number, payload: { expiresAt: string | null; note: string }) =>
+    request<{ ok: boolean }>(`/admin/users/${userId}/premium`, { method: "PUT", body: JSON.stringify(payload) }),
+  revokePremium: (userId: number) =>
+    request<{ ok: boolean; revoked: boolean }>(`/admin/users/${userId}/premium`, { method: "DELETE" })
 };

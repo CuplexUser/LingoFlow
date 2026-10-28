@@ -99,6 +99,11 @@ app (React) and the API (Express) that both the web app and the Android app use.
   They review submissions and see the **content coverage** page: exercise counts per
   language, category and level, with cells colored red (a level under 5), amber (under
   10) or green (all 10 or more).
+- The admin **Users** tab lists every account with its sign-ins, active days and XP,
+  charts registration growth and daily active users (web and Android), and grants or
+  revokes Premium by hand, with an optional end date. A grant unlocks the Android app
+  just like a subscription, and RevenueCat syncs never remove it.
+- Password accounts can change their password under Setup.
 
 ### Accounts
 
