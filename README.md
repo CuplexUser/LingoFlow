@@ -102,7 +102,9 @@ app (React) and the API (Express) that both the web app and the Android app use.
 - The admin **Users** tab lists every account with its sign-ins, active days and XP,
   charts registration growth and daily active users (web and Android), and grants or
   revokes Premium by hand, with an optional end date. A grant unlocks the Android app
-  just like a subscription, and RevenueCat syncs never remove it.
+  just like a subscription, and RevenueCat syncs never remove it. Premium Lifetime (the
+  one-time Play product `lingoflow_lifetime`) shows as "Lifetime" with its store, and the
+  Premium count splits subscribed, lifetime and granted.
 - Password accounts can change their password under Setup.
 
 ### Accounts
@@ -122,7 +124,7 @@ app (React) and the API (Express) that both the web app and the Android app use.
 | Database | PostgreSQL / Neon (`pg`) or SQLite (`better-sqlite3`) |
 | Auth | JWT (30-day lifetime), bcrypt, Google OAuth 2 |
 | Speech | Gemini text-to-speech, cached in Cloud Storage |
-| Billing | RevenueCat (Google Play subscriptions for the Android app) |
+| Billing | RevenueCat (Google Play subscriptions and a one-time lifetime purchase for the Android app) |
 | Tests | Vitest and Testing Library (client), Node's test runner (server) |
 
 ## Quick start
@@ -495,7 +497,7 @@ server/content/
 | `DELETE` | `/api/saved-words/:word?language=<id>` | Remove a saved word |
 | `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Word translations |
 | `GET` | `/api/tts` | Speech audio for a sentence |
-| `POST` | `/api/billing/sync` | Read the user's subscription from RevenueCat |
+| `POST` | `/api/billing/sync` | Read the user's subscription or lifetime purchase from RevenueCat |
 | `POST` | `/api/community/contribute` | Submit an exercise |
 | `GET` | `/api/community/contributions` | List contributions (your own, or all) |
 | `GET` | `/api/community/contributions/pending-count` | Submissions waiting for review |

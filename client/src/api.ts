@@ -110,7 +110,8 @@ export type AdminUser = {
   activeDays30: number;
   totalXp: number;
   // An active store subscription, an active admin grant, and/or PREMIUM_ACCOUNT_EMAILS.
-  subscription: { expiresAt: string | null; store: string } | null;
+  // lifetime: a one-time Premium Lifetime purchase, which has no expiresAt.
+  subscription: { expiresAt: string | null; store: string; productId: string; lifetime: boolean } | null;
   grant: { expiresAt: string | null; note: string; createdAt: string | null } | null;
   onPremiumAccountList: boolean;
 };
@@ -140,6 +141,7 @@ export type AdminUserStats = {
     newLast7Days: number;
     newLast30Days: number;
     premiumSubscriptions: number;
+    premiumLifetime: number;
     premiumGrants: number;
   };
   active: {

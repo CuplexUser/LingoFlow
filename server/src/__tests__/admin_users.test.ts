@@ -174,6 +174,42 @@ test("admins can list users with sign-in and activity details", async (t) => {
   assert.ok(all.body.users.every((entry: any) => entry.email !== "local@lingoflow.dev"));
 });
 
+test("the admin list and stats tell lifetime purchases from subscriptions", async (t) => {
+  const { srv, adminHeaders } = await startWithAdmin(t);
+  const before = (await request(srv.base, "GET", "/api/admin/user-stats?days=7", adminHeaders)).body.totals;
+  const lifetime = await signUp(srv.base, "lifetime");
+  const subscribed = await signUp(srv.base, "subscribed");
+  await database.upsertSubscription({
+    userId: lifetime.userId,
+    entitlement: "premium",
+    productId: "lingoflow_lifetime",
+    store: "play_store",
+    expiresAt: null
+  });
+  await database.upsertSubscription({
+    userId: subscribed.userId,
+    entitlement: "premium",
+    productId: "lingoflow_premium:monthly",
+    store: "play_store",
+    expiresAt: new Date(Date.now() + 86_400_000).toISOString(),
+    willRenew: true
+  });
+
+  const find = async (email: string) =>
+    (await request(srv.base, "GET", `/api/admin/users?search=${encodeURIComponent(email)}`, adminHeaders)).body.users[0];
+  assert.deepEqual((await find(lifetime.email)).subscription, {
+    expiresAt: null,
+    store: "play_store",
+    productId: "lingoflow_lifetime",
+    lifetime: true
+  });
+  assert.equal((await find(subscribed.email)).subscription.lifetime, false);
+
+  const after = (await request(srv.base, "GET", "/api/admin/user-stats?days=7", adminHeaders)).body.totals;
+  assert.equal(after.premiumLifetime, before.premiumLifetime + 1);
+  assert.equal(after.premiumSubscriptions, before.premiumSubscriptions + 1);
+});
+
 test("user stats count registrations, active users and sign-ins", async (t) => {
   const { srv, adminHeaders } = await startWithAdmin(t);
   const user = await signUp(srv.base, "stats");

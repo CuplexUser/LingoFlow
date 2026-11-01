@@ -3489,6 +3489,7 @@ async function listUsersForAdmin({
       x.total_xp,
       g.expires_at AS grant_expires_at, g.note AS grant_note, g.created_at AS grant_created_at,
       s.expires_at AS subscription_expires_at, s.store AS subscription_store,
+      s.product_id AS subscription_product_id,
       CASE WHEN s.user_id IS NULL THEN 0 ELSE 1 END AS has_subscription
     FROM users u
     LEFT JOIN (
@@ -3531,7 +3532,13 @@ async function listUsersForAdmin({
       activeDays30: Number(row.active_days) || 0,
       totalXp: Number(row.total_xp) || 0,
       subscription: Number(row.has_subscription)
-        ? { expiresAt: row.subscription_expires_at || null, store: row.subscription_store || "" }
+        ? {
+          expiresAt: row.subscription_expires_at || null,
+          store: row.subscription_store || "",
+          productId: row.subscription_product_id || "",
+          // A store purchase without an end date is Premium Lifetime, bought once.
+          lifetime: !row.subscription_expires_at
+        }
         : null,
       grant: row.grant_created_at
         ? {
@@ -3571,8 +3578,12 @@ async function getUserGrowthStats({
     WHERE email <> ?
   `).get(weekStart, monthStart, windowStart, SEED_USER_EMAIL);
 
+  // Renewing subscriptions and lifetime purchases (no end date) are counted apart.
   const subscriptions = await db.prepare(`
-    SELECT COUNT(*) AS n FROM subscriptions
+    SELECT
+      SUM(CASE WHEN expires_at IS NOT NULL THEN 1 ELSE 0 END) AS renewing,
+      SUM(CASE WHEN expires_at IS NULL THEN 1 ELSE 0 END) AS lifetime
+    FROM subscriptions
     WHERE entitlement = ? AND (expires_at IS NULL OR expires_at > ?)
   `).get(entitlement, nowIso);
   const grants = await db.prepare(`
@@ -3655,7 +3666,8 @@ async function getUserGrowthStats({
       google: Number(totals?.google) || 0,
       newLast7Days: Number(totals?.new_week) || 0,
       newLast30Days: Number(totals?.new_month) || 0,
-      premiumSubscriptions: Number(subscriptions?.n) || 0,
+      premiumSubscriptions: Number(subscriptions?.renewing) || 0,
+      premiumLifetime: Number(subscriptions?.lifetime) || 0,
       premiumGrants: Number(grants?.n) || 0
     },
     active: {

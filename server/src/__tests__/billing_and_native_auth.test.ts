@@ -263,6 +263,30 @@ test("billing sync requires auth and reports the current entitlement", async (t)
   assert.equal(res.status, 502);
 });
 
+test("a lifetime purchase is Premium with no end date", async (t) => {
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const user = await signUp(srv.base, "rc-lifetime");
+
+  revenueCat.subscribers.set(String(user.userId), {
+    entitlements: {
+      premium: { expires_date: null, grace_period_expires_date: null, product_identifier: "lingoflow_lifetime" }
+    },
+    subscriptions: {},
+    non_subscriptions: {
+      lingoflow_lifetime: [{ id: "np-1", store: "play_store", purchase_date: "2026-11-01T10:00:00Z" }]
+    }
+  });
+  const res = await fetch(`${srv.base}/api/billing/sync`, { method: "POST", headers: user.headers });
+  const body = await res.json() as any;
+  assert.equal(body.isPremium, true);
+  assert.equal(body.subscription.productId, "lingoflow_lifetime");
+  assert.equal(body.subscription.store, "play_store");
+  assert.equal(body.subscription.expiresAt, null);
+  assert.equal(body.subscription.willRenew, false);
+  assert.equal(await isPremium(srv.base, user.headers), true);
+});
+
 // ─── Native Google sign-in ────────────────────────────────────────────────────
 
 test("native Google sign-in validates the ID token", async (t) => {

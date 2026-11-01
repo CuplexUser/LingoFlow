@@ -193,8 +193,8 @@ function UserStatsView({ stats }: { stats: AdminUserStats }) {
     },
     {
       label: "Premium",
-      value: formatNumber(totals.premiumSubscriptions + totals.premiumGrants),
-      foot: `${formatNumber(totals.premiumSubscriptions)} subscribed · ${formatNumber(totals.premiumGrants)} granted`
+      value: formatNumber(totals.premiumSubscriptions + (totals.premiumLifetime ?? 0) + totals.premiumGrants),
+      foot: `${formatNumber(totals.premiumSubscriptions)} subscribed · ${formatNumber(totals.premiumLifetime ?? 0)} lifetime · ${formatNumber(totals.premiumGrants)} granted`
     },
     {
       label: "Sign-ins, 30 days",
@@ -502,6 +502,12 @@ function UserTable({ users, onPremiumChanged }: { users: AdminUser[]; onPremiumC
   );
 }
 
+// RevenueCat's store ids, as people say them.
+function storeName(store: string): string {
+  const names: Record<string, string> = { play_store: "Google Play", app_store: "App Store", stripe: "Stripe", promotional: "Promotional" };
+  return names[store] || store;
+}
+
 function PremiumCell({ user, onChanged }: { user: AdminUser; onChanged: () => Promise<void> }) {
   const [mode, setMode] = useState<"idle" | "granting" | "revoking">("idle");
   const [expiresOn, setExpiresOn] = useState("");
@@ -535,8 +541,12 @@ function PremiumCell({ user, onChanged }: { user: AdminUser; onChanged: () => Pr
 
   return (
     <div className="admin-premium">
-      {user.subscription ? (
-        <span className="admin-badge">
+      {user.subscription?.lifetime ? (
+        <span className="admin-badge" title={user.subscription.productId || undefined}>
+          Lifetime{user.subscription.store ? ` · ${storeName(user.subscription.store)}` : ""}
+        </span>
+      ) : user.subscription ? (
+        <span className="admin-badge" title={user.subscription.productId || undefined}>
           Subscribed{user.subscription.expiresAt ? ` · until ${formatTimestamp(user.subscription.expiresAt)}` : ""}
         </span>
       ) : null}

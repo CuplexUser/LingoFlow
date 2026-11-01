@@ -57,12 +57,16 @@ function registerUserRoutes(app: any, deps: any): void {
     const productId = String(entitlement.product_identifier || "");
     const subscriptions = subscriber.subscriptions || {};
     const storeSubscription = subscriptions[productId] || subscriptions[productId.split(":")[0]] || null;
+    // A one-time purchase (Premium Lifetime) is listed under non_subscriptions instead, one
+    // entry per purchase, and its entitlement has no expiry date.
+    const oneTimePurchases = subscriber.non_subscriptions?.[productId];
+    const oneTimePurchase = Array.isArray(oneTimePurchases) ? oneTimePurchases[oneTimePurchases.length - 1] : null;
     await database.upsertSubscription({
       userId,
       entitlement: premiumEntitlement,
       provider: "revenuecat",
       productId,
-      store: String(storeSubscription?.store || ""),
+      store: String(storeSubscription?.store || oneTimePurchase?.store || ""),
       // A grace period (failed renewal Play is still retrying) keeps access open.
       expiresAt: normalizeIsoTimestamp(entitlement.grace_period_expires_date) ||
         normalizeIsoTimestamp(entitlement.expires_date),

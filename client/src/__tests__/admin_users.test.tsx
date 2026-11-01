@@ -66,6 +66,7 @@ const STATS = {
     newLast7Days: 2,
     newLast30Days: 5,
     premiumSubscriptions: 1,
+    premiumLifetime: 3,
     premiumGrants: 2
   },
   active: { today: 3, last7Days: 6, last30Days: 8, last30DaysWeb: 5, last30DaysAndroid: 4 },
@@ -104,6 +105,14 @@ const GRANTED_USER = {
   email: "granted@example.com",
   displayName: "Granted Learner",
   grant: { expiresAt: null, note: "Beta tester", createdAt: "2026-10-20T10:00:00.000Z" }
+};
+
+const LIFETIME_USER = {
+  ...FREE_USER,
+  id: 9,
+  email: "lifetime@example.com",
+  displayName: "Lifetime Learner",
+  subscription: { expiresAt: null, store: "play_store", productId: "lingoflow_lifetime", lifetime: true }
 };
 
 describe("change password", () => {
@@ -155,7 +164,7 @@ describe("AdminUsersPanel", () => {
     grantPremium.mockReset();
     revokePremium.mockReset();
     getAdminUserStats.mockResolvedValue(STATS);
-    getAdminUsers.mockResolvedValue({ total: 2, users: [FREE_USER, GRANTED_USER] });
+    getAdminUsers.mockResolvedValue({ total: 3, users: [FREE_USER, GRANTED_USER, LIFETIME_USER] });
     grantPremium.mockResolvedValue({ ok: true });
     revokePremium.mockResolvedValue({ ok: true, revoked: true });
   });
@@ -164,10 +173,12 @@ describe("AdminUsersPanel", () => {
     render(<AdminUsersPanel />);
     expect(await screen.findByRole("heading", { name: "Registered users" })).toBeInTheDocument();
     expect(screen.getByText("Daily active users")).toBeInTheDocument();
-    expect(screen.getByText(/1 subscribed · 2 granted/)).toBeInTheDocument();
+    expect(screen.getByText("6")).toBeInTheDocument();
+    expect(screen.getByText(/1 subscribed · 3 lifetime · 2 granted/)).toBeInTheDocument();
     expect(screen.getByText(/Activity and sign-ins are recorded from/)).toBeInTheDocument();
     expect(await screen.findByText("free@example.com")).toBeInTheDocument();
     expect(screen.getByText(/Granted · no end date/)).toBeInTheDocument();
+    expect(screen.getByText("Lifetime · Google Play")).toBeInTheDocument();
     expect(getAdminUserStats).toHaveBeenCalledWith(90);
   });
 
