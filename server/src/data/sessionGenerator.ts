@@ -1,966 +1,292 @@
-const { CATEGORIES, LEVEL_ORDER, LEVEL_XP_MULTIPLIER } = require("./constants.ts");
-const { fallbackSkillId } = require("./skills.ts");
+// Builds a session's questions: picks the items to ask and the exercise type of each, then
+// hands each item to the question builders in ./session/.
+const { LEVEL_ORDER, LEVEL_XP_MULTIPLIER } = require("./constants.ts");
+const {
+  shuffle,
+  levelRank,
+  clampLevelRank,
+  resolveAnswer,
+  resolveDifficulty,
+  countWords,
+  stripExercisePrefix,
+  firstAlternative,
+  normalizeExerciseType
+} = require("./session/itemText.ts");
+const { COURSE_WORD } = require("./session/distractors.ts");
+const { isEligibleForReversal } = require("./session/english.ts");
+const { createQuestion } = require("./session/questions.ts");
+const {
+  createPracticeSpeakQuestion,
+  createPracticeListenQuestion,
+  createPracticeWordsQuestion
+} = require("./session/practiceQuestions.ts");
+const {
+  filterItemsForMode,
+  buildPracticePool,
+  recommendedLevelFromMastery,
+  selectByLevelWindow,
+  applyDailyCuration
+} = require("./session/itemSelection.ts");
+const { buildQuestionTypePlan, restrictTypes, fitsQuestionTypes } = require("./session/typePlan.ts");
+const { createCourseSelectors } = require("./session/courseSelectors.ts");
 
-function shuffle(items, randomFn = Math.random) {
-  const cloned = [...items];
-  for (let i = cloned.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(randomFn() * (i + 1));
-    [cloned[i], cloned[j]] = [cloned[j], cloned[i]];
-  }
-  return cloned;
-}
+// A share of translation questions is asked from the target language into English.
+const REVERSE_SHARE = 0.35;
 
-function levelRank(level) {
-  return LEVEL_ORDER.indexOf(level);
-}
-
-function resolveAnswer(item) {
-  return String(item?.target || item?.correctAnswer || "").trim();
-}
-
-function resolveDifficulty(item) {
-  return String(item?.difficulty || item?.level || "a1").trim().toLowerCase();
-}
-
-function countWords(text) {
-  const trimmed = String(text || "").trim();
-  if (!trimmed) return 0;
-  return trimmed.split(/\s+/g).filter(Boolean).length;
-}
-
-function stripWrappingPunctuation(token) {
-  return String(token || "")
-    .replace(/^[«»"“”‘’(){}.,!?;:]+/g, "")
-    .replace(/[«»"“”‘’(){}.,!?;:]+$/g, "")
-    .trim();
-}
-
-function tokenizeBuildWords(text) {
-  return String(text || "")
-    .split(/\s+/g)
-    .map((token) => stripWrappingPunctuation(token))
-    .filter(Boolean);
-}
-
-function restoreTrailingPunct(tokens, rawText) {
-  if (!tokens.length) return tokens;
-  const trailing = String(rawText || "").trimEnd().match(/[.?!]+$/)?.[0];
-  if (!trailing) return tokens;
-  const result = [...tokens];
-  result[result.length - 1] = result[result.length - 1] + trailing;
-  return result;
-}
-
-function normalizeComparableText(text) {
-  return String(text || "")
-    .trim()
-    .toLowerCase()
-    .replace(/[.,!?;:()"']/g, "");
-}
-
-// Matches an instruction prefix like "Say:", "Choose the best response. Someone asks:", etc.
-// Only strips if the prefix is all-ASCII (no target-language text before the colon).
-const EXERCISE_PREFIX_RE = /^[a-zA-Z][a-zA-Z\s.,?!()]{1,60}:\s*/;
-
-function stripExercisePrefix(text) {
-  return String(text || "")
-    .replace(EXERCISE_PREFIX_RE, "")
-    .replace(/^["'«»]|["'«»]$/g, "")
-    .trim();
-}
-
-function resolveEnglishFromPrompt(item) {
-  return stripExercisePrefix(String(item?.prompt || "").trim());
-}
-
-// True when `text` contains no characters outside the Latin script (ignoring
-// punctuation/whitespace) — used to keep distractor scripts matched to the answer.
-function isLatinScript(text) {
-  return !/[^\p{Script=Latin}\p{Script=Common}\p{Script=Inherited}]/u.test(String(text || ""));
-}
-
-function isCleanEnglishText(text) {
-  if (!text || text.includes("____") || text.includes("___")) return false;
-  // Reject phrase-chunked sentences (e.g. "word / word / word")
-  if (text.includes(' / ')) return false;
-  // Reject if it contains characters from non-Latin scripts (Cyrillic, Arabic, CJK, etc.)
-  return !/[^\p{Script=Latin}\p{Script=Common}\p{Script=Inherited}]/u.test(text);
-}
-
-
-// Exercise types whose prompt is a fixed instruction ("Listen and build…", "Fill the blank…")
-// rather than a translatable English phrase. They must never supply English distractors.
-const NON_TRANSLATABLE_TYPES = [
-  "pronunciation",
-  "flashcard",
-  "cloze_sentence",
-  "dictation_sentence",
-  "matching",
-  "roleplay",
-  "dialogue_turn"
-];
-
-// The English phrase a pool entry can contribute to an English distractor/noise pool, or
-// "" if its prompt is not a plain English translatable phrase. Latin-script target languages
-// (Spanish, Italian, French, …) share the Latin script with English, so a script check alone
-// can't tell them apart — instead we reject the item types whose prompt is in the target
-// language: roleplay/dialogue, instruction-prefixed prompts (cloze "Fill in the blank: …",
-// pronunciation "Say: …"), and comprehension multiple_choice questions.
-function resolveEnglishDistractorText(entry) {
-  if (isRoleplayLikeItem(entry)) return "";
-  const type = normalizeExerciseType(entry?.exerciseType);
-  if (type && NON_TRANSLATABLE_TYPES.includes(type)) return "";
-  // multiple_choice prompts are questions ("¿Qué significa…?" / "Which word means…?"), not phrases.
-  if (String(entry?.exerciseType || "").trim().toLowerCase() === "multiple_choice") return "";
-  const eng = resolveEnglishFromPrompt(entry);
-  if (!eng || !isCleanEnglishText(eng)) return "";
-  // Bare meta-questions ("How do you say X?") with no exercise prefix are instructions, not phrases.
-  const rawPrompt = String(entry?.prompt || "").trim();
-  if (eng.trimEnd().endsWith("?") && !EXERCISE_PREFIX_RE.test(rawPrompt)) return "";
-  return eng;
-}
-
-function pickEnglishDistractors(pool, item, count, randomFn) {
-  const englishAnswer = resolveEnglishFromPrompt(item);
-  const normalizedAnswer = normalizeComparableText(englishAnswer);
-  const seen = new Set([normalizedAnswer]);
-  const unique: string[] = [];
-  shuffle(pool.filter((candidate) => !candidate[COURSE_WORD]), randomFn).forEach((candidate) => {
-    const eng = resolveEnglishDistractorText(candidate);
-    if (countWords(eng) < 2) return;
-    const norm = normalizeComparableText(eng);
-    if (!norm || seen.has(norm)) return;
-    seen.add(norm);
-    unique.push(eng);
-  });
-  // Distractors near the answer's length, when there are enough, so it does not stand out.
-  const answerWords = countWords(englishAnswer);
-  const near = unique.filter((eng) => Math.abs(countWords(eng) - answerWords) <= Math.max(2, Math.round(answerWords / 2)));
-  return (near.length >= count ? near : unique).slice(0, count);
-}
-
-function isEligibleForReversal(item, resolvedType, language) {
-  if (language === "english") return false;
-  if (isRoleplayLikeItem(item)) return false;
-  if (!["mc_sentence", "build_sentence"].includes(resolvedType)) return false;  
-  const fixedType = normalizeExerciseType(item?.exerciseType);
-  if (fixedType && NON_TRANSLATABLE_TYPES.includes(fixedType)) return false;
-  // multiple_choice items have question-style prompts ("Which word means X?"), not translatable phrases
-  if (String(item?.exerciseType || "").trim().toLowerCase() === "multiple_choice") return false;
-  const englishText = resolveEnglishFromPrompt(item);
-  if (countWords(englishText) < 2) return false;
-  if (!isCleanEnglishText(englishText)) return false;
-  // Prompts that are bare meta-questions ("How do you say X?") are instructions, not translatable
-  // phrases. Prompts with an exercise prefix ("Say: Hello?") are legitimate targets — the prefix
-  // was stripped by resolveEnglishFromPrompt, so raw !== stripped means a prefix existed.
-  const rawPrompt = String(item?.prompt || "").trim();
-  if (englishText.trimEnd().endsWith("?") && !EXERCISE_PREFIX_RE.test(rawPrompt)) return false;
-  // Skip if English prompt text is the same as the target answer (would be a no-op)
-  if (normalizeComparableText(englishText) === normalizeComparableText(resolveAnswer(item))) return false;
-  return true;
-}
-
-function normalizeExerciseType(value) {
-  const raw = String(value || "").trim().toLowerCase();
-  if (!raw) return "";
-  if (raw === "multiple_choice") return "mc_sentence";
-  return raw;
-}
-
-function isRoleplayLikeItem(item) {
-  const exerciseType = normalizeExerciseType(item?.exerciseType);
-  if (exerciseType === "roleplay" || exerciseType === "dialogue_turn") {
-    return true;
-  }
-  const prompt = String(item?.prompt || "").trim().toLowerCase();
-  return prompt.startsWith("choose the best response.");
-}
-
-function filterItemsForMode(items, mode) {
-  const normalizedMode = String(mode || "").trim().toLowerCase();
-  if (!normalizedMode) return items;
-
-  const filtered = items.filter((item) => {
-    const exerciseType = normalizeExerciseType(item?.exerciseType);
-    if (normalizedMode === "speak") {
-      return exerciseType === "pronunciation" && countWords(resolveAnswer(item)) <= 6;
-    }
-    if (normalizedMode === "listen") {
-      return countWords(resolveAnswer(item)) > 0;
-    }
-    if (normalizedMode === "words") {
-      return countWords(resolveAnswer(item)) <= 1;
-    }
-    return true;
-  });
-
-  if (filtered.length < Math.min(4, items.length)) {
-    return items;
-  }
-  return filtered;
-}
-
-function buildMediaFields(item) {
-  return {
-    hints: Array.isArray(item?.hints) ? item.hints : [],
-    audioUrl: String(item?.audioUrl || ""),
-    imageUrl: String(item?.imageUrl || ""),
-    culturalNote: String(item?.culturalNote || ""),
-    wordGlossary:
-      item?.wordGlossary !== null &&
-      typeof item?.wordGlossary === "object" &&
-      !Array.isArray(item?.wordGlossary)
-        ? (item.wordGlossary as Record<string, string>)
-        : undefined
-  };
-}
-
-function recommendedLevelFromMastery(mastery) {
-  if (mastery < 20) return "a1";
-  if (mastery < 45) return "a2";
-  if (mastery < 70) return "b1";
-  return "b2";
-}
-
-function clampLevelRank(rank) {
-  return Math.max(0, Math.min(rank, LEVEL_ORDER.length - 1));
-}
-
-function createCourseSelectors(course) {
-  function getCategoryItems(language, category) {
-    return course[language]?.[category] || [];
-  }
-
-  function getAllItems(language) {
-    const catalog = course[language] || {};
-    return CATEGORIES.flatMap((category) =>
-      (catalog[category.id] || []).map((item) => ({
-        ...item,
-        category: item.category || category.id
-      }))
-    );
-  }
-
-  function getCourseOverview(language) {
-    const catalog = course[language] || {};
-    return CATEGORIES.map((category) => {
-      const items = catalog[category.id] || [];
-      const levels = Array.from(new Set(items.map((item) => item.level))).sort(
-        (a, b) => levelRank(a) - levelRank(b)
-      );
-      return {
-        ...category,
-        totalPhrases: items.length,
-        levels,
-        mediaRichCount: items.filter((item) => item.audioUrl || item.imageUrl).length,
-        sampleCulturalNotes: items
-          .map((item) => String(item.culturalNote || "").trim())
-          .filter(Boolean)
-          .slice(0, 2)
-      };
-    });
-  }
-
-  return {
-    getCategoryItems,
-    getAllItems,
-    getCourseOverview
-  };
-}
-
-// Every option takes the answer's opening and closing marks, so neither gives the answer
-// away, and a Spanish question never keeps its "¿" with a full stop ("¿Es vegetariano.").
-function unifyOptionPunctuation(options: string[], correctAnswer: string): string[] {
-  // The space French puts before "?" and "!" goes with the mark, so "lentement ?" does not
-  // become "lentement ." when the answer ends in a full stop.
-  const terminalPunct = /\s*[.!?¿¡]+$/;
-  const openingPunct = /^[¿¡]+/;
-  const match = correctAnswer.match(terminalPunct);
-  if (!match) return options;
-  const terminal = match[0];
-  const opening = correctAnswer.match(openingPunct)?.[0] || "";
-  return options.map((opt) => opening + opt.replace(terminalPunct, "").replace(openingPunct, "") + terminal);
-}
-
-function buildAcceptedAnswers(target) {
-  const compact = String(target || "").trim();
-  if (!compact) return [];
-  const noTrailingPunctuation = compact.replace(/[.!?]+$/g, "");
-  if (noTrailingPunctuation !== compact) {
-    return [noTrailingPunctuation];
-  }
-  return [];
-}
-
-// Alternatives an item lists itself (e.g. the feminine "Я забыла…" next to "Я забыл…"),
-// each also accepted without its trailing punctuation.
-function buildAuthoredAcceptedAnswers(item) {
-  const authored = Array.isArray(item?.acceptedAnswers) ? item.acceptedAnswers : [];
-  return authored
-    .map((value) => String(value || "").trim())
-    .filter(Boolean)
-    .flatMap((value) => [value, ...buildAcceptedAnswers(value)]);
-}
-
-function deriveObjective(category, level) {
-  if (category === "grammar") {
-    if (level === "a1") return "present-and-past-basics";
-    if (level === "a2") return "future-and-conditionals";
-    if (level === "b1") return "perfect-and-hypothetical";
-    return "advanced-complex-tenses";
-  }
-  return `${category}-${level}-communication`;
-}
-
-const MISTAKE_PROFILE_BY_CATEGORY = {
-  grammar: ["word_order", "grammar_or_vocab", "missing_word"],
-  travel: ["wrong_option", "missing_answer"],
-  work: ["word_order", "grammar_or_vocab"],
-  science_technology: ["grammar_or_vocab", "wrong_option"],
-  default: ["wrong_option", "missing_answer"]
+type SessionOptions = {
+  language: string;
+  category: string;
+  mastery?: number;
+  count?: number;
+  recentAccuracy?: number | null;
+  selfRatedLevel?: string;
+  dueItemIds?: string[];
+  weakItemIds?: string[];
+  notDueItemIds?: string[];
+  focusItemIds?: string[];
+  extraPoolItems?: any[];
+  mode?: string;
+  random?: () => number;
+  dailyMode?: boolean;
+  maxLevel?: string;
+  exactLevel?: string;
+  skill?: string;
+  questionTypes?: string[];
 };
 
-function getMistakeProfile(category) {
-  return MISTAKE_PROFILE_BY_CATEGORY[category] || MISTAKE_PROFILE_BY_CATEGORY.default;
+// A session request with its defaults filled in, its random source, and the items it may ask.
+type SessionRequest = Required<Omit<SessionOptions, "mode" | "random" | "recentAccuracy">> & {
+  mode: string | undefined;
+  recentAccuracy: number | null;
+  randomFn: () => number;
+  sourceItems: any[];
+  all: any[];
+  maxLevelRank: number;
+  exactLevelRank: number;
+};
+
+function practiceResult(level: string, questions: any[]) {
+  return { recommendedLevel: level, difficultyMultiplier: LEVEL_XP_MULTIPLIER[level] || 1, questions };
 }
 
-// A flashcard answer may list two right answers ("перейти к делу / говорить по существу"),
-// which suits the back of a card. As an option the slash would single it out, so multiple
-// choice offers the first one.
-function firstAlternative(answer: string): string {
-  return String(answer || "").split(" / ")[0].trim();
-}
+// ─── Mistake drills and practice modes ───────────────────────────────────────
 
-// The prompt and answer multiple choice asks for an item. A slash answer either lists right
-// answers to one prompt ("to get to the point" → "перейти к делу / говорить по существу"),
-// which gives the first, or pairs off with a slash prompt ("Vocabulary: meat / fish" →
-// "мясо / рыба"), which gives the first pair ("Vocabulary: meat" → "мясо").
-function singleAnswerOf(prompt: string, answer: string): { prompt: string; answer: string } {
-  const answers = String(answer || "").split(" / ").map((part) => part.trim());
-  if (answers.length < 2) return { prompt, answer };
-  const prefix = String(prompt || "").match(EXERCISE_PREFIX_RE)?.[0] || "";
-  const prompts = String(prompt || "").slice(prefix.length).split(" / ").map((part) => part.trim());
-  if (prompts.length === answers.length) return { prompt: `${prefix}${prompts[0]}`, answer: answers[0] };
-  return { prompt, answer: answers[0] };
-}
+// The items the learner got wrong, in the order given, each in its own unit.
+function generateMistakes(request: SessionRequest) {
+  const { all, focusItemIds, count, category, language, selfRatedLevel, randomFn } = request;
+  const focusSet = new Set(focusItemIds);
+  const focusRank = new Map(focusItemIds.map((id, index) => [id, index]));
+  const selected = all
+    .filter((item) => focusSet.has(item.id))
+    .sort((left, right) => (focusRank.get(left.id) ?? 9999) - (focusRank.get(right.id) ?? 9999))
+    .slice(0, count);
 
-// A word-choice item lists its choices as the prompt and asks its question in the hint:
-// "désolé / content / affamé / fatigué" with "Which word do you use to apologize?". Asked
-// as it stands, the answer would be the one option that also appears in the prompt.
-function wordChoiceOf(item, answer: string): { question: string; choices: string[] } | null {
-  const choices = String(item?.prompt || "").split(" / ").map((choice) => choice.trim());
-  const question = Array.isArray(item?.hints) ? String(item.hints[0] || "").trim() : "";
-  if (choices.length < 3 || !question) return null;
-  const target = normalizeComparableText(answer);
-  return choices.some((choice) => normalizeComparableText(choice) === target) ? { question, choices } : null;
-}
-
-// Hints written for the back of a flashcard often name the answer ("Both are common;
-// 'перейти к делу' is idiomatic…"). Shown next to the options they would give it away.
-function hintsNotNaming(hints: string[], answer: string): string[] {
-  // Whole words only, so "¡Uno!" and "an ett-word" name "uno" and "ett", and "dog" is not "do".
-  const words = (text: string) => ` ${String(text || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim()} `;
-  const alternatives = String(answer || "")
-    .split(" / ")
-    .map((alternative) => words(alternative))
-    .filter((alternative) => alternative.trim());
-  return hints.filter((hint) => !alternatives.some((alternative) => words(hint).includes(alternative)));
-}
-
-function buildFallbackHint(category, questionType) {
-  if (category === "grammar") {
-    return "Check word order and verb form before submitting.";
-  }
-  if (category === "travel") {
-    return "Use a clear, polite phrase you would say in a real travel situation.";
-  }
-  if (questionType === "build_sentence" || questionType === "dictation_sentence") {
-    return "Re-read the full sentence and confirm each key word is present.";
-  }
-  return "Choose the most natural phrase for the context.";
-}
-
-function buildDictationPrompt(itemPrompt, answer) {
-  const rawPrompt = String(itemPrompt || "").trim();
-  const cleanedAnswer = String(answer || "").trim();
-  if (!rawPrompt) {
-    return "Listen and build the sentence you hear.";
+  if (!selected.length) {
+    return { recommendedLevel: selfRatedLevel, questions: [] };
   }
 
-  const prefixPattern = /^(listen and (?:type|build):|dictation:|say aloud:)\s*/i;
-  if (!prefixPattern.test(rawPrompt)) {
-    return rawPrompt;
-  }
-
-  const tail = rawPrompt.replace(prefixPattern, "").trim();
-  const normalizedTail = normalizeComparableText(tail);
-  const normalizedAnswer = normalizeComparableText(cleanedAnswer);
-
-  if (!tail || normalizedTail === normalizedAnswer) {
-    return "Listen and build the sentence you hear.";
-  }
-
-  return `Listen and build. Translation: ${tail}`;
-}
-
-// Marks a word from another unit, added to a session's pool only as a distractor for words.
-const COURSE_WORD = Symbol("courseWord");
-
-function pickLevelAwareDistractors(pool, item, count, randomFn, language = "") {
-  const answer = resolveAnswer(item);
-  const normalizedAnswer = normalizeComparableText(answer);
-  const answerWordCount = countWords(answer);
-  const enforceSentenceLike = answerWordCount >= 4;
-  if (enforceSentenceLike) pool = pool.filter((candidate) => !candidate[COURSE_WORD]);
-  const ranked = levelRank(resolveDifficulty(item));
-  // Distractors must be a target-language phrase that shares the answer's script. Two leaks to
-  // guard against: (1) a stray Latin gloss in a non-Latin (e.g. Cyrillic) exercise — caught by
-  // the script check; (2) an English gloss in a Latin-script target course (Spanish, Italian, …)
-  // where the script check can't tell English from the target. Comprehension multiple_choice
-  // items hold those English glosses as their correctAnswer ("a wooden nesting doll"), so drop
-  // them as a distractor source in non-English courses (in an English course they ARE the target).
-  const excludeMultipleChoice = String(language || "").trim().toLowerCase() !== "english";
-  const answerIsLatin = isLatinScript(answer);
-  // A candidate offers its first alternative, like the answer does (see firstAlternative).
-  const optionOf = (candidate) => firstAlternative(resolveAnswer(candidate));
-  const allCandidates = pool.filter((candidate) => {
-    if (candidate?.id && candidate.id === item?.id) return false;
-    if (excludeMultipleChoice && String(candidate?.exerciseType || "").trim().toLowerCase() === "multiple_choice") {
-      return false;
-    }
-    const candidateAnswer = optionOf(candidate);
-    if (normalizeComparableText(candidateAnswer) === normalizedAnswer) return false;
-    return isLatinScript(candidateAnswer) === answerIsLatin;
-  });
-
-  const sameBand = allCandidates.filter(
-    (candidate) => Math.abs(levelRank(resolveDifficulty(candidate)) - ranked) <= 1
+  // A flashcard is only flipped, so a drill asks it as multiple choice.
+  const plannedTypes = buildQuestionTypePlan(selected).map((type) =>
+    type === "flashcard" ? "mc_sentence" : type
   );
-  const initial = sameBand.length >= count ? sameBand : allCandidates;
+  const questions = selected.map((item, idx) => {
+    const reversed = randomFn() < REVERSE_SHARE && isEligibleForReversal(item, plannedTypes[idx], language);
+    return createQuestion(item, plannedTypes[idx], {
+      pool: all,
+      category: item.category || category,
+      language,
+      englishRoleplayAnswerByPrompt: new Map(),
+      randomFn
+    }, reversed);
+  });
+  return practiceResult(selfRatedLevel, questions);
+}
 
-  const candidateWordCount = (candidate) => countWords(optionOf(candidate));
-  let filtered = initial;
+// One matching question of eight single words, each used once on either side.
+function generateWords(request: SessionRequest) {
+  const { all, randomFn } = request;
+  const selected: any[] = [];
+  const usedLeft = new Set();
+  const usedRight = new Set();
+  const wordPools = [
+    all.filter((item) => countWords(resolveAnswer(item)) <= 1),
+    all.filter((item) => countWords(resolveAnswer(item)) <= 2),
+    all.filter((item) => countWords(resolveAnswer(item)) <= 3),
+    all
+  ];
 
-  if (!enforceSentenceLike) {
-    // A word or short phrase among whole sentences is easy to spot, so short answers get
-    // short distractors when there are enough of them.
-    const short = filtered.filter((candidate) => candidateWordCount(candidate) <= answerWordCount + 1);
-    if (short.length >= count) filtered = short;
-  } else {
-    const minWords = Math.max(3, answerWordCount - 3);
-    const maxWords = answerWordCount + 4;
-    const nearLength = filtered.filter((candidate) => {
-      const words = candidateWordCount(candidate);
-      return words >= minWords && words <= maxWords;
+  wordPools.forEach((pool) => {
+    shuffle(pool, randomFn).forEach((item) => {
+      if (selected.length >= 8) return;
+      const left = resolveAnswer(item);
+      const right = stripExercisePrefix(item.prompt || "");
+      if (!left || !right || left === right) return;
+      if (countWords(left) > 1 || countWords(right) > 1) return;
+      if (usedLeft.has(left) || usedRight.has(right)) return;
+      usedLeft.add(left);
+      usedRight.add(right);
+      selected.push(item);
     });
-    if (nearLength.length >= count) {
-      filtered = nearLength;
-    } else {
-      const sentenceLike = filtered.filter((candidate) => candidateWordCount(candidate) >= 3);
-      if (sentenceLike.length) {
-        filtered = sentenceLike;
-      }
-    }
-  }
-
-  const uniqueDistractors = [];
-  const seenAnswers = new Set([normalizedAnswer]);
-  shuffle(filtered, randomFn).forEach((candidate) => {
-    const candidateAnswer = optionOf(candidate);
-    const normalizedCandidate = normalizeComparableText(candidateAnswer);
-    if (!candidateAnswer || seenAnswers.has(normalizedCandidate)) return;
-    seenAnswers.add(normalizedCandidate);
-    uniqueDistractors.push(candidateAnswer);
   });
 
-  if (uniqueDistractors.length < count) {
-    shuffle(allCandidates, randomFn).forEach((candidate) => {
-      if (uniqueDistractors.length >= count) return;
-      if (enforceSentenceLike && candidateWordCount(candidate) < 3) return;
-      const candidateAnswer = optionOf(candidate);
-      const normalizedCandidate = normalizeComparableText(candidateAnswer);
-      if (!candidateAnswer || seenAnswers.has(normalizedCandidate)) return;
-      seenAnswers.add(normalizedCandidate);
-      uniqueDistractors.push(candidateAnswer);
-    });
+  if (selected.length < 8) {
+    return { recommendedLevel: "a1", questions: [] };
   }
-  return uniqueDistractors.slice(0, count);
+  return {
+    recommendedLevel: "a1",
+    difficultyMultiplier: LEVEL_XP_MULTIPLIER.a1,
+    questions: [createPracticeWordsQuestion(selected)]
+  };
 }
 
-function dedupeItems(items) {
-  const seen = new Set();
-  return items.filter((item) => {
-    const id = String(item?.id || "");
-    if (!id || seen.has(id)) return false;
-    seen.add(id);
-    return true;
+function generateSpeak(request: SessionRequest) {
+  const { all, count, selfRatedLevel, randomFn } = request;
+  const speakPool = all.filter((item) =>
+    normalizeExerciseType(item?.exerciseType) === "pronunciation" &&
+    countWords(resolveAnswer(item)) <= 6
+  );
+  const selected = shuffle(speakPool.length ? speakPool : all, randomFn).slice(0, count);
+  return practiceResult(selfRatedLevel, selected.map((item) => createPracticeSpeakQuestion(item)));
+}
+
+function generateListen(request: SessionRequest) {
+  const { all, count, selfRatedLevel, language, randomFn } = request;
+  const listenPool = all.filter((item) => countWords(resolveAnswer(item)) <= 10);
+  const selected = shuffle(listenPool.length ? listenPool : all, randomFn).slice(0, count);
+  return practiceResult(
+    selfRatedLevel,
+    selected.map((item) => createPracticeListenQuestion(item, all, randomFn, language))
+  );
+}
+
+// ─── Lessons, daily sessions and checks ──────────────────────────────────────
+
+// The level a lesson aims at: from mastery, nudged by recent accuracy, at most one below
+// the learner's own rating, and kept to a pinned level or the free-tier cap.
+function recommendedRankFor(request: SessionRequest): number {
+  const { mastery, recentAccuracy, selfRatedLevel, maxLevelRank, exactLevelRank } = request;
+  if (exactLevelRank >= 0) return exactLevelRank;
+  let adaptiveRank = levelRank(recommendedLevelFromMastery(mastery));
+  if (typeof recentAccuracy === "number" && Number.isFinite(recentAccuracy)) {
+    if (recentAccuracy >= 0.92) adaptiveRank += 1;
+    if (recentAccuracy <= 0.45) adaptiveRank -= 1;
+  }
+  const selfRatedRank = levelRank(selfRatedLevel);
+  if (selfRatedRank >= 0) {
+    adaptiveRank = Math.max(adaptiveRank, selfRatedRank - 1);
+  }
+  return maxLevelRank < 0
+    ? clampLevelRank(adaptiveRank)
+    : Math.min(clampLevelRank(adaptiveRank), maxLevelRank);
+}
+
+// The items a lesson asks: due ones first, then weak ones, then the rest nearest its level.
+function selectLessonItems(request: SessionRequest, recommendedRank: number) {
+  const { all, count, dueItemIds, weakItemIds, notDueItemIds, skill, dailyMode, randomFn } = request;
+  const minRank = Math.max(0, recommendedRank - 1);
+  const maxRank = Math.min(recommendedRank + 1, LEVEL_ORDER.length - 1);
+  const candidatePool = all.filter((item) => {
+    const itemRank = levelRank(resolveDifficulty(item));
+    return itemRank >= minRank && itemRank <= maxRank;
   });
-}
+  const sourcePool = candidatePool.length >= count ? candidatePool : all;
+  const dueSet = new Set(dueItemIds);
+  const weakSet = new Set(weakItemIds);
+  const notDueSet = new Set(notDueItemIds);
+  const targetCount = Math.min(count, sourcePool.length);
+  const dueTarget = Math.max(0, Math.min(targetCount, Math.round(targetCount * 0.6)));
+  const weakTarget = Math.max(0, Math.min(targetCount - dueTarget, Math.round(targetCount * 0.25)));
 
-function buildPracticePool(getAllItems, language, practicePool, extraItems = []) {
-  const allItems = getAllItems(language);
-  const poolItems = typeof practicePool === "function"
-    ? practicePool(language)
-    : Array.isArray(practicePool?.[language]) ? practicePool[language] : [];
-  const extras = Array.isArray(extraItems) ? extraItems : [];
-  return dedupeItems([...extras, ...poolItems, ...allItems]);
-}
+  const dueItems = shuffle(sourcePool.filter((item) => dueSet.has(item.id)), randomFn).slice(0, dueTarget);
+  const selectedIds = new Set(dueItems.map((item) => item.id));
+  const weakItems = shuffle(
+    sourcePool.filter((item) => weakSet.has(item.id) && !selectedIds.has(item.id) && !notDueSet.has(item.id))
+    , randomFn).slice(0, weakTarget);
+  weakItems.forEach((item) => selectedIds.add(item.id));
 
-function buildQuestionTypePlan(items) {
-  // Fill-in-the-blank is left out: masking a word of an ordinary sentence often leaves a gap
-  // that more than one option fits. Cloze comes only from items authored as cloze.
-  const cycle = ["mc_sentence", "build_sentence", "dictation_sentence", "dialogue_turn"];
-  let cycleIndex = 0;
-  const recent: string[] = [];
-  return items.map((item) => {
-    const fixedType = normalizeExerciseType(item?.exerciseType);
-    if (fixedType) {
-      recent.push(fixedType);
-      if (recent.length > 2) recent.shift();
-      return fixedType;
-    }
-    let type = cycle[cycleIndex % cycle.length];
-    cycleIndex += 1;
-    if (recent.length >= 2 && recent[0] === recent[1] && recent[1] === type) {
-      type = cycle[cycleIndex % cycle.length];
-      cycleIndex += 1;
-    }
-    recent.push(type);
-    if (recent.length > 2) recent.shift();
-    return type;
-  });
-}
-
-// Keeps a session to the given exercise types (checks leave out the microphone, for one).
-// Any other planned type becomes multiple choice, which every item can make, as mistake
-// drills already do with flashcards.
-function restrictTypes(planned: string[], allowed: string[]): string[] {
-  if (!allowed.length) return planned;
-  const fallback = allowed.includes("mc_sentence") ? "mc_sentence" : allowed[0];
-  return planned.map((type) => (allowed.includes(type) ? type : fallback));
-}
-
-// Listening and speaking items that only work as themselves. A dictation item whose prompt
-// is a listening instruction ("Listen and build the sentence you hear.") is written for its
-// audio, hints included ("Listen for 'прежде чем'…"), and a pronunciation item may show the
-// sentence to read out ("Say aloud: У меня болит голова."). As multiple choice the first
-// asks nothing and the second shows the answer.
-function isOnlyAskedAsItself(item): boolean {
-  const type = normalizeExerciseType(item?.exerciseType);
-  if (type !== "dictation_sentence" && type !== "pronunciation") return false;
-  const prompt = String(item?.prompt || "").trim();
-  if (/^listen\b/i.test(prompt)) return true;
-  const answer = ` ${normalizeComparableText(resolveAnswer(item))} `;
-  return answer.trim() !== "" && ` ${normalizeComparableText(prompt)} `.includes(answer);
-}
-
-// Whether an item can be asked in a session kept to the given exercise types.
-function fitsQuestionTypes(item, allowed: string[]): boolean {
-  if (!allowed.length || allowed.includes(normalizeExerciseType(item?.exerciseType))) return true;
-  return !isOnlyAskedAsItself(item);
-}
-
-// The word without the punctuation around it: "¿Puedo" → "Puedo", "hambre." → "hambre".
-function bareWord(token: string): string {
-  return String(token || "").replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
-}
-
-function sameWord(a: string, b: string): boolean {
-  return bareWord(a).toLocaleLowerCase() === bareWord(b).toLocaleLowerCase();
-}
-
-function startsUpper(text: string): boolean {
-  const first = bareWord(text).charAt(0);
-  return first !== "" && first !== first.toLocaleLowerCase() && first === first.toLocaleUpperCase();
-}
-
-function capitalize(word: string): string {
-  return word.charAt(0).toLocaleUpperCase() + word.slice(1);
-}
-
-const MIN_CLOZE_DISTRACTORS = 2;
-
-// The gap, its answer, the other words that also fit it, and the options to pick from.
-// Items authored as cloze write the gap into the prompt ("___ en un pequeño restaurante.")
-// and list other words that fit it in `acceptedAnswers`. Older items have no gap, so a word
-// of the answer is masked, and a word at the same place in an accepted answer also fits.
-// Returns null when too few options are left that are surely wrong.
-function buildCloze(item, answer: string, pool, randomFn) {
-  const promptText = stripExercisePrefix(item.prompt);
-  const authored = Array.isArray(item.acceptedAnswers)
-    ? item.acceptedAnswers.map((value) => String(value || "").trim()).filter(Boolean)
-    : [];
-
-  let clozeAnswer: string;
-  let clozeText: string;
-  let accepted: string[];
-  let sentenceStart: boolean;
-  if (/_{2,}/.test(promptText)) {
-    clozeAnswer = answer;
-    clozeText = promptText.replace(/_{2,}/g, "____");
-    accepted = authored;
-    sentenceStart = /^[^\p{L}\p{N}]*____/u.test(clozeText);
-  } else {
-    const answerTokens = answer.split(" ").filter(Boolean);
-    const maskIndex = answerTokens.findIndex((token) => bareWord(token).length > 3);
-    const masked = maskIndex >= 0 ? maskIndex : 0;
-    const token = answerTokens[masked] || "";
-    clozeAnswer = bareWord(token) || token;
-    const tokens = [...answerTokens];
-    tokens[masked] = token.replace(clozeAnswer, "____");
-    clozeText = tokens.join(" ");
-    accepted = authored
-      .map((alternative) => alternative.split(" ").filter(Boolean))
-      .filter((altTokens) =>
-        altTokens.length === answerTokens.length &&
-        altTokens.every((altToken, index) => index === masked || sameWord(altToken, answerTokens[index])))
-      .map((altTokens) => bareWord(altTokens[masked]));
-    sentenceStart = masked === 0;
+  const remaining = sourcePool.filter((item) => !selectedIds.has(item.id) && !notDueSet.has(item.id));
+  const levelSmoothed = selectByLevelWindow(remaining, recommendedRank, Math.max(0, targetCount - dueItems.length - weakItems.length), randomFn);
+  let selected = [...dueItems, ...weakItems, ...levelSmoothed].slice(0, targetCount);
+  if (skill && selected.length < targetCount) {
+    // A skill has only a handful of items, and once it's known none of them are due, so
+    // practicing it tops up with the items that aren't due yet.
+    const picked = new Set(selected.map((item) => item.id));
+    const rest = shuffle(sourcePool.filter((item) => !picked.has(item.id)), randomFn);
+    selected = [...selected, ...rest].slice(0, targetCount);
   }
-  const acceptedClozeAnswers = [...new Set(accepted.filter((word) => word && !sameWord(word, clozeAnswer)))];
-  const fits = (word: string) => sameWord(word, clozeAnswer) || acceptedClozeAnswers.some((other) => sameWord(word, other));
-
-  const authoredOptions = Array.isArray(item.clozeOptions)
-    ? item.clozeOptions.map((option) => String(option || "").trim()).filter(Boolean)
-    : [];
-  let distractors: string[];
-  if (authoredOptions.length >= 2) {
-    distractors = authoredOptions.filter((option) => !fits(option));
-  } else {
-    // Distractors share the answer's script, since a handful of pool answers hold English
-    // glosses that would leak Latin words into a Cyrillic exercise. They also share how it
-    // starts: capitalized at the start of the sentence, and otherwise the same case as the
-    // answer, so neither gives the answer away.
-    const answerIsLatin = isLatinScript(clozeAnswer);
-    const answerUpper = startsUpper(clozeAnswer);
-    const candidates = pool
-      .flatMap((entry) => resolveAnswer(entry).split(" "))
-      .map((token: string) => bareWord(token))
-      .filter((word: string) => word.length > 2 && isLatinScript(word) === answerIsLatin && !fits(word))
-      .filter((word: string) => sentenceStart || startsUpper(word) === answerUpper)
-      .map((word: string) => (sentenceStart && answerUpper ? capitalize(word) : word));
-    distractors = candidates;
+  if (dailyMode) {
+    // The confidence and stretch picks honor the exclusions too.
+    const curationPool = sourcePool.filter((item) => !notDueSet.has(item.id));
+    selected = applyDailyCuration(selected, curationPool, recommendedRank, randomFn).slice(0, targetCount);
   }
-  const unique: string[] = [];
-  for (const word of shuffle(distractors, randomFn)) {
-    if (unique.length >= 3) break;
-    if (!unique.some((other) => sameWord(other, word))) unique.push(word);
-  }
-  if (unique.length < MIN_CLOZE_DISTRACTORS) return null;
-
-  return {
-    clozeAnswer,
-    clozeText,
-    clozeOptions: shuffle([clozeAnswer, ...unique], randomFn),
-    ...(acceptedClozeAnswers.length ? { acceptedClozeAnswers } : {})
-  };
+  return { selected, sourcePool };
 }
 
-// Questions answered by picking or arranging. A hint that names the answer gives it away
-// there: "'Qui' is the subject relative pronoun." next to a gap for "qui", or a flashcard's
-// back-of-card note next to the options. Flashcards and spoken items keep their hints.
-const HINTS_HIDE_ANSWER = new Set(["mc_sentence", "dialogue_turn", "roleplay", "cloze_sentence", "build_sentence"]);
-
-function createQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn, reversed = false) {
-  const question = buildQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn, reversed);
-  if (!HINTS_HIDE_ANSWER.has(question.type) || !Array.isArray(question.hints)) return question;
-  const answers = [question.answer, question.clozeAnswer, resolveAnswer(item)].filter(Boolean).join(" / ");
-  const hints = hintsNotNaming(question.hints, answers);
-  return { ...question, hints: hints.length ? hints : [buildFallbackHint(category, question.type)] };
+// Where a lesson's distractors and noise words come from. A skill has only a handful of
+// items, too few to draw them from, so a session kept to one skill or level takes them from
+// its whole unit. Distractors still prefer items near the question's level. A unit also has
+// only a word or two per level, so a word asked as multiple choice takes its distractors
+// from the words of the whole course rather than stand alone among sentences.
+function lessonOptionPool(request: SessionRequest, sourcePool: any[], getAllItems) {
+  const { sourceItems, mode, skill, language, maxLevelRank, exactLevelRank } = request;
+  const withinCap = (item) => maxLevelRank < 0 || levelRank(resolveDifficulty(item)) <= maxLevelRank;
+  const unitPool = skill || exactLevelRank >= 0
+    ? filterItemsForMode(sourceItems, mode).filter(withinCap)
+    : sourcePool;
+  const unitIds = new Set(unitPool.map((item) => item.id));
+  const courseWords = getAllItems(language)
+    .filter((item) =>
+      !unitIds.has(item.id) && withinCap(item) && countWords(firstAlternative(resolveAnswer(item))) <= 3
+    )
+    .map((item) => ({ ...item, [COURSE_WORD]: true }));
+  return [...unitPool, ...courseWords];
 }
 
-function buildQuestion(item, pool, questionType, category, language, englishRoleplayAnswerByPrompt, randomFn, reversed = false) {
-  const requestedType = normalizeExerciseType(item.exerciseType);
-  let resolvedType = normalizeExerciseType(questionType) || requestedType || "mc_sentence";
-  const answer = resolveAnswer(item);
-  const answerEnglish = resolvedType === "roleplay"
-    ? (language === "english"
-      ? answer
-      : String(englishRoleplayAnswerByPrompt?.get(String(item.prompt || "")) || item.answerEnglish || "").trim())
-    : "";
-
-  // Speaking long sentences is frustrating; fall back to a listening exercise.
-  // Pronunciation items have no translation (the prompt IS the target sentence), so
-  // build_sentence would just reveal the answer — dictation keeps it a real challenge.
-  if (resolvedType === "pronunciation" && countWords(answer) > 7) {
-    resolvedType = "dictation_sentence";
-  }
-
-  const base = {
-    id: item.id,
-    type: resolvedType,
-    exerciseType: requestedType || resolvedType,
-    level: item.level,
-    prompt: item.prompt,
-    answer,
-    correctAnswer: answer,
-    answerEnglish: answerEnglish || undefined,
-    acceptedAnswers: [...buildAcceptedAnswers(answer), ...buildAuthoredAcceptedAnswers(item)],
-    objective: deriveObjective(category, item.level),
-    // Course items carry resolved skills (data.ts); anything added at runtime counts toward
-    // its unit's generated skill.
-    skills: Array.isArray(item.skills) && item.skills.length
-      ? item.skills
-      : [fallbackSkillId(item.category || category, resolveDifficulty(item))],
-    sourceCategory: item.category || category,
-    expectedMistakeTypes: getMistakeProfile(category),
-    ...buildMediaFields(item)
-  };
-  if (!Array.isArray(base.hints) || !base.hints.length) {
-    base.hints = [buildFallbackHint(category, resolvedType)];
-  }
-
-  if (resolvedType === "flashcard") {
-    return {
-      ...base,
-      prompt: "Flashcard: Tap to flip",
-      front: item.prompt,
-      back: answer
-    };
-  }
-
-  if (resolvedType === "matching") {
-    const LONG_ANSWER_TYPES = new Set(["build_sentence", "dictation_sentence", "cloze_sentence", "pronunciation"]);
-    const distractors = shuffle(
-      pool
-        .filter((candidate) => {
-          if (candidate.id === item.id || isRoleplayLikeItem(candidate)) return false;
-          if (LONG_ANSWER_TYPES.has(normalizeExerciseType(candidate.exerciseType))) return false;
-          return countWords(resolveAnswer(candidate)) >= 1 && countWords(resolveAnswer(candidate)) <= 3;
-        })
-        .map((candidate) => ({
-          id: candidate.id,
-          prompt: stripExercisePrefix(candidate.prompt),
-          answer: resolveAnswer(candidate)
-        }))
-      , randomFn).slice(0, 3);
-    return {
-      ...base,
-      prompt: "Match each phrase to its translation.",
-      pairs: shuffle([{ id: item.id, prompt: stripExercisePrefix(item.prompt), answer }, ...distractors], randomFn)
-    };
-  }
-
-  if (resolvedType === "pronunciation") {
-    return {
-      ...base,
-      prompt: `${item.prompt}`,
-      transcriptTarget: answer
-    };
-  }
-
-  if (resolvedType === "mc_sentence") {
-    if (reversed && isEligibleForReversal(item, resolvedType, language)) {
-      const englishAnswer = resolveEnglishFromPrompt(item);
-      const distractors = pickEnglishDistractors(pool, item, 3, randomFn);
-      const rawOptions = shuffle([englishAnswer, ...distractors], randomFn);
-      return {
-        ...base,
-        prompt: "Translate to English",
-        direction: "reverse",
-        sourceText: answer,
-        answer: englishAnswer,
-        correctAnswer: englishAnswer,
-        acceptedAnswers: buildAcceptedAnswers(englishAnswer),
-        options: rawOptions
-      };
-    }
-    //const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn);
-    const authoredOptions = Array.isArray(item.options) && item.options.length >= 2
-      ? item.options.map((o) => String(o || "")).filter(Boolean)
-      : null;
-    if (authoredOptions) {
-      const distractors = authoredOptions.filter((o) => o !== answer).slice(0, 3);
-      return {
-        ...base,
-        options: unifyOptionPunctuation(shuffle([answer, ...distractors], randomFn), answer)
-      };
-    }
-    const wordChoice = wordChoiceOf(item, answer);
-    if (wordChoice) {
-      return {
-        ...base,
-        prompt: wordChoice.question,
-        hints: base.hints.slice(1),
-        options: shuffle(wordChoice.choices, randomFn)
-      };
-    }
-    const single = singleAnswerOf(String(item.prompt || ""), answer);
-    const shown = single.answer;
-    const distractors = pickLevelAwareDistractors(pool, { ...item, target: shown }, 3, randomFn, language);
-    return {
-      ...base,
-      ...(shown !== answer
-        ? { prompt: single.prompt, answer: shown, correctAnswer: shown, acceptedAnswers: buildAcceptedAnswers(shown) }
-        : {}),
-      options: unifyOptionPunctuation(shuffle([shown, ...distractors], randomFn), shown)
-    };
-  }
-
-  if (resolvedType === "dialogue_turn" || resolvedType === "roleplay") {
-    const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn, language);
-    const promptBase = String(item.prompt || "").trim();
-    const normalized = promptBase.toLowerCase();
-    const prefix = "choose the best response.";
-    return {
-      ...base,
-      prompt: normalized.startsWith(prefix) ? promptBase : `${promptBase}`,
-      options: shuffle([answer, ...distractors], randomFn)
-    };
-  }
-
-  if (resolvedType === "cloze_sentence") {
-    const cloze = buildCloze(item, answer, pool, randomFn);
-    if (!cloze) {
-      return createQuestion(item, pool, "mc_sentence", category, language, englishRoleplayAnswerByPrompt, randomFn);
-    }
-    return {
-      ...base,
-      ...cloze,
-      ...(item.translation ? { translation: String(item.translation) } : {})
-    };
-  }
-
-  if (resolvedType === "dictation_sentence") {
-    const answerTokens = restoreTrailingPunct(tokenizeBuildWords(answer), answer);
-    const tokenPool = pool
-      .flatMap((entry) => tokenizeBuildWords(resolveAnswer(entry)))
-      .filter((token) => token.length > 2 && !answerTokens.includes(token));
-    const noise = shuffle(tokenPool, randomFn).slice(0, 2);
-    return {
-      ...base,
-      prompt: buildDictationPrompt(item.prompt, answer),
-      audioText: answer,
-      tokens: shuffle([...answerTokens, ...noise], randomFn)
-    };
-  }
-
-  if (reversed && isEligibleForReversal(item, "build_sentence", language)) {
-    const englishAnswer = resolveEnglishFromPrompt(item);
-    const engTokens = restoreTrailingPunct(tokenizeBuildWords(englishAnswer), englishAnswer);
-    const engTokenSet = new Set(engTokens.map((t) => t.toLowerCase().replace(/[.?!]+$/, "")));
-    const engTokenPool = pool
-      .flatMap((entry) => {
-        const eng = resolveEnglishDistractorText(entry);
-        if (!eng) return [];
-        return tokenizeBuildWords(eng);
-      })
-      .filter((token) => token.length > 2 && !engTokenSet.has(token.toLowerCase()));
-    const engNoise = shuffle(engTokenPool, randomFn).slice(0, 3);
-    return {
-      ...base,
-      type: "build_sentence",
-      prompt: "Translate to English",
-      direction: "reverse",
-      sourceText: answer,
-      answer: englishAnswer,
-      correctAnswer: englishAnswer,
-      acceptedAnswers: buildAcceptedAnswers(englishAnswer),
-      tokens: shuffle([...engTokens, ...engNoise], randomFn)
-    };
-  }
-
-  const answerTokens = restoreTrailingPunct(tokenizeBuildWords(answer), answer);
-  const answerSet = new Set(answerTokens.map((t) => t.toLowerCase().replace(/[.?!]+$/, "")));
-  const avgAnswerLen = answerTokens.reduce((sum, t) => sum + t.length, 0) / Math.max(1, answerTokens.length);
-  const tokenPool = pool
-    .flatMap((entry) => tokenizeBuildWords(resolveAnswer(entry)))
-    .filter((token) => token.length > 2 && !answerSet.has(token.toLowerCase()));
-  // Prefer noise tokens whose length is close to the average answer-token length (plausible distractors)
-  const scored = tokenPool.map((token) => ({
-    token,
-    score: Math.abs(token.length - avgAnswerLen) + randomFn()
-  }));
-  scored.sort((a, b) => a.score - b.score);
-  const noise = scored.slice(0, 3).map((entry) => entry.token);
-
-  return {
-    ...base,
-    type: "build_sentence",
-    tokens: shuffle([...answerTokens, ...noise], randomFn)
-  };
+// The English answers of the English course's roleplay items, by prompt: what a roleplay
+// question in another course shows as its English meaning.
+function englishRoleplayAnswers(getCategoryItems, category: string): Map<string, string> {
+  return new Map(
+    getCategoryItems("english", category)
+      .filter((item) => normalizeExerciseType(item?.exerciseType) === "roleplay")
+      .map((item) => [String(item.prompt || ""), resolveAnswer(item)])
+  );
 }
 
-function createPracticeSpeakQuestion(item) {
-  const answer = resolveAnswer(item);
-  return {
-    id: item.id,
-    type: "practice_speak",
-    exerciseType: "practice_speak",
-    level: item.level,
-    prompt: "Pronounce the phrase.",
-    answer,
-    correctAnswer: answer,
-    acceptedAnswers: buildAcceptedAnswers(answer),
-    objective: "practice-speak",
-    ...buildMediaFields(item)
-  };
-}
-
-function createPracticeListenQuestion(item, pool, randomFn, language = "") {
-  const answer = resolveAnswer(item);
-  const distractors = pickLevelAwareDistractors(pool, item, 3, randomFn, language);
-  return {
-    id: item.id,
-    type: "practice_listen",
-    exerciseType: "practice_listen",
-    level: item.level,
-    prompt: "Listen and choose the correct phrase.",
-    answer,
-    correctAnswer: answer,
-    options: shuffle([answer, ...distractors], randomFn),
-    acceptedAnswers: buildAcceptedAnswers(answer),
-    objective: "practice-listen",
-    ...buildMediaFields(item)
-  };
-}
-
-function createPracticeWordsQuestion(items) {
-  const pairs = items.map((item) => ({
-    left: resolveAnswer(item),
-    right: stripExercisePrefix(item.prompt || "")
-  })).filter((pair) => pair.left && pair.right && pair.left !== pair.right);
-
-  return {
-    id: `practice-words-${Date.now()}`,
-    type: "practice_words",
-    exerciseType: "practice_words",
-    level: "a1",
-    prompt: "Match each word to its translation.",
-    pairs
-  };
-}
-
-function selectByLevelWindow(items, centerRank, count, randomFn) {
-  const scored = shuffle(items, randomFn)
-    .map((item) => {
-      const rank = levelRank(resolveDifficulty(item));
-      return {
-        item,
-        score: Math.abs(rank - centerRank)
-      };
-    })
-    .sort((a, b) => a.score - b.score);
-  return scored.slice(0, count).map((entry) => entry.item);
-}
-
-function applyDailyCuration(selectedItems, sourcePool, recommendedRank, randomFn) {
-  if (!selectedItems.length) return selectedItems;
-  const selectedIds = new Set(selectedItems.map((item) => item.id));
-  const confidence = shuffle(
-    sourcePool.filter((item) => levelRank(resolveDifficulty(item)) <= recommendedRank && !selectedIds.has(item.id)),
+function generateLesson(request: SessionRequest, getCategoryItems, getAllItems) {
+  const { category, language, questionTypes, randomFn } = request;
+  const englishRoleplayAnswerByPrompt = englishRoleplayAnswers(getCategoryItems, category);
+  const recommendedRank = recommendedRankFor(request);
+  const recommendedLevel = LEVEL_ORDER[recommendedRank];
+  const { selected, sourcePool } = selectLessonItems(request, recommendedRank);
+  const plannedTypes = restrictTypes(buildQuestionTypePlan(selected), questionTypes);
+  const context = {
+    pool: lessonOptionPool(request, sourcePool, getAllItems),
+    category,
+    language,
+    englishRoleplayAnswerByPrompt,
     randomFn
-  )[0];
-  const stretch = shuffle(
-    sourcePool.filter((item) => levelRank(resolveDifficulty(item)) > recommendedRank && !selectedIds.has(item.id)),
-    randomFn
-  )[0];
+  };
+  const questions = selected.map((item, idx) => {
+    const reversed = randomFn() < REVERSE_SHARE && isEligibleForReversal(item, plannedTypes[idx], language);
+    return createQuestion(item, plannedTypes[idx], context, reversed);
+  });
 
-  const curated = [...selectedItems];
-  if (confidence && curated.length >= 1) curated[0] = confidence;
-  if (stretch && curated.length >= 2) curated[curated.length - 1] = stretch;
-  return dedupeItems(curated);
+  return {
+    recommendedLevel,
+    difficultyMultiplier: LEVEL_XP_MULTIPLIER[recommendedLevel],
+    questions
+  };
 }
+
+// ─── Entry point ─────────────────────────────────────────────────────────────
+
+// Modes with a generator of their own. Any other mode is a lesson drawn from the practice pool.
+const MODE_GENERATORS = new Map<string, (request: SessionRequest) => any>([
+  ["mistakes", generateMistakes],
+  ["words", generateWords],
+  ["speak", generateSpeak],
+  ["listen", generateListen]
+]);
 
 function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
   return function generateSession({
@@ -981,11 +307,10 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
     maxLevel = "",
     exactLevel = "",
     skill = "",
-    questionTypes = [] as string[]
-  }) {
+    questionTypes = []
+  }: SessionOptions) {
     const randomFn = typeof random === "function" ? random : Math.random;
-    const isPracticeMode = Boolean(mode);
-    const sourceItems = isPracticeMode
+    const sourceItems = mode
       ? buildPracticePool(getAllItems, language, practicePool, extraPoolItems)
       : getCategoryItems(language, category);
     // maxLevel caps content for free-tier app users; levels above it never reach the pool.
@@ -1001,187 +326,16 @@ function createSessionGenerator(getCategoryItems, getAllItems, practicePool) {
         fitsQuestionTypes(item, questionTypes);
     });
     if (!all.length) {
-      return {
-        recommendedLevel: "a1",
-        questions: []
-      };
+      return { recommendedLevel: "a1", questions: [] };
     }
 
-    if (mode === "mistakes") {
-      const focusSet = new Set(focusItemIds);
-      const focusRank = new Map(focusItemIds.map((id, index) => [id, index]));
-      const selected = all
-        .filter((item) => focusSet.has(item.id))
-        .sort((left, right) => (focusRank.get(left.id) ?? 9999) - (focusRank.get(right.id) ?? 9999))
-        .slice(0, count);
-
-      if (!selected.length) {
-        return { recommendedLevel: selfRatedLevel, questions: [] };
-      }
-
-      const sourcePool = all;
-      const plannedTypes = buildQuestionTypePlan(selected).map((type) =>
-        type === "flashcard" ? "mc_sentence" : type
-      );
-      const questions = selected.map((item, idx) => {
-        const itemCategory = item.category || category;
-        const reversed = randomFn() < 0.35 && isEligibleForReversal(item, plannedTypes[idx], language);
-        return createQuestion(item, sourcePool, plannedTypes[idx], itemCategory, language, new Map(), randomFn, reversed);
-      });
-
-      return {
-        recommendedLevel: selfRatedLevel,
-        difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
-        questions
-      };
-    }
-
-    if (mode === "words") {
-      const selected = [];
-      const usedLeft = new Set();
-      const usedRight = new Set();
-      const wordPools = [
-        all.filter((item) => countWords(resolveAnswer(item)) <= 1),
-        all.filter((item) => countWords(resolveAnswer(item)) <= 2),
-        all.filter((item) => countWords(resolveAnswer(item)) <= 3),
-        all
-      ];
-
-      wordPools.forEach((pool) => {
-        shuffle(pool, randomFn).forEach((item) => {
-          if (selected.length >= 8) return;
-          const left = resolveAnswer(item);
-          const right = stripExercisePrefix(item.prompt || "");
-          if (!left || !right || left === right) return;
-          if (countWords(left) > 1 || countWords(right) > 1) return;
-          if (usedLeft.has(left) || usedRight.has(right)) return;
-          usedLeft.add(left);
-          usedRight.add(right);
-          selected.push(item);
-        });
-      });
-
-      if (selected.length < 8) {
-        return { recommendedLevel: "a1", questions: [] };
-      }
-      return {
-        recommendedLevel: "a1",
-        difficultyMultiplier: LEVEL_XP_MULTIPLIER.a1,
-        questions: [createPracticeWordsQuestion(selected)]
-      };
-    }
-
-    if (mode === "speak") {
-      const speakPool = all.filter((item) =>
-        normalizeExerciseType(item?.exerciseType) === "pronunciation" &&
-        countWords(resolveAnswer(item)) <= 6
-      );
-      const selected = shuffle(speakPool.length ? speakPool : all, randomFn).slice(0, count);
-      return {
-        recommendedLevel: selfRatedLevel,
-        difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
-        questions: selected.map((item) => createPracticeSpeakQuestion(item))
-      };
-    }
-
-    if (mode === "listen") {
-      const listenPool = all.filter((item) => countWords(resolveAnswer(item)) <= 10);
-      const selected = shuffle(listenPool.length ? listenPool : all, randomFn).slice(0, count);
-      return {
-        recommendedLevel: selfRatedLevel,
-        difficultyMultiplier: LEVEL_XP_MULTIPLIER[selfRatedLevel] || 1,
-        questions: selected.map((item) => createPracticeListenQuestion(item, all, randomFn, language))
-      };
-    }
-
-    const englishRoleplayAnswerByPrompt = new Map(
-      getCategoryItems("english", category)
-        .filter((item) => normalizeExerciseType(item?.exerciseType) === "roleplay")
-        .map((item) => [String(item.prompt || ""), resolveAnswer(item)])
-    );
-
-    const baselineLevel = recommendedLevelFromMastery(mastery);
-    let adaptiveRank = levelRank(baselineLevel);
-
-    if (Number.isFinite(recentAccuracy)) {
-      if (recentAccuracy >= 0.92) adaptiveRank += 1;
-      if (recentAccuracy <= 0.45) adaptiveRank -= 1;
-    }
-
-    const selfRatedRank = levelRank(selfRatedLevel);
-    if (selfRatedRank >= 0) {
-      adaptiveRank = Math.max(adaptiveRank, selfRatedRank - 1);
-    }
-
-    const recommendedRank = exactLevelRank >= 0
-      ? exactLevelRank
-      : maxLevelRank < 0
-      ? clampLevelRank(adaptiveRank)
-      : Math.min(clampLevelRank(adaptiveRank), maxLevelRank);
-    const recommendedLevel = LEVEL_ORDER[recommendedRank];
-    const minRank = Math.max(0, recommendedRank - 1);
-    const maxRank = Math.min(recommendedRank + 1, LEVEL_ORDER.length - 1);
-    const candidatePool = all.filter((item) => {
-      const itemRank = levelRank(resolveDifficulty(item));
-      return itemRank >= minRank && itemRank <= maxRank;
-    });
-    const sourcePool = candidatePool.length >= count ? candidatePool : all;
-    const dueSet = new Set(dueItemIds);
-    const weakSet = new Set(weakItemIds);
-    const notDueSet = new Set(notDueItemIds);
-    const targetCount = Math.min(count, sourcePool.length);
-    const dueTarget = Math.max(0, Math.min(targetCount, Math.round(targetCount * 0.6)));
-    const weakTarget = Math.max(0, Math.min(targetCount - dueTarget, Math.round(targetCount * 0.25)));
-
-    const dueItems = shuffle(sourcePool.filter((item) => dueSet.has(item.id)), randomFn).slice(0, dueTarget);
-    const selectedIds = new Set(dueItems.map((item) => item.id));
-    const weakItems = shuffle(
-      sourcePool.filter((item) => weakSet.has(item.id) && !selectedIds.has(item.id) && !notDueSet.has(item.id))
-      , randomFn).slice(0, weakTarget);
-    weakItems.forEach((item) => selectedIds.add(item.id));
-
-    const remaining = sourcePool.filter((item) => !selectedIds.has(item.id) && !notDueSet.has(item.id));
-    const levelSmoothed = selectByLevelWindow(remaining, recommendedRank, Math.max(0, targetCount - dueItems.length - weakItems.length), randomFn);
-    let selected = [...dueItems, ...weakItems, ...levelSmoothed].slice(0, targetCount);
-    if (skill && selected.length < targetCount) {
-      // A skill has only a handful of items, and once it's known none of them are due, so
-      // practicing it tops up with the items that aren't due yet.
-      const picked = new Set(selected.map((item) => item.id));
-      const rest = shuffle(sourcePool.filter((item) => !picked.has(item.id)), randomFn);
-      selected = [...selected, ...rest].slice(0, targetCount);
-    }
-    if (dailyMode) {
-      // The confidence and stretch picks honor the exclusions too.
-      const curationPool = sourcePool.filter((item) => !notDueSet.has(item.id));
-      selected = applyDailyCuration(selected, curationPool, recommendedRank, randomFn).slice(0, targetCount);
-    }
-    const plannedTypes = restrictTypes(buildQuestionTypePlan(selected), questionTypes);
-    // A skill has only a handful of items, too few to draw distractors and noise words from,
-    // so a session kept to one skill or level takes them from its whole unit. Distractors
-    // still prefer items near the question's level. A unit also has only a word or two per
-    // level, so a word asked as multiple choice takes its distractors from the words of the
-    // whole course rather than stand alone among sentences.
-    const withinCap = (item) => maxLevelRank < 0 || levelRank(resolveDifficulty(item)) <= maxLevelRank;
-    const unitPool = skill || exactLevelRank >= 0
-      ? filterItemsForMode(sourceItems, mode).filter(withinCap)
-      : sourcePool;
-    const unitIds = new Set(unitPool.map((item) => item.id));
-    const courseWords = getAllItems(language)
-      .filter((item) =>
-        !unitIds.has(item.id) && withinCap(item) && countWords(firstAlternative(resolveAnswer(item))) <= 3
-      )
-      .map((item) => ({ ...item, [COURSE_WORD]: true }));
-    const optionPool = [...unitPool, ...courseWords];
-    const questions = selected.map((item, idx) => {
-      const reversed = randomFn() < 0.35 && isEligibleForReversal(item, plannedTypes[idx], language);
-      return createQuestion(item, optionPool, plannedTypes[idx], category, language, englishRoleplayAnswerByPrompt, randomFn, reversed);
-    });
-
-    return {
-      recommendedLevel,
-      difficultyMultiplier: LEVEL_XP_MULTIPLIER[recommendedLevel],
-      questions
+    const request: SessionRequest = {
+      language, category, mastery, count, recentAccuracy, selfRatedLevel, dueItemIds, weakItemIds,
+      notDueItemIds, focusItemIds, extraPoolItems, mode, dailyMode, maxLevel, exactLevel, skill,
+      questionTypes, randomFn, sourceItems, all, maxLevelRank, exactLevelRank
     };
+    const generateForMode = mode ? MODE_GENERATORS.get(mode) : undefined;
+    return generateForMode ? generateForMode(request) : generateLesson(request, getCategoryItems, getAllItems);
   };
 }
 
