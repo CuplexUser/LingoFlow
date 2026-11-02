@@ -452,6 +452,119 @@ test("a session can keep to some exercise types and to one skill", () => {
   assert.deepEqual(known.questions.map((q: any) => q.id).sort(), ["es-sk-bu", "es-sk-fl", "es-sk-pr"]);
 });
 
+test("a session without dictation leaves out dictation items that only say to listen", () => {
+  const items = [
+    ...SPANISH_FOOD_POOL,
+    { id: "es-di-bare", level: "a2", difficulty: "a2", prompt: "Listen and build the sentence you hear.", correctAnswer: "Antes de responder, necesito pensar.", exerciseType: "dictation_sentence" },
+    { id: "es-di-say", level: "a2", difficulty: "a2", prompt: "Say: I cook rice.", correctAnswer: "Cocino arroz.", exerciseType: "dictation_sentence" },
+    { id: "es-di-tr", level: "a2", difficulty: "a2", prompt: "Listen and build. Translation: We drink tea.", correctAnswer: "Bebemos té.", exerciseType: "dictation_sentence" }
+  ];
+  const selectors = createCourseSelectors({ spanish: { food_cooking: items } });
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  const generate = (questionTypes: string[]) => generateSession({
+    language: "spanish",
+    category: "food_cooking",
+    count: 20,
+    selfRatedLevel: "a2",
+    questionTypes,
+    random: () => 0.5
+  }).questions;
+
+  const exam = generate(["mc_sentence", "build_sentence"]);
+  const examIds = exam.map((q: any) => q.id);
+  assert.ok(!examIds.includes("es-di-bare"), "a bare listening item cannot be multiple choice");
+  assert.ok(!examIds.includes("es-di-tr"), "a listening prompt cannot be multiple choice");
+  // An item with an English prompt still makes sense as multiple choice.
+  assert.ok(examIds.includes("es-di-say"));
+  assert.ok(exam.every((q: any) => !/^listen/i.test(q.prompt)));
+
+  const withDictation = generate(["mc_sentence", "dictation_sentence"]);
+  assert.equal(withDictation.find((q: any) => q.id === "es-di-bare")?.type, "dictation_sentence");
+});
+
+test("a flashcard asked as multiple choice offers one answer, short distractors and no hint naming it", () => {
+  const card = {
+    id: "ru-card",
+    level: "b1",
+    difficulty: "b1",
+    prompt: "Vocabulary: to get to the point",
+    correctAnswer: "перейти к делу / говорить по существу",
+    hints: ["Both are common; 'перейти к делу' is idiomatic in business contexts."],
+    exerciseType: "flashcard"
+  };
+  const sentences = [
+    "Вы когда-нибудь жили за границей?",
+    "Мне трудно даются светские беседы, но они необходимы.",
+    "Прежде чем ответить, мне нужно немного подумать.",
+    "Я не уверен, что ясно выразил свою мысль."
+  ].map((correctAnswer, index) => ({ id: `ru-s${index}`, level: "b1", difficulty: "b1", prompt: `Say: sentence ${index}`, correctAnswer }));
+  const phrases = ["болтать / поболтать", "сменить тему", "по правде говоря", "к слову"]
+    .map((correctAnswer, index) => ({ id: `ru-p${index}`, level: "b1", difficulty: "b1", prompt: `Vocabulary: phrase ${index}`, correctAnswer, exerciseType: "flashcard" }));
+  const selectors = createCourseSelectors({ russian: { conversation: [card, ...sentences, ...phrases] } });
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  const question = generateSession({
+    language: "russian",
+    category: "conversation",
+    count: 9,
+    selfRatedLevel: "b1",
+    questionTypes: ["mc_sentence"],
+    random: () => 0.5
+  }).questions.find((q: any) => q.id === "ru-card");
+
+  assert.equal(question.type, "mc_sentence");
+  assert.equal(question.answer, "перейти к делу");
+  assert.ok(question.options.includes("перейти к делу"));
+  assert.ok(question.options.every((option: string) => !option.includes(" / ")), "no option lists alternatives");
+  assert.ok(question.options.every((option: string) => option.split(/\s+/).length <= 4), "distractors are short phrases");
+  assert.ok(question.hints.every((hint: string) => !hint.includes("перейти к делу")), "no hint names the answer");
+});
+
+function examQuestion(language: string, items: any[], id: string) {
+  const selectors = createCourseSelectors({ [language]: { conversation: items } });
+  const generateSession = createSessionGenerator(selectors.getCategoryItems, selectors.getAllItems);
+  return generateSession({
+    language,
+    category: "conversation",
+    count: items.length,
+    selfRatedLevel: "a1",
+    questionTypes: ["mc_sentence", "cloze_sentence", "dialogue_turn", "build_sentence"],
+    random: () => 0.5
+  }).questions.find((q: any) => q.id === id);
+}
+
+const RUSSIAN_SENTENCES = [
+  "Вы когда-нибудь жили за границей?",
+  "Мне трудно даются светские беседы.",
+  "Прежде чем ответить, мне нужно подумать.",
+  "Я не уверен, что ясно выразил мысль."
+].map((correctAnswer, index) => ({ id: `ru-s${index}`, level: "a1", difficulty: "a1", prompt: `Say: sentence ${index}`, correctAnswer, exerciseType: "mc_sentence" }));
+
+test("a flashcard listing paired words is asked as one pair", () => {
+  const card = { id: "ru-list", level: "a1", difficulty: "a1", prompt: "Vocabulary: meat / fish / vegetables", correctAnswer: "мясо / рыба / овощи", hints: ["Three core food categories."], exerciseType: "flashcard" };
+  const question = examQuestion("russian", [card, ...RUSSIAN_SENTENCES], "ru-list");
+  assert.equal(question.prompt, "Vocabulary: meat");
+  assert.equal(question.answer, "мясо");
+});
+
+test("a word-choice item offers its own choices and asks the question from its hint", () => {
+  const item = { id: "fr-choice", level: "a1", difficulty: "a1", prompt: "désolé / content / affamé / fatigué", correctAnswer: "désolé", hints: ["Which word do you use to apologize?"], exerciseType: "mc_sentence" };
+  const question = examQuestion("french", [item], "fr-choice");
+  assert.equal(question.prompt, "Which word do you use to apologize?");
+  assert.deepEqual([...question.options].sort(), ["affamé", "content", "désolé", "fatigué"]);
+});
+
+test("a pronunciation item that shows its sentence stays out of an exam", () => {
+  const item = { id: "ru-aloud", level: "a1", difficulty: "a1", prompt: "Say aloud: У меня болит голова.", correctAnswer: "У меня болит голова.", exerciseType: "pronunciation" };
+  assert.equal(examQuestion("russian", [item, ...RUSSIAN_SENTENCES], "ru-aloud"), undefined);
+});
+
+test("a fill-in-the-blank hint that names the missing word is left out", () => {
+  const item = { id: "sv-cloze", level: "a1", difficulty: "a1", prompt: "Jag har ___ paraply.", correctAnswer: "ett", hints: ["'Paraply' is an ett-word (neuter)."], exerciseType: "cloze_sentence", clozeOptions: ["ett", "en", "det", "den"] };
+  const question = examQuestion("swedish", [item], "sv-cloze");
+  assert.equal(question.type, "cloze_sentence");
+  assert.ok(question.hints.every((hint: string) => !/\bett\b/i.test(hint)));
+});
+
 test("options take the answer's opening and closing marks, so a question stays well formed", () => {
   const statement = { id: "es-pu-1", level: "a1", difficulty: "a1", prompt: "Say: I do not eat meat.", correctAnswer: "No como carne.", exerciseType: "mc_sentence", options: ["No como carne.", "¿Es vegetariano?", "¡Qué rico!"] };
   const question = { id: "es-pu-2", level: "a1", difficulty: "a1", prompt: "Ask: Is this vegetarian?", correctAnswer: "¿Es vegetariano?", exerciseType: "mc_sentence", options: ["¿Es vegetariano?", "No como carne.", "¡Qué rico!"] };
