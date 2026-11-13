@@ -3517,6 +3517,25 @@ async function listUsersForAdmin({
     LIMIT ? OFFSET ?
   `).all(activeSince, nowIso, entitlement, nowIso, ...whereParams, safeLimit, safeOffset);
 
+  // The courses each user on this page has done lessons in, most recent first.
+  const languagesByUser = new Map<number, Array<{ language: string; sessions: number; lastAt: string | null }>>();
+  if (rows.length) {
+    const ids = rows.map((row: any) => Number(row.id));
+    const languageRows = await db.prepare(`
+      SELECT user_id, language, COUNT(*) AS sessions, MAX(completed_at) AS last_at
+      FROM session_history
+      WHERE user_id IN (${ids.map(() => "?").join(", ")})
+      GROUP BY user_id, language
+      ORDER BY MAX(completed_at) DESC
+    `).all(...ids);
+    for (const row of languageRows) {
+      const userId = Number(row.user_id);
+      const list = languagesByUser.get(userId) || [];
+      list.push({ language: row.language, sessions: Number(row.sessions) || 0, lastAt: toUtcIso(row.last_at) });
+      languagesByUser.set(userId, list);
+    }
+  }
+
   return {
     total: Number(totalRow?.total) || 0,
     users: rows.map((row: any) => ({
@@ -3531,6 +3550,7 @@ async function listUsersForAdmin({
       lastActiveDay: row.last_active_day || null,
       activeDays30: Number(row.active_days) || 0,
       totalXp: Number(row.total_xp) || 0,
+      languages: languagesByUser.get(Number(row.id)) || [],
       subscription: Number(row.has_subscription)
         ? {
           expiresAt: row.subscription_expires_at || null,
@@ -3613,6 +3633,20 @@ async function getUserGrowthStats({
 
   const trackingRow = await db.prepare("SELECT MIN(day) AS first_day FROM user_activity").get();
 
+  // Lessons per course, all time and in the last 30 days, busiest course first.
+  const languageRows = await db.prepare(`
+    SELECT h.language,
+      COUNT(DISTINCT h.user_id) AS users,
+      COUNT(*) AS sessions,
+      COUNT(DISTINCT CASE WHEN h.completed_at >= ? THEN h.user_id END) AS users_month,
+      SUM(CASE WHEN h.completed_at >= ? THEN 1 ELSE 0 END) AS sessions_month
+    FROM session_history h
+    JOIN users u ON u.id = h.user_id
+    WHERE u.email <> ?
+    GROUP BY h.language
+    ORDER BY COUNT(DISTINCT CASE WHEN h.completed_at >= ? THEN h.user_id END) DESC, COUNT(*) DESC
+  `).all(monthStart, monthStart, SEED_USER_EMAIL, monthStart);
+
   const signupRows = await db.prepare(`
     SELECT substr(created_at, 1, 10) AS day, COUNT(*) AS n
     FROM users
@@ -3682,6 +3716,13 @@ async function getUserGrowthStats({
       last30Days: Number(logins?.month) || 0,
       usersLast30Days: Number(logins?.month_users) || 0
     },
+    languages: languageRows.map((row: any) => ({
+      language: row.language,
+      users: Number(row.users) || 0,
+      sessions: Number(row.sessions) || 0,
+      usersLast30Days: Number(row.users_month) || 0,
+      sessionsLast30Days: Number(row.sessions_month) || 0
+    })),
     daily
   };
 }

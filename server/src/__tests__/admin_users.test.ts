@@ -174,6 +174,44 @@ test("admins can list users with sign-in and activity details", async (t) => {
   assert.ok(all.body.users.every((entry: any) => entry.email !== "local@lingoflow.dev"));
 });
 
+test("the admin list and stats show which courses users take lessons in", async (t) => {
+  const { srv, adminHeaders } = await startWithAdmin(t);
+  const before = (await request(srv.base, "GET", "/api/admin/user-stats?days=7", adminHeaders)).body.languages;
+  const learner = await signUp(srv.base, "polyglot");
+  const { db } = require("../db/driver.ts");
+  const addLesson = (language: string, completedAt: string) => db.prepare(`
+    INSERT INTO session_history
+      (user_id, language, category, score, max_score, accuracy, xp_gained, difficulty_level, completed_at)
+    VALUES (?, ?, 'basics', 8, 10, 0.8, 20, 'a1', ?)
+  `).run(learner.userId, language, completedAt);
+  await addLesson("spanish", "2020-01-01 10:00:00");
+  await addLesson("russian", "2020-01-02 10:00:00");
+  await addLesson("russian", new Date().toISOString().replace("T", " ").slice(0, 19));
+
+  const list = await request(
+    srv.base,
+    "GET",
+    `/api/admin/users?search=${encodeURIComponent(learner.email)}`,
+    adminHeaders
+  );
+  const languages = list.body.users[0].languages;
+  assert.deepEqual(languages.map((entry: any) => [entry.language, entry.sessions]), [
+    ["russian", 2],
+    ["spanish", 1]
+  ]);
+  assert.match(languages[1].lastAt, /^2020-01-01T10:00:00/);
+
+  const after = (await request(srv.base, "GET", "/api/admin/user-stats?days=7", adminHeaders)).body.languages;
+  const count = (rows: any[], language: string) =>
+    rows.find((row) => row.language === language) || { users: 0, sessions: 0, usersLast30Days: 0, sessionsLast30Days: 0 };
+  assert.equal(count(after, "russian").users, count(before, "russian").users + 1);
+  assert.equal(count(after, "russian").sessions, count(before, "russian").sessions + 2);
+  assert.equal(count(after, "russian").usersLast30Days, count(before, "russian").usersLast30Days + 1);
+  assert.equal(count(after, "russian").sessionsLast30Days, count(before, "russian").sessionsLast30Days + 1);
+  assert.equal(count(after, "spanish").users, count(before, "spanish").users + 1);
+  assert.equal(count(after, "spanish").usersLast30Days, count(before, "spanish").usersLast30Days);
+});
+
 test("the admin list and stats tell lifetime purchases from subscriptions", async (t) => {
   const { srv, adminHeaders } = await startWithAdmin(t);
   const before = (await request(srv.base, "GET", "/api/admin/user-stats?days=7", adminHeaders)).body.totals;

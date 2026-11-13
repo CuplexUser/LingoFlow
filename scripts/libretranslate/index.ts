@@ -480,7 +480,8 @@ async function main(): Promise<void> {
     const apiKey = String(env.LIBRETRANSLATE_API_KEY || "").trim();
 
     if (!libreUrl) throw new Error("LIBRETRANSLATE_URL is missing in server/.env");
-    if (!apiKey) throw new Error("LIBRETRANSLATE_API_KEY is missing in server/.env");
+    // The key is optional: the Cloud Run service is private behind IAM instead, and is
+    // reached through `gcloud run services proxy` (see the README).
 
     const configBase: LibreTranslateConfig = { url: libreUrl, apiKey, target: "" };
 

@@ -109,6 +109,8 @@ export type AdminUser = {
   lastActiveDay: string | null;
   activeDays30: number;
   totalXp: number;
+  // Courses the user has done lessons in, most recent first.
+  languages: Array<{ language: string; sessions: number; lastAt: string | null }>;
   // An active store subscription, an active admin grant, and/or PREMIUM_ACCOUNT_EMAILS.
   // lifetime: a one-time Premium Lifetime purchase, which has no expiresAt.
   subscription: { expiresAt: string | null; store: string; productId: string; lifetime: boolean } | null;
@@ -156,7 +158,17 @@ export type AdminUserStats = {
     last30Days: number;
     usersLast30Days: number;
   };
+  // Lessons per course, busiest first.
+  languages: AdminCourseLanguage[];
   daily: AdminUserStatsDay[];
+};
+
+export type AdminCourseLanguage = {
+  language: string;
+  users: number;
+  sessions: number;
+  usersLast30Days: number;
+  sessionsLast30Days: number;
 };
 
 export type DeleteAccountPayload = {

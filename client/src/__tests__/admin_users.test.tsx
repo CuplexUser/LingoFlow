@@ -71,6 +71,10 @@ const STATS = {
   },
   active: { today: 3, last7Days: 6, last30Days: 8, last30DaysWeb: 5, last30DaysAndroid: 4 },
   logins: { last7Days: 7, last30Days: 19, usersLast30Days: 9 },
+  languages: [
+    { language: "spanish", users: 11, sessions: 140, usersLast30Days: 5, sessionsLast30Days: 42 },
+    { language: "russian", users: 4, sessions: 31, usersLast30Days: 2, sessionsLast30Days: 17 }
+  ],
   daily: Array.from({ length: 30 }, (_, index) => ({
     date: day(index),
     signups: index % 6 === 0 ? 1 : 0,
@@ -94,6 +98,10 @@ const FREE_USER = {
   lastActiveDay: "2026-10-27",
   activeDays30: 4,
   totalXp: 1200,
+  languages: [
+    { language: "russian", sessions: 14, lastAt: "2026-10-27T10:00:00.000Z" },
+    { language: "spanish", sessions: 1, lastAt: "2026-10-03T10:00:00.000Z" }
+  ],
   subscription: null,
   grant: null,
   onPremiumAccountList: false
@@ -180,6 +188,20 @@ describe("AdminUsersPanel", () => {
     expect(screen.getByText(/Granted · no end date/)).toBeInTheDocument();
     expect(screen.getByText("Lifetime · Google Play")).toBeInTheDocument();
     expect(getAdminUserStats).toHaveBeenCalledWith(90);
+  });
+
+  it("shows which courses are used, overall and per user", async () => {
+    getAdminUsers.mockResolvedValue({ total: 1, users: [FREE_USER] });
+    render(<AdminUsersPanel />);
+    const card = (await screen.findByRole("heading", { name: "Course languages" })).closest("article") as HTMLElement;
+    const spanish = within(card).getByText("Spanish").closest("tr") as HTMLElement;
+    expect(within(spanish).getByText("42")).toBeInTheDocument();
+    expect(within(spanish).getByText("140")).toBeInTheDocument();
+    expect(within(card).getByText("2 in use")).toBeInTheDocument();
+
+    const row = (await screen.findByText("free@example.com")).closest("tr") as HTMLElement;
+    const courses = within(row).getAllByRole("listitem").map((item) => item.textContent);
+    expect(courses).toEqual(["Russian 14 lessons", "Spanish 1 lesson"]);
   });
 
   it("reloads stats for another range", async () => {

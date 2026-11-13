@@ -168,7 +168,9 @@ MVP shipped (tap-to-translate reading mode feeding the SRS). Remaining work:
   management view (reuse the Bookmarks page pattern).
 - [ ] **Generate es/it/sv/fr/de stories** from the English source. Run
   `node --experimental-strip-types scripts/libretranslate/index.ts` → *Stories*, after deleting each
-  language's existing short-seed `server/content/stories/<lang>.json`. Requires `LIBRETRANSLATE_URL` /
-  `LIBRETRANSLATE_API_KEY` in `server/.env`. Spot-check and hand-fix any unresolved glosses.
+  language's existing short-seed `server/content/stories/<lang>.json`. Requires `LIBRETRANSLATE_URL`
+  in `server/.env` (see the README). The Cloud Run service has only the en/es/ru models, so add
+  it/sv/fr/de to `deploy/libretranslate/Dockerfile` first. Spot-check and hand-fix any
+  unresolved glosses.
 - [ ] Optional: vocab-mastery–gated story ordering (the `story_completions` schema is compatible with
   layering this on later).

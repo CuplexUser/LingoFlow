@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent, type ReactNode } from "react";
 import {
   api,
+  type AdminCourseLanguage,
   type AdminUser,
   type AdminUserSort,
   type AdminUserStats,
@@ -35,6 +36,11 @@ function formatDay(day: string | null, withYear = true): string {
 function localIsoDate(date: Date): string {
   const pad = (value: number) => String(value).padStart(2, "0");
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+// Course ids are lowercase language names ("spanish").
+function languageName(id: string): string {
+  return id.charAt(0).toUpperCase() + id.slice(1);
 }
 
 function formatTimestamp(value: string | null): string {
@@ -246,6 +252,8 @@ function UserStatsView({ stats }: { stats: AdminUserStats }) {
         </ChartCard>
       </section>
 
+      <CourseLanguages languages={stats.languages ?? []} />
+
       <details className="admin-daily-table">
         <summary>Daily numbers</summary>
         <div className="coverage-grid-wrap">
@@ -278,6 +286,55 @@ function UserStatsView({ stats }: { stats: AdminUserStats }) {
         </div>
       </details>
     </>
+  );
+}
+
+function CourseLanguages({ languages }: { languages: AdminCourseLanguage[] }) {
+  const max = Math.max(...languages.map((entry) => entry.usersLast30Days), 1);
+  return (
+    <ChartCard
+      title="Course languages"
+      sub="Learners with at least one lesson in each course"
+      right={<span className="chart-card-meta">{formatNumber(languages.length)} in use</span>}
+    >
+      {languages.length ? (
+        <div className="coverage-grid-wrap">
+          <table className="coverage-table admin-language-table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Learners, 30 days</th>
+                <th>Lessons, 30 days</th>
+                <th>Learners, all time</th>
+                <th>Lessons, all time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {languages.map((entry) => (
+                <tr key={entry.language}>
+                  <td>{languageName(entry.language)}</td>
+                  <td>
+                    <div className="admin-language-share">
+                      <span>{formatNumber(entry.usersLast30Days)}</span>
+                      <i
+                        className="admin-language-bar"
+                        style={{ width: `${(entry.usersLast30Days / max) * 100}%` }}
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </td>
+                  <td>{formatNumber(entry.sessionsLast30Days)}</td>
+                  <td>{formatNumber(entry.users)}</td>
+                  <td>{formatNumber(entry.sessions)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="stats-subtitle">No lessons completed yet.</p>
+      )}
+    </ChartCard>
   );
 }
 
@@ -471,6 +528,7 @@ function UserTable({ users, onPremiumChanged }: { users: AdminUser[]; onPremiumC
             <th title="Days with activity in the last 30 days">Active days</th>
             <th>Sign-ins</th>
             <th>XP</th>
+            <th title="Lessons completed per course">Courses</th>
             <th>Premium</th>
           </tr>
         </thead>
@@ -493,12 +551,29 @@ function UserTable({ users, onPremiumChanged }: { users: AdminUser[]; onPremiumC
                 {user.lastLoginAt ? <div className="admin-user-meta">last {formatTimestamp(user.lastLoginAt)}</div> : null}
               </td>
               <td>{formatNumber(user.totalXp)}</td>
+              <td><UserLanguages languages={user.languages ?? []} /></td>
               <td><PremiumCell user={user} onChanged={onPremiumChanged} /></td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+  );
+}
+
+function UserLanguages({ languages }: { languages: AdminUser["languages"] }) {
+  if (!languages.length) return <span className="admin-user-meta">None yet</span>;
+  return (
+    <ul className="admin-user-languages">
+      {languages.map((entry) => (
+        <li key={entry.language} title={`Last lesson ${formatTimestamp(entry.lastAt)}`}>
+          {languageName(entry.language)}{" "}
+          <span className="admin-user-meta">
+            {formatNumber(entry.sessions)} {entry.sessions === 1 ? "lesson" : "lessons"}
+          </span>
+        </li>
+      ))}
+    </ul>
   );
 }
 

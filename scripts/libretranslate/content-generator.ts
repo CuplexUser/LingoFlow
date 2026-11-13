@@ -440,7 +440,7 @@ async function translateBatch(
       source,
       target,
       format: "text",
-      api_key: config.apiKey
+      ...(config.apiKey ? { api_key: config.apiKey } : {})
     })
   });
   const elapsed = Date.now() - start;

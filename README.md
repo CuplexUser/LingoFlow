@@ -292,6 +292,24 @@ binding isn't built.
 
    A sentence is generated the first time someone plays it (a few seconds), then served
    from the bucket. Clients use their own speech whenever the endpoint fails or is slow.
+8. **LibreTranslate** (word lookups): run the **Deploy LibreTranslate to Cloud Run**
+   workflow (`.github/workflows/deploy-libretranslate.yml`). It builds
+   `deploy/libretranslate/Dockerfile` with the en, es and ru models included, as a private
+   service named `libretranslate` that scales to zero and is capped at one instance. Then
+   let the API call it and point the API at it:
+
+   ```sh
+   # The API's runtime service account; empty means <project-number>-compute@developer.gserviceaccount.com
+   gcloud run services describe lingoflow-api --region europe-west3 --format 'value(spec.template.spec.serviceAccountName)'
+   gcloud run services add-iam-policy-binding libretranslate --region europe-west3 --member serviceAccount:<runtime-service-account> --role roles/run.invoker
+   gcloud run services describe libretranslate --region europe-west3 --format 'value(status.url)'
+   ```
+
+   Set that URL as the `LIBRETRANSLATE_URL` repository variable and redeploy the API. The
+   API signs each request with an ID token, so no LibreTranslate API key is needed. The
+   first lookup after the service has been idle waits for it to start (up to a minute
+   while the models load); words that miss it are looked up the next time someone sees
+   them. To add a course, add its code to `LANGUAGES` in the Dockerfile and redeploy.
 
 </details>
 
@@ -364,12 +382,22 @@ A glossary on an exercise looks like this:
 Keys are the lowercased words as they appear in `correctAnswer`; values are short English
 glosses. The server checks the field at startup.
 
-To run LibreTranslate yourself with Docker:
+Locally, either reach the Cloud Run service through an authenticated proxy (you need
+`roles/run.invoker` on it, which project owners have) and set
+`LIBRETRANSLATE_URL=http://localhost:5000` in `server/.env`:
 
 ```bash
-docker run -it -p 5000:5000 libretranslate/libretranslate --api-keys
-docker exec <container-id> ltmanage keys add   # in a second terminal
+gcloud run services proxy libretranslate --region europe-west3 --port 5000
 ```
+
+or run LibreTranslate with Docker and the same URL:
+
+```bash
+docker run -it -p 5000:5000 libretranslate/libretranslate --load-only en,es,ru
+```
+
+`LIBRETRANSLATE_API_KEY` is only needed for a LibreTranslate that requires keys, such as
+libretranslate.com.
 
 </details>
 

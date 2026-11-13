@@ -1,3 +1,6 @@
+const { LIBRE_LANG_CODES, createLibreTranslate } = require("../libreTranslate.ts");
+const logger = require("../logger.ts");
+
 function registerCourseRoutes(app: any, deps: any): void {
   const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap } = deps;
 
@@ -368,54 +371,11 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
   });
 
-  const LIBRE_LANG_CODES: Record<string, string> = {
-    russian: "ru",
-    spanish: "es",
-    swedish: "sv",
-    italian: "it",
-    french: "fr",
-    german: "de",
-    english: "en"
-  };
-
-  const LIBRE_TRANSLATE_URL = String(process.env.LIBRETRANSLATE_URL || "").replace(/\/$/, "");
-  const LIBRE_TRANSLATE_API_KEY = String(process.env.LIBRETRANSLATE_API_KEY || "").trim();
-
-  function normalizeTranslation(raw: string): string {
-    let t = raw.replace(/[.,…]+$/, "").trim();
-    if (t === t.toUpperCase() && t.length > 1) t = t.toLowerCase();
-    t = t.charAt(0).toLowerCase() + t.slice(1);
-    return t;
-  }
-
-  function isUsableTranslation(word: string, translation: string): boolean {
-    if (!/[a-zA-Z]/.test(translation)) return false;
-    if (translation.toLowerCase() === word.toLowerCase()) return false;
-    return true;
-  }
-
-  async function translateWithLibreTranslate(word: string, srcLang: string): Promise<string | null> {
-    if (!LIBRE_TRANSLATE_URL) return null;
-    const libreCode = LIBRE_LANG_CODES[srcLang];
-    if (!libreCode) return null;
-    try {
-      const response = await fetch(`${LIBRE_TRANSLATE_URL}/translate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          q: word, source: libreCode, target: "en", format: "text",
-          ...(LIBRE_TRANSLATE_API_KEY ? { api_key: LIBRE_TRANSLATE_API_KEY } : {})
-        }),
-        signal: AbortSignal.timeout(6000)
-      });
-      if (!response.ok) return null;
-      const data = await response.json() as { translatedText?: string };
-      const translation = normalizeTranslation(String(data.translatedText || ""));
-      return isUsableTranslation(word, translation) ? translation : null;
-    } catch {
-      return null;
-    }
-  }
+  const libreTranslate = createLibreTranslate({
+    url: process.env.LIBRETRANSLATE_URL,
+    apiKey: process.env.LIBRETRANSLATE_API_KEY,
+    logger
+  });
 
   app.get("/api/dictionary/batch", requireAuth, async (req: any, res: any) => {
     const lang = String(req.query.lang || "").trim().toLowerCase();
@@ -443,12 +403,10 @@ function registerCourseRoutes(app: any, deps: any): void {
     const uncached = words.filter((w: string) => !(w in cached));
     const translations: Record<string, string> = { ...cached };
 
-    for (const word of uncached) {
-      const result = await translateWithLibreTranslate(word, lang);
-      if (result) {
-        await database.upsertWordTranslation(lang, word, result);
-        translations[word] = result;
-      }
+    const looked = await libreTranslate.translateWords(uncached, lang);
+    for (const [word, translation] of Object.entries(looked) as [string, string][]) {
+      await database.upsertWordTranslation(lang, word, translation);
+      translations[word] = translation;
     }
 
     return res.json({ translations });
