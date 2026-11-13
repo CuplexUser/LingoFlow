@@ -57,5 +57,11 @@
     "eslint-plugin-react": {
       "eslint": "$eslint"
     }
+  },
+  "allowScripts": {
+    "better-sqlite3": false,
+    "onnxruntime-node": false,
+    "protobufjs": false,
+    "esbuild": true
   }
 }
