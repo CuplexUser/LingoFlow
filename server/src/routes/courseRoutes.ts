@@ -2,7 +2,7 @@ const { LIBRE_LANG_CODES, createLibreTranslate } = require("../libreTranslate.ts
 const logger = require("../logger.ts");
 
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap } = deps;
+  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, collectCourseWords, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap } = deps;
 
   const PREMIUM_REQUIRED = {
     error: "This content requires LingoFlow Premium",
@@ -371,6 +371,11 @@ function registerCourseRoutes(app: any, deps: any): void {
     });
   });
 
+  // Pre-translation chunk size and wait. A chunk takes LibreTranslate a few seconds; the
+  // wait leaves room for a cold start inside Cloud Run's 60-second request limit.
+  const PREFETCH_CHUNK = 100;
+  const PREFETCH_TIMEOUT_MS = 45_000;
+
   const libreTranslate = createLibreTranslate({
     url: process.env.LIBRETRANSLATE_URL,
     apiKey: process.env.LIBRETRANSLATE_API_KEY,
@@ -423,8 +428,72 @@ function registerCourseRoutes(app: any, deps: any): void {
     if (!await canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Forbidden" });
     }
-    const count = rebuildAllWordTranslations(database);
+    const count = await rebuildAllWordTranslations(database);
     return res.json({ rebuilt: count });
+  });
+
+  // Pre-translates a course's words that aren't cached yet, one chunk per request, so
+  // learners don't wait for LibreTranslate. The admin page calls it repeatedly, passing
+  // back `cursor`, until `done`. The cursor walks the sorted word list rather than the
+  // missing words, so words LibreTranslate can't translate are tried once per run instead
+  // of forever. When the service fails (a cold start can outlast the timeout), it answers
+  // 503 and the cursor stays put, so the same chunk can be retried.
+  app.post("/api/admin/word-translations/prefetch", requireAuth, async (req: any, res: any) => {
+    if (!await canAccessAdminRoutes(req.authUserId)) {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+    const language = String(req.body?.language || "").trim().toLowerCase();
+    const cursor = Math.max(0, Number.parseInt(String(req.body?.cursor ?? 0), 10) || 0);
+    if (!LIBRE_LANG_CODES[language] || language === "english") {
+      return res.status(400).json({ error: "Unsupported language" });
+    }
+    if (!libreTranslate.configured) {
+      return res.status(503).json({ error: "LIBRETRANSLATE_URL is not set", code: "NOT_CONFIGURED" });
+    }
+
+    try {
+      if (!await libreTranslate.supports(language)) {
+        return res.status(400).json({
+          error: `LibreTranslate has no ${language} model`,
+          code: "NO_MODEL"
+        });
+      }
+      const words = collectCourseWords(language);
+      const cached = await database.listCachedWords(language);
+      const chunk: string[] = [];
+      let next = cursor;
+      while (next < words.length && chunk.length < PREFETCH_CHUNK) {
+        if (!cached.has(words[next])) chunk.push(words[next]);
+        next += 1;
+      }
+
+      const translations = await libreTranslate.translateBatch(chunk, language, {
+        timeoutMs: PREFETCH_TIMEOUT_MS
+      });
+      const translated = await database.upsertWordTranslations(
+        Object.entries(translations).map(([word, translation]) => ({
+          language,
+          word,
+          translation,
+          source: "libretranslate"
+        }))
+      );
+      const remaining = words.slice(next).filter((word) => !cached.has(word)).length;
+      return res.json({
+        total: words.length,
+        cursor: next,
+        done: next >= words.length,
+        checked: chunk.length,
+        translated,
+        remaining
+      });
+    } catch (error: any) {
+      logger.warn("word_prefetch_failed", { language, cursor, error: error?.message || String(error) });
+      return res.status(503).json({
+        error: "LibreTranslate didn't answer in time, try again",
+        code: "UNAVAILABLE"
+      });
+    }
   });
 }
 

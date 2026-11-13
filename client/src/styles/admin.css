@@ -160,6 +160,22 @@
   line-height: 1.8;
 }
 
+.word-prefetch {
+  margin: 20px 0 24px;
+}
+
+.word-prefetch-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.word-prefetch-progress {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
 .rebuild-confirm {
   border: 1px solid var(--border);
   border-radius: 8px;

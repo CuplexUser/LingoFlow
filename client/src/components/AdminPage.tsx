@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type {
   CommunityContributionListResponse,
-  CommunityContributionUpdatePayload
+  CommunityContributionUpdatePayload,
+  WordPrefetchResult
 } from "../api";
-import { api } from "../api";
-import type { CourseCategory } from "../types/course";
+import { api, ApiError } from "../api";
+import type { CourseCategory, LanguageOption } from "../types/course";
 import type { ContributionModerationStatus } from "../types/contribution";
 import { AdminUsersPanel } from "./AdminUsersPanel";
 import { ContentStatsPage } from "./ContentStatsPage";
@@ -143,6 +144,9 @@ function WordCachePanel() {
         {" · "}
         {counts ? counts.content.toLocaleString(navigator.language) : "—"} content
       </p>
+      <WordPrefetchSection onProgress={loadCounts} />
+
+      <h3>Rebuild</h3>
       <p>
         Rebuilding clears the entire table and re-seeds it from the current language files.
         Any LibreTranslate-fetched translations will be re-fetched on demand as exercises are played.
@@ -185,5 +189,116 @@ function WordCachePanel() {
         </button>
       )}
     </div>
+  );
+}
+
+// LibreTranslate may still be starting (it scales to zero), so a chunk that times out
+// is retried a few times before the run gives up.
+const PREFETCH_RETRIES = 3;
+const PREFETCH_RETRY_DELAY_MS = 3000;
+
+type PrefetchProgress = WordPrefetchResult & { translatedTotal: number; missingAtStart: number };
+
+function WordPrefetchSection({ onProgress }: { onProgress: () => Promise<void> }) {
+  const [languages, setLanguages] = useState<LanguageOption[]>([]);
+  const [language, setLanguage] = useState("russian");
+  const [running, setRunning] = useState(false);
+  const [progress, setProgress] = useState<PrefetchProgress | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const stopRef = useRef(false);
+
+  useEffect(() => {
+    api.getLanguages()
+      .then((list) => setLanguages(list.filter((option) => option.id !== "english")))
+      .catch(() => setLanguages([]));
+  }, []);
+
+  const format = (value: number) => value.toLocaleString(navigator.language);
+
+  async function run() {
+    stopRef.current = false;
+    setRunning(true);
+    setProgress(null);
+    setNotice(null);
+    setError(null);
+    let cursor = 0;
+    let translatedTotal = 0;
+    let missingAtStart: number | null = null;
+    let failures = 0;
+    try {
+      while (!stopRef.current) {
+        let result: WordPrefetchResult;
+        try {
+          result = await api.prefetchWordTranslations(language, cursor);
+        } catch (err: unknown) {
+          if (err instanceof ApiError && err.status === 503 && failures < PREFETCH_RETRIES) {
+            failures += 1;
+            setNotice("Waiting for LibreTranslate to start…");
+            await new Promise((resolve) => window.setTimeout(resolve, PREFETCH_RETRY_DELAY_MS));
+            continue;
+          }
+          throw err;
+        }
+        failures = 0;
+        setNotice(null);
+        missingAtStart ??= result.remaining + result.checked;
+        translatedTotal += result.translated;
+        cursor = result.cursor;
+        setProgress({ ...result, translatedTotal, missingAtStart });
+        if (result.done) break;
+      }
+      if (stopRef.current) setNotice("Stopped. Starting again picks up the words still missing.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Pre-translation failed.");
+    } finally {
+      setRunning(false);
+      await onProgress();
+    }
+  }
+
+  const languageLabel = languages.find((option) => option.id === language)?.label || language;
+
+  return (
+    <section className="word-prefetch">
+      <h3>Pre-translate missing words</h3>
+      <p>
+        Looks up every word in a course&apos;s exercises and stories that isn&apos;t cached yet, so
+        learners don&apos;t wait for LibreTranslate. Only courses with a model in the LibreTranslate
+        service can be used (see <code>deploy/libretranslate/Dockerfile</code>).
+      </p>
+      <div className="word-prefetch-controls">
+        <select
+          value={language}
+          onChange={(event) => setLanguage(event.target.value)}
+          disabled={running}
+          aria-label="Course to pre-translate"
+        >
+          {(languages.length ? languages : [{ id: "russian", label: "Russian" }]).map((option) => (
+            <option key={option.id} value={option.id}>{option.label}</option>
+          ))}
+        </select>
+        {running ? (
+          <button type="button" className="ghost-button" onClick={() => { stopRef.current = true; }}>
+            Stop
+          </button>
+        ) : (
+          <button type="button" className="primary-button" onClick={run}>
+            Pre-translate {languageLabel}
+          </button>
+        )}
+      </div>
+      {progress ? (
+        <p className="word-prefetch-progress" aria-live="polite">
+          {progress.done
+            ? `Done: ${format(progress.translatedTotal)} of ${format(progress.missingAtStart)} missing words translated. `
+              + "The rest came back unchanged or empty and were skipped."
+            : `${format(progress.translatedTotal)} translated · `
+              + `${format(progress.missingAtStart - progress.remaining)} of ${format(progress.missingAtStart)} missing words checked`}
+        </p>
+      ) : null}
+      {notice ? <p className="word-prefetch-progress">{notice}</p> : null}
+      {error ? <p className="rebuild-error">{error}</p> : null}
+    </section>
   );
 }

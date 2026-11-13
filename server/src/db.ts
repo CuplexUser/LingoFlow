@@ -3155,6 +3155,14 @@ async function getCachedWordTranslations(language: string, words: string[]): Pro
   return result;
 }
 
+// Every word cached for a course, from content or LibreTranslate.
+async function listCachedWords(language: string): Promise<Set<string>> {
+  const rows = await db
+    .prepare("SELECT word FROM word_translations WHERE language = ?")
+    .all(language) as { word: string }[];
+  return new Set(rows.map((row) => row.word));
+}
+
 async function upsertWordTranslation(language: string, word: string, translation: string, source = "libretranslate"): Promise<void> {
   await db.prepare(`
     INSERT INTO word_translations (language, word, translation, source)
@@ -4143,6 +4151,7 @@ module.exports = {
   resetCategoryProgress,
   createWordTranslationsTable,
   getCachedWordTranslations,
+  listCachedWords,
   upsertWordTranslation,
   upsertWordTranslations,
   clearContentWordTranslations,

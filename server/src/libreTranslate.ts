@@ -97,40 +97,58 @@ function createLibreTranslate(options: LibreTranslateOptions = {}) {
     return codes;
   }
 
-  // Translates words of a course language into English. Returns only usable
-  // translations; words it couldn't translate are simply missing from the result.
-  async function translateWords(words: string[], language: string): Promise<Record<string, string>> {
+  // Whether the service can translate this course into English. Throws when the service
+  // can't be reached.
+  async function supports(language: string): Promise<boolean> {
+    const source = LIBRE_LANG_CODES[language];
+    if (!url || !source) return false;
+    return (await supportedLanguages()).has(source);
+  }
+
+  // Translates words of a course language into English in one request. Returns only
+  // usable translations; throws when the service fails or doesn't answer in time.
+  async function translateBatch(
+    words: string[],
+    language: string,
+    { timeoutMs = TRANSLATE_TIMEOUT_MS }: { timeoutMs?: number } = {}
+  ): Promise<Record<string, string>> {
     const source = LIBRE_LANG_CODES[language];
     if (!url || !source || !words.length) return {};
 
+    const response = await fetchImpl(`${url}/translate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...(await authHeaders()) },
+      body: JSON.stringify({
+        q: words,
+        source,
+        target: "en",
+        format: "text",
+        ...(apiKey ? { api_key: apiKey } : {})
+      }),
+      signal: AbortSignal.timeout(timeoutMs)
+    });
+    if (!response.ok) throw new Error(`LibreTranslate /translate returned ${response.status}`);
+
+    const data = (await response.json()) as { translatedText?: string | string[] };
+    const translated = Array.isArray(data.translatedText)
+      ? data.translatedText
+      : [data.translatedText];
+
+    const result: Record<string, string> = {};
+    words.forEach((word, index) => {
+      const translation = normalizeTranslation(String(translated[index] || ""));
+      if (isUsableTranslation(word, translation)) result[word] = translation;
+    });
+    return result;
+  }
+
+  // The lookup the app uses: like translateBatch, but a failure (or a course without a
+  // model) just returns nothing, and the words are looked up the next time around.
+  async function translateWords(words: string[], language: string): Promise<Record<string, string>> {
+    if (!url || !LIBRE_LANG_CODES[language] || !words.length) return {};
     try {
-      if (!(await supportedLanguages()).has(source)) return {};
-
-      const response = await fetchImpl(`${url}/translate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...(await authHeaders()) },
-        body: JSON.stringify({
-          q: words,
-          source,
-          target: "en",
-          format: "text",
-          ...(apiKey ? { api_key: apiKey } : {})
-        }),
-        signal: AbortSignal.timeout(TRANSLATE_TIMEOUT_MS)
-      });
-      if (!response.ok) throw new Error(`LibreTranslate /translate returned ${response.status}`);
-
-      const data = (await response.json()) as { translatedText?: string | string[] };
-      const translated = Array.isArray(data.translatedText)
-        ? data.translatedText
-        : [data.translatedText];
-
-      const result: Record<string, string> = {};
-      words.forEach((word, index) => {
-        const translation = normalizeTranslation(String(translated[index] || ""));
-        if (isUsableTranslation(word, translation)) result[word] = translation;
-      });
-      return result;
+      if (!(await supports(language))) return {};
+      return await translateBatch(words, language);
     } catch (error) {
       logger?.warn("LibreTranslate lookup failed", {
         language,
@@ -141,7 +159,7 @@ function createLibreTranslate(options: LibreTranslateOptions = {}) {
     }
   }
 
-  return { translateWords };
+  return { configured: Boolean(url), supports, translateBatch, translateWords };
 }
 
 module.exports = { LIBRE_LANG_CODES, createLibreTranslate, normalizeTranslation, isUsableTranslation };

@@ -20,8 +20,11 @@ const DEFAULT_VOICE = "Kore";
 const MAX_TEXT_LENGTH = 500;
 const MEMORY_CACHE_BYTES = 16 * 1024 * 1024;
 // Free-tier quotas are small: a few generations at a time, and a pause after a 429.
+// Gemini usually says how long to wait; without that the pause is a minute, and a
+// stated wait is capped at an hour so a daily quota can't stop speech until restart.
 const MAX_CONCURRENT_GENERATIONS = 3;
 const RATE_LIMIT_COOLDOWN_MS = 60_000;
+const MAX_RATE_LIMIT_COOLDOWN_MS = 60 * 60_000;
 // Caps on new clips per UTC day (cached clips are unlimited), so the bill has a ceiling
 // even if someone scripts the endpoint. The course is ~300k characters in total, so
 // real learners rarely reach them. Per instance; Cloud Run runs at most 3.
@@ -111,7 +114,33 @@ function createLimiter(limit: number) {
   };
 }
 
-function createGeminiTts({ apiKey, model }: { apiKey: string; model: string }) {
+// What a Gemini 429 says: which quotas ran out and how long to wait. Google APIs return
+// a google.rpc.Status body with QuotaFailure and RetryInfo details.
+function parseRateLimit(body: string, retryAfterHeader: string | null) {
+  let quotas: string[] = [];
+  let retryMs: number | null = null;
+  let message: string;
+  try {
+    const error = JSON.parse(body)?.error || {};
+    message = String(error.message || "");
+    for (const detail of Array.isArray(error.details) ? error.details : []) {
+      for (const violation of Array.isArray(detail?.violations) ? detail.violations : []) {
+        if (violation?.quotaId) quotas.push(String(violation.quotaId));
+      }
+      const delay = /^(\d+(?:\.\d+)?)s$/.exec(String(detail?.retryDelay || ""));
+      if (delay) retryMs = Math.round(Number(delay[1]) * 1000);
+    }
+  } catch {
+    message = body;
+  }
+  if (retryMs === null && retryAfterHeader && /^\d+$/.test(retryAfterHeader.trim())) {
+    retryMs = Number(retryAfterHeader.trim()) * 1000;
+  }
+  quotas = [...new Set(quotas)];
+  return { quotas, retryMs, message: message.slice(0, 300) };
+}
+
+function createGeminiTts({ apiKey, model, logger }: { apiKey: string; model: string; logger?: any }) {
   const limit = createLimiter(MAX_CONCURRENT_GENERATIONS);
   let pausedUntil = 0;
 
@@ -130,7 +159,14 @@ function createGeminiTts({ apiKey, model }: { apiKey: string; model: string }) {
         })
       });
       if (response.status === 429) {
-        pausedUntil = Date.now() + RATE_LIMIT_COOLDOWN_MS;
+        const limit = parseRateLimit(await response.text(), response.headers.get("retry-after"));
+        const pauseMs = Math.min(limit.retryMs ?? RATE_LIMIT_COOLDOWN_MS, MAX_RATE_LIMIT_COOLDOWN_MS);
+        pausedUntil = Date.now() + pauseMs;
+        logger?.warn("tts_rate_limited", {
+          quotas: limit.quotas.join(", ") || "unknown",
+          pauseSeconds: Math.round(pauseMs / 1000),
+          message: limit.message
+        });
         throw new TtsBusyError("Gemini TTS is rate limited");
       }
       if (!response.ok) {
@@ -244,7 +280,7 @@ function registerTtsRoutes(app: any, deps: any): void {
   const disabled = ["1", "true"].includes(String(process.env.TTS_DISABLED || "").trim().toLowerCase());
   const model = String(process.env.TTS_MODEL || "").trim() || DEFAULT_MODEL;
   const voiceOverrides = parseVoiceOverrides(String(process.env.TTS_VOICES || ""));
-  const gemini = createGeminiTts({ apiKey: String(process.env.GEMINI_API_KEY || "").trim(), model });
+  const gemini = createGeminiTts({ apiKey: String(process.env.GEMINI_API_KEY || "").trim(), model, logger });
   const bucket = createBucketCache({ bucket: String(process.env.TTS_CACHE_BUCKET || "").trim(), logger });
   const memory = createMemoryCache(MEMORY_CACHE_BYTES);
   const inFlight = new Map<string, Promise<Buffer>>();
@@ -322,5 +358,6 @@ function registerTtsRoutes(app: any, deps: any): void {
 }
 
 module.exports = {
-  registerTtsRoutes
+  registerTtsRoutes,
+  parseRateLimit
 };

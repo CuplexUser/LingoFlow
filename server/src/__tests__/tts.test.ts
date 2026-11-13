@@ -181,6 +181,37 @@ test("answers 502 when generation fails and pauses after a rate limit", async (t
   assert.equal(google.synthesizeBodies.length, calls);
 });
 
+test("reads the exhausted quotas and the wait from a Gemini 429", () => {
+  const { parseRateLimit } = require("../routes/ttsRoutes.ts");
+  const body = JSON.stringify({
+    error: {
+      code: 429,
+      message: "You exceeded your current quota.",
+      status: "RESOURCE_EXHAUSTED",
+      details: [
+        {
+          "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+          violations: [
+            { quotaId: "GenerateRequestsPerDayPerProjectPerModel-FreeTier" },
+            { quotaId: "GenerateRequestsPerDayPerProjectPerModel-FreeTier" }
+          ]
+        },
+        { "@type": "type.googleapis.com/google.rpc.RetryInfo", retryDelay: "37.5s" }
+      ]
+    }
+  });
+  assert.deepEqual(parseRateLimit(body, null), {
+    quotas: ["GenerateRequestsPerDayPerProjectPerModel-FreeTier"],
+    retryMs: 37_500,
+    message: "You exceeded your current quota."
+  });
+  assert.deepEqual(parseRateLimit("Too many requests", "12"), {
+    quotas: [],
+    retryMs: 12_000,
+    message: "Too many requests"
+  });
+});
+
 test("stops generating new clips at the daily limit but still serves cached ones", async (t) => {
   const srv = await startServer();
   t.after(() => srv.close());

@@ -291,6 +291,49 @@ async function seedContentWordTranslations(database: any): Promise<number> {
   return count;
 }
 
+// Every distinct word a learner can hover in a course: the course-language sentences of
+// its exercises (answers, accepted answers and gapped cloze prompts) and its stories.
+// Words are normalized the way the client normalizes them before a lookup (outer
+// non-letters stripped, lowercased), so the cache keys match. Story glossary words are
+// left out, because the story reader never looks those up. Sorted, so a pre-translation
+// run can walk the list with a cursor.
+//
+// Some multiple-choice answers are English meanings. For a course in its own script those
+// words are dropped; in Latin-script courses a few slip through, and LibreTranslate
+// mostly returns them unchanged, which the cache rejects.
+const COURSE_SCRIPT: Record<string, RegExp> = { russian: /\p{Script=Cyrillic}/u };
+
+function collectCourseWords(language: string): string[] {
+  const script = COURSE_SCRIPT[language];
+  const texts: string[] = [];
+  const categories = (COURSE as Record<string, Record<string, any[]>>)[language] || {};
+  for (const items of Object.values(categories)) {
+    for (const item of items) {
+      if (item.correctAnswer) texts.push(String(item.correctAnswer));
+      if (Array.isArray(item.acceptedAnswers)) texts.push(...item.acceptedAnswers.map(String));
+      // Gapped prompts are written in the course language; other prompts are English.
+      if (/_{2,}/.test(String(item.prompt || ""))) texts.push(String(item.prompt));
+    }
+  }
+  const storyGlossary = new Set<string>();
+  for (const story of STORIES) {
+    if (story.language !== language) continue;
+    for (const sentence of story.sentences) texts.push(String(sentence.target || ""));
+    for (const word of Object.keys(story.glossary || {})) storyGlossary.add(word.toLowerCase());
+  }
+
+  const words = new Set<string>();
+  for (const text of texts) {
+    for (const token of text.split(/\s+/)) {
+      const word = token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, "").toLowerCase();
+      if (word.length < 2 || word.length > 60 || storyGlossary.has(word)) continue;
+      if (script && !script.test(word)) continue;
+      words.add(word);
+    }
+  }
+  return [...words].sort();
+}
+
 async function rebuildContentWordTranslations(database: any): Promise<number> {
   await database.clearContentWordTranslations();
   return seedContentWordTranslations(database);
@@ -325,5 +368,6 @@ module.exports = {
   recommendedLevelFromMastery,
   injectCommunityItem,
   rebuildContentWordTranslations,
-  rebuildAllWordTranslations
+  rebuildAllWordTranslations,
+  collectCourseWords
 };

@@ -362,6 +362,11 @@ Looked-up translations are cleaned before they're cached: answers that are only
 punctuation or the same as the word are dropped, trailing punctuation is removed, and
 the text is lowercased.
 
+To fill the cache ahead of time, use **Pre-translate** in the admin page's Word Cache tab.
+It collects every word in a course's exercises and stories, skips the ones already
+cached, and sends the rest to LibreTranslate 100 at a time. It works only for courses
+with a model in the LibreTranslate service.
+
 A glossary on an exercise looks like this:
 
 ```json

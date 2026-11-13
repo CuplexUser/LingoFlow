@@ -46,6 +46,29 @@ type ApiRequestOptions = RequestInit & { headers?: HeadersInit };
 
 type ApiErrorPayload = {
   error?: string;
+  code?: string;
+};
+
+// A failed request, with the HTTP status and the server's error code when it sent one.
+export class ApiError extends Error {
+  status: number;
+  code?: string;
+
+  constructor(message: string, status: number, code?: string) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+    this.code = code;
+  }
+}
+
+export type WordPrefetchResult = {
+  total: number;
+  cursor: number;
+  done: boolean;
+  checked: number;
+  translated: number;
+  remaining: number;
 };
 
 export type AuthUser = {
@@ -515,9 +538,12 @@ async function request<T>(path: string, options: ApiRequestOptions = {}): Promis
     : null;
 
   if (!response.ok) {
-    const message =
-      (payload as ApiErrorPayload | null)?.error || `Request failed: ${response.status}`;
-    throw new Error(message);
+    const errorPayload = payload as ApiErrorPayload | null;
+    throw new ApiError(
+      errorPayload?.error || `Request failed: ${response.status}`,
+      response.status,
+      errorPayload?.code
+    );
   }
 
   return payload as T;
@@ -675,6 +701,11 @@ export const api = {
       .then((r) => r.translations ?? {})
       .catch(() => ({}));
   },
+  prefetchWordTranslations: (language: string, cursor: number): Promise<WordPrefetchResult> =>
+    request<WordPrefetchResult>("/admin/word-translations/prefetch", {
+      method: "POST",
+      body: JSON.stringify({ language, cursor })
+    }),
   rebuildWordTranslations: (): Promise<{ rebuilt: number }> =>
     request<{ rebuilt: number }>("/admin/word-translations/rebuild", { method: "POST" }),
   getWordTranslationCounts: (): Promise<{ libretranslate: number; content: number; total: number }> =>

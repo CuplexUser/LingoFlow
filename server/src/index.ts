@@ -91,6 +91,7 @@ const {
   injectCommunityItem,
   rebuildContentWordTranslations,
   rebuildAllWordTranslations,
+  collectCourseWords,
   listStories,
   getStoryById,
   sanitizeStoryForClient,
@@ -494,7 +495,7 @@ async function createApp(): Promise<any> {
   const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
 
   // Non-auth learning APIs (course catalog, sessions, settings/progress).
-  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap });
+  registerCourseRoutes(app, { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, collectCourseWords, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap });
   // The knowledge map lists the path's units, and the path's exams read the map, so each
   // looks the other up when called rather than when created.
   const knowledge = createKnowledge({
