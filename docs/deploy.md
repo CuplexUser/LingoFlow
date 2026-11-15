@@ -26,8 +26,8 @@ How the parts connect:
 ### CI (`.github/workflows/ci.yml`)
 
 CI runs on every push and pull request to `main`. It lints, type-checks the client and
-runs the server and client tests. It does **not** type-check the server, and no deploy
-waits for it. Run `npm run build` in `server/` yourself before deploying.
+the server, and runs the server and client tests. No deploy waits for it, so check that
+it is green before you deploy.
 
 ### Web client: Vercel
 
@@ -67,7 +67,7 @@ The workflow checks out the branch it runs on, so **push first**. It builds the 
 against `/api/health`.
 
 The Docker build runs only `build:dist`. It bundles the server without type-checking it,
-so a server type error still deploys.
+so CI is the only check that catches a server type error.
 
 At startup the API does three things before it serves requests:
 
@@ -112,7 +112,8 @@ loaded. Its URL stays the same across deploys, so the API needs no redeploy afte
 ### Before deploying
 
 - [ ] `npm run test` and `npm run lint` pass.
-- [ ] `npm run build` in `server/` passes. It is the only server type check.
+- [ ] `npm run build` in `server/` passes. CI runs the same type check, but this catches
+      it before you push.
 - [ ] Everything is committed and pushed to `main`, and `git status` is clean.
 - [ ] CI is green for that commit (`gh run list --workflow ci.yml -L 1`).
 - [ ] **Schema change?** `SCHEMA_VERSION` in `server/src/db.ts` is bumped. Without the

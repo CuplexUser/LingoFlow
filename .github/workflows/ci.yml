@@ -30,6 +30,11 @@ jobs:
       - name: Type check client
         run: npx tsc --noEmit -p client/tsconfig.json
 
+      # The server runs with --experimental-strip-types and the Docker build only bundles
+      # it, so this is the only place a server type error is caught before deploy.
+      - name: Type check server
+        run: npm run typecheck --prefix server
+
       - name: Test server
         run: npm run test:server
 
