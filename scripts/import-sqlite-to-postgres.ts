@@ -48,6 +48,7 @@ const TABLES = [
   "community_exercises",
   "content_versions",
   "word_translations",
+  "word_translation_misses",
   "login_page_daily_stats",
   "login_page_unique_visitors"
 ];

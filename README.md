@@ -352,20 +352,31 @@ checked in order:
    in the exercise's `hints`.
 2. **Glossary** (solid underline): words in the exercise's optional `wordGlossary`.
 3. **Looked-up translations** (same style): any other word. The client asks the server
-   when the exercise loads; the server checks its `word_translations` cache first, then
-   asks [LibreTranslate](https://libretranslate.com). Each word is looked up once and
-   cached.
+   (`GET /api/dictionary/batch`) when the exercise loads, and the server answers from its
+   `word_translations` cache right away. Words that aren't cached are sent to
+   [LibreTranslate](https://libretranslate.com) in the background, in one request, and
+   show a hint the next time they come up. The learner never waits for the service, which
+   scales to zero and can take 10–15 seconds to start.
 
-At startup the cache is rebuilt from the content itself (`wordGlossary` fields,
-`"Vocabulary: X"` flashcards and single-word hints), so known words never need a lookup.
-Looked-up translations are cleaned before they're cached: answers that are only
-punctuation or the same as the word are dropped, trailing punctuation is removed, and
-the text is lowercased.
+At startup the content entries of the cache are rebuilt from the content itself (story
+glossaries, `wordGlossary` fields, `"Vocabulary: X"` flashcards and single-word hints), so
+known words never need a lookup. Looked-up translations are cleaned before they're cached:
+trailing punctuation is removed and the text is lowercased.
 
-To fill the cache ahead of time, use **Pre-translate** in the admin page's Word Cache tab.
-It collects every word in a course's exercises and stories, skips the ones already
-cached, and sends the rest to LibreTranslate 100 at a time. It works only for courses
-with a model in the LibreTranslate service.
+Some words are never sent. In a course with its own script (Russian), words outside it
+are English, such as the translation in parentheses after a cloze sentence, and are
+dropped. Words LibreTranslate answers unchanged or with only punctuation are recorded in
+`word_translation_misses` and not sent again for 7 days; they are never shown as hints.
+
+The admin page's Word Cache tab has three actions:
+
+- **Pre-translate** collects every word in a course's exercises and stories, skips the
+  ones already cached or recently missed, and sends the rest to LibreTranslate 100 at a
+  time. It works only for courses with a model in the LibreTranslate service.
+- **Rebuild content translations** re-seeds the content entries from the language files
+  and keeps the LibreTranslate ones.
+- **Clear the whole cache** deletes everything, LibreTranslate translations and misses
+  included, and re-seeds the content. Use it only when the stored translations are wrong.
 
 A glossary on an exercise looks like this:
 

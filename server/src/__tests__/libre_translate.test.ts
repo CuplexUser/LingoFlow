@@ -32,7 +32,7 @@ function stubService(dictionary: Record<string, string>, options: { failTranslat
   return { calls, fetchImpl };
 }
 
-test("translates a batch of words in one request and drops unusable results", async () => {
+test("translates a batch of words in one request and reports the unusable results", async () => {
   const service = stubService({ casa: "House.", perro: "dog", hola: "!!" });
   const client = createLibreTranslate({
     url: "https://lt.example/",
@@ -42,7 +42,8 @@ test("translates a batch of words in one request and drops unusable results", as
 
   const result = await client.translateWords(["casa", "perro", "hola", "mesa"], "spanish");
 
-  assert.deepEqual(result, { casa: "house", perro: "dog" });
+  assert.deepEqual(result.translations, { casa: "house", perro: "dog" });
+  assert.deepEqual(result.untranslatable, ["hola", "mesa"]);
   const translateCalls = service.calls.filter((call) => call.url.endsWith("/translate"));
   assert.equal(translateCalls.length, 1);
   assert.deepEqual(translateCalls[0].body.q, ["casa", "perro", "hola", "mesa"]);
@@ -60,8 +61,15 @@ test("skips languages the service has no model for, and caches the language list
     useIdToken: false
   });
 
-  assert.deepEqual(await client.translateWords(["hus"], "swedish"), {});
-  assert.deepEqual(await client.translateWords(["casa"], "spanish"), { casa: "house" });
+  // No model is not the same as untranslatable: nothing is reported as a miss.
+  assert.deepEqual(await client.translateWords(["hus"], "swedish"), {
+    translations: {},
+    untranslatable: []
+  });
+  assert.deepEqual(await client.translateWords(["casa"], "spanish"), {
+    translations: { casa: "house" },
+    untranslatable: []
+  });
 
   assert.equal(service.calls.filter((call) => call.url.endsWith("/languages")).length, 1);
   const translated = service.calls.filter((call) => call.url.endsWith("/translate"));
@@ -91,7 +99,7 @@ test("attaches a cached Cloud Run ID token for the service's origin", async () =
   assert.equal(serviceCalls[1].body.api_key, "key-1");
 });
 
-test("returns nothing when the service is unreachable or not configured", async () => {
+test("returns nothing, and reports no misses, when the service is unreachable or not configured", async () => {
   const service = stubService({}, { failTranslate: true });
   const warnings: string[] = [];
   const client = createLibreTranslate({
@@ -101,10 +109,11 @@ test("returns nothing when the service is unreachable or not configured", async 
     logger: { warn: (message: string) => warnings.push(message) }
   });
 
-  assert.deepEqual(await client.translateWords(["casa", "perro"], "spanish"), {});
+  const none = { translations: {}, untranslatable: [] };
+  assert.deepEqual(await client.translateWords(["casa", "perro"], "spanish"), none);
   assert.equal(warnings.length, 1);
   assert.equal(service.calls.filter((call) => call.url.endsWith("/translate")).length, 1);
 
   const unconfigured = createLibreTranslate({ url: "", fetchImpl: service.fetchImpl });
-  assert.deepEqual(await unconfigured.translateWords(["casa"], "spanish"), {});
+  assert.deepEqual(await unconfigured.translateWords(["casa"], "spanish"), none);
 });

@@ -2,7 +2,7 @@ const { LIBRE_LANG_CODES, createLibreTranslate } = require("../libreTranslate.ts
 const logger = require("../logger.ts");
 
 function registerCourseRoutes(app: any, deps: any): void {
-  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildAllWordTranslations, collectCourseWords, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap } = deps;
+  const { requireAuth, database, LANGUAGES, CATEGORIES, LEVEL_ORDER, COURSE, getCourseOverview, getContentMetrics, rebuildContentWordTranslations, rebuildAllWordTranslations, collectCourseWords, isCourseScriptWord, listStories, getStoryById, sanitizeStoryForClient, computeStoryXp, recommendNextStory, getLevelCap } = deps;
 
   const PREMIUM_REQUIRED = {
     error: "This content requires LingoFlow Premium",
@@ -382,6 +382,59 @@ function registerCourseRoutes(app: any, deps: any): void {
     logger
   });
 
+  // Words being looked up in the background, as "language\u0000word", so a word shown to
+  // several learners at once goes to LibreTranslate in one request rather than several.
+  const lookupsInFlight = new Set<string>();
+  const pendingLookups = new Set<Promise<void>>();
+  // Lets tests wait for the background lookups to finish.
+  app.locals.whenWordLookupsIdle = () => Promise.allSettled([...pendingLookups]);
+
+  // Looks words up and caches the result, without anyone waiting on it. The words go out
+  // as one request (no per-word retries); words the service answers but can't translate
+  // are recorded as misses and skipped for a while. A failed request records nothing, so
+  // the words are tried again the next time someone sees them.
+  function lookUpInBackground(language: string, words: string[]): void {
+    if (!libreTranslate.configured) return;
+    const key = (word: string) => `${language}\u0000${word}`;
+    const fresh = words.filter((word) => !lookupsInFlight.has(key(word)));
+    if (!fresh.length) return;
+    for (const word of fresh) lookupsInFlight.add(key(word));
+
+    const task = (async () => {
+      try {
+        const misses = await database.getRecentWordTranslationMisses(language, fresh);
+        const toLookUp = fresh.filter((word) => !misses.has(word));
+        if (!toLookUp.length) return;
+        const { translations, untranslatable } = await libreTranslate.translateWords(
+          toLookUp,
+          language
+        );
+        await database.upsertWordTranslations(
+          Object.entries(translations).map(([word, translation]) => ({
+            language,
+            word,
+            translation,
+            source: "libretranslate"
+          }))
+        );
+        await database.recordWordTranslationMisses(language, untranslatable);
+      } catch (error: any) {
+        logger.warn("word_lookup_failed", {
+          language,
+          words: fresh.length,
+          error: error?.message || String(error)
+        });
+      } finally {
+        for (const word of fresh) lookupsInFlight.delete(key(word));
+      }
+    })();
+    pendingLookups.add(task);
+    task.finally(() => pendingLookups.delete(task));
+  }
+
+  // Word hints for exercises and stories. Answers from the cache only, right away: missing
+  // words are looked up in the background and are there the next time. LibreTranslate
+  // scales to zero, and waiting here for its cold start kept learners waiting 10-15 s.
   app.get("/api/dictionary/batch", requireAuth, async (req: any, res: any) => {
     const lang = String(req.query.lang || "").trim().toLowerCase();
     const wordsParam = String(req.query.words || "").trim();
@@ -399,20 +452,17 @@ function registerCourseRoutes(app: any, deps: any): void {
           .split(",")
           .map((w: string) => w.trim().toLowerCase())
           .filter((w: string) => w.length >= 2 && w.length <= 60)
+          // English in a course with its own script (a cloze sentence's translation in
+          // parentheses) has nothing to look up.
+          .filter((w: string) => isCourseScriptWord(lang, w))
       )
     ].slice(0, 50);
 
     if (!words.length) return res.json({ translations: {} });
 
-    const cached = await database.getCachedWordTranslations(lang, words);
-    const uncached = words.filter((w: string) => !(w in cached));
-    const translations: Record<string, string> = { ...cached };
-
-    const looked = await libreTranslate.translateWords(uncached, lang);
-    for (const [word, translation] of Object.entries(looked) as [string, string][]) {
-      await database.upsertWordTranslation(lang, word, translation);
-      translations[word] = translation;
-    }
+    const translations = await database.getCachedWordTranslations(lang, words);
+    const uncached = words.filter((w: string) => !(w in translations));
+    if (uncached.length) lookUpInBackground(lang, uncached);
 
     return res.json({ translations });
   });
@@ -424,20 +474,27 @@ function registerCourseRoutes(app: any, deps: any): void {
     return res.json(await database.getWordTranslationCounts());
   });
 
+  // Re-seeds the content entries from the language files, keeping what LibreTranslate
+  // added. `scope: "all"` empties the whole cache first, LibreTranslate rows and misses
+  // included, for when those need to be fetched again.
   app.post("/api/admin/word-translations/rebuild", requireAuth, async (req: any, res: any) => {
     if (!await canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Forbidden" });
     }
-    const count = await rebuildAllWordTranslations(database);
-    return res.json({ rebuilt: count });
+    const scope = req.body?.scope === "all" ? "all" : "content";
+    const count = scope === "all"
+      ? await rebuildAllWordTranslations(database)
+      : await rebuildContentWordTranslations(database);
+    return res.json({ rebuilt: count, scope });
   });
 
   // Pre-translates a course's words that aren't cached yet, one chunk per request, so
   // learners don't wait for LibreTranslate. The admin page calls it repeatedly, passing
   // back `cursor`, until `done`. The cursor walks the sorted word list rather than the
-  // missing words, so words LibreTranslate can't translate are tried once per run instead
-  // of forever. When the service fails (a cold start can outlast the timeout), it answers
-  // 503 and the cursor stays put, so the same chunk can be retried.
+  // missing words, so each run ends. Words LibreTranslate couldn't translate recently are
+  // skipped, and new ones are recorded as misses. When the service fails (a cold start can
+  // outlast the timeout), it answers 503 and the cursor stays put, so the same chunk can
+  // be retried.
   app.post("/api/admin/word-translations/prefetch", requireAuth, async (req: any, res: any) => {
     if (!await canAccessAdminRoutes(req.authUserId)) {
       return res.status(403).json({ error: "Forbidden" });
@@ -460,10 +517,12 @@ function registerCourseRoutes(app: any, deps: any): void {
       }
       const words = collectCourseWords(language);
       const cached = await database.listCachedWords(language);
+      const misses = await database.getRecentWordTranslationMisses(language);
+      const known = (word: string) => cached.has(word) || misses.has(word);
       const chunk: string[] = [];
       let next = cursor;
       while (next < words.length && chunk.length < PREFETCH_CHUNK) {
-        if (!cached.has(words[next])) chunk.push(words[next]);
+        if (!known(words[next])) chunk.push(words[next]);
         next += 1;
       }
 
@@ -478,7 +537,11 @@ function registerCourseRoutes(app: any, deps: any): void {
           source: "libretranslate"
         }))
       );
-      const remaining = words.slice(next).filter((word) => !cached.has(word)).length;
+      await database.recordWordTranslationMisses(
+        language,
+        chunk.filter((word) => !(word in translations))
+      );
+      const remaining = words.slice(next).filter((word) => !known(word)).length;
       return res.json({
         total: words.length,
         cursor: next,

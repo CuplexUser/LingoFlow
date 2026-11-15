@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import type {
   CommunityContributionListResponse,
   CommunityContributionUpdatePayload,
-  WordPrefetchResult
+  WordCacheRebuildScope,
+  WordPrefetchResult,
+  WordTranslationCounts
 } from "../api";
 import { api, ApiError } from "../api";
 import type { CourseCategory, LanguageOption } from "../types/course";
@@ -93,11 +95,14 @@ export function AdminPage({
 }
 
 function WordCachePanel() {
-  const [confirming, setConfirming] = useState(false);
-  const [status, setStatus] = useState<{ rebuilt: number } | null>(null);
+  const [confirmingClear, setConfirmingClear] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [counts, setCounts] = useState<{ libretranslate: number; content: number; total: number } | null>(null);
+  const [loading, setLoading] = useState<WordCacheRebuildScope | null>(null);
+  const [counts, setCounts] = useState<WordTranslationCounts | null>(null);
+
+  const format = (value: number | undefined) =>
+    value === undefined ? "—" : value.toLocaleString(navigator.language);
 
   async function loadCounts() {
     try {
@@ -111,19 +116,23 @@ function WordCachePanel() {
     loadCounts();
   }, []);
 
-  async function handleRebuild() {
-    setLoading(true);
+  async function handleRebuild(scope: WordCacheRebuildScope) {
+    setLoading(scope);
     setError(null);
     setStatus(null);
     try {
-      const result = await api.rebuildWordTranslations();
-      setStatus(result);
+      const result = await api.rebuildWordTranslations(scope);
+      setStatus(
+        scope === "all"
+          ? `Cache cleared — ${format(result.rebuilt)} content entries written.`
+          : `Done — ${format(result.rebuilt)} content entries written. LibreTranslate translations were kept.`
+      );
       await loadCounts();
     } catch {
       setError("Rebuild failed. Check the server logs.");
     } finally {
-      setLoading(false);
-      setConfirming(false);
+      setLoading(null);
+      setConfirmingClear(false);
     }
   }
 
@@ -134,46 +143,75 @@ function WordCachePanel() {
         The <code>word_translations</code> table stores two kinds of entries:
       </p>
       <ul>
-        <li><strong>Content</strong> — seeded at startup from wordGlossary fields, vocabulary flashcards, and hint annotations in the language files.</li>
-        <li><strong>LibreTranslate</strong> — fetched on demand during exercises and cached to avoid repeated API calls.</li>
+        <li>
+          <strong>Content</strong> — seeded at startup from story glossaries, wordGlossary
+          fields, vocabulary flashcards, and hint annotations in the language files.
+        </li>
+        <li>
+          <strong>LibreTranslate</strong> — words the content doesn&apos;t cover. When a
+          learner sees one that isn&apos;t cached, it is looked up in the background, so the
+          hint is there the next time. Pre-translate fills them in ahead of time.
+        </li>
       </ul>
+      <p>
+        Words LibreTranslate can&apos;t translate (it returns them unchanged) are kept in a
+        separate list and not sent again for 7 days.
+      </p>
 
       <p className="word-cache-counts">
-        Cached words:{" "}
-        <strong>{counts ? counts.libretranslate.toLocaleString(navigator.language) : "—"} LibreTranslate</strong>
+        Cached words: <strong>{format(counts?.libretranslate)} LibreTranslate</strong>
         {" · "}
-        {counts ? counts.content.toLocaleString(navigator.language) : "—"} content
+        {format(counts?.content)} content
+        {" · "}
+        {format(counts?.misses)} skipped as untranslatable
       </p>
       <WordPrefetchSection onProgress={loadCounts} />
 
       <h3>Rebuild</h3>
       <p>
-        Rebuilding clears the entire table and re-seeds it from the current language files.
-        Any LibreTranslate-fetched translations will be re-fetched on demand as exercises are played.
+        Rebuilding re-seeds the content entries from the current language files. Translations
+        from LibreTranslate are kept.
       </p>
 
-      {status ? (
-        <p className="rebuild-success">Done — {status.rebuilt} content entries written.</p>
-      ) : null}
+      {status ? <p className="rebuild-success">{status}</p> : null}
       {error ? <p className="rebuild-error">{error}</p> : null}
 
-      {confirming ? (
+      <button
+        type="button"
+        className="primary-button"
+        onClick={() => handleRebuild("content")}
+        disabled={loading !== null}
+      >
+        {loading === "content" ? "Rebuilding…" : "Rebuild content translations"}
+      </button>
+
+      <h3>Clear the whole cache</h3>
+      <p>
+        Only needed when the LibreTranslate translations themselves are wrong, for example after
+        the service&apos;s models change. It deletes every cached word and the skipped list,
+        then re-seeds the content. Those words show no hint until they are looked up again.
+      </p>
+      {confirmingClear ? (
         <div className="rebuild-confirm">
-          <p>This will delete the entire word_translations table and re-seed from the language files. Continue?</p>
+          <p>
+            This deletes all {format(counts?.libretranslate)} LibreTranslate translations and
+            the skipped list, then re-seeds the content. Run Pre-translate afterwards to fetch
+            them again. Continue?
+          </p>
           <div className="rebuild-confirm-actions">
             <button
               type="button"
               className="primary-button"
-              onClick={handleRebuild}
-              disabled={loading}
+              onClick={() => handleRebuild("all")}
+              disabled={loading !== null}
             >
-              {loading ? "Rebuilding…" : "Yes, rebuild"}
+              {loading === "all" ? "Clearing…" : "Yes, clear everything"}
             </button>
             <button
               type="button"
               className="ghost-button"
-              onClick={() => setConfirming(false)}
-              disabled={loading}
+              onClick={() => setConfirmingClear(false)}
+              disabled={loading !== null}
             >
               Cancel
             </button>
@@ -182,10 +220,11 @@ function WordCachePanel() {
       ) : (
         <button
           type="button"
-          className="primary-button"
-          onClick={() => { setStatus(null); setError(null); setConfirming(true); }}
+          className="ghost-button"
+          onClick={() => { setStatus(null); setError(null); setConfirmingClear(true); }}
+          disabled={loading !== null}
         >
-          Rebuild content translations
+          Clear the whole cache…
         </button>
       )}
     </div>
@@ -292,7 +331,7 @@ function WordPrefetchSection({ onProgress }: { onProgress: () => Promise<void> }
         <p className="word-prefetch-progress" aria-live="polite">
           {progress.done
             ? `Done: ${format(progress.translatedTotal)} of ${format(progress.missingAtStart)} missing words translated. `
-              + "The rest came back unchanged or empty and were skipped."
+              + "The rest came back unchanged or empty and are skipped for 7 days."
             : `${format(progress.translatedTotal)} translated · `
               + `${format(progress.missingAtStart - progress.remaining)} of ${format(progress.missingAtStart)} missing words checked`}
         </p>

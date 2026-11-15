@@ -249,6 +249,19 @@ async function seedContentWordTranslations(database: any): Promise<number> {
   // against a hosted Postgres, per-word round-trips made startup take about a minute.
   const entries: any[] = [];
   let count = 0;
+  // Story glossaries first, so an exercise's own glossary or hints win for a word both
+  // define. Exercises show these words too (меня, что, это...), so without them every
+  // such lookup would go to LibreTranslate.
+  for (const story of STORIES) {
+    for (const [word, entry] of Object.entries(story.glossary || {}) as [string, any][]) {
+      const key = word.toLowerCase().trim();
+      const translation = String(entry?.g || "").trim();
+      if (key && translation && !/\s/.test(key)) {
+        entries.push({ language: story.language, word: key, translation, source: "content" });
+        count++;
+      }
+    }
+  }
   for (const [lang, categories] of Object.entries(COURSE as Record<string, Record<string, any[]>>)) {
     for (const items of Object.values(categories as Record<string, any[]>)) {
       for (const item of items) {
@@ -291,20 +304,25 @@ async function seedContentWordTranslations(database: any): Promise<number> {
   return count;
 }
 
+// Courses written in their own script. A word outside it in such a course is English
+// (multiple-choice meanings, the translation in parentheses after a cloze sentence), so it
+// is never collected or sent to LibreTranslate, which would only return it unchanged.
+// Latin-script courses can't be told apart from English this way, so every word passes.
+const COURSE_SCRIPT: Record<string, RegExp> = { russian: /\p{Script=Cyrillic}/u };
+
+function isCourseScriptWord(language: string, word: string): boolean {
+  const script = COURSE_SCRIPT[language];
+  return !script || script.test(word);
+}
+
 // Every distinct word a learner can hover in a course: the course-language sentences of
 // its exercises (answers, accepted answers and gapped cloze prompts) and its stories.
 // Words are normalized the way the client normalizes them before a lookup (outer
 // non-letters stripped, lowercased), so the cache keys match. Story glossary words are
-// left out, because the story reader never looks those up. Sorted, so a pre-translation
-// run can walk the list with a cursor.
-//
-// Some multiple-choice answers are English meanings. For a course in its own script those
-// words are dropped; in Latin-script courses a few slip through, and LibreTranslate
-// mostly returns them unchanged, which the cache rejects.
-const COURSE_SCRIPT: Record<string, RegExp> = { russian: /\p{Script=Cyrillic}/u };
-
+// included: exercises show them too, and they are normally cached already because the
+// startup seeding writes story glossaries as content. Sorted, so a pre-translation run can
+// walk the list with a cursor.
 function collectCourseWords(language: string): string[] {
-  const script = COURSE_SCRIPT[language];
   const texts: string[] = [];
   const categories = (COURSE as Record<string, Record<string, any[]>>)[language] || {};
   for (const items of Object.values(categories)) {
@@ -315,19 +333,17 @@ function collectCourseWords(language: string): string[] {
       if (/_{2,}/.test(String(item.prompt || ""))) texts.push(String(item.prompt));
     }
   }
-  const storyGlossary = new Set<string>();
   for (const story of STORIES) {
     if (story.language !== language) continue;
     for (const sentence of story.sentences) texts.push(String(sentence.target || ""));
-    for (const word of Object.keys(story.glossary || {})) storyGlossary.add(word.toLowerCase());
   }
 
   const words = new Set<string>();
   for (const text of texts) {
     for (const token of text.split(/\s+/)) {
       const word = token.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, "").toLowerCase();
-      if (word.length < 2 || word.length > 60 || storyGlossary.has(word)) continue;
-      if (script && !script.test(word)) continue;
+      if (word.length < 2 || word.length > 60) continue;
+      if (!isCourseScriptWord(language, word)) continue;
       words.add(word);
     }
   }
@@ -339,6 +355,8 @@ async function rebuildContentWordTranslations(database: any): Promise<number> {
   return seedContentWordTranslations(database);
 }
 
+// Clears the whole cache, LibreTranslate translations and misses included, then re-seeds
+// the content. The admin page offers it separately from the content-only rebuild.
 async function rebuildAllWordTranslations(database: any): Promise<number> {
   await database.clearWordTranslations();
   return seedContentWordTranslations(database);
@@ -369,5 +387,6 @@ module.exports = {
   injectCommunityItem,
   rebuildContentWordTranslations,
   rebuildAllWordTranslations,
-  collectCourseWords
+  collectCourseWords,
+  isCourseScriptWord
 };

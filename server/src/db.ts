@@ -3142,6 +3142,70 @@ async function createWordTranslationsTable(): Promise<void> {
   }
 }
 
+// Words LibreTranslate answered but couldn't translate usefully (it returned the word
+// unchanged, or only punctuation). Kept apart from word_translations so a miss is never
+// served as a translation, and skipped for WORD_MISS_TTL_MS so a word the service can't
+// handle doesn't wake it up on every view.
+async function createWordTranslationMissesTable(): Promise<void> {
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS word_translation_misses (
+      language TEXT NOT NULL,
+      word TEXT NOT NULL,
+      checked_at TEXT NOT NULL,
+      PRIMARY KEY (language, word)
+    )
+  `);
+}
+
+const WORD_MISS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+function wordMissCutoff(now: number): string {
+  return new Date(now - WORD_MISS_TTL_MS).toISOString();
+}
+
+// Records words LibreTranslate couldn't translate, and prunes misses old enough to be
+// retried anyway, so the table stays small.
+async function recordWordTranslationMisses(
+  language: string,
+  words: string[],
+  now: number = Date.now()
+): Promise<number> {
+  const unique = [...new Set(words.map((word) => String(word || "").trim().toLowerCase()))]
+    .filter(Boolean);
+  if (!unique.length) return 0;
+  const checkedAt = new Date(now).toISOString();
+  const CHUNK = 400;
+  for (let offset = 0; offset < unique.length; offset += CHUNK) {
+    const chunk = unique.slice(offset, offset + CHUNK);
+    const params: any[] = [];
+    for (const word of chunk) params.push(language, word, checkedAt);
+    await db.prepare(`
+      INSERT INTO word_translation_misses (language, word, checked_at)
+      VALUES ${chunk.map(() => "(?, ?, ?)").join(", ")}
+      ON CONFLICT(language, word) DO UPDATE SET checked_at = excluded.checked_at
+    `).run(...params);
+  }
+  await db.prepare("DELETE FROM word_translation_misses WHERE checked_at < ?").run(wordMissCutoff(now));
+  return unique.length;
+}
+
+// The words of a course that missed within the last WORD_MISS_TTL_MS: of `words` when
+// given, otherwise all of them.
+async function getRecentWordTranslationMisses(
+  language: string,
+  words: string[] | null = null,
+  now: number = Date.now()
+): Promise<Set<string>> {
+  if (words && !words.length) return new Set();
+  const wordFilter = words ? ` AND word IN (${words.map(() => "?").join(", ")})` : "";
+  const rows = await db
+    .prepare(
+      `SELECT word FROM word_translation_misses WHERE language = ? AND checked_at >= ?${wordFilter}`
+    )
+    .all(language, wordMissCutoff(now), ...(words || [])) as { word: string }[];
+  return new Set(rows.map((row) => row.word));
+}
+
 async function getCachedWordTranslations(language: string, words: string[]): Promise<Record<string, string>> {
   if (!words.length) return {};
   const placeholders = words.map(() => "?").join(", ");
@@ -3224,21 +3288,35 @@ async function clearContentWordTranslations(): Promise<void> {
   await db.exec("DELETE FROM word_translations WHERE source = 'content'");
 }
 
-async function getWordTranslationCounts(): Promise<{ libretranslate: number; content: number; total: number }> {
+// `total` counts translations only. `misses` counts the words currently being skipped
+// because LibreTranslate couldn't translate them (and nothing else has since).
+async function getWordTranslationCounts(
+  now: number = Date.now()
+): Promise<{ libretranslate: number; content: number; total: number; misses: number }> {
   const rows = await db
     .prepare("SELECT source, COUNT(*) AS count FROM word_translations GROUP BY source")
-    .all() as { source: string; count: number }[];
+    .all() as { source: string; count: number | string }[];
   let libretranslate = 0;
   let content = 0;
   for (const row of rows) {
-    if (row.source === "content") content += row.count;
-    else libretranslate += row.count;
+    if (row.source === "content") content += Number(row.count);
+    else libretranslate += Number(row.count);
   }
-  return { libretranslate, content, total: libretranslate + content };
+  const missRow = await db.prepare(`
+    SELECT COUNT(*) AS count FROM word_translation_misses m
+    WHERE m.checked_at >= ?
+      AND NOT EXISTS (
+        SELECT 1 FROM word_translations t WHERE t.language = m.language AND t.word = m.word
+      )
+  `).get(wordMissCutoff(now)) as { count: number | string } | undefined;
+  const misses = Number(missRow?.count || 0);
+  return { libretranslate, content, total: libretranslate + content, misses };
 }
 
+// Empties the whole cache, LibreTranslate rows and misses included.
 async function clearWordTranslations(): Promise<void> {
   await db.exec("DELETE FROM word_translations");
+  await db.exec("DELETE FROM word_translation_misses");
 }
 
 // Store subscriptions (RevenueCat). One row per user and entitlement, overwritten
@@ -3998,7 +4076,7 @@ let schemaReady: Promise<void> | null = null;
 // connection) instead of re-confirming a schema that hasn't changed since the last deploy.
 // Forgetting to bump this after a real schema change means that change silently never runs
 // against an already-deployed database.
-const SCHEMA_VERSION = 6;
+const SCHEMA_VERSION = 7;
 
 async function isSchemaCurrent(): Promise<boolean> {
   if (!(await db.tableExists("schema_meta"))) return false;
@@ -4046,6 +4124,7 @@ async function runSchemaSetup(): Promise<void> {
   await ensureLanguageProgressColumns();
   await ensureStoryCompletionsColumns();
   await createWordTranslationsTable();
+  await createWordTranslationMissesTable();
   await createSubscriptionTables();
   await createPathTables();
   await createContentReportsTable();
@@ -4150,6 +4229,10 @@ module.exports = {
   upsertContentFingerprints,
   resetCategoryProgress,
   createWordTranslationsTable,
+  createWordTranslationMissesTable,
+  WORD_MISS_TTL_MS,
+  recordWordTranslationMisses,
+  getRecentWordTranslationMisses,
   getCachedWordTranslations,
   listCachedWords,
   upsertWordTranslation,

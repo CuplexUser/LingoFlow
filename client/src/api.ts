@@ -62,6 +62,16 @@ export class ApiError extends Error {
   }
 }
 
+export type WordTranslationCounts = {
+  libretranslate: number;
+  content: number;
+  total: number;
+  // Words LibreTranslate couldn't translate, skipped for a week before they're tried again.
+  misses: number;
+};
+
+export type WordCacheRebuildScope = "content" | "all";
+
 export type WordPrefetchResult = {
   total: number;
   cursor: number;
@@ -706,10 +716,15 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ language, cursor })
     }),
-  rebuildWordTranslations: (): Promise<{ rebuilt: number }> =>
-    request<{ rebuilt: number }>("/admin/word-translations/rebuild", { method: "POST" }),
-  getWordTranslationCounts: (): Promise<{ libretranslate: number; content: number; total: number }> =>
-    request<{ libretranslate: number; content: number; total: number }>("/admin/word-translations/counts"),
+  // "content" re-seeds the content entries and keeps LibreTranslate's; "all" empties the
+  // whole cache first.
+  rebuildWordTranslations: (scope: WordCacheRebuildScope = "content"): Promise<{ rebuilt: number }> =>
+    request<{ rebuilt: number }>("/admin/word-translations/rebuild", {
+      method: "POST",
+      body: JSON.stringify({ scope })
+    }),
+  getWordTranslationCounts: (): Promise<WordTranslationCounts> =>
+    request<WordTranslationCounts>("/admin/word-translations/counts"),
   getAdminUsers: (params: { search?: string; sort?: AdminUserSort; limit?: number; offset?: number } = {}) => {
     const search = new URLSearchParams();
     if (params.search) search.set("search", params.search);

@@ -43,8 +43,9 @@ describe("Word Cache pre-translation", () => {
       { id: "spanish", label: "Spanish" },
       { id: "russian", label: "Russian" }
     ]);
-    getWordTranslationCounts.mockResolvedValue({ libretranslate: 33, content: 900, total: 933 });
+    getWordTranslationCounts.mockResolvedValue({ libretranslate: 33, content: 900, total: 933, misses: 7 });
     prefetchWordTranslations.mockReset();
+    rebuildWordTranslations.mockReset();
   });
 
   afterEach(() => {
@@ -84,5 +85,21 @@ describe("Word Cache pre-translation", () => {
     expect(await screen.findByText("LibreTranslate has no swedish model")).toBeInTheDocument();
     expect(prefetchWordTranslations).toHaveBeenCalledTimes(1);
     expect(screen.getByRole("button", { name: "Pre-translate Russian" })).toBeEnabled();
+  });
+
+  it("rebuilds content without touching LibreTranslate rows, and clears everything only after a confirm", async () => {
+    rebuildWordTranslations.mockResolvedValue({ rebuilt: 900 });
+    renderWordCache();
+    expect(await screen.findByText(/7 skipped as untranslatable/)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Rebuild content translations" }));
+    expect(await screen.findByText(/LibreTranslate translations were kept/)).toBeInTheDocument();
+    expect(rebuildWordTranslations).toHaveBeenLastCalledWith("content");
+
+    fireEvent.click(screen.getByRole("button", { name: "Clear the whole cache…" }));
+    expect(rebuildWordTranslations).toHaveBeenCalledTimes(1);
+    fireEvent.click(await screen.findByRole("button", { name: "Yes, clear everything" }));
+    expect(await screen.findByText(/Cache cleared/)).toBeInTheDocument();
+    expect(rebuildWordTranslations).toHaveBeenLastCalledWith("all");
   });
 });

@@ -143,19 +143,26 @@ function createLibreTranslate(options: LibreTranslateOptions = {}) {
   }
 
   // The lookup the app uses: like translateBatch, but a failure (or a course without a
-  // model) just returns nothing, and the words are looked up the next time around.
-  async function translateWords(words: string[], language: string): Promise<Record<string, string>> {
-    if (!url || !LIBRE_LANG_CODES[language] || !words.length) return {};
+  // model) is logged and returns nothing, so the words are looked up the next time around.
+  // `untranslatable` lists the words the service did answer but couldn't translate
+  // usefully; it is empty when the request failed, since then nothing is known about them.
+  async function translateWords(
+    words: string[],
+    language: string
+  ): Promise<{ translations: Record<string, string>; untranslatable: string[] }> {
+    const none = { translations: {}, untranslatable: [] };
+    if (!url || !LIBRE_LANG_CODES[language] || !words.length) return none;
     try {
-      if (!(await supports(language))) return {};
-      return await translateBatch(words, language);
+      if (!(await supports(language))) return none;
+      const translations = await translateBatch(words, language);
+      return { translations, untranslatable: words.filter((word) => !(word in translations)) };
     } catch (error) {
       logger?.warn("LibreTranslate lookup failed", {
         language,
         words: words.length,
         error: error instanceof Error ? error.message : String(error)
       });
-      return {};
+      return none;
     }
   }
 
