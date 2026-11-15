@@ -238,6 +238,9 @@ work against Postgres.
 
 ## Deployment
 
+Nothing deploys on push. [docs/deploy.md](docs/deploy.md) explains the pipelines, the
+order of deploys and the release checklist. The sections below cover first-time setup.
+
 <details>
 <summary><b>Web app on Vercel</b></summary>
 
@@ -250,8 +253,8 @@ serves `client/dist` and rewrites `/api/*` to the Cloud Run API, so the default
    (see `scripts/write-version.js`).
 3. If the Cloud Run address changes, update the `/api/(.*)` rewrite in `vercel.json`.
 
-A change to the API needs only a Cloud Run deploy; Vercel deploys when the web client
-changes.
+The Git integration is off: deploy with `vercel --prod` from a clean, pushed `main`. A
+change to the API needs only a Cloud Run deploy; a client change needs a Vercel deploy.
 
 </details>
 
@@ -573,5 +576,6 @@ server/content/
 ## More documentation
 
 - [docs/database.md](docs/database.md): the database layer in detail
+- [docs/deploy.md](docs/deploy.md): deploy pipelines and the release checklist
 - [docs/content-quality-checklist.md](docs/content-quality-checklist.md): writing content
 - [docs/TODO.md](docs/TODO.md) and [docs/Completed.md](docs/Completed.md): plans and history
