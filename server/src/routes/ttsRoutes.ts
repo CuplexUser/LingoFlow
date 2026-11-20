@@ -207,7 +207,7 @@ function createGeminiTts({ apiKey, model, logger }: { apiKey: string; model: str
     });
   }
 
-  return { generate };
+  return { generate, isPaused: () => Date.now() < pausedUntil };
 }
 
 function createBucketCache({ bucket, logger }: { bucket: string; logger: any }) {
@@ -324,6 +324,8 @@ function registerTtsRoutes(app: any, deps: any): void {
       pending = (async () => {
         let clip = await bucket.read(objectName);
         if (!clip) {
+          // Checked before the budget, so requests during a rate-limit pause don't use it up.
+          if (gemini.isPaused()) throw new TtsBusyError("Gemini TTS is rate limited");
           if (!budget.take(userId)) throw new TtsBusyError("Daily generation limit reached");
           clip = await gemini.generate(transcript, voice, style) as Buffer;
           await bucket.write(objectName, clip);

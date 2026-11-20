@@ -257,6 +257,33 @@ test("stops generating new clips at the daily limit but still serves cached ones
   assert.equal((await fetch(ttsUrl(srv.base, "Фраза номер 0"), { headers })).status, 200);
 });
 
+test("requests during a rate-limit pause don't use up the daily limit", async (t) => {
+  const srv = await startServer();
+  const realNow = Date.now;
+  t.after(() => {
+    Date.now = realNow;
+    google.synthesizeStatus = 200;
+    srv.close();
+  });
+  const headers = await signUp(srv.base, "tts-pause-budget");
+
+  google.synthesizeStatus = 429;
+  assert.equal((await fetch(ttsUrl(srv.base, "Пауза"), { headers })).status, 503);
+  google.synthesizeStatus = 200;
+  for (let i = 0; i < 15; i += 1) {
+    assert.equal((await fetch(ttsUrl(srv.base, `Во время паузы ${i}`), { headers })).status, 503);
+  }
+
+  // After the pause (a minute without a stated wait), the daily limit of 12 is untouched
+  // apart from the request that hit the rate limit.
+  Date.now = () => realNow() + 61_000;
+  const statuses = [];
+  for (let i = 0; i < 12; i += 1) {
+    statuses.push((await fetch(ttsUrl(srv.base, `После паузы ${i}`), { headers })).status);
+  }
+  assert.deepEqual(statuses, [...Array(11).fill(200), 503]);
+});
+
 test("answers 503 without a Gemini API key", async (t) => {
   const key = process.env.GEMINI_API_KEY;
   delete process.env.GEMINI_API_KEY;
