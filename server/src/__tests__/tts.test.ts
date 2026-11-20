@@ -160,10 +160,15 @@ test("slow speech is spoken slowly by Gemini and cached apart from normal speech
 
   const slow = await fetch(ttsUrl(srv.base, "Я читаю книгу.", "ru-RU", "slow"), { headers });
   assert.equal(slow.status, 200);
+  assert.doesNotMatch(String(slow.headers.get("cache-control")), /immutable/);
+  // Gemini reads the text word for word: the direction goes in a style annotation, and
+  // the text carries only pause tags.
   const spoken = clipText(Buffer.from(await slow.arrayBuffer()));
-  assert.match(spoken, /^Charon:Say this slowly/);
-  assert.match(spoken, /pause after each word/);
-  assert.match(spoken, /\nЯ читаю книгу\.$/);
+  assert.equal(spoken, "Charon:Я <short pause> читаю <short pause> книгу.");
+  const [content] = google.synthesizeBodies[1].input[0].content;
+  assert.deepEqual(content.annotations.map((a: any) => a.type), ["speech_metadata"]);
+  assert.match(content.annotations[0].style, /slowly/);
+  assert.equal(google.synthesizeBodies[0].input[0].content[0].annotations, undefined);
   assert.equal(google.synthesizeBodies.length, 2);
   assert.equal([...google.stored.keys()].some((name) => name.includes("/Charon/slow/")), true);
 

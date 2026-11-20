@@ -37,13 +37,18 @@ const DAILY_GENERATIONS_PER_USER = 150;
 // validates the request and picks a voice override.
 const LANGUAGES = ["en-US", "es-ES", "fr-FR", "de-DE", "it-IT", "ru-RU", "sv-SE"];
 
-// Gemini TTS follows a spoken-style direction placed before the text, and reads only the
-// text. The direction is part of the cache key, so changing it regenerates slow clips.
-const SLOW_DIRECTION =
-  "Say this slowly and clearly, the way a teacher speaks to a beginner learning the " +
-  "language, with a short pause after each word and a longer pause at commas and " +
-  "between sentences:";
+// Gemini 3.8 TTS reads the text field word for word, so the slow delivery goes in a
+// speech_metadata style annotation, and the pauses between words are written into the
+// text as <short pause> tags. Both are part of the cache key, so changing them
+// regenerates slow clips.
+const SLOW_STYLE =
+  "speaking slowly and clearly, like a teacher to a beginner learning the language";
 const SPEEDS = ["normal", "slow"];
+
+/** The text with a short pause between words, for slow speech. */
+function withWordPauses(text: string): string {
+  return text.split(" ").join(" <short pause> ");
+}
 
 class TtsUnavailableError extends Error {}
 class TtsBusyError extends Error {}
@@ -154,16 +159,19 @@ function createGeminiTts({ apiKey, model, logger }: { apiKey: string; model: str
   const limit = createLimiter(MAX_CONCURRENT_GENERATIONS);
   let pausedUntil = 0;
 
-  async function generate(text: string, voice: string): Promise<Buffer> {
+  async function generate(text: string, voice: string, style?: string): Promise<Buffer> {
     if (!apiKey) throw new TtsUnavailableError("GEMINI_API_KEY is not set");
     if (Date.now() < pausedUntil) throw new TtsBusyError("Gemini TTS is rate limited");
+    const content = style
+      ? { type: "text", text, annotations: [{ type: "speech_metadata", style }] }
+      : { type: "text", text };
     return limit(async () => {
       const response = await fetch(INTERACTIONS_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
         body: JSON.stringify({
           model,
-          input: [{ type: "user_input", content: [{ type: "text", text }] }],
+          input: [{ type: "user_input", content: [content] }],
           response_format: { type: "audio" },
           generation_config: { speech_config: [{ voice }] }
         })
@@ -303,8 +311,10 @@ function registerTtsRoutes(app: any, deps: any): void {
   // once. A request that times out on the client still finishes here and fills the cache.
   // Normal clips keep the key they had before slow speech existed.
   async function getClip(text: string, voice: string, slow: boolean, userId: string): Promise<Buffer> {
-    const input = slow ? `${SLOW_DIRECTION}\n${text}` : text;
-    const hash = crypto.createHash("sha256").update(`${model}\n${voice}\n${input}`).digest("hex");
+    const transcript = slow ? withWordPauses(text) : text;
+    const style = slow ? SLOW_STYLE : undefined;
+    const key = style ? `${model}\n${voice}\n${style}\n${transcript}` : `${model}\n${voice}\n${text}`;
+    const hash = crypto.createHash("sha256").update(key).digest("hex");
     const objectName = `tts/v2/${model}/${voice}/${slow ? "slow/" : ""}${hash}.wav`;
     const cached = memory.get(objectName);
     if (cached) return cached;
@@ -315,7 +325,7 @@ function registerTtsRoutes(app: any, deps: any): void {
         let clip = await bucket.read(objectName);
         if (!clip) {
           if (!budget.take(userId)) throw new TtsBusyError("Daily generation limit reached");
-          clip = await gemini.generate(input, voice) as Buffer;
+          clip = await gemini.generate(transcript, voice, style) as Buffer;
           await bucket.write(objectName, clip);
         }
         memory.set(objectName, clip);
@@ -354,8 +364,12 @@ function registerTtsRoutes(app: any, deps: any): void {
       const voice = voiceOverrides[lang] || DEFAULT_VOICE;
       const clip = await getClip(text, voice, speed === "slow", String(req.authUserId));
       res.set("Content-Type", "audio/wav");
-      // The URL holds the whole input, so a response never changes.
-      res.set("Cache-Control", "private, max-age=31536000, immutable");
+      // A normal clip's URL holds the whole input, so it never changes. A slow clip also
+      // depends on SLOW_STYLE, which may be tuned, so phones keep it for a day.
+      res.set(
+        "Cache-Control",
+        speed === "slow" ? "private, max-age=86400" : "private, max-age=31536000, immutable"
+      );
       return res.send(clip);
     } catch (error: any) {
       if (error instanceof TtsBusyError) {
