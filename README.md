@@ -543,7 +543,7 @@ server/content/
 | `GET` / `POST` | `/api/saved-words` | List or save words to review |
 | `DELETE` | `/api/saved-words/:word?language=<id>` | Remove a saved word |
 | `GET` | `/api/dictionary/batch?lang=<id>&words=<w1,w2>` | Word translations |
-| `GET` | `/api/tts` | Speech audio for a sentence |
+| `GET` | `/api/tts?lang=<tag>&text=<text>&speed=slow` | Speech audio for a sentence. `speed=slow` has Gemini speak it slowly, with pauses between words |
 | `POST` | `/api/billing/sync` | Read the user's subscription or lifetime purchase from RevenueCat |
 | `POST` | `/api/community/contribute` | Submit an exercise |
 | `GET` | `/api/community/contributions` | List contributions (your own, or all) |

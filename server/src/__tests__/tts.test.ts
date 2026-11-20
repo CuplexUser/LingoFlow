@@ -95,8 +95,9 @@ async function signUp(base: string, label: string) {
   return { Authorization: `Bearer ${logged.token}` };
 }
 
-function ttsUrl(base: string, text: string, lang = "ru-RU") {
-  return `${base}/api/tts?lang=${encodeURIComponent(lang)}&text=${encodeURIComponent(text)}`;
+function ttsUrl(base: string, text: string, lang = "ru-RU", speed?: string) {
+  const url = `${base}/api/tts?lang=${encodeURIComponent(lang)}&text=${encodeURIComponent(text)}`;
+  return speed ? `${url}&speed=${encodeURIComponent(speed)}` : url;
 }
 
 // ─── Tests ────────────────────────────────────────────────────────────────────
@@ -148,12 +149,37 @@ test("a new instance reads clips from Cloud Storage instead of generating them",
   assert.equal(google.synthesizeBodies.length, 1);
 });
 
-test("rejects unsupported languages and oversized text", async (t) => {
+test("slow speech is spoken slowly by Gemini and cached apart from normal speech", async (t) => {
+  const srv = await startServer();
+  t.after(() => srv.close());
+  const headers = await signUp(srv.base, "tts-slow");
+  google.synthesizeBodies.length = 0;
+
+  const normal = await fetch(ttsUrl(srv.base, "Я читаю книгу.", "ru-RU", "normal"), { headers });
+  assert.equal(clipText(Buffer.from(await normal.arrayBuffer())), "Charon:Я читаю книгу.");
+
+  const slow = await fetch(ttsUrl(srv.base, "Я читаю книгу.", "ru-RU", "slow"), { headers });
+  assert.equal(slow.status, 200);
+  const spoken = clipText(Buffer.from(await slow.arrayBuffer()));
+  assert.match(spoken, /^Charon:Say this slowly/);
+  assert.match(spoken, /pause after each word/);
+  assert.match(spoken, /\nЯ читаю книгу\.$/);
+  assert.equal(google.synthesizeBodies.length, 2);
+  assert.equal([...google.stored.keys()].some((name) => name.includes("/Charon/slow/")), true);
+
+  // Each speed is generated once.
+  await fetch(ttsUrl(srv.base, "Я читаю книгу.", "ru-RU", "slow"), { headers });
+  await fetch(ttsUrl(srv.base, "Я читаю книгу."), { headers });
+  assert.equal(google.synthesizeBodies.length, 2);
+});
+
+test("rejects unsupported languages, speeds and oversized text", async (t) => {
   const srv = await startServer();
   t.after(() => srv.close());
   const headers = await signUp(srv.base, "tts-validate");
 
   assert.equal((await fetch(ttsUrl(srv.base, "Hej", "xx-XX"), { headers })).status, 400);
+  assert.equal((await fetch(ttsUrl(srv.base, "Hej", "sv-SE", "0.5"), { headers })).status, 400);
   assert.equal((await fetch(ttsUrl(srv.base, "a".repeat(501)), { headers })).status, 400);
   assert.equal((await fetch(ttsUrl(srv.base, "   "), { headers })).status, 400);
 });

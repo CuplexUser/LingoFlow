@@ -3,8 +3,10 @@ const { GoogleAuth } = require("google-auth-library");
 
 // Text-to-speech with Gemini TTS (gemini-3.8-flash-lite-tts through the Gemini API), for
 // clients whose built-in voices sound robotic (Android's system TTS especially). Audio
-// is WAV at normal speed; clients change the speed on playback, so one cached clip
-// serves every rate.
+// is WAV at one of two speeds, normal and slow. Slow is spoken slowly by Gemini itself,
+// with pauses between words, rather than stretched on playback: stretching sounds
+// warbly and leaves the gaps between words as short as before, which is what makes
+// slowed-down speech hard to follow.
 //
 // A clip takes a few seconds to generate, so each one is cached in memory and, when
 // TTS_CACHE_BUCKET is set, in Cloud Storage: a sentence is generated (and billed) once,
@@ -34,6 +36,14 @@ const DAILY_GENERATIONS_PER_USER = 150;
 // The course languages. Gemini detects the language from the text; the tag only
 // validates the request and picks a voice override.
 const LANGUAGES = ["en-US", "es-ES", "fr-FR", "de-DE", "it-IT", "ru-RU", "sv-SE"];
+
+// Gemini TTS follows a spoken-style direction placed before the text, and reads only the
+// text. The direction is part of the cache key, so changing it regenerates slow clips.
+const SLOW_DIRECTION =
+  "Say this slowly and clearly, the way a teacher speaks to a beginner learning the " +
+  "language, with a short pause after each word and a longer pause at commas and " +
+  "between sentences:";
+const SPEEDS = ["normal", "slow"];
 
 class TtsUnavailableError extends Error {}
 class TtsBusyError extends Error {}
@@ -289,11 +299,13 @@ function registerTtsRoutes(app: any, deps: any): void {
   const dailyGenerations = Number(process.env.TTS_DAILY_GENERATION_LIMIT) || DEFAULT_DAILY_GENERATIONS;
   const budget = createDailyBudget(dailyGenerations, DAILY_GENERATIONS_PER_USER);
 
-  // The same text and voice always map to the same object, so a clip is generated once.
-  // A request that times out on the client still finishes here and fills the cache.
-  async function getClip(text: string, voice: string, userId: string): Promise<Buffer> {
-    const hash = crypto.createHash("sha256").update(`${model}\n${voice}\n${text}`).digest("hex");
-    const objectName = `tts/v2/${model}/${voice}/${hash}.wav`;
+  // The same text, voice and speed always map to the same object, so a clip is generated
+  // once. A request that times out on the client still finishes here and fills the cache.
+  // Normal clips keep the key they had before slow speech existed.
+  async function getClip(text: string, voice: string, slow: boolean, userId: string): Promise<Buffer> {
+    const input = slow ? `${SLOW_DIRECTION}\n${text}` : text;
+    const hash = crypto.createHash("sha256").update(`${model}\n${voice}\n${input}`).digest("hex");
+    const objectName = `tts/v2/${model}/${voice}/${slow ? "slow/" : ""}${hash}.wav`;
     const cached = memory.get(objectName);
     if (cached) return cached;
 
@@ -303,7 +315,7 @@ function registerTtsRoutes(app: any, deps: any): void {
         let clip = await bucket.read(objectName);
         if (!clip) {
           if (!budget.take(userId)) throw new TtsBusyError("Daily generation limit reached");
-          clip = await gemini.generate(text, voice) as Buffer;
+          clip = await gemini.generate(input, voice) as Buffer;
           await bucket.write(objectName, clip);
         }
         memory.set(objectName, clip);
@@ -321,11 +333,15 @@ function registerTtsRoutes(app: any, deps: any): void {
   app.get("/api/tts", requireAuth, async (req: any, res: any) => {
     const text = String(req.query.text || "").replace(/\s+/g, " ").trim();
     const lang = String(req.query.lang || "").trim();
+    const speed = String(req.query.speed || "normal").trim();
     if (!text || text.length > MAX_TEXT_LENGTH) {
       return res.status(400).json({ error: `Text must be 1 to ${MAX_TEXT_LENGTH} characters` });
     }
     if (!LANGUAGES.includes(lang)) {
       return res.status(400).json({ error: "Unsupported language", code: "TTS_UNSUPPORTED_LANGUAGE" });
+    }
+    if (!SPEEDS.includes(speed)) {
+      return res.status(400).json({ error: "Speed must be normal or slow" });
     }
     if (disabled) {
       return res.status(503).json({ error: "Text-to-speech is not configured", code: "TTS_UNAVAILABLE" });
@@ -335,7 +351,8 @@ function registerTtsRoutes(app: any, deps: any): void {
     }
 
     try {
-      const clip = await getClip(text, voiceOverrides[lang] || DEFAULT_VOICE, String(req.authUserId));
+      const voice = voiceOverrides[lang] || DEFAULT_VOICE;
+      const clip = await getClip(text, voice, speed === "slow", String(req.authUserId));
       res.set("Content-Type", "audio/wav");
       // The URL holds the whole input, so a response never changes.
       res.set("Cache-Control", "private, max-age=31536000, immutable");
